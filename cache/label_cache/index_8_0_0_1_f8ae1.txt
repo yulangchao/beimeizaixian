@@ -313,6 +313,21 @@ $label['style7_index_1']=stripslashes('<!--
 
 -->
 <div class=\'piclist\'>
+	<div class=\'img\'><a href=\"\"><img src=\"http://localhost:8003/upload_files/qb_news_/34/1_20180301080340_5vy7w.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\" alt=\"测试12\"></a></div>
+	<div class=\'info\'>
+		<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=34&id=966\">测试12</a></div>
+		<div class=\'content\'>这只是一个测试哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈</div>
+		<div class=\'other\'>
+			<span class=\'date\'>2018-03-01 08:50:40</span>
+			<span class=\'detail\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=34&id=966\">详细</a></span>
+		</div>
+	</div>
+	<div class=\"code\" onclick=\"window.open(\'http://localhost:8003/news/bencandy.php?fid=34&id=966\')\"><span>扫一扫手机查看</span><span><img src=\"http://localhost:8003/do/2codeimg.php?url=http%3A%2F%2Flocalhost%3A8003%2Fnews%2Fbencandy.php%3Ffid%3D34%26id%3D966\"/></span></div>
+</div>
+<!--
+
+-->
+<div class=\'piclist\'>
 	<div class=\'img\'><a href=\"\"><img src=\"http://localhost:8003/upload_files/qb_news_/33/1_20160622150635_boapa.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\" alt=\"圣诞玩什么?香港快乐\"></a></div>
 	<div class=\'info\'>
 		<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=33&id=964\">圣诞玩什么?香港快乐</a></div>
@@ -326,27 +341,18 @@ $label['style7_index_1']=stripslashes('<!--
 </div>
 <!--
 
--->
-<div class=\'piclist\'>
-	<div class=\'img\'><a href=\"\"><img src=\"http://localhost:8003/upload_files/qb_news_/31/1_20160615180653_syezn.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\" alt=\"6年走遍广州 绘出徒\"></a></div>
-	<div class=\'info\'>
-		<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=31&id=962\">6年走遍广州 绘出徒</a></div>
-		<div class=\'content\'>“广州是最适合走路的城市。”“只要一走街串巷，你就会爱上广州。穿越2000多年历..</div>
-		<div class=\'other\'>
-			<span class=\'date\'>2010-12-22 10:58:29</span>
-			<span class=\'detail\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=31&id=962\">详细</a></span>
-		</div>
-	</div>
-	<div class=\"code\" onclick=\"window.open(\'http://localhost:8003/news/bencandy.php?fid=31&id=962\')\"><span>扫一扫手机查看</span><span><img src=\"http://localhost:8003/do/2codeimg.php?url=http%3A%2F%2Flocalhost%3A8003%2Fnews%2Fbencandy.php%3Ffid%3D31%26id%3D962\"/></span></div>
-</div>
-<!--
-
 -->');
 $label['style7_index_2']=stripslashes('<div class=\'newslist\'>
 	<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=32&id=963\">寒冷天气还将持续 欧洲机场继续瘫痪</a></div>
 	<div class=\'content\'>
 		<span class=\'details\'>据新华社电“爸爸，我们到阿根廷了吗？”在英国伦敦希思罗机场，一个小朋友哭闹着向他父亲发问。为打发..</span>
 		<span class=\'date\'>10:59:06</span>
+	</div>
+</div><div class=\'newslist\'>
+	<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=34&id=966\">测试12</a></div>
+	<div class=\'content\'>
+		<span class=\'details\'>这只是一个测试哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈</span>
+		<span class=\'date\'>08:50:40</span>
 	</div>
 </div><div class=\'newslist\'>
 	<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=33&id=964\">圣诞玩什么?香港快乐混搭 澳门葡式浪漫</a></div>
@@ -360,17 +366,15 @@ $label['style7_index_2']=stripslashes('<div class=\'newslist\'>
 		<span class=\'details\'>“广州是最适合走路的城市。”“只要一走街串巷，你就会爱上广州。穿越2000多年历史的广州城，小街巷、..</span>
 		<span class=\'date\'>10:58:29</span>
 	</div>
-</div><div class=\'newslist\'>
-	<div class=\'title\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=39&id=961\">蚝自远方来 鲜甜美味难挡</a></div>
-	<div class=\'content\'>
-		<span class=\'details\'>姜葱局美国珍宝蚝文/羊城晚报记者王敏实习生陈绮平图/王敏俗谚云：“冬至到清明，蚝肉肥晶晶。”每年的1..</span>
-		<span class=\'date\'>10:57:15</span>
-	</div>
 </div>');
 $label['style7_index_3']=stripslashes('<div class=\'newestlist\'>
 	<span class=\'sort\'><a href=\"http://localhost:8003/news/list.php?&fid=32\">【渡假生活】</a></span>
 	<span class=\'content\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=32&id=963\">寒冷天气还将持续 欧洲机场继续瘫</a></span>
 	<span class=\'date\'>10:59:06</span>
+</div><div class=\'newestlist\'>
+	<span class=\'sort\'><a href=\"http://localhost:8003/news/list.php?&fid=34\">【自助游】</a></span>
+	<span class=\'content\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=34&id=966\">测试12</a></span>
+	<span class=\'date\'>08:50:40</span>
 </div><div class=\'newestlist\'>
 	<span class=\'sort\'><a href=\"http://localhost:8003/news/list.php?&fid=33\">【旅游保险】</a></span>
 	<span class=\'content\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=33&id=964\">圣诞玩什么?香港快乐混搭 澳门葡</a></span>
@@ -391,10 +395,6 @@ $label['style7_index_3']=stripslashes('<div class=\'newestlist\'>
 	<span class=\'sort\'><a href=\"http://localhost:8003/news/list.php?&fid=39\">【饮食文化】</a></span>
 	<span class=\'content\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=39&id=959\">头抽姜葱炒鳝片 养血强精</a></span>
 	<span class=\'date\'>10:55:34</span>
-</div><div class=\'newestlist\'>
-	<span class=\'sort\'><a href=\"http://localhost:8003/news/list.php?&fid=37\">【快乐饮食】</a></span>
-	<span class=\'content\'><a href=\"http://localhost:8003/news/bencandy.php?&fid=37&id=958\">一藕两食 煲汤炒片各精彩</a></span>
-	<span class=\'date\'>10:54:33</span>
 </div>');
 $label['style7_index_banner1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/1200_160_banner.png\'  width=\'1200\'  height=\'160\' border=\'0\' /></a>');
 $label['style7_index_head']=stripslashes('<span class=\'tag\'>生活超市</span>

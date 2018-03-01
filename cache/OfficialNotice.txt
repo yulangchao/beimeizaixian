@@ -1,9 +1,2 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>302 Found</title>
-</head><body>
-<h1>Found</h1>
-<p>The document has moved <a href="http://www.php168.com/OfficialNotice.php?E=V7.0&amp;upgrade_Record=&amp;U=http://localhost:8003&amp;T=LIFE">here</a>.</p>
-<hr>
-<address>Apache/2.0.63 (Win32) PHP/5.2.14 Server at www.qibosoft.com Port 80</address>
-</body></html>
+ <a href="http://www.wxyxpt.com/" target="_blank" style="color:red;font-size:22px;font-weight:bold;">微信商机无限，齐博手机微名片代理招商火爆进行中！</a> 
+

@@ -1,4 +1,5 @@
 <?php	
+$logdb[]='1	admin	1519888471	0.0.0.0	http://localhost:8003/admin/index.php?lfj=city&job=edit_city&fid=1	http://localhost:8003/admin/index.php?lfj=city&action=edit_city';
 $logdb[]='1	admin	1519864760	0.0.0.0	http://localhost:8003/admin/index.php?lfj=member&job=addmember	http://localhost:8003/admin/index.php?lfj=member&action=addmember';
 $logdb[]='1	admin	1519864750	0.0.0.0	http://localhost:8003/admin/index.php?lfj=member&job=addmember	http://localhost:8003/admin/index.php?lfj=member&action=addmember';
 $logdb[]='1	admin	1519858218	0.0.0.0	http://localhost:8003/admin/index.php?lfj=city&job=zone	http://localhost:8003/admin/index.php?lfj=city&action=delete_zone&fid=13';

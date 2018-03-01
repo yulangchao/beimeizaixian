@@ -261,14 +261,14 @@ $label['style7_news_pc2']=stripslashes('<!--
 		<dd>
 			<h4><a href=\"http://localhost:8003/news/bencandy.php?&fid=34&id=966\">测试12</a></h4>
 			<p>这只是一个测试哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈</p>
-			<div><span>浏览量:2</span> <em>发布时间:2018-03-01 08:50:40</em></div>
+			<div><span>浏览量:5</span> <em>发布时间:2018-03-01 08:50:40</em></div>
 		</dd>
 	</dl>
 </li>
 <!--
 
 -->	');
-$label['style7_news_pc3']=stripslashes('<li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=944\">如何发布求购信息？</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=34&id=966\">测试12</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=948\">在线申请开通金牌会员</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=949\">金牌会员服务介绍</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=945\">如何加入钢铁网“公司库”？</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=941\">注册普通会员要收费吗？</a></li>');
+$label['style7_news_pc3']=stripslashes('<li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=944\">如何发布求购信息？</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=948\">在线申请开通金牌会员</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=949\">金牌会员服务介绍</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=945\">如何加入钢铁网“公司库”？</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=44&id=941\">注册普通会员要收费吗？</a></li><li>·<a href=\"http://localhost:8003/news/bencandy.php?&fid=39&id=959\">头抽姜葱炒鳝片 养血强精</a></li>');
 $label['style7_news_pc4']=stripslashes('<span>美食资讯</span><a href=\"list.php?fid=2\">更多&gt;&gt;</a>');
 $label['style7_news_pc5']=stripslashes('<!--
 
