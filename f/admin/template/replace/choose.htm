@@ -1,0 +1,79 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<form name="form_work" method="post" action="$admin_path&action=replace">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">字符批量替换</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+
+    <tr> 
+      <td class='tdL'>请选择要替换哪个字段的内容:</td>
+        <td class='tdR'> 
+   
+    <!--
+EOT;
+foreach($m_config[field_db] AS $key=>$rs){
+print <<<EOT
+-->
+
+      
+        <input type="checkbox" name="field_db[]" value="{$key}">
+        $rs[title] <font color="#666666">({$key})</font>
+        <br>
+
+    
+    <!--
+EOT;
+}
+print <<<EOT
+--> 
+
+      </td>
+    </tr>
+<tr > 
+      <td class='tdL'> 原字符 </td>
+      <td class='tdR'>
+        <textarea name="atc_oldword" cols="80" rows="5"></textarea>
+      </td>
+</tr>
+<tr>
+       <td class='tdL'> 新字符 </td>
+       <td class='tdR'>
+          <textarea name="atc_newword" cols="80" rows="5"></textarea>
+      </td>
+</tr>
+</table>
+  <div class='submits'>
+        <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+        <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input type="submit" name="Submit" value="开始替换">
+        <input type="hidden" name="mid" value="$mid">
+  </div>
+</div>
+</div>
+</form>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ 
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

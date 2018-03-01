@@ -1,0 +1,77 @@
+<!--
+<?php
+$ListPics="";
+foreach($picdb AS $key=>$rs){
+$ListPics .= "<li><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rs[picurl]\"/></li>";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/demo.css">
+
+<div class="Location">
+	<em>当前位置：</em><a href="$webdb[_www_url]/wapindex.php">首页</a> -> <a href="./wapindex.php">装修</a> $GuideFid[$fid]
+</div>
+<!--幻灯片开始-->
+<link rel="stylesheet" href='$webdb[www_url]/images/wap/flash/flash.css'/>
+<script src='$webdb[www_url]/images/wap/flash/flash.js'></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+	{$ListPics}
+  </ul>
+</div>
+<!--幻灯片结束-->
+
+<div class="demo-info">
+	<h3>{$rsdb[title]}</h3>
+    <span>发布时间：<em>{$rsdb[posttime]} </em> </span>
+    <span>有效日期：<em>{$rsdb[showday]}　</em> </span>
+    <span>浏览量：<em>{$rsdb[hits]}次 </em> </span>
+</div>
+
+<div class="conter">
+	<div class="jieshao">
+    	<div class="title">案例的信息资料</div>
+        <ul class="pd">
+            <!--{template}--> <li>{title}：<em>{value} </em></li><!--{/template}-->
+        </ul>
+    </div>
+    
+    <div class="jieshao">
+    	<div class="title">案例介绍</div>
+        <div class="cont">{$rsdb[content]}</div>
+    </div>	
+</div>
+<div class="Reminded">
+	<div>网站提醒您：</div>
+	<ul>
+		<li>交易时请警惕网络诈骗、先付款后发货交易、欺诈交易。</li>
+		<li>网站建议您只进行同城或当面交易，并检查物品的相关资料和手续。</li>
+	</ul>
+</div> 
+<div class="fullbg"></div>
+<div class="ShowBigPic"><img src="http://wlife.net/images/default/nopic.jpg" /></div>
+<script type="text/javascript">
+$('.am-slides img').click(function(){
+	if ($(window).height() > $("body").height()) {
+		$(".fullbg").height($(window).height());
+	}else{
+		$(".fullbg").height($("body").height());
+	}
+	$(".ShowBigPic").css('top',$(document).scrollTop()+'px');
+	$(".ShowBigPic img").attr('src',$(this)[0].src); 
+	$(".fullbg").css({'display':'block'}).stop().animate({'opacity':.8},500);
+	$(".ShowBigPic").css({'display':'block'}).stop().animate({'opacity':1},500);
+});
+$(".fullbg").click(function(){
+	$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+	$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+});
+$(".ShowBigPic").click(function(){
+	$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+	$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+});
+</script>
+<!--
+EOT;
+?>
+-->

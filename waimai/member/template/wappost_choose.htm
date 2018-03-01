@@ -1,0 +1,40 @@
+<!--
+<?php 
+print <<<EOT
+-->
+<SCRIPT type=text/javascript>
+function change_show(num){
+	var fobj=$('.thesort'+num);
+	if(fobj.hasClass('showthis')){
+		fobj.removeClass('showthis');
+	}else{
+		fobj.addClass('showthis');		
+	}
+}
+</SCRIPT>
+<div class="MainCont">
+	<div class="head"><div class="tag">请选择发表商品的栏目</div></div>
+    <div class="cont">
+		<div class="choosesorts">
+<!--
+EOT;
+$listsorts='';
+foreach($Fid_db[0] AS $key=>$rs){
+	$listsorts.="<ul class='thesort$key'>\r\n";
+	$showbigsort=$Fid_db[$key]?"<a href='javascript:;change_show($key)'>$rs</a>":"<a href='wappost.php?fid=$key'>$rs</a>";
+	$listsorts.="<ol>$showbigsort</ol>\r\n";
+	foreach($Fid_db[$key] AS $keys=>$rss){
+		$listsorts.="<li><a href='wappost.php?fid=$keys'>$rss</a></li>\r\n";
+	}
+	$listsorts.="</ul>\r\n";
+}
+print <<<EOT
+-->	
+			$listsorts
+		</div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

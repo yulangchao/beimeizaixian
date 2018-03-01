@@ -1,0 +1,104 @@
+.ListSort{
+	border-top:#DDD solid 1px;
+}
+.ListSort dt a{
+	display:block;
+	padding:10px 10px 5px 15px;
+	line-height:25px;
+	font-size:16px;
+	color:#333;
+}
+.ListSort dd{
+	padding:0 10px 8px 15px;
+	line-height:20px;
+	color:#666;
+	font-size:14px;
+}
+.ListSort dd span{
+	color:#F90;
+}
+.BottomSpac{
+	width:100%;
+	height:60px;
+}
+.ListSortInfo{
+	padding:10px;
+}
+.ListSortInfo dl{
+	border: 1px solid #EEE;
+	margin-bottom:10px;
+	background:#FFF;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 3px 1px #EEE;
+	box-shadow:0 0 3px 1px #EEE;
+}
+.ListSortInfo dl dt{
+	height:80px;
+	overflow:hidden;
+	padding-left:80px;
+	position:relative;
+}
+.ListSortInfo dl dt a{
+	display:block;
+	width:60px;
+	height:60px;
+	overflow:hidden;
+	position:absolute;
+	left:10px;
+	top:10px;
+	border-radius:30px;
+}
+.ListSortInfo dl dt a img{
+	width:60px;
+}
+.ListSortInfo dl dt span,.ListSortInfo dl dt em{
+	display:block;
+	line-height:30px;
+	height:30px;
+	overflow:hidden;
+	color:#888;
+}
+.ListSortInfo dl dt ul{
+	width:200px;
+	height:60px;
+	position:absolute;
+	right:10px;
+	top:10px;
+	text-align:right;
+}
+.ListSortInfo dl dt ul ol,.ListSortInfo dl dt ul li{
+	display:inline-block;
+	margin-left:5px;
+	margin-right:5px;
+	color:#999;
+	padding-left:25px;
+	background:url(dig.png) no-repeat;
+	background-size:23px 23px;
+}
+.ListSortInfo dl dt ul li{
+	background:url(comment.png) no-repeat;
+	background-size:23px 23px;
+}
+.ListSortInfo dl dt span{
+	padding-top:8px;
+	color:#369;
+}
+.ListSortInfo dl dd{
+	padding:0 10px 10px 15px;
+}
+.ListSortInfo dl dd a{
+	display:block;
+	line-height:25px;
+	text-align:left;
+	padding-bottom:5px;
+}
+.ListSortInfo dl dd a.ispic1:after{
+	content: "";
+	display:inline-block;
+	width:22px;
+	height:22px;
+	background:url(ispic.png) no-repeat;
+	background-size:22px 22px;
+	vertical-align:middle;
+	margin-left:5px;
+}

@@ -1,0 +1,41 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=edit&id=$id">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">修改广告</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">  
+    <tr> 
+      <td class='tdL'>广告标语:</td>
+      <td class='tdR'> 
+        <input  class=mmcinb  type='text' size='50' value='$radb[title]' name='title'>
+      </td>
+    </tr><tr> 
+      <td class='tdL'>广告描述:</td>
+      <td class='tdR'> 
+        <input  class=mmcinb  type='text' size='50' value='$radb[about]' name='about'>
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>电话号码:</td>
+      <td class='tdR'> 
+        <input  class=mmcinb  type='text' size='30' value='$radb[telephone]' name='telephone'>
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>结束日期:</td>
+      <td class='tdR'> 
+        <input  class=mmcinb  type='text' size='30' value='$radb[endtime]' name='endtime'>
+      </td>
+    </tr>
+    </table>
+    <div class='submits'><input  class=mmcinb  type='submit' name='w' value='修改'></div>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

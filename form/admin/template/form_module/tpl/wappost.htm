@@ -1,0 +1,63 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+
+<script>
+
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+</script>
+<div class="FormContainer">
+
+    <form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+	<h3>$fidDB[name]</h3>
+    <div>
+    	$fidDB[about]
+    </div>    
+<!--
+EOT;
+if($fidDB[usetitle]){print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>标题:</dt>
+		<dd><input type="text" name="postdb[title]" id="atc_title" class="text" value="$rsdb[title]"></dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+if($job!='edit' && !$web_admin){print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	$TempLate 
+    <div class="butter">
+	<span class="submits"><input type="submit" name="Submit" value="提 交"></span>
+        <input type="hidden" name="mid" value="$mid">
+        <input type="hidden" name="id" value="$id">
+    </div>
+    </form>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,115 @@
+<!--
+<?php
+$is_company_ico=($rsdb[grouptype]==1)?"<img src='$webdb[www_url]/member/images/company_icon.gif'/>":"";
+$is_idcard_ico=($rsdb[idcard_yz]==1)?"<img src='$webdb[www_url]/images/default/yz/idcard_1.gif'/>":"<img src='$webdb[www_url]/images/default/yz/idcard_0.gif'/>";
+$is_email_ico=($rsdb[email_yz]==1)?"<img src='$webdb[www_url]/images/default/yz/email_1.gif'/>":"<img src='$webdb[www_url]/images/default/yz/email_0.gif'/>";
+$is_mob_ico=($rsdb[mob_yz]==1)?"<img src='$webdb[www_url]/images/default/yz/mob_1.gif'/>":"<img src='$webdb[www_url]/images/default/yz/mob_0.gif'/>";
+print <<<EOT
+-->
+
+<link rel="stylesheet" type="text/css" href="{$webdb[www_url]}/member/images/wap/PersonalData/Personal.css">
+<!-- 
+        <div class="header">
+            <a href="#" class="shouye">首页</a>
+            <h3>个人资料</h3>
+            <a href="#" class="ziliao">完善资料</a>
+        </div>
+-->
+
+<div class='wrapp'>
+        <div class="banner">
+                <div class="bannerBox">
+                <img src="{$webdb[www_url]}/member/images/wap/PersonalData/bj.png" />
+                            <div class="xinxi">
+                                <dl class="touxian">
+                                        <dt>
+                                            <div class="tx">
+                                            <img onerror="this.src='$webdb[www_url]/images/default/nobody.gif'" src="{$rsdb[icon]}"/>
+                                            </div>
+                                        </dt>
+                                        <dd><span class="pc01"></span><span class="pc02"></span><span class="pc03"></span><span class="pc04"></span></dd>
+                                </dl>
+                                <div class="name">
+                                        <span class="ne">{$rsdb[username]}</span>
+                                        <span class="admin">{$group_db[grouptitle]}</span>
+                                </div>
+                            </div>
+                </div>
+        </div>   
+    <!--eeeeeeeeeeeeeeee-->
+    
+    <div class="column">
+    	<ul class="columnBox">
+        	<li>
+            	<div class="dqjf">当前{$webdb[MoneyName]}</div>
+                <div class="jf">>$rsdb[money]  {$webdb[MoneyDW]} </div>
+            </li>
+            <li class="jifen">
+            	<div class="konjian">已用空间</div>
+                <div class="kj">$rsdb[usespace]<em>M(兆)</em></div>
+            </li>
+            <li><a href="wappm.php?job=send&username=$rsdb[username]">
+            	<div class="fxx">发站内信息</div>
+                <div class="xx"></div></a>
+            </li>
+        </ul>
+    </div>
+    <!--eeeeeeeeeeeeeeeeeeeeeee-->
+    
+    <div class="list">
+    	<ul>
+        	<li class="jb">个人基本信息</li>
+            <li><span class="left">昵称</span><span class="right">{$rsdb[username]}</span></li>
+            <li><span class="left">UID</span><span class="right">$rsdb[uid]</span></li>
+            <li><span class="left">性别</span><span class="right">$rsdb[sex]</span></li>
+            <li><span class="left">生日</span><span class="right">$rsdb[bday]</span></li>
+            <li><span class="left">所在城市</span><span class="right">{$city_DB[name][$rsdb[cityid]]}</span></li>
+            <li><span class="left">联系QQ</span><span class="right">$rsdb[oicq]</span></li>
+<!--             <li><span class="left">联系MSN</span><span class="right">$rsdb[msn]</span></li>
+            <li><span class="left">个人网站</span><span class="right"><a href="$rsdb[homepage]">$rsdb[homepage]</a></span></li> -->
+            <li><span class="left">注册日期</span><span class="right">$rsdb[regdate]</span></li>
+            <li><span class="left">自我介绍</span><span class="right">$rsdb[introduce]</span></li>
+        </ul>
+    </div>
+    
+    <div class="list">
+    	<ul>
+        	<li class="dt">个人动态信息</li>
+            <li><span class="left">最后登陆</span><span class="right">$rsdb[lastvist]</span></li>
+            <li><span class="left">最后登录IP</span><span class="right">$rsdb[lastip]</span></li>
+            <li><span class="left">访问数</span><span class="right">{$rsdb[hits]}</span></li>
+            <li><span class="left">最近访问</span><span class="right">$rsdb[lastview]</span></li>
+        </ul>
+    </div>
+<!--
+EOT;
+if($web_admin||$lfjuid==$uid){print <<<EOT
+-->
+    <div class="list">
+    	<ul>
+        	<li class="sm">我的私密资料</li>
+            <li><span class="left">注册IP</span><span class="right">$rsdb[regip]</span></li>
+            <li><span class="left">邮政编码</span><span class="right">$rsdb[postalcode]</span></li>
+            <li><span class="left">真实姓名</span><span class="right">{$rsdb[truename]}</span></li>
+            <li><span class="left">身份证号码</span><span class="right">$rsdb[idcard]</span></li>
+            <li><span class="left">联系电话</span><span class="right">$rsdb[telephone]</span></li>
+            <li><span class="left">联系地址</span><span class="right">$rsdb[address]</span></li>
+            <li class="shuoming"><p>说明：以上私密资料只有本人与管理员才可查看,其它人无法查看!</p></li>
+        </ul>
+    </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+    <div class="more">系统自定义个人信息字段</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<div id="showRegDiv"></div>');
+\$.get("../do/regfield.php?job=show&uid=$uid", function(data){\$("#showRegDiv").html(data);});
+//-->
+</SCRIPT>
+</div>
+<!--
+EOT;
+?>
+-->

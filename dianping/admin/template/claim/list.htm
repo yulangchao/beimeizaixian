@@ -1,0 +1,59 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<form name="form_work" method="post" action="$admin_path&job=work">
+<div class="MainContainers">
+  <div class="Conter">
+      <table class="ListTable">
+
+    <tr> 
+      <th width="5%">ID</th>
+      <th width="31%">商铺名称</th>
+      <th width="25%">认领者</th>
+      <th width="16%">认领日期</th>
+      <th width="10%">属实与否</th>
+      <th width="7%">删除</th>
+      <th width="6%">查看</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id]</td>
+      <td class='Left' > <a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]&city_id=$rs[city_id]" target='_blank'  style="color:$rs[titlecolor];">$rs[title]</a> 
+      </td>
+      <td><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></td>
+      <td>$rs[posttime]</td>
+      <td>$rs[ischeck]</td>
+      <td><a href="$admin_path&action=del&cid=$rs[cid]" title='点击删除' class='del'>删除</a></td>
+      <td><a href="$admin_path&job=view&cid=$rs[cid]" title="点击查看申请认领详情">详情</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+  </div>
+  </div>
+
+</form>
+<!--
+EOT;
+?>
+-->
+
+
+  <div class="MainContainers">
+  <div class="Header"><span class="tag">注意事项</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>确认属实的信息，就请不要删除该记录，否则该店铺又将恢复到未申领状态。</li>
+    </ul>
+  </div>
+</div>
+

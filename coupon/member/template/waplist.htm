@@ -1,0 +1,58 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/manage_public.css">
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="MainCont">
+	<div class="head"><div class="tag">我发布的商品信息 <a href="wappost_choose.php">发布商品</a></div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable ListShop">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[picurl] = tempdir($rs[picurl]);
+$rs[num]=$rs[num]?"<div>$rs[num]</div>":"";
+print <<<EOT
+-->
+          <tr>
+            <td class="img">
+            	<div><a href="../wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]" height="90" onerror="this.src='$webdb[_www_url]/images/default/nopic.jpg';"/></a></div>
+            </td>
+            <td class="word">
+            	<div class="t">
+                	<a href="../wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+                </div>
+                <div>
+                	 <a href="../waplist.php?fid=$rs[fid]" target="_blank">$rs[fname]</a> &nbsp;
+                	 <span>$rs[ifyz]</span>  
+                	 <span>$rs[posttime]</span>  
+                                    
+                </div>
+
+            </td>
+          </tr>
+          <tr>
+            <td class='submits' colspan='2'>
+		<div class="submit">
+			<a href="../wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">查看</a>
+			<a href='wapeditsort.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改分类</a>
+			<a href='wappost.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改</a>
+			<a href='wappost.php?action=del&id=$rs[id]&fid=$rs[fid]' onclick="return confirm('你确认要删除吗?不可恢复');">删除</a>
+		</div>            	
+            </td>          	
+          </tr>          
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</table>
+        <div class="Showpage">$showpage</div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

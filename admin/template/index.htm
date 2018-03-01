@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>后台管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="images/index.css" type="text/css">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+</head>
+<body>
+<div class="TopContainer">
+	<div class="Logo"><a href="index.php?lfj=adminmap&job=list" target="main"><span><img src="images/logo.png"/></span></a></div>
+	<div class="TopMenus">
+		<ul class="ChangeShow">
+			<ol><span>上一页</span></ol>
+			<li><span>下一页</span></li>
+		</ul>
+		<div class="ListMenu">
+			<ul>{$topMenu}</ul>
+		</div>
+	</div>
+</div>
+<table border="0" cellPadding="0" cellSpacing="0" height="100%" width="100%" style="table-layout: fixed;">
+<tr><td width="205" height="98"></td><td></td></tr>
+<tr>
+<td><iframe frameborder="0" id="menu" name="menu" src="./index.php?iframe=left&part=often" scrolling="yes" style="height: 100%; visibility: inherit; width: 100%; z-index: 1;overflow: auto;"></iframe></td>
+<td><iframe frameborder="0" id="main" name="main" src="./index.php?lfj=center&job=map" scrolling="yes" style="height: 100%; visibility: inherit; width: 100%; z-index: 1;overflow: auto;"></iframe></td>
+</tr></table>
+<script type="text/javascript">
+var topmenu_width=115;
+var topmenu_length=$('.TopMenus .ListMenu ul li').length;
+var nowtopmenu=1;
+function next_topmenu(){	
+	nowtopmenu++;
+	if(nowtopmenu>topmenu_length){
+		nowtopmenu=1;
+	}
+	change_topmenu(nowtopmenu);
+}
+function prev_topmenu(){
+	nowtopmenu--;
+	if(nowtopmenu<1){
+		nowtopmenu=topmenu_length;
+	}
+	change_topmenu(nowtopmenu);
+}
+function change_topmenu(num){
+	var thisnum=(num-1);
+	var left_width=topmenu_width*thisnum;
+	$('.TopMenus .ListMenu ul').animate({'left':'-'+left_width+'px'},500);
+}
+$('.ChangeShow li').click(function(){
+	next_topmenu();
+});
+$('.ChangeShow ol').click(function(){
+	prev_topmenu();
+});
+function showmenu(name,url){
+	$('.TopMenus .ListMenu ul li').each(function(){
+		if($(this).find('span').hasClass(name)){
+			$(this).addClass('ck');
+		}else{
+			$(this).removeClass('ck');
+		}
+	});
+	$('#menu').attr("src",url);
+}
+</script>
+</body>
+<!--
+EOT;
+?>
+-->
+</html>

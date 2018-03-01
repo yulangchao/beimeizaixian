@@ -1,0 +1,42 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=$job">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">预览</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">
+    <tr> 
+      <td class='tdL'>网页调用代码:</td>
+      <td class='tdR'>
+         
+        <textarea name="postdb[about]" cols="60" rows="5" id="js_1"><script src="$webdb[www_url]/do/js.php?id=$id"></script></textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>示范:</td>
+      <td class='tdR'>
+        <script src="$webdb[www_url]/do/js.php?id=$id"></script>
+      </td>
+    </tr>
+    </table>
+    <div class='submits'>
+         <input type="submit" name="Submit" value="复制以上代码"  onClick="JM_cc('js_1');alert('复制成功，你可以粘贴在网页代码里！')">
+        <input type="hidden" name="lid" value="$lid">      
+    </div>
+  </div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function JM_cc(ob){
+var obj=document.getElementById(ob); if (obj) { 
+obj.select();js=obj.createTextRange();js.execCommand("Copy");}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

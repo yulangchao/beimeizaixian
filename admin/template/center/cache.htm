@@ -1,0 +1,114 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+ <form name="form1" method="post" action="index.php?lfj=$lfj&action=cache">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">缓存设置，可以有效的减轻服务器压力</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+        <tr> 
+          <td class="tdL">主页缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[index_cache_time]" value="$webdb[index_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	
+    	<tr> 
+          <td class="tdL">资讯缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[news_cache_time]" value="$webdb[news_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">分类缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[fenlei_cache_time]" value="$webdb[fenlei_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">商城缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[shop_cache_time]" value="$webdb[shop_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">黄页缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[hy_cache_time]" value="$webdb[hy_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">活动缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[tg_cache_time]" value="$webdb[tg_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">促销缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[coupon_cache_time]" value="$webdb[coupon_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">求职招聘缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[hr_cache_time]" value="$webdb[hr_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">团购缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[shoptg_cache_time]" value="$webdb[shoptg_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">房产缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[house_cache_time]" value="$webdb[house_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">点评缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[dianping_cache_time]" value="$webdb[dianping_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">二手市场缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[ershou_cache_time]" value="$webdb[ershou_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">装修缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[zhuangxiu_cache_time]" value="$webdb[zhuangxiu_cache_time]" size="3">
+            分钟</td>
+        </tr>
+    	<tr> 
+          <td class="tdL">微分享缓存时间:</td>
+          <td class="tdR"> 
+            <input type="text" name="webdbs[wei_cache_time]" value="$webdb[wei_cache_time]" size="3">
+            分钟</td>
+        </tr>
+      </table>
+      <div class='submits'><input  class=mmcinb  type='submit' name='w' value='保存设置'></div>
+    </div>
+  </div>
+</form>
+  <div class="MainContainers">
+  <div class="Header"><span class="tag">帮助说明</span></div>
+  <div class="Conter">
+    <ul class="notes">
+        <li>1、随着网站数据量的不断增大，网站运行明显变慢的时候，就很有必要设置缓存。这样可以很有效的减轻服务器压力。</li>
+        <li>2、如果你是新网站，没什么数据的话，就没必要设置缓存。</li>
+        <li>3、设置为0则取消缓存，设置为大于0的整数，即页面更新数据的时间。若要设置缓存，请尽量设置大于3</li>
+    </ul>
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->

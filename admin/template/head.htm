@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+<!--
+<?php
+$_admin_url=eregi('^http:',$webdb[admin_url])?$webdb[admin_url]:$webdb[www_url]."/".$webdb[admin_url];
+if($linkdb){
+$ListLinkHtml="<div class='ListLinkCont'>\r\n";
+foreach($linkdb AS $name=>$url){
+$ListLinkHtml.="<a href='$url'>$name</a>\r\n";
+}
+$ListLinkHtml.='</div>';
+}
+print <<<EOT
+-->
+<meta charset="gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=8"><!-- 强制ie8,for 360 -->
+<title>后台管理</title>
+<link rel="stylesheet" href="$_admin_url/images/style.css" type="text/css">
+<link rel="stylesheet" href="$_admin_url/images/base/base.css" type="text/css">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/default.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function get_obj(obj){
+   return document.getElementById(obj);
+}
+//-->
+</SCRIPT>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/baidu/editor_config.php"></script>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/baidu/editor_all.js"></script>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/ewebeditor/baidu/themes/default/ueditor.css"/>
+</head>
+<body>
+{$ListLinkHtml}
+<!--
+EOT;
+?>
+-->

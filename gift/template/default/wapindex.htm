@@ -1,0 +1,150 @@
+<?php
+require(ROOT_PATH."inc/waphead.php");
+?>
+<!--
+<?php
+$picartic = list_gift(5,'hot');
+$listSlide="<div id='slide' class='clearfix' style='display:none;'>\r\n";
+$listSlide.="<div id='content'>\r\n";
+foreach($picartic AS $key=>$rs){
+$rs[picurl] && $rs[picurl]=tempdir($rs[picurl]);
+$listSlide.="<div class='cell'><a href='wapbencandy.php?fid=$rs[fid]&id=$rs[id]'><img src='$rs[picurl]' onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\"/></a><span class='title'>$rs[title]</span></div>\r\n";	
+}
+$listSlide.="</div>\r\n";
+$listSlide.="<ul id='indicator'></ul>\r\n";
+$listSlide.="</div>\r\n";
+$listSlide.="<span class='prev' id='slide_prev' style='display:none'>上一张</span><span class='next' id='slide_next' style='display:none'>下一张</span>\r\n";
+$listsorts="";
+$listmoresorts="<div class='ListMoreSorts'>\r\n";
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+if($i<9){
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/$i.gif"))?"./images/wap/$i.gif":"./images/wap/0.gif");
+$listsorts.="<li><a href=\"waplist.php?fid=$key\"><em><img src=\"$logo\"/></em><span>$name</span></a></li>\r\n";
+if($i==5){
+$listsorts.="<p></p>\r\n";
+}
+}
+$listmoresorts.="<dl>\r\n";
+$listmoresorts.="<dt><a href=\"waplist.php?fid=$key\">$name</a></dt>\r\n";
+if($Fid_db[$key]){
+$listmoresorts.="<dd>\r\n";
+foreach($Fid_db[$key] AS $fid=>$names ){
+$listmoresorts.="<a href=\"waplist.php?fid=$fid\">$names</a>\r\n";
+}
+$listmoresorts.="</dd>\r\n";
+}
+$listmoresorts.="</dl>\r\n";
+}
+$listmoresorts.="</div>\r\n";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/wap/wapindex.css"/>
+<!-- nav -->
+  <section class="s-skin m-nav">
+	<ul>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+if($i>7)break;
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/ficon{$i}.png"))?"./images/wap/ficon{$i}.png":"./images/wap/ficon1.png");
+print <<<EOT
+-->
+	  <li><a href="waplist.php?fid=$key"><span><img src="$logo"/></span><span>$name</span></a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	  <li id="show_sort"><span><img src="images/wap/ficon8.png"/></span><span>更多类目</span></li>
+	</ul>
+  </section>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url="$webdb[www_url]/gift/waplist.php?fid=$key";
+$ck_class=($key==$fidDB[fup]||$key==$fid)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls="$webdb[www_url]/gift/waplist.php?fid=$keys";
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script type="text/javascript" src="$webdb[www_url]/f/images/wap/sort.js"></script>
+<!-- /nav -->
+<!-- m-modleCont -->
+  <section class="s-skin m-modleCont">
+    <div class="modleCont">
+	  <h2><a>兑换礼品啦</a></h2>
+	  <div class="allCont">
+	    <ul>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+		  <li>
+		    <div class="List">
+			  <a href="$rs[url]"><div class="ListPic"><img src="$rs[picurl]"/></div>
+			  <h3>$rs[title]</h3>
+			  <p><span class="L">{$webdb[MoneyName]}:<em>{$rs[money]}</em>{$webdb[MoneyDW]}</span><span class="R">浏览:$rs[hits]人</span></p></a>
+			</div>
+		  </li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</ul>
+	  </div>
+	</div>
+	<div class="ShowMoreShop" onclick="showMoreCont();"><span class="ShowMore">点击查看更多</span></div>
+<script>
+var page=1;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreShop").hide();
+		}else{
+			$(".allCont ul").append(d);
+			$(".ShowMoreShop span").html("点击查看更多");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".allCont ul li").length%rows!=0){
+		$(".ShowMoreShop").hide();
+	}
+}
+countlist();
+</script>
+  </section>
+<!-- /m-modleCont -->
+<!--
+EOT;
+?>
+-->
+<?php
+require(ROOT_PATH."inc/wapfoot.php");
+?>

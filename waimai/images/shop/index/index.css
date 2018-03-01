@@ -1,0 +1,437 @@
+body{
+	max-width:640px;
+	margin:auto;
+	background:#E2E2E2;	
+}
+.mHead{
+	height:30px;
+	background:#FF9231;
+	padding:10px 80px;
+	overflow:hidden;
+	position:relative;
+}
+.mHead span.title{
+	display:block;
+	text-align:center;
+	line-height:30px;
+	font: 20px/30px 'STXihei';
+	color:#fff;
+}
+.mHead a.return{
+	width:40px;
+	height:30px;
+	position:absolute;
+	background: url(return_l.png) 5px 5px no-repeat;
+	background-size:20px 20px;
+	padding-left:35px;
+	font: 20px/30px 'STXihei';
+	color: #fff;
+	left:10px;
+	top:10px;
+}
+.mHead .icoRight{
+	width: 75px;
+	height: 33px;
+	position:absolute;
+	overflow: hidden;
+	right:5px;
+	top:10px;
+}
+.mHead a.search{
+	float: left;
+	width: 30px;
+	height: 30px;
+	background: url(search.png) right no-repeat;
+}
+.mHead a.menu{
+	float: right;
+	width: 32px;
+	height: 30px;
+	background: url(menu.png) right no-repeat;	
+}
+
+/**/
+.chooseAddress{
+	padding:0 10px;
+	height:50px;
+	overflow:hidden;
+	background:#fff;
+}
+.chooseAddress span.address{
+	color: #666;
+	background: url(address.png) left no-repeat;
+	float:left;
+	padding-left:30px;
+	line-height:50px;
+}
+.chooseAddress span.choose{
+	float:right;
+	padding-top:10px;
+}
+.chooseAddress span.choose a{
+	display:inline-block;
+	line-height:30px;
+	padding:0 10px;
+	color: #666;
+	background: #E5E5E5;
+	border-radius: 5px;
+}
+.chooseAddress span.choose a:hover{
+	background:#EAEAEA;
+}
+
+
+.sortArea{
+	background:#F5F5F5;
+	height:50px;
+	border-top:1px solid #DEDEDE;
+	border-bottom:1px solid #DEDEDE;
+	overflow:hidden;
+}
+.sortArea div{
+	width:50%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	overflow:hidden;
+	float:left;
+	position:relative;
+}
+.sortArea div.sort:after{
+	content:'';
+	display:block;
+	width:1px;
+	height:50px;
+	background:#E0E0E0;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+.sortArea div a{
+	display:inline-block;
+	color:#666;
+	background: url(xiala.png) right no-repeat;
+	padding-right: 30px;
+}
+/**/
+.ListHyBox{
+	padding:1px 10px 0 10px;
+	background:#F5F5F5;
+}
+.ListHyBox .ListHy{
+	width:100%;
+	display: table;
+	margin-top:10px;
+	background:#fff;
+}
+.ListHyBox .ListHy dt,.ListHyBox .ListHy dd{
+	display: table-cell;
+	vertical-align:top;
+}
+.ListHyBox .ListHy dt{
+	width:120px;
+	vertical-align:middle;
+	border-right:#F5F5F5 5px solid;
+}
+.ListHyBox .ListHy dt .img{
+	width:100%;
+	display: table;
+}
+.ListHyBox .ListHy dt .img a{
+	display: table-cell;
+	text-align:center;
+	height:100px;
+	vertical-align:middle;
+}
+.ListHyBox .ListHy dt .img a img{
+	max-width:120px;
+	max-height:100px;
+}
+.ListHyBox .ListHy dt .state{
+	background: #33CC33;
+	color: #fff;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+.ListHyBox .ListHy dd{	
+	font: 12px/16px 'STXihei';
+	color:#888;
+	padding:0 0 5px 10px;
+}
+.ListHyBox .ListHy dd .title{
+	font: 16px/25px 'STXihei';
+	line-height:35px;
+	height:35px;
+	position:relative;
+}
+.ListHyBox .ListHy dd .title span{
+	display:block;
+	width:90px;
+	height:37px;
+	text-align:center;
+	color:#FFF;
+	background:url(blue_bg.png) no-repeat;
+	position:absolute;
+	right:-10px;
+	top:0;
+}
+.ListHyBox .ListHy dd .title em{
+	display:block;
+	height:30px;
+	line-height:30px;
+	padding-top:5px;
+	padding-right:80px;
+	overflow:hidden;
+}
+.ListHyBox .ListHy dd .xingxing{
+	width:80px;
+	height:15px;
+	overflow:hiddenl;
+	background:url(fen0.png) no-repeat;
+	background-size:80px 15px;
+	margin-bottom:3px;
+}
+.ListHyBox .ListHy dd .xingxing span{
+	display:block;
+	float:left;
+	height:15px;
+	background:url(fen1.png) no-repeat;
+	background-size:80px 15px;
+}
+.ListHyBox .ListHy dd .number,.ListHyBox .ListHy dd .phone,.ListHyBox .ListHy dd .address{
+	height:20px;
+	line-height:20px;
+	margin-right:10px;
+	overflow:hidden;
+}
+.ListHyBox .ListHy dd .address{
+	border-top:#EEE solid 1px;
+	margin-top:3px;
+	padding-top:3px;
+}
+
+.shoplistBox{
+	background:#fff;
+	padding:30px 0 10px 0;
+}
+.shoplistBox .shoplist{
+	background:#F5F5F5;
+	margin:0;
+	padding:0;
+	margin-bottom:10px;
+}
+
+.shoplistBox .shoplist dl{
+	width:100%;
+	display: table;
+}
+.shoplistBox .shoplist dl dt{
+	width: 120px;
+	vertical-align: middle;
+	padding-left: 10px;
+	text-align: center;
+	display: table-cell;
+}
+.shoplistBox .shoplist dt .img{
+	background:#fff;
+	width:120px;
+	text-align:center;
+}
+.shoplistBox .shoplist dt .img:hover{
+	border:1px solid #ff6600;
+}
+.shoplistBox .shoplist dt .img a{
+	display:block;
+	width:120px;
+	max-height:90px;
+	text-align:center;
+	overflow:hidden;
+}
+.shoplistBox .shoplist dt .img img{
+	max-width:120px;
+	max-height:90px;
+}
+.shoplistBox .shoplist .state{
+	background: #33CC33;
+	color: #fff;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+
+.shoplistBox .shoplist dl dd{
+	background: #fff;
+	margin: 20px 20px 20px 5px;
+	color:#999;
+	position: relative;
+	font: 12px/22px 'STXihei';
+}
+.shoplistBox .shoplist dl dd .title{
+	font: 16px/25px 'STXihei';
+	padding-top:7px;
+}
+.shoplistBox .shoplist dl dd .title a{
+	color:#666;
+}
+.shoplistBox .shoplist dl dd .title a:hover{
+	color:#ff6600;
+}
+.shoplistBox .shoplist dl dd .title span.tag{
+	float: right;
+	color: #fff;
+	background: url(blue_bg.png) no-repeat;
+	width: 90px;
+	height: 39px;
+	text-align: center;
+	position: absolute;
+	right: -5%;
+	top: 0px;
+	font: 16px/30px 'STXihei';
+}
+.shoplistBox .shoplist dl dd .title span.tagYellow{
+	float: right;
+	color: #fff;
+	background: url(yellow_bg.png) no-repeat;
+	width: 90px;
+	height: 39px;
+	text-align: center;
+	position: absolute;
+	right: -5%;
+	top: 0px;
+	font: 16px/30px 'STXihei';
+}
+.shoplistBox .shoplist dl dd div{
+	margin:0 3%;
+}
+.shoplistBox .shoplist dl dd .xingxing{
+	width:100px;
+	height:20px;
+	overflow:hiddenl;
+	background:url(fen0.png) no-repeat;
+}
+.shoplistBox .shoplist dl dd .xingxing span{
+	display:block;
+	float:left;
+	height:20px;
+	background:url(fen1.png) no-repeat;
+}
+.shoplistBox .shoplist dl dd .comment img{
+	width:10px;
+	height:10px;
+}
+.shoplistBox .shoplist dl dd .phone{
+	border-bottom: 1px solid #EBEBEB;
+	line-height: 18px;
+	padding-bottom: 3px;
+
+}
+.shoplistBox .shoplist dl dd .number span{
+	margin-right:3px;
+}
+
+.showMoreBg{
+	background:#F5F5F5;
+	height:85px;
+	text-align:center;
+	overflow:hidden;
+	margin-bottom:100px;
+}
+.showMoreBg .showMore{
+	width: 247px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	display: block;
+	margin: 20px auto;
+	color: #fff;
+	background: rgba(204,204,204,.5);
+	border-radius: 3px;
+}
+.showMoreBg .showMore span{
+	display: block;
+	background: url(genduo.png) 188px 10px no-repeat;
+}
+
+.footMenu{
+	display:block;
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	border-top:1px solid #E2E2E2;
+	z-index: 10000;
+	background:#fff;
+	overflow:hidden;
+}
+.footMenu li{
+	width: 20%;
+	float: left;
+	height: 45px;
+	position: relative;
+	padding-top:5px;
+}
+.footMenu li a{
+	display: block;
+	text-align: center;
+}
+.footMenu li a img{
+	width:20px;
+	height:20px;
+}
+.footMenu li a span {
+	display: block;
+	text-align:center;
+	font-size:14px;
+	color:#666;
+}
+/****/
+.BackBox{ 
+	position: fixed; 
+	width:100%; 
+	height: 100%; 
+	background:#000;
+	z-index: 100000; 
+	top:0; 
+	left: 0; 
+	filter:alpha(opacity=70); 
+	-moz-opacity:0.7; 
+	opacity:0.7;
+	display:none;
+}
+.ListSorts,.ListZones{
+	width:50%;
+	height:100%;
+	position:fixed;
+	background:#FFF;	
+	top:0;
+	z-index: 100001;
+	overflow-Y:auto;
+	overflow-X:hidden;
+	background:#F5F5F5;	
+	display:none;
+}
+.ListSorts{
+	left:0;
+}
+.ListZones{
+	right:0;
+}
+.ListSorts a,.ListZones a{
+	display:block;
+}
+.ListSorts div,.ListSorts ul ol,.ListSorts ul li,.ListZones div{
+	height:35px;
+	line-height:35px;
+	border-bottom:#DDD solid 1px;
+	border-top:#FFF solid 1px;
+	padding:0 15px;
+	overflow:hidden;
+}
+.ListSorts ul li{
+	padding-left:30px;
+}
+.ListSorts .ck,.ListZones .ck{
+	color:red;
+}

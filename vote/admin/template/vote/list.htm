@@ -1,0 +1,46 @@
+<!--
+<?php
+print <<<EOT
+--> 
+ 
+<form name="form1" method="post" action="$admin_path&action=$job">
+<div class="MainContainers">
+	<div class="Header"><span class="tag">调查表管理</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+        <table class="ListTable">
+          <tr> 
+            <th width="6%" >序号</th>
+            <th width="23%" style="text-align:left;">调查表项目</th>
+            <th width="43%">描 述</th>
+            <th width="10%">查看</th>
+            <th width="5%">修改</th>
+            <th width="5%" >删除</th>
+            <th width="17%" >获取代码</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[cid]</td>
+      <td  style="text-align:left;">$rs[name]</td>
+      <td>$rs[about] </td>
+	  <td><a href="$webdb[www_url]/$dirname/vote.php?job=show&cid=$rs[cid]" target="_blank"><img alt='浏览' src='../member/images/icon_view.gif' border=0></a></td>
+	  <td><a href="$admin_path&job=edit&cid=$rs[cid]" class="edit">修改</a></td>
+	  <td><a href="$admin_path&action=delete&cid=$rs[cid]&aid=$rs[aid]"  onclick="return confirm('删除后不可恢复,你确实要删除吗?')" class="del"></a></td>
+	  <td><a href="$admin_path&job=make&cid=$rs[cid]"><img alt='获取JS代码' src='../member/images/art_icon.gif' border=0></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+	</table>
+	<div class="m-showpage">$showpage</div>
+	</div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

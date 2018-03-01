@@ -1,0 +1,28 @@
+<!--
+<?php
+$more_word=($lfjdb[rmb]>$totalmoney)?"你可以选择余额一次支付":"你可以选择余额支付部分,欠缺部分可另外再选择在线支付";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/pay.css">
+<div class="RmbPayCont">
+<form name="form1" method="post" action="">
+	<h3>余额付款</h3>    
+    <div class="list">本次共需支付：<span class="b blue">{$totalmoney}</span> 元</div>
+    <div class="list">你当前帐户可用余额为 <span class="b red">{$lfjdb[rmb]}</span> 元</div>
+    <div class="list">$more_word</div>
+    <div class="list">
+    	支付密码: 
+        <input type="password" name="pwd" size="8"/>
+        <input type="submit" name="Submit" value="支付"/>
+        <input type="hidden" name="step" value="2"/>
+        <input type="hidden" name="ids" value="$ids"/>
+        <input type="hidden" name="to_url" value="$to_url"/>
+    </div>
+    <div class="list">你若不想使用余额支付的话,只能选择在线付款,请点击</div>
+    <div class="sub"><a href="?job=goto&ids=$ids">使用在线付款</a></div>
+</form>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,66 @@
+.content a:hover {
+	text-decoration:underline;
+}
+.text {
+	width:100%; overflow:hidden; margin:25px auto;
+}
+.tl {
+	width:855px; height:auto; float:left;
+}
+.m-city{margin:10px 0; border:1px solid #dfdede; overflow:hidden;}
+.m-city .streets{margin:10px; padding:10px;background:#ececec; line-height:25px;}
+.showlist1{padding:10px 25px; line-height:20px; letter-spacing:3px;}
+.showlist1 span{display:inline-block;}
+.showlist1 a{color:#888888; font-size:15px;}
+.showlist1 a:hover {color:#ff6900;}
+.showlist {border:1px solid #dfdede; float:left;}
+.street a{display:inline-block; padding-right:8px;}
+.head{height:45px; width:100%; background:#ececec; border-bottom:1px solid #dfdede; font-size:16px; font-weight:bold; color:#333333;}
+.head .tag {
+	float:left; height:45px;
+}
+.head .tag span {
+	background:url(sx.png) no-repeat left center; padding-left:30px; line-height:45px;
+}
+.head .more {
+	float:right; line-height:45px; padding-right:20px;
+}
+
+.detail {
+	padding:15px 0; float:left; margin:0 15px; 
+}
+.textlist {
+	border-bottom:1px dotted #dadada; 
+}
+.textlist td {
+	padding:15px 0;
+}
+.select_box {
+	width:95px; height:28px; border:1px solid #bdbcbc;
+}
+.m1 {
+	width:175px;
+}
+.m2 {
+	width:415px; line-height:25px;
+}
+.m3 {
+	width:132px; text-align:center;
+}
+
+.go_box {width:100%; float:left; margin:30px 0;}
+.go {overflow:hidden; font-size:14px; text-align:center;}
+.go a {padding:0 8px; height:30px; background:#e3e3e3; display:inline-block; border-radius:3px; line-height:30px; text-align:center; margin:0 2px; border:#dbdada;}
+.go a.ck{background:#21aaf3;}
+.go a.ck font{color:#fff;}
+.go a:hover {background:#21aaf3; color:#FFFFFF; text-decoration:none;}
+
+.tr {
+	width:310px; float:right; border:1px solid #dfdede;
+}
+.newlist {
+	padding:15px; line-height:25px; letter-spacing:1px;
+}
+.newlist ul li {
+	height:25px; overflow:hidden;
+}

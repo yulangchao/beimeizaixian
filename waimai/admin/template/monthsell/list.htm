@@ -1,0 +1,103 @@
+<!--
+<?php
+print <<<EOT
+-->
+<script language="JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+
+ 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+<form name="form_work" method="post" action="$admin_path&">
+      <ul class='notes'>
+        <li><a href="$Murl/bencandy.php?city_id={$rs[shop][city_id]}&fid=$rs[fid]&id=$rs[cid]" target="_blank"> 
+        </a>这里可以按月统计每个商家的销售总额,客户给商家付款成功,即代表交易成功.如果你是站长帮商家代收款的话,可以下载表单回去按月分别支付给每个商家</li>
+      </ul>
+      <table class="ListTable">
+    <tr> 
+      <td class="middle Left" valign="top" ><br>
+        <select name="post[y]">
+          <option value="" >年份</option>
+		  <option value="2014" $_y[2014]>2014</option>
+		  <option value="2015" $_y[2015]>2015</option>
+		  <option value="2016" $_y[2016]>2016</option>
+        </select>
+        <select name="post[m]">
+          <option value="">月份</option>
+          <option value="01" $_m[01]>1月</option>
+		  <option value="02" $_m[02]>2月</option>
+		  <option value="03" $_m[03]>3月</option>
+		  <option value="04" $_m[04]>4月</option>
+		  <option value="05" $_m[05]>5月</option>
+		  <option value="06" $_m[60]>6月</option>
+		  <option value="07" $_m[07]>7月</option>
+		  <option value="08" $_m[08]>8月</option>
+		  <option value="09" $_m[09]>9月</option>
+		  <option value="10" $_m[10]>10月</option>
+		  <option value="11" $_m[11]>11月</option>
+		  <option value="12" $_m[12]>12月</option>
+        </select>
+        <select name="post[s]">
+          <option value="">交易状态</option>
+          <option value="1" $_s[1]>已付款</option>
+          <option value="2" $_s[2]>未付款</option>
+          <option value="0" $_s[0]>所有</option>
+        </select>
+        <input type="submit" name="Submit" value="查询">
+      </td>
+    </tr>
+  </table>
+</form> 
+
+<form name="form1" method="post" action="$admin_path&">
+<table class="ListTable">
+  <tr> 
+    <th width="9%" >年份</th>
+    <th width="12%" >月份</th>
+    <th  width="17%">商家帐号</th>
+    <th  width="18%">商铺名称</th>
+    <th width="26%" >销售总额(元)</th>
+    <th width="11%" >交易状态</th>
+    <th width="7%" >详情</th>
+  </tr>
+  <!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+  <tr> 
+    <td class="middle" valign="top"><a href="$Murl/bencandy.php?city_id={$rs[shop][city_id]}&fid=$rs[fid]&id=$rs[cid]" target="_blank"> 
+      </a>$year</td>
+    <td class="middle" valign="top" >$month</td>
+    <td class="middle" valign="top" ><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></td>
+    <td class="middle Left" valign="top" ><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[title]</a></td>
+    <td class="middle" valign="top" >$rs[allmoney]</td>
+    <td class="middle" valign="top" >$state</td>
+    <td class="middle" valign="top"><a href="$admin_path&file=order&job=list&month=$month&year=$year&cuid=$rs[uid]" target="_blank">查看</a></td>
+  </tr>
+  <!--
+EOT;
+}print <<<EOT
+-->
+
+</table>
+<div class='submits'>
+        <a href="$Murl/bencandy.php?city_id={$rs[shop][city_id]}&fid=$rs[fid]&id=$rs[cid]" target="_blank"> 
+      </a>
+        <input type="submit" name="Submit2" value="下载以上报表">
+        <input type="hidden" name="post[y]" value="$post[y]">
+        <input type="hidden" name="post[m]" value="$post[m]">
+        <input type="hidden" name="post[s]" value="$post[s]">
+        <input type="hidden" name="act" value="down">
+</div>
+ </form>
+<!--
+EOT;
+?>
+-->

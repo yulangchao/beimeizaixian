@@ -1,0 +1,51 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<!-- <link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/article.css"> -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="ListContainer">
+	<div class="head"><div class="tag">我发布的免费信息 </div><a class='more' href="$city_url/wappost.php" target="_blank">发布免费信息</a></div>
+    
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[Lurl]=get_info_url('',$rs[fid],$rs[city_id]);
+$rs[title]=get_word($rs[title],40);
+$rs[fname]=get_word($rs[fname],16);
+print <<<EOT
+-->
+          <div class='Listcont'>
+        <div class="cont">
+              <div class='title'>
+                    <a href="$Murl/wapbencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+                    <a href="$Murl/waplist.php?fid=$rs[fid]" target="_blank"></a>
+                     <span style="color:#999;">({$city_DB[name][$rs[city_id]]})</span>
+              </div>
+              <div class='time'><span style="color:#999;"> 模型：{$module_db[$rs[mid]]} &nbsp;&nbsp;栏目：[{$rs[fname]}]</span></div>
+              <div class='time'><span style="color:#999;">发布时间：$rs[posttime]</span></div>
+           </div>       
+              <div class='butter'>
+                  <a href='wapeditsort.php?job=edit&fid=$rs[fid]&id=$rs[id]&listnum=$listnum'>修改分类</a>
+                   <a href="../wappost.php?action=del&fid=$rs[fid]&id=$rs[id]&rid=$rs[rid]">删除</a> 
+                  <a href='../wappost.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改</a>
+              </div>
+
+          </div>
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+        <!-- </table> -->
+        $showpage
+
+</div>
+<!--
+EOT;
+?>
+-->

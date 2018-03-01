@@ -1,0 +1,70 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/tg.css">
+<div class="GuideCont">当前位置：<a href="./">活动首页</a> $GuideFid[$fid]</div>
+<div class="SelectList">
+	<ul class="ChangeSele">
+		<li><a href="javascript:;" id="show_sort">查看类别<em></em></a></li>
+	</ul>	
+</div>
+<div class="ListCoupon">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[save] = $rs[market_price] - $rs[price];
+print <<<EOT
+-->
+	<dl>
+		<dt><a href="wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+		<dd>
+			<h3><a href="wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]">$rs[title]</a></h3>
+			<div>
+            	活动性质：<em>{$rs[sortid]}</em> 集合时间：<em>{$rs[jointime]}</em>  报名截止时间：<em>{$rs[end_time]}</em>
+<!--{template}-->
+				{title}:<em>{value} </em>
+<!--{/template}-->
+            </div>
+			<div>
+				发布日期：<em>{$rs[posttime]}</em> 浏览:<em>{$rs[hits]}次</em> 发布者:<em>{$rs[username]}</em>
+			</div>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<div class="page">$showpage</div>
+</div>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url=get_info_url('',$key,$city_id);
+$ck_class=($key==$fidDB[fup]||$key==$fid)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+if($Fid_db[$key]){
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls=get_info_url('',$keys,$city_id);
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+}
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script type="text/javascript" src="./images/wap/tg.js"></script> 
+<!--
+EOT;
+?>
+-->

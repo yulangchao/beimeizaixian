@@ -1,0 +1,119 @@
+<!--
+<?php
+$ordertype = $ordertype ? $ordertype : "id";
+$select[$ordertype] = "ch";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/listall.css">
+<div class="text">
+<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>活动分类</span>
+			</div>
+<div class="Menu">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$color=$fid==$key?'red':'';
+$url="list.php?fid=$key";
+print <<<EOT
+-->
+				<dl>
+					<dt>
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url="list.php?fid=$key2";
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+var dlIndex = $(this).parent().index();
+$(".Menu dl").eq(dlIndex).siblings().find("dd").hide();
+$(".Menu dl").eq(dlIndex).siblings().find("dt").removeClass("show");
+$(this).parent().find('dd').show();
+$(this).addClass("show");
+} );
+//-->
+</script>
+		</div>
+</div>
+<div class="content_text_right">
+	<div class="text_title">
+		<span>{$fidDB[name]}</span>
+		<div class="title_nav">
+			<a href="listall.php?ordertype=" class="$select[id]">最新信息</a>
+			<a href="listall.php?ordertype=hits" class="$select[hits]">热门信息</a>
+			<a href="listall.php?ordertype=levelstime" class="$select[levelstime]">推荐信息</a>
+		</div>
+	</div>
+	<div class="showlist">
+		<div class="detail">
+			<table width="100%">
+			<tr> 
+                <td class="img">&nbsp;</td>
+                <td class="info">团购简介</td>
+                <td class="renzheng">商家认证</td>
+            </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$target=$rs[target]?'_blank':'_self';
+$url="$webdb[www_url]/tg/bencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+				<tr class="textlist">
+					<td class="m1"><a href="$url" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" width="120" height="90"></a></td>
+					<td class="m2">
+						<a href="$url" target="_blank" class="orange">$rs[title]</a>
+						<div class="sort">所属分类：<a href="$url" target="_blank">{$rs[fname]}</a></div>
+						<div>
+							<span>日期：<em class="gray">{$rs[posttime]}</em></span>
+							<span> &nbsp;发布日期：<em class="gray">{$rs[hits]}次</em></span> 
+							<span>&nbsp;发布者：<em class="gray">{$rs[username]}</em></span>
+							<span>&nbsp;关注度：<em class="gray">{$rs[hits]}</em>人次</span>
+						</div>
+					</td>
+					<td class="m3">
+						<img class="check_company" alt="{$renzhengDB[$rs[renzheng]]}" onload="this.style.width='60px'" src="$webdb[www_url]/images/default/renzheng/{$rs[renzheng]}.png">
+					</td>
+				</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</table>
+			<div class="go_box">
+				<div class="go">
+					$showpage								
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

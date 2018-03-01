@@ -1,0 +1,70 @@
+<!--
+<?php
+$codeimg = "$webdb[www_url]/do/2codeimg.php?url=$webdb[www_url]/fuwu/wapindex.php";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/style7.0/index.css">
+<div class="Content">
+	<div class="Banner">
+		<div class="bannerpic">{$label[style7_fuwu_index_banner]}</div>
+		<div class="Scan">
+			<div class="img"><img src="$codeimg" width="152"/></div>
+			<div class="word">
+				<span>微信扫一扫</span>
+				<span><a>马上预约</a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="Ad">
+		{$label[style7_fuwu_index_banner1]}
+	</div>
+	
+	<div class="Text">
+	
+		<div class="head">
+			<div class="tag">{$label[style7_fuwu_index_head]}</div>
+		</div>
+		
+		<div class="listbox">
+			{$label[style7_fuwu_index1]}
+		</div><!--listbox END-->
+		
+	</div><!--Text END-->
+	
+	<div class="Ad">{$label[style7_fuwu_index_banner2]}</div>
+	
+	<div class="Sclass">
+	
+		<div class="head">
+			<div class="tag">{$label[style7_fuwu_index_head1]}</div>
+		</div>
+		
+		<div class="classlist">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$value){
+$i++;
+$url = "list.php?fid=$key";
+if($i>11)break;
+print <<<EOT
+-->
+			<dl>
+				<dt><img src="./images/style7.0/Sclass$i.png" /></dt>
+				<dd ><a href="$url">{$value}</a></dd>
+			</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+		</div><!--classlist END-->
+	
+	</div><!--Sclass END-->
+	
+</div><!--Content END-->
+<!--
+EOT;
+?>
+-->

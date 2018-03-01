@@ -1,0 +1,125 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<h3>基本资料</h3>
+	<dl>
+		<dt><span>*</span>案例名称：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入案例名称，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+	<dl>
+		<dt>所属设计师:</dt>
+		<dd>
+			<input type='hidden' name='postdb[designer_id]' id='atc_designer_id' value='$rsdb[designer_id]'>
+			<input type='text' name='postdb[designer]' id='atc_designer' style='width:100px;' value='$rsdb[designer]' onBlur="ckdata(this,'designer_msg','designer')">
+			<span id="designer_msg"></span>
+<SCRIPT LANGUAGE="JavaScript">			   
+function ckdata(obj,b,c){
+	if(obj.value==''){
+		$("#atc_designer_id").val('0');
+		return ;
+	}
+	$.get("$Murl/job.php?job=ckmsg&name="+obj.value+"&type="+c, function(data){
+		var msg;
+		if (parseInt(data)>0){
+			msg=" <img src=$webdb[www_url]/images/default/check_right.gif>";
+		}else {
+			msg=" <img src=$webdb[www_url]/images/default/check_error.gif> 系统还没有该设计师的任何资料！";
+		}
+		$("#atc_designer_id").val(data);
+		$("#"+b).html(msg);
+	});
+}
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+if($job!="edit"&&$webdb[Info_GroupPostYzImg]&&!$web_admin&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupPostYzImg]))){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+		<dt>图片：</dt>
+		<dd>
+<!--
+EOT;
+$i=0;
+$listPics="";
+foreach($listdb AS $key=>$rs){
+$i++;
+if($rs[imgurl]){
+$listPics.="<div class='PicList'><input class='text' type='text' name='photodb[$i]' value='$rs[imgurl]'/><span>删除图片</span><input type='hidden' name='piddb[$i]' value='$key'></div>\r\n";
+}}
+print <<<EOT
+-->	
+$listPics
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="photodb[0]" id='out_url0' placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+            </div>
+		</dd>
+	</dl>
+<!--{template}-->
+	<dl>
+		<dt>{title}</dt>
+		<dd>{value}</dd>
+	</dl>
+<!--{/template}-->
+<dl>
+		<dt>标签:/dt>
+		<dd><input type="text" name="postdb[keywords]" id="atc_title" size="50" value="$rsdb[keywords]"> (多个用空格隔开)</dd>
+	</dl>
+    <div class="butter">
+		<span class="submits"><input type="submit" name="Submit" value="提 交"></span>
+		<input type="hidden" name="fid" value="$fid">
+		<input type="hidden" name="id" value="$id">
+		<input type="hidden" name="$webdb[rand_num_inputname]" value="$webdb[rand_num]">
+	</div>
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+$('.PicList').hover(
+	function(){
+		$(this).css('border-bottom', 'dotted #DDD 1px');
+	},function(){
+		$(this).css('border-bottom', '0');
+	}
+);
+$('.PicList span').click(function(){
+	//$(this).parent().html('');
+	//$(this).parent().remove();
+	$(this).parent().children().eq(0).val('');
+});
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

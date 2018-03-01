@@ -1,0 +1,60 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">批量添加以下菜单</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+
+      <form name="form1" method="post" action="index.php?lfj=$lfj&action=$job&">
+        <!--
+EOT;
+foreach($menudb AS $key=>$array){
+print <<<EOT
+-->
+        <table class='FormTable'>
+          <tr> 
+            <td class='tdL'>$key</td>
+
+            <td class='tdR'> 
+              <!--
+EOT;
+foreach($array AS $title=>$rs){
+$url = eregi("^\/",$rs['link'])?"{$webdb[www_url]}{$rs[link]}":"$webdb[www_url]/member/{$rs[link]}";
+print <<<EOT
+-->
+              <span style="display:block;width:200px;height:25px;float:left;overflow:hide;"> 
+              <input type="checkbox" name="post_db[{$key}][{$rs[link]}]" value="$title" checked>
+              <a href="$url" target="_blank">$title</a> </span> 
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+
+        <!--
+EOT;
+}print <<<EOT
+-->
+
+          <tr> 
+            <td class="tdL">所属用户组别:</td>
+            <td wclass="tdR">$select_group</td>
+          </tr>
+          <tr> 
+            <td class="tdL">所属用户类型: </td>
+            <td wclass="tdR">
+              <input type="radio" name="postdb[ifcompany]" value="0" checked>
+              {$typeDB[0]} 
+              <input type="radio" name="postdb[ifcompany]" value="1">
+              {$typeDB[1]} </td>
+          </tr>
+        </table>
+        <div class='submits'><input type="submit" name="Submit" value="批量添加"></div>
+      </form>
+
+<!--
+EOT;
+?>
+-->

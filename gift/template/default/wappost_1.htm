@@ -1,0 +1,70 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<h3>基本资料</h3>
+	<dl>
+		<dt><span>*</span>礼品名称：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入名称，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>所需{$webdb[MoneyName]}：</dt>
+		<dd><input type="text" name="postdb[money]" class="text" style='width:50px;' placeholder="输入$webdb[MoneyName]数量" value="$rsdb[money]" />$webdb[MoneyDW] <span class="blue">(也就是兑换礼品所需{$webdb[MoneyName]})</span></dd>
+	</dl>
+	<dl>
+		<dt>图片：</dt>
+		<dd>
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="postdb[picurl]" id='out_url0' value="$rsdb[picurl]" placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+            </div>
+		</dd>
+	</dl>
+
+	<dl>
+		<dt>市场价格:<span></span></dt>
+		<dd> <input   type='text' name='postdb[mart_price]' id='atc_mart_price' style='width:100px;' value='$rsdb[mart_price]'> 元</dd>
+	</dl>
+
+	<dl>
+		<dt>库存量:<span></span></dt>
+		<dd> <input   type='text' name='postdb[giftnum]' id='atc_giftnum' style='width:100px;' value='$rsdb[giftnum]'> 个</dd>
+	</dl>
+
+	<dl>
+		<dt>礼品介绍:<span></span></dt>
+		<dd><script type='text/javascript'>loadBaiduEditorJs();</script>
+			<textarea name='postdb[content]' id='atc_content'>$rsdb[content]</textarea> 
+			<script type='text/javascript'>				
+			var editor_content = new baidu.editor.ui.Editor({toolbars:[['fullscreen','source','undo','redo','bold', 'italic', 'underline']] ,minFrameHeight:200});
+				editor_content.render( 'atc_content' );
+			</script></dd>
+	</dl>
+
+	<dl>
+		<dt>我的字段my_803:<span></span></dt>
+		<dd><input type='text' name='postdb[my_803]' id='atc_my_803' size='50' value='$rsdb[my_803]'> <br><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=$_pre/$fid&label=atc_my_803' width=310></iframe></dd>
+	</dl>
+<!---->
+    <div class="butter"><span class="submits"><input type="submit" name="Submit" value="提 交"/></span></div>
+    <input type="hidden" name="fid" value="$fid">
+    <input type="hidden" name="id" value="$id">	
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

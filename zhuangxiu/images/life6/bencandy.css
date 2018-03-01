@@ -1,0 +1,145 @@
+
+.MainLists {
+	margin-top:25px; clear:both;
+}
+.MainLists .MainL {
+	width:853px; float:left; border:1px solid #dfdede;
+}
+.SelectSortid {
+	background:#ececec;
+}
+.SelectSortid dl {
+	height:40px; overflow:hidden; padding:10px 0 0 20px; border-bottom:1px solid #dfdede;
+}
+.SelectSortid dl dt {
+	width:90px; height:30px; line-height:30px; float:left; text-align:center; font-size:16px; font-weight:bold;
+}
+.SelectSortid dl dd {
+	float:left; overflow:hidden;
+}
+.SelectSortid dl dd div {
+	width:110px; height:30px; line-height:30px; float:left; text-align:center; font-size:16px; background:#ffffff; margin-right:10px;
+}
+
+.MainLists .MainL .ShowContent {
+	padding:25px;
+}
+.ShowContent .title {
+	height:35px; line-height:35px; text-align:center; font-size:18px; font-weight:bold; overflow:hidden;
+}
+.ShowContent .info {
+	height:35px; line-height:35px; text-align:center; font-size:14px; color:#666666; padding-bottom:15px; border-bottom:1px dotted #d5d5d5;
+}
+.ShowContent .img .imgtext {
+	line-height:25px; text-indent:2em; padding:20px 0;
+}
+.ShowContent .img .pic img {
+	width:765px; margin:0 18px;
+}
+
+
+.SideR {
+	float:right;width:310px;
+}
+.SideR  .sideconts {
+	width:308px; float:left; border:1px solid #dfdede; margin-bottom:25px;
+}
+.SideR .rightAD {
+	width:308px; border:1px solid #dfdede; margin-bottom:25px; float:left;
+}
+.SideR .rightAD img{width:100%;}
+.SideR .head {
+	width:100%; height:50px; float:left; background:#ececec; border-bottom:1px solid #dfdede;
+}
+.SideR .head .tag {
+	height:18px; padding-left:10px; border-left:3px solid #767676; margin:18px 0 0 15px; font-size:16px; font-weight:bold;
+}
+.SideR  .sideconts .cont {
+	padding:15px; float:left;
+}
+.SideR  .sideconts .cont .listpic {
+	width:50%; overflow:hidden; float:left; text-align:center;
+}
+.SideR  .sideconts .cont .listpic .img {
+	width:128px; height:100px; padding:0 5px;
+}
+.SideR  .sideconts .cont .listpic .t {
+	font-size:16px; height:35px; line-height:35px; overflow:hidden;
+}
+.SideR  .sideconts .cont .list {
+	height:35px; line-height:35px; overflow:hidden;
+}
+.SideR  .sideconts .cont .list span{color:#0099ff;}
+.SideR  .sideconts .cont .listn {
+	height:35px; overflow:hidden; line-height:35px;
+}
+.SideR  .sideconts .cont .listn span {
+	display:block; width:16px; height:16px; text-align:center; line-height:16px; font-weight:bold; 
+	background:#a1a1a1; float:left; margin:10px 5px 0 0; color:#FFFFFF;
+}
+.SideR  .sideconts .cont .list1 span,.SideR  .sideconts .cont .list2 span,.SideR  .sideconts .cont .list3 span{background:#00a7ff;}
+/* comment */
+.ShowComment {
+	border:1px solid #dfdede; clear:both; position:relative; margin:25px 0 50px 0;
+}
+.Mhead {
+	width:100%; height:50px; background:#ececec; border-bottom:1px solid #dfdede;
+}
+.Mhead .tag {
+	height:50px; padding-left:25px; line-height:50px; font-size:16px; font-weight:bold;
+}
+.ShowComment .Mcont {
+	padding:20px; width:1160px; overflow:hidden;
+}
+/* commentList */
+#comment {width:550px; overflow:hidden; float:left;}
+#comment .pllist {width:100%; border-bottom:1px dotted #a2a2a2; float:left; padding-bottom:15px; margin-bottom:15px;}
+#comment .pllist .img {width:84px; border:1px solid #a2a2a2; float:left;}
+#comment .pllist .img a{width:84px; height:100px; text-align:center; display:block;}
+#comment .pllist .img img{max-width:84px; height:100px;}
+#comment .pllist .word {width:440px; float:right;}
+#comment .pllist .word .name {font-size:14px; color:#888888; padding-bottom:15px;}
+#comment .pllist .word .write {font-size:14px; line-height:35px;}
+#comment .pllist .word .like {text-align:right; line-height:36px;}
+/* addcomment */
+.ShowComment .Mcont .contr {
+	width:538px; float:right;
+}
+.contr .m-add {border:1px solid #dfdede; overflow:hidden;}
+.contr .comment_form th {
+	height:50px; background:#ececec;
+}
+.contr .comment_form .tag {
+	float:left; padding-left:25px;
+}
+.contr .comment_form .left {
+	padding-right:5px; text-align:right; width:100px; float:left;margin-top:20px; 
+}
+.contr .comment_form .right {
+	margin-top:20px; float:left;
+}
+.contr .comment_form .right textarea {
+	width:365px; height:145px;
+}
+.contr .comment_form .submits input {
+	width:120px; height:45px; background:#1aa4ed; text-align:center; line-height:45px; 
+	color:#FFFFFF; border:none; font-size:18px; margin-bottom:30px;
+}
+
+.contr .sideconts {
+	margin-top:30px; border:1px solid #dfdede; 
+}
+.contr .sideconts .cont {
+	padding:20px;
+}
+.contr .sideconts .cont .list {
+	line-height:25px; font-size:14px;
+}
+.contr .sideconts .cont .list span {
+	color:#888888;
+}
+/* page */
+#comment .page{padding:10px 0; height:30px; line-height:30px; text-align:center;}
+#comment .page a{border:#DDD solid 1px; padding:3px 5px 2px 5px; color:#999;}
+#comment .page a:hover{border:blue solid 1px; color:red;}
+.no_comment{padding:75px 20px 50px 160px; line-height:30px; font-size:22px; font-weight:bold; color:#FFB066;}

@@ -1,0 +1,200 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<div class="content">
+	<div class="cont1">
+		<table class="side1">
+			<tr>
+				<td class="head">
+					<span class="tag">{$label[hy_19]}</span>
+				</td>
+			</tr>
+			<tr>
+				<td class="cont">
+				  {$label[hy_8]}
+				</td>
+			</tr>
+		</table>
+		<div class="side2">
+			<div class="showpic">{$label[hy_1]}</div>
+			<div class="pic_side">
+				<div class="ad1">{$label[hy_2]}</div>
+				<div class="ad2">{$label[hy_3]}</div>
+			</div>
+		</div>
+		<div class="side3">
+			{$label[hy_11]}
+		</div>
+		<div class="side4">
+			<div class="do">
+				<a href="$webdb[www_url]/do/reg.php" style="background:#4fc7ce;">
+					<img src="images/life6/do_bg1.png" />
+					<span>免费注册</span>
+				</a>
+				<a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/member/money.php?job=list" style="background:#ff9999;">
+					<img src="images/life6/do_bg2.png" />
+					<span>积分充值</span>
+				</a>
+				<a href="$webdb[_www_url]/member/?main=$Murl/member/post_company.php" style="background:#a8be3f;">
+					<img src="images/life6/do_bg3.png" />
+					<span>登记店铺</span>
+				</a>
+				<a href="ditu.php" style="background:#e39549;">
+					<img src="images/life6/do_bg4.png" />
+					<span>地图搜店</span>
+				</a>
+			</div>
+			
+			<div class="pad">
+				<div class="m-t">{$label[hy_21]}</div> {$label[hy_15]}
+			</div>
+			<div class="side4Ad">{$label[hy_4]}</div>
+		</div>
+	</div>
+	<div class="cont2">
+		<div class="mian1">
+			<div class="head">
+				<span class="tag">推荐商家</span>
+				<ul class="hr">
+					<li><a href="listall.php?ordertype=hits" target="_blank">热门商家</a></li>
+					<li><a href="listall.php?ordertype=levelstime" target="_blank">推荐商家</a></li>
+					<li><a href="listall.php" target="_blank">最新商家</a></li>
+				</ul>
+			</div>
+			
+			<div class="cm">
+			  {$label[hy_7]}			
+			</div>
+		</div>
+		<div class="mian2">
+			<div class="head">
+				<span class="tag">$label[hy_20]</span>
+			</div>
+			{$label[hy_10]}
+		</div>
+	</div>
+	<div class="cont3">
+		<div class="mian1">
+			<div class="head">
+				<span class="tag">商家分类</span>
+				<div class="hr"><a href="$webdb[_www_url]/member/?main=$Murl/member/post_company.php">登记商家</a><a href="listall.php">全部分类&gt;&gt;</a></div>
+			</div>
+			<div class="cm" style="width:97%;">
+<!--
+EOT;
+$i = 0;
+foreach($Fid_db[0] AS $key=>$rs){
+$i++;
+if($i>9) break;
+print <<<EOT
+-->
+				<div class="namelist" $i>
+					<span class="nt"><a href="list.php?fid=$key">{$rs}</a></span>
+					<div class="all">
+<!--
+EOT;
+$j=0;
+foreach($Fid_db[$key] AS $fid=>$name){
+$j++;
+$listnum = $webdb[Index_listsortnum]?$webdb[Index_listsortnum]:20;
+if($j>8) break;
+$name = get_word($name,8);
+print <<<EOT
+-->
+						<a href="list.php?fid=$fid">{$name}</a> |
+<!--
+EOT;
+}print <<<EOT
+-->
+						<a href="list.php?fid=$key" style="color:#ec6113;">更多</a>
+					</div>
+				</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+		</div>
+		<div class="mian2" style=" padding-bottom:2px;;">
+			<div class="head">
+				<span class="tag" style="border:none;">{$label[hy_31]}</span>
+			</div>
+			<div class="cont m-hotSort">
+				{$label[hy_30]}
+			</div>
+		</div>	
+	</div>
+	<div class="cont4">
+		<div class="fl_box">
+			<div class="mian2" style="float:left;">
+				<div class="head">
+					<span class="tag">{$label[hy_26]}</span>
+				</div>
+				  {$label[hy_25]}
+			</div>
+			<div class="mian2 m-kefu" style="float:left; margin-top:12px; padding-bottom:0px;">
+			<img src="images/life6/call.png" style="padding:10px 20px 10px 10px; float:left;">
+			  {$label[hy_18]}
+			</div>
+		</div>
+		
+		<div class="mid">
+			<div class="head">
+				<span class="tag" style="border:none; width:80%; float:left;">会员点评</span>
+			</div>
+			<div class="dp_box">
+<!--
+EOT;
+$array = get_dianping(4,70);
+foreach($array AS $rs){print <<<EOT
+-->
+				<div class="listdianping">
+					<div class="img">
+						<a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" src="$rs[icon]"/></a>
+					</div>
+					<div class="dp_text">
+						<div class="t">
+							<a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank" class="m">$rs[username]</a>在{$rs[posttime]}点评了<a href="$webdb[www_url]/home/?uid=$rs[id]" target="_blank" class="b">$rs[title]</a>
+						</div>
+						<div class="dp"> 
+						    {$rs[fen]}
+						</div>                        
+						<div class="gray">{$rs[content]}</div>
+					</div>
+				</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</div>
+		</div>
+		
+		<div class="mian2" style="padding-bottom:0; margin-bottom:18px;">
+			<div class="head">
+				<span class="tag" style="border:none;">{$label[hy_22]}</span>
+			</div>
+			<div class="pad">
+				<div class="padAd">{$label[hy_5]}</div>
+				{$label[hy_16]}					
+			</div>
+		</div>
+		<div class="mian2" style="padding-bottom:0;">
+			<div class="head">
+				<span class="tag" style="border:none;">{$label[hy_23]}</span>
+			</div>
+			<div class="pad">
+				<div class="padAd">{$label[hy_6]}</div>
+				{$label[hy_17]}					
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+<!--
+EOT;
+?>
+-->

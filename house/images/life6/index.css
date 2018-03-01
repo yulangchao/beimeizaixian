@@ -1,0 +1,248 @@
+.fl{float:left;}
+.fr{float:right;}
+.mt10{margin-top:10px;}
+.mt20{margin-top:20px;}
+.head{line-height:40px; height:40px; background:#f0f0f0;}
+.tag{float:left; font-size:16px; padding-left:15px;}
+.more{float:right; padding-right:10px;}
+.clear{clear:both;}
+a:hover{color:#f40;}
+/*
+*房产首页第一栏
+*/
+.searchcontainer{height:100px; overflow:hidden; margin-top:20px;}
+.searchcontainer form{margin-top:15px;}
+.searchcontainer .sidead{width:185px; height:79px; overflow:hidden; margin-left:15px; text-align:center; background:#F3F9EE; border:#DCDCDC solid 1px; padding:5px 0 5px 0;}
+.searchcontainer .search{width:590px; height:91px; overflow:hidden; }
+/*搜索*/
+.selectmodule{height:31px; overflow:hidden; line-height:35px; padding-left:45px; position:relative;}
+.selectmodule:before{content:''; display:block; position:absolute; top:6px; left:10px; width:25px; height:22px; background:url('flag.png') 0 0 no-repeat;}
+.selectmodule span{display:block; margin-left:10px; padding:0 15px; text-align:center; height:31px; float:left; font-size:16px; cursor:pointer; color:#666;}
+.selectmodule span:hover,.selectmodule span.ck{background:#1aa4ed; color:#fff;}
+.houseSearch{background:#fff; border:2px solid #1aa4ed; overflow:hidden;}
+.houseSearch:before{content:''; display:none; position:absolute; top:11px; left:80px; width:18px; height:18px; background:url('flag.png') 0 -107px no-repeat;}
+.selectcont{width:100px; float:left; height:40px; line-height:40px;}
+.selectcont .selectcontin{position:absolute; width:100px; z-index:1000; }
+#showselect{height:40px; overflow:hidden; line-height:40px; padding-left:15px; font-size:14px; color:#666; cursor:pointer;}
+.selectcontin .onclick{background:url(seltecttype.gif) center -33px no-repeat;}
+#listselecta{position:absolute; left:-2px; top:40px; width:100px; background:#fff; border:2px solid #1aa4ed; border-top:none; border-radius:0 0 5px 5px;}
+#listselecta a{display:block; height:28px; overflow:hidden; line-height:32px; padding-left:15px; font-size:14px; background:url(seltecttype.gif) center -132px no-repeat;}
+#listselecta a.ck{color:red;}
+#listselecta a:hover{background:#1aa4ed; color:#FFF; text-decoration:none;}
+.searchcontainer .keyword{float:left;}
+.searchcontainer .keyword input{border:0; background:none; height:40px; line-height:30px; width:370px; padding-left:10px; font-size:14px; color:#666;}
+.searchcontainer .keyword input:focus{outline:none;}
+.searchcontainer .search_sub{float:right; background:#1aa4ed; padding:0 15px 0 45px; position:relative;}
+.searchcontainer .search_sub:before{content:''; display:block; position:absolute; width: 26px; height:26px; top:7px; left:15px; background:url('flag.png') 0 -29px no-repeat;}
+.searchcontainer .search_sub input{border:none; height:40px; line-height:40px; background:none; color:#fff;}
+/*
+*横幅广告
+*/
+.arrowbanner{width:100%; overflow:hidden;}
+.arrowbanner img{width:100%;}
+.ad2 img,.ad3 img{width:100%;}
+/*
+*房产首页第二栏
+*/
+/*左边*/
+.MainContainer .sidel{width:290px; float:left;}
+.MainContainer .mainr{width:884px; float:right;}
+.memberaction .head{overflow:hidden; background:#1aa4ed;}
+.memberaction .head .tag {padding-left:40px; color:#fff; position:relative;}
+.memberaction .head .tag:before{content:''; display:block; position:absolute; width:18px; height:18px; left:10px; top:11px; background:url('flag.png') 0 -69px no-repeat;}
+.memberaction .cont{border:#dfdfdf solid 1px; border-top:0; padding:5px; height:100px;}
+.memberaction .cont div{width:50%; height:28px; padding:3px 0 2px 0; float:left; text-align:center;}
+.memberaction .cont div.ck1 a{color:#1aa4ed;}
+.memberaction .cont div.ck2 a{color:#ff9700;}
+.memberaction .cont div a{display:block;}
+.changeinfo{margin-top:10px; border:#DDD solid 1px;}
+.changeinfo .head{background:#1aa4ed; color:#DE4900;}
+.changeinfo .head .tag,.changeinfo .head .more a{color:#fff;}
+.changeinfo .cont{padding:1px 1px 10px 1px;}
+.changeinfo .cont .h{overflow:hidden; padding:10px;}
+.changeinfo .cont .h div{width:88px; height:20px; text-align:center; padding:8px 0; float:left; color:#333; font-size:15px; font-weight:600; cursor:pointer;}
+.changeinfo .cont .h div.choose{ background:#e8e8e8; color:#0067b4; font-weight:400;}
+.changeinfo .cont .list{height:30px; overflow:hidden; line-height:30px; padding:0 10px 0 15px; color:#333;}
+.changeinfo .cont .list a{padding-left:6px;}
+/*右边*/
+.contenttable{}
+.contenttable .moreinf{vertical-align: top;}
+.moreinfCont{width:347px; margin-left:24px; border:#DDD solid 1px;}
+.contenttable .housenews{width:510px; border:#DDD solid 1px;}
+.contenttable .housenews .head{padding:0 5px 0 5px;}
+.contenttable .housenews .head .tag{padding-left:5px; color:#333;}
+.contenttable .housenews .head a{color:#333; font-size:15px;}
+.contenttable .housenews .cont{padding:5px;}
+.contenttable .housenews .cont div{height:30px; overflow:hidden; padding-left:10px; line-height:30px;}
+.contenttable .housenews .cont div span{display:none;}
+.contenttable .housenews .cont div a{float:left; font-size:14px;}
+.contenttable .housenews .cont div a.f{color:#3074C1; padding-right:5px;}
+.contenttable .housenews .cont div a.t{text-decoration:underline;}
+.contenttable .housenews .cont div em{float:right; font-style:normal; color:#888; padding-right:5px;}
+.contenttable .housenews .cont div.list1{height:100px; border-bottom:#DDD dotted 1px; background:none; margin-bottom:5px;}
+.contenttable .housenews .cont div.list1 a.f,.contenttable .housenews .cont div.list1 em{display:none;}
+.contenttable .housenews .cont div.list1 a.t{width:100%; text-align:center; font-weight:bold; color:#000; font-size:15px; line-height:40px; text-decoration:none;}
+.contenttable .housenews .cont div.list1 span{display:block; text-indent:25px; line-height:25px; color:#666;}
+.contenttable .housenews .cont div.list5{border-bottom:#DDD dotted 1px; padding-bottom:10px ; margin-bottom:9px;}
+.contenttable .moreinf .slidecont{width:338px; height:200px; overflow:hidden; padding:5px 0 5px 0; margin:auto;}
+.contenttable .moreinf .cont{padding:8px; line-height:20px;}
+.contenttable .moreinf .cont .list{height:30px; line-height:30px; overflow:hidden; padding-left:15px; position:relative;}
+.contenttable .moreinf .cont .list:before{content:''; display:block; position:absolute; width:3px; height:3px; background:#c2c2c2; top:14px; left:5px;}
+.contenttable .moreinf .cont .list a{float:left;}
+.contenttable .moreinf .cont .list span{float:right; color:#888;}
+/*
+*房产首页第三栏
+*/
+.hothouse{border:#dfdfdf solid 1px; border-radius:2px;}
+.hothouse .head .tag{padding-left:40px; line-height:40px; position:relative;}
+.hothouse .head .tag:before{content:''; display:block; position:absolute; top:11px; left:15px; background:url('flag.png') 0 -125px no-repeat; width:20px; height:20px;}
+.hothouse .cont{padding:0 5px 5px 5px;}
+.hothouse .cont .c{
+	padding:15px 10px 15px 10px;
+	background:#FFF;
+	line-height:26px;
+	height:400px;
+	overflow:hidden;	
+}
+.hothouse .cont .list{
+	height:26px;
+	overflow:hidden;
+}
+.hothouse .cont .list a,.hothouse .cont .list span{
+	display:block;
+	float:left;
+}
+.hothouse .cont .list a{width:50%; font-size:15px; font-weight:bold; color:#1aa4ed;}
+.hothouse .cont .list a:hover{color:#59B8EA;}
+.hothouse .cont .list span.city{
+	width:20%;
+	color:#777;
+}
+.hothouse .cont .list span.price{
+	width:30%;
+	color:#999;
+}
+.hothouse .cont .list span.price em{color:#ff9700;font-style:normal;}
+.m-mainr2{border:1px solid #dfdfdf;}
+.sidecont{height:237px; overflow:hidden;}
+.sidecont .head .tag{margin-left:10px;padding-left:15px;line-height:40px;}
+.sidecont .head .tag span{display:block;padding-right:15px;color:#333;}
+.sidecont .head .more {line-height:40px;}
+.sidecont .head .more a{padding-left:20px;font-size:14px; position:relative;}
+.sidecont .head .more a:before{content:''; display:block; position:absolute; width:5px; height:5px; background:#1aa4ed; top:8px; left:5px; border-radius:50%;}
+.sidecont .head .more a.post:before{width:22px; height:22px; background:url('flag.png') 3px -155px no-repeat; background-color:none; top:0px; left:75px;}
+.sidecont .head .more a.post{padding-left:100px; font-size:14px; color:#666;}
+.sidecont .cont{height:170px; padding:15px 0 0 20px;}
+.sidecont .cont .listpic{width:150px; height:165px; text-align:center; margin-right:20px; float:left; border:1px solid #dfdfdf;}
+.sidecont .cont .listpic:hover{border:1px solid #1aa4ed;}
+.sidecont .cont .listpic:hover a{color:#59B8EA}
+.sidecont .cont .listpic div{width:130px;height:20px;overflow:hidden;line-height:25px;margin:auto;color:#666;}
+.sidecont .cont .listpic div img{width:auto; height:100%;}
+.sidecont .cont .listpic div a{
+	color:#3074C1;
+}
+.sidecont .cont .listpic div.img{margin-top:8px;height:88px;margin-bottom:3px;}
+.sidecont .cont .listpic div.price{
+	font-size:14px;
+	color:#f60;
+}
+.sidecont1 .head{border-top:1px solid #dfdfdf;}
+.sidecont1 .head .more a:before{background:#ff9700;}
+.sidecont1 .head .more a.post:before{background-position:2px -182px;}
+.sidecont1 .cont .listpic{}
+/*
+*房产首页第四栏
+*/
+
+.tzhousecont{border:#dfdfdf solid 1px;}
+.tzhousecont .head .more a.post:before{background:none;}
+.abouthouse{border:#DDD solid 1px;}
+.abouthouse .cont{padding:10px;}
+.abouthouse .cont table{border-bottom:#DDD dotted 1px;margin-bottom:16px;}
+.abouthouse .cont table .img{width:90px;padding:4px 10px 15px 0;}
+.abouthouse .cont table .img div{width:90px;border:#DDD solid 1px;padding:0; text-align:center;}
+.abouthouse .cont table .img div a{display:block;height:80px;overflow:hidden; line-height:80px;}
+.abouthouse .cont table .img div a img{width:auto; height:100%; max-width:90px;}
+.abouthouse .cont table .word{line-height:20px;color:#888; padding-bottom:15px;}
+.abouthouse .cont table .word h3{height:25px;font-size:15px;overflow:hidden; line-height:25px;}
+.abouthouse .cont table .word div a{color:#f60;}
+.abouthouse .cont .list{height:30px;line-height:30px;padding-left:15px; position:relative;}
+.abouthouse .cont .list:before{content:''; display:block; position:absolute; width:3px; height:3px; background:#c2c2c2; top:14px; left:5px;}
+.abouthouse .cont .list a{float:left;color:#666; font-size:14px;}
+.abouthouse .cont .list span{float:right;color:#999;padding-right:5px;}
+.tzhousecont{height:358px;}
+.tzhousecont .cont{padding:5px 0 0 3px;}
+.tzhousecont .cont .listtz{width:245px;overflow:hidden;padding:16px 0 0 35px;float:left;}
+.tzhousecont .cont .listtz dl{border:#dfdfdf solid 1px;height:80px;}
+.tzhousecont .cont .listtz dl:hover{border:#1aa4ed solid 1px;}
+.tzhousecont .cont .listtz dl dt{float:left;width:113px;padding-top:5px;}
+.tzhousecont .cont .listtz dl dt img{width:auto; height:100%;}
+.tzhousecont .cont .listtz dl dt div{width:93px;border:#aaa solid 1px;height:67px; text-align:center; line-height:67px; overflow:hidden;margin:auto;
+}
+.tzhousecont .cont .listtz dl dd{
+	float:left;
+	width:129px;
+	padding-top:2px;
+	line-height:25px;
+	color:#888;
+}
+.tzhousecont .cont .listtz dl dd h3,.tzhousecont .cont .listtz dl dd div{
+	height:25px;
+	font-size:13px;
+	overflow:hidden;
+	padding:0 5px 0 5px;
+}
+
+/*
+*房产首页第五栏
+*/
+.tophouse,.mencont{border:#dfdfdf solid 1px;height:420px;}
+#Span5,#Span7{border-right:1px solid #dfdfdf; width:142px}
+#Span7,#Span8{
+	width:119px;
+	float:left;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	cursor:pointer;
+}
+.tophouse .head .choose,.mencont .head .choose{background:#fff; color:#1aa4ed;border-bottom:none;}
+.tophouse .head div{ height:40px; float:left; width:144px; text-align:center;font-size:14px;font-weight:bold;cursor:pointer; border-bottom:1px solid #dfdfdf;}
+.tophouse .cont{padding:5px 10px 0 10px;}
+.tophouse .cont .listpic{border-bottom:#DDD dotted 1px;}
+.tophouse .cont .listpic .img{width:85px;padding:5px 10px 5px 0;}
+.tophouse .cont .listpic .img div{width:83px; height:98px; border:#DDD solid 1px; overflow:hidden; padding:1px; text-align:center; line-height:98px;}
+.tophouse .cont .listpic .img div a{display:block; width:100%; height:100%; overflow:hidden;}
+.tophouse .cont .listpic .img div a img{max-width:83px; width:auto; height:100%;}
+.tophouse .cont .listpic .word{padding-top:3px; color:#888; vertical-align: top;}
+.tophouse .cont .listpic .word div{height:30px; line-height:30px; overflow:hidden; font-size:15px;}	
+.tophouse .cont .listpic .word div a{color:#1aa4ed; font-size:15px;}
+.tophouse .cont .listpic .word div span{color:#ff9700;}
+.mencont .head{position:relative;}
+.mencont .head div{border-bottom:1px solid #dfdfdf;}
+.mencont .head:after{content:''; position:absolute; display:block; right:0; bottom:-1px; width:643px; height:1px; background:#dfdfdf;}
+.mencont .cont{height:360px; padding-left:3px;}
+.mencont .cont div{float:left; overflow:hidden;}
+.mencont .cont .listpic{width:33%; float:left;}
+.mencont .cont .listpic .img{width:125px; padding:30px 10px 0 15px; line-height:145px;}
+.mencont .cont .listpic .img div{width:123px;border:#DDD solid 1px;padding:1px;}
+.mencont .cont .listpic .img div a{width:123px;overflow:hidden;display:block;text-align:center;}
+.mencont .cont .listpic .img div a img{height:145px; max-width:123px; width:auto;}
+.mencont .cont .listpic .word{padding-top:30px; line-height:25px;color:#888; vertical-align:top;}	
+.mencont .cont .listpic .word div{width:100%; overflow:hidden;}
+.mencont .cont .listpic .word div a{display:block; color:#ff9700;font-size:15px;font-weight:bold; padding:8px 0 12px 0;}
+
+.mencont .cont .listpic .word div.goto{background:#1aa4ed;margin-top:5px;width:110px; position:relative;}
+.mencont .cont .listpic .word div.goto:after{content:''; display:block; position:absolute; width:15px; height:15px; background:url('flag.png') -91px -106px no-repeat; top:11px; right:15px;}
+.mencont .cont .listpic .word div.goto a{font-size:15px; color:#fff; width:90px; height:35px; line-height:35px;font-weight:normal;padding:0 10px 0 10px;}
+/**********************/
+.searchcontainer .sidead,.memberaction,.changeinfo,.contenttable,.sidecont,.abouthouse,.tophouse,.mencont{
+	background:#FFF;
+}
+.searchcontainer .sidead a img{width:172px; height:79px;}
+.mencont .cont .listpic .word div.goto a:hover{color:#E2FF07}
+.tophouse .cont .listpic .word div a:hover{color:#59B8EA;}
+.memberaction .cont div a:hover,
+.abouthouse .cont .list a:hover,
+.tzhousecont .cont .listtz dl:hover a,
+.mencont .cont .listpic .word div a:hover{color:#f40;}

@@ -1,0 +1,91 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style>
+  .admenu{overflow:hidden; margin-top:10px;}
+  .admenu a{float:left; margin:0 10px 0 6px; padding:5px 8px; background:#3091D0; border-radius:3px; color:#fff;}
+</style>
+<div class="admenu">
+  <a href="?hack=$hack&job=list">我购买的广告</a>
+  <a href="?hack=$hack&job=buy">购买电话广告</a>
+</div>
+<!--
+EOT;
+if($job=='buy'||$job=='edit'){
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer mtop10">
+	<h3>电话广告位购买</h3>
+	<form name="form1" method="post" action="?hack=$hack&job=$job&step=2">
+	  <dl>
+	    <dt>广告标题：</dt>
+		<dd><input type="text" name="title" size="20" value="$rsdb[title]"></dd>
+	  </dl>
+	  <dl>
+	    <dt>电话号码：</dt>
+		<dd><input type="text" name="telephone" size="20" value="$rsdb[telephone]"></dd>
+	  </dl>
+	  <dl>
+	    <dt>介绍(可留空)：</dt>
+		<dd><input type="text" name="about" size="60" value="$rsdb[about]"></dd>
+	  </dl>
+<!--
+EOT;
+if($job!='edit'){print <<<EOT
+-->
+		<dl>
+		  <dt>购买天数：</dt>
+		  <dd><input type="text" name="day" size="4"> 天 (每天需要{$webdb[MoneyName]}<span class="b red">{$webdb[money_sell_telephone]}</span>{$webdb[MoneyDW]},你当前拥有<span class="b blue">{$lfjdb[money]}</span>{$webdb[MoneyDW]})</dd>
+		</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	    <div class="butter">
+		  <span class="submits"><input type="submit" name="Submit" value="提交"></span>
+		  <input type="hidden" name="id" value="$id">
+		</div>
+	</form>
+</div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/article.css">
+<div class="MainContNa mtop10">
+	<div class="head">以下是你购买过的电话广告位</div>
+    <div class="cont" style="background:#fff;">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+		<div class='ArticleList'>
+		  
+		  <div class='title'>标题名称：$rs[title]</div>
+		  <div class='title'>电话号码：$rs[telephone]</div>
+		  <div class='title'>介绍：$rs[about]</div>
+		  <div class='time'>购买日期：$rs[posttime]</div>
+		  <div class='time'>截止日期：$rs[endtime]</div>
+		  <div class='operation'>
+			<a href="?hack=$hack&job=edit&id=$rs[id]">修改</a>
+			<a href="?hack=$hack&action=del&id=$rs[id]" onclick="return confirm('你确认要删除吗?');">删除</a>
+		  </div>
+		
+		</div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->		
+		$showpage
+    </div>
+</div>
+<!--
+EOT;
+}
+?>
+-->

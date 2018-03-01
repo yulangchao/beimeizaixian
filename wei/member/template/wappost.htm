@@ -1,0 +1,92 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<dl>
+		<dt><span>*</span>主题：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入主题，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+<!--
+EOT;
+if(!$web_admin){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}if(count($city_DB[name])>1){
+$listcitys="<select name=\"postdb[city_id]\">\n";
+foreach($city_DB[name] AS $key=>$value){
+if($job=='edit')$city_id=$rsdb[city_id];
+$ckk=$city_id==$key?'selected':'';
+$listcitys.="<option value=\"$key\" $ckk>$value</option>\n";
+}
+$listcitys.="</select>";
+print <<<EOT
+-->
+	<dl>
+		<dt>所在城市:</dt>
+		<dd>$listcitys</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>内容:</dt>
+        <dd><textarea name="postdb[content]">$rsdb[content]</textarea></dd>
+	</dl>
+	<dl>
+		<dt>关键字:</dt>
+        <dd><input type="text" id="keyword_id" name="postdb[keywords]" value="$rsdb[keywords]" class="text"> 多个关键词,用空格分开</dd>
+	</dl>
+	<dl>
+		<dt>缩略图:</dt>
+        <dd>
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="postdb[picurl]" id='out_url0' value="$rsdb[picurl]" placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+            </div>         
+         </dd>
+	</dl>
+    <div class="butter">
+            	<input type="submit" name="Submit" value="提 交" class='submits'/>
+                <input type="hidden" name="fid" value="$fid"/>
+                <input type="hidden" name="id" value="$id"/>
+                <input type="hidden" name="fid_bak1" value="$rsdb[fid_bak1]"/>
+                <input type="hidden" name="fid_bak2" value="$rsdb[fid_bak2]"/>
+                <input type="hidden" name="fid_bak3" value="$rsdb[fid_bak3]"/>
+                <input type="hidden" name="rid" value="$rid"/>
+	</div>
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

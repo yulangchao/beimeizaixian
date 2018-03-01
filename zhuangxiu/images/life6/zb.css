@@ -1,0 +1,194 @@
+
+.MainLists {
+	margin-top:25px; clear:both; overflow:hidden;
+}
+.MainLists .MainL {
+	width:853px; float:left; border:1px solid #dfdede;
+}
+.SelectSortid {
+	width:100%; overflow:hidden;
+}
+.head {
+	height:65px; background:#ececec; border-bottom:1px solid #dfdede;
+}
+.head .tag {
+	width:50%; float:left; line-height:65px; font-size:18px; font-weight:bold;
+}
+.head .tag span {
+	padding-left:70px;
+}
+.head .more {
+	width:50%; float:left; text-align:right;
+}
+.head .more a {
+	float:right; width:120px; height:65px; line-height:65px; font-size:15px; color:#21aaf3; 
+	background:url(p.png) no-repeat left center; padding:0 20px;
+}
+
+.SelectSortid .cont {
+	padding:25px 20px; overflow:hidden;
+}
+.SelectSortid .cont .naves {
+	height:45px; font-size:14px; color:#888888; overflow:hidden;
+}
+.SelectSortid .cont .info {
+	width:80%; float:left; line-height:45px;
+}
+.SelectSortid .cont .atc {
+	width:20%;; float:right;
+}
+.SelectSortid .cont .atc a{
+	width:20%; height:45px; line-height:45px; text-align:right; color:#888888; float:left; padding-left:15px;
+}
+.SelectSortid .cont .atc .change1 {
+	background:url(change1.png) no-repeat left center; margin:0 25px 0 40px;
+}
+.SelectSortid .cont .atc .change2 {
+	background:url(change2.png) no-repeat left center;
+}
+.SelectSortid .cont .list_field  {
+	overflow:hidden;
+}
+.SelectSortid .cont .list_field .list {
+	width:50%; height:40px; line-height:40px; overflow:hidden; float:left;
+}
+.SelectSortid .cont .moreaction {
+	margin:0 auto; width:50%; overflow:hidden; padding:25px 0;
+}
+.moreaction span {
+	float:left; margin:5px 8px;
+}
+.cont .moreaction input{
+	width:119px; height:32px; border:none; font-size:14px; font-weight:bold;  color:#FFFFFF; padding:0 0 0 25px; line-height:32px;
+}
+.moreaction .zb input{
+ 	background:url(input_bg1.png) no-repeat center;
+}
+.moreaction .tz input {
+ 	background:url(input_bg2.png) no-repeat center;
+}
+.moreaction .sc input {
+ 	background:url(input_bg3.png) no-repeat center;
+}
+.SelectSortid .cont .contact_info {
+	padding:25px 15px; overflow:hidden;
+}
+.SelectSortid .cont .contact_info center {
+	width:35%; margin:0 auto; line-height:25px; font-size:16px; background:url(center_bg.png) no-repeat left center;
+}
+
+.MainLists .SideR {
+	width:310px; float:right;
+}
+.MainLists .SideR .AtcZxCont {
+	height:148px; overflow:hidden; background:#f2f2f2; border:1px solid #dfdede;
+}
+.AtcZxCont div {
+	width:135px; height:50px; border-radius:7px; float:left; margin:9px;
+}
+.AtcZxCont div a {
+	display:block; width:125px; height:50px; line-height:50px; text-align:center; 
+	font-size:16px; font-weight:bold; color:#FFFFFF; padding-left:15px;
+}
+.AtcZxCont .AtcNav1 {
+	background:url(navbg1.png) no-repeat center;
+}
+.AtcZxCont .AtcNav2 {
+	background:url(navbg2.png) no-repeat center;
+}
+.AtcZxCont .AtcNav3 {
+	background:url(navbg3.png) no-repeat center;
+}
+.AtcZxCont .AtcNav4 {
+	background:url(navbg4.png) no-repeat center;
+}
+.SideR .head {
+	overflow:hidden; height:48px; padding-left:25px;
+}
+.SideR .head .tag {
+	height:16px; line-height:16px; padding-left:15px; margin-top:17px; border-left:3px solid #767676;
+}
+.SideR .userinfocont {
+	overflow:hidden; margin:25px 0; border:1px solid #dfdede;
+}
+.userinfocont .cont dl {padding:25px 15px 10px 15px; font-size:14px; overflow:hidden;}
+.userinfocont .cont dl dt{float:left;}
+.userinfocont .cont dl dt a{width:100px; height:110px; text-align:center; display:block;}
+.userinfocont .cont dl dt a img{max-width:100px; height:110px;}
+.userinfocont .cont dl dd{float:left; padding-left:10px;}
+.userinfocont .cont .see{line-height:30px; text-align:center;}
+.userinfocont .cont .see a{color:#1aa4ed;}
+.SideR .sideconts {
+	overflow:hidden; border:1px solid #dfdede; 
+}
+.SideR .sideconts .cont {
+	padding:16px; overflow:hidden;
+}
+.SideR .sideconts .cont .list{
+	height:25px; line-height:25px; overflow:hidden; list-style:inside disc; color:#cccccc;
+}
+/* comment */
+.ShowComment {
+	border:1px solid #dfdede; clear:both; position:relative; margin:25px 0 50px 0;
+}
+.Mhead {
+	width:100%; height:50px; background:#ececec; border-bottom:1px solid #dfdede;
+}
+.Mhead .tag {
+	height:50px; padding-left:25px; line-height:50px; font-size:16px; font-weight:bold;
+}
+.ShowComment .Mcont {
+	padding:20px; width:1160px; overflow:hidden;
+}
+/* commentList */
+#comment {width:550px; overflow:hidden; float:left;}
+#comment .pllist {width:100%; border-bottom:1px dotted #a2a2a2; float:left; padding-bottom:15px; margin-bottom:15px;}
+#comment .pllist .img {width:84px; border:1px solid #a2a2a2; float:left;}
+#comment .pllist .img a{width:84px; height:100px; text-align:center; display:block;}
+#comment .pllist .img img{max-width:84px; height:100px;}
+#comment .pllist .word {width:440px; float:right;}
+#comment .pllist .word .name {font-size:14px; color:#888888; padding-bottom:15px;}
+#comment .pllist .word .write {font-size:14px; line-height:35px;}
+#comment .pllist .word .like {text-align:right; line-height:36px;}
+/* addcomment */
+.ShowComment .Mcont .contr {
+	width:538px; float:right;
+}
+.contr .m-add {border:1px solid #dfdede; overflow:hidden;}
+.contr .comment_form th {
+	height:50px; background:#ececec;
+}
+.contr .comment_form .tag {
+	float:left; padding-left:25px;
+}
+.contr .comment_form .left {
+	padding-right:5px; text-align:right; width:100px; float:left;margin-top:20px; 
+}
+.contr .comment_form .right {
+	margin-top:20px; float:left;
+}
+.contr .comment_form .right textarea {
+	width:365px; height:145px;
+}
+.contr .comment_form .submits input {
+	width:120px; height:45px; background:#1aa4ed; text-align:center; line-height:45px; 
+	color:#FFFFFF; border:none; font-size:18px; margin-bottom:30px;
+}
+
+.contr .sideconts {
+	margin-top:30px; border:1px solid #dfdede; 
+}
+.contr .sideconts .cont {
+	padding:20px;
+}
+.contr .sideconts .cont .list {
+	line-height:25px; font-size:14px;
+}
+.contr .sideconts .cont .list span {
+	color:#888888;
+}
+/* page */
+#comment .page{padding:10px 0; height:30px; line-height:30px; text-align:center;}
+#comment .page a{border:#DDD solid 1px; padding:3px 5px 2px 5px; color:#999;}
+#comment .page a:hover{border:blue solid 1px; color:red;}
+.no_comment{padding:75px 20px 50px 160px; line-height:30px; font-size:22px; font-weight:bold; color:#FFB066;}

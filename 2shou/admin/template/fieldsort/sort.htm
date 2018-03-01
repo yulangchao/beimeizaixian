@@ -1,0 +1,118 @@
+<!--
+<?php
+if($fid){
+print<<<EOT
+--> 
+
+<div class="MainContainers">
+  <div class="Conter">
+      <table class="ListTable">
+        <tr> 
+          <td class='Left'> 
+            $gudie
+          </td>
+        </tr >
+      </table>
+    </div>
+  </div>
+<!--
+EOT;
+}
+print<<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">分类</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <ul class='notes'><li>注:如果想同时创建多个.每个换一行 </li></ul>
+  <table class="ListTable">
+  <tr> 
+    <td class='Left'> 
+      <form action="$admin_path&lfj=$lfj&action=addsort" method=POST>
+        <span class=bold>创建新类别--</span>&nbsp;名称 
+        <textarea name="name" cols="20" rows="5"></textarea>
+        <input type=submit value="创 建" name="submit">
+        <input type="hidden" name="fup" value="$fid">
+      </form>
+      </td>
+    </tr >
+  </table> 
+</div>
+</div>
+
+<form name="formlist" method="post" action="$admin_path&action=editlist">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">编辑分类</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+        <ul class='notes'>
+          <li>注意:<font color="#FF0000">分类排序的规则是,数值大的排在前面</font></li>
+        </ul>   
+  <table class="ListTable">
+          <tr> 
+            <th >分类名称</th>
+            <th width="10%">排序</th>
+            <th width="12%">子类个数</th>
+            <th width="22%">修改名称</th>
+            <th width="14%">创建/管理子类</th>
+            <th width="8%">删除</th>
+          </tr>
+          <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+            <td class='Left'>
+              <input type="checkbox" name="fid_db[{$rs[fid]}]" value="$rs[fid]" style="border:0px;">
+              {$rs[icon]}【{$rs[name]}】</td>
+            <td> 
+              <input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'>
+            </td>
+            <td>$rs[NUM]</td>
+            <td><a href='$admin_path&lfj=$lfj&job=editsort&fid=$rs[fid]' title='修改名称' class='edit'><font color="red" >修改名称</font></a></td>
+            <td><a href="$admin_path&job=listsort&fid=$rs[fid]">创建/管理子类</a></td>
+            <td><a href="$admin_path&action=delete&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');" title='点击删除' class='del'>删除</a></td>
+          </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+
+        <div class="m-showpage">$showpage</div>
+        <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+  		  <input type="submit" name="Submit2" value="修改排序" onclick="postlist('list')">
+            <input type="submit" name="Submit22" value="批量删除" onClick="postlist('delete')">
+        </div>
+          <SCRIPT LANGUAGE="JavaScript">
+<!--
+function postlist(t){
+	if(t=='delete'){
+		document.formlist.action="$admin_path&action=delete";
+	}else{
+		document.formlist.action="$admin_path&action=editlist";
+	}
+	document.formlist.submit();
+}
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+		  </div>
+      </div>
+
+</form>
+<!--
+EOT;
+?>
+-->

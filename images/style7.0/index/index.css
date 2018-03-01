@@ -1,0 +1,1156 @@
+.wrap{background-color:#f5f5f5; width:100%; margin:0; padding:20px 0 50px 0;}
+
+.main_box{
+	width: 1200px;
+	min-height: 500px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+/* HomepageNavSort */
+.main_box .HomepageNavSort{
+	margin:0 auto;
+	width:1200px;
+	background:#fff;
+	height:100px;
+	overflow:hidden;
+}
+.main_box .HomepageNavSort div{
+	width:220px;
+	height:70px;
+	margin:16px 10px 14px 10px;
+	float:left;
+}
+.main_box .HomepageNavSort div.news{
+	background:#DCF5FF;
+}
+.main_box .HomepageNavSort div.shop{
+	background:#FFEFE1;
+}
+.main_box .HomepageNavSort div.active{
+	background:#DDFEFF;
+}
+.main_box .HomepageNavSort div.forum{
+	background:#FFE5E5;
+}
+.main_box .HomepageNavSort div.gift{
+	background:#D3FFED;
+}
+.main_box .HomepageNavSort div .title{
+	position: relative;
+	width: 52px;
+	height: 76px;
+	font: 16px/110px 'Microsoft Yahei';
+	left: -9px;
+	top: -22px;
+	text-indent: 5px;
+	color: #fff;
+}
+.main_box .HomepageNavSort div.news .title{
+	 background: url(news.png)left no-repeat;
+}
+.main_box .HomepageNavSort div.shop .title{
+	 background: url(shop.png)left no-repeat;
+}
+.main_box .HomepageNavSort div.active .title{
+	 background: url(active.png)left no-repeat;
+}
+.main_box .HomepageNavSort div.forum .title{
+	 background: url(forum.png)left no-repeat;
+}
+.main_box .HomepageNavSort div.gift .title{
+	 background: url(gift.png)left no-repeat;
+}
+.main_box .HomepageNavSort div ul{
+	overflow: hidden;
+	position: relative;
+	left: -20px;
+	top: 10px;
+}
+.main_box .HomepageNavSort div ul li{
+	float: left;
+	padding: 4px 0px 4px 9px;
+}
+.main_box .HomepageNavSort div ul li a{
+	color:#777;
+}
+.main_box .HomepageNavSort div ul li a:hover{
+	color:#ff6600;
+}
+/* banner */
+.main_box .banner{
+	width:100%;
+	height:165px;
+	overflow:hidden;
+}
+.main_box .banner img{
+	width:1200px;
+	height:165px;
+}
+
+.main_box .content_first{
+	overflow:hidden;
+	margin-top:20px;
+}
+.main_box .content_first .content_left{
+	float:left;
+	width:681px;
+	min-height:300px;
+	overflow:hidden;
+}
+
+
+.content_left .ShowSlide{
+	width:681px;
+	overflow:hidden;
+	position:relative;
+}
+
+
+/*轮播*/
+.content_left .ShowSlide .SlidePics,.content_left .ShowSlide .SlidePics .Pic div{
+	width:360px;
+	height:270px;
+}
+.content_left .ShowSlide .SlidePics .Pic div a{
+	width:460px;
+}
+.content_left .ShowSlide .SlidePics .Pic img{
+	height:270px;
+}
+.content_left .ShowSlide .SlidePics .Pic div p{
+	width:350px;
+	height:40px;
+	line-height:40px;
+}
+.content_left .ShowSlide .SlidePics .Title{
+	height:10px;
+	width:360px;
+	overflow:hidden;
+	position:absolute;
+	left:0px;
+	bottom:10px;	
+	color:#FFF;
+}
+.content_left .ShowSlide .SlidePics .Title ul{
+	padding:0 0 0 0;
+	margin:0;
+	height:10px;
+	float:right;
+}
+.content_left .ShowSlide .SlidePics .Title ul li{
+	margin:0 5px 0 0;
+	height:10px;
+	width:10px;
+	line-height:60px;
+	background:#FFF;
+	overflow:hidden;
+	cursor:pointer;
+	border-radius:5px;
+}
+.content_left .ShowSlide .SlidePics .Title ul li.on{
+	background:#079EEF;
+}
+
+/*图文新闻列表*/
+.content_left .piclist_box{
+	width:681px;
+	padding-top:5px;
+	overflow:hidden;
+}
+.content_left .piclist_box .piclist{
+	overflow:hidden;
+	width:100%;
+	background:#fff;
+	margin-top:20px;
+}
+.content_left .piclist_box .piclist:hover{
+	background:#FCFCFC;
+}
+.content_left .piclist_box .piclist:hover .code{display:block;}
+.content_left .piclist_box .piclist .code{display:none; position:absolute; width:196px; height:147px; text-align:center; background:rgba(0,0,0,.5);}
+.content_left .piclist_box .piclist .code span{display:block; width:100%; line-height:30px; color:#fff; font-size:15px;}
+.content_left .piclist_box .piclist .code span img{width:100px; height:100px; border-radius:5px;}
+.content_left .piclist_box .piclist .img{
+	float:left;
+	width:196px; text-align:center;
+}
+.content_left .piclist_box .piclist .img img{max-width:196px; height:147px;}
+.content_left .piclist_box .piclist .info{
+	float:right;
+	width:485px;
+}
+.content_left .piclist_box .piclist .info .title{
+	height:50px;
+	font:bold 16px/50px 'Microsoft Yahei';
+	margin:0 15px;
+
+}
+.content_left .piclist_box .piclist .info .title a{
+	color:#333;
+}
+.content_left .piclist_box .piclist .info .title a:hover{
+	color:#ff6600;
+}
+.content_left .piclist_box .piclist .info .content{
+	font:14px/22px 'Simsun';
+	color:#999;
+	margin:0 15px;
+	/*line-height: 22px;*/
+}
+.content_left .piclist_box .piclist .info .other{
+	margin:0 15px;
+	overflow:hidden;
+	margin-top: 13px;
+
+}
+.content_left .piclist_box .piclist .info span.date{
+	color:#FF8400;
+}
+.content_left .piclist_box .piclist .info span.detail{
+	float:right;
+}
+.content_left .piclist_box .piclist .info span.detail a{
+	color: #fff;
+	background: #FF8400;
+	width: 68px;
+	font:16px/26px 'Microsoft Yahei';
+	height: 26px;
+	display: block;
+	text-align: center;
+	margin-right: 10px;
+}
+.content_left .piclist_box .piclist .info span.detail a:hover{
+	background:#FFAF00;
+}
+
+
+
+
+
+
+/*右侧*/
+.main_box .content_first .content_right{
+	float:right;
+	width:492px;
+}
+
+/*头条*/
+.content_first .content_right .topstories_box{
+	background:#fff; position:relative;
+}
+.content_first .content_right .topstories_box:before{content:''; display:block; width:58px; height:58px; position:absolute; top:0; left:0; background:url(tt.png) no-repeat;}
+.content_first .content_right .topstories{
+	background:#fff;
+	min-height:400px;
+	width:492px;
+	padding-top:10px;
+}
+.content_first .content_right .topstories .newslist{
+	margin: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px dashed #DFDFDF;
+}
+.content_first .content_right .topstories .newslist:hover{
+	background:#FCFCFC;
+}
+.content_first .content_right .topstories .newslist .title{
+	text-align:center;
+	margin-bottom: 10px;
+}
+.content_first .content_right .topstories .newslist .title a{
+	font:16px/20px 'Microsoft Yahei';
+	color:#000;
+}
+.content_first .content_right .topstories .newslist .title a:hover{
+	color:#ff6600;
+}
+.content_first .content_right .topstories .newslist .content{
+	overflow:hidden;
+	font:13px/22px 'Simsun';
+	color:#999;
+}
+.content_first .content_right .topstories .newslist .content span.date{
+	color:#17A763;
+	float:right;
+}
+
+/*最新*/
+.content_first .content_right .newest_box{
+	background:#fff; position:relative;
+}
+.content_first .content_right .newest_box:before{content:''; display:block; width:58px; height:58px; position:absolute; top:0; left:0; background:url(zx.png) no-repeat;}
+.content_first .content_right .newest_box .newest{
+	background:#fff;
+	width:492px;
+	padding-top:18px;
+}
+.content_first .content_right .newest_box .newest .newestlist{
+	margin: 10px 20px;
+	height: 30px;
+	font:15px/30px 'Microsoft Yahei';
+	background: url(blue.png) 8px 12px no-repeat;
+	overflow: hidden;
+	padding-left: 20px;
+	color:#666;
+}
+.content_first .content_right .newest_box .newest .newestlist:hover{
+	background:#FCFCFC;
+}
+.content_first .content_right .newest_box .newest .newestlist span.sort a{
+	color:#999;
+}
+.content_first .content_right .newest_box .newest .newestlist span.content a{
+	color:#666;
+}
+.content_first .content_right .newest_box .newest .newestlist span.sort a:hover,.content_first .content_right .newest_box .newest .newestlist span.content a:hover{
+	color:#ff6600;
+}
+.content_first .content_right .newest_box .newest .newestlist span.date{
+	float:right;
+}
+
+.content_first .content_right .newest_box .newest .more{
+	overflow:hidden;
+}
+.content_first .content_right .newest_box .newest .more a{
+	background: #21AAF3;
+	color: #fff;
+	display: block;
+	width: 103px;
+	height: 31px;
+	line-height: 31px;
+	float: right;
+	text-align: center;
+	margin: 0 20px 10px 0;
+}
+.content_first .content_right .newest_box .newest .more a:hover{
+	background:#248EF2;
+}
+
+
+/*横幅2*/
+.main_box .banner2{
+	width: 100%;
+	height: 160px;
+	overflow: hidden;
+	margin:30px 0;
+}
+.main_box .banner2 img{
+	width:1200px;
+	height:160px;
+}
+
+/*supermarket  生活超市*/
+
+.main_box .supermarket{
+	overflow:hidden;
+}
+.main_box .supermarket .head{
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	background:url(more.png) right 13px no-repeat; margin-right:10px;
+}
+.main_box .supermarket span.tag{
+	font:20px/50px 'Microsoft Yahei';
+	color:#333;
+}
+.main_box .supermarket span.more{
+	float:right;
+	margin-right: 30px;
+}
+.main_box .supermarket span.more a{
+	color:#666;
+	font:15px/50px 'Simsun';
+}
+.main_box .supermarket span.more a:hover{
+	color:#FF6600;
+}
+
+/*左*/
+.main_box .supermarket .supermarket_left{
+	float:left;
+	overflow:hidden;
+}
+.main_box .supermarket .supermarket_left .selling{
+	width:280px;
+	height:506px;
+}
+
+.main_box .supermarket .supermarket_left .supermarket_sort{
+	background: #17A763;
+	width: 280px;
+	margin-top: 20px;
+	overflow: hidden;
+	padding: 26px 0;
+	font:16px 'Simsun';
+	}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li{
+	float: left; overflow:hidden; width:89px; height:16px;
+	margin: 12px 25px;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a{
+	padding-left:25px;
+	color:#fff;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a:hover{
+	color:#FF6600;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list1{
+	background: url(smxj.png) left no-repeat;
+
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list2{
+	background: url(jjyp.png) left no-repeat;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list3{
+	background: url(cyxx.png) left no-repeat;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list4{
+	background: url(ps.png) left no-repeat;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list5{
+	background: url(fz.png) left no-repeat;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list6{
+	background: url(bx.png) left no-repeat;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.list7{
+	 background: url(xn.png) left no-repeat;
+}
+.main_box .supermarket .supermarket_left .supermarket_sort ul li a.more{
+	font-size:15px; padding-left:0;
+}
+/*右*/
+.main_box .supermarket .supermarket_right{
+	float: right;
+	width: 910px;
+	overflow: hidden;
+	position: absolute;
+	margin-left: 307px;
+	margin-top: -16px;
+}
+
+.main_box .supermarket .supermarket_right .piclist{
+	width:283px;
+	height:367px;
+	background:#fff;
+	float:left;
+	margin-right:20px;
+	margin-top:16px;
+	position:relative;
+
+}
+.main_box .supermarket .supermarket_right .piclist:hover{
+	background:#FCFCFC;
+}
+.main_box .supermarket .supermarket_right .piclist span.new{
+	display: block;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 11px;
+	top: -5px;
+	background: url(new.png) no-repeat;
+}
+.main_box .supermarket .supermarket_right .piclist span.hot{
+	display: block;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 11px;
+	top: -5px;
+	background: url(hot.png) no-repeat;
+	}
+.main_box .supermarket .supermarket_right .piclist .img{
+	margin:10px;
+	display:table;
+	width:260px;
+}
+.main_box .supermarket .supermarket_right .piclist .img a{
+	display:table-cell;
+	text-align:center;
+	height:260px;
+	vertical-align:middle;
+	background:#EFEFEF;
+}
+.main_box .supermarket .supermarket_right .piclist .img img{
+	max-width:260px;
+	max-height:260px;
+}
+.main_box .supermarket .supermarket_right .piclist .content{
+	margin:0 16px;
+	height:40px;
+	overflow:hidden;
+	font:14px/20px 'Simsun';
+}
+.main_box .supermarket .supermarket_right .piclist .content a{
+	color:#333;
+}
+.main_box .supermarket .supermarket_right .piclist .content a:hover{
+	color:#ff6600;
+}
+.main_box .supermarket .supermarket_right .piclist .price{
+	text-align:center;
+	color:#FF2C2C;
+	font-size:15px;
+	font-weight:bold;
+	    line-height: 35px;
+}
+.main_box .supermarket .supermarket_right .piclist .weixincode{
+	width: 263px;
+	height: 263px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	display: none; 
+}
+.main_box .supermarket .supermarket_right .piclist:hover .weixincode{
+	display:block;
+}
+.main_box .supermarket .supermarket_right .piclist .weixincode:before{
+	content: '';
+	display: block;
+	width: 263px;
+	height: 263px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #000;
+	opacity: 0.7;
+	z-index: 10;
+}
+.main_box .supermarket .supermarket_right .piclist .weixincode h3{
+	text-align: center;
+	padding-top: 30px;
+	font-weight: normal;
+	font-size: 18px;
+	color: #FFF;
+	position: relative;
+	z-index: 100;
+}
+.main_box .supermarket .supermarket_right .piclist .weixincode p{
+	position: relative;
+	z-index: 100;
+	text-align: center;
+	width: 144px;
+	margin: 20px auto 0 auto;
+	background: #FFF;
+	padding: 10px 0 10px 0;
+	border-radius: 5px;
+}
+
+
+/*横幅3*/
+.main_box .banner3{
+	width: 100%;
+	height: 160px;
+	overflow: hidden;
+	margin:30px 0;
+}
+.main_box .banner3 img{
+	width:1200px;
+	height:160px;
+}
+
+/*商家*/
+.main_box .shop_box .head{
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	background:url(more.png) right 13px no-repeat; margin-right:10px;
+}
+.main_box .shop_box span.tag{
+	font: 20px/50px 'Microsoft Yahei';
+	color: #333;
+}
+.main_box .shop_box .head ul{
+	float:right;
+	
+}
+.main_box .shop_box .head ul li{
+	float:left;
+	padding-right: 25px;
+}
+.main_box .shop_box .head ul li a{
+	font:15px/20px 'Simsun';
+	color:#666;
+}
+.main_box .shop_box .head ul li a:hover{
+	color:#FF6600;
+}
+
+.main_box .shop_box .piclist_box{
+	overflow:hidden;
+	width:1224px;
+	height: 217px;
+}
+.main_box .shop_box .piclist_box .piclist{
+	width:284px;
+	height:213px;
+	position:relative;
+	float:left;
+	margin-right:21px;
+}
+.main_box .shop_box .piclist_box .piclist:hover{
+	border:2px solid #FF7700;
+}
+.main_box .shop_box .piclist_box .piclist:hover .code{display:block;}
+.main_box .shop_box .piclist_box .piclist a{display:block; width:284px; height:213px; text-align:center;}
+.main_box .shop_box .piclist_box .piclist a img{max-width:284px; height:213px;}
+.main_box .shop_box .piclist_box .piclist span.title{
+	display: block;
+	top: -46px;
+	width: 284px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	position: relative;
+	background: rgba(0,0,0,.6);
+	font-size: 15px;
+}
+.main_box .shop_box .piclist_box .piclist span.hot{
+	display: block;
+	width: 75px;
+	height:75px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.main_box .shop_box .piclist_box .piclist span.hot1{background:url(hot2.png) no-repeat;}
+.main_box .shop_box .piclist_box .piclist span.title a{
+	 color: #fff;
+}
+.main_box .shop_box .piclist_box .piclist span.code{display:none; position:absolute; width:100%; height:100%; background:rgba(0,0,0,.5); text-align:center; top:0; left:0;}
+.main_box .shop_box .piclist_box .piclist span.code img{border-radius:5px; width:120px; height:120px;}
+.main_box .shop_box .piclist_box .piclist span.code em{width:100%; height:30px; display:block; padding-top:20px; font-size:15px; line-height:30px; color:#fff;}
+.main_box .shop_box .piclist_box .piclist span.title a:hover{
+	 color: #FF6600;
+}
+/*横幅4*/
+.main_box .banner4{
+	width:100%;
+	height:165px;
+	overflow:hidden;
+	margin:30px 0;
+}
+.main_box .banner4 img{
+	width:1200px;
+	height:165px;
+}
+
+/*商家*/
+
+.main_box .merchant{
+	overflow:hidden;
+}
+.main_box .merchant .head{
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	background:url(more.png) right 13px no-repeat; margin-right:10px;
+}
+.main_box .merchant span.tag{
+	font: 20px/50px 'Microsoft Yahei';
+	color: #333;
+}
+.main_box .merchant span.more{
+	float:right;
+	margin-right: 30px;
+}
+.main_box .merchant span.more a{
+	color: #666;
+	font: 15px/50px 'Simsun';
+}
+.main_box .merchant span.more a:hover{
+	color:#FF6600;
+}
+.main_box .merchant .merchant_sort{
+	background: #fff;
+	width: 1200px;
+	overflow: hidden;
+	padding-bottom: 49px;
+}
+.main_box .merchant .merchant_sort ul li{
+	float: left;
+	margin: 45px 48px 0px 78px;
+	width: 172px;
+	height: 172px;
+	text-align: center;
+}
+.main_box .merchant .merchant_sort ul li .title{
+	text-align: center;
+	font:19px/40px 'Microsoft Yahei';
+}
+.main_box .merchant .merchant_sort ul li a img{
+	width:130px;
+	height:130px;
+}
+.main_box .merchant .merchant_sort ul li a img:hover{
+	width:140px;
+	height:140px;
+}
+.main_box .merchant .merchant_sort ul li .title a{
+	color:#333;
+}
+.main_box .merchant .merchant_sort ul li .title a:hover{
+	color:#ff6600;
+}
+/* 外卖 */
+.ShortOrder{
+	overflow:hidden;
+	width:1200px;
+	margin:0 auto;
+	height:730px;
+}
+.ShortOrder .ShortOrderHead{
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+	background: url(more.png) right 13px no-repeat;
+	margin-right: 10px;	
+}
+.ShortOrder .ShortOrderHead .tag{
+	font: 20px/50px 'Microsoft Yahei';
+	color: #333;	
+}
+.ShortOrder .ShortOrderHead span.more{
+	float: right;
+	margin-right: 30px;	
+}
+.ShortOrder .ShortOrderHead span.more a{
+	color: #666;
+	font: 15px/50px 'Simsun';	
+}
+.ShortOrder .ShortOrderHead span.more a:hover{
+	color:#ff6600;
+}
+.ShortOrder .ShortOrderLeft{
+	float:left;
+	width:280px;
+	height:680px;
+}
+.ShortOrder .ShortOrderLeft .Restaurant{
+	overflow:hidden;
+	width:100%;
+}
+.ShortOrder .ShortOrderLeft .Restaurant{
+	background:url(yellow_ico.png) no-repeat
+}
+.ShortOrder .ShortOrderLeft .Restaurant a{
+	width: 280px;
+	height: 60px;
+	display: block;
+	font: 20px/60px 'Microsoft Yahei';
+	background: url(restaurant.png) 52px 20px no-repeat;
+	text-align: center;
+	margin-bottom:25px;
+	color:#fff;	
+}
+
+.ShortOrder .ShortOrderLeft .SevenEleven{
+	background:url(green_ico.png) no-repeat
+}
+.ShortOrder .ShortOrderLeft .SevenEleven a{
+	width: 280px;
+	height: 60px;
+	display: block;
+	font: 20px/60px 'Microsoft Yahei';
+	background: url(SevenEleven.png) 52px 20px no-repeat;
+	text-align: center;
+	margin-bottom:25px;
+	color:#fff;	
+}
+.ShortOrder .ShortOrderLeft .NewProducts{
+	width:280px;
+	height:506px;
+	overflow:hidden;
+}
+.ShortOrder .ShortOrderLeft .NewProducts img{
+	width:280px;
+	height:506px;
+}
+
+
+.ShortOrder .ShortOrderRight{
+	float:right;
+	width:920px;
+	height:680px;
+	overflow:hidden;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList{
+	width:280px;
+	height:327px;
+	float:left;
+	border:1px solid #E7E7E7;
+	margin-left:24px;
+	margin-bottom:20px;
+	position:relative;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList:hover{
+	background:#FCFCFC;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .pic{
+	max-width:280px;
+	height:210px;
+	text-align:center;
+	overflow:hidden;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .pic img{
+	width:280px;
+	height:210px;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info{
+	width:260px;
+	height:96px;
+	padding:10px;
+	border-top:1px solid #F4F3F2;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait{
+	width:100%;
+	height:31px;
+	overflow:hidden;
+	font: 16px/31px 'Simsun';
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .title{
+	float:left;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .title a{
+	color:#333;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .title a:hover{
+	color:#ff6600;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .trait{
+	float:right;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .trait span{
+	width:16px;
+	height:16px;
+	padding:3px;
+	margin-left:5px;
+	border-radius:50%;
+	color:#fff;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .trait span.green{
+	background:#2FD285;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .trait span.yellow{
+	background:#FF831E;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .TitleTrait .trait span.red{
+	background:#FF5454;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info ul.send{
+	width:100%;
+	overflow:hidden;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info ul.send li{
+	float:left;
+	width: 33%;
+	font: 12px/31px 'Simsun';
+	color:#707070;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .BusinessHours{
+	width:100%;
+	overflow:hidden;
+	height:31px;
+	line-height:31px;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .BusinessHours .state{
+    padding: 3px 7px;
+    color: #fff;
+    background: #1ACC78;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .info .BusinessHours .OrderTime{
+	background: url(time.png) no-repeat;
+	margin-left: 10px;
+	padding-left: 20px;
+	color: #707070;
+}
+
+
+.ShortOrder .ShortOrderRight .ProductsPicList .weixincode{
+	width: 280px;
+	height: 210px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none; 
+}
+.ShortOrder .ShortOrderRight .ProductsPicList:hover .weixincode{
+	display:block;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .weixincode:before{
+	content: '';
+	display: block;
+	width: 280px;
+	height: 210px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #000;
+	opacity: 0.7;
+	z-index: 10;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .weixincode h3{
+	text-align: center;
+	padding-top: 12px;
+	font-weight: normal;
+	font-size: 18px;
+	color: #FFF;
+	position: relative;
+	z-index: 100;
+}
+.ShortOrder .ShortOrderRight .ProductsPicList .weixincode p{
+	position: relative;
+	z-index: 100;
+	text-align: center;
+	width: 143px;
+	margin: 15px auto 0 auto;
+	background: #FFF;
+	padding: 10px 1px 10px 0;
+	border-radius: 5px;
+}
+
+.BannerShortOrder{
+	width:100%;
+	height:165px;
+	margin:30px 0;
+	overflow:hidden;
+}
+.BannerShortOrder img{
+	width:1200px;
+	height:165px;
+}
+
+/*服务*/
+.VisitingService{
+	overflow:hidden;
+	width:1200px;
+	margin:0 auto;
+	height:695px;
+}
+.VisitingService .VisitingServiceHead{
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+	background: url(more.png) right 13px no-repeat;
+	margin-right: 10px;	
+}
+.VisitingService .VisitingServiceHead .tag{
+	font: 20px/50px 'Microsoft Yahei';
+	color: #333;	
+}
+.VisitingService .VisitingServiceHead span.more{
+	float: right;
+	margin-right: 30px;	
+}
+.VisitingService .VisitingServiceHead span.more a{
+	color: #666;
+	font: 15px/50px 'Simsun';	
+}
+.VisitingService .VisitingServiceHead span.more a:hover{
+	color:#ff6600;
+}
+.VisitingService .VisitingServiceLeft{
+	float:left;
+	width:280px;
+	height:645px;
+}
+.VisitingService .VisitingServiceLeft{
+	width:280px;
+	/*height:467px;*/
+	overflow:hidden;
+}
+.VisitingService .VisitingServiceLeft img{
+	width:280px;
+	height:467px;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort{
+	width:280px;
+	height:150px;
+	/*padding:0 30px;*/
+	background:#0B98DF;
+	margin-top:25px;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul{
+	overflow:hidden;
+	padding-top:12px;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li{
+    float: left;
+    font: 16px/40px 'Simsun';
+    width: 42%;
+    margin-left: 6%;
+    text-indent: 20px;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li a{
+	color:#fff;
+	padding-left:25px;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li a:hover{
+	color:#ff6600;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li.list1 a{
+	background:url(cleaner.png) left no-repeat;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li.list2 a{
+	background:url(wax.png) left no-repeat;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li.list3 a{
+	background:url(move.png) left no-repeat;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li.list4 a{
+	background:url(carwash.png) left no-repeat;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li.list5 a{
+	background:url(appliances.png) left no-repeat;
+}
+.VisitingService .VisitingServiceLeft .VisitingServiceSort ul li.moresort a{
+	padding:0;
+}
+
+.VisitingService .VisitingServiceRight{
+	float:right;
+	width:920px;
+	height:642px;
+	overflow:hidden;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList{
+	width: 285px;
+	height: 310px;
+	background: #fff;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	margin-left: 21px;
+	margin-bottom: 21px;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList:hover{
+	background:#EDEDED;
+}
+
+.VisitingService .VisitingServiceRight .DecorationPicList .pic{
+	max-width:248px;
+	height:186px;
+	margin:10px 18px;
+	text-align:center;
+	overflow:hidden;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .pic img{
+	width:248px;
+	height:186px;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .info{
+	margin:10px 18px;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .info .title{
+	 font: 18px/40px 'Microsoft Yahei';
+	 color:#333;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .info .content{
+	font: 12px/20px 'Simsun';
+	color: #868686;
+	width: 100%;
+	height: 43px;
+	overflow: hidden;
+}
+   
+.VisitingService .VisitingServiceRight .DecorationPicList .weixincode{
+	width: 248px;
+	height: 186px;
+	position: absolute;
+	left: 18px;
+	top: 10px;
+	display: none; 
+}
+.VisitingService .VisitingServiceRight .DecorationPicList:hover .weixincode{
+ 	display:block;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .weixincode:before{
+	content: '';
+	display: block;
+	width: 248px;
+	height: 186px;
+	position: absolute;
+	left: 0px;
+	top: 0;
+	background: #000;
+	opacity: 0.7;
+	z-index: 10;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .weixincode h3{
+	text-align: center;
+	padding-top: 5px;
+	font-weight: normal;
+	font-size: 18px;
+	color: #FFF;
+	position: relative;
+	z-index: 100;
+}
+.VisitingService .VisitingServiceRight .DecorationPicList .weixincode p{
+	position: relative;
+	z-index: 100;
+	text-align: center;
+	width: 143px;
+	margin: 6px auto 0 auto;
+	background: #FFF;
+	padding: 10px 1px 10px 0;
+	border-radius: 5px;
+}
+
+.BannerVisitingService{
+	width:100%;
+	height:160px;
+	margin:30px 0;
+	overflow:hidden;
+}
+.BannerVisitingService img{
+	width:1200px;
+	height:160px;
+}
+
+/*
+*FrendLink
+*/
+.FrendLink{
+	margin:15px auto;
+	border:#ececec solid 1px;
+}
+.FrendLink .head{
+	height:45px;
+	line-height:45px;
+	background:#fff;
+	padding:0 15px;
+}
+.FrendLink .head .tag{
+	float:left;
+	font-size:16px;
+	font-weight:bold;
+}
+.FrendLink .head .more{
+	float:right;
+}
+.FrendLink .head .more a{
+	color:#29A4EF;
+}
+.FrendLink .piclink{
+	padding:15px 15px 0 15px;
+}
+.FrendLink .piclink:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.FrendLink .piclink img{
+	margin-right:15px;
+	margin-bottom:15px;
+}
+.FrendLink .wordlink{
+	padding:0 15px 10px 15px;
+	line-height:35px;
+	word-spacing:15px;
+}

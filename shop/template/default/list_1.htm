@@ -1,0 +1,129 @@
+<!--
+<?php
+$ck=$fid?"":"class='ck'";
+if($ordertype){
+	$ordertypedb[$ordertype]='ck';
+}else{
+	$ordertypedb[0]='ck';
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<!-- shop_main s -->
+<div class='shop_main'>
+	<div class='position'>当前位置：<a href="$Mdomain/">首页</a> $GuideFid[$fid]</div>
+	<div class='main_box'>  <!-- main_box s -->
+			<!-- left_box  s -->
+		<div class='left_box'>    
+			<div class='sort'> <!-- sort 分类 s -->
+				<span class='left'>分类：</span>
+				<ul>
+<!--
+EOT;
+$ck=$Fid_db[$fid]?"class='ck'":"style='display:none;'";
+print <<<EOT
+-->
+					<li $ck><a href="?fid=$fid">全部</a></li>
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $fkey=>$fvalue){
+$ck=$fid==$fkey?"class='ck'":"";
+print <<<EOT
+-->
+					<li $ck><a href="list.php?fid=$fkey">{$fvalue}</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</ul>
+			</div>  <!--  sort 分类  e -->
+			<div class='order'>    <!-- order 排序 s -->
+				<ul>
+					<li class='border $ordertypedb[0]'><a href="?fid=$fid">推荐</a></li>
+					<li class='border $ordertypedb[sellnum]'><a href="?fid=$fid&ordertype=sellnum">销量</a></li>
+					<li class='border $ordertypedb[hits]'><a href="?fid=$fid&ordertype=hits">人气</a></li>
+					<li class="$ordertypedb[price]"><a href="?fid=$fid&ordertype=price">价格</a></li>
+				</ul>					
+				
+			</div>    <!-- order 排序 e -->
+
+			<div class='shop_list'>    <!-- shop_list  s -->
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$rs[url]="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]";
+$codeurl=urlencode("$webdb[www_url]/shop/bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]");
+$codeimg="$webdb[www_url]/do/2codeimg.php?url=$codeurl";
+$show=$rs[sellnum]?"销量：<span>{$rs[sellnum]}</span>":"浏览：<span>{$rs[hits]}</span>";
+print <<<EOT
+-->
+				<div class='piclist'>   <!--  piclist  s -->
+					<div class='img'><a href="$rs[url]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0"></a></div>
+					<div class='title'><a href="$rs[url]" target="$target" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></div>
+					<div class='info'>
+						<div class='left'>
+							<div class='price'>&yen;{$rs[price]}</div>
+							<div class='appraise'>$show</div>
+						</div>
+						<div class='right'>
+							<a href="$rs[url]">立即购买</a>
+						</div>
+					</div>
+
+					<div class="weixincode" onclick="window.open('$webdb[www_url]/shop/bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]')">
+						<h3>微信扫码手机查看</h3>
+						<p><img src="$codeimg" width="150" height="150"/></p>
+					</div>
+				</div>     <!-- piclist  e -->	
+<!--
+EOT;
+}print <<<EOT
+-->
+				<!-- showpage 分页  s -->
+				<div class='showpage'>$showpage</div>
+				<!-- showpage 分页  e -->
+
+			</div>
+		</div> 
+			<!--  left_box  e -->
+
+			<!-- right_hot  热销排行 s -->
+		<div class='right_hot'>
+			<div class='head'><span>HOT</span>&nbsp;&nbsp;热销排行</div>
+<!--
+EOT;
+$array=list_title('hot',8);
+foreach($array AS $rs){
+$rs[url]="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]";
+$codeimg="$webdb[www_url]/do/2codeimg.php?url=$codeurl";
+$show=$rs[sellnum]?"销量：<span>{$rs[sellnum]}</span>":"浏览：<span>{$rs[hits]}</span>";
+print <<<EOT
+-->
+			<div class='piclist'>   <!--  listpic  s -->
+				<div class='img'><a href="$rs[url]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" width="240" height="180"></a></div>
+				<div class='title'><a href="$rs[url]" target="$target" title='$rs[full_title]'>$rs[title]</a></div>
+				<div class='info'>
+					<div class='left'>&yen;{$rs[price]}</div>
+					<div class='right'>$show</div>
+				</div>
+				<div class="weixincode" onclick="window.open('$webdb[www_url]/shop/bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]')">
+					<h3>微信扫码手机查看</h3>
+					<p><img src="$codeimg" width="120" height="120"/></p>
+				</div>
+			</div>     <!-- listpic  e -->
+<!--
+EOT;
+}print <<<EOT
+-->
+		</div>
+			<!-- right_hot  热销排行  e -->
+	</div><!-- main_box e -->
+</div>
+<!-- shop_main 商城列表页面主体内容  e -->
+<!--
+EOT;
+?>
+-->

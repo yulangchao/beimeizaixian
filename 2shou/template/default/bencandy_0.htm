@@ -1,0 +1,211 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$Mdomain/images/life6/bencandy.css">
+<div class="MainCont" style="width:1200px; margin:15px auto;">  <!--  MainCont  s -->
+	<div class="Mhead">
+		<div class="tag">$rsdb[title]</div>
+		<div class="info">
+		发布时间：<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		浏览{$rsdb[hits]}次
+		</div>
+	</div>
+
+	<dl class="baseinfo">   <!-- baseinfo s -->
+		<dt>
+			<div class="infopic">
+<div class="img">
+  <a href="$city_url/job.php?job=show_img&fid=$fid&id=$id" target="_blank">
+    <img src='$rsdb[picurl]' onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/>
+  </a>
+</div>
+<div>
+  <a href="$city_url/job.php?job=show_img&fid=$fid&id=$id" target="_blank">
+  <img src="$webdb[www_url]/images/default/img_ico.gif">{$rsdb[picnum]}图</a>
+</div>
+			</div>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="liststyle">
+		<tr>
+		<td>
+			<div><span>地区：</span>{$rsdb[showarea]}</div>
+<!--{template}--><div><span>{title}：</span>{value}</div><!--{/template}-->
+            <div><span>标签：</span>$rsdb[keywords]</div>
+		</td>
+		</tr>
+	</table>
+
+	<div class="moreaction">  <!-- moreaction  s -->
+		<a href="JavaScript:;" onClick="window.open('$city_url/job.php?job=report&fid=$fid&id=$id');"><img src="images/life6/jb.png" /></a>
+		<a href="JavaScript:;" onClick="window.location.href='mailto:';"><img src="images/life6/tj.png" /></a>
+		<a href="JavaScript:;" onClick="window.open('job.php?job=collect&fid=$fid&id=$id')"><img src="images/life6/collect.png" /></a>
+	</div>   <!-- moreaction  e -->
+		</dt>
+		<dd>
+			<div class="moreinfo">  <!-- moreinfo s -->
+				<div><span>联系人：</span>{$rsdb[linkman]} 
+<!--
+EOT;
+if($rsdb[uid]){
+print <<<EOT
+-->
+                <a href="$webdb[_www_url]/member/?main=pm.php?job=send&username=$rsdb[linkman]" target="_blank"><img src="images/life6/lxw.png" /></a> 
+<!--
+EOT;
+}print <<<EOT
+--> 
+				</div>
+				<div><span>电话号码：</span>$rsdb[telephone]</div>
+				<div><span>手机号码：</span>$rsdb[mobphone]</div>
+				<div><span>QQ　号码：</span><a href="tencent://message/?uin=$rsdb[_oicq]&Site=$webdb[Info_webname]&Menu=yes">$rsdb[oicq]</a></div>
+				<div><span>MSN 帐号：</span>$rsdb[msn]</div>
+				<div><span>邮箱帐号：</span>$rsdb[email]</div>
+				<div><span>IP归属地：</span>{$rsdb[ipfrom]} <a href="$city_url/job.php?job=ip&ip=$rsdb[ipaddress]" target="_blank">查询更多</a></div>
+			</div>  <!--  moreinfo e -->
+		</dd>
+	</dl>    <!-- baseinfo e -->
+</div>  <!--  MainCont  e -->
+<div class="contents" style="width:1200px; margin:15px auto;">  <!-- contents s -->
+	<div class="heads"><div class="tag"><span>详细信息</span></div><div class="more"><br/></div></div>
+	<div class="conts"> $rsdb[content]</div>
+</div>     <!-- contents e -->
+<div class='bottoms'>
+	<div class="MainCont1">
+		<div class="CommentCont">   <!-- CommentCont  s -->
+			<div class="head">
+				<div class="tag"><span>网友留言</span></div>
+				<div class="more"><br/></div>
+			</div>
+			<div class="cont"> <!--  cont s -->
+				<div id="comment">  <!-- comment  留言内容列表 s -->
+				</div>  <!-- comment 留言内容列表 e -->
+				<div class='post_form'>  <!-- post_form  s -->
+					<div class='head'><img src="images\life6\ly.png" alt="" /></div>
+					<div class='post_comment'>
+<!--
+EOT;
+if($lfjid){$none='none';}
+print <<<EOT
+-->
+<div style="display:$none;"><span >称呼：&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="text" name="textfield2" id="comment_username" value="$lfjid"></div>
+<!--
+EOT;
+if($webdb[Info_GroupCommentYzImg]&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupCommentYzImg]))){
+$webdb[yzImgComment]=1;
+print <<<EOT
+-->
+<div><span>验证码：</span> <input id="yzImgNum" type="text" name="yzimg" size="8" onFocus="commentyzimg()"></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function commentyzimg(){
+if(/yzimg\.php/.test($("#yz_Img")[0].src)==false){
+    $("#yz_Img").show();
+    $("#yz_Img")[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();
+}}
+document.write('<img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="" style="display:none;">');
+//-->
+</SCRIPT>
+<!--
+EOT;
+}
+print <<<EOT
+-->								
+						<span>内容：&nbsp;&nbsp;&nbsp;&nbsp;</span><textarea name="textfield" rows="8" id="comment_content" onKeyDown="quickpost(event)"></textarea>
+					</div>
+<script language="JavaScript">
+<!--
+
+getcomment("$city_url/job.php?job=comment_ajax&fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event)
+{
+if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83))
+{
+    cnt++;
+    if (cnt==1){
+        post_comment();
+    }else{
+        alert('内容正在提交...');
+    }
+}	
+}
+
+function post_comment(){
+postcomment('$city_url/job.php?job=comment_ajax&action=post&fid=$fid&id=$id','$webdb[yzImgComment]');
+if(document.getElementById("yz_Img")!=null){
+    //document.getElementById("yz_Img").src="$webdb[www_url]/do/yzimg.php?"+Math.random();;
+    $("#yz_Img")[0].src='';
+    $("#yz_Img").hide();
+}
+}
+//-->
+</script>
+<div class='submit'><input name="" type="image" src="$Murl/images/life6/submit.png" id="comment_submit" onClick="post_comment();" /></div>
+				</div>  <!-- post_form  e -->
+
+			</div> <!-- cont e -->
+		</div>    <!-- CommentCont  e -->
+		<div class="side">  <!-- side s -->
+			<div class="ActCont">  <!-- ActCont s -->
+				<a href="post.php?fid=$fid" target="_blank"><img src="images/life6/tt1.png" /></a> 
+				<a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/homepage_ctrl.php?atn=info" target="_blank"><img src="images/life6/tt2.png" /></a> 
+				<a href="$webdb[_www_url]/member/?main=$Murl/member/list.php" target="_blank"><img src="images/life6/tt3.png" /></a> 
+				<a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/renzheng.php" target="_blank"><img src="images/life6/tt4.png" /></a> 
+			</div>  <!-- ActCont e -->
+			<div class="Poster">  <!-- Poster  s -->
+				<div class="head">发布人信息</div>
+			<dl>
+				<dt><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]"  onclick="if($rsdb[uid]==0)return false;"><img src="$userdb[icon]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'" width="120" height="120" /></a>
+				</dt>
+				<dd>
+				<div><a href="$city_url/job.php?job=userinfo&uid=$rsdb[uid]"  onclick="if($rsdb[uid]==0)return false;">$userdb[username]</a></div>
+				<div>注册:$userdb[regdate]</div>
+				<div>离线:$userdb[lastvist]</div>
+				<div>级别:$userdb[level] &nbsp;&nbsp;
+<!--
+EOT;
+$member1 = $userdb[grouptype]==1 ? "<img src=\"$Murl/images/life6/rz1.png\" alt=\"企业会员\">" : "";
+$member2 = $userdb[idcard_yz]==1 ? "<img src=\"$Murl/images/life6/rz3.png\" alt=\"身份认证会员\">" : "<img src=\"$Murl/images/life6/rz03.png\" alt=\"身份还未认证\">";
+$member3 = $userdb[email_yz]==1 ? "<img src=\"$Murl/images/life6/rz2.png\" alt=\"邮箱认证会员\">" : "<img src=\"$Murl/images/life6/rz02.png\" alt=\"邮箱还未认证\">";
+$member4 = $userdb[mob_yz]==1 ? "<img src=\"$Murl/images/life6/rz4.png\" alt=\"手机认证会员\">" : "<img src=\"$Murl/images/life6/rz04.png\" alt=\"手机还未认证\">";
+print <<<EOT
+-->
+				$member1 $member2 $member3 $member4
+				</div>
+				</dd>                
+			</dl>
+			<div class="all"><a href="$city_url/job.php?job=userinfo&uid=$rsdb[uid]" onclick="if($rsdb[uid]==0)return false;" target="_blank">查看该用户发布的所有信息</a></div>            
+			</div> <!--  Poster  e -->
+
+		<div class="sidecont">  <!-- sidecont s -->
+			<div class="head">
+				<div class="tag">二手人气排行</div>
+				<div class="more"><a href="listall.php">更多&gt;&gt;</a></div>
+			</div>
+			<div class="cont cont1">
+<!--
+EOT;
+$i=0;
+$listdb = Get_Info("hot",10,40,$fid);
+foreach($listdb AS $key=>$rs){
+$i++;
+$rs[url]=get_info_url($rs[id],$rs[fid],$rs[city_id]);
+print <<<EOT
+-->
+<div class="list{$i}"><span>{$i}</span><a href="$rs[url]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[full_title]</a></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+		</div>   <!--  sidecont e -->
+		</div>  <!-- side e -->
+<div style="clear:both"></div>
+	</div>			
+</div>   <!--  content e -->
+<!--
+EOT;
+?>
+-->

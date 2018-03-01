@@ -1,0 +1,175 @@
+<!--
+<?php
+print<<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">栏目</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <form action="$admin_path&action=addsort" method=POST>
+      <table class="FormTable">
+<tr>  
+  <td colspan='2'>
+    <span class="b red">注意:</span>
+      可以同时创建多个栏目,每个栏目换一行即可.
+  </td>
+</tr>
+      <tr>
+        <td class='tdL'> 
+          <span class=bold>创建新栏目--</span>&nbsp;名称 
+        </td>
+        <td class='tdR'> <textarea name="name" cols="25" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td class='tdL'>归属</td>
+        <td class='tdR'>
+       
+        
+        <select name="fid">
+          <!--
+EOT;
+if($fid){
+print <<<EOT
+--> <option value="$fid">$rsdb[name]</option>
+          <!--
+EOT;
+}print <<<EOT
+-->
+          <option value="0">顶级栏目</option>{$fup_select}
+        </select>
+        </td>
+      </tr>
+      <tr>
+        <td class='tdL'> 所属模型</td>
+        <td class='tdR'> {$module_select} </td>
+      </tr>
+      <tr>
+        <td class='tdL'>性质</td>
+        <td class='tdR'>
+            <input type="radio" name="Type" value="0" checked>
+            栏目 
+            <input type="radio" name="Type" value="1">
+            分类(不可发表内容)
+        </td>
+      </tr>
+ 
+  </table>
+      <div class='submits'>
+        <input type="hidden" name="yellow" value="$yellow">
+        <input type=submit value="创 建" name="submit">      
+      </div>       
+    </form>
+  </div>
+</div>
+     
+
+<form name="formlist" method="post" action="$admin_path&action=editlist">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">编辑栏目</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+
+        <ul class="notes">
+          <li>注意:<font color="#FF0000">栏目排序的规则是,数值大的排在前面,只能是同一级的进行排序<br>
+            <b><font color="#0000FF">提醒:</font></b><font color="#0000FF">分类信息普遍只适合两级分类,一级或者大于两级,页面布局将会错乱或者会带来其它不可预料的后果.</font></font></li>
+        </ul> 
+        <table class='ListTable'>
+          <tr> 
+            <th width="6%">FID</th>
+            <th width="26%">栏目名称</th>
+            <th width="7%">排序</th>
+            <th width="15%">模块类型</th>
+            <th width="7%">性质</th>
+            <th width="5%">设置</th>
+            <th width="6%">内容</th>
+            <th width="5%">分表</th>
+            <th width="5%">信息</th>
+            <th width="6%">标签</th>
+            <th width="6%">删除</th>
+          </tr>
+          <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+            <td><b><font color="#FF0000">$rs[fid]</font></b></td>
+            <td class='Left'> 
+              <input type="checkbox" name="fiddb[{$rs[fid]}]" value="$rs[name]" style="border:0px;">
+              {$rs[icon]}【<a href='$Murl/list.php?fid=$rs[fid]' target="_blank" style="color:$rs[color]">{$rs[name]}</a>】$rs[more]</td>
+            <td> 
+              <input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'>
+            </td>
+            <td><a href="$admin_path&file=module&job=editsort&id=$rs[mid]">{$rs[m_name]}&nbsp;</a></td>
+            <td>$rs[_type]</td>
+            <td><a href='$admin_path&job=editsort&fid=$rs[fid]' title='修改' class='edit'></a></td>
+            <td><a href='$admin_path&file=list&job=list&fid=$rs[fid]' $rs[_ifcontent]>管理</a></td>
+            <td>
+          <!--
+EOT;
+if($rs[type]){print <<<EOT
+-->&nbsp;
+			 <!--
+EOT;
+}elseif(!$rs[tableid]){print <<<EOT
+-->&nbsp;
+<!--<a href='$admin_path&job=table&fid=$rs[fid]' >分表</a>
+EOT;
+}elseif($rs[tableid]){print <<<EOT
+-->
+<a href='?job=table&fid=$rs[fid]'  style='color:red;'>$rs[tableid]</a>
+          <!--
+EOT;
+}print <<<EOT
+-->
+			</td>
+            <td><a href="$Murl/member/post.php?fid=$rs[fid]" target="_blank" $rs[_ifcontent]>发布</a></td>
+            <td><a href="$labelUrl&fid=$rs[fid]" target="_blank">标签</a></td>
+            <td><a href="$admin_path&action=delete&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');" title='点击删除' class='del'>删除</a></td>
+          </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+        <div class='submits'> 
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+          <input type="submit" name="Submit22" value="删除栏目" onClick="postlist('del')">
+          <input type="submit" name="Submit2" value="修改栏目排序" onclick="postlist('list')">
+          <SCRIPT LANGUAGE="JavaScript">
+<!--
+function postlist(t){
+	if(t=='list'){
+		document.formlist.action="$admin_path&action=editlist";
+		
+	}else if(t=='del'){
+		r=confirm('你确认要删除栏目吗?不可恢复');
+		if(r==true){
+			document.formlist.action="$admin_path&action=delete";			
+		}else{
+			return false;
+		}
+	}
+	document.formlist.submit();
+}
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+		  </div>
+      </div>
+    </div>
+
+</form>
+<!--
+EOT;
+?>
+-->

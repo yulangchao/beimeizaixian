@@ -1,0 +1,73 @@
+<!--
+<?php
+$Info_showsorttype[intval($webdb[Info_showsorttype])]=' checked ';
+print <<<EOT
+-->
+<form name="form1" method="post" action="$admin_path&action=config">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">发布信息权限设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+    <tr> 
+      <td class='tdL'>是否暂停发布/修改信息:(管理员不受限制)</td>
+      <td class='tdR'> 
+        <input type="radio" name="webdbs[Info_ClosePost]" value="1" $Info_ClosePost[1]>
+        暂停 
+        <input type="radio" name="webdbs[Info_ClosePost]" value="0" $Info_ClosePost[0]>
+        开放</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>暂停发布/修改信息的原因说明:</td>
+      <td class='tdR'> 
+        <textarea name="webdbs[Info_ClosePostWhy]" cols="40" rows="8">$webdb[Info_ClosePostWhy]</textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>哪些用户组发表的自动通过审核:<br>
+        (管理员不受限制,不选择,将都自动通过审核) </td>
+      <td class='tdR'> 
+        <input type="hidden" name="GroupPassYz" value="1">
+        $GroupPassYz</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>禁止发布信息的用户组:<br>
+        (管理员不受限制,这里是发表权限的总控制台,这里不允许的话,栏目那里即使设置允许也无效)</td>
+      <td class='tdR'> 
+        <input type="hidden" name="GroupPostInfo" value="1">
+        $GroupPostInfo</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>黑名单(禁止发信息的用户)</td>
+      <td class='tdR'> 
+        <textarea name="webdbs[ForbidPostMember]" cols="40" rows="8">$webdb[ForbidPostMember]</textarea>
+        每个用户名回车换一行</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>黑IP(禁止发信息的IP)</td>
+      <td class='tdR'> 
+        <textarea name="webdbs[ForbidPostIp]" cols="40" rows="8">$webdb[ForbidPostIp]</textarea>
+        每个IP回车换一行 </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>发表信息需要输入验证码的用户组:<br>
+        (不选择,将都不需要) </td>
+      <td class='tdR'> 
+        <input type="hidden" name="Info_GroupPostYzImg" value="1">
+        $Info_GroupPostYzImg</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>发表评论需要输入验证码的用户组:<br>
+        (不选择,将都不需要) </td>
+      <td class='tdR'> 
+        <input type="hidden" name="Info_GroupCommentYzImg" value="1">
+        $Info_GroupCommentYzImg</td>
+    </tr>
+  </table>
+    <div class='submits'>
+        <input  class=mmcinb  type='submit' name='w' value='保存设置'>
+    </div>
+</form>
+<!--
+EOT;
+?>
+-->

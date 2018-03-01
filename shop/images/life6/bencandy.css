@@ -1,0 +1,186 @@
+.L{float:left;}
+.R{float:right;}
+.supply_view{margin-top:25px; width:1200px; overflow:hidden; margin-bottom:25px;}
+.supply_view .bL{float:left; width:72%;}
+.supply_view .bR{float:right; width:25%;}
+.head{height:50px; line-height:50px; font-size:16px; color:#333; overflow:hidden; background:#F0F0F0; padding-right:15px;}
+.head span{padding-left:15px;}
+.head span.L a{font-size:16px; color:#333; font-weight:600;}
+.head span.L a:hover{color:#ff9900;}
+.s-b{border: 1px solid #DFDFDF;}
+.bL1 span.R a{margin-left:10px; font-size:15px;}
+.bL1 span.R a.bPost{float:left;}
+.bL1 span.R a.bPost img{padding-top:16px;}
+.bL1 .content{clear:both; margin-top:40px; margin-left:18px;}
+.bL1 .content div.h{height: 27px; line-height: 27px; position: absolute; margin: -12px 1px 0px -10px; padding-right: 5px; background: #fff; color:#2DB5FE;}
+.bL1 .content div.h span{display:block; float:left; height:26px; width:90px; text-align:center; border:1px solid #2DB5FE; margin-left:10px; font-weight:bold; font-size:16px;}
+.bL1 .content div.c{padding: 30px 0 6px 10px; margin-right:20px; line-height: 30px; border-top: 1px dashed #DADADA; overflow:hidden;}
+/* 评论样式 */
+.bL2{margin-top:20px;}
+.bL2 .head{height:50px; overflow:hidden; background:#ECECEC;}
+.bL2 .head .tag{width:185px; height:50px; text-align:center; background:#fff; float:left; padding-right:6px;}
+.bL2 .head .tag span{display:block; padding:2px 20px 0 20px; line-height:35px; font-size:16px; font-weight:bold;}
+.bL2 .head .more{float:right; width:100px; height:37px;}
+.bL2 .cont{border-top:0;}
+.MainCont1 .side{float:right;}
+/* addcomment */
+.post_form{overflow:hidden;}
+.post_form .ly{height:50px; line-height:50px; background:#fff; padding: 14px 10px 10px 29px;}
+.post_comment{width:700px; margin:0 auto;}
+.post_comment div{padding-top:10px;}
+.post_comment span{width:100px; display:inline-block; height:30px; line-height:30px; padding-right:10px; font-size:16px; vertical-align:top;}
+.post_comment  .ch{width: 526px; height: 35px;margin-bottom: 17px;}
+.post_comment .yzm{width:178px; height:35px;}
+.post_form  .submit{width: 163px; margin: 0 auto; padding: 20px 0;}
+#comment_content{width: 528px; height: 248px;}
+/*留言列表*/
+.comment_box{border-bottom:1px dashed #E5E5E5 ;overflow:hidden; padding: 23px 5px 10px 0px;}
+.comment_box .notes_main{overflow:hidden;}
+.comment_box .pic{float:left;}
+.comment_box .pic img{width:80px; height:80px; border:1px solid #dcdcdc; padding:1px;}
+.comment_box .comment_main{float:left; margin-left: 16px; width: 587px;}
+.comment_box .comment_main .notes{padding: 6px 0px 10px 0px; line-height:20px; overflow:hidden;}
+.comment_box .comment_info .user{float:left; color:#079EEF;}
+.comment_box .comment_main .date{color:#999; text-align:right; padding-left: 40px;}
+#comment{padding:10px 0 30px 22px; border-bottom:1px solid #E0E0E0;}
+#comment .page{text-align:center; line-height:25px; padding-top:10px;}
+#comment .nocomment{text-align:center; padding:30px; font-size:20px; color:green;}
+.comment_box ul{float:right;}
+.comment_box ul li{float: left; padding-right: -25px; margin-right: 20px; height:30px; line-height:30px;}
+.comment_box .comment_info{overflow: hidden; margin-top: 5px;}
+.comment_box .comment_info .user{width:80px; text-align:center; height:30px; line-height:30px;}
+.comment_box ul li span{color:red;}
+/* 卖家信息 */
+.bR1{margin-bottom:20px;}
+.bR1 .h{height:50px; line-height:50px; background:#F0F0F0;}
+.bR1 .h span.l{display:block; padding-left:15px; float:left; font-weight:bold; font-size:16px;}
+.bR1 .h span.r{display:block; float:right; padding-right:10px;}
+.bR1 .c{border-top:0; padding:1px;}
+#cname{display: block; font-size: 15px; font-weight: bold; color: #FF6B00; padding: 13px 0px 3px 20px;}
+.bR1 .c .word{padding:10px 10px 0 20px; line-height:30px;}
+.bR1 .c .word span{padding:0 10px 0 0; float:left; font-size:14px;}
+.bR1 .c .word input{width:75px; height:30px; border:0; cursor:pointer;}
+.bR1 .c .note{padding:25px 5px 15px 20px;}
+.bR1 .c .note span{padding-left:18px; padding-top:2px; color:blue;}
+.bR1 .c div{line-height: 41px; width: 90%; margin: 0 auto; padding-left: 15px; border-bottom: #efefef dashed 1px;}
+.bR1 .c div.img{text-align:center; padding:18px; border-bottom:0;}
+/*最新商品*/
+.bR2{border:1px solid #DFDFDF; margin-top: 20px;}
+.bR2 ul{padding:10px 5px 10px 5px;}
+.bR2 ul li{line-height: 20px; padding: 4px 10px 9px 22px; list-style-type:square; list-style-position:inside; color:#3366FF;font-size:14px}
+
+
+
+
+/*
+*图标
+*/
+div.shopbuy{
+	width:67%;
+	float:left;
+	padding-top:15px;
+	height:90px;
+}
+div.shopbuy .buynum{
+	height:40px;
+}
+div.shopbuy .buynum dt{
+	width:80px;
+	float:left;
+	line-height:30px;
+	font-size:14px;
+	color:#CC6500;
+	text-align:right;
+}
+div.shopbuy .buynum dd{
+	float:left;
+	padding:5px 0 0 10px;
+}
+div.shopbuy .buynum dd input{
+	width:30px;
+}
+div.shopbuy span{
+	dislay:block;
+	float:left;
+	line-height:35px;
+	font-size:18px;
+	color:#CC6500;
+	width:135px;
+	height:35px;
+	overflow:hidden;
+	margin-left:20px;
+}
+
+div.shopbuy span.butter a{
+	dislay:block;
+	font-size:18px;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;
+	padding-left:40px;
+	line-height:38px;
+}
+
+div.shopbuy span.butter a{
+	font-size:16px;
+	padding-left:35px;
+}
+/**遮藏层**/
+#shop_order dl{border:#4DBF00 solid 1px;width:420px; background: #F0FFE5 url(icon3.gif) 15px 15px no-repeat;}
+#shop_order dl dt{
+	height:40px;
+	position:relative;
+}
+#shop_order dl dt span{
+	float:left;
+	padding:15px 0 0 60px;
+	line-height:25px;
+	font-size:16px;
+	font-weight:bold;
+}
+#shop_order dl dt em{
+	display:block;
+	position:absolute;
+	width:40px;
+	line-height:30px;
+	padding-left:15px;
+	right:0;
+	top:5px;
+	cursor:pointer;
+	font-style:normal;
+}
+#shop_order dl dd{
+	padding-left:60px;
+	padding-right:15px;
+}
+#shop_order dl dd p{
+	line-height:25px;
+}
+#shop_order dl dd p ul li{
+	height:25px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+}
+#shop_order dl dd p ul li.tool{
+	padding-top:5px;
+	border-bottom:0;
+	color:green;
+}
+#shop_order dl dd p em{
+	color:red;
+}
+#shop_order dl dd p span{
+	font-size:18px;
+	color:#F00;
+}
+#shop_order dl dd div{
+	padding:10px 0 20px 0;
+}
+#shop_order dl dd div a{
+	display:block;
+	width:100px;
+	height:26px;
+	text-align:center;
+	line-height:26px;
+	color:#FFF;
+}

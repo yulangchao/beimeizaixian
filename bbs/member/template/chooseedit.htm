@@ -1,0 +1,44 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="MainCont">
+	<div class="head"><div class="tag">请选择对应的进行修改</div></div>
+    <div class="cont">
+    	<form name="FORM" method="post" action="?action=editorder" enctype="multipart/form-data">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          
+<!--
+EOT;
+$page=0;
+foreach($listdb AS $rs){
+$page++;
+$url=$page==1?"post.php?job=edit&fid=$fid&id=$id":"post.php?job=editmore&fid=$fid&id=$id&rid=$rs[rid]";
+print <<<EOT
+-->
+		  <tr>
+            <td class="tdL">第<input type="text" name="pagedb[{$rs[rid]}]" value="$page" style="width:20px;" />页 :</td>
+            <td class="tdR">{$rs[subhead]} [<a href="$url">修改</a>]</td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+           	<input type="submit" name="Submit" value="修改排序" class='submit'>
+           	注：你可以修改第二页以后的页码排序，但第一页是固定的，不能修改，否则会混乱！
+           	<input name="fid" type="hidden" id="fid" value="$fid" />
+           	<input name="id" type="hidden" id="id" value="$id" /></td>
+          </tr>
+        </table>
+        </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

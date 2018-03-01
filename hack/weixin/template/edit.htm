@@ -1,0 +1,40 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<form   method="post" action="index.php?lfj=$lfj&action=edit">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">修改关键字</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr> 
+      <td class='tdL'> 
+        关 键 词：
+            
+      </td>
+      <td class='tdR'><input name="ask" type="text" value="$rsdb[ask]" size="50" />
+      （多个个关键词，请用半角空格隔开）</td>
+    </tr>
+    <tr>
+      <td class='tdL'>回复内容：</td>
+      <td class='tdR'><textarea name="answer" cols="50" rows="5">$rsdb[answer]</textarea></td>
+    </tr> <tr> 
+      <td class='tdL'> 
+        排 序 值：
+            
+      </td>
+      <td class='tdR'><input name="list" type="text" value="$rsdb[list]" size="10" /></td>
+    </tr>
+    </table>
+    <div class='submits'>
+      <input type="submit" name="Submit2" value=" 提 交 " />
+      <input name="id" type="hidden" id="id" value="$id" />      
+    </div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->
+</form>
+

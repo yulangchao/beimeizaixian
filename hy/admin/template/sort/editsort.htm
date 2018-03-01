@@ -1,0 +1,75 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form1" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=$job">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">栏目修改</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+
+    <tr > 
+      <td class='tdL'>栏目名称:</td>
+      <td class='tdR'> 
+        <input type="text" name="postdb[name]" value="$rsdb[name]">
+      </td>
+    </tr>
+    <tr > 
+      <td class='tdL'> 父栏目FID: (不选择,将作为顶级栏目) </td>
+      <td class='tdR'> 
+        <select name="postdb[fup]">
+          <option value="0">请选择</option>{$fup_select}
+        </select>
+      </td>
+    </tr> <tr   class="hidetr">
+      <td class='tdL'>SEO优化:</td>
+      <td class='tdR'> 标题(title): 
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="postdb[metatitle]" size="35" value="$rsdb[metatitle]">
+        <br><br>关键字(metakeywords):
+        <input type="text" name="postdb[metakeywords]" size="35" value="$rsdb[metakeywords]">
+        <br><br>
+        描述(metadescription): 
+        <input type="text" name="postdb[metadescription]" size="35" value="$rsdb[metadescription]">
+        <br>
+        <br>
+        部分变量如下:<br>
+        {city_name} 代表当前城市名称<br>
+        {sort_name} 代表栏目名称</td>
+    </tr>
+ 
+	<tr   class="hidetr" style="display:$smallsort"> 
+      <td class='tdL'> 
+        <input type="checkbox" name="Together[listorder]" value="1">
+        列表页排序方式: </td>
+      <td class='tdR'> 
+        <select name="postdb[listorder]">
+          <option value="0" $listorder[0]>登记时间降序（最近登记的在前）</option>
+          <option value="1" $listorder[1]>登记时间升序（最近登记的在后）</option>
+          <option value="2" $listorder[2]>商铺级别降序</option>
+		   <option value="3" $listorder[3]>点击率降序</option>
+		    <option value="4" $listorder[4]>最近被浏览的排前</option>
+        </select> </td>
+    </tr>
+	    <tr> 
+      <td class="tdL">栏目图标:</td>
+      <td class="tdR m-R"> 
+        <span><em><input type="text" name="postdb[logo]" value="$rsdb[logo]"  id='atc_logo' size="40"/></em><em class="m-upPic">
+		<iframe frameborder=0 height=30 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}sort&label=atc_logo' width=310></iframe></em></span></td>
+    </tr>
+  </table>
+  <div class='submits'>
+        <input type="submit" name="Submit" value="提交">
+        <input type="hidden" name="postdb[fid]" value="$fid">    
+  </div>
+</form>
+<script type="text/javascript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</script>
+<!--
+EOT;
+?>
+-->

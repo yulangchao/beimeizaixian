@@ -1,0 +1,367 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/bencandy.css">
+<div class="main">
+	<div class="main_left">
+    	<div class="Product_infor">
+        	<div class="product_title"><span>{$fidDB[name]}</span><a href="$city_url/post.php?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id">免费发布此类信息</a></div>
+            <div class="product_smal_title"><span>发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>　有效日期：{$rsdb[showday]}　浏览量：<em style="color:red">{$rsdb[hits]}</em>次</span><a href="$city_url/post.php?job=edit&fid=$fid&id=$id">修改</a><a href="$city_url/post.php?action=del&fid=$fid&id=$id">删除</a><a href="$city_url/job.php?job=update&fid=$fid&id=$id" title="顶一下,可将信息排在所属栏目的列表页的前面!">顶一下</a></div>
+        	<div class="product_photo">
+<div class="product_left">
+<!--
+EOT;
+foreach($picdb AS $key =>$ts){
+$picList = "<li><a href='$ts[picurl]' target='_blank' title='$ts[title]'><img src='$ts[picurl]' onerror='this.src=\"$webdb[www_url]/images/default/nopic.jpg\"' /></a></li>";
+$show .= $picList;
+}
+print <<<EOT
+-->
+<div class="pic"><a href="$rsdb[picurl]" target="_blank" title="$rsdb[title]"><img src='$rsdb[picurl]' onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" /></a></div>
+  <div class="list_photo">
+    <div class="prev">&lt;</div>
+    <div class="next">&gt;</div>
+    <div class="piclists">
+	  <ul class="smallPicul">$show</ul>
+	</div>
+  </div>
+<script>
+$(".piclists li").hover(function(){
+  var thisIndex = $(this).index();
+  var thisSrc = $(this).html();
+  $(".piclists li").eq(thisIndex).addClass("choose").siblings().removeClass("choose");
+  $(".product_left .pic").html(thisSrc);
+});
+
+    var nums=$('.piclists li').length;
+    var change_s=nums/3;
+	var change_s2=Math.floor(nums/3);
+    var change_now=0;
+    var change_width=320;
+    
+    $('.prev').click(function(){
+    	change_now--;
+    	if(change_now<0){
+    		change_now=change_s;
+    	}
+    	chang_functions(change_now);
+    });
+    $('.next').click(function(){
+    	change_now++;
+    	if(change_now>=change_s){
+    		change_now=0;
+    	}
+    	chang_functions(change_now);
+    });
+    function chang_functions(nums){
+    	var left_widths=change_width*nums;
+    	$('.smallPicul').stop().animate({'left':'-'+left_widths+'px'},500);
+    }
+</script>
+</div>
+                <div class="product_right">
+                	<dl class="product_jieshao">
+                    	<dt>{$rsdb[title]}</dt>
+                        <dd>地区：{$rsdb[showarea]}</dd>
+<!--
+EOT;
+if($rsdb['my_jobs']){print <<<EOT
+--><dd>期望从事职业：{$rsdb[my_jobs]} </dd><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_schoolage']){print <<<EOT
+--><dd>学历：{$rsdb[my_schoolage]} </dd><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_age']){print <<<EOT
+--><dd>年龄：{$rsdb[my_age]} </dd><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_sex']){print <<<EOT
+--><dd>性别：{$rsdb[my_sex]} </dd><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['sortid']){print <<<EOT
+--><dd>工作经验：{$rsdb[sortid]} </dd><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_workplace']){print <<<EOT
+--><dd>期望工作城市：{$rsdb[my_workplace]} </dd><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_wage']){print <<<EOT
+--><dd>期望月薪：{$rsdb[my_wage]} </dd><!--
+EOT;
+}print <<<EOT
+--><!---->
+                        <dd>标签：{$rsdb[keywords]}</dd>
+                    </dl>
+                    <div class="ctrl">
+                    	<a  href="javasrcipt:;" class="ctrl_01" onClick="window.open('$city_url/job.php?job=report&fid=$fid&id=$id');">举报该信息</a>
+                   		<a  href="javasrcipt:;" class="ctrl_02" onClick="window.location.href='mailto:';">推荐好友</a>
+                    	<a  href="javasrcipt:;" class="ctrl_03" onClick="window.open('job.php?job=collect&fid=$fid&id=$id')">加入收藏</a>
+                        <div class="clierfix"></div>
+                    </div>
+                    
+                    <div class="clierfix"></div>
+                </div>
+                <div class="clierfix"></div>
+            </div>
+        
+        </div>
+        <div class="introduction">
+        	<div class="introduction_title"><span>详细介绍</span></div>
+            <div class="introduction_jieshao">{$rsdb[content]}</div>
+            <div class="clierfix"></div>
+        </div>
+        
+        <div class="clierfix"></div>
+    </div>
+    
+    <div class="main_right">
+    	<div class="ctrl2">
+          <a class="ctrl2_01" href="post.php?fid=$fid"  target="_blank"><span>免费发布信息</span></a> 
+          <a class="ctrl2_02" href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/homepage_ctrl.php?atn=info"  target="_blank"><span>管理店铺</span></a> 
+          <a class="ctrl2_03" href="$webdb[_www_url]/member/?main=$Murl/member/list.php" target="_blank"><span>修改删除信息</span></a> 
+          <a class="ctrl2_04" href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/renzheng.php" target="_blank"><span>认证企业</span></a>
+          </div> 
+          <div class="fabu_ren"><span>发布人信息</span></div>
+          <div class="line_box"></div>
+          <div class="xinxi">
+        	<a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]"  onclick="if($rsdb[uid]==0)return false;"><img src="$userdb[icon]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'" width="80" height="80" border="0"></a>
+            <div class="xinxi_neiron">
+            	<div class="name"> <a href="$city_url/job.php?job=userinfo&uid=$rsdb[uid]"  onclick="if($rsdb[uid]==0)return false;">$userdb[username]</a></div>
+                <div class="jb">级别:<em style="color:#F60;margin-left:10px">超级管理员</em></div>
+                <div class="day" > 注册:$userdb[regdate] </div>
+                <div class="day"> 离线:$userdb[lastvist]</div>
+                <div class="day"> 级别:$userdb[level] </div>
+                <div class="dd">
+<!--
+EOT;
+if($userdb[grouptype]==1){
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-hy1.gif" alt="企业会员"> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+if($userdb[idcard_yz]==1){
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-id1.gif" alt="身份认证会员"> 
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-id0.gif" alt="身份还未认证"> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+if($userdb[email_yz]==1){
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-email1.gif" alt="邮箱认证会员"> 
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-email0.gif" alt="邮箱还未认证"> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+if($userdb[mob_yz]==1){
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-mob1.gif" alt="手机认证会员"> 
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+            <img src="$webdb[www_url]/images/style6.0/r-mob0.gif" alt="手机还未认证"> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</div>
+                <div class="clierfix"></div>
+            </div>
+            <div class="all_xinxi">
+            	<a href="$city_url/job.php?job=userinfo&uid=$rsdb[uid]">查看该用户发布的所有信息</a>
+            </div>
+            
+            <div class="clierfix"></div>
+        </div>
+<!--
+EOT;
+if($rsdb[maps]){
+print <<<EOT
+-->
+		<div class="map">
+		   <div class="head"><span>地图位置</span></div>
+		   <div class="cont">
+		     <iframe src="job.php?job=show_ggmaps&position=$rsdb[maps]&title=$rsdb[title]"  width="100%" height="400" scrolling="no" frameborder="0" ></iframe>
+		   </div>
+		</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+        <div class="contact_box">
+        	<div class="contact_left">
+            	<div class="contact_title"><span>联系信息</span></div>
+                <div class="contact_list01"><span>联系人：{$rsdb[linkman]}</span>
+<!--
+EOT;
+if($rsdb[uid]){
+print <<<EOT
+-->
+				<a href="$webdb[_www_url]/member/?main=pm.php?job=send&username=$rsdb[linkman]">联系我</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</div>
+                <div class="contact_list"><span>电话号码：$rsdb[telephone]</span></div>
+                <div class="contact_list"><span>QQ　号码：<a href="tencent://message/?uin=$rsdb[_oicq]&Site=$webdb[Info_webname]&Menu=yes">$rsdb[oicq]</a></span></div>
+                <div class="contact_list"><span>MSN 帐号：$rsdb[msn]</span></div>
+                <div class="contact_list"><span>邮箱帐号：$rsdb[email]</span></div>
+				<div class="contact_list02"><span>手机号码：$rsdb[mobphone]</span></div>
+                <div class="contact_list03"><span>IP归属地：</span>{$rsdb[ipfrom]} <a href="$city_url/job.php?job=ip&ip=$rsdb[ipaddress]" target="_blank"><span> 查询更多</span></a></div>
+            	
+            </div>
+            <div class="contact_midell"></div>
+            <div class="contact_right">
+            	<h1>网站提醒您：</h1>
+                <p>交易时请警惕网络诈骗、先付款后发货交易、欺诈交易。
+					网站建议您只进行同城或当面交易，并检查物品的相关资料和手续。 </p>
+            </div>
+        	<div class="clierfix"></div>
+        </div>
+        <div class="banner_samll">
+            	$label[f_bencandy_ad1]
+        </div>
+        <div class="fufei_tuiguang">
+        	<div class="fufei_tuiguang_box"><span>付费推广</span></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="side_adinfo">$Load_Msg</span>');
+document.write('<div style="display:none;"><iframe src="$city_url/job.php?job=adinfo&fid=$fid&rows=$webdb[AdInfoListRow]&leng=$webdb[InfoListLeng]&iframeID=side_adinfo" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>
+            <div class="clierfix"></div>
+        </div>
+        	
+        
+        <div class="clierfix"></div>
+    </div>
+    
+    <div class="clierfix"></div>
+</div>
+
+<div class="column">
+	<div class="column_left">
+    	<div class="column_left_title"><span>最新评论</span></div>
+		<div id="comment"></div>
+    </div>
+    <div class="column_right">
+    	<div class="column_right_title"><span>添加评论</span></div>
+<!--
+EOT;
+if($lfjid){$none='none';}
+print <<<EOT
+-->
+<div class="input_div" style="display:$none;"><div>称呼：</div><input type="text" name="textfield2" id="comment_username" value="$lfjid"></div>
+<!--
+EOT;
+if($webdb[Info_GroupCommentYzImg]&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupCommentYzImg]))){
+$webdb[yzImgComment]=1;
+print <<<EOT
+-->
+        <div class="input_div"><div>验证码：</div><input id="yzImgNum" type="text" name="yzimg" size="8" onFocus="commentyzimg()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function commentyzimg(){
+	if(/yzimg\.php/.test($("#yz_Img")[0].src)==false){
+		$("#yz_Img").show();
+		$("#yz_Img")[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();
+	}
+	
+}
+
+document.write('<img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="" style="display:none;">');
+//-->
+</SCRIPT>
+		</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		<div class="input_div"><div>内容：</div><textarea name="textfield" rows="8" id="comment_content" onKeyDown="quickpost(event)" class="input-box"></textarea>
+        </div>
+<script language="JavaScript">
+<!--
+
+getcomment("$city_url/job.php?job=comment_ajax&fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event)
+{
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83))
+	{
+		cnt++;
+		if (cnt==1){
+			post_comment();
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+
+function post_comment(){
+	postcomment('$city_url/job.php?job=comment_ajax&action=post&fid=$fid&id=$id','$webdb[yzImgComment]');
+	if(document.getElementById("yz_Img")!=null){
+		//document.getElementById("yz_Img").src="$webdb[www_url]/do/yzimg.php?"+Math.random();;
+		$("#yz_Img")[0].src='';
+		$("#yz_Img").hide();
+	}
+}
+//-->
+</script>
+        <div class="submit_box"><input type="button" id="comment_submit" name="Submit" value="提交" onClick="post_comment();"></div>
+         <div class="clierfix"></div>
+    </div>
+    <div class="clierfix"></div>
+</div>
+<!--
+EOT;
+?>
+-->

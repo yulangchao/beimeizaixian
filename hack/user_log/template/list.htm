@@ -1,0 +1,70 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="index.php?lfj=$lfj&action=del">
+<div class="MainContainers">
+  <div class="Conter">
+  <table class="ListTable">
+    <tr> 
+      <th width="9%">用户名</th>
+      <th width="6%">类型</th>
+      <th width="11%">IP</th>
+      <th width="6%">端口</th>
+      <th width="15%">浏览器</th>
+      <th width="10%">操作系统</th>
+      <th width="8%">登录方式</th>
+      <th width="15%">时间</th>
+      <th width="20%">来源地</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+       <td class="txL"><input type="checkbox" name="idDB[]" value="$rs[lid]"> <a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></td>
+      <td class="txL">$rs[tag]</td>
+      <td>$rs[ip]</td>
+      <td class="txL">$rs[port]</td>
+      <td>$rs[browser]</td>
+      <td>$rs[os]</td>
+      <td>$rs[ismob]</td>
+      <td>$rs[posttime]</td>
+      <td>$rs[ipfrom]</td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+  <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+          <input type="submit" name="Submit3" value="删除" >
+  </div>
+</div>
+</div>
+
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ 
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,114 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<div style="margin:15px auto; width:1200px;">
+<div class="text">
+	<div class="left">
+		<div class="title">
+			<span>{$fidDB[name]}</span>
+			<a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$fid" target="_blank">我要发起活动</a>
+		</div>
+		<table class="showlist">
+		  <tr> 
+			<td class="MainL">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[title]=get_word($rs[title],50);
+$url = "bencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+			<table class="tablelist">
+			  <tr>
+				<td class="img">
+					<a href="$url"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></a>
+				</td>
+				<td class="word">
+					<a href="$url" target="$target" title='$rs[full_title]'>{$rs[title]}</a>
+					&nbsp;&nbsp;
+					{$rs[content]}
+				</td>
+				<td class="info">
+					<div class="info_box">
+						<a href="$webdb[_www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank">我要报名</a>
+						<span>参加人数:<em class="orange">{$rs[username]}</em>人</span>
+						<span>发起时间:<em class="orange">{$rs[posttime]}</em></span>
+						<span>浏览人数:<em class="orange">{$rs[hits]}</em>次</span>
+						<!--{template}--><span> {title}:<em class="orange">{value} </em></span><!--{/template}-->
+					</div>
+				</td>
+			  </tr>
+			</table>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</td>
+		  </tr>
+		</table>
+<!--
+EOT;
+if($showpage){print <<<EOT
+-->
+		<div class="Jump_box">
+			<div class="Jump_nav">
+			  {$showpage}
+			</div>
+		</div>
+<!--
+EOT;
+}print <<<EOT
+-->	
+	</div>
+	<div class="right">
+	
+		<dl>
+			<dt class="right_title">
+				<span>相关栏目</span>
+			</dt>
+			<dd class="content_rel">
+				<ul>
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+print <<<EOT
+-->
+				<li class="content_rel_list"><a href="list.php?fid=$fkey">{$fvalue}</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</ul>						
+			</dd>
+		</dl>
+		<div class="recommend">
+			<h1>推荐活动</h1>
+<!--
+EOT;
+$array=list_tg(5,'hot','',60);
+foreach($array AS $rs){
+print <<<EOT
+-->
+			<dl>
+				<dt>
+					<span ><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></span>
+				</dt>
+				<dd>
+					<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="word_title">$rs[title]</a>
+				</dd>
+			</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</div>
+	</div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,191 @@
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, hr, fieldset, form, label, legend, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, hgroup {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.titles{
+	border-top:#DDD solid 1px;
+	line-height:25px;
+	padding:10px 10px 5px 10px;
+	font-size:18px;
+}
+.baseinfo{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	padding-left:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:14px;
+}
+.SelectShows li{
+	border:#DDD solid 1px;
+	text-align:center;
+	line-height:35px;
+	width:98%;
+	margin:10px auto 0 auto;
+	cursor:pointer;
+	border-radius:5px;
+	box-shadow:#ddd 0 1px 1px; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+.SelectShows li.ck{
+	background-color:#3d8de2;
+	color:#FFF;
+	border:#369 solid 1px;
+	box-shadow:#369 0 1px 1px; 
+}
+.ShowContainer{
+	width:98%;
+	overflow:hidden;
+	margin:10px auto;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	background:#FFF;
+	-webkit-box-shadow: 0 0 10px 3px #DDD;
+	box-shadow:0 0 10px 3px #DDD;
+}
+.FootSpac{
+	width:100%;
+	height:80px;
+	clear:both;	
+}
+.BaseInfo{
+	padding:10px;
+}
+.BaseInfo dt{
+	border:#DDD solid 1px;
+	padding:1px;
+	text-align:center;
+	width:calc(100% - 2px);
+}
+.BaseInfo dt img{
+	max-width:100%;
+}
+.BaseInfo dd{
+	padding-top:5px;
+}
+.BaseInfo dd div{
+	padding:5px 0 5px 0;
+	line-height:25px;
+	word-spacing:10px;
+}
+.BaseInfo dd div img{max-width:100%;}
+.BaseInfo dd div span{
+	color:#666;
+}
+.BaseInfo dd div em{
+	color:#F30;
+	font-style:normal;
+}
+.ShowConts .content{
+	width:98%;
+	overflow:hidden;
+	margin:10px auto;
+	TABLE-LAYOUT: fixed;
+	WORD-WRAP: break-word;
+	line-height:30px;
+	color:#666;
+}
+.ShowConts .content img{max-width:100%;}
+.ListDemo{
+	max-width:640px;
+	min-width:32opx;
+	border:#DDD solid 1px;
+	padding:10px 0 10px 0;
+	margin:10px auto;
+	background:#FFF;
+	border-radius: 5px;
+	overflow:hidden;
+}
+.ListDemo p{
+	display:block;
+	width:98%;
+	overflow:hidden;
+	margin:auto;
+	text-align:center;
+}
+.ListDemo p img{
+	width:100%;
+}
+.ListDemo h4{
+	padding:5px 5px 5px 10px;
+	line-height:25px;
+}
+.ListDemo h4 a{
+	color:#369;
+}
+
+.ListDesigner{
+	height:115px;
+	padding-top:15px;
+	position:relative;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+}
+.ListDesigner:nth-child(1){
+	border-top:#DDD solid 1px;
+}
+.ListDesigner:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 2px;
+	position:absolute;
+	left:0;
+	top:0;
+	border-top:#FFF solid 1px;
+}
+.ListDesigner dt{
+	width:80px;
+	border:#DDD solid 1px;
+	padding:1px;
+	position:absolute;
+	left:10px;
+	top:13px;
+	overflow:hidden;
+}
+.ListDesigner dt a{
+	display:block;
+	width:80px;
+	height:100px;
+	overflow:hidden;
+	background:#EFEFEF;
+	text-align:center;
+}
+.ListDesigner dt a img{
+	height:100%;
+	margin:auto;
+}
+.ListDesigner dd{
+	padding-left:105px;
+	height:100px;
+	overflow:hidden;
+}
+.ListDesigner dd h4,..ListDesigner dd div,.ListDesigner dd p{
+	height:20px;
+	line-height:20px;
+	font-weight:normal;
+	overflow:hidden;
+	font-size:14px;
+}
+.ListDesigner dd h4 a{
+	color:#369;
+}
+.ListDesigner dd div span{
+	color:#F60;
+}
+.ListDesigner dd div a{
+	color:green;
+}
+.ListDesigner dd p{
+	color:#666;
+}

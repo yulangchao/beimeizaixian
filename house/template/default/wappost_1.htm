@@ -1,0 +1,278 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<h3>基本资料</h3>
+	<dl>
+		<dt>所在城市：</dt>
+		<dd><div id="select_city" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt>辖区：</dt>
+		<dd><div id="select_zone" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt>街道：</dt>
+		<dd><div id="select_street" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>信息标题：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入标题，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+<!--
+EOT;
+if($job!="edit"&&$webdb[Info_GroupPostYzImg]&&!$web_admin&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupPostYzImg]))){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+		<dt>图片：</dt>
+		<dd>
+<!--
+EOT;
+$i=0;
+$listPics="";
+foreach($listdb AS $key=>$rs){
+$i++;
+if($rs[imgurl]){
+$listPics.="<div class='PicList'><input class='text' type='text' name='photodb[$i]' value='$rs[imgurl]'/><span>删除图片</span><input type='hidden' name='piddb[$i]' value='$key'></div>\r\n";
+}}
+print <<<EOT
+-->	
+$listPics
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="photodb[0]" id='out_url0' placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+            </div>
+		</dd>
+	</dl>
+<!--
+EOT;
+if($m_config[moduleSet][useMap]){
+$if_baidu_map=$webdb[if_baidu_map]?1:0;
+print <<<EOT
+-->
+	<dl>
+		<dt>地图位置：</dt>
+		<dd>
+			<div class="map_box">
+				<input class="text" type="text" name="postdb[maps]" id="mapid" value="$rsdb[maps]" readonly />
+				<div onClick="reloadLocation();" class="getmap">获取当前位置</div>
+			</div>
+<script src="$webdb[www_url]/images/default/gps.js"></script>
+<script type="text/javascript">
+var if_baidu_map=$if_baidu_map;
+</script>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+--> 
+	<dl>
+		<dt>有效日期：</dt>
+		<dd class="select">
+<!--
+EOT;
+$list_option="";
+if(!$webdb[Info_UseEndTime]){
+$list_option.="<option value='0'>不限</option>\r\n";
+}
+$webdb[Info_showday] || $webdb[Info_showday]="90/60/30";
+$array=explode("/",$webdb[Info_showday]);
+foreach($array AS $key=>$value){
+$selecteds=($rsdb[showday]==$value)?"selected":"";
+$list_option.="<option value='$value' $selecteds>{$value}天</option>\r\n";
+}
+print <<<EOT
+-->
+			<select name="postdb[showday]">
+$list_option
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt>联系人：</dt>
+		<dd><input type="text" name="postdb[linkman]" class="text" placeholder="输入姓名" value="$rsdb[linkman]" /></dd>
+	</dl>
+	<dl>
+		<dt>电话：</dt>
+		<dd><input type="text" name="postdb[telephone]" class="text" placeholder="输入电话" value="$rsdb[telephone]" /></dd>
+	</dl>
+	<dl>
+		<dt>手机：</dt>
+		<dd><input type="text" name="postdb[mobphone]" class="text" placeholder="输入手机" value="$rsdb[mobphone]" /></dd>
+	</dl>
+	<dl>
+		<dt>邮箱：</dt>
+		<dd><input type="text" name="postdb[email]" class="text" placeholder="输入邮箱" value="$rsdb[email]" /></dd>
+	</dl>
+	<dl>
+		<dt>QQ：</dt>
+		<dd><input type="text" name="postdb[oicq]" class="text" placeholder="输入QQ" value="$rsdb[oicq]" /></dd>
+	</dl>
+	<dl>
+		<dt>MSN：</dt>
+		<dd><input type="text" name="postdb[msn]" class="text" placeholder="输入MSN" value="$rsdb[msn]" /></dd>
+	</dl>
+	<dl>
+		<dt>标签：</dt>
+		<dd><input type="text" name="postdb[keywords]" class="text" placeholder="多个用空格隔开" value="$rsdb[keywords]" /></dd>
+	</dl>
+<!--
+EOT;
+if(!$lfjid){print <<<EOT
+-->
+	<dl>
+		<dt>管理密码：</dt>
+		<dd><input type="text" name="postdb[editpwd]" class="text" placeholder="设置密码后,将可以凭借密码删除信息" value="$rsdb[editpwd]" /></dd>
+	</dl>
+<!--
+EOT;
+}if($lfjid){print <<<EOT
+-->
+	<h3>增值服务</h3>
+	<dl>
+		<dt>是否置顶：</dt>
+		<dd>
+			<input type="radio" name="iftop" value="0" $ifTop[0]> 不置顶 
+            <input type="radio" name="iftop" value="1" $ifTop[1]> 置顶
+			(注:栏目内置顶需要消费积分:<span class='b red'>{$webdb[Info_TopMoney]}</span>个,<a href="$webdb[www_url]/do/jf.php" target="_blank"><span class='blue'>点击查上看如何获取积分?</span></a>)
+		</dd>
+	</dl>
+	<dl>
+		<dt>头条显示：</dt>
+		<dd>
+			<input type="checkbox" name="buyfid[]" value="Index" {$buyfid['Index']}> 首页焦点显示 
+            <input type="checkbox" name="buyfid[]" value="Sort" {$buyfid['Sort']}> 栏目焦点显示 
+            <input type="checkbox" name="buyfid[]" value="BigSort" {$buyfid['BigSort']}> 分类焦点显示
+            <p>注意:系统规定首页焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoIndexShow]}</span>{$webdb[MoneyDW]},栏目焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoSortShow]}</span>{$webdb[MoneyDW]},分类焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoBigsortShow]}</span>{$webdb[MoneyDW]},有效期<span class='blue'>{$webdb[AdInfoShowTime]}</span>天.你目前有{$webdb[MoneyName]}<span class='red'>{$lfjdb[money]}</span>{$webdb[MoneyDW]}.<a href="$webdb[www_url]/do/jf.php" target="_blank">点击查看如何获取积分?</a> 
+		</dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<h3>补充资料</h3>
+
+	<dl>
+		<dt>性质:<span></span></dt>
+		<dd> <input type='radio' name='postdb[sortid]' value='1' {$rsdb[sortid]['1']}>中介  <input type='radio' name='postdb[sortid]' value='2' {$rsdb[sortid]['2']}>个人  </dd>
+	</dl>
+
+	<dl>
+		<dt>价格:<span></span></dt>
+		<dd> <input   type='text' name='postdb[price]' id='atc_price' style='width:100px;' value='$rsdb[price]'> 元/月</dd>
+	</dl>
+
+	<dl>
+		<dt>室内布局:<span></span></dt>
+		<dd><select name='postdb[room_type]' id='atc_room_type'><option value='两室一厅' {$rsdb[room_type]['两室一厅']}>两室一厅</option><option value='两室两厅' {$rsdb[room_type]['两室两厅']}>两室两厅</option><option value='三室一厅' {$rsdb[room_type]['三室一厅']}>三室一厅</option><option value='三室两厅' {$rsdb[room_type]['三室两厅']}>三室两厅</option><option value='一室一厅' {$rsdb[room_type]['一室一厅']}>一室一厅</option><option value='一居室' {$rsdb[room_type]['一居室']}>一居室</option><option value='三室以上' {$rsdb[room_type]['三室以上']}>三室以上</option><option value='别墅' {$rsdb[room_type]['别墅']}>别墅</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>配套设施:<span></span></dt>
+		<dd> <input type='checkbox' name='postdb[peitao][]' value='水' {$rsdb[peitao]['水']}>水  <input type='checkbox' name='postdb[peitao][]' value='电' {$rsdb[peitao]['电']}>电  <input type='checkbox' name='postdb[peitao][]' value='电话' {$rsdb[peitao]['电话']}>电话  <input type='checkbox' name='postdb[peitao][]' value='宽带' {$rsdb[peitao]['宽带']}>宽带  <input type='checkbox' name='postdb[peitao][]' value='管道煤气' {$rsdb[peitao]['管道煤气']}>管道煤气  <input type='checkbox' name='postdb[peitao][]' value='电梯' {$rsdb[peitao]['电梯']}>电梯  <input type='checkbox' name='postdb[peitao][]' value='家具' {$rsdb[peitao]['家具']}>家具  </dd>
+	</dl>
+
+	<dl>
+		<dt>面积:<span></span></dt>
+		<dd> <input   type='text' name='postdb[acreage]' id='atc_acreage' style='width:100px;' value='$rsdb[acreage]'> 平方米</dd>
+	</dl>
+
+	<dl>
+		<dt>装修情况:<span></span></dt>
+		<dd> <input type='radio' name='postdb[fitment]' value='普通装修' {$rsdb[fitment]['普通装修']}>普通装修  <input type='radio' name='postdb[fitment]' value='精装修' {$rsdb[fitment]['精装修']}>精装修  <input type='radio' name='postdb[fitment]' value='豪华装修' {$rsdb[fitment]['豪华装修']}>豪华装修  <input type='radio' name='postdb[fitment]' value='毛坯房' {$rsdb[fitment]['毛坯房']}>毛坯房  </dd>
+	</dl>
+
+	<dl>
+		<dt>所在楼层:<span></span></dt>
+		<dd> <input   type='text' name='postdb[floor]' id='atc_floor' style='width:100px;' value='$rsdb[floor]'> 楼</dd>
+	</dl>
+
+	<dl>
+		<dt>附近公交站:<span></span></dt>
+		<dd> <input   type='text' name='postdb[station]' id='atc_station' style='width:200px;' value='$rsdb[station]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>公交路线:<span></span></dt>
+		<dd> <input   type='text' name='postdb[bus]' id='atc_bus' style='width:255px;' value='$rsdb[bus]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>详情:<span></span></dt>
+		<dd><script type='text/javascript'>loadBaiduEditorJs();</script>
+			<textarea name='postdb[content]' id='atc_content'>$rsdb[content]</textarea> 
+			<script type='text/javascript'>				
+			var editor_content = new baidu.editor.ui.Editor({toolbars:[['fullscreen','source','undo','redo','bold', 'italic', 'underline']] ,minFrameHeight:200});
+				editor_content.render( 'atc_content' );
+			</script></dd>
+	</dl>
+<!---->
+    <div class="butter"><span class="submits"><input type="submit" name="Submit" value="提 交"/></span></div>
+    <input type="hidden" name="fid" value="$fid">
+    <input type="hidden" name="id" value="$id">
+    <input type="hidden" name="fid_bak1" value="$rsdb[fid_bak1]">
+    <input type="hidden" name="fid_bak2" value="$rsdb[fid_bak2]">
+    <input type="hidden" name="fid_bak3" value="$rsdb[fid_bak3]">
+    <input type="hidden" name="$webdb[rand_num_inputname]" value="$webdb[rand_num]">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function select_where(selects,fup,name,fid){
+	$.get("$webdb[www_url]/f/select_where.php?selects="+selects+"&fups="+fup+"&name="+name+"&fids="+fid+"&"+Math.random(),function(d){
+		$("#select_"+selects).html(d);
+	});
+}
+
+select_where('city','','postdb[city_id]',$city_id);
+select_where('zone',$city_id,'postdb[zone_id]',$zone_id);
+select_where('street',$zone_id,'postdb[street_id]',$street_id);
+
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+
+$('.PicList').hover(
+	function(){
+		$(this).css('border-bottom', 'dotted #DDD 1px');
+	},function(){
+		$(this).css('border-bottom', '0');
+	}
+);
+$('.PicList span').click(function(){
+	//$(this).parent().html('');
+	//$(this).parent().remove();
+	$(this).parent().children().eq(0).val('');
+});
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

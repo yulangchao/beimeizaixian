@@ -1,0 +1,94 @@
+.show_type{height:40px; overflow:hidden; background:#ececec; margin-top:25px;  border-top:1px solid #379be9; padding-left:15px;}
+.show_type li{float:left; width:120px; text-align:center; line-height:40px; background:#ff9900;}
+.show_type li a{font-size:16px; color:#fff;}
+.show_type li.ck{background:#fff; font-weight:bold; }
+.show_type li.ck a:link,.show_type li.ck a:visited,.show_type li.ck a:hover{color:#ff9900;
+}
+#loading{
+	height:30px;
+	overflow:hidden;
+	padding-left:300px;
+	line-height:30px;
+}
+#loading span{
+	float:left;
+}
+.loading_span{
+	display:block;
+	width:50px;
+	height:30px;
+	background:url(loading.gif) center 5px no-repeat;
+}
+.MainContents{width:1200px; overflow:hidden; padding-top:18px;}
+.ShowConts{
+	width:1217px;
+	margin-right:-20px;
+}
+#ShowAlls{
+	padding:0;
+}
+#ShowAlls .ListShop{width:285px; height:340px; border:#DDD solid 1px; overflow:hidden; float:left; margin:0 16px 18px 0; position:relative;}
+#ShowAlls .ListShop .title{
+	padding:10px 10px 0 15px;
+	height:40px;
+	overflow:hidden;
+	line-height:20px;
+}
+#ShowAlls .ListShop .title a{
+	font-size:14px;
+	font-weight:bold;
+	color:#666;
+}
+#ShowAlls .ListShop .company{
+	padding:8px 10px 0 15px;
+	height:32px;
+	overflow:hidden;
+	line-height:16px;
+}
+#ShowAlls .ListShop .company a{
+	color:#369;
+}
+#ShowAlls .ListShop .img{
+	width:257px;
+	height:189px;
+	padding-top:1px;
+	overflow:hidden;
+	margin:auto;
+}
+#ShowAlls .ListShop .img a{
+	display:block;
+	width:257px;
+	text-align:center;
+}
+#ShowAlls .ListShop .info{
+	width:257px;
+	height:25px;
+	overflow:hidden;
+	line-height:28px;
+	background:#000;
+	position:absolute;
+	left:14px;
+	top:256px;
+	z-index:100;
+	filter: alpha(opacity=60); 
+	opacity: 0.6; 
+	moz-opacity: 0.6;
+	color:#FFF;
+}
+#ShowAlls .ListShop .info span{
+	float:left;
+	padding:0 10px 0 10px;
+}
+#ShowAlls .ListShop .info .hits{
+	float:right;
+}
+#ShowAlls .ListShop .info .hits em{
+	font-weight:bold;
+	color:#BAE450;
+	font-style:normal;
+}
+#ShowAlls .ListShop .mores{width:285px; height:40px; overflow:hidden; margin:5px auto 5px auto;background:#ff6600;}
+#ShowAlls .ListShop .mores .price{float:left; padding:10px 0 0 10px; color:#FFF;  font:16px "Helvetica Neue", Arial, sans-serif;  font-weight:bold;}
+#ShowAlls .ListShop .mores .price em{font-style:normal; font-size:18px;}
+#ShowAlls .ListShop .mores a{display:block; width:100px; height:40px; overflow:hidden; text-align:center; line-height:40px; background:#ff3300;float:right; color:#fff; font-size:16px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;}
+#ShowAlls .ListShop .mores a:hover{background:#d72b00;}

@@ -1,0 +1,310 @@
+<!--
+<?php
+$ck_class[$fid] = "class='ck'";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$Murl/images/life6/list.css">
+<div class="main"><!--main  s-->
+    <ul class="modemenu">   <!-- modemenu  s -->
+        <li class='li0'><span $ck_class[1]><a href="list.php?fid=1">招标信息</a></span></li>
+        <li class='li1'><span $ck_class[4]><a href="list.php?fid=4">装修学堂</a></span></li>
+        <li class='li2'><span $ck_class[5]><a href="list.php?fid=5">装修公司</a></span></li>
+        <li class='li3'><span $ck_class[2]><a href="list.php?fid=2">装修案例</a></span></li>
+        <li class='li4'><span $ck_class[3]><a href="list.php?fid=3">装修日志</a></span></li>
+        <li class='li5'><span $ck_class[6]><a href="list.php?fid=6">设计师</a></span></li>
+    </ul>    <!-- modemenu  e -->
+    <div class="modeSearch">    <!-- modeSearch  搜索 s -->
+        <form name="modesearch" method="post" action="search.php" onsubmit="return check_keyword();" target="_blank">
+            <div class='search_div'>    <!-- search_div  s -->
+    
+                <div class='search_main'>  <!-- search_main  s -->
+                    <div class="keyword"><input type="text" name="keyword" placeholder='请输入你要查找的内容'></div>
+                    <div class='showtype_div'>   <!--  showtype_div  s -->
+                        <div class="showtype"><span>招标信息</span></div>
+                        <ul class="listtype">
+                            <li><span class="ck">招标信息</span></li>
+                            <li><span>装修学堂</span></li>
+                            <li><span>装修公司</span></li>
+                            <li><span>装修案例</span></li>
+                            <li><span>装修日志</span></li>
+                            <li><span>设计师</span></li>
+                        </ul>					
+                    </div>    <!--  showtype_div  e -->
+                </div>   <!-- search_main  e -->
+    
+                <div class='search_submit'>    <!-- search_submit  s -->
+                    <input type="image" src="images/life6/search.png" />
+                    <input type="hidden" name="mid" value="1">
+                    <input type="hidden" name="action" value="search">					
+                </div>    <!-- search_submit  e -->
+            </div>    <!-- search_div  e -->
+        </form>
+    </div>    <!-- modeSearch  搜索 e -->
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/life6/msearch.js"></SCRIPT>
+    <div class='search_keyword'  >
+           <ul>
+               <li class='title'>热门搜索：</li>
+               <li> <a href="list.php?fid=6">设计师</a></li>
+               <li> <a href="list.php?fid=3">房产</a></li>
+               <li> <a href="list.php?fid=4">热门学堂</a></li>
+               <li> <a href="list.php?fid=5">装修公司</a></li>
+               <li> <a href="list.php?fid=1">招标</a></li>
+               <li> <a href="list.php?fid=2">装修案例</a></li>
+           </ul>
+    </div>
+<!--/*搜索分类*/-->
+    <div class="fen_lei">
+    	<dl>
+      	<dt class="fl_title"><span>选择搜索分类</span></dt>
+          <dd><span>区    域： </span>
+<!--
+EOT;
+if($city_id){
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+$ck_citys = $zone_id ? "" : "class='ck'";
+print <<<EOT
+-->
+		  <A HREF="$url" $ck_citys>{$city_DB[name][$city_id]}</A>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$ck_zones = ($zone_id==$key) ? "class='ck'" : "";
+print <<<EOT
+-->		  
+		  
+		  <A HREF="$url" $ck_zones>$value</A>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+<!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+		<div class="ListStreet">
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$zone_id,$key,$TempSearch_array);
+$ck_street = ($street_id==$key) ? "class='ck'" : "";
+print <<<EOT
+-->
+            <A HREF="$url" $ck_street>$value</A> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+		  </dd>
+          <dd><span>家庭装修： </span><a><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('business_type'=>"$business_type",'build_style'=>"$build_style",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[home_type][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('business_type'=>"$business_type",'build_style'=>"$build_style",'home_type'=>'小户型'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[home_type]['小户型']}>小户型</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('business_type'=>"$business_type",'build_style'=>"$build_style",'home_type'=>'公寓'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[home_type]['公寓']}>公寓</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('business_type'=>"$business_type",'build_style'=>"$build_style",'home_type'=>'别墅'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[home_type]['别墅']}>别墅</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('business_type'=>"$business_type",'build_style'=>"$build_style",'home_type'=>'普通住宅'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[home_type]['普通住宅']}>普通住宅</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('business_type'=>"$business_type",'build_style'=>"$build_style",'home_type'=>'局部装修'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[home_type]['局部装修']}>局部装修</A></a></dd><dd><span>商业装修： </span><a><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[business_type][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'KTV'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['KTV']}>KTV</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'商铺'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['商铺']}>商铺</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'餐厅/酒楼'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['餐厅/酒楼']}>餐厅/酒楼</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'美容/美发'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['美容/美发']}>美容/美发</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'娱乐场所'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['娱乐场所']}>娱乐场所</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'酒店'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['酒店']}>酒店</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'展厅'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['展厅']}>展厅</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'厂房'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['厂房']}>厂房</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'写字楼'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['写字楼']}>写字楼</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'学校'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['学校']}>学校</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'build_style'=>"$build_style",'business_type'=>'医院'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[business_type]['医院']}>医院</A></a></dd><dd><span>装修风格： </span><a><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[build_style][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'简约'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['简约']}>简约</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'现代'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['现代']}>现代</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'中式'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['中式']}>中式</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'欧式'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['欧式']}>欧式</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'美式'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['美式']}>美式</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'田园'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['田园']}>田园</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'古典'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['古典']}>古典</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'混搭'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['混搭']}>混搭</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('home_type'=>"$home_type",'business_type'=>"$business_type",'build_style'=>'地中海'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[build_style]['地中海']}>地中海</A></a></dd><!---->
+      </dl>
+    </div> <!--/*搜索分类*/ e-->
+
+	<div class="content">
+        <div class="content_left"><!--content_left s-->
+            <div class="title_box"><span>{$fidDB[name]}</span></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$showdomes="";
+$listdomes = List_Company_Demo($rs[id],6);
+foreach($listdomes AS $keys=>$rss){
+	$rss[url]=get_info_url($rss[id],$rss[fid],$rss[city_id]);
+    $rss[title] = get_word($rss[title],30);
+    $showdomes .= " <a href=\"$rss[url]\" target=\"_blank\" title='$rss[full_title]'>$rss[title]</a>&nbsp;";
+}
+$demonums=Show_Company_Demo_Num($rs[id]);
+print <<<EOT
+-->
+            <div class="conten_div"><!--conten_div en-->
+				<div class="piture"><a href="$rs[url]" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" src="$rs[picurl]" height="100" /></a></div>
+				<div class="piture_right">
+					<div class="conten_title"><a href="$rs[url]" target="_blank" title='$rs[full_title]'><h2>{$rs[title]}</h2></a> <span>案例：<em style="color:#F60">{$demonums}</em>关注：<em class="b_color">{$rs[hits]}</em></span></div>
+					<div class="conten_m">  <p>{$rs[content]}<a href="$rs[url]" class="b_color" title='$rs[full_title]'>[查看全部]</a></p></div>
+					<div class="conten_f"><p>成功案例： {$showdomes} </div>
+					<div class="clierfix"></div>
+                </div><!--piture_right en-->
+            </div><!--conten_div en--> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        <div class="clierfix"></div>
+		<div class="showpage">{$showpage}</div>
+        </div><!--content_left en-->
+ 
+        <div class="right_box">
+            <div class="content_right" ><!--content_right s-->
+              	<dl>
+                    <dt><span>生活信息查询</span><a href="listall.php?fid=$fid&ordertype=hits" style="color:#919191" title="更多"></a></dt>
+<!--
+EOT;
+$array = Get_Info('hot',10,40,$fid);
+$i=0;
+foreach($array AS $rs){
+$i++;
+print <<<EOT
+-->
+                    <dd>
+                        <em class="bj_blue bj_blue$i">{$i}</em>
+                        <a href="$rs[url]" target="_blank">{$rs[title]}</a>
+                    </dd>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </dl>
+            </div><!--content_right en-->
+
+            <div class="new_box" ><!--content_right s-->
+              	<dl>
+                    <dt><span>最新公司</span><a href="listall.php?fid=$fid" style="color:#919191" title="更多"></a></dt>
+<!--
+EOT;
+$array = Get_Info('new',10,40,$fid);
+$i=0;
+foreach($array AS $rs){
+$i++;
+print <<<EOT
+-->
+                    <dd>
+                        <a href="$rs[url]" target="_blank">{$rs[title]}</a>
+                    </dd>
+<!--
+EOT;
+}print <<<EOT
+-->  
+                </dl>
+            </div><!--content_right en-->
+            <div class="clierfix"></div>
+        </div>
+        <div class="clierfix"></div>
+    </div><!--conten en-->
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,181 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<!--
+EOT;
+if($job=='pwd'){print <<<EOT
+-->
+<div class="FormContainer">
+	<h3>支付密码设置</h3>
+        <form name="form1" method="post" action="?job=$job">
+		  <dl>
+            <dt>新的支付密码:</dt>
+            <dd><input type="password" name="pwd" style='width:180px;'></dd>
+          </dl>
+		  <dl>
+            <dt>重复输入新的支付密码:</dt>
+            <dd><input type="password" name="pwd2" style='width:180px;'></dd>
+          </dl>
+<!--
+EOT;
+if($lfjdb[rmb_pwd]){print <<<EOT
+-->
+		  <dl>
+            <dt>旧的支付密码:</dt>
+            <dd><input type="password" name="old_pwd" style='width:180px;'></dd>
+          </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<div class='butter'>
+    	<input type="submit" name="Submit" value="提交">
+        <input type="hidden" name="step" value="2">
+	</div>
+	</form>
+	<dl>
+		<dt>备注:</dt>
+		<dd>
+			<ul class="aboutnote">
+				<li>1.支付密码很重要,涉及到你的人民币消费与取现等相关操作.请尽量不要跟登录密码一样.</li>
+				<li>2.除首次设置外,今后更改支付密码需要输入原密码,如果忘记原密码,请联系管理员!</li>                    
+			</ul>
+		</dd>
+  </dl>
+</div>
+<!--
+EOT;
+}elseif($job=='get'){print <<<EOT
+-->
+<div class="FormContainer">
+    <h3>提现</h3>
+        <form name="form1" method="post" action="?job=$job">
+          <dl>
+            <dt>可用余额为:</dt>
+            <dd><span class="b red">$lfjdb[rmb]</span>元</dd>
+          </dl>
+          <dl>
+            <dt>提现金额为:(<span class="red">*</span>)</dt>
+            <dd><input type="text" name="RMBmoney" style='width:100px;'> 元</dd>
+          </dl>
+<!--
+EOT;
+if($lfjdb[rmb_pwd]){print <<<EOT
+-->
+          <dl>
+            <dt>支付密码:(<span class="red">*</span>)</dt>
+            <dd><input type="password" name="pwd" style='width:150px;'></dd>
+          </dl>
+          <dl>
+            <dt>请选择提现到哪个收款帐户:(<span class="red">*</span>)</dt>
+            <dd>
+<!--
+EOT;
+foreach($backDB[BACK] AS $key=>$value){print <<<EOT
+-->
+              <div><input type="radio" name="banktype" value="$key $value"> $key $value</div>
+					
+<!--
+EOT;
+}print <<<EOT
+-->
+              </dd>     
+          </dl>
+          <dl>
+            <dt>收款人真实姓名:(<span class="red">*</span>)</dt>
+            <dd><input type="text" name="truename"></dd>
+          </dl>
+          <dl>
+            <dt>联系电话:(选填)</dt>
+            <dd><input type="text" name="tel"></dd>
+          </dl>
+          <dl>
+            <dt>提现原因:(选填)</dt>
+            <dd><textarea name="why"></textarea></dd>
+          </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+          <div class='butter'>
+             <input type="submit" name="Submit" value="提交">
+            <input type="hidden" name="step" value="2">            
+          </div>
+        </form>
+        <dl>
+			<dt>备注</dt>
+			<dd>
+			  <ul class="aboutnote">
+				<li>1.提现金额将会被冻结不可用.</li>
+				  <li>2.资料提交后,管理员需要1-2天时间审核处理,请耐心等待.</li>
+			  </ul>
+		  	</dd>          
+        </dl>
+</div>
+<!--
+EOT;
+}elseif($job=='getlog'){print <<<EOT
+-->
+<div class="ListContainer">
+	<div class="head"><div class="tag">提现记录</div></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	<div class="Listcont">
+          <div class='cont'>
+              <div class='project'>提现金额：<span class='red'>$rs[money]</span>元&nbsp;状态：$rs[pay]</div>
+              <div class='time'>申请时间：$rs[posttime]</div>
+              <div>处理时间：$rs[replytime]</div>
+              <div>收款账号：<span class='blue'>$rs[bankname] $rs[banktype]</span></div>
+          </div>
+	</div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+    $showpage
+</div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+<div class="ListContainer">
+	<div class="Listcont">
+		<div class="cont">
+			当前可用余额: <span class="b red">{$lfjdb[rmb]}</span>元  冻结资金: <span class="b blue">{$lfjdb[rmb_freeze]}</span> 元
+		</div>
+		<div class="butter"><a href="../do/waprmb_add.php">充值</a> <a href="?job=get">提现</a> <a href="?job=getlog">提现记录</a> <a href="wapbank.php?job=set">收款帐号设置</a> <a href="?job=pwd">支付密码设置</a></div>
+    </div>
+	<div class="head"><div class="tag">充值/消费记录</div></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <div class="Listcont">
+		<div class="cont">
+			<div class='project'>$rs[about]</div>
+              <div class='info'>状态：$rs[state] &nbsp; 可用余额变动：<span class='red'>$rs[money] </span>元</div>
+              <div class='time'>发生时间：<span class='blue'>$rs[posttime]</span></div>
+		</div>
+	</div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+	$showpage
+</div>
+<!--
+EOT;
+}
+?>
+-->

@@ -1,0 +1,77 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class='ListLinkCont'>
+  <a href="$admin_path&job=addplace">添加广告位</a>
+  <a href="$admin_path&job=listad">广告位管理</a>
+  <a href="../member/index.php?main=../$dirname/member/norm.php?job=list">购买广告</a>
+</div>
+
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+      <tr> 
+        <th width="44%">广告位名称</th>
+        <th width="16%">广告类型</th>
+        <th width="13%">申请购买</th>
+        <th width="6%">点击</th>
+        <th width="6%">调用代码</th>
+        <th width="5%">预览</th>
+        <th width="5%">修改</th>
+        <th width="5%">删除</th>
+      </tr>
+  <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+  <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+    <td class='Left'>$rs[name]</td>
+    <td>{$array_adtype[$rs[type]]}</td>
+    <td>$rs[_ifsale]</td>
+    <td>$rs[hits]</td>
+    <td> 
+      <a href="#" onClick="$('#ja_$rs[id]').show();JM_cc('ja_$rs[id]');alert('代码复制成功，你可以粘贴在网页里需要显示的地方,即可显示广告！');"> 
+      <img alt='' src='../member/images/art_icon.gif' border=0></a>
+	  
+	  <input type="text" style="display:none;width:100px;" value="<SCRIPT LANGUAGE='JavaScript' src='$webdb[www_url]/$dirname/a_d_s.php?job=js&ad_id={$rs[keywords]}'></SCRIPT>" id="ja_$rs[id]" ></td>
+    <td><a href="$rs[demourl]" target="_blank" onclick="if('$rs[demourl]'==''){alert('本广告位没有设置预览网址');return false;}" alt='点击预览'><img src="../member/images/icon_view.gif" border="0"></a></td>
+    <td><a href="$admin_path&job=editadplace&id=$rs[id]" title='点击修改' class='edit'></a> </td>
+    <td> <a href="$admin_path&id=$rs[id]&action=deleteadplace" onclick="return confirm('你确认要删除这个广告吗?')" title='点击删除' class='del'></a></td>
+  </tr>
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+</div>
+</div>
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>1.本广告系统支持跨系统(ASP，PHP，JSP等等网站系统)、跨网站(任何域名的网站)。即除了在本系统使用外，还允许你把广告<font color="#FF0000"></font>插入到其它任何网站的网页里边。</li>
+      <li>2.使用方法，点击上面的调用代码<img src="../member/images/art_icon.gif">图标，就会自动复制一段代码，然后把这段代码贴到网页里边即可。当然也可以贴到标签里边去。</li>
+      <li>3.另外有一点大家值得注意的是,广告也是网页的元素之一,换个思路分析问题,当某些页面无法使用标签的情况下,可以用广告的方式调用显示图片等元素.</li>
+      <li>4.特别说明，点击率，仅能统计文字跟图片的点击，FLASH与其它JS无法统计.</li>
+      <li>5.代码广告最好不要给用户购买,防止用户提交恶意代码.当然如果你想给用户购买的话，最好设置成管理员审核后才可以显示。</li>
+    </ul>
+  </div>
+</div>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function JM_cc(ob){
+var obj=document.getElementById(ob); if (obj) { 
+obj.select();js=obj.createTextRange();js.execCommand("Copy");}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

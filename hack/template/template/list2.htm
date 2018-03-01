@@ -1,0 +1,59 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Conter">
+  <table class="ListTable">
+    <tr> 
+      <th width="31%">模板类型</th>
+      <th width="52%">存 放 路 径 </th>
+      <th width="9%">修改模板</th>
+      <th width="8%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+      <td class='Left'>$rs[typename]</td>
+    <td class='Left'><a href="../template/default/$rs[filepath]" target="_blank">$rs[filepath]</a></td>
+      <td><a href="index.php?lfj=$lfj&job=editcode&filepath=$rs[filepath]" title='点击修改' class='edit'></a></td>
+      <td><a href="index.php?lfj=$lfj&action=delete2&filepath=$rs[filepath]"  onClick="return confirm('不可恢复,你确实要删除吗?')" title='点击删除' class='del'></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+</table>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->
+
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">帮助说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>1.修改前,请先备份一下,方便还原替换。</li>
+      <li>2.要增加模板,参照原有的,请在对应的目录里增加一个.htm结尾的网页即可</li>
+      <li>3.目录简要说明:</li>
+     <li> \template\default\bencandy_tpl\comment.htm 文章内容页评论发布表单</li>
+      <li>\template\default\bigsort_tpl\ 大分类页的模板样式,mod_开头的是对应的图库、视频等模板样式</li>
+     <li> \template\default\label_tpl\ 标签用的模板存放目录</li>
+      <li>\template\default\list_tpl\ 栏目列表页模板样式,mod_开头的是对应的图库、视频等模板样式</li>
+      <li>\template\default\login_tpl\ 登录框样式</li>
+      <li>\template\default\side_sort\ 列表页子栏目的显示样式</li>
+      <li>\template\default\side_tpl\ 列表页最新、最热主题显示样式</li>
+      <li>\template\default\tpl\ 图库、视频等模型内容页的母模板</li>
+      <li>\template\default\vote_js\ 投票的模板样式</li>
+      <li>\data\admin_tpl\ 后台表布内容的模板样式</li>
+      <li>\data\form_tpl\ 万能表单的样式</li>
+      <li>\data\member_tpl\ 会员发表内容的样式</li>
+    </ul>
+  </div>
+</div>

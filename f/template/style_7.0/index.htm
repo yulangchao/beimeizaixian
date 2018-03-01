@@ -1,0 +1,140 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link type="text/css" rel="stylesheet" href="./images/pc/index.css" />
+<div class="MiddleBanner"><a href="#"><img src="./images/pc/ad1.jpg"/></a></div>
+<div class="MainCont1">
+    <div class="Left">
+    	<div class="HeadStyle1"><span>最新信息</span><a href="list.php?fid=1">更多&gt;&gt;</a></div>
+        <div class="ListNewsInfo">
+        	<ul> 
+<!--
+EOT;
+$listNews=Get_Info('new',12,60,$fid=0);
+foreach($listNews AS $key=>$rs){
+$rs[posttime]=substr($rs[posttime],-5);
+print <<<EOT
+-->
+            	<li><a href="list.php?fid=$rs[fid]">[$rs[fname]]</a><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a><span>$rs[posttime]</span></li>
+<!--
+EOT;
+}print <<<EOT
+-->      
+            </ul>
+        </div>
+    </div>
+    <div class="Right">
+    	<ul class="AcitonBut">
+        	<li><a href="post.php" class="post">免费发布信息</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/hy/member/page_choose.php" class="mg">管理店铺</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/f/member/list.php" class="edit">修改删除信息</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/member/userinfo.php?job=edit" class="rz">修改资料</a></li>      
+        </ul>
+        <div class="MemberCont">
+<!--
+EOT;
+if($lfjid){
+$lfjdb[icon]||$lfjdb[icon]="$webdb[www_url]/images/default/noface.gif";
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d H:i",$lfjdb[regdate]);
+$lfjdb[money]=get_money($lfjdb[uid]);
+print <<<EOT
+-->	
+			<dl>
+            	<dt class="headicon"><div><a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid"><img src="$lfjdb[icon]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></a></div></dt>
+                <dd>
+                	<ul class='info'>
+						<li>级别:{$ltitle[$lfjdb[groupid]]}</li>     
+						<li>{$webdb[MoneyName]}:$lfjdb[money] {$webdb[MoneyDW]}</li>     
+						<li>注册日期:$lfjdb[regdate]</li>     
+					</ul>
+                    <input type="button"  onClick="window.location.href='$webdb[www_url]/do/login.php?action=quit';" value="退出"/>
+                </dd>
+            </dl>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<form  name="memberlogin" method="POST" action="$webdb[www_url]/do/login.php">
+            <dl>
+                <dt><input type="text" name="username" placeholder="输入用户名" /></dt>
+                <dd><a href="$webdb[www_url]/do/sendpwd.php">忘记密码？</a></dd>
+            </dl>    
+    		<dl>
+                <dt><input type="password" name="password" placeholder="输入密码" /></dt>
+                <dd><input type="submit" value="登录"/> <input type="button"  onClick="window.location.href='$webdb[www_url]/do/reg.php';" value="注册"/></dd>
+            </dl>
+			<input type="hidden" name="step" value="2">
+		 </form>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+    </div>
+</div>
+<div class="MainCont2">
+	<div class="HeadStyle1"><span>推荐信息</span><a href="list.php?fid=1">更多&gt;&gt;</a></div>
+    <div class="MoreSideInfo">
+<!--
+EOT;
+$j=0;
+foreach($listdb_moresort AS $key1=>$rss){
+$j++;
+if($j>4) break;
+$url=get_info_url('',$rss[fid],$city_id);
+print <<<EOT
+-->
+		<dl class="slidecont">	
+			<dt class="head"><span>$rss[name]</span><a href="$url">更多&gt;&gt;</a></dt>
+            <dd class="cont">
+<!--
+EOT;
+$i=0;
+foreach($rss[article] AS $key2=>$rs){
+$i++;
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+print <<<EOT
+-->
+				  <div class="list"><span>$i</span><a href="$url">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </dd>
+        </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+</div>
+<div class="MiddleBanner"><a href="#"><img src="./images/pc/ad1.jpg"/></a></div>
+<div class="FenlieSorts">
+<!--
+EOT;
+$thissorts='';
+foreach($Fid_db[0] AS $key=>$rs){
+	$thissorts.="<dl>\r\n";
+	$thissorts.="<dt><a href='list.php?fid=$key'>$rs &gt;</a></dt>\r\n";
+	$thissorts.="<dd>\r\n";
+	$thissorts.="<ul>\r\n";
+	foreach($Fid_db[$key] AS $keys=>$rss){
+		$thissorts.="<li><a href='list.php?fid=$keys'>$rss</a></li>\r\n";
+	}
+	$thissorts.="</ul>\r\n";
+	$thissorts.="</dd>\r\n";
+	$thissorts.="</dl>\r\n";
+}
+print <<<EOT
+-->	
+	$thissorts
+</div>
+<!--
+EOT;
+?>
+-->

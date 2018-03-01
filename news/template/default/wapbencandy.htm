@@ -1,0 +1,124 @@
+<!--
+<?php
+$backdb_str=$backdb[id]?"<a href=\"wapbencandy.php?fid=$backdb[fid]&id=$backdb[id]\">$backdb[title]</a>":"没有了";
+$nextdb_str=$nextdb[id]?"<a href=\"wapbencandy.php?fid=$nextdb[fid]&id=$nextdb[id]\">$nextdb[title]</a>":"没有了";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/news.css">
+<div class="GuideCont">当前位置：<a href="./">资讯首页</a> $GuideFid[$fid]</div>
+<article class="article-container">
+	<div class="head">
+    	<h1>$rsdb[title]</h1>
+        <div>
+        	<time>{$rsdb[posttime]}</time>
+            浏览:{$rsdb[hits]}次
+        </div>
+    </div>
+    <section>
+    	$rsdb[content]
+    </section>
+</article>
+{$showpage}
+<div class="MoreLinks">
+<div class="up">上一篇：{$backdb_str}</div>
+<div class="dowm">下一篇：{$nextdb_str}</div>
+</div>
+<div class="FootSpa"></div>
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

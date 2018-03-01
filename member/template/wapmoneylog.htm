@@ -1,0 +1,57 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/consumptionPoints.css">
+
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+
+<div class="MainContNa">
+      <div class="head">以下是你最近的{$webdb[MoneyName]}赚取与消费记录</div>
+
+      <div class='grossScore'>你当前的{$webdb[MoneyName]}总数是：<span class="red">$lfjdb[money]</span> {$webdb[MoneyDW]} </div>
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+        <div class='IntegralList'>
+            <div class='title'>项目：$rs[title]</div>
+            <div class='info'>
+                <div class='IntegralTime'>
+                    <div class='IntegralL'>{$webdb[MoneyName]}{$webdb[MoneyDW]}数 <span class='red'>$rs[money]</span></div>
+                    <div class='TimeR'>$rs[posttime]</div>
+                </div>
+                <div class='submits'>
+                     <a href="?act=del&id=$rs[id]">删除</a>
+                    <!-- <a href="javascript:;" onclick="alert('$rs[about]')">查看</a> -->
+                   
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+
+<!--
+        </table>
+        $showpage
+    </div>
+-->
+
+
+</div>
+<!--
+EOT;
+?>
+-->

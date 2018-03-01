@@ -1,0 +1,320 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font:16px/26px 'Microsoft Yahei','Simsun';color:#333;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#2d374b;}
+a:hover {color:#d00;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+img {vertical-align:middle;}
+/*选中后背景色*/
+::selection {
+	color: #fff;
+	background: #fd6114;
+} 
+::-moz-selection {
+	color: #fff;
+	background: #fd6114;
+}
+a {
+	text-decoration:none;
+}
+a:active, a:hover {
+	outline: 0;
+}
+
+
+/* header */
+.header{
+	width:100%;
+	position:relative;
+	height:50px;
+	background:#006fe2;
+}
+.header .logo{
+	display:block;
+	width:150px;
+	height:50px;
+	margin:auto;
+	overflow:hidden;
+}
+.header .logo img{
+	display:block;
+	height:100%;
+}
+.header .search,.header .user,.header .back{
+	position:absolute;
+	top:0;
+	z-index:1000;
+	display:block;
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	text-indent:-9999em;
+}
+.header .search{
+	right:35px;
+	background:url(icon-search.png) no-repeat center center;
+	background-size:40%;
+}
+.header .search:hover,.header .user:hover,.header .back:hover{
+	background-color:#0067d2;
+}
+.header .user{
+	right:70px;
+	background:url(icon-user.png) no-repeat center center;
+	background-size:40%;
+}
+.header .back{
+	left:0;display:block;
+	background:url(icon-back.png) no-repeat center center;
+	background-size:12px 20px;
+}
+/*menus*/
+.header .showmenu{
+	width:250px;
+	position: absolute;
+	top:0;
+	right:0;
+	z-index: 999;
+	padding-top:50px;
+}
+.header .showmenu .tag{
+	width: 50px;
+	height: 50px;
+	overflow:hidden;
+	text-indent:-9999em;
+	position: absolute;
+	top:0;
+	right:0;
+	cursor: pointer;
+	outline: none;
+	background: #006fe2 url(menu-button-bg.png) no-repeat center center;
+	background-size: 50%;
+}
+.header .showmenu .tag:hover{
+	background-color:#0067d2;
+}
+.header .showmenu ul{
+	background: #0067d2;
+	list-style: none;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;	
+}
+.header .showmenu ul.showhidden{
+	display:none;
+}
+.header .showmenu ul li{
+	position: relative;
+}
+.header .showmenu ul li a,.header .showmenu ul li span{
+	display: block;
+	position: relative;
+	padding: 15px 20px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 300;
+	color: #fff;
+	border-top: 1px solid #0576ec;
+	border-bottom:1px solid #0053aa;
+}
+.header .showmenu ul li a:hover,.header .showmenu ul li span:hover {
+	background: rgba(255,248,213,0.1);
+}
+.header .showmenu ul li span:after{
+	content: '';
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+	width:0;
+	height:0;
+	border:8px solid transparent;
+	border-left: 8px solid rgba(255,255,255,0.8);
+	border-right:0;
+}
+.header .showmenu ul li.more1 span{
+	padding: 15px 20px 15px 40px;
+}
+.header .showmenu ul li.more1 span:after{
+    left: 15px;
+	border-right: 8px solid rgba(255,255,255,0.8);
+	border-left:0;
+}
+.header .MemberCont{
+	width:100%;
+	height:0px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:50px;
+	background:#999;
+	z-index:100000;
+}
+.header .MemberCont h4{
+	text-align:center;
+	padding:8px 10px 0 10px;
+	line-height:25px;
+	height:25px;
+	overflow:hidden;
+	font-weight:normal;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+}
+.header .MemberCont p{
+	text-align:center;
+	color:#FFF;
+	word-spacing:10px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.header .MemberCont p a{
+	color:#FFF;
+}
+/*footer*/
+.footer{
+	position:fixed; 
+	height:45px; 
+	display:block;
+	width:100%;
+	left:0; 
+	bottom:0;
+	background:linear-gradient(top,#504644,#4b4340); 
+	background:-webkit-linear-gradient(top,#504644,#4b4340); 
+	background:-moz-linear-gradient(top,#504644,#4b4340); 
+	z-index:10000; 
+	padding-top:2px;
+}
+.footer div{
+	width:20%; 
+	float:left; 
+	height:45px; 
+	position:relative;
+}
+.footer div a{
+	display:block; 
+	width:100%; 
+	color:#fff; 
+	padding-top:23px;
+	font-size:12px;
+	text-align:center;	
+}
+.footer div:nth-child(1) a{ 
+	background:url(icons.png) center 3px no-repeat;
+	background-size:60px auto;
+}
+.footer div:nth-child(2) a{ 
+	background:url(icons.png) center -37px no-repeat;
+	background-size:60px auto;
+}
+.footer div:nth-child(3) a{ 
+	position:absolute; 
+	padding:0; 
+	width:100%; 
+	height:70px; 
+	left:0; 
+	top:-20px; 
+	background:url(icons.png) center -75px no-repeat; 
+	background-size:56px auto;
+}
+.footer div:nth-child(4) a{ 
+	background:url(icons.png) center -168px no-repeat;
+	background-size:60px auto;
+}
+.footer div:nth-child(5) a{ 
+	background:url(icons.png) center -218px no-repeat;
+	background-size:60px auto;
+}
+.TopSearch{
+	width:100%;
+	height:0px;
+	background:#999;
+	overflow:hidden;
+	position:absolute; 
+	z-index:10000;
+	left:0;
+	top:50px;
+}
+.TopSearch dl{
+	width:95%;
+	display: table;
+	margin:10px auto;
+	background:#F6F6F6;
+	border-radius:20px;
+}
+.TopSearch dl dt,.TopSearch dl dd{
+	display: table-cell;
+	vertical-align:middle;
+	height:40px;
+}
+.TopSearch dl dt{
+	width:50px;
+	padding-left:10px;
+}
+.TopSearch dl dt span{
+	display:block;
+	width:35px;
+	height:35px;
+	overflow:hidden;
+	margin:auto;
+	background:url(search.png) center top no-repeat;
+	background-size:100% 100%;
+}	
+.TopSearch dl dt span input{
+	border:0;
+	background:none;
+	cursor:pointer;
+	text-indent:100px;
+	height:35px;
+}
+.TopSearch dl dd input{
+	width:96%;
+	height:30px;
+	border:0;
+	background:none;
+}
+.SearchbgFull { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:999; 
+	position:absolute;
+	display:none;
+}
+/*处理其它页面的一些样式*/
+table.MainTable{
+	width:98%;
+	margin:10px auto;
+	border:#DDD solid 1px;
+	background:#FFF;
+	border-radius: 2px;
+	-webkit-box-shadow: 1px 1px 2px #eee inset;
+	-webkit-box-sizing: border-box;
+	margin-bottom:50px;
+}
+table.dragTable .head{
+	border-bottom:#eee solid 1px;
+	line-height:35px;
+	height:35px;
+	font-size:16px;
+	background:#EFEFEF;
+}
+table.dragTable .middle{
+	padding:10px;
+}
+/*处理底部菜单遮住页面内容的问题*/
+body{
+	padding-bottom:60px;
+}

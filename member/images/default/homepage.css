@@ -1,0 +1,86 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font:14px 'Microsoft Yahei','Simsun';color:#333;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#333333;}
+a:hover {color:#ff6600;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+img {vertical-align:middle;}
+
+.red {color:#ff6666;}
+.blue {color:#3399ff;}
+
+.Header {width:100%; overflow:hidden; clear:both; background:#ffffff; -moz-box-shadow:1px -1px 5px #666666; -webkit-box-shadow:1px -1px 5px #666666; box-shadow:1px -1px 5px #666666;}
+.Header .HeadMain {width:1200px; margin:0 auto; overflow:hidden; clear:both;}
+.Header .HeadMain .LOGO {float:left; width:40%; height:115px; line-height:115px;}
+.Header .HeadMain .LOGO a,
+.Header .HeadMain .LOGO span {display:inline-block; font-size:24px;}
+.Header .HeadMain .HeadNav {float:left; width:60%; height:115px; line-height:115px;}
+.Header .HeadMain .HeadNav ul li {float:left; padding:0 30px;}
+.Header .HeadMain .HeadNav ul li a { font-size:20px;}
+.Header .HeadMain .HeadNav ul .ck a{padding-bottom:15px; border-bottom:5px solid #ff9900;}
+.Header .HeadMain .HeadNav span {display:inline-block;}
+.HeadNav .m-login{float:right;}
+.HeadNav .m-login span {width:160px; height:45px; line-height:45px; border-radius:3px; margin-left:30px; text-align:center;}
+.HeadNav .m-login span a {font-size:20px; color:#FFFFFF;}
+.HeadNav .m-login span:hover {background:#56abe4;}
+.HeadNav .m-login .return{background:#ff9900;}
+.HeadNav .m-login .leave {background:#00cc33;}
+.HeadNav .m-login .return a{background:url(return.png) left center no-repeat; padding-left:25px;}
+.HeadNav .m-login .leave a{background:url(leave.png) left center no-repeat; padding-left:25px;}
+
+.Content {width:100%; overflow:hidden; clear:both;}
+.Content .ContMain {width:1200px; margin:25px auto 70px auto;}
+.ContMain .AllInfo {padding:40px 25px; clear:both; overflow:hidden; background:#FFFFFF;}
+.AllInfo .HeadInfo {width:320px; height:360px; background:url(HeadInfo_bg.png) no-repeat center; text-align:center; color:#FFFFFF; float:left;}
+.AllInfo .HeadInfo a {display:inline-block; border-radius:70px; border:1px solid #f8f8f8; margin-top:50px;}
+.AllInfo .HeadInfo a img{border-radius:50%; width:147px; height:147px;}
+.AllInfo .HeadInfo h3 {font-size:18px; font-weight:normal; margin:15px 0;}
+.AllInfo .HeadInfo div,
+.AllInfo .HeadInfo p { margin-bottom:15px; font-size:18px;}
+.AllInfo .HeadInfo div span {margin:0 5px;}
+
+.AllInfo .BaseInfo {float:left; margin-left:35px; width:310px; border-right:1px solid #CCCCCC;}
+.AllInfo h2 {font-size:20px; font-weight:normal; margin-bottom:45px;}
+.AllInfo .BaseInfo ul li {line-height:32px;}
+
+.AllInfo .IntInfo {float:right; background:url(int_bg.png) no-repeat center center; overflow:hidden; width:435px; height:360px;}
+.AllInfo .IntInfo h2 { padding-left:35px;}
+.AllInfo .IntInfo ul li {font-size:12px; margin-bottom:30px; padding-left:15px;}
+.AllInfo .IntInfo ul li span {display:block; line-height:25px;}
+
+.ContMain .Dynamic {width:100%; overflow:hidden; clear:both; background:#FFFFFF; margin-top:25px;}
+.ContMain .Dynamic .SideHead {border-bottom:1px solid #CCCCCC;}
+.ContMain .Dynamic .SideHead span {font-size:22px; padding-left:25px; margin-left:25px; line-height:55px; border-left:3px solid #999999;}
+.ContMain .Dynamic .DyCont {width:100%; overflow:hidden; clear:both;}
+.ContMain .Dynamic .DyCont ul {padding:25px; overflow:hidden;}
+.ContMain .Dynamic .DyCont ul li {width:50%; float:left;}
+.ContMain .Dynamic .DyCont ul li span {display:block; line-height:50px;}
+
+.ContMain .OtherInfo {overflow:hidden; clear:both;}
+.OtherInfo .Left {width:775px; float:left;}
+.OtherInfo .Right {width:395px; float:right;}
+.OtherInfo .Left .MyPic,
+.OtherInfo .Left .MyArt,
+.OtherInfo .Right .MyNew,
+.OtherInfo .Right .MyRec {background:#FFFFFF; margin-top:25px; overflow:hidden;}
+.OtherInfo .SideHead {border-bottom:1px solid #CCCCCC; overflow:hidden;}
+.OtherInfo .SideHead span {padding-left:25px; line-height:55px; font-size:20px; color:#0066ff;}
+
+.OtherInfo .SideCont {overflow:hidden; clear:both;}
+.OtherInfo .SideCont dl {float:left;width:170px; margin:35px 11px; text-align:center;}
+.OtherInfo .SideCont dl dt {border-radius:5px; width:170px;}
+.OtherInfo .SideCont dl dd{ line-height:35px; font-size:16px;}
+.OtherInfo .SideCont ul {padding:5px 25px;}
+.OtherInfo .Left .SideCont ul li {line-height:45px; list-style-type:decimal; list-style-position:inside; color:#6f6f6f;}
+.OtherInfo .SideCont ul li a {padding-left:5px; font-size:16px;}
+.OtherInfo .Right .SideCont ul li {line-height:35px; list-style-type:disc; list-style-position:inside; color:#6f6f6f;}
+.OtherInfo .SideCont ul li a:hover {text-decoration:underline;}

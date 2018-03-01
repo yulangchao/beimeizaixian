@@ -1,0 +1,288 @@
+body{
+	max-width:640px;
+	margin:auto;
+	background:#F3F3F3;	
+}
+
+.mHead{
+	width:94%;
+	height:88px;
+	background:#0099ff;
+	position: relative;
+	color:#fff;
+	overflow:hidden;
+	padding:0 3%;
+}
+.mHead li{
+	float: left;
+	width: 33%;
+	font: 24px/88px 'Simsun';
+}
+.mHead .homePage {
+	float: left;
+	text-indent: 1em;
+	background: url(home_page.png) no-repeat center left;
+	color: #fff;
+	font-size: 24px;
+}
+
+.mHead .user {
+	float: left;
+	margin-top: 30px;
+	background: url(user.png) no-repeat;
+	display: block;
+	width: 26px;/
+	margin-left: 8%;
+	height: 26px;
+}
+.mHead .area {
+	float: right;
+	color: #fff;
+	font-size: 24px;
+	text-indent: 15px;
+	background: url(xl_header.png) no-repeat left center;
+}
+
+.navPosition{
+	text-indent:1em;
+	height:55px;
+	font: 16px/55px 'Simsun';
+	color:#666;
+}
+.navPosition a{
+	color:#666;
+}
+
+/* flash */
+
+.ShowSlide{
+	margin:0 auto;
+	background:#FFF;
+	position:relative;
+	overflow: hidden;
+}
+#slide,#slide .cell,#slide .cell img { 
+	height:auto;
+}
+#slide{ 
+	position:static; 
+	z-index:2; 
+	background-color:#f3f3f3;
+	margin:auto; 
+	width:100%; 
+	overflow: hidden; 
+	-webkit-user-select:none; 
+	-moz-user-select:none; 
+	-ms-user-select:none; 
+	-o-user-select:none; 
+	user-select:none;
+}
+#slide .cell{ 
+	position:relative; 
+	z-index:2; 
+	width:100%;
+	vertical-align:middle;
+	display:table-cell;
+}
+#slide .cell .title { 
+	display:none;
+}
+#slide .cell img { 
+	vertical-align:top; 
+	width:100%; 
+	height:auto; 
+	display:block;
+	cursor:pointer;
+}
+#indicator { 
+	position:absolute; 
+	width:100%;
+	bottom:15px;
+	left:0;
+	text-align:center;
+}
+#indicator li {
+	color:#fff; 
+	margin:0 4px; 
+	text-indent:-999em;  
+	width:12px; 
+	height:12px; 
+	border-radius:50%;  
+	display:inline-block;
+	overflow:hidden;
+	background-color:#fff;
+}
+#indicator .active { 
+	background-color:#D55904;
+}
+
+
+.onlineOrder{
+	max-width:640px;
+	height:84px;
+	background:#fff;
+	overflow:hidden;
+	margin-bottom:30px;
+}
+.onlineOrder span.price{
+	color:#0099FF;
+	font:24px/84px 'Microsoft Yahei';
+	padding-left:20px;
+}
+.onlineOrder span.originalPrice{
+	color:#999;
+	font:20px/84px 'Simsun';
+	padding-left:10px;
+}
+.onlineOrder a.submit{
+	float: right;
+	font: 24px/24px 'Microsoft Yahei';
+	color: #fff;
+	background: #FF6600;
+	padding: 10px 30px;
+	border-radius: 5px;
+	margin-right: 15px;
+	margin-top: 20px;
+}
+.onlineOrder a.submit:hover{
+	background:#FF8E00;
+}
+.titleTimeSee{
+	width:94%;
+	padding:0 3%;
+	min-height:120px;
+	background:#fff;
+}
+.titleTimeSee .title{
+	padding-top:10px;
+	height:60px;
+	 font: 20px/60px 'Microsoft Yahei';
+}
+.titleTimeSee .title a{
+	 color:#333;
+}
+.titleTimeSee .timeSee{
+	min-height:50px;
+	 font: 16px/30px 'Microsoft Yahei';
+	 overflow:hidden;
+	 color:#666;
+}
+.titleTimeSee .timeSee .time{
+	float:left;
+}
+.titleTimeSee .timeSee span{
+	color:#999;
+}
+.titleTimeSee .timeSee .see{
+	float:right;
+}
+
+.areaInfo{
+	background:#fff;
+	width:94%;
+	margin-top:20px;
+	padding:0 3%;
+	min-height:460px;
+}
+.areaInfo div{
+	border-bottom:1px solid #ccc;
+	padding:25px 3% 15px 3%;
+	min-height:15px;
+	font: 16px/24px 'Microsoft Yahei';
+	color:#666;
+}
+.areaInfo div.submit{
+	border:0;
+}
+.areaInfo .customer{
+	overflow:hidden;
+}
+.areaInfo .customer span.left{
+	float:left;
+}
+.areaInfo .customer span.right{
+	float:right;
+}
+.areaInfo .submit{
+	text-align: center;
+	padding: 0;
+}
+.areaInfo .submit a{
+	background: #FF9900;
+	color: #fff;
+	display: block;
+	width: 60%;
+	height: 55px;
+	margin: 30px 20%;
+	font: 22px/55px 'Microsoft Yahei';
+	border-radius:5px;
+}
+.userInfo{
+	width:92%;
+	overflow:hidden;
+	background:#fff;
+	padding:25px 4%;
+}
+.userInfo .contact{
+	width:70%;
+	float:left;
+	border-right:1px solid #ccc;
+	color:#666;
+	height:90px;
+}
+.userInfo .contact .phone{
+	background:url(phone.png) no-repeat;
+	text-indent:32px;
+	margin-top:5px;
+
+}
+.userInfo .contact .qq{
+	background:url(qq.png) no-repeat;
+	text-indent:32px;
+	margin-top:25px;
+}
+.userInfo .more{
+	width: 29%;
+	height: 50px;
+	float: right;
+	margin-top: 15px;
+}
+.userInfo .more a{
+	display: block;
+	width: 100%;
+	height: 50px;
+	color: #fff;
+	background: #00A0E9;
+	text-align: center;
+	font: 18px/50px 'Microsoft Yahei';
+	border-radius:3px;
+}
+.infomationDetail {
+	width:100%;
+}
+.infomationDetail .title{
+	height:55px;
+	font: 22px/55px 'Microsoft Yahei';
+	color:#666;
+	text-indent:1em;
+}
+.infomationDetail .content{
+	background:#fff;
+	width:90%;
+	min-height:100px;
+	padding:20px 5%;
+	color:#666;
+	font: 16px/24px 'Microsoft Yahei';
+}
+.infomationDetail .map{
+	margin:15px 0;
+	width:90%;
+	background:#fff;
+	padding:20px 5%;
+	text-align:center;
+	overflow:hidden;
+}
+.infomationDetail .map .container{
+	width:100%;
+	overflow:hidden;
+}

@@ -1,0 +1,90 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style type="text/css">
+<!--
+.STYLE1 {color: #0000FF}
+-->
+</style>
+  
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=$job">
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+      <th width="7%" align="center">FID </th>
+      <th align="center" width="53%">名称 </th>
+      <th align="center" width="14%">管理链接</th>
+      <th align="center" width="11%">修改</th>
+      <th width="15%" align="center">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr bgcolor='#FFFFFF'> 
+      <td >$rs[fid]</td>
+      <td  class='Left'> 
+        <input type="checkbox" name="iddb[{$rs[id]}]" value="$rs[id]">
+        <a href="../do/friendlink.php?fid=$rs[fid]" target="_blank">$rs[name]</a> 
+      </td>
+      <td ><a href="index.php?lfj=friendlink&job=list&fid=$rs[fid]"><img alt='' src='../member/images/art_icon.gif' border=0></a></td>
+      <td ><a href="index.php?lfj=friendlink_sort&job=mod&fid=$rs[fid]" title='点击修改' class='edit'></a></td>
+      <td width="15%" align="center"><a href="index.php?lfj=friendlink_sort&action=delete&fid=$rs[fid]" onClick="return confirm('删除后不可恢复,你确实要删除吗?')" title='点击删除' class='del'></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>把下面这段代码,插入到你其它频道的模板页面里边即可调用相应分类（不区分城市也即所有城市）的友情链接,必须把99换成以上的栏目FID值即可. </li>
+      <li>如果你要按不同的城市调用不同的分类，那么相应的$friendlink_sort_DB[<font color="#FF0000">99</font>] 要换成 $friendlink_citysort_DB[<span class="STYLE1">11</span>][<font color="#FF0000">99</font>] 其中11代表城市的ID，99代表分类的ID </li>
+      <li>如果你仅仅要调用某个城市的友情链接，那么相应的$friendlink_sort_DB[<font color="#FF0000">99</font>] 要换成 $friendlink_DB[<span class="STYLE1">11</span>] 其中11代表城市的ID</li>
+     <li> &lt;div class=&quot;imgfriendlink&quot;&gt; </li>
+       <li>&lt;!--</li>
+       <li>EOT;</li>
+       <li>require_once(ROOT_PATH.&quot;data/friendlink.php&quot;);<br />
+       <li>$array = $friendlink_sort_DB[<font color="#FF0000">99</font>] ; //请把99换成相应分类的FID </li>
+       <li>foreach($array[1] AS $rs){</li>
+      <li> print &lt;&lt;&lt;EOT</li>
+      <li> --&gt;</li>
+      <li> &lt;A HREF=&quot;$rs[url]&quot; target=_blank&gt;&lt;img alt=&quot;名称:$rs[name]\r\n描述:$rs[descrip]&quot; 
+        src=&quot;$rs[logo]&quot; width=&quot;88&quot; height=&quot;31&quot; border=0&gt;&lt;/A&gt; 
+        </li>
+       <li>&lt;!--</li>
+       <li>EOT;</li>
+      <li>}</li>
+       <li> print &lt;&lt;&lt;EOT</li>
+       <li>--&gt;</li>
+       <li>&lt;/div&gt;</li>
+       <li>&lt;div class=&quot;wordfriendlink&quot;&gt;</li>
+       <li>&lt;!--</li>
+       <li>EOT;</li>
+        <li>foreach($array[0] AS $rs){</li>
+        <li>print &lt;&lt;&lt;EOT</li>
+        <li>--&gt;</li>
+        <li>&lt;A HREF=&quot;$rs[url]&quot; target=&quot;_blank&quot; title=&quot;描述:$rs[descrip]&quot;&gt;$rs[name]&lt;/A&gt;&amp;nbsp; 
+        </li>
+        <li>&lt;!--</li>
+        <li>EOT;</li>
+       <li> }</li>
+        <li>print &lt;&lt;&lt;EOT</li>
+        <li>--&gt;</li>
+        <li>&lt;/div&gt;</li>
+    </ul>
+  </div>
+</div>
+<br />

@@ -1,0 +1,161 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/style7.0/index.css">
+<div class="mainbox">
+		<div class="main">			
+			<div class="banner">{$label[style7_hy_banner]}</div>
+			
+			<div class="content">
+			
+				<div class="side">
+				
+					<div class="join">{$label[style7_hy_head]}</div>
+					
+					<div class="cont">
+						<div class="shead"><span>全部服务分类</span></div>
+						<ul class="navlist">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$rs){
+print <<<EOT
+-->
+	<li class="m-list"><a href="list.php?fid=$key">{$rs}</a><span>&gt;</span>
+	<dl>
+	  <dt><a href="list.php?fid=$key">{$rs}</a></dt>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $fkey=>$name){
+print <<<EOT
+-->
+	  <dd><a href="list.php?fid=$fkey">{$name}</a></dd>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</dl></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->							
+						</ul>
+					</div>
+					
+				</div><!--side END-->
+				
+				<div class="cont">
+				
+					<div class="add">
+						<span>区域：</span>
+<!--
+EOT;
+if($city_id){
+$ck=$zone_id?"":"class='ck'";
+print <<<EOT
+-->
+						<a $ck href="index.php">{$city_DB[name][$city_id]}</a>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$ck=$zone_id==$key?"class='ck'":"";
+print <<<EOT
+-->
+						<a $ck href="index.php?city_id=$city_id&zone_id=$key">{$value}</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+						<div class="m-street">
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$ck=$street_id==$key?"class='ck'":"";
+print <<<EOT
+-->
+						  <a $ck href="index.php?city_id=$city_id&zone_id=$zone_id&street_id=$key">{$value}</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+						</div>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+					</div>
+					
+					<div class="text">
+					
+						<table class="textlist">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rzpic= "<img src='images/style7.0/rzs{$rs[renzheng]}.png' alt='{$renzhengDB[$rs[renzheng]]}'/>";
+$rs[url]="$webdb[www_url]/home/?uid=$rs[uid]";
+$qy_contact_tel =$rs[qy_contact_tel]?"$rs[qy_contact_tel]":"$rs[qy_contact_mobile]";
+$qy_address=$rs[qy_address]?"$rs[qy_address]":"$rs[qy_regplace]";
+$grouptype=$rs[grouptype]?"<span><img src='images/style7.0/rz1.png' /></span>":"";
+$idcard_yz=$rs[idcard_yz]?"<span><img src='images/style7.0/rz2.png' /></span>":"<span><img src='images/style7.0/rz02.png' /></span>";
+$email_yz=$rs[email_yz]?"<span><img src='images/style7.0/rz3.png' /></span>":"<span><img src='images/style7.0/rz03.png' /></span>";
+$mob_yz=$rs[mob_yz]?"<span><img src='images/style7.0/rz4.png' /></span>":"<span><img src='images/style7.0/rz04.png' /></span>";
+$codeurl=urlencode("$webdb[www_url]/hy/waphomepage.php?uid=$rs[uid]");
+$codeimg= "$webdb[www_url]/do/2codeimg.php?url=$codeurl";
+print <<<EOT
+-->
+							<tr>
+								<td width="57%">
+									<div class="showpic">
+										<div class="img"><a href="$rs[url]"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></div>
+										<div class="word">
+											<div class="t"><a href="$rs[url]" title="{$renzhengDB[$rs[renzheng]]}">{$rs[title]}</a><span class="blue">【{$rs[qy_saletype]}】</span></div>
+											<div class="a">地址：<a href="$webdb[www_url]/home/?m=contactus&uid=$rs[uid]">{$qy_address}</a></div>
+											<div class="p">
+												<span>评分：</span>
+												<span>{$rzpic}</span>
+											</div>
+											<div class="r">
+												<span>认证：</span>{$grouptype}{$idcard_yz}{$email_yz}{$mob_yz}
+											</div>
+										</div>
+									</div>
+								</td>
+								<td width="25%">
+									<span class="phone">{$qy_contact_tel}</span>
+								</td>
+								<td width="18%">
+									<div class="ewm"><img src="$codeimg" width="120"/></div>
+								</td>
+							</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+							
+						</table>
+						
+					</div><!--text END-->
+					
+					<div class="jump">
+						$showpage
+					</div>
+				
+				</div><!--cont END-->
+				
+			</div><!--content END-->
+			
+		</div><!--main END-->
+	</div><!--mainbox END-->
+<!--
+EOT;
+?>
+-->

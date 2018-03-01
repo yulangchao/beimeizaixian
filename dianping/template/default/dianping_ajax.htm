@@ -1,0 +1,93 @@
+<!--
+<?php
+if($listdb){
+foreach($listdb AS $key=>$rs){
+@extract($db->get_one("SELECT icon FROM {$pre}memberdata  WHERE uid=$rs[uid]"));
+$icon && $icon=tempdir($icon);
+$icon = $icon ? $icon : "$webdb[www_url]/images/fashion/dianping/noicon.gif";
+print <<<EOT
+-->
+<div class="commentCont">
+<div class="img">
+	<a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank" class="t"><img src='$icon' /></a>
+	<div class="name"><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></div>
+	<a href="$webdb[_www_url]/member/?main=pm.php?job=send&username=$rs[username]" target="_blank" class="gmf">
+		<img src="images/life6/dp_bg.png" />
+		<span> 给我留言</span>
+	</a>
+</div>
+<div class="dp">$rs[fen]</div>
+	<div class="look_text">
+		<div class="t1">$rs[content]</div>
+		<div class="t2">
+<!--
+EOT;
+if($rs[fen6]){
+print <<<EOT
+-->
+		  <div class="c2">$rs[fen6]</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+		  <div class="c3">
+<!--
+EOT;
+if($rs[price]){
+print <<<EOT
+-->
+		  人均消费：<em class="blue">{$rs[price]}元/人 </em> 
+<!--
+EOT;
+}if($rs[keywords2]){print <<<EOT
+-->
+		  推荐菜：$rs[keywords2]
+<!--
+EOT;
+}print <<<EOT
+-->
+		  </div>
+<!--
+EOT;
+if($rs[keywords]){
+print <<<EOT
+-->
+		  <div class="c4">标签：$rs[keywords]</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</div>
+	<div class="t3">
+		<span>日期：<em style="font-size:14px;">$rs[posttime]</em> </span>
+		
+		<span><a HREF="javascript:getcomment('$city_url/job.php?job=dianping_ajax&action=flowers&id=$id&cid=$rs[cid]')">鲜花</a><em class="blue">（{$rs[flowers]}）</em></span>
+		<span><a HREF="javascript:getcomment('$city_url/job.php?job=dianping_ajax&action=egg&id=$id&cid=$rs[cid]')">鸡蛋</a><em class="orange">（{$rs[egg]}）</em></span>
+<!--
+EOT;
+if($web_admin||($lfjuid&&$rs[uid]==$lfjuid)){
+print <<<EOT
+-->
+<A HREF="javascript:getcomment('$city_url/job.php?job=dianping_ajax&action=del&id=$id&cid=$rs[cid]')">删除</A> 
+<!--
+EOT;
+}print <<<EOT
+-->
+	</div>
+</div>
+</div>
+<!--
+EOT;
+}}else{print <<<EOT
+-->
+<div class="nodianping">暂时还没有点评</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="page">$showpage</div>
+<!--
+EOT;
+?>
+-->

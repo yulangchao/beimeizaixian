@@ -1,0 +1,50 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<h3>基本资料</h3>
+	<dl>
+		<dt><span>*</span>礼品名称：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入名称，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>所需{$webdb[MoneyName]}：</dt>
+		<dd><input type="text" name="postdb[money]" class="text" style='width:50px;' placeholder="输入$webdb[MoneyName]数量" value="$rsdb[money]" />$webdb[MoneyDW] <span class="blue">(也就是兑换礼品所需{$webdb[MoneyName]})</span></dd>
+	</dl>
+	<dl>
+		<dt>图片：</dt>
+		<dd>
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="postdb[picurl]" id='out_url0' value="$rsdb[picurl]" placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+            </div>
+		</dd>
+	</dl>
+<!--{template}-->
+	<dl>
+		<dt>{title}</dt>
+		<dd>{value}</dd>
+	</dl>
+<!--{/template}-->
+    <div class="butter"><span class="submits"><input type="submit" name="Submit" value="提 交"/></span></div>
+    <input type="hidden" name="fid" value="$fid">
+    <input type="hidden" name="id" value="$id">	
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

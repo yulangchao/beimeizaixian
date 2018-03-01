@@ -1,0 +1,247 @@
+.content {
+	width:1200px; height:auto; margin:0 auto; overflow:hidden;
+}
+.content_ad {
+	width:1200px; padding:25px 0;
+}
+.content_ad img{width:100%;}
+.ad_pir img{width:411px; height:78px;}
+.side_ad img{width:100%;}
+.mian_ad img{width:100%;}
+.jc_head {
+	 width:100%;height:40px; background:#1aa4ed;
+}
+table a:hover {
+	color:#ff6600; text-decoration:underline;
+}
+.jc {
+	background:url(left_head.jpg) no-repeat left center; padding-left:25px; margin-left:30px; 
+	line-height:40px; font-size:16px; font-weight:bold; color:#FFFFFF;
+}
+.big{
+	border-bottom:1px solid #e5e4e4; line-height:30px; margin:10px 15px;
+	background:url(yd.png) no-repeat left center; padding-left:15px;
+}
+.big a {
+	color:#333333;
+}
+.small{
+	line-height:25px; margin:0 15px; 
+}
+.small a{
+	color:#666666; 
+}
+.hj {
+	background:#43bbfb; line-height:40px; padding-left:20px; color:#FFFFFF; font-size:16px; font-weight:bold; margin-top:15px; 
+}
+.hjc {
+	padding:15px; color:#43bbfb;
+}
+.hjc a {
+	color:#43bbfb; line-height:25px;
+}
+
+.side_ad {
+	width:287px; margin:25px 0;
+}
+
+.lf_head {
+	background:#f0f0f0; padding-left:30px; color:#333333; line-height:40px; font-size:16px; font-weight:bold; 
+}
+.lf_news {
+	padding:15px; color:#777777;
+}
+.lf_news a {
+	line-height:25px; color:#777777; font-size:14px;
+}
+
+.rt_head {
+	width:100%; height:40px; background:#f0f0f0;
+}
+.cb {
+	width:100%; height:200px; float:left;
+}
+.tag1 {
+	width:50%; line-height:40px; text-align:center; background:#ffffff; float:left;
+}
+.tag2{
+	width:50%; line-height:40px; text-align:center; float:left;
+}
+.tag4 {
+	width:50%; line-height:40px; text-align:center; background:#ffffff; float:left;
+}
+.tag3{
+	width:50%; line-height:40px; text-align:center; float:left;
+}
+.lt{
+	line-height:37px; float:left; width:100%;
+}
+.t1 {
+	width:35%; float:left;
+}
+.t1 a {
+	 color:#1aa4ed; padding-left:25px;
+}
+.t2 {
+	width:20%; text-align:center; float:left;
+}
+.t3 {
+	width:45%; float:left;
+}
+.t5 {
+	width:20%; float:left;
+}
+.tb_f div {
+	width:135px; height:50px; border-radius:8px; text-align:center; line-height:50px; float:left; margin:33px 0 0 22px;;
+}
+.tb_f div a{
+	font-size:18px; color:#FFFFFF;
+}
+.tbf1 {
+	background:#4fc7ce; 
+}
+.tbf1 a {
+	background:url(tb_f1.jpg) no-repeat left center; padding-left:23px;
+}
+.tbf2 {
+	background:#4cc1ff;
+}
+.tbf2 a {
+	background:url(tb_f3.jpg) no-repeat left center; padding-left:23px;
+}
+.tbf3 {
+	background:#a8be3f;
+}
+.tbf3 a {
+	background:url(tb_f2.jpg) no-repeat left center; padding-left:23px;
+}
+.tbf4 {
+	background:#e39549;
+}
+.tbf4 a {
+	background:url(tb_f4.jpg) no-repeat left center; padding-left:23px;
+}
+.search_job {
+	margin:15px 0;
+}
+.form1 {
+	width:100%; height:66px; background:#e9e9e9; border:1px solid #e3e3e3; font-size:16px;
+}
+.search_job .title {
+	width:197px; height:66px;background:url(s_bg1.jpg) no-repeat; text-align:center; line-height:68px; float:left;
+}
+.type {
+	width:241px; height:66px; background:url(s_bg2.jpg) no-repeat; text-align:center; line-height:68px; color:#1aa4ed; float:left;
+}
+.mian_submit_box {
+	width:413px; height:49px;float:left; margin:8px 0 0 20px;
+}
+.mian_input_box {
+	width:315px; height:49px; line-height:49px; background:#ffffff; float:left; 
+	text-align:left; padding-left:20px; border:none; color:#999999;
+}
+.mian_submit_box input[type=submit] {
+	width:78px; height:49px; line-height:49px; background:url(s_bg3.jpg) no-repeat; border:none; color:#FFFFFF; padding-left:15px;
+}
+
+.dr_head {
+	width:100%; height:40px; background:#f0f0f0; padding-left:15px; font-size:16px;
+}
+.ad_pir tr td{
+	padding:10px 15px;
+}
+.ad_pir tr td a img {
+	width:100%;
+}
+
+
+.newset tr:nth-child(2n+1),.find_job tr:nth-child(2n+1){
+	background:#f4f4f4;
+}
+.text_mar {
+	padding:15px; width:100%;
+}
+.newset {
+	width:100%
+}
+.newset tr{
+	line-height:37px; text-align:center;
+}
+.pos_head td{
+	line-height:50px; background:#43bbfb; color:#FFFFFF;
+}
+.pos {
+	width:23%;
+}
+.pos a{
+	 color:#1aa4ed;
+}
+.company {
+	width:40%;
+}
+
+.mian_ad {
+	margin:25px 0 25px 25px; border:1px solid #CCCCCC;
+}
+
+.find_box tr{
+	width:100%; line-height:37px;
+}
+.find_job {
+	width:100%;
+}
+.find_job tr td {
+	width:20%; text-align:center;
+}
+
+.bottom_box {
+	width:auto; height:300px; background:url(fbg.jpg) repeat-x;
+}
+.bottom {
+	width:1200px; height:280px; margin:0 auto; padding-top:20px;
+}
+.callme {
+	width:170px; height:222px; float:left;
+}
+.callme li{
+	line-height:40px; font-size:16px; font-weight:bold; color:#FFFFFF;
+}
+.the_phone {
+	background:url(phone.jpg) no-repeat left center; padding-left:40px;
+}
+.callme li .orange {
+	font-style:oblique;
+}
+.partner {
+	width:600px; height:222px; float:left; margin:0 15px;
+}
+.partner li {
+	width:85px; height:222px; float:left; text-align:center; font-size:16px; color:#FFFFFF; padding-left:65px; font-weight:bold;
+}
+.partner_theme {
+	float:left; line-height:60px; width:100%;
+}
+.partner li a {
+	float:left; width:100%; line-height:30px; font-size:14px; color:#CCCCCC;
+}
+.partner li a:hover {
+	color:#CC6633;
+}
+.ewm {
+	width:400px; height:222px; float:left;
+}
+.ewm li {
+	width:130px; height:222px; float:right; text-align:center; color:#CCCCCC; margin-left:40px;
+}
+.ewm li span {
+	float:left; width:100%; line-height:40px;
+}
+.banquan {
+	float:left; line-height:58px; width:1200px; text-align:center; color:#CCCCCC; font-size:16px;
+}
+.banquan a{
+	color:#CCCCCC; font-size:16px;
+}
+.banquan a:hover{
+	color:#FF6600; text-decoration:underline;
+}

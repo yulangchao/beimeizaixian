@@ -1,0 +1,178 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/reg.css">
+<div class="GuideCont">当前位置：<a href="$webdb[www_url]">首页</a> -> 会员注册</div>
+<div class="RegCont">
+<form name="form1" method="post" action="?f" onsubmit="return checkpost();">
+	<dl>
+        <dt class='user'>用户名：</dt>
+        <dd><input type="text" name="username" data-max="50" placeholder="3-15字符内，可以是汉字，a-z，0-9以及下划线"/></dd>
+    </dl>
+	<dl>
+        <dt class='user'>密码：</dt>
+        <dd><input type="password" name="password" data-max="50" placeholder="密码长度6~30，区分大小写"/></dd>
+    </dl>
+	<dl>
+        <dt class='user'>确认密码：</dt>
+        <dd><input type="password" name="password2" data-max="50" placeholder="重新输入一次密码"/></dd>
+    </dl>
+	<dl>
+        <dt class='user'>邮箱：</dt>
+        <dd><input type="text" name="email" data-max="50" placeholder="输入邮箱地址"/></dd>
+    </dl>
+	<dl>
+        <dt class='user'>QQ号码：</dt>
+        <dd><input type="text" name="oicq" data-max="50" placeholder="输入QQ号码"/></dd>
+    </dl>
+<!--
+EOT;
+if($webdb[yzImgReg]){
+print <<<EOT
+-->
+	<dl>
+        <dt class='user'>验证码：</dt>
+        <dd>
+			<input type="text" name="yzimg" data-max="50" placeholder="输入验证码"/> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="img"><img onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"></span>');
+//-->
+</SCRIPT>
+		</dd>
+    </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+        <dt class='user'>性别：</dt>
+        <div class="radio"><input name="sex" type="radio" value="0" checked />保密 <input type="radio" name="sex" value="1" />男　<input type="radio" name="sex" value="2" />女</div>
+    </dl>
+	<div class="Agreement"><input name="agree" type="checkbox" value="1" checked="checked" />我已阅读并同意 <a href="javascript:;">会员注册协议</a></div>
+	<div class="sub"><input class='comn-submit' type="submit" value="注册" /></div>
+	<input type="hidden" name="$webdb[rand_reg_num_inputname]" value="$webdb[rand_reg_num]" />
+	<input type="hidden" name="step" value="2" />
+	<input type="hidden" value="$_fromurl" name="jumpto" />
+	<input type="hidden" value="$grouptype" name="grouptype" />
+</form>
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<div class="Agreements">
+	<div class="AgreementsBox">
+    <h3>会员注册协议</h3>
+    <ul>
+        <h4>一、不得利用本站危害国家安全、泄露国家秘密，不得侵犯国家社会集体的和公民的合法权益，不得利用本站制作、复制和传播下列信息：</h4> 
+      	<li>（一）煽动抗拒、破坏宪法和法律、行政法规实施的；</li>
+       	<li>（二）煽动颠覆国家政权，推翻社会主义制度的；</li>
+        <li>（三）煽动分裂国家、破坏国家统一的；</li>
+        <li>（四）煽动民族仇恨、民族歧视，破坏民族团结的；</li>
+        <li>（五）捏造或者歪曲事实，散布谣言，扰乱社会秩序的；</li>
+        <li>（六）宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、恐怖、教唆犯罪的；</li>
+        <li>（七）公然侮辱他人或者捏造事实诽谤他人的，或者进行其他恶意攻击的；</li>
+        <li>（八）损害国家机关信誉的；</li>
+        <li>（九）其他违反宪法和法律行政法规的；</li>
+        <li>（十）发布黄色反动文章</li>
+      	<h4>二、互相尊重，对自己的言论和行为负责。</h4>
+    </ul>
+	<div class="act"><input type="button" class='comn-submit' value="同意注册协议" />
+	</div>
+	</div>
+</div>
+
+<!--
+EOT;
+?>
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function checkpost(){
+	if($(".RegCont input[name='username']").val()==''){
+		alert('请输入用户名！');
+		$(".RegCont input[name='username']").focus();
+		return false;
+	}
+	if($(".RegCont input[name='password']").val()==''){
+		alert('请输入密码！');
+		$(".RegCont input[name='password']").focus();
+		return false;
+	}
+}
+$(".RegCont input[name='username']").blur(function(){
+	check_input($(this),'username',$(this).val()); 
+});
+$(".RegCont input[name='password']").blur(function(){
+	check_input($(this),'password',$(this).val()); 
+});
+$(".RegCont input[name='password2']").blur(function(){
+	if($(".RegCont input[name='password']").val()==$(this).val()){
+		$(this).css("border","0px");
+	}else{
+		$(this).css("border","#F00 solid 1px");
+		alert('确认密码不对！请重新输入');
+	}
+});
+$(".RegCont input[name='email']").blur(function(){
+	check_input($(this),'email',$(this).val()); 
+});
+$(".RegCont input[name='oicq']").blur(function(){
+	check_input($(this),'oicq',$(this).val()); 
+});
+$(".RegCont input[name='yzimg']").blur(function(){
+	check_input($(this),'yzimg',$(this).val()); 
+});
+function check_input(o,type,str){
+	$.get("ckreg.php?type="+type+"&str="+str+"&"+Math.random(),function(d){
+		if(d.length>0){
+			o.css("border","#F00 solid 1px");
+			alert(d);
+			//o.focus();
+		}else{
+			o.css("border","0px");
+		}
+	});
+}
+function format_height(node,fullbg){
+	if(node.height()<$(window).height()||node.height()<$("body").height()){
+		if ($(window).height() > $("body").height()) {
+			fullbg.height($(window).height());
+		} else {
+			fullbg.height($("body").height());
+		}
+	}else{
+		fullbg.height(node.height());
+	}
+	var left_w=($('.RegCont').width()-node.width())/2;
+	node.css('left',left_w+'px');
+	if(node.height()<$(window).height()){
+		var top_H=($(window).height()-node.height())/2;
+		node.css('top',top_H+'px');
+	}
+}
+function show_nav(node,fullbg){
+	fullbg.css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		node.stop().show();
+	});
+}
+function hide_nav(node,fullbg){
+	fullbg.animate({'opacity':0},300,function(){$(this).css({'display':'none'});});
+	setTimeout(function(){
+		node.stop().hide();
+	}, 500)
+}
+
+$(".Agreement a").click(function(){
+	format_height($('.Agreements'),$('#fullbg1'));
+	show_nav($('.Agreements'),$('#fullbg1'));
+});
+$('#fullbg1').click(function(){
+	hide_nav($('.Agreements'),$(this));
+});
+$('.AgreementsBox .act input').click(function(){
+	hide_nav($('.Agreements'),$('#fullbg1'));
+	$('.Agreement input').attr("checked",'true');
+});
+//-->
+</SCRIPT>

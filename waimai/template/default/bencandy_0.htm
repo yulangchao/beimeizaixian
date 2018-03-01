@@ -1,0 +1,133 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/bencandy.css">
+<div class="supply_view">
+  <div class="bL">
+    <div class="bL1 s-b">
+	  <div class="head">
+	    <span class="L"><a editurl='$city_url/job.php?job=doinfo&fid=$fid&id=$id&atc=do'>$fidDB[name]</a></span>
+		<span class="R">
+		  <a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$fid" class="bPost"><img src='images/life6/fb.png'  /></a>
+<!--
+EOT;
+if($web_admin||$lfjuid==$rsdb[uid]){print <<<EOT
+-->
+		  <a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?job=edit&fid=$fid&id=$id">修改</a>
+		  <a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?action=del&fid=$fid&id=$id">删除</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</span>
+	  </div>
+<!--
+EOT;
+$min_pic="";
+$i=0;
+$images="images = new Array(); \r\n";
+foreach($picdb AS $key=>$rs){
+$i++;
+$images.="images[$key]=new Image();\r\n";
+$images.="images[$key].src='$rs[imgurl]';\r\n";
+$cur_class = ($i==1) ? "class='cur'" : "";;
+$min_pic .= "<li $cur_class><div><a href='$rs[picurl]' target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rs[picurl]\" height=\"50\"/></a></div></li>";
+}
+$min_pic=($i<2)?"<li class='cur'><div><a href='$rsdb[picurl]' target='_blank'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rsdb[picurl]\" height=\"50\" alt=\"$rsdb[picurl]\"/></a></div></li>":"$min_pic";
+$hidenChange=($i>4)?"":"style='display:none;'";
+$showmorejs=($i>4)?"<SCRIPT LANGUAGE='JavaScript' src='images/life6/show_pic.js'></SCRIPT> ":"";
+$images=($i<2)?"images = new Array(); \r\n images[0]=new Image();\r\n images[0].src='$rsdb[picurl]';\r\n":$images;
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/showshop.css">
+	  <div class="ShowBaseInfo">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="InfoTable">
+                  <tr>
+                    <td class="ShowPic">
+                    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="BigPic">
+                          <tr>
+                            <td id="BigPic"><a href="$rsdb[picurl]" target="_blank"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></td>
+                          </tr>
+                        </table>
+                        <div class="ChangePic">
+                            <div id="Up_atc" $hidenChange></div>
+                            <div id="Down_atc" $hidenChange></div>
+                            <div class="listminpic"><div id="listminpic" class="lists"><ul>{$min_pic}</ul></div></div>
+                        </div>                       
+                    </td>
+                    <td class="MoreInfo">
+					  <div class="title">{$rsdb[title]}</div>
+                      <div class="infob">
+					    <div><span>发布时间:</span>{$rsdb[posttime]}</div>
+						<div><span>浏览量：</span>{$rsdb[hits]}次</div>
+                	  	<div><span>本店价格：</span><font color="#FF0000">￥ {$rsdb[price]} 元</font></div>
+<!--{template}-->
+                 		<div><span>{title}：</span>{value}</div> 
+<!--{/template}-->
+						
+              		  </div>
+                 </td>
+              </tr>
+          </table>
+       </div>
+<script>
+$images
+function loadImg(num){
+	//var screenImage = $("#BigPic img");
+	//var theImage = new Image();
+	//theImage.src = screenImage.attr("src");
+	//var imageWidth = theImage.width;
+	//var imageHeight = theImage.height;
+	var imageWidth=images[num].width;
+	var imageHeight = images[num].height;
+	if(imageWidth>imageHeight){
+		if(imageWidth>310){
+			var zoom=Math.round(imageHeight/(imageWidth/310));
+			$("#BigPic img").css({"width":"310px","height":zoom+"px"});
+		}else{
+			$("#BigPic img").css({"height":imageHeight+"px","width":imageWidth+"px"});
+		}
+	}else if(imageWidth<imageHeight){
+		if(imageHeight>310){
+			var zoom=Math.round(imageWidth/(imageHeight/310));
+			$("#BigPic img").css({"height":"310px","width":zoom+"px"});
+		}else{
+			$("#BigPic img").css({"height":imageHeight+"px","width":imageWidth+"px"});
+		}
+	}else{
+		if(imageHeight>310){
+			$("#BigPic img").css({"height":"310px","width":"310px"});
+		}else{
+			$("#BigPic img").css({"height":imageHeight+"px","width":imageWidth+"px"});
+		}
+	}
+} 
+$("#listminpic ul li").mouseover(function(){
+	$("#listminpic ul li").removeClass("cur");
+	$(this).addClass("cur");
+	var num=$("#listminpic ul li").index(this);
+	var theurl=images[num].src;	
+	$('#BigPic img').attr("src",theurl);
+	//$('#ShowThePic').attr("src",theurl);
+	$('#BigPic a').attr("href",theurl);
+	loadImg(num);
+});
+loadImg(0);
+</script>
+	  <div class="content"> 
+        <div class="h"><span>详细介绍</span></div>
+        <div class="c"><table width="100%" cellspacing="0" cellpadding="0" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word' align="center">
+          <tr> 
+            <td>$rsdb[content]</td>
+          </tr>
+        </table></div>
+      </div>  
+	</div>	
+  </div>  
+</div>
+$showmorejs 
+<!--
+EOT;
+?>
+-->

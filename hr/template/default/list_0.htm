@@ -1,0 +1,108 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/listjob.css">
+<div class="content_text " style="width:1200px; overflow:hidden; margin:15px auto;">
+	<div class="text_left" style="width:24%; float:left;">
+		<table style="width:100%; border:1px solid #1aa4ed;">
+			<tr>
+				<td class="jc_head"><div class="jc">职位分类</div></td>
+			</tr>
+			<tr>
+				<td class="middle">
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$fcolor=$fid==$fkey?" style=\"color:red;\"":"";
+print <<<EOT
+-->
+					<div class="big"><a href="list.php?fid=$fkey"{$fcolor}>{$fvalue}</a></div>
+					<div class="small">
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$value){
+$color=$fid==$key?" style=\"color:red;\"":"";
+print <<<EOT
+-->
+					
+              <a href="list.php?fid=$key"{$color}>{$value}</a> 
+<!--
+EOT;
+}print <<<EOT
+-->		 
+					</div>	
+<!--
+EOT;
+}print <<<EOT
+-->		
+					<div class="hj">热门职位</div>
+					<div class="hjc">
+<!--
+EOT;
+$array=list_hr_job('hot',$rows=10);
+foreach($array AS $rs){print <<<EOT
+-->
+<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</div>
+			</td>
+		</tr>
+	</table> 
+</div>
+<div class="text_right" style="width:76%; float:left; margin-bottom:75px;">
+	<div class="job_rep">
+<!--{filter}--><div><span class='title'>{title}：</span><span class='condition'>{value}</span></div><!--{/filter}-->
+	</div>
+	<table class="find_box" style="width:97%; margin-left:25px; border:1px solid #dfdfdf;">
+		<tr> 
+		<td class="dr_head">找工作</td>
+		</tr>
+		<tr> 
+		<td class="text_mar"> 
+			<table class="find_job">
+			<tr class="pos_head">
+			    <td>职位名称</td>
+<!--{template}--> <td align="center">{title}</td><!--{/template}-->
+				<td>企业名称</td>
+				<td>工作地点</td>
+				<td>月薪</td>
+			</tr>
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$class=($i%2==1)?'aa':'bb';
+print <<<EOT
+-->
+			<tr> 
+				<td class="p_name"><a href="$rs[url]" target="$target" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></td>
+				<!--{template}--> <td align="center">{value}</td><!--{/template}-->
+				<td class="company"><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a></td>
+				<td>$rs[workplace]</td>
+				<td>$rs[wage]</td>
+			</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="page">
+              <tr>
+                <td align="center">$showpage</td>
+              </tr>
+            </table>
+		</td>
+		</tr>
+	</table>
+</div>			
+	
+</div>
+<!--
+EOT;
+?>
+-->

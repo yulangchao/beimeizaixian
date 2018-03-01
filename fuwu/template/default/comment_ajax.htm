@@ -1,0 +1,48 @@
+<!--
+<?php
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+<dl>
+	<dt>
+		<span class="head_pic"><a onclick="if('0'=='$rs[uid]')return false;" href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" class="p" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src='$rs[icon]' width=50 height=50></a>
+        <a onclick="if('0'=='$rs[uid]')return false;" href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></span>
+		<span class="comment_word">{$rs[content]}</span>
+	</dt>
+	<dd>
+		<span>称呼：<em class="b_red">34535</em></span>
+		<span>日期：<em class="italic">{$rs[posttime]}</em></span>
+		<span><a HREF="javascript:getcomment('job.php?job=comment_ajax&action=flowers&fid=$fid&id=$id&cid=$rs[cid]')">鲜花</a>(<em class="b_red">{$rs[flowers]}</em>)</span>
+		<span><a HREF="javascript:getcomment('job.php?job=comment_ajax&action=egg&fid=$fid&id=$id&cid=$rs[cid]')" >鸡蛋</a>(<em class="b_red">{$rs[egg]}</em>)</span>
+		<!-- <span><A HREF="#"><img src="$webdb[www_url]/images/yellow/comment_guest.gif"></A></span> -->
+<!--
+EOT;
+if($web_admin||($lfjuid&&$rs[uid]==$lfjuid)){
+print <<<EOT
+-->
+	<span><A HREF="javascript:getcomment('job.php?job=comment_ajax&action=del&fid=$fid&id=$id&cid=$rs[cid]')">删除</A> </span>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</dd>
+</dl>
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+<div class="Jump_box">
+	<div class="Jump_nav">
+		$showpage
+	</div>
+</div>
+<!--
+EOT;
+}if(!$listdb){print <<<EOT
+-->
+<div class="no_comment">暂时还没有评论</div>
+<!--
+EOT;
+}
+?>
+-->

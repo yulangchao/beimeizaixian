@@ -1,0 +1,42 @@
+<!--
+<?php
+print <<<EOT
+-->
+<!-- <link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/article.css"> -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<div class="ListContainer">
+	<div class="head"><div class="tag">文章管理</div></div>
+
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$titles=get_word($rs[title],30);
+print <<<EOT
+-->
+          <div class='Listcont'>
+            <div class='cont'>
+              <div class='title'>{$rs[id]}、<a href="$Mdomain/wapbencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[full_title]" style="color:$rs[titlecolor];">$rs[title]</a></div>
+              </div>
+              <div class='butter'>
+                   <a href="wappost.php?action=del&fid=$rs[fid]&id=$rs[id]&rid=$rs[rid]">删除</a>
+                    <a href="wappost.php?job=edit&fid=$rs[fid]&id=$rs[id]&rid=$rs[rid]">修改</a>
+                     $rs[state]
+              </div>
+              
+          </div>
+
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+
+        $showpage
+
+</div>
+<!--
+EOT;
+?>

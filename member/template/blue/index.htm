@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>会员中心 </title>
+<link rel="stylesheet" type="text/css" href="images/blue/css.css">
+<link rel="stylesheet" type="text/css" href="images/blue/index.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="images/blue/member.js"></SCRIPT>
+</head>
+<body>
+<div class="TopContainer">
+	<div class="Infos">
+		<dl class="Citys">
+			<dt>当前城市[<span><a href="$webdb[www_url]">{$city_DB[name][$city_id]}</a></span>]</dt>
+			<dd><a href="$webdb[www_url]/allcity.php"></a></dd>
+		</dl>
+		<div class="times">
+			你好!<a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid">$lfjid</a>
+			<span id="liveclock"></span>
+		</div>
+	</div>
+	<div class="LogoSearch">
+		<div class="logo"><img src="./images/blue/logo.png"/></div>
+		<div class="search">
+		<form  name="shopform" method="POST" action="/shop/search.php" target="_blank">
+			<input type="text" value="" name="keyword" placeholder="输入您要搜索的商品" />
+			<input type="submit" value="搜索"/>
+			<input type="hidden" name="action" value="search">
+		</form>
+		</div>
+		<div class="atc">
+			<a href="$webdb[www_url]/do/login.php?action=quit" class="quit">安全退出</a>
+			<a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid" class="info">个人信息</a>
+		</div>
+	</div>
+	<div class="MenuCont">
+		<ul>
+			<li class="home"><a href="$webdb[www_url]">首页</a></li>
+			<li><a href="$webdb[www_url]/shop">网上商城</a></li>
+			<li><a href="$webdb[www_url]/hy">商家名店</a></li>
+			<li><a href="$webdb[www_url]/f">分类信息</a></li>
+			<li><a href="$webdb[www_url]/gift">积分换礼品</a></li>
+		</ul>
+	</div>
+</div>
+<div class="MainContainer">
+	<div class="LeftCont">
+		<div class="members">
+			<div class="icon"><a href="$webdb[www_url]/member/userinfo.php?uid=$lfjuid" target="_blank"><img src="$lfjdb[icon]" onerror="this.src='../images/default/noface.gif'"/></a></div>
+			<div class="username"><a href="$webdb[www_url]/member/userinfo.php?uid=$lfjuid" target="_blank">$lfjid</a></div>
+<!--
+EOT;
+$group_db=$db->get_one("SELECT totalspace,grouptitle FROM {$pre}group WHERE gid='$lfjdb[groupid]' ");
+//用户已使用空间
+$lfjdb[usespace]=number_format($lfjdb[usespace]/(1024*1024),3);
+//系统允许使用空间
+$space_system=number_format($webdb[totalSpace],0);
+//用户组允许使用空间
+$space_group=number_format($group_db[totalspace],0);
+//用户本身具有的空间
+$space_user=number_format($lfjdb[totalspace]/(1024*1024),0);
+//用户余下可用空间大小
+$onlySpace=number_format($webdb[totalSpace]+$group_db[totalspace]+$lfjdb[totalspace]/(1024*1024)-$lfjdb[usespace],3);
+$companyDB=$db->get_one("SELECT * FROM `{$pre}hy_company` WHERE uid='$lfjuid'");
+$companyer=$companyDB?"<span>企业会员</span>":"非企业会员";
+print <<<EOT
+-->
+			<div class="companyer">$companyer</div>
+			<div class="moneys">{$webdb[MoneyName]}:{$lfjdb[money]}{$webdb[MoneyDW]} 可用空间:{$onlySpace}M</div>
+		</div>
+<!--
+EOT;
+foreach($menudb AS $SortName=>$array){
+print<<<EOT
+-->
+    	<dl class="menu"> 
+			<dt class="show">$SortName</dt>
+			<dd style='display:none'> 
+<!--
+EOT;
+foreach($array AS $MenuName=>$array2){
+if($power<$array2[power])continue;
+if(strstr($array2[link],'../')){
+$target='_blank';
+}else{
+$target='member_mainiframe';
+}
+$title=strip_tags($MenuName);
+print<<<EOT
+-->
+				<div><A HREF='$array2[link]' title="$title" target='$target'>$MenuName</A></div> 
+<!--
+EOT;
+}print<<<EOT
+-->
+			</dd> 
+    	</dl> 
+<!--
+EOT;
+}print<<<EOT
+-->
+<!--
+EOT;
+foreach($menu_GpartDB AS $SortName=>$array){
+print<<<EOT
+-->
+        <dl class="menu"> 
+            <dt class="show">$array[name]</dt>
+		    <dd style='display:none'>
+<!--
+EOT;
+foreach($array[son] AS $k2=>$rs){
+if($rs[target]){
+$target='_blank';
+}else{
+$target='win';
+}
+print<<<EOT
+-->
+              	<div><a href='$rs[linkurl]' target='$target'>$rs[name]</a></div>
+<!--
+EOT;
+}print<<<EOT
+-->
+			</dd>
+        </dl>
+<!--
+EOT;
+}print<<<EOT
+-->
+
+	</div>
+	<div class="RightCont">
+		<iframe name="member_mainiframe" id="member_mainiframe" marginwidth=0 marginheight=0 frameborder="0" src="$MainUrl"></iframe>
+	</div>
+</div>
+<script type="text/javascript">
+$('.MainContainer .LeftCont').height($(window).height()-200);
+$('.MainContainer .RightCont').height($(window).height()-200);
+function qb_time(){ 
+	var Digital=new Date();
+	var hours=Digital.getHours();
+	var minutes=Digital.getMinutes();
+	var seconds=Digital.getSeconds();
+	var year=Digital.getFullYear();
+	var month=Digital.getMonth()+1; 
+	var day=Digital.getDate();	
+	if(month<=9) month="0"+month;
+	if(day<=9) day="0"+day;
+	if(minutes<=9) minutes="0"+minutes;
+	if(seconds<=9) seconds="0"+seconds ;
+	myclock="当前时间:<em>"+year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+"</em>";
+	$('#liveclock').html(myclock);
+	setTimeout("qb_time()",1000) 
+} 
+qb_time();
+$('.LeftCont .menu dt').click(function(){
+	if($(this).hasClass("show")){
+		$(this).removeClass("show");
+		$(this).parent().find('dd').show();
+		//$('.MainContainer .LeftCont').height($(doucment).height() + $(this).parent().find('dd').height());
+	}else{
+		$(this).addClass("show");
+		$(this).parent().find('dd').hide();
+	}
+	
+});
+</script>
+<div class="CopyRight" style="display:none;">
+	Powered by <a href="http://www.qibosoft.com" target="_blank">qibosoft</a> Code &copy; 2003-13  
+</div>
+<div class="siteurl" style="display:none;">$webdb[_www_url]</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

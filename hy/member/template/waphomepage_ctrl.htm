@@ -1,0 +1,5 @@
+<?php
+if($atn&&eregi("^([_a-z0-9]+)$",$atn)&&is_file(dirname(__FILE__)."/waphomepage_ctrl/$atn.htm")){
+	require(dirname(__FILE__)."/waphomepage_ctrl/$atn.htm");
+}
+?>

@@ -1,0 +1,44 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/search.css">
+<div class="GuideCont">当前位置：<a href="$webdb[www_url]">首页</a>  -&gt; <a href="./">$webdb[Info_webname]</a>  -&gt; <A href='./search.php'>搜索</A></div>
+<div class="searchbar">
+<form name="form1" method="post" action="?">
+	<input type="text" name="keyword" class="s_ipt" placeholder="输入关键字" value="$keyword" />
+	<input type="submit" name="Submit" class="s_btn" value="搜索"/>
+	<input type="hidden" name="mid" value="$mid"/>
+	<input type="hidden" name="action" value="search"/>
+</form>
+</div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+@extract($db->get_one("SELECT content FROM {$_pre}content_$rs[mid] WHERE id=$rs[id]"));
+$content=preg_replace('/<([^<]*)>/is',"",$content);	//把HTML代码过滤掉
+$content=preg_replace('/ |　|&nbsp;/is',"",$content);	//把多余的空格去除掉
+$content=get_word($content,150);
+$rs[content]=$content;
+print <<<EOT
+-->
+<dl class="ListSearch">
+	<dt><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></dt>
+	<dd>$rs[content]</dd>
+</dl>
+<!--
+EOT;
+}if(!$listdb){
+print <<<EOT
+-->
+<div class="NoSearch">没有符合当前搜索的内容！</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="ShowPage">$showpage</div>
+<!--
+EOT;
+?>
+-->

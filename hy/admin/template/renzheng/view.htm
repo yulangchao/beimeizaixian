@@ -1,0 +1,85 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<form name="form_work" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&job=work">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">“{$rsdb[title]}”提交的证件如下</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+<!--
+EOT;
+if($rsdb[permit_pic]){
+print <<<EOT
+-->
+    <tr> 
+      <td class='tdL'>营业执照扫描件</td>
+      <td class='tdR'><a href="$rsdb[permit_pic]" target="_blank"><img src="$rsdb[permit_pic]" width="300" border="0"></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+
+    <!--
+EOT;
+if($rsdb[guo_tax_pic]){
+print <<<EOT
+-->
+    <tr> 
+      <td class='tdL'>国税扫描件</td>
+      <td class='tdR'><a href="$rsdb[guo_tax_pic]" target="_blank"><img src="$rsdb[guo_tax_pic]" width="300" border="0"></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+
+    <!--
+EOT;
+if($rsdb[di_tax_pic]){
+print <<<EOT
+-->
+    <tr> 
+      <td class='tdL'>地税扫描件</td>
+      <td class='tdR'><a href="$rsdb[di_tax_pic]" target="_blank"><img src="$rsdb[di_tax_pic]" width="300" border="0"></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+
+    <!--
+EOT;
+if($rsdb[organization_pic]){
+print <<<EOT
+-->
+    <tr> 
+      <td class='tdL'>组织机构码扫描件</td>
+      <td class='tdR'><a href="$rsdb[organization_pic]" target="_blank"><img src="$rsdb[organization_pic]" width="300" border="0"></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+
+    <!--
+EOT;
+if($rsdb[idcard_pic]){
+print <<<EOT
+-->
+    <tr> 
+      <td class='tdL'>法人身份证扫描件</td>
+      <td class='tdR'><a href="$rsdb[idcard_pic]" target="_blank"><img src="$rsdb[idcard_pic]" width="300" border="0"></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

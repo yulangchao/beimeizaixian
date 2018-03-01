@@ -1,0 +1,174 @@
+<!--
+<?php
+unset($userdb);
+$userdb = $db->get_one("select * from {$pre}memberdata where uid=$rsdb[uid]");
+
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/bencandy.css">
+<div class="content_text">		
+	<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>礼品分类</span>
+			</div>
+			<div class="Menu">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+				<dl>
+					<dt class="show">
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+	if($(this).hasClass("show")){
+		$(this).removeClass("show");
+		$(this).parent().find('dd').show();
+		$(this).parent().siblings().find('dd').hide();
+	}else{
+		$(this).addClass("show");
+		$(this).parent().find('dd').hide();
+	}
+} );
+//-->
+</script>
+		</div>
+		<div class="content_text_left_footer">
+			<div class="showlist_theme">
+				<img src="images/life6/theme2.jpg" />
+				<span>礼品快讯</span>
+			</div>
+			<ul class="newslist">
+<!--
+EOT;
+$array=list_apply(8);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<li>
+					<h2>
+						<span class="blue">$rs[username]</span>于$rs[posttime]申请了
+					</h2>
+					<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+				</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</ul>
+			
+			<div class="look_box">
+<!--
+EOT;
+$array=list_gift(3);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<dl>
+					<dt class="look_gift">
+						<span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" class="img" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0"></a></span>
+					</dt>
+					<dd class="look_word">
+						<p><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" class="title" target="_blank">$rs[title]</a></p>
+						<p class="rose_red">原价{$rs[mart_price]}元</p>
+						<p class="rose_red">{$rs[money]}{$webdb[MoneyName]}</p>
+						<p class="goto"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">去看看</a></p>									
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->							
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="content_text_right">
+	
+		<h2 class="contnet_text_right_title">{$rsdb[title]}</h2>
+		
+		<div class="brief_introduction">
+			<div class="brief_pir">
+			
+				<div class="brief_pir_Jpg">
+					<span><a href="$rsdb[picurl]" class="picurl" target="_blank"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" ></a></span>
+				</div>
+			</div>
+			<div class="brief_text">
+				<div class="brief_text_top">
+					<span>{$rsdb[title]}</span>
+					<ul>
+						<li>市场价格：<em class="cross ">￥{$rsdb[mart_price]}</em></li>
+						<li><em class="Kern5">所需{$webdb[MoneyName]}</em>：<em class="red">{$rsdb[money]}</em>个</li>
+						<li>库存量：{$rsdb[giftnum]}</li>
+						<li>关注度：{$rsdb[hits]}次</li>
+					</ul>
+<!--
+EOT;
+$styleshow = ($rsdb[giftnum]>0)?"":"style='display:none;'";
+print <<<EOT
+-->
+					<div class="buy" {$styleshow}>
+						<span><a href="$webdb[_www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank">马上用积分去兑换</a></span>
+					</div>
+				</div>
+				<div class="brief_text_footer">
+					<div class="brief_text_footer_title">
+						<div class="title_left"><span>商家档案</span></div>
+						<a href="$webdb[_www_url]/member/?main=$Murl/member/joinlist.php?cid=$id" target="_blank"> >>查看已申请人数</a>
+					</div>
+					<ul class="title_time">
+						<li><em class="Kern5">会员名</em>：{$rsdb[username]}</li>
+						<li>已申请人数：{$rsdb[totaluser]}人</li>
+						<li>发布日期：<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a></li>
+					</ul>
+					<div class="brief_call">
+						<span class="left">QQ号：$userdb[oicq]</span>
+						<span class="right">微信号：$userdb[mobphone]</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<h2 class="contnet_text_right_title">详细介绍</h2>
+		
+		<div class="details">
+			{$rsdb[content]}
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

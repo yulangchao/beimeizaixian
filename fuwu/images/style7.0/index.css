@@ -1,0 +1,48 @@
+.wrap{background-color:#f5f5f5; width:100%; margin:0; padding:20px 0 50px 0;}
+
+.red {color:#ff0000;}
+.Content {width:1200px; margin:0 auto; overflow:hidden;}
+
+.Content .Banner {height:318px; overflow:hidden; clear:both;}
+.Content .Banner .bannerpic {width:960px; height:318px; float:left;}
+.Content .Banner .Scan {float:right; background:#FFFFFF; padding:30px;}
+.Content .Banner .Scan .img {width:152px; overflow:hidden}
+.Content .Banner .Scan .word {text-align:center; line-height:53px;}
+.Content .Banner .Scan .word span {width:100%; display:block; font-size:20px;}
+.Content .Banner .Scan .word span a {font-size:24px; color:#17a763; background:url(B_go.png) no-repeat right center; padding-right:15px;}
+.Content .Banner .Scan .word span a:hover {color:#d00;}
+
+.Content .Ad {width:1200px; overflow:hidden; margin:25px 0;}
+
+.Content .Text {overflow:hidden; clear:both;}
+.Content .head {width:100%; height:40px; line-height:40px;}
+.Content .head .tag span{border-left:4px solid #f74d4d; padding-left:15px; font-size:20px; font-weight:bold;}
+
+.Content .Text .listbox {padding-top:10px; overflow:hidden;}
+.Content .Text .piclist {padding:15px; background:#FFFFFF; float:left; margin:0 7px 15px 6px; position:relative; border:1px solid #dfdfdf;}
+.Content .Text .piclist:hover {background:#ebebeb; border:1px solid #17A763;}
+.Content .Text .piclist .pic {display:table; width:255px; height:255px; text-align:center;}
+.Content .Text .piclist .pic a{display:table-cell;width:100%; height:100%; text-align:center; vertical-align:middle;}
+.Content .Text .piclist .pic img{ max-width:255px; max-height:255px;}
+.Content .Text .piclist .word  {overflow:hidden;}
+.Content .Text .piclist .word .t{width:255px; font-size:18px; font-weight:bold; padding-top:10px; height:30px; line-height:30px; overflow:hidden;}
+.Content .Text .piclist .word .m {font-size:14px; color:#868686; height:60px; overflow:hidden; line-height:30px;width:255px;}
+.Content .Text .piclist .word .b {overflow:hidden; padding-top:10px; width:100%; overflow:hidden;}
+.Content .Text .piclist .word .b div {width:51%; float:left;}
+.Content .Text .piclist .word .b div a {display:block; width:130px; height:40px; background:#ff3030; font-size:16px; color:#FFFFFF; text-align:center; line-height:40px;}
+.Content .Text .piclist .word .b div a:hover {background:#c22525;}
+.Content .Text .piclist .word .b span {width:49%;float:left; text-align:center; color:#868686; text-align:right; padding-top:24px;}
+.Content .Text .piclist:hover .code{display:block;}
+.Content .Text .piclist .code{display:none; position:absolute; width:100%; background-color:rgba(0,0,0,.5); top:0; left:0; text-align:center; height:63%;}
+.Content .Text .piclist .code span{display:block;}
+.Content .Text .piclist .code .codetitle{width:100%;line-height:30px; color:#fff; font-size:15px; padding-top:20px;}
+.Content .Text .piclist .code .codepic{background-color:#fff;border-radius:5px; padding:10px; width:160px; height:160px; margin:0 auto;}
+.Content .Text .piclist .code .codepic img{width:160px;}
+.Content .Sclass {width:100%; overflow:hidden;}
+.Content .Sclass .classlist {overflow:hidden; padding-top:10px;}
+.Content .Sclass .classlist dl {width:225px; height:95px; float:left; background:#FFFFFF; margin:0 7px 15px 7px;}
+.Content .Sclass .classlist dl:hover {background:#ebebeb;}
+.Content .Sclass .classlist dl dt {padding-top:20px; padding-left:35px;float:left; display:table;}
+.Content .Sclass .classlist dl dt img {display:table-cell; vertical-align:middle}
+.Content .Sclass .classlist dl dd {float:left; line-height:95px; text-align:center; padding-left:20px;}
+.Content .Sclass .classlist dl dd a {font-size:18px; font-weight:bold; padding-right:15px;}

@@ -1,0 +1,48 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">添加内容</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <form action="index.php?lfj=$lfj&action=$job" method=POST>
+   <table class="FormTable">
+          <tr> 
+            <td class='tdL'>标题<br>
+            </td>
+            <td class='tdR'> 
+              <input type="text" name="title" size="50" value="$rsdb[title]">
+            </td>
+          </tr>
+          <tr> 
+            <td class='tdL'>所属分类</td>
+            <td class='tdR'>$selectfid </td>
+          </tr>
+          <tr>
+            <td class='tdL'>排序值</td>
+            <td class='tdR'>
+              <input type="text" name="list" size="10" value="$rsdb[list]">
+              数值越大,排在越前 </td>
+          </tr>
+          <tr> 
+            <td class='tdL'><span class=bold>内容</span> </td>
+            <td class='tdR'> 
+              <textarea name="content" cols="70" rows="7">$rsdb[content]</textarea>
+            </td>
+          </tr>
+          </table>
+          <div class='submits'>
+              <input type=submit value="提 交" name="submit">
+              <input type="hidden" name="id" value="$id">            
+          </div>
+        </table>
+      </form>
+  </div>
+</div>
+ 
+
+ 
+<!--
+EOT;
+?>
+-->

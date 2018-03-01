@@ -1,0 +1,115 @@
+<!--
+<?php
+if($job == "list"){
+print <<<EOT
+-->
+<form name="form_work" method="post" action="$admin_path&job=del">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">商家点评管理</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="ListTable">
+
+  <tr>
+    <th width="5%">ID</th>
+    <th width="30%">标题</th>
+      <th width="30%">商家名称</th>
+    <th width="10%">提交者</th>
+    <th width="15%">提交日期</th>
+    <th width="5%">查看</th>
+    <th width="5">删除 </th>
+
+  </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[content] = get_word($rs[content],40);
+print <<<EOT
+-->
+  <tr>
+    <td >{$rs[cid]}</td>
+    <td class='Left'><input type="checkbox" name="listdb[{$rs[cid]}]" value="$rs[cid]">{$rs[content]}</td>
+    <td class='Left'><a href="$webdb[www_url]/home/?uid=$rs[cuid]" target='_blank'>&nbsp;&nbsp;{$rs[title]}</a></td>
+    <td><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">{$rs[username]}</a></td>
+    <td>{$rs[posttime]}</td>
+    <td>
+    	<a href="$admin_path&job=see&cid=$rs[cid]">查看</a></td>
+      <td><a onclick="return confirm('你确认要删除吗?');" href="$admin_path&job=del&listdb[{$rs[cid]}]=$rs[cid]" title='点击删除’' class='del'></a>
+    </td>
+  </tr>
+<!--
+EOT;
+}if($showpage){
+print <<<EOT
+-->
+  <tr>
+    <td colspan="6" align="center">{$showpage}</td>
+  </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+</table>
+    <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input name="" type="submit" value="批量删除" />      
+    </div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}if($job == "see"){
+print <<<EOT
+-->
+<div class="MainContainers">
+  <div class="Header"><span class="tag">店铺评论详细信息</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+  <tr>
+    <td class='tdL'>店铺名称:</td>
+    <td class='tdR'><a href="$webdb[www_url]/home/?uid=$rs[cuid]" target='_blank'>{$rs[title]}</a></td>
+  </tr>
+  <tr>
+    <td class='tdL'>提交者:</td>
+    <td class='tdR'><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">{$rs[username]}</a></td>
+  </tr>
+  <tr>
+    <td class='tdL'>IP:</td>
+    <td class='tdR'>{$rs[ip]}</td>
+  </tr>
+    <tr>
+    <td class='tdL'>提交时间:</td>
+    <td class='tdR'>{$rs[posttime]}</td>
+  </tr>
+    <tr>
+    <td class='tdL'>内容:</td>
+    <td class='tdR'>{$rs[content]}</td>
+  </tr>
+</table>
+        <div class='ListLinkCont'>
+          <a href="$FROMURL">返回列表</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+
+
+<!--
+EOT;
+}
+?>
+-->
+ 

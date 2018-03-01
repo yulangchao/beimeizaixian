@@ -1,0 +1,40 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainCont">
+	<div class="head"><div class="tag">请选择对应的进行修改</div></div>
+    <div class="cont">
+    	 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          
+<!--
+EOT;
+$page=0;
+foreach($listdb AS $rs){
+$page++;
+$url=$page==1?"post.php?action=del&fid=$rsdb[fid]&id=$rsdb[id]":"post.php?action=delmore&fid=$fid&id=$id&rid=$rs[rid]";
+print <<<EOT
+-->
+		  <tr>
+            <td class="tdL">第 {$page} 页 :</td>
+            <td class="tdR">{$rs[subhead]} [<a href="$url">删除</a>]</td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+           	
+           	注意：删除第一页的话，其它多页将会全部被删除！ </td>
+          </tr>
+        </table>
+         
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

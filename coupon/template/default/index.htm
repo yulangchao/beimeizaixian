@@ -1,0 +1,142 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<div style="width:1200px;margin:auto;">
+<div class="banner_box">
+	<div class="banner_hot">
+		<dl>
+			<dt>
+				<div class="banner_more">
+					<span class="banner_text_hot">热门促销</span>
+					<a href="#" class="banner_text_more">更多</a>
+				</div>
+			</dt>
+			<dd>
+<!--
+EOT;
+$i=0;
+$listdb = list_coupon(4,'hot');
+foreach($listdb AS $key=>$rs){
+$i++;
+$rs[title]=get_word($rs[title],16);
+print <<<EOT
+-->
+				<li class="text_list$i">
+					<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+					<p>优惠价:<em class="orange">￥$rs[price]</em><span class="original_price"> &nbsp;原价<em class="cross">$rs[mart_price]</em>元</span></p>
+				</li>
+<!--
+EOT;
+}print <<<EOT
+-->							
+			</dd>
+		</dl>
+	</div>
+	<div class="banner_pictrue">$label[coupon_flashpic_60]</div>
+<script>
+var bannerNum = 0;
+var liNum = $(".banner_pictrue ul li").length;
+$(".banner_pictrue ol li").click(function(){
+  var thisIndex = $(this).index();
+  $(".banner_pictrue ul li").eq(thisIndex).fadeIn("slow").siblings().fadeOut("slow");
+  $(".banner_pictrue ol li").eq(thisIndex).addClass("actionNum").siblings().removeClass("actionNum");
+});
+autochange = function(){
+	bannerNum = ++bannerNum % liNum;
+    $(".banner_pictrue ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+    $(".banner_pictrue ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+}
+bannerInterval = setInterval(autochange,2000);
+$(".banner_pictrue").hover(function(){
+  clearInterval(bannerInterval);
+},function(){
+  bannerInterval = setInterval(autochange,2000);
+});
+</script>
+</div>
+		
+<div class="content_text">
+
+	<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>促销分类</span>
+			</div>
+			<div class="Menu">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+$showcss = $i==1?"class='show'":"";
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+				<dl>
+					<dt $showcss>
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+var dlIndex = $(this).parent().index();
+$(".Menu dl").eq(dlIndex).siblings().find("dd").hide();
+$(".Menu dl").eq(dlIndex).siblings().find("dt").removeClass("show");
+$(this).parent().find('dd').show();
+$(this).addClass("show");
+} );
+//-->
+</script>
+		</div>
+		<div class="content_text_left_footer">
+			<div class="showlist_theme">
+				<img src="images/life6/theme2.jpg" />
+				<span>促销快讯</span>
+			</div>
+			<div class="newslist">$label[coupon_new23]</div>
+		</div>
+	</div>
+				
+	<div class="content_text_right">
+	
+		<div class="text_title">
+			<span>餐饮美食</span>
+			<div class="title_nav">
+				<a href="listall.php?ordertype=id">最新促销信息</a>
+				<a href="listall.php?ordertype=hits">热门促销信息</a>
+				<a href="listall.php?ordertype=levelstime">推荐促销信息</a>
+			</div>
+		</div>
+		<div class="Showlist_box">$label[coupon_new1]</div>
+	</div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

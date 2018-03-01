@@ -1,0 +1,35 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link type="text/css" rel="stylesheet" href="$webdb[www_url]/images/default/pcwxlogin/style.css"/>
+<div class="m-wxlogin">
+  <div class="wxL-H">会员登录</div>
+  <div class="wxL-L">
+    <div class="L-t">扫一扫二维码登录或注册</div>
+	<div class="L-pic">
+	  <img class="img" id="codeimg" src="$webdb[www_url]/do/2codeimg.php?url=$URL"/>
+	</div>
+  </div>
+  <div class="wxL-R">
+    <dl class="wxCont">
+	  <dt>想使用帐号登录？</dt>
+	  <dd><a href="./login.php">使用帐号登录</a></dd>
+	  <dd><a href="/">点击返回首页</a></dd>
+	</dl>
+  
+  </div>
+</div>
+<script type="text/javascript">
+function countSecond(){　
+	$.get("$webdb[www_url]/do/job.php?job=wxlogin&type=cklogin&"+Math.random(), function(data){
+		if(data>0)window.location.href='$webdb[www_url]/do/job.php?job=wxlogin&type=jump';
+	});
+	setTimeout("countSecond()",2000);
+}
+countSecond()
+</script>
+<!--
+EOT;
+?>
+-->

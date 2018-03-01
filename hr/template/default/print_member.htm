@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+--> 
+<head>
+<title>$titleDB[title]</title>
+<link rel="stylesheet" type="text/css" href="images/life6/showmember.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+body{
+	background:#fff;
+}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" onload="window.print();">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--//目的是为了做风格方便
+document.write('<div class="wrap">');
+//-->
+</SCRIPT>
+<link rel="stylesheet" type="text/css" href="images/life6/showmember.css">
+<style>
+.infoCont div{float:left;width:30%; padding-right:3%; height:30px; line-height:30px; overflow:hidden;}
+.infoCont div.lin{width:47%;}
+.infoOther{width:100%;}
+.infoOther .head{height:30px; line-height:30px;}
+.infoOther .otherCont{padding:10px 20px; overflow:hidden;}
+.infoOther .otherCont .contact{float:left; width:50%;}
+</style>
+<div style="width:100%; overflow:hidden;">
+  <div style="width:100%; height:30px; line-height:30px; text-align:center; font-size:18px; margin-bottom:20px;">{$rsdb[truename]}的简历</div>
+  <div style="width:100%;  overflow:hidden;">
+    <div style="width:20%; float:left; text-align:center;"><a href="#"><img src="$rsdb[facephoto]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'" border="0" width="120"></a></div>
+	<div style="width:80%; float:right;" class="infoCont">
+		<div><b>姓名:</b>{$rsdb[truename]}</div>
+		<div><b>性别:</b> {$rsdb[sex]}</div>	
+		<div><b>年龄:</b> {$rsdb[age]}</div>	
+		<div><b>身高:</b> {$rsdb[height]}</div>	
+		<div><b>学历:</b> {$rsdb[school_age]} </div>	
+		<div><b>专业:</b> {$rsdb[speciality]} </div>	
+		<div><b>工作年限:</b> {$rsdb[workyear]} </div>
+		<div><b>到岗日期:</b> {$rsdb[worktime]}</div>
+		<div><b>毕业年份:</b> {$rsdb[graduate_time]} </div>
+		<div class="lin">毕业学校: {$rsdb[alma_mater]}</div>
+		<div class="lin">期望待遇: {$rsdb[wage]}</div>
+		<div class="lin">期望岗位: {$rsdb[hope_job]}</div>
+		<div class="lin">技能特长: {$rsdb[skill]}</div>
+		<div class="lin">体育爱好: {$rsdb[interest]}</div>
+	</div>
+  </div>
+  <div class="infoOther">
+    <div class="head">【教育背景】</div>
+	<div class="otherCont">{$rsdb[education]}</div>
+  </div>
+  <div class="infoOther">
+    <div class="head">【工作经验】</div>
+	<div class="otherCont">{$rsdb[work]}</div>
+  </div>
+  <div class="infoOther">
+    <div class="head">【自我评价】</div>
+	<div class="otherCont">{$rsdb[introduce]}</div>
+  </div>
+  <div class="infoOther">
+    <div class="head">【联系方式】</div>
+	<div class="otherCont">
+	  <div class="contact"><b>手机号码:</b> {$rsdb[mobphone]}</div>
+      <div class="contact"><b>QQ号码:</b> {$rsdb[qq]}</div>
+      <div class="contact"><b>常用邮箱:</b> {$rsdb[email]}</div>
+      <div class="contact"><b>MSN帐号:</b> {$rsdb[msn]}</div>
+      <div class="contact"><b>当前居住地:</b> {$rsdb[lifeplace]}</div>
+	</div>
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--//目的是为了做风格方便
+document.write('</div>');
+//-->
+</SCRIPT>
+</body>
+</html>

@@ -1,0 +1,455 @@
+.wrap{background-color:#f5f5f5; width:100%; margin:0; padding:20px 0 50px 0;}
+.main_box{
+	width: 1200px;
+	margin: 0 auto;
+}
+/*横幅*/
+.main_box .banner{
+	width:100%;
+	height:165px;
+	overflow:hidden;
+}
+.main_box .banner img{
+	width:1200px;
+	height:165px;
+}
+
+.main_box .main_content{
+	margin-top:30px; position:relative; min-height:1669px;
+}
+
+/*左侧*/
+
+.main_box .main_content .main_contentleft{
+	width:870px;
+}
+
+/*家居装修*/
+.main_box .main_content .main_contentleft .fitment{
+	width:100%;
+	height:358px;
+	background:#fff;
+}
+.main_box .main_content .main_contentleft .fitment:hover{
+	background:#FCFAFA;
+}
+.main_box .main_content .main_contentleft .fitment .head{
+	font:16px/60px 'Microsoft Yahei';
+	color:#333;
+	padding-left:15px;
+}
+.main_box .main_content .main_contentleft .fitment .img_info{
+	height:255px;
+	overflow:hidden;
+	padding-left:20px;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .img{
+	width:340px;
+	height:255px;
+	float:left;
+	overflow:hidden; text-align:center;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .img img{
+	max-width:340px;
+	height:255px;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info{
+	float:left;
+	margin-left:30px;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li{
+	font:15px/34px 'Simsun';
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li span.left{
+	width: 62px;
+	height: 45px;
+	display: block;
+	float: left;
+	background: rgba(255,255,255,.2);
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li span.number{
+	float: left;
+	text-align: center;
+	font: bold 20px/45px 'Microsoft Yahei';
+	color: #fff;
+	width: 200px;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li.qq_blue{
+	width:265px;
+	height:45px;
+	background:#22BDF0;
+	margin: 11px 0 19px 0;
+	overflow:hidden;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li.qq_blue span.left span{
+	width: 60px;
+	height: 45px;
+	display: block;
+	background: url(qq.png) center no-repeat;
+}
+
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li.tel_red{
+	width:265px;
+	height:45px;
+	background:#FB4747;
+	overflow:hidden;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li.tel_red span.left span{
+	width: 60px;
+	height: 45px;
+	display: block;
+	background: url(tel.png) center no-repeat;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li.tel_red span.tel{
+	background:url(tel.png) no-repeat;
+}
+
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li span.blue{
+	color:#22BDF0;
+}
+.main_box .main_content .main_contentleft .fitment .img_info .info ul li span.red{
+	color:#FB4747;
+}
+
+/*商家介绍*/
+.main_content .main_contentleft .merchant_introduce{
+	width:100%;
+	overflow:hidden;
+	background:#fff;
+	margin-top:30px;
+}
+.main_content .main_contentleft .merchant_introduce:hover{
+	background:#FCFAFA;
+}
+.main_content .main_contentleft .merchant_introduce .head{
+	font:16px/50px 'Microsoft Yahei';
+	color:#333;
+	padding-top:10px;
+}
+.main_content .main_contentleft .merchant_introduce .head span,.main_content .main_contentleft .customer_review .head span{
+	background: url(red.png) 25px 1px no-repeat;
+	padding-left: 40px;
+}
+.main_content .main_contentleft .merchant_introduce .contents{
+	padding: 10px 30px 10px 25px;
+	font:14px/30px 'Simsun';
+}
+.main_content .main_contentleft .merchant_introduce .contents p{
+	text-indent: 2em;
+}
+.main_content .main_contentleft .merchant_introduce .map{
+	width:810px;
+	height:362px;
+	border:3px solid #E7E7E7;
+	margin: 15px auto;
+}
+
+/*顾客留言*/
+.main_content .main_contentleft .customer_review{
+	width:100%;
+	min-height:666px;
+	overflow:hidden;
+	background:#fff;
+	margin-top:30px;
+}
+.main_content .main_contentleft .customer_review .head{
+	font: 16px/22px 'Microsoft Yahei';
+	color: #333;
+	padding-top: 28px;
+}
+.main_content .main_contentleft .customer_review .piclist{
+	overflow: hidden;
+	border-bottom: 1px dashed #D3D3D3;
+	width: 820px;
+	margin: 0 auto;
+	padding: 15px 0 20px 0;
+}
+.main_content .main_contentleft .customer_review .piclist:hover{
+	background:#FCFAFA;
+}
+.main_content .main_contentleft .customer_review .piclist .imgleft{
+	float:left;
+}
+.main_content .main_contentleft .customer_review .piclist .imgleft .img{
+	width:115px;
+	height:115px;
+	overflow:hidden;
+}
+.main_content .main_contentleft .customer_review .piclist .imgleft  a.post{
+	width:115px;
+	height:35px;
+	display:block;
+	background:#FB4747;
+	font:bold 15px/35px 'Microsoft Yahei';
+	text-align:center;
+	color:#fff;
+	margin-top:8px;
+}
+.main_content .main_contentleft .customer_review .piclist .imgleft  a.post:hover{
+	background:#FA644B;
+}
+.main_content .main_contentleft .customer_review .piclist .inforight{
+	float:left;
+	width:674px;
+	height:156px;
+	margin-left:25px;
+}
+.main_contentleft .customer_review .piclist .inforight .user_time span.user{
+	color:#FF3030;
+	font:bold 16px/25px 'Microsoft Yahei';
+}
+.main_contentleft .customer_review .piclist .inforight .user_time span.time{
+	color:#999;
+	font:12px/25px 'Simsun';
+	margin-left:20px;
+}
+.main_contentleft .customer_review .piclist .inforight .comment{
+	color:#666;
+	font:14px/25px 'Simsun';
+	margin: 10px 0 50px 0;
+}
+.main_contentleft .customer_review .piclist .inforight .other{
+	overflow:hidden;
+}
+.main_contentleft .customer_review .piclist .inforight .other ul{
+	overflow:hidden;
+	float:right;
+}
+.main_contentleft .customer_review .piclist .inforight .other ul li{
+	float:left;
+	color:#666;
+	margin-left:20px;line-height:30px;height:30px; font-size:15px;
+}
+.main_contentleft .customer_review .piclist .inforight .other ul li.ts a{color:#17A763}
+.main_contentleft .customer_review .piclist .inforight .other ul li.ts em{color:#ff9900;}
+.main_contentleft .customer_review .piclist .inforight .other ul li span{
+	display:inline-block; padding:0 10px 0 20px;
+}
+.main_contentleft .customer_review .piclist .inforight .other ul li img{margin-bottom:4px;}
+.main_contentleft .customer_review .piclist .inforight .other ul li span.red{
+	color:#FB4747;
+}
+.main_contentleft .customer_review .piclist .inforight .other ul li span.blue{
+	color:#22BDF0;
+}
+.nodianping{padding:20px 10px; line-height:40px; font-size:16px; font-weight:600; text-align:center;}
+
+
+
+/*右侧*/
+.main_box .main_content .main_contentright{
+	width:285px; position:absolute; top:0; right:0;
+}
+
+/*微信预约*/
+.main_box .main_content .main_contentright .weixin_scan{
+	width:285px;
+	height:358px;
+	background:#fff;
+	position:relative;
+}
+.main_box .main_content .main_contentright .weixin_scan .title{
+	font: 18px/50px 'Microsoft Yahei';
+	color: #fff;
+	position: absolute;
+	text-align: center;
+	width: 305px;
+	height: 65px;
+	left: -10px;
+	top: 10px;
+	background: url(weixin_bg.png) no-repeat;
+}
+.main_box .main_content .main_contentright .weixin_scan .img{
+	width:172px;
+	height:172px;
+	overflow:hidden;
+	padding: 75px 56px 10px 56px;	
+}
+.main_box .main_content .main_contentright .weixin_scan .explain{
+	font: 18px/50px 'Microsoft Yahei';
+	color:#333;
+	text-align:center;
+}
+
+/*在线预约*/
+.main_box .main_content .main_contentright .online_subscribe{
+	width: 285px;
+	height: 510px;
+	background: #fff;
+	position: relative;
+	margin-top: 30px; padding-top:75px;
+}
+.main_box .main_content .main_contentright .online_subscribe .title{
+	font: 18px/50px 'Microsoft Yahei';
+	color: #fff;
+	position: absolute;
+	text-align: center;
+	width: 305px;
+	height: 65px;
+	left: -10px;
+	top: 10px;
+	background: url(zaixin_bg.png) no-repeat;
+}
+.main_box .main_content .main_contentright .online_subscribe ul li{
+	font: 14px/30px 'Simsun';
+	color: #666;
+	margin-top: 12px;
+	padding: 0 16px;
+}
+
+.main_box .main_content .main_contentright .online_subscribe ul li input{
+	width:230px;
+	height:42px;
+	border:1px solid #DFDFDF;
+	padding-left:10px;
+	color:#999;
+}
+.main_box .main_content .main_contentright .online_subscribe ul li div select{
+	width:240px;
+	height:42px;
+	border:1px solid #DFDFDF;
+	padding-left:10px;
+	color:#999;
+	background: url(xx_1.png) 200px 17px no-repeat;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+}
+.main_box .main_content .main_contentright .online_subscribe ul li .time_content span.xx_bg{
+	width: 6px;
+	height: 7px;
+	display: block;
+	position: relative;
+	top: -25px;
+	background: #fff;
+	left: 227px;
+}
+.main_box .main_content .main_contentright .online_subscribe ul li span.price{
+	font:bold 16px/50px 'Microsoft Yahei';
+}
+.main_box .main_content .main_contentright .online_subscribe ul li span.red{
+	font:bold 16px/50px 'Microsoft Yahei';
+	color:#FB4747;
+}
+.main_box .main_content .main_contentright .online_subscribe ul li  input.buttonStyle{
+	width:248px;
+	height:52px;
+	display:block;
+	background-image:none;
+	background-color:#FB4747;
+	font:20px/52px 'Microsoft Yahei';
+	text-align:center;
+	color:#fff; border:0;
+}
+.main_box .main_content .main_contentright .online_subscribe ul li  input.buttonStyle:hover{
+	background-color:#FA6F4B;
+}
+
+/*移动电话*/
+.main_box .main_content .main_contentright .mobilephone{
+	width: 285px;
+	height: 56px;
+	font:bold 18px/56px 'Microsoft Yahei';
+	background: #fff;
+	margin-top: 25px;
+	color:#FB4747;
+}
+.main_box .main_content .main_contentright .mobilephone span.bg{
+	background: url(phone_red.png) 56px 11px no-repeat;
+	width: 100px;
+	height: 56px;
+	display: block;
+	float: left;
+}
+
+/*在线评论*/
+
+.main_box .main_content .main_contentright .online_comment{
+	width: 285px;
+	height: 510px;
+	background: #fff;
+	position: relative;
+	margin-top: 30px; padding-top:75px;
+}
+.main_box .main_content .main_contentright .online_comment .title{
+	font: 18px/50px 'Microsoft Yahei';
+	color: #fff;
+	position: absolute;
+	text-align: center;
+	width: 305px;
+	height: 65px;
+	left: -10px;
+	top: 10px;
+	background: url(zaixin_bg.png) no-repeat;
+}
+.main_box .main_content .main_contentright .online_comment ul li{
+	font: 14px/30px 'Simsun';
+	color: #666;
+	margin-top: 12px;
+	padding: 0 16px;
+}
+
+.main_box .main_content .main_contentright .online_comment ul li.username input{
+	width:230px;
+	height:42px;
+	border:1px solid #DFDFDF;
+	padding-left:10px;
+	color:#999;
+}
+.main_box .main_content .main_contentright .online_comment ul li.verification input{
+	width:140px;
+	height:42px;
+	border:1px solid #DFDFDF;
+	padding-left:10px;
+	color:#999;
+}
+.main_box .main_content .main_contentright .online_comment ul li.address textarea{
+	width:230px;
+	height:142px;
+	border:1px solid #DFDFDF;
+	padding:10px;
+	color:#999;
+}
+.main_box .main_content .main_contentright .online_comment ul li.sort{
+	overflow:hidden;
+}
+.main_box .main_content .main_contentright .online_comment ul li.sort div{
+	float:left;
+	margin-right:12px;
+}
+.main_box .main_content .main_contentright .online_comment ul li.sort div select{
+	width:72px;
+	height:28px;
+	border:1px solid #DFDFDF;
+	background: url(xx_2.png) 48px 11px no-repeat;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	padding-left:10px;
+}
+.main_box .main_content .main_contentright .online_comment ul li.sort span.xx_bg{
+	width: 6px;
+	height: 7px;
+	display: block;
+	position: relative;
+	top: -19px;
+	background: #fff;
+	left: 59px;
+}
+#comment_submit{
+	width:248px;
+	height:52px;
+	display:block;
+	background:#FB4747;
+	font:20px/52px 'Microsoft Yahei';
+	text-align:center;
+	color:#fff; border:0;
+}
+#comment_submit:hover{
+	background:#FA6F4B;
+}
+
+#comment_submit:focus{outline:none;}
+
+
+

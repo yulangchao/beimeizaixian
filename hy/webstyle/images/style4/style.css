@@ -1,0 +1,131 @@
+.TopContent{
+	width:1200px;
+	height:120px;
+	margin:auto;
+	overflow:hidden;
+	position:relative;
+}
+.TopContent .Logo{
+	width:500px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.TopContent .Logo a{
+	display:table;
+}
+.TopContent .Logo a span{
+	display:table-cell;
+	height:120px;
+	vertical-align:middle;
+}
+.TopContent .Logo a span img{
+	max-width:450px;
+	max-height:100px;
+}
+.TopContent .Rinfo{
+	display:table;
+	margin:0 0 0 auto;
+}
+.TopContent .Rinfo li{
+	display:table-cell;
+	height:120px;
+	vertical-align:middle;
+}
+.TopContent .Rinfo li.wxcode{
+	text-align:center;
+}
+.TopContent .Rinfo li.wxcode span{
+	display:block;
+	width:80px;
+	height:80px;
+	overflow:hidden;
+}
+.TopContent .Rinfo li.wxcode span img{
+	width:80px;
+	height:80px;
+}
+.TopContent .Rinfo li .qq,.TopContent .Rinfo li .tel{
+	width:200px;
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	text-indent:30px;
+	font-size:18px;
+	color:#333;
+}
+.TopContent .Rinfo li .qq{
+	background:url(qq.png) no-repeat;
+}
+.TopContent .Rinfo li .tel{
+	background:url(call.png) no-repeat;
+}
+.MainMenu{
+	width:100%;
+	height:50px;
+	overflow:hidden;
+	background:#70C919;
+	position:relative;
+}
+.MainMenu ul{
+	width:1200px;
+	height:50px;
+	margin:auto;
+}
+.MainMenu ul li{
+	height:50px;
+	float:left;
+	line-height:50px;
+}
+.MainMenu ul li a{
+	display:block;
+	font-size:18px;
+	padding:0 20px;
+	color:#FFF;
+}
+.MainMenu ul li.choose{
+	background:#599E16;
+}
+.MainMenu ul li a:hover{
+	background:#F60;
+}
+/****/
+.FootContainer{
+	clear:both;
+	width:100%;
+	background:#313435;
+	position:relative;
+	padding:15px 0;
+	margin-top:20px;
+}
+.FootContainer .footlink{
+	width:1200px;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	margin:auto;
+	padding-top:10px;
+	text-align:center;
+	position:relative;
+}
+.FootContainer .footlink li{
+	display:inline-block;
+	padding:0 15px;
+	border-left:#EEE solid 1px;
+}
+.FootContainer .footlink li.li1{
+	border-left:0;
+}
+.FootContainer .footlink li a{
+	color:#EEE;
+	font-size:18px;
+}
+.FootContainer .copyright{
+	width:1200px;
+	margin:15px auto 0 auto;
+	text-align:center;
+	position:relative;
+	line-height:20px;
+	font-size:14px;
+	color:#DDD;
+}

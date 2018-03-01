@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<style type="text/css">
+a {
+	font-size: 13px;
+	color: #1F3A87;
+}
+a:link {
+	color: #1F3A87;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #1F3A87;
+}
+a:hover {
+	text-decoration: underline;
+	color: red;
+}
+a:active {
+	text-decoration: none;
+}
+body, form, ul, li, p, dl, dd, dt ,h,td,th{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+li,ul{
+	list-style: none;
+}
+TD {
+	font-size: 12px;
+	color: #1F3A87;
+	VERTICAL-ALIGN:  ;
+}
+body{
+	background:#fff;
+	color: #1F3A87;
+}
+#topTable{
+	margin-top:1em;
+	margin-bottom:1em;
+	border-bottom:4px #000 solid;
+}
+#topTable td{
+	padding-bottom:8px;
+	color: #1F3A87;
+}
+#RightTable,#LeftTable{
+	margin-top:20px;
+	background:#F9F9F9;
+	border:1px solid #E8E8E8;
+}
+#LeftTable{
+	border-right:0px solid #E8E8E8;
+}
+#RightTable{
+	border-left:0px solid #E8E8E8;
+}
+#LeftTable .L{
+	 
+}
+#MsgTable{
+	margin:1em;
+}
+#MsgTable td{
+	color:#333333;
+}
+#MsgTable td.title{
+	font-size:13px;
+	font-weight:bold;
+	color:#666;
+	text-align:left;
+}
+.post_bt{
+	background:url($webdb[www_url]/images/default/post_bt.gif);
+	height:23px;
+	border:1px solid #1F3A87;
+	color:#1F3A87;
+}
+.input_bt{
+	border:1px solid #7F9DB9;
+	width:130px;
+	height:16px;
+}
+#footer td,#footer td a{
+	color:#9A9A9A;
+}
+</style>
+<title>$webdb[webname] powered by www.qibosoft.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0">
+ <SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/inc.js"></SCRIPT>
+<table width="850" border="0" cellspacing="0" cellpadding="0" align="center" id="topTable">
+  <tr>
+    <td width="339"><a href="$webdb[www_url]/"><img src="$webdb[www_url]/images/default/logo.gif" border="0" onload="if(self!=top)this.style.display='none';"></a></td>
+    <td width="511" align="right" valign="bottom"><a href="$webdb[www_url]/" style="text-decoration: underline;">网站首页</a> 
+      | 
+
+
+<!--
+EOT;
+if(!$lfjid){print <<<EOT
+-->
+	   
+            <!--
+EOT;
+}else{print <<<EOT
+--><a href="$webdb[www_url]/do/login.php?action=quit" style="text-decoration: underline;">退出</a>
+	             <!--
+EOT;
+}print <<<EOT
+--> 
+    </td>
+  </tr>
+</table>
+<table width="850" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td width="450" height="200" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" id="LeftTable">
+        <tr>
+          <td height="130" class="L"></td>
+        </tr>
+      </table>
+      
+    </td>
+    <td width="229" height="296" valign="top">
+	  <div id="WxLogin" style="border:1px solid #AAAAAA;padding:10px;">
+<!--
+EOT;
+if($job=='cklogin'&&$step=='jump'){print <<<EOT
+-->
+		<div style="border-bottom:#DDD solid 1px;font-weight:bold;line-height:25px;font-size:14px;color:#000;">微信登录</div>
+			<FORM METHOD=POST ACTION="?job=cklogin">
+				<div style="padding:8px 0 0 0;"><INPUT TYPE="radio" NAME="act" value="2" checked id="settype2">自动注册新帐号</div>
+				<div style="padding:8px 0 8px 0;border-bottom:#DDD solid 1px;"><INPUT TYPE="radio" NAME="act" value="1" id="settype1">绑定旧帐号</div>
+				<div style="padding:8px 0 10px 0;border-bottom:#DDD solid 1px;margin-bottom:10px;" id="regtype2">
+					新昵称：<INPUT TYPE="text" NAME="atc_username2" value="$cdb[nickname]">
+				</div>				
+				<div id="regtype1" style="padding:8px 0 8px 0;margin-bottom:10px;border-bottom:#DDD solid 1px;display:none;">
+					<div style="padding:0 0 8px 0;">帐号：<INPUT TYPE="text" NAME="atc_username"></div>
+					<div>密码：<INPUT TYPE="password" NAME="atc_password"></div>
+				</div>
+				<div style="padding-bottom:8px;text-align:center;"><INPUT TYPE="submit" class="post_bt" value="下一步"></div>
+			</FORM>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	  	  <div style="border-bottom:#DDD solid 1px;font-weight:bold;line-height:25px;font-size:14px;color:#000;">$msgsay</div>	
+		  <div style="text-align:center;padding:10px 0 10px 0;"><img src="$imgurl" style="width:200px;"/> <br/> 
+		  
+		  
+		  
+		  $msgsay
+		  
+		  
+		  </div>
+<!--
+EOT;
+if($lfjid){print <<<EOT
+-->
+		  
+		  <div style="border-top:#DDD solid 1px;padding-top:10px;color:#333;text-align:left;line-height:180%;">
+		  	亲爱的：“{$lfjid}”<br>请绑定微信，今后将可以第一时间收到官方发布的最新升级包与安全补丁信息<br/><br/> </div>
+			
+			 <div style="border-top:#DDD solid 1px;padding-top:10px;color:#333;text-align:center;line-height:180%;">
+			 <input type="button" value="闪开！我才不用微信" onclick="?job=leave" class="post_bt"/>
+		  </div>
+		 <!--
+EOT;
+}else{print <<<EOT
+--> 
+<div style="border-top:#DDD solid 1px;padding-top:10px;color:#333;text-align:center;">
+		  	手机不在身边，用帐号密码登录网站<br/><br/>
+			<input type="button" value="切换帐号密码登录" class="post_bt" id="WebLogin"/>
+		  </div>
+		  
+		 <!--
+EOT;
+}print <<<EOT
+--> 
+		  
+<!--
+EOT;
+}print <<<EOT
+-->
+	  </div>
+	  <div id="f"></div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="118" style="border:1px solid #AAAAAA;display:none;" id="CenterTable">
+        <tr>
+          <td bgcolor="#FFFFFF" height="274" align="left" valign="top">
+<!--
+EOT;
+if(!$lfjid){print <<<EOT
+-->
+		  
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" style="margin:10px;">
+              <form name="form1" method="post" action="$webdb[www_url]/do/login.php">
+                <tr> 
+                  <td><b><font  style="font-size:14px;color:#000000;">登录通行证</font></b></td>
+                </tr>
+                <tr> 
+                  <td > 
+                    <hr style="color:#ccc;width:100%" size=1>
+                  </td>
+                </tr>
+                <tr> 
+                  <td><b><font  style="font-size:14px;color:#BC2931;">请输入帐号和密码</font></b></td>
+                </tr>
+                <tr> 
+                  <td height="32">帐 号: 
+                    <input type="text" name="username" size="15" class="input_bt">
+                  </td>
+                </tr>
+                <tr> 
+                  <td height="32">密 码: 
+                    <input type="password" name="password" size="15" class="input_bt">
+                  </td>
+                </tr>
+                <tr> 
+                  <td align="center"> 
+                    <input type="submit" name="Submit2" value="  登 录  "  class="post_bt">
+					<!--
+EOT;
+if($webdb[QQ_login]){print <<<EOT
+-->
+<br><br>
+<A HREF="$webdb[www_url]/do/qq_login.php"><img border=0 src="$webdb[www_url]/images/default/qq_login_big.png"></A>
+<!--
+EOT;
+}print <<<EOT
+-->
+                  </td>
+                </tr><input type="hidden" name="step" value="2">
+      <input class="radio" type="hidden" name="cookietime" value="86400" >
+                <tr> 
+                  <td align="right" height="38"><a href="$webdb[www_url]/do/sendpwd.php" style="text-decoration: underline;">忘记密码,取回&gt;&gt;</a></td>
+                </tr>
+                <tr> 
+                  <td align="right" > 
+                    <hr style="color:#ccc;width:100%" size=1>
+                  </td>
+                </tr>
+                <tr> 
+                  <td align="left" height="32" > <font  style="font-size:14px;color:#BC2931;">还没有通行证?</font></td>
+                </tr>
+                <tr> 
+                  <td align="center" > 
+                    <input type="button" name="Submit22" value="  注 册  " class="post_bt" onClick="window.location.href='$webdb[www_url]/do/reg.php';">
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" height="32" >拥有通行证,整个网站畅通无阻!</td>
+                </tr>
+              </form>
+            </table>
+            <!--
+EOT;
+}else{
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d H:i",$lfjdb[regdate]);
+$lfjdb[money]=get_money($lfjdb[uid]);
+print <<<EOT
+-->
+            <table width="90%" border="0" cellspacing="0" cellpadding="0" style="margin:10px;">
+              <form name="form1" method="post" action="$webdb[www_url]/do/login.php">
+                <tr> 
+                  <td><b><font  style="font-size:14px;color:#000000;">我的资料</font></b></td>
+                </tr>
+                <tr> 
+                  <td > 
+                    <hr style="color:#ccc;width:100%" size=1>
+                  </td>
+                </tr>
+                <tr> 
+                  <td align="center"><a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid" target="_blank"><img src="$lfjdb[icon]" onload="makesmallpic(this,148,148);" width="148" height="148" border="0" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"></a> 
+                  </td>
+                </tr>
+                <tr> 
+                  <td align="center" height="20"><a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid" style="text-decoration: underline;" target="_blank">$lfjid</a></td>
+                </tr>
+                <tr> 
+                  <td align="right" > 
+                    <hr style="color:#ccc;width:100%" size=1>
+                  </td>
+                </tr>
+                <tr> 
+                  <td align="left" height="32" style="line-height:170%;">级别: <b><font color="#FF0000">{$ltitle[$lfjdb[groupid]]}</font></b><br>
+                    {$webdb[MoneyName]}: <img src="$webdb[www_url]/images/default/money.gif"> <b><font color="#0000FF">$lfjdb[money]</font></b> 
+                        {$webdb[MoneyDW]}<br>
+                    
+                    注册日期: $lfjdb[regdate]</td>
+                </tr>
+              </form>
+            </table>
+<!--
+EOT;
+}print <<<EOT
+-->   </td>
+        </tr>
+      </table>
+    </td>
+    <td   height="296" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" id="RightTable">
+        <tr>
+          <td height="130">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<table width="850" border="0" cellspacing="0" cellpadding="0" align="center" id="footer">
+  <tr> 
+    <td height="33">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>
+      <hr style="color:#ccc;width:100%" size=1>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">$webdb[copyright]<br>
+      Copyright@{$webdb[www_url]} all rights reserved <a href="http://www.miibeian.gov.cn" target="_blank">{$webdb[miibeian_gov_cn]}</a> 
+      <br>
+      Powered by <a href="http://www.qibosoft.com" target="_blank">qibosoft {$qibosoft_Edition}</a> 
+      Code &copy; 2003-10 <a href="http://bbs.qibosoft.com/" target="_blank">qibosoft</a> </td>
+  </tr>
+</table>
+<script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+
+<!--
+EOT;
+if(!$job){print <<<EOT
+-->
+<script type="text/javascript">
+<!--
+$('#WebLogin').click(function(){
+	$('#WxLogin').hide();
+	$('#CenterTable').show();
+});
+function countSecond(){　
+	$.get("?job=cklogin&"+Math.random(), function(data){
+		if(data>0){
+			window.location.href='?job=cklogin&step=jump';
+		}
+	});
+	setTimeout("countSecond()",2000);
+}
+countSecond() 
+//-->
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$('#settype2').click(function(){
+	$('#regtype1').hide();
+	$('#regtype2').show();
+});
+$('#settype1').click(function(){
+	$('#regtype2').hide();
+	$('#regtype1').show();
+});
+function set_Table(){
+	h=document.getElementById("LeftTable").offsetHeight;
+	if(window.ActiveXObject==null)h=h-20;
+	document.getElementById("RightTable").style.height=h+'px';
+}
+set_Table()
+//-->
+</SCRIPT>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

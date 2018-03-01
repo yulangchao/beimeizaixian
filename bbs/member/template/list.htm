@@ -1,0 +1,35 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">主题管理</div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$titles=get_word($rs[title],28);
+$pages =$rs[pages]>1?$rs[pages]:'';
+print <<<EOT
+-->
+          <tr>
+            <td class="tL" width="60%">
+            {$rs[id]}、<a href="$Mdomain/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title] $rs[username]" style="color:$rs[titlecolor];">$titles</a> <span style="color:red;">$pages</span> <span style="color:#999;">({$city_DB[name][$rs[city_id]]}) ($rs[posttime])</span>
+            </td>
+            <td><a href='post.php?job=chooseedit&fid=$rs[fid]&id=$rs[id]'>修改内容</a>/<a href='editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改分类</a>/<a href="post.php?job=choosedel&fid=$rs[fid]&id=$rs[id]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

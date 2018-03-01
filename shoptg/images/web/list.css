@@ -1,0 +1,207 @@
+/*
+*list
+*/
+.ShopTgContainer{
+	margin:20px auto;
+}
+.ShopTgContainer:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.ShopTgContainer .Main{
+	width:880px;
+	float:left;
+}
+.ShopTgContainer .Side{
+	width:300px;
+	float:right;
+}
+.sidecont{
+	border:#F96 solid 1px;
+	border-radius:5px;
+	margin-bottom:20px;
+}
+.sidecont .head{
+	height:40px;
+	line-height:40px;
+	padding:0 10px 0 15px;
+}
+.sidecont .head .tag{
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+}
+.sidecont .head .more{
+	float:right;
+}
+.listsort{
+	border-top:#FBD686 solid 1px;
+	border-bottom:#FBD686 solid 1px;
+	background:#FFF8E8;
+	margin-bottom:10px;
+}
+.listsort dt a{
+	display:block;
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	font-size:14px;
+	padding:0 10px 0 15px;
+}
+.listsort dd{
+	border-top:#FBD686 solid 1px;
+	background:#FFF;
+	padding:5px;
+	line-height:25px;
+	word-spacing:5px 10px 5px 15px;
+}
+.listcont .list{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	border-top:#FBD686 dotted 1px;
+	padding:0 10px 0 25px;
+	position:relative;
+}
+.listcont .list:before{
+	content:'';
+	display:block;
+	width:6px;
+	height:6px;
+	background:#FBD686;
+	border-radius:3px;
+	position:absolute;
+	left:12px;
+	top:15px;
+}
+
+.ListCont{
+	border:#F96 solid 1px;
+	border-radius:5px;
+}
+.ListCont .head{
+	border-bottom:#F96 solid 1px;
+	height:50px;
+	line-height:50px;
+	padding-left:15px;
+	font-size:20px;
+	font-weight:bold;
+}
+.ListCont .cont{
+	width:100%;
+	overflow:hidden;
+}
+.ListCont .cont:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.ListTg{
+	width:50%;
+	height:310px;
+	float:left;
+	position:relative;
+}
+.ListTg:before,.ListTg:after{
+	content:'';
+	display:block;
+	position:absolute;
+	background:#DDD;	
+}
+.ListTg:before{
+	width:1px;
+	height:320px;
+	right:-1px;
+	top:0;
+}
+.ListTg:after{
+	width:100%;
+	height:1px;
+	bottom:-1px;
+	left:0;
+}
+.ListTg .time{
+	padding:10px 10px 0 15px;
+	line-height:30px;
+	font-size:16px;
+	font-weight:bold;
+}
+.ListTg .c a{
+	display:block;
+	line-height:25px;
+	height:50px;
+	overflow:hidden;
+	padding:0 10px 0 15px;
+	font-size:14px;
+	color:#666;
+}
+.ListTg dl{
+	margin:15px 10px 0 15px;
+	padding-left:260px;
+	height:200px;
+	overflow:hidden;
+	position:relative;
+}
+.ListTg dl dt{
+	width:240px;
+	height:180px;
+	border:#DDD solid 1px;
+	padding:1px;
+	position:absolute;
+	left:0;
+	top:0;
+	overflow:hidden;
+}
+.ListTg dl dt a{
+	display:table;
+	width:100%;
+}
+.ListTg dl dt a span{
+	display:table-cell;
+	height:180px;
+	text-align:center;
+	vertical-align:middle;
+}
+.ListTg dl dt a span img{
+	max-width:100%;
+	max-height:100%;
+}
+.ListTg dl dd div{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+}
+.ListTg dl dd div span{
+	color:#F60;
+	font-weight:bold;
+}
+.ListTg dl dd div em{
+	font-weight:bold;
+}
+.ListTg dl dd div strike{
+	color:#999;
+}
+.ShowPage{
+	text-align:center;
+	padding:10px;
+	line-height:30px;
+}
+.ShowPage a{
+	display:block;
+	border:#DDD solid 1px;
+	padding:0 10px;
+	border-radius:5px;
+	color:#999;
+}
+.ShowPage a.ck{
+	border:#f30 solid 1px;
+	background:#F60;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}

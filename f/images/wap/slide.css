@@ -1,0 +1,69 @@
+#slide,#slide .cell,#slide .cell img { 
+	height:auto;
+}
+#slide{ 
+	position:static; 
+	z-index:2; 
+	background-color:#f3f3f3;
+	margin:15px auto; 
+	width:100%; 
+	overflow: hidden; 
+	-webkit-user-select:none; 
+	-moz-user-select:none; 
+	-ms-user-select:none; 
+	-o-user-select:none; 
+	user-select:none;
+}
+#slide .cell{ 
+	position:relative; 
+	z-index:2; 
+	width:100%;
+	vertical-align:middle;
+	display:table-cell;
+}
+#slide .cell .title { 
+	position:absolute; 
+	background:rgba(0,0,0,0.6); 
+	display:block; 
+	height:26px; 
+	line-height:26px; 
+	bottom:0; 
+	left:0; 
+	width:100%; 
+	text-align:center; 
+	color:#fff; 
+	font-size:14px; 
+	text-shadow:1px 1px 0 #000; 
+	overflow:hidden;
+}
+#slide .cell img { 
+	vertical-align:top; 
+	width:100%; 
+	height:auto; 
+	display:block;
+}
+#indicator { 
+	position:static; 
+	bottom:10px; 
+	right:4px;
+	background-color:#fff; 
+	text-align:center; 
+}
+#indicator li {
+	color:#fff; 
+	margin:0 4px; 
+	text-indent:-999em;  
+	width:8px; 
+	height:8px; 
+	border-radius:8px;  
+	display:inline-block;
+	overflow:hidden;
+	background-color:#ccc;
+}
+#indicator .active { 
+	background-color:#f50;
+}
+
+
+
+

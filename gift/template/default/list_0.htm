@@ -1,0 +1,158 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<div class="content_text">
+	<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>礼品分类</span>
+			</div>
+			<div class="Menu">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+				<dl>
+					<dt class="show">
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+	if($(this).hasClass("show")){
+		$(this).removeClass("show");
+		$(this).parent().find('dd').show();
+		$(this).parent().siblings().find('dd').hide();
+	}else{
+		$(this).addClass("show");
+		$(this).parent().find('dd').hide();
+	}
+} );
+//-->
+</script>
+		</div>
+		<div class="content_text_left_footer">
+			<div class="showlist_theme">
+				<img src="images/life6/theme2.jpg" />
+				<span>积分换礼品信息</span>
+			</div>
+			<ul class="newslist">
+<!--
+EOT;
+$array=list_apply(8);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<li>
+					<h2>
+						<span class="blue">$rs[username]</span>于$rs[posttime]申请了
+					</h2>
+					<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+				</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</ul>
+			
+			<div class="look_box">
+<!--
+EOT;
+$array=list_gift(3);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<dl>
+					<dt class="look_gift">
+						<span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" class="img" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0"></a></span>
+					</dt>
+					<dd class="look_word">
+						<p><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" class="title" target="_blank">$rs[title]</a></p>
+						<p class="rose_red">原价{$rs[mart_price]}元</p>
+						<p class="rose_red">{$rs[money]}{$webdb[MoneyName]}</p>
+						<p class="goto"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">去看看</a></p>									
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->							
+			</div>
+		</div>
+	</div>
+	
+	<div class="content_text_right">
+	
+		<div class="text_title">
+			<span>$fidDB[name]</span>
+			<div class="title_nav">
+				<a href="listall.php?ordertype=hits">热门礼品</a>
+				<a href="listall.php?ordertype=levelstime">推荐礼品</a>
+				<a href="listall.php?ordertype=id">最新礼品</a>
+			</div>
+		</div>
+		<div class="Showlist_box">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$target=$rs[target]?'_blank':'_self';
+print <<<EOT
+-->
+			<dl class="Showlist">
+				<dt>
+					<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></a>
+				</dt>
+				<dd>
+					<a class="store_name" href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+					<div class="Showlist_Price">
+						<p>原价:<em class="cross">{$rs[mart_price]}元</em><span><em class="red">{$rs[money]}</em>积分兑换</span></p>
+						<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">查看详情</a>
+					</div>
+				</dd>
+			</dl>	
+		
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+                   <div class="Jump_box">$showpage</div>
+<!--
+EOT;
+}print <<<EOT
+-->		
+		</div>	
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

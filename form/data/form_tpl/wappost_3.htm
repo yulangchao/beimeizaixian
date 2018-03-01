@@ -1,0 +1,83 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+
+<script>
+
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+</script>
+<div class="FormContainer">
+
+    <form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+	<h3>$fidDB[name]</h3>
+    <div>
+    	$fidDB[about]
+    </div>    
+<!--
+EOT;
+if($fidDB[usetitle]){print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>标题:</dt>
+		<dd><input type="text" name="postdb[title]" id="atc_title" class="text" value="$rsdb[title]"></dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+if($job!='edit' && !$web_admin){print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<dl>
+<dt><span>*</span> 投诉类型:</dt>
+<dd><input style='border:0px;' type='radio' name='postdb[advicetype]' value='售前客服' {$rsdb[advicetype]['售前客服']}>售前客服<input style='border:0px;' type='radio' name='postdb[advicetype]' value='售后客服' {$rsdb[advicetype]['售后客服']}>售后客服<input style='border:0px;' type='radio' name='postdb[advicetype]' value='产品质量' {$rsdb[advicetype]['产品质量']}>产品质量<input style='border:0px;' type='radio' name='postdb[advicetype]' value='其它' {$rsdb[advicetype]['其它']}>其它</dd>
+</dl>
+<dl>
+<dt> 你的电话:</dt>
+<dd><input type='text' name='postdb[mobphone]' id='atc_mobphone' style='width:100px;' value='$rsdb[mobphone]'> </dd>
+</dl>
+<dl>
+<dt> 你的邮箱:</dt>
+<dd><input type='text' name='postdb[email]' id='atc_email' style='width:100px;' value='$rsdb[email]'> </dd>
+</dl>
+<dl>
+<dt><span>*</span> 投诉内容:</dt>
+<dd><textarea name='postdb[content]' id='atc_content'>$rsdb[content]</textarea></dd>
+</dl>
+<dl>
+<dt><span>*</span> 你的称呼:</dt>
+<dd><input type='text' name='postdb[truename]' id='atc_truename' style='width:100px;' value='$rsdb[truename]'> </dd>
+</dl>
+ 
+    <div class="butter">
+	<span class="submits"><input type="submit" name="Submit" value="提 交"></span>
+        <input type="hidden" name="mid" value="$mid">
+        <input type="hidden" name="id" value="$id">
+    </div>
+    </form>
+</div>
+<!--
+EOT;
+?>
+-->

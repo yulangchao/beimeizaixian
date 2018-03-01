@@ -1,0 +1,131 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<div class="fshop">
+  <div class="SideL">
+      <div class="shopsort">
+		  <div class="head"><span>全部商品分类</span></div>
+          <div class="cont">
+<!--
+EOT;
+$j=0;
+foreach($Fid_db[0] AS $key=>$name){
+$j++;
+$name=get_word($name,20);
+print <<<EOT
+-->
+<div class="bigsort list$j">
+  <a href="list.php?fid=$key" target="_blank"><span><img src="./images/life6/s$j.png" /></span><span>$name</span></a>
+</div>
+<div class="sort"> 
+  <ul>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $fid=>$name ){
+$name=get_word($name,24);
+print <<<EOT
+-->
+    <li><a href="list.php?fid=$fid" target="_blank">$name</a> </li>
+<!--
+EOT;
+}print <<<EOT
+-->
+  </ul>
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+          </div>
+      </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--//
+function ShowTabs(ID,FID,EID)
+{
+	for (i=FID;i<EID;i++)
+	{
+		if(i == ID)
+		{
+			document.getElementById("Mune" + i).className="ck";
+			document.getElementById("Tab" + i).style.display="";
+		}
+		else
+		{
+			document.getElementById("Mune" + i).className="";
+			document.getElementById("Tab" + i).style.display="none";
+		}
+	}
+}
+//-->
+</SCRIPT>
+	  <div class="shopTopcontainer mt10">
+	  <div class="head"><span><img src="images/life6/rx.png" />$label[shop_tt8]</span></div>
+	  <div class="selectdisplay">
+	  	<div class="choose ck" id=Mune1 onclick="ShowTabs(1,1,4)"><span>$label[shop_tt9]</span></div>
+	  	<div id=Mune2 onclick="ShowTabs(2,1,4)"><span>$label[shop_tt10]</span></div>
+	  	<div id=Mune3 onclick="ShowTabs(3,1,4)"><span>$label[shop_tt11]</span></div>
+	  </div>
+	  <div id="Tab1" class="showcont">
+	  	$label[shop_b1]
+	  	$label[shop_x1]
+	  </div>
+	  <div id="Tab2" class="showcont" style="display:none;"> 
+	  	$label[shop_x2]
+	  </div>
+	  <div id="Tab3" class="showcont" style="display:none;"> 
+	  	$label[shop_x3]
+	  </div>
+	  </div>
+  </div>
+  <div class="SideC"> 
+	 <div class="slidecontainer">$label[shop_rollpic_60]</div>
+<script>
+var bannerNum = 0;
+var liNum = $(".slidecontainer ul li").length;
+$(".slidecontainer ol li").click(function(){
+  var thisIndex = $(this).index();
+  $(".slidecontainer ul li").eq(thisIndex).fadeIn("slow").siblings().fadeOut("slow");
+  $(".slidecontainer ol li").eq(thisIndex).addClass("actionNum").siblings().removeClass("actionNum");
+});
+autochange = function(){
+	bannerNum = ++bannerNum % liNum;
+    $(".slidecontainer ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+    $(".slidecontainer ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+}
+bannerInterval = setInterval(autochange,2000);
+$(".slidecontainer").hover(function(){
+  clearInterval(bannerInterval);
+},function(){
+  bannerInterval = setInterval(autochange,2000);
+});
+</script>
+	 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="shopTheNew mt10">
+	 <tr>
+		 <td class="head"><span class="L">$label[shop_tt5]</span><span class="R"><a href="all.php" target="_blank"><img src="images\life6\more.png" alt="more" /></a></span></td>
+	 </tr>
+	 <tr>
+		 <td class="cont">   <!-- cont s -->
+		 $label[shop_hot]
+		 </td>  <!-- cont e -->
+	 </tr>
+	 </table>
+	 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="shopTheNew mt10">
+	 <tr>
+		 <td class="head"><span class="L">$label[shop_tt7]</span><span class="R"><a href="all.php" target="_blank"><img src="images\life6\more.png" alt="more" /></a></span>
+		 </td>
+	 </tr>
+	 <tr>
+		 <td class="cont">
+		 $label[shop_new]
+		 </td>
+	 </tr>
+	 </table>
+  </div>
+</div>
+	
+<!--
+EOT;
+?>
+-->

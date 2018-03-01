@@ -1,0 +1,56 @@
+.cross {
+	text-decoration:line-through; color:#666666;
+} 
+.Kern5 {
+	letter-spacing:5px;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.yellow {
+	color:yellow;
+}
+.content_text{overflow:hidden; margin-top:25px;}
+.content_text_left {width:278px; float:left;border-top:2px solid #379be9;border-bottom:2px solid #999999; border-left:1px #CCCCCC solid; border-right:1px #CCCCCC solid;}
+.content_text_left_top {width:278px;}
+.showlist_theme {width:278px; height:56px; text-align:center; line-height:58px; font-size:24px; font-weight:bold;background:#f0f0f0; border-top:1px solid #FFFFFF; border-bottom:1px solid #999999;}
+.Menu {width:278px; height:auto; font-size:16px;}
+.Menu dl dt {width:278px; line-height:48px; float:left; border-top:1px solid #FFFFFF; border-bottom:1px solid #CCCCCC; background:#f3f3f3;}
+.show .level_1 {background:url(reduce.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.level_1 {background:url(plus.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.Menu dl{overflow:hidden;}
+.Menu dl ~ dl dd{display:none;}
+.Menu dl dd {border-bottom:1px solid #CCCCCC; float:left;}
+.Menu dl dd a{width:268px; line-height:30px; float:left; padding-left:10px;}
+.Menu dl dd a:hover {background:#CCCCCC;}
+.content_text_left_footer {width:278px;}
+.newslist {text-align:left;font-size:16px; }
+.newslist li {margin:8px 15px 0 15px; line-height:30px; border-bottom:1px dotted #CCCCCC;}
+.newslist li h2 {font-weight:normal;}
+
+.content_text_right {width:895px; margin-left:20px; float:left;}
+.text_title {width:895px; height:45px; font-size:16px; border-top:2px solid #379be9; border-bottom:1px solid #CCCCCC; float:left; line-height:45px; font-weight:bold; overflow:hidden;}
+.text_title span {height:45px; float:left;}
+.title_nav {height:45px; float:right;}
+.title_nav a {height:30px; color:#999999; padding:0 8px; line-height:30px; float:left; margin:7px 0;}
+.title_nav a:hover {background:#379be9; color:#FFFFFF;}
+
+.Showlist_box {width:895px; float:left; padding-top:30px;}
+.Showlist {width:278px; float:left; background:#f8f8f8; border:1px solid #CCCCCC; margin:0 0 30px 15px;}
+.Showlist dt{width:270px; height:200px; margin:4px; text-align:center;}
+.Showlist dt a img{max-width:270px; height:100%;}
+.Showlist dd .store_name {display:block;  width:270px; font-size:18px; height:28px; line-height:28px; margin:0 4px; overflow:hidden;}
+.Showlist_Price {width:270px; height:40px; line-height:40px; margin:0 4px; text-align:center; overflow:hidden;}
+.Showlist_Price p {width:190px; float:left; background:#ff6600; color:#FFFFFF;}
+.Showlist_Price a {width:80px; float:left; background:#ff3300;	color:#CCCCCC;}
+.Showlist_Price a:hover {background:#d72b00; color:#FFFFFF;}
+.listAllShow{height:368px;}
+.listAllShow .m-fenlei{width:270px; margin:0 4px; height:40px; line-height:40px; overflow:hidden;}
+.listAllShow .Showlist_Price p em{color:yellow;}
+
+.Jump_box {width:895px; height:40px; text-align:center;}
+.Jump_box a{width:auto; height:14px; text-align:center; padding:13px; background:#efefef; margin:0 2px; font-size:16px;}
+.Jump_box a:hover {background:#0067b4; color:#FFFFFF;}

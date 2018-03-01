@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--
+<?php
+print <<<EOT
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312 width=device-width,initial-scale=1, maximum-scale=0.5" />
+<title>$titleDB[title]</title> 
+<link href="$webdb[www_url]/images/default/cklogin/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+function countSecond(){　
+	$.get("$webdb[www_url]/do/job.php?job=wxlogin&type=cklogin&"+Math.random(), function(data){
+		if(data>0)window.location.href='$webdb[www_url]/do/job.php?job=wxlogin&type=jump';
+	});
+	setTimeout("countSecond()",2000);
+}
+countSecond()
+function usernameLogin(){
+	$('.2codeLogin').hide();
+	$('#LoginForm').show();
+}
+//-->
+</script>
+<center>
+<div id="top">
+<div class="top01">
+<div class="div01"></div>
+<img class="img01" src="$webdb[www_url]/images/default/cklogin/a2.png"/>
+<span class="span01">扫一扫二维码登录或注册</span>
+</div>
+<div class="bottom">
+<img class="img03" id="codeimg" src="$webdb[www_url]/do/2codeimg.php?url=$URL"/>
+</div>
+</div>
+</center>
+<!--
+EOT;
+?>
+-->
+</body>
+</html>

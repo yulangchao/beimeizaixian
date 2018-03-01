@@ -1,0 +1,72 @@
+<!--
+<?php
+$paypal_type[intval($conf[paypal_type])]=' checked ';
+print <<<EOT
+-->
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+<form name="form_work" method="post" action="?action=set">
+<h3>网银帐号设置</h3>
+<div class="Note">支付宝信息</div>
+<dl>
+  <dt>收款帐号：</dt>
+  <dd><input type='text' style='width:60%;' value='$conf[wapAlipay_id]' name='postdb[wapAlipay_id]'>
+    <a href="https://memberprod.alipay.com/account/reg/enterpriseIndex.htm" target="_blank">注册</a> 
+    <a href="https://www.alipay.com/" target="_blank">登录</a>
+  </dd>
+</dl>
+<dl>
+  <dt>合作者身份（partnerID）：</dt>
+  <dd>
+    <input type='text'  style='width:60%;' name='postdb[wapAlipay_partner]' value='$conf[wapAlipay_partner]'>
+    <a href="https://b.alipay.com/order/productDetail.htm?productId=2014110308142133" target="_blank" style="color:#03F">签约地址</a>(目前支付宝要求企业帐号才能签约)
+  </dd>
+</dl>
+<dl>
+  <dt>商户RSA私钥：</dt>
+  <dd><textarea name="postdb[Ali_Private_Key]">$conf[Ali_Private_Key]</textarea></dd>
+</dl>
+<dl>
+  <dt>支付宝RSA公钥：</dt>
+  <dd><input type='text' value='$conf[Ali_Public_Key]' name='postdb[Ali_Public_Key]'></dd>
+</dl>
+<div class="Note">收款银行帐号设置</div>
+<dl>
+  <dt>银行帐号：</dt>
+  <dd><textarea cols="5" name="postdb[back_code]" style="width:100%;height:100px;">$conf[back_code]</textarea><br>
+    卡号与银行名称用空格隔开,多个帐号的话,每个换一行,格式如下:<br>
+    6222****73 张三 中国工商银行北京**支行<br>
+    6228***919 张三 中国农业银行北京***分行<br>
+  </dd>
+</dl>
+<div class="Note">邮费设置</div>
+<dl>
+  <dt>普通快递邮费：</dt>
+  <dd><input type='text' size='5' value='$conf[norm_send]' name='postdb[norm_send]' style="width:100px;"> 元</dd>
+</dl>
+<dl>
+  <dt>EMS邮费：</dt>
+  <dd><input type='text' size='5' value='$conf[ems_send]' name='postdb[ems_send]' style="width:100px;"> 元 </dd>
+</dl>
+<dl>
+  <dt>平邮邮费：</dt>
+  <dd><input type='text' size='5' value='$conf[slow_send]' name='postdb[slow_send]' style="width:100px;"> 元 </dd>
+</dl>
+<div class="butter"><input type="submit" value="修改"></div>
+</form>
+<dl>
+<dt>说明：</dt>
+<dd>
+  <ul>
+    <li>1.以上支付宝收款帐号,如果不正确填写RSA密钥相关信息的话,将不能用于商城与团购的在线即时收款.如果仅作为提现或人工转帐收款的话,只需填写帐号即可.</li>
+    <li>2.银行帐号不能用于商城与团购的在线即时收款,只能作为提现或人工转帐收款.</li>
+  </ul>
+</dd>
+</dl>
+</div>
+<!--
+EOT;
+?>
+-->

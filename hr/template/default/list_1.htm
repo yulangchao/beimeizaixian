@@ -1,0 +1,196 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/listjob.css">
+<div class="content_text " style="width:1200px; overflow:hidden; margin:15px auto;">
+	<div class="text_left" style="width:24%; float:left;">
+		<table style="width:100%; border:1px solid #1aa4ed;">
+			<tr>
+				<td class="jc_head"><div class="jc">职位分类</div></td>
+			</tr>
+			<tr>
+				<td class="middle">
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$fcolor=$fid==$fkey?" style=\"color:red;\"":"";
+print <<<EOT
+-->
+					<div class="big"><a href="list.php?fid=$fkey"{$fcolor}>{$fvalue}</a></div>
+					<div class="small">
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$value){
+$color=$fid==$key?" style=\"color:red;\"":"";
+print <<<EOT
+-->
+					
+              <a href="list.php?fid=$key"{$color}>{$value}</a> 
+<!--
+EOT;
+}print <<<EOT
+-->		 
+					</div>	
+<!--
+EOT;
+}print <<<EOT
+-->		
+					<div class="hj">热门职位</div>
+					<div class="hjc">
+<!--
+EOT;
+$array=list_hr_job('hot',$rows=10);
+foreach($array AS $rs){print <<<EOT
+-->
+<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</div>
+			</td>
+		</tr>
+	</table> 
+</div>
+<div class="text_right" style="width:76%; float:left; margin-bottom:75px;">
+	<div class="job_rep">
+<div><span class='title'>工作经验要求：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>"$wage",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[wageyear]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>"$wage",'wageyear'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wageyear]['1']}>一年以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>"$wage",'wageyear'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wageyear]['2']}>两年以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>"$wage",'wageyear'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wageyear]['3']}>三年以上</A></span></div><div><span class='title'>性别要求：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'schoo_age'=>"$schoo_age",'wage'=>"$wage",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[asksex]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'schoo_age'=>"$schoo_age",'wage'=>"$wage",'asksex'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[asksex]['1']}>男性</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'schoo_age'=>"$schoo_age",'wage'=>"$wage",'asksex'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[asksex]['2']}>女性</A></span></div><div><span class='title'>学历要求：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[schoo_age]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['1']}>小学以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['2']}>中学以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['3']}>中专以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'4'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['4']}>高中以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'5'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['5']}>大专以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'6'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['6']}>本科以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'7'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['7']}>硕士以上</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'wage'=>"$wage",'schoo_age'=>'8'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[schoo_age]['8']}>博士以上</A></span></div><div><span class='title'>薪水待遇：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'schoo_age'=>"$schoo_age",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[wage]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>'-1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['-1']}>面议</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['1']}>800~1500元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['2']}>1500~2500元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['3']}>2500~3500元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wageyear'=>"$wageyear",'asksex'=>"$asksex",'schoo_age'=>"$schoo_age",'wage'=>'4'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['4']}>3500元以上</A></span></div><!---->
+	</div>
+	<table class="find_box" style="width:97%; margin-left:25px; border:1px solid #dfdfdf;">
+		<tr> 
+		<td class="dr_head">找工作</td>
+		</tr>
+		<tr> 
+		<td class="text_mar"> 
+			<table class="find_job">
+			<tr class="pos_head">
+			    <td>职位名称</td>
+ <td align="center">工作经验要求</td> <td align="center">学历要求</td> <td align="center">薪水待遇</td><!---->
+				<td>企业名称</td>
+				<td>工作地点</td>
+				<td>月薪</td>
+			</tr>
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$class=($i%2==1)?'aa':'bb';
+print <<<EOT
+-->
+			<tr> 
+				<td class="p_name"><a href="$rs[url]" target="$target" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></td>
+				 <td align="center">{$rs[wageyear]} </td> <td align="center">{$rs[schoo_age]} </td> <td align="center">{$rs[wage]} </td><!---->
+				<td class="company"><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a></td>
+				<td>$rs[workplace]</td>
+				<td>$rs[wage]</td>
+			</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="page">
+              <tr>
+                <td align="center">$showpage</td>
+              </tr>
+            </table>
+		</td>
+		</tr>
+	</table>
+</div>			
+	
+</div>
+<!--
+EOT;
+?>
+-->

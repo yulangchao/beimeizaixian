@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<?php
+$headTitle=$fidDB[name]?$fidDB[name]:$webdb[Info_webname];
+print <<<EOT
+-->
+<head>
+	<meta charset="gb2312" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>$headTitle</title>
+
+	<link rel="stylesheet" href="./images/shop/base.css">
+	<link rel="stylesheet" href="./images/shop/index/index.css">
+	<script src='./images/shop/jquery-v1.7.2.js'></script>
+</head>
+<body>
+<div class='mHead'>
+	<a href="javascript:;history.go(-1);" class='return'>返回</a>
+	<span class='title'>$headTitle</span>
+	<div class='icoRight' style="display:none;">
+		<a href="" class='search'></a>
+		<a href="" class='menu'></a>			
+	</div>
+</div>
+
+<div class='chooseAddress'>
+	<span class='address'>天河区车陂路</span>
+	<span class='choose'><a href="javascript:;reloadLocation();">刷新</a></span>
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=MGdbmO6pP5Eg1hiPhpYB0IVd"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script type="text/javascript">
+
+function reloadLocation(){//切换地址 恢复当前位置
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(showMapGPSre, handleError, {enableHighAccuracy:true, maximumAge:1000,timeout:6000});
+		//window['location_timeout'] = setTimeout("geolocFail()", 10000);
+	}else{
+		alert('抱歉，您的浏览器不支持使用HTML 5来获取地理位置服务');
+	}
+}
+function showMapGPSre(value){	 
+	var longitude = value.coords.longitude;
+	var latitude = value.coords.latitude;
+
+	var gpsPoint = new BMap.Point(longitude, latitude); //GPS坐标
+	//alert(longitude+':'+latitude);
+	
+	BMap.Convertor.translate(gpsPoint, 0, function(point){
+	//alert('x:'+point.lng+' y:'+point.lat);
+		var geoc = new BMap.Geocoder();
+		geoc.getLocation(point, function(rs){
+			var addComp = rs.addressComponents;
+			//alert(addComp.district + addComp.street + addComp.streetNumber);
+			$('.chooseAddress .address').html(addComp.district + addComp.street + addComp.streetNumber);
+		});
+	});
+}
+function handleError(value){
+	switch(value.code){
+		case value.PERMISSION_DENIED:
+		  alert('位置服务被拒绝');
+		  break;
+		case value.POSITION_UNAVAILABLE:
+		  alert('抱歉，暂时获取不到位置信息');
+		  break;
+		case value.TIMEOUT:
+		  alert('抱歉，获取信息超时');
+		  break;
+		case value.UNKNOWN_ERROR:
+		  alert('抱歉，位置服务未知错误');
+		  break;
+	}
+}
+reloadLocation();
+</script>
+<div class='sortArea'>
+	<div class='sort'><a href="javascript:;ShowSorts();">全部分类</a></div>
+	<div class='area'><a href="javascript:;ShowZones();">全部区域</a></div>
+</div>
+<div class="ListHyBox">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$thisPC=ge_pingfen_pc($rs[id]);
+$rs[arrive_time]||$rs[arrive_time]=0;
+print <<<EOT
+-->
+	<dl class="ListHy">
+		<dt>
+			<div class='img'><a href="wapshowhy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></div>
+			<div class='state'>营业中</div>
+		</dt>
+		<dd>
+			<div class='title'><a href="wapshowhy.php?fid=$rs[fid]&id=$rs[id]"><em>$rs[title]</em><span>查看商家</span></a></div>
+			<div class="xingxing"><span style="width:{$thisPC}%;"></span></div>
+			<div class='number'>
+				<span>{$rs[price]}元起送</span>
+				<span>{$rs[arrive_time]}分钟</span>
+				<span>配送费{$rs[sendprice]}元</span>
+			</div>
+			<div class='phone'><span>电话：{$rs[telphoto]}</span></div>
+			<div class='address'>地址：{$rs[address]}</div>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<div class='showMoreBg' onClick="showMoreCont()">
+	<a href="javascript:;" class='showMore'><span> 点击浏览更多</span></a>		
+</div>
+<ul class='footMenu'>
+	<li><a href="$webdb[www_url]/wapindex.php"><img src="./images/shop/index/nav_homepage.png"/><span>首页</span></a>
+	<li><a href="$Murl/wapnear.php"><img src="./images/shop/index/nav_address.png"/><span>附近</span></a>
+	<li><a href="$Murl/member/waporder.php?job=mylist"><img src="./images/shop/index/nav_order.png"/><span>订单</span></a>
+	<li><a href="$Murl/wapjoin.php"><img src="./images/shop/index/nav_car.png"/><span>购物车</span></a>
+	<li><a href="$webdb[www_url]/member/wapindex.php"><img src="./images/shop/index/nav_personal.png"/><span>会员中心</span></a>
+</ul>
+<div class="BackBox" onClick="HiddenAll();"></div>
+<div class="ListSorts">
+	<div><a href="?zone_id=$zone_id">全部分类</a></div>
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$sortck=$fid==$fkey?"class='ck'":"";
+print <<<EOT
+-->
+	<ul>
+		<ol><a href="?fid=$fkey&zone_id=$zone_id" $sortck>$fvalue</a></ol>
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$value){
+$sortck=$fid==$key?"class='ck'":"";
+print <<<EOT
+-->
+		<li><a href="?fid=$key&zone_id=$zone_id" $sortck>$value</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</ul>
+<!--
+EOT;
+}print <<<EOT
+-->	
+</div>
+<div class="ListZones">
+	<div><a href="?fid=$fid">全部区域</a></div>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$zoneck=($zone_id==$key)?"class='ck'":"";
+print <<<EOT
+-->
+	<div><A HREF="?fid=$fid&zone_id=$key" $zoneck>$value</A></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+</div>
+<script>
+var page=$page;
+var rows=$rows;
+function showMoreCont(){
+	$(".showMore").html("<span>内容加载中……</span>");
+	page++;
+	
+	$.get('waplisthy.php?job=showmore&fid=$fid&zone_id=$zone_id&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			//$(".showMoreBg").hide();
+			$(".showMore").html("<span>没有更多了</span>");
+		}else{
+			$(".ListHyBox").append(d);
+			if(page==$totalpage){
+				$(".showMore").html("<span>没有更多了</span>");
+			}else{
+				$(".showMore").html("<span>点击浏览更多</span>");
+			}
+		}
+	});	
+}
+if(page==$totalpage){
+	$(".showMore").html("<span>没有更多了</span>");
+}
+function ShowSorts(){	
+	\$('.ListSorts').fadeIn();
+	var t = $(document).height();
+	\$('.BackBox').height(t).fadeIn();
+}
+function ShowZones(){
+	\$('.ListZones').fadeIn();
+	var t = $(document).height();
+	\$('.BackBox').height(t).fadeIn();
+}
+function HiddenAll(){
+	\$('.BackBox').fadeOut();
+	\$('.ListSorts').fadeOut();
+	\$('.ListZones').fadeOut();
+}
+</script>
+<!--
+EOT;
+?>
+--> 
+</body>
+</html>

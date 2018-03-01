@@ -1,0 +1,137 @@
+<!--
+<?php
+print<<<EOT
+--> <SCRIPT LANGUAGE="JavaScript">
+<!--
+function foreColor_font(obj)
+{
+  
+  var arr = showModalDialog('images/selcolor.htm', '', 'dialogWidth:18.5em; dialogHeight:17.5em; status:0');
+  if (arr != null)  obj.value=arr;
+  else  obj.focus();
+  obj.style.color=arr;
+}
+//-->
+</SCRIPT>
+<form name="formlistd" method="post" action="$admin_path&action=set">
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">关键字是否在内容页突出显示并且带链接地址</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">
+    <tr> 
+      <td class='tdL'>关键字是否在内容页中突出显示并且带链接地址：<span help=1>这里是控制关键字是否在文章中突出显示并且加链接的总开关.这里不启用的话.下面的设置都无效</span> </td>
+        <td class='tdR'><input type="radio" name="webdbs[ifShowKeyword]" value="1" $ifShowKeyword[1]>
+        显示 
+        <input type="radio" name="webdbs[ifShowKeyword]" value="0" $ifShowKeyword[0]>
+        不显示 </td>
+      </tr>
+      <tr>
+      <td class='tdL'>字体颜色： </td>
+      <td class='tdR'>
+        <input type="text" name="webdbs[ShowKeywordColor]" size="10" value="$webdb[ShowKeywordColor]" style="color:$webdb[ShowKeywordColor];" onclick="foreColor_font(this);"></td>
+      </tr>
+      </table>
+      <div class='submits'><input type="submit" name="Submit2" value="设置"></div>
+  </div>
+  </div>
+</form>
+
+<form name="formlist" method="post" action="$admin_path&action=del">
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+    <tr> 
+      <th width="20%" >关键字</th>
+      <th width="10%" >个数</th>
+      <th width="28%" >内容中显示与否</th>
+      <th width="26%" >自定义链接与否</th>
+      <th width="8%" >修改</th>
+      <th width="8%" >删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td > 
+        <input type="checkbox" name="iddb[]" value="{$rs[id]}" style="border:0px;">
+        {$rs[keywords]}</td>
+      <td > $rs[num] </td>
+      <td>$rs[ifshow] </td>
+      <td>$rs[ifurl] </td>
+        <td><a href="$admin_path&id={$rs[id]}&job=edit" title='点击修改' class='edit'></a></td>
+         <td><a href="$admin_path&iddb[]={$rs[id]}&action=del" title='点击删除' class='del'></a> </td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+  <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+          <input type="submit" name="Submit" value="删除">
+  </div>
+  </div>
+</div>
+        <script language="JavaScript">
+<!--
+function postlist(t){
+	if(t=='list'){
+		document.formlist.action="$admin_path&action=editlist";
+	}else{
+		document.formlist.action="$admin_path&job=batch_edit";
+	}
+	document.formlist.submit();
+}
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(e.name=='maketype')continue;
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</script>
+</form>
+
+
+<form name="formlistd" method="post" action="$admin_path&job=search">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">搜索关键字</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="ListTable">
+    <tr>
+      <td class='Left'> 
+        关键字:<input name="keyword" type="text" size="10" />
+        <input type="submit" name="Submit2" value="搜索">
+      </td>
+    </tr> 
+  </table>
+</div>
+</div>
+</form>
+
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>1.“个数”指的是在系统所有文章中出现的次数总和</li>
+      <li>  2.“内容中显示与否”指的是在内容中是否高亮加链接</li>
+    </ul>
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->
+ 

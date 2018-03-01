@@ -1,0 +1,74 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<!-- <div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT> -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/waporder/wapsell_order.css"/>
+<div class="navNA">
+	<div class="head"><h3>订单管理</h3></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$title0=$rs[shop][title];
+$picurl=$rs[shop][picurl];
+$picurl=tempdir($picurl);
+$title=get_word($title0,40);
+$rs[comment]=str_replace("\"","'",$rs[comment]);
+print <<<EOT
+-->
+<div class="shanpin">
+    <div class="shanpin_nav">
+            <div class="shanpin_nav_box"><a href="javascript:;">消费密码：$rs[password]</a><span>订购时间:$rs[posttime]</span> </div>
+    </div>
+
+  <div class="shanpin_content">
+    <ul class="shanpin_content_box">
+        <li class="shanpin_picture"><a href="../wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[cid]&city_id={$rs[shop][city_id]}"><img src="$picurl" onerrror="this.src='images/cpic.png'"/></a></li>
+        <li class="shanping_left">
+          <h2>  <a href="../wapbencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[cid]&city_id={$rs[shop][city_id]}" title="$title0" target="_blank">{$title}</a></h2> 
+          <span>{$stype}</span>
+        </li>
+    </ul>
+  </div>
+   
+      <div class="shanpin_footer">
+            <div class="footer_box">
+                   <div class="xian_hr">
+                         <span class="heji_jiage">总额: <em>￥$rs[totalmoney]</em>元</span>
+                         <span class="shanpin_shulian">订单号: $rs[id]</span>
+                   </div>
+                    <div class="ctrl">
+                        付款:$rs[pay] 消费:$rs[send]
+                        <a href='wapjoinshow.php?fid=$rs[fid]&id=$rs[id]'>查看</a>
+                        <a href='$rs[editurl]'>修改</a>
+                        <span style='display:$rs[nodel];'><a href='?action=del&id=$rs[id]&fid=$rs[fid]&cid=$rs[cid]'>删除</a></span>
+                    </div> 
+            </div>
+      </div>
+</div>
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+
+        $showpage
+  
+</div>
+<div class="MainCont mtop10">
+	<div class="head"><div class="tag">相关说明</div></div>
+    <div class="cont">
+    	<ul class="aboutnote">
+        	<li>1.如果你支付成功后,请不要删除订单,否则管理员查不到你的信息,会认为你没付款!</li>
+            <li>2.如果你要上门取货或者是去实体店消费的话,请牢记你的消费密码.商家会凭消费密码核实你是否已付款,请不要泄露你的消费密码.</li>
+            <li>3.如果你还没付款的话,你可以点击在线付款.</li>
+        </ul>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

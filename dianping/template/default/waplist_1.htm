@@ -1,0 +1,109 @@
+<!--
+<?php
+$priceColordb["c$price1$price2"]='red';
+$orderColordb["$ordertype"]='red';
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/dianping.css">
+<div class="GuideCont">当前位置：<a href="./">点评首页</a> $GuideFid[$fid]</div>
+<div class="searchbar">
+	<form name="searchlive" action="search.php" method="post">
+		<input type="hidden" name="action" value="search"/>
+		<input type="text" name="keyword" class="s_ipt"/>
+		<input type="submit" class="s_btn po_ab" value="搜索" />
+	</form>
+</div>
+<div class="MemberAct">
+	<a href="$city_url/wappost.php?fid=$fid" class="comn-submit">快速发布信息</a>　
+	<a href="$webdb[_www_url]/dianping/member/list.php" class="comn-submit reg-submit">管理我的信息</a>
+</div>
+<div class="SelectList">
+	<ul class="ChangeSele">
+		<li><a href="javascript:;" id="show_sort">全部类别<em></em></a></li>
+		<li><a href="javascript:;" id="show_zone">全部区域<em></em></a></li>
+	</ul>	
+</div>
+<div class="ListCont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[ip]=preg_replace("/\.([0-9]+)\.([0-9]+)$/is",".*.*",$rs[ip]);
+$rs[picnum]=$rs[picnum]?"<span>[{$rs[picnum]}图]</span>":"";
+print <<<EOT
+-->
+	<dl>
+		<dt><a href="$rs[url]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+		<dd>
+			<h3><a href="$rs[url]">$rs[title]</a></h3>
+			<div>所属分类：<em>$rs[fname]</em> 浏览量：<span>{$rs[hits]}</span>次</div>
+			<div>
+				IP：<em>{$rs[ip]}</em> 发布时间:<em>{$rs[posttime]}</em>
+<!---->
+			</div>
+		</dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<div class="page">$showpage</div>
+</div>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url=get_info_url('',$key,$city_id);
+$ck_class=($key==$fidDB[fup])?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls=get_info_url('',$keys,$city_id);
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="navbox" id="navbox_zone">
+<!--
+EOT;
+$listZones="";
+if($city_id){
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+$ck_class=($zone_id)?"":"class='ck'";
+$listZones.="<dl $ck_class>\r\n";
+$listZones.="	<dt><a href=\"$url\">{$city_DB[name][$city_id]}</a></dt>\r\n";
+$listZones.="</dl>\r\n";
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$ck_class=($zone_id==$key)?"class='ck'":"";
+$listZones.="<dl $ck_class>\r\n";
+$listZones.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+if($street_DB[$key]){
+$listZones.="	<dd>\r\n";
+foreach($street_DB[$key] AS $keys=>$values){
+$ck_class=($street_id==$keys)?"class='ck'":"";
+$urls=get_info_url('',$fid,$city_id,$key,$keys,$TempSearch_array);
+$listZones.="		<div><a href=\"$urls\" $ck_class>{$values}</a></div>\r\n";
+}
+$listZones.="	</dd>\r\n";
+}
+$listZones.="</dl>\r\n";
+}}
+print <<<EOT
+-->
+$listZones
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<div class="fullbg" id="fullbg2"></div>
+<script type="text/javascript" src="./images/wap/f.js"></script> 
+<!--
+EOT;
+?>
+-->

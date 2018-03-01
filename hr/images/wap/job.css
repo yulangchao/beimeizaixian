@@ -1,0 +1,67 @@
+.Location{
+	padding:12px;
+	height:30px;
+	line-height:34px;
+	color:#999;
+	overflow:hidden;
+	}
+.Location em{
+	color:#333;
+	}
+.zhiwei{
+	background:#fff;
+	padding:12px;
+	overflow:hidden;
+	}
+.zhiwei dt h3{
+	color:#0099ff;
+	padding-left:22px;
+	background:url(zhiwei.png) no-repeat left center;
+	height:32px;
+	line-height:32px;
+	}
+.zhiwei dd{
+	line-height:30px;}
+.zhiwei dd p{
+	color:#999;}
+.zhiwei dd p span{
+	color:#333;}
+.zhiwei dd em{
+	color:#999;}
+	
+.btn{
+	display:block;
+	width:66%;
+	height:56px;
+	line-height:56px;
+	border-radius:12px;
+	background:#fa7014;
+	text-align:center;
+	color:#fff;
+	margin:20px auto;}
+	
+.miaoshu{
+	background:#fff;
+	padding:12px;
+	margin-bottom:20px;
+	overflow:hidden;
+	}
+.miaoshu .title{
+	font-size:20px;
+	color:#0099ff;
+	height:46px;
+	line-height:46px;
+	background:url(bj.png) no-repeat bottom center;
+	}
+.miaoshu .conts{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+	width:calc(100% - 20px);
+}
+.miaoshu .conts img{max-width:100%;}
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}

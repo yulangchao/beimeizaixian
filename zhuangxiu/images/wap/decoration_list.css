@@ -1,0 +1,511 @@
+
+.DecorationPath{
+	height:50px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+.DecorationPath .Apath{
+	color:#999;
+}
+.DecorationPath a{
+	color:#999;
+}
+.MemberOperate{
+	background:#FFF;
+	text-align:center;
+	padding:15px 0;
+}
+.PostMessage { 
+	display:inline-block; 
+	padding:6px 15px;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#F99260; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:8px;
+}
+.ManageMessage{ 
+	background-color:#0099FF;
+} 
+
+
+.DecorationSearch{
+	border-top:1px solid #ddd;
+	height:70px;
+	background:#FFF;
+	overflow:hidden;
+}
+.DecorationSearch form{
+	display:block;
+	width:96%;
+	border:#DDD solid 1px;
+	border-radius:8px;
+	height:40px;
+	overflow:hidden;
+	margin:15px auto 5px auto;
+	position:relative;
+}
+.DecorationSearch .InputKey { 
+	width:100%;
+	padding-right:50px;
+	display:block;
+	height:40px;
+	line-height:30px;
+	border:0;
+	background:#FAFAFA;
+}
+.DecorationSearch span.searchSubmit{
+	background:#fff;
+	width:50px;
+	height:40px;
+	display:block;
+		position:absolute;
+	top:0; 
+	right:0;
+}
+.DecorationSearch .s_btn { 
+	display:block; 
+	width:50px; 
+	height:40px;
+	position:absolute;
+	top:0; 
+	right:0;
+	text-indent:-999em; 
+	border:0 none; 
+	border-left:1px solid #ddd; 
+	background:url(search_decoration.png) no-repeat center; 
+	/*background-size:15px auto; */
+	cursor:pointer; 
+}
+
+.SelectSort{	
+	width:100%;
+	position:relative;
+}
+
+.ChangeSele{
+	height:40px;
+	border-top:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;
+	background-color:#FFF;
+}
+.ChangeSele li{
+	float:left; 
+	width:50%;
+}
+.ChangeSele li a { 
+	overflow:hidden; 
+	display:block; 
+	text-align:center; 
+	height:40px; 
+	line-height:40px; 
+	position:relative; 
+	border-right:1px solid #d6d6d6;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.ChangeSele li:nth-child(even) a { 
+	border-right:0 none;
+}
+.ChangeSele li a span { 
+background:url(xiala.png) right no-repeat;	
+padding-right:18px;
+}
+
+.SelectSortType{
+	padding:10px;
+	background:#fff;
+	overflow:hidden;
+	position:relative;
+}
+.SelectSortType .sort_title{
+	position:absolute;
+	width:50px;
+	left:10px;
+	top:15px;
+}
+.SelectSortType ul{
+	/*float:left;*/
+	margin-left:50px;
+
+}
+.SelectSortType li{
+	padding:5px 0 5px 0;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	/*float:left;*/
+}
+.SelectSortType li span{
+	font-weight:bold;
+}
+.SelectSortType li a{
+	color:#666;
+	margin-right:5px;
+}
+/*===long sort===*/
+.SelectSortTypeLong{
+	padding:0 10px;
+	background:#fff;
+	overflow:hidden;
+	position:relative;
+}
+.SelectSortTypeLong .SorTtitleWarp{
+	position:relative;
+}
+.SelectSortTypeLong .sort_title{
+	position:absolute;
+	width:90px;
+	left:10px;
+	top:10px;
+}
+
+.SelectSortTypeLong .SorTtitleWarp:nth-child(2),.SelectSortTypeLong .SorTtitleWarp:nth-child(3){
+	border-top:1px dashed #C4C3C0;
+}
+.SelectSortTypeLong ul{
+	margin-left:90px;
+
+}
+.SelectSortTypeLong li{
+	padding:10px 0;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.SelectSortTypeLong li span{
+	font-weight:bold;
+}
+.SelectSortTypeLong li a{
+	color:#666;
+	margin-right:5px;
+}
+/*=========*/
+
+
+.ListContentWrapped{
+	margin-top:10px;
+	background:#fff;
+	padding:0 10px;
+
+}
+.ListContentWrapped .ListContent{
+	height:40px;
+	line-height:40px;
+	border-top:1px dashed #BFC8CC;
+	overflow:hidden;
+}
+.ListContentWrapped .ListContent:first-child{
+	border:0;
+}
+.ListContentWrapped .ListContent a{
+	overflow:hidden;
+	background:url(point.png) left no-repeat;
+	padding-left:15px;
+	float:left;
+	height:40px;
+	width:88%;
+}
+.ListContentWrapped .ListContent span{
+	float:right;
+	width:18px;
+	height:40px;
+
+	background:url(right.png) right center no-repeat;
+}
+
+/*zhaobiao list s*/
+.BidInvitingListWrap{
+	background:#F3F3F3;
+}
+.BidInvitingList{
+	background:#fff;
+	padding:10px;
+	margin:10px auto;
+}
+.BidInvitingList .ListTitlePrice{
+	overflow:hidden;
+	height:36px;
+	line-height:30px;
+	position:relative;
+}
+.BidInvitingList .ListTitlePrice .ListTitle{
+	float:left;
+	color:#333;
+}
+.BidInvitingList .ListTitlePrice .price{
+	position:absolute;
+	width:90px;
+	right:0;
+	text-align:right;
+	color:#F71D0D;
+}
+.BidInvitingList .ListTitlePrice .price span{
+	color:#999;
+}
+.BidInvitingList .mark{
+	height:36px;
+}
+.BidInvitingList .mark span{
+	padding:2px 8px;
+	text-align:center;
+	margin-right:10px;
+	border-radius:3px;
+}
+.BidInvitingList .mark span.red{
+	border:1px solid #FF5400;
+	color:#FF5400;
+}
+.BidInvitingList .mark span.blue{
+	border:1px solid #0099FF;
+	color:#0099FF;
+}
+.BidInvitingList .DatePv{
+	border-top:1px dashed #D9D9D9;
+	overflow:hidden;
+	padding-top:8px;
+	color:#999;
+}
+.BidInvitingList .DatePv .date{
+	float:left;
+	background:url(time_ico.png) left no-repeat;
+	padding-left:25px;
+}
+.BidInvitingList .DatePv .pv{
+	float:right;
+	background:url(hits_ico.png) left no-repeat;
+	padding-left:25px;
+}
+
+/*case s*/
+.CaseListWrap{
+	padding:10px;
+	overflow:hidden;
+}
+
+.CaseListWrap .CaseList{
+	width:48%;
+	float:left;
+	border:#DDD solid 1px;
+	padding:10px 0 10px 0;
+	margin:10px auto 0 auto;
+	background:#FFF;
+	border-radius: 5px;
+	height:175px;
+	overflow:hidden;
+
+}
+.CaseListWrap .CaseList:nth-child(even){
+	margin-left:2%;
+}
+.CaseListWrap .CaseList p{
+    display: block;
+    width: 90%;
+    overflow: hidden;
+    max-height: 123px;
+    margin: auto;
+    text-align: center;
+}
+.CaseListWrap .CaseList p img{
+	width:100%;
+}
+.CaseListWrap .CaseList .CaseTitle{
+	padding:5px;
+	line-height:25px;
+	height:25px;
+	overflow:hidden;
+	text-align:center;
+}
+.CaseListWrap .CaseList .CaseTitle a{
+	color:#369;
+}
+.CaseListWrap .CaseList .info{
+	padding:5px;
+	color:#666;
+	font-size:12px;
+	line-height:20px;
+	overflow:hidden;
+}
+.CaseListWrap .CaseList .info .price{
+	float:left;
+}
+.CaseListWrap .CaseList .info .price span{
+	color:#FA3C03;
+}
+.CaseListWrap .CaseList .info .hits{
+	float:right;
+}
+.CaseListWrap .CaseList .info .hits span{
+	color:#3584EF;
+}
+
+
+/*company s*/
+.CompanyListWrap .CompanyList{
+    height: 105px;
+    padding-top: 15px;
+    position: relative;
+    overflow: hidden;
+    /* border-bottom: #DDD solid 1px; */
+    background: #fff;
+    margin: 10px 0;
+}
+.CompanyListWrap .CompanyList:nth-child(1){
+	border-top:#DDD solid 1px;
+}
+.CompanyListWrap .CompanyList:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 2px;
+	position:absolute;
+	left:0;
+	top:0;
+	border-top:#FFF solid 1px;
+}
+.CompanyListWrap .CompanyList dt{
+    width: 120px;
+    padding: 1px;
+    position: absolute;
+    left: 3px;
+    top: 14px;
+    overflow: hidden;
+}
+.CompanyListWrap .CompanyList dt a{
+	display:block;
+	width:120px;
+	height:90px;
+	overflow:hidden;
+	background:#fff;
+}
+.CompanyListWrap .CompanyList dt a img{
+	width:100%;
+}
+.CompanyListWrap .CompanyList dd{
+    padding-left: 130px;
+    height: 90px;
+    overflow: hidden;
+}
+.CompanyListWrap .CompanyList dd .CompanyName{
+	height:30px;
+	line-height:30px;
+	font-weight:normal;
+	position:relative;
+	overflow:hidden;
+}
+.CompanyListWrap .CompanyList dd .CompanyName span{
+	color:#F99260;
+}
+.CompanyListWrap .CompanyList dd .CompanyName a{
+	color:#333333;
+}
+.CompanyListWrap .CompanyList dd .CompanyName img{
+	margin-left:5px;
+}
+.CompanyListWrap .CompanyList dd p{
+	display:block;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	overflow:hidden;
+	color:#666;
+}
+.CompanyListWrap .CompanyList dd div.address{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	color:#666;
+	font-size:14px;
+}
+
+/*designer  s*/
+.DesignerListWrap{
+	background:#F3F3F3;
+}
+.DesignerListWrap .DesignerList{
+	height:115px;
+	padding-top:15px;
+	position:relative;
+	overflow:hidden;
+	/*border-bottom:#DDD solid 1px;*/
+	background:#fff;
+	margin:10px auto;
+}
+.DesignerListWrap .DesignerList:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 2px;
+	position:absolute;
+	left:0;
+	top:0;
+	border-top:#FFF solid 1px;
+}
+.DesignerListWrap .DesignerList dt{
+	width:80px;
+	/*border:#DDD solid 1px;*/
+	padding:1px;
+	position:absolute;
+	left:10px;
+	top:13px;
+	overflow:hidden;
+}
+.DesignerListWrap .DesignerList dt a{
+	display:block;
+	width:80px;
+	height:100px;
+	overflow:hidden;
+	background:#FFF;
+	text-align:center;
+}
+.DesignerListWrap .DesignerList dt a img{
+	height:100%;
+	margin:auto;
+}
+.DesignerListWrap .DesignerList dd{
+	margin-left:105px;
+	height:100px;
+	/*overflow:hidden;*/
+	position:relative;	
+}
+.DesignerListWrap .DesignerList dd .DesignerInfo{
+	height:30px;
+	line-height:30px;
+	font-weight:normal;
+	overflow:hidden;
+	font-size:16px;
+	
+}
+.DesignerListWrap .DesignerList dd .DesignerInfo .priority{
+	position:absolute;
+	width:32px;
+	height:40px;
+	top:-15px;
+	right:10px;
+}
+.DesignerListWrap .DesignerList dd .DesignerInfo span{
+	color:#666;
+}
+.DesignerListWrap .DesignerList dd .DesignerInfo a{
+	color:#333;
+}
+
+.DesignerListWrap .DesignerList dd div,.DesignerListWrap .DesignerList dd p{
+	height:20px;
+	line-height:20px;
+	font-weight:normal;
+	overflow:hidden;
+	font-size:14px;
+	    margin-right: 5px;
+}
+.DesignerList dd div span{
+	color:#666;
+}
+.DesignerList dd div a{
+	color:#0099FF;
+}
+.DesignerList dd p{
+	color:#666;
+}

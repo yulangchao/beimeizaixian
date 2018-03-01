@@ -1,0 +1,145 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<div class="banner_box">
+<div class="banner_hot">
+		<dl>
+			<dt>
+				<div>
+					<span class="banner_text_hot">礼品兑换流程</span>
+				</div>
+			</dt>
+			<dd>
+				$label[gift_news]
+				<div class="get_jf">
+					<img src="images/life6/get_bg.jpg" />
+					<span><a href="$webdb[www_url]/do/jf.php">如何快速获得积分</a></span>
+				</div>
+			</dd>
+		</dl>
+	</div>
+	<div class="banner_pictrue">$label[gift_rollpic_60]
+<script>
+var bannerNum = 0;
+var liNum = $(".banner_pictrue ul li").length;
+$(".banner_pictrue ol li").click(function(){
+  var thisIndex = $(this).index();
+  $(".banner_pictrue ul li").eq(thisIndex).fadeIn("slow").siblings().fadeOut("slow");
+  $(".banner_pictrue ol li").eq(thisIndex).addClass("actionNum").siblings().removeClass("actionNum");
+});
+autochange = function(){
+	bannerNum = ++bannerNum % liNum;
+    $(".banner_pictrue ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+    $(".banner_pictrue ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+}
+bannerInterval = setInterval(autochange,2000);
+$(".banner_pictrue").hover(function(){
+  clearInterval(bannerInterval);
+},function(){
+  bannerInterval = setInterval(autochange,2000);
+});
+</script>
+	</div>
+</div>
+<div class="content_text">
+	<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>礼品分类</span>
+			</div>
+			<div class="Menu">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+				<dl>
+					<dt class="show">
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+	if($(this).hasClass("show")){
+		$(this).removeClass("show");
+		$(this).parent().find('dd').show();
+		$(this).parent().siblings().find('dd').hide();
+	}else{
+		$(this).addClass("show");
+		$(this).parent().find('dd').hide();
+	}
+} );
+//-->
+</script>
+		</div>
+		<div class="content_text_left_footer">
+			<div class="showlist_theme">
+				<img src="images/life6/theme2.jpg" />
+				<span>积分换礼品信息</span>
+			</div>
+			<ul class="newslist">
+<!--
+EOT;
+$array=list_apply(5);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<li>
+					<h2>
+						<span>$rs[username]</span>于$rs[posttime]申请了
+					</h2>
+					<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+				</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</ul>
+			<div class="look_box">$label[gift_left1]</div>
+		</div>
+	</div>
+	<div class="content_text_right">
+		<div class="text_title">
+			<span>礼品兑换</span>
+			<div class="title_nav">
+				<a href="listall.php?ordertype=hits">热门礼品</a>
+				<a href="listall.php?ordertype=levelstime">推荐礼品</a>
+				<a href="listall.php?ordertype=id">最新礼品</a>
+			</div>
+		</div>
+		<div class="Showlist_box">
+			$label[gift_pic1]
+		</div>					
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

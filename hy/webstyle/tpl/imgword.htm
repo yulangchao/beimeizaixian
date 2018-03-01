@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>设置图片参数</title>
+<link rel="stylesheet" type="text/css" href="$WebStyleurl/css/style.css">
+<script type="text/javascript" src="$WebStyleurl/images/jquery.min.js"></script>
+</head>
+<body>
+<style>
+.Lists .contents{ width:96%; height:200px; border:#DDD solid 1px; line-height:25px; padding:5px; border-radius:5px;}
+.Lists .subs{ text-align:center;padding:10px;}
+.Lists .subs span{display:inline-block; line-height:30px; padding:0 10px; border:#F60 solid 1px; border-radius:5px; background:#F90; color:#FFF; cursor:pointer;}
+</style>
+<div class="slideHeight">
+	设置图片内容
+</div>
+<div class="ListSlides">
+<!--
+EOT;
+$actJsWord="";
+if($checkmyno==1){
+	$actJsWord.="editslide('{$styleword[$tag][img]}',1,'img');\r\n";
+}
+$picurl=tempdir($styleword[$tag][img]);
+$hidetag='hide'.$tag;
+if($styleword[$hidetag]){
+	$is_hides[1]="checked";
+}else{
+	$is_hides[0]="checked";
+}
+print <<<EOT
+-->
+<div class="Lists">
+	<div class="img"><img class="showimg1" src='{$picurl}'/></div>
+	<div class="word"><em>图片：</em><input name="picurl" class="picurl1" type="text" value="{$styleword[$tag][img]}" onBlur="editslide(\$(this).val(),1,'img')"/> <span onClick="upSlidePic(1)">上传图片</span></div>
+</div>
+<form action="?type=$type&stylename=$stylename&uid=$uid&job=editwords&tag=$tag" method="post">
+<div class="Lists">
+	<textarea name="word" class="contents">{$styleword[$tag][word]}</textarea>
+	<div class="subs"><span>确定修改内容</span></div>
+</div>
+</form>
+<div class="hide_style">显示状态：<input name="is_hide" type="radio" $is_hides[0] value="0" onClick="edit_hide_style(\$(this).val())"/>显示 <input name="is_hide" type="radio" $is_hides[1] value="1" onClick="edit_hide_style(\$(this).val())"/>隐藏</div>
+</div>
+<div class="backContBox" onClick="HiddenMoreAciton()"></div>
+<div class="upflieBox"><div>上传图片</div><input type="hidden" id="uppic_url"/><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=webstyle/$uid&label=uppic_url'></iframe></div>
+<div class="SetContentBox">
+	<input name="nums" type="hidden"/>
+	<div class="head">选择商品链接</div>
+	<div class="ListMyShop"></div>
+</div>
+<div class="ShowStyle"><a href="$WebStyleurl/?uid=$uid&action=setstyle">返回看效果</a></div>
+<script type="text/javascript">
+
+$actJsWord
+
+function editslide(vals,num,types){
+	vals=escape(vals);
+	//vals=encodeURIComponent(vals); //对url进行编码
+	$.ajax({
+	   type: "POST",
+	   url: "setimgs.php",
+	   data: "type=$type&stylename=$stylename&uid=$uid&job=editimgs&tag=$tag&vals="+vals+"&num="+num+"&types="+types,
+	   success: function(msg){
+	   	  if(types=='img'){
+		  	$('.showimg'+num).attr("src",msg);
+		  }		 
+	   }
+	});
+}
+function editTitle(vals,num,types){
+	$.get("setimgs.php?type=$type&stylename=$stylename&uid=$uid&job=editimgs&tag=$tag&vals="+vals+"&num="+num+"&types="+types+"&"+Math.random());
+}
+function upSlidePic(num){
+	$(".upflieBox input").attr('name',num);
+	$(".upflieBox iframe").attr('src','$webdb[www_url]/do/upfile.php?fn=upfile&dir=webstyle/$uid&label=uppic_url&'+Math.random());
+	$('.backContBox').show();
+	$('.upflieBox').show();
+	$('.backContBox').stop().animate({'opacity':0.7},200,function(){
+		$('.upflieBox').stop().animate({'opacity':1},200);
+	});
+}
+function HiddenMoreAciton(){
+	$('.SetContentBox').stop().animate({'left':'-20%'},200);
+	$('.backContBox').stop().animate({'opacity':0},200,function(){
+		$('.backContBox').hide();
+		$('.SetContentBox').hide();
+		$('.upflieBox').hide();
+	});
+}
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+	var thisnum=$(".upflieBox input").attr('name');
+	$('.picurl'+thisnum).val(url);
+	editslide(url,thisnum,'img');
+	HiddenMoreAciton();
+}
+function edit_hide_style(vals){
+	$.get("setmenus.php?type=$type&stylename=$stylename&&uid=$uid&job=edit_hide_style&tag=hide$tag&slide_hide="+vals+"&"+Math.random());
+}
+$('.Lists .subs span').click(function(){
+	$('form').submit();
+});
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

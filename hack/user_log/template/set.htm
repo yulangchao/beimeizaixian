@@ -1,0 +1,33 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=set">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">用户访问IP端口功能设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr> 
+      <td class="tdL">是否开启用户访问IP端口功能:<span help=1>启用的目的是满足公安部的需求，方便查找某条非法信息是由谁发的，因为很多地方是共用IP上网的。但是大部分IIS服务器不支持获取端口号。</span></td>
+      <td class="tdR"> 
+        
+       <input type="radio" name="webdbs[if_set_user_log]" value="1" $if_set_user_log[1]>
+        启用 
+        <input type="radio" name="webdbs[if_set_user_log]" value="0" $if_set_user_log[0]>
+        禁用</td>
+    </tr>
+    <tr> 
+      <td class="tdL">仅保留最近几天内的记录:（留空或为0的话，则永久保留）</td>
+      <td class="tdR"> 
+        <input type="text" name="webdbs[set_user_log_day]" value="$webdb[set_user_log_day]" size="3">
+        天</td>
+    </tr>
+    </table>
+    <div class='submits'><input type="submit" name="Submit" value="提交"></div>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

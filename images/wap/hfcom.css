@@ -1,0 +1,39 @@
+.m-indexMain{max-width:640px; margin:0 auto; background:#f3f3f3; position:relative;}
+.L{float:left;}
+.R{float:right;}
+/* m-header */
+.m-header{position:relative; background:#0099ff; overflow:hidden; padding:15px 10px; font-size:18px;}
+.m-header .m-login{width:28px; height:30px; background:url('head1.png') left center no-repeat;}
+.m-header .m-ChangCity{width:40px; height:30px; padding-left:20px; background:url('head3.png') left center no-repeat; color:#fff; line-height:30px;}
+.m-search{position:absolute; left:50%; margin-left:-100px; border-bottom:1px solid rgba(255,255,255,.6); height:30px; line-height:20px; padding-right:5px;}
+.m-search div{float:left;}
+.m-search input{border:none; background:none; height:30px; line-height:30px; font-size:16px;}
+.m-search .m-keyword{}
+.m-search .m-keyword input{width:140px; text-align:center; color:#fff;}
+::-moz-input-placeholder{color:#fff;}
+::-ms-input-placeholder{color:#fff;}
+::-webkit-input-placeholder{color:#fff;}
+.m-search .m-SearchBt{width:32px; height:30px; background:url('head2.png') center no-repeat;}
+.m-search .m-SearchBt input{width:32px; height:30px;}
+
+.m-MemberCont{width:100%; height:0px; margin:0 auto; overflow:hidden; background:rgba(51,51,51,.5); position:absolute; left:0; top:60px; z-index:9999;}
+.m-MemberCont h4{text-align:center; padding:8px 10px 0 10px;line-height:25px;height:25px;overflow:hidden; font-weight:normal; font-family:Arial, Helvetica, sans-serif; color:#FFF;}
+.m-MemberCont p{text-align:center; color:#FFF; word-spacing:10px; font-family:Arial, Helvetica, sans-serif;}
+.m-MemberCont p a{color:#FFF;}
+/* footer */
+.m-footer{max-width:640px; margin:0 auto;}
+.m-CopyRight{padding:10px 0;}
+.m-CopyRight p{height:25px; line-height:25px; text-align:center; color:#999; font-size:.8rem;}
+.m-CopyRight p a{font-size:.8rem; color:#999;}
+
+@media(min-width:640px){
+	.m-header{padding:15px 20px;}
+	.m-search{margin-left:-150px;}
+	.m-search .m-keyword input{width:260px; font-size:18px;}
+}
+
+@media(min-width:640px){
+	.m-header{padding:15px 20px;}
+	.m-search{margin-left:-150px;}
+	.m-search .m-keyword input{width:260px; font-size:18px;}
+}

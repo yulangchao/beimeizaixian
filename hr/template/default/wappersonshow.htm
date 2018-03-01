@@ -1,0 +1,94 @@
+ <!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/person.css">
+
+<div class="Location">
+	<em>当前位置：</em><a href="./wapindex.php">招聘首页</a>  -> <a href="waplistperson.php">招聘简历</a> -> $rsdb[truename]
+</div>
+
+<div class="conter">
+	<dl class="m-person">
+    	<dt><img src="$rsdb[facephoto]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></dt>
+        <dd>
+        	<h3>{$rsdb[truename]}</h3>
+            <ul>
+            	<li>性别:<em>{$rsdb[sex]}</em></li>
+                <li>年龄:<em>{$rsdb[age]}</em> </li>
+                <li>身高:<em>{$rsdb[height]}</em> </li>
+                <li>学历:<em>{$rsdb[school_age]}</em> </li>
+            </ul>
+        </dd>
+    </dl>
+    
+    <div class="show">
+    	<div class="title">教育背景</div>
+        <div class="conts">{$rsdb[education]}</div>
+    </div>
+    
+    <div class="show">
+    	<div class="title">工作经历</div>
+        <div class="conts">{$rsdb[work]}</div>
+    </div>
+    <div class="show">
+        <div class="title">求职意向</div>
+        <ul>
+            <li>期望月薪：<em>{$rsdb[wage]}</em></li>
+            <li>希望岗位：<em>{$rsdb[hope_job]}</em></li>
+            <li>希望地区：<em>{$rsdb[lifeplace]}</em></li>
+            <li>到岗时间：<em>{$rsdb[worktime]}</em></li>
+            <li>擅长技能：<em>{$rsdb[skill]}</em></li>
+        </ul>
+    </div>
+    <div class="show">
+    	<div class="title">自我评价</div>
+        <div class="conts">{$rsdb[introduce]}</div>
+    </div>
+    
+     <div class="show">
+    	<div class="title">联系方式</div>
+<!--
+EOT;
+if($lfjid){print <<<EOT
+-->
+		<ul>
+			<li>手机号码:<em>{$rsdb[mobphone]}</em></li>
+			<li>QQ号码:<em>{$rsdb[qq]}</em></li>
+			<li>常用邮箱:<em>{$rsdb[email]}</em></li>
+			<li>MSN帐号:<em>{$rsdb[msn]}</em></li>
+			<li>当前居住地:<em>{$rsdb[lifeplace]}</em></li>
+		</ul>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<p class="notice ">对不起,简历的联系方式仅限企业会员查看,请 <a href="$webdb[www_url]/do/waplogin.php">登陆</a> 或 <a href="$webdb[www_url]/do/wapreg.php">注册</a></p>
+<!--
+EOT;
+}print <<<EOT
+-->
+		
+    </div>
+</div>
+
+<a href="fav_member.php?uid=$rsdb[uid]" class="btn">加入人才库</a>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function pic_height(){
+	var this_H=$(".m-person dt").width()*1.12;
+	if(this_H>210){
+	this_H = 210;
+	}
+	$(".m-person dt").css({"height":this_H+'px',"line-height":this_H+'px'});
+}
+pic_height();
+$(window).resize(function(){
+	pic_height()
+});
+-->
+</script>
+<!--
+EOT;
+?>
+-->

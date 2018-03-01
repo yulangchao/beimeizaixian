@@ -1,0 +1,173 @@
+.Location{
+	padding:12px;
+	height:30px;
+	line-height:34px;
+	color:#999;
+	overflow:hidden;
+	}
+.Location em{
+	color:#333;
+	}
+.banner{
+	width:100%;
+	overflow:hidden;
+	}
+.banner img{
+	max-width:100%;
+	vertical-align:middle;
+	}
+	
+	
+.goumai{
+	background:#fff;
+	padding:0 12px;
+	overflow:hidden;
+	}
+.goumai .Lf{
+	float:left;
+	width:70%;
+	overflow:hidden;
+	}
+.goumai .Lf h3{
+	max-height:40px;
+	line-height:20px;
+	font-size:14px;
+	overflow:hidden;
+	padding-top:10px;
+	font-weight:normal;
+	}
+.goumai .Lf span{
+	display:block;
+	width:90%;
+	height:32px;
+	line-height:32px;
+	background:#38c5b9;
+	text-align:center;
+	color:#fff;
+	border-radius:12px;
+	margin-bottom:20px;
+	}
+.goumai .Rg{
+	float:right;
+	width:30%;
+	overflow:hidden;
+	}	
+.goumai .Rg .btn{
+	display:block;
+	width:88%;
+	height:32px;
+	line-height:32px;
+	background:#fd7406;
+	color:#fff;
+	text-align:center;
+	border-radius:12px;
+	margin:10px 0;}
+.goumai .Rg span{
+	font-size:14px;
+	text-decoration:line-through;
+	}
+.renshu{
+	background:#fff;
+	padding:0 12px;
+	overflow:hidden;
+	margin-top:10px;
+	}
+.renshu .wt{
+	width:90%;
+	height:20px;
+	border-radius:20px;
+	border:solid 2px #0099ff;
+	position:relative;
+	margin:12px 0;
+	}
+.renshu .bt{
+	max-height:64px;
+	line-height:32px;
+	margin-top:20px;}
+.renshu strong{
+	font-weight:bold;}
+.renshu .tk{
+	color:#999;}
+.renshu span{
+	margin-left:12px;
+	}
+.renshu .chent{
+	color:#fd7406;}
+.renshu .cant{
+	color:#38c5b9;}
+.renshu .wt .nt{
+	 height:20px;
+	 background:#0099ff;
+	 border-radius:20px;
+	 position:absolute;
+	 left:0;
+	 top:0;
+	 }
+.renshu p{
+	color:#999;
+	margin-bottom:20px;}
+	
+.xianqing{
+	background:#fff;
+	padding:12px;
+	overflow:hidden;
+	margin-top:10px;
+	}
+.xianqing h3{
+	text-align:center;
+	}
+.xianqing .Notice{
+	max-height:94px;
+	line-height:32px;
+	overflow:hidden;
+	border-bottom:1px solid #e5e5e5;
+	}
+.xianqing .Notice .sj{
+	color:#0099ff;}
+.xianqing .Notice .dd{
+	color:#fd7406;
+	margin-left:22px;}
+.xianqing h4{
+	line-height:32px;
+	margin-top:12px;}
+.xianqing p{
+	margin-bottom:12px;
+	line-height:26px;}
+.xianqing .show{
+	width:100%;
+	overflow:hidden;
+	}
+.xianqing .show img{
+	max-width:100%;
+	vertical-align:middle;}
+	
+	@media only screen and (min-width:641px) {
+	.mHead .ren{
+	top:-3%;
+	right:12%;
+	}
+	.goumai .Lf span{
+		height:42px;
+		line-height:42px;
+		}
+	.goumai .Rg .btn{
+		height:46px;
+		line-height:46px;}
+		
+}
+.xianqing .cont{
+	width:98%;
+	margin:auto;
+	overflow:hidden;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif; 
+	color:#666;
+	padding-bottom:10px;
+}
+.xianqing .cont *{
+	font-family:Arial, Helvetica, sans-serif; 
+	color:#666;
+}
+.xianqing .cont img{
+	max-width:100%;
+}

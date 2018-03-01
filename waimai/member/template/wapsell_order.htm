@@ -1,0 +1,53 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">管理客户下的订单</div></div>
+    <div class="cont">	
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$companydb=$db->get_one("SELECT * FROM {$_pre}company WHERE uid='$rs[cuid]'");
+$totalnum=0;
+print <<<EOT
+-->
+		<div class="ListOrders">
+			<div class="company"><a href="../wapshowhy.php?fid=$companydb[fid]&id=$companydb[id]">$companydb[title]</a> <span>$rs[ordershow]</span></div>
+<!--
+EOT;
+foreach($rs['plist'] AS $rs2){
+$rs2[picurl] = $rs2[picurl]?tempdir($rs2[picurl]):"$webdb[_www_url]/images/default/nopic.jpg";
+@extract($db->get_one("SELECT market_price FROM {$_pre}content_$rs2[mid] WHERE id='$rs2[id]'"));
+$totalnum+=$rs2[ordernum];
+print <<<EOT
+-->
+			<ul>
+				<ol><a href="../wapbencandy.php?fid=$rs2[fid]&id=$rs2[id]"><img src="$rs2[picurl]" onerror="this.src='$webdb[_www_url]/images/default/nopic.jpg';"/></a></ol>
+				<li>
+					<div class="infos">
+						<div class="t"><a href="../wapbencandy.php?fid=$rs2[fid]&id=$rs2[id]">$rs2[title]</a></div>
+						<div class="m"><span>&yen;$rs2[price]</span> <strike>&yen;$market_price</strike></div>						
+						<div class="num">X$rs2[ordernum]</div>
+					</div>
+				</li>
+			</ul>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<div class="orderTz">共点{$totalnum}件 合计：&yen;$rs[totalmoney]</div>
+			<div class="ActOrder">$rs[ActOrder] <a href='?job=edit&id=$rs[id]'>修改</a> <a href='?action=del&id=$rs[id]&cid=$rs[cid]'>删除</a></div>
+		</div>
+<!--
+EOT;
+}$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

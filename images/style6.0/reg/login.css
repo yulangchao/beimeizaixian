@@ -1,0 +1,114 @@
+.Logincontainer{
+	margin:30px auto;
+	background:#FCFCFC;
+}
+.Logincontainer .Mhead{
+	height:50px;
+	line-height:50px;
+	background:#666;
+	color:#FFF;
+	overflow:hidden;
+}
+.Logincontainer .Mhead .tag{
+	float:left;
+	padding-left:40px;
+	background:url(key.png) 15px 15px no-repeat;
+	font-size:16px;
+}
+.Logincontainer .LoginCont{
+	display:table;
+	width:100%;
+}
+.Logincontainer .LoginCont .FormCont,.Logincontainer .LoginCont .NoLogin{
+	display:table-cell;
+	padding:30px 0;
+	vertical-align:middle;
+}
+.Logincontainer .LoginCont .FormCont{
+	padding-left:200px;
+	padding-right:200px;
+}
+.Logincontainer .LoginCont .FormCont .h{
+	line-height:40px;
+	font-size:16px;
+	color:#21AAF3;
+	padding:5px 0 10px 100px;
+}
+.Logincontainer .LoginCont .FormCont .input{
+	padding:10px 0 10px 270px;
+	line-height:25px;
+	position:relative;
+	margin-bottom:15px;
+}
+.Logincontainer .LoginCont .FormCont .input .t{
+	width:60px;
+	height:45px;
+	text-align:center;
+	line-height:45px;
+	background:#21AAF3;
+	color:#FFF;
+	font-size:16px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.Logincontainer .LoginCont .FormCont .input .i{
+	width:200px;
+	height:45px;
+	overflow:hidden;
+	position:absolute;
+	left:60px;
+	top:0;
+}
+.Logincontainer .LoginCont .FormCont .input .i input{
+	border:#DDD solid 1px;
+	border-left:0;
+	line-height:43px;
+	height:43px;
+	width:199px;
+	text-indent:5px;
+}
+.Logincontainer .LoginCont .FormCont .submit input[type=submit]{
+	border:0;
+	height:45px;
+	width:260px;
+	text-align:center;
+	line-height:45px;
+	background:#21AAF3;
+	font-size:18px;
+	color:#FFF;
+}
+.Logincontainer .LoginCont .NoLogin{
+	width:300px;
+	padding-left:50px;
+	padding-right:50px;
+	border-left:#F5F5F5 solid 1px;
+}
+.Logincontainer .LoginCont .NoLogin .h{
+	text-align:center;
+	line-height:40px;
+	font-size:16px;
+	color:#21AAF3;
+	font-weight:bold;
+}
+.Logincontainer .LoginCont .NoLogin p{
+	line-height:30px;
+}
+.Logincontainer .LoginCont .NoLogin .reg a{
+	display:block;
+	height:45px;
+	width:200px;
+	line-height:45px;
+	text-align:center;
+	background:#8CC923;
+	color:#FFF;
+	margin:20px auto;
+	font-size:16px;
+}
+.Logincontainer .LoginCont .NoLogin .wx_reg{
+	text-align:center;
+}
+.Logincontainer .LoginCont .NoLogin .wx_reg img{
+	width:200px;
+	height:200px;
+}

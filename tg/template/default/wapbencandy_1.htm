@@ -1,0 +1,171 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/showtg.css">
+<div class="GuideCont">当前位置：<a href="./">团购首页</a> $GuideFid[$fid]</div>
+<div class="BaseInfos">
+	<div class="pic"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></div>
+    <div class="title">{$rsdb[title]}</div>
+    <div class="join">
+        <a href="$Murl/member/wapjoin.php?fid=$fid&cid=$id">我要报名</a>
+    </div>
+</div>
+<ul class="moreInfo">
+	<li>已报名人数:<span>$rsdb[totaluser]</span>人</li>
+	<li>发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a></li>
+	<li>发起者:<span>{$rsdb[username]}</span></li>
+	<li>关注度:<span>{$rsdb[hits]}</span>人次</li>
+	<li>活动编号：【{$numtag}】</li>
+<!--
+EOT;
+if($rsdb['sortid']){print <<<EOT
+-->
+	<li>活动性质：{$rsdb[sortid]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['place']){print <<<EOT
+-->
+	<li>活动地点：{$rsdb[place]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['jointime']){print <<<EOT
+-->
+	<li>集合时间：{$rsdb[jointime]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['end_time']){print <<<EOT
+-->
+	<li>报名截止时间：{$rsdb[end_time]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+</ul>
+<div class="ShowContent">
+	<h4>活动详情</h4>
+    <div class="cont">$rsdb[content]</div>
+</div>
+<!--
+EOT;
+if($rsdb[gg_maps]){
+print <<<EOT
+-->
+<div class="ShowContent">
+	<h4>地图位置</h4>
+    <div class="cont"><iframe src="$webdb[www_url]/hy/job.php?job=show_ggmaps&position=$rsdb[gg_maps]&title=$rsdb[title]"  width="100%" height="350" scrolling="no" frameborder="0" ></iframe>
+ </div>
+</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="FootSpac"></div>
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

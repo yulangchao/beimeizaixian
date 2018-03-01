@@ -1,0 +1,115 @@
+<!--
+<?php
+print<<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">分类</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <ul class="notes">
+        <li class="b red">注意:</li>
+        <li>只适合两级分类,可以同时创建多个分类,每个分类换一行即可.</li>
+      </ul>  
+      <form action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=addsort" method="POST">
+      <table class="FormTable">
+        <tr> 
+            <td class='tdL'> <span class=bold>创建新分类--</span>&nbsp;名称 </td>
+            <td class='tdR'><textarea name="name" cols="25" rows="5"></textarea></td>
+        </tr>
+        <tr>
+            <td class='tdL'> 归属</td>
+             <td class='tdR'>
+                <select name="fid">
+                  <option value="0">顶级栏目</option>{$fup_select}
+                </select>
+              </td>
+          </tr>
+      </table>
+        <div class='submits'>
+              <input type="hidden" name="Type" value="1">
+              <input type=submit value="创 建" name="submit">          
+        </div>
+      </form>
+    </div>
+  </div>
+
+<form name="formlist" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=editlist">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">编辑分类</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="ListTable">
+       <tr> 
+          <ul class="notes">
+            <li><font color="#FF0000">注意:</font>分类排序的规则是,数值大的排在前面,只能是同一级的进行排序</li>
+          </ul> 
+      </tr>
+          <tr > 
+            <th width="6%">FID</th>
+            <th  width="58%">分类名称</th>
+            <th width="14%">排序</th>
+            <th width="13%">设置</th>
+            <th width="9%">删除</th>
+          </tr>
+          <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+            <td><b><font color="#FF0000">$rs[fid]</font></b></td>
+            <td class='Left'> 
+              <input type="checkbox" name="fiddb[{$rs[fid]}]" value="$rs[name]" style="border:0px;">
+              {$rs[icon]}【<a href='../$dirname/list.php?fid=$rs[fid]' target="_blank" style="color:$rs[color]">{$rs[name]}</a>】</td>
+            <td> 
+              <input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'>
+            </td>
+            <td><a href='index.php?lfj=$lfj&dirname=$dirname&file=$file&job=editsort&fid=$rs[fid]' title='点击修改' class='edit'></a></td>
+            <td><a href="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=delete&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');" title='点击删除' class='del'></a></td>
+          </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+        <div class='submits'> 
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+          <input type="submit" name="Submit22" value="删除分类" onClick="postlist('del')">
+          <input type="submit" name="Submit2" value="修改分类排序" onclick="postlist('list')">
+          <SCRIPT LANGUAGE="JavaScript">
+<!--
+function postlist(t){
+	if(t=='list'){
+		document.formlist.action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=editlist";
+		
+	}else if(t=='del'){
+		r=confirm('你确认要删除栏目吗?不可恢复');
+		if(r==true){
+			document.formlist.action="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=delete";			
+		}else{
+			return false;
+		}
+	}
+	document.formlist.submit();
+}
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+		  </div>
+</div>
+</div>
+
+</form>
+<!--
+EOT;
+?>
+-->

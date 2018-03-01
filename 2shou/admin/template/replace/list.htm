@@ -1,0 +1,28 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<div class="MainContainers">
+  <div class="Header"><span class="tag">请选择要替换哪个模块的内容:</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  	<div class='ListLinkCont'>
+  <!--
+EOT;
+foreach($module_db AS $key=>$value){
+print <<<EOT
+-->
+  
+    <a href="$admin_path&job=choose&mid=$key">$value</a>
+
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

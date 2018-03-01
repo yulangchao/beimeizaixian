@@ -1,0 +1,83 @@
+<!--
+<?php
+unset($listtitle);
+foreach($listdb AS $key=>$rs){
+	$listtitle.="		<li><a href=\"bencandy.php?fid=$rs[fid]&id=$rs[id]\">$rs[title]</a></li>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/pc/list.css">
+<div class="BencandyCont">
+	<div class="Main">
+		<ul class="ArticLists">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$listPic=$rs[picurl]?"<dt><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'><img src='$rs[picurl]' onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\"/></a></dt>":"";
+$checkpic=$rs[picurl]?"class='ispic'":"";
+print <<<EOT
+-->
+            	<li $checkpic>
+					<dl>
+						$listPic
+						<dd>
+							<h3><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></h3>
+							<p>$rs[content]</p>
+						</dd>
+					</dl>
+					<div><span>浏览量:$rs[hits]次</span><em>发布时间:$rs[posttime]</em></div>
+				</li>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+		</ul>
+		$showpage
+	</div>
+	<div class="Side">
+		<div class="sidecont">
+			<div class="head">相关栏目</div>
+			<ul class="ListSort">
+<!--
+EOT;
+$thisfids=($fidDB[type]==1)?"$fid":"$fidDB[fup]";
+foreach($Fid_db[$thisfids] AS $key=>$value){
+print <<<EOT
+-->
+            	<li><a href="list.php?fid=$key">$value</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+		<div class="sidecont">
+			<div class="head">热门新闻</div>
+			<ul class="ListHot">
+<!--
+EOT;
+$listHot=Get_Info('hot',5,40);
+foreach($listHot AS $key=>$rs){
+$rs[picurl]=$rs[picurl]?$rs[picurl]:"$webdb[www_url]/images/default/nopic.jpg";
+print <<<EOT
+-->
+            	<li>
+					<dl>
+						<dt><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+						<dd><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></dd>
+					</dl>
+				</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

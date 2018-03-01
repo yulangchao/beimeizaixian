@@ -1,0 +1,85 @@
+.MainContainer .hyOtherInfo{
+	float:left;
+}
+.MainContainer .Hydianping{
+	float:right;
+}
+.ListNews{
+	background:#FFF;
+	padding:15px;
+	min-height:400px;
+}
+.ListNews .list{
+	clear:both;
+	height:90px;
+	overflow:hidden;
+	padding:15px 0 15px 120px;
+	position:relative;
+	border-bottom:#DDD dotted 1px;	
+}
+.ListNews .list .time{
+	width:100px;
+	height:90px;
+	position:absolute;
+	left:5px;
+	top:15px;
+	background:#A7A7A7;
+	color:#FFF;
+}
+.ListNews .list .time ul ol{
+	text-align:center;
+	line-height:40px;
+	height:40px;
+	padding-top:10px;
+	overflow:hidden;
+	font-size:32px;
+}
+.ListNews .list .time ul li{
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	font-size:16px;
+}
+.ListNews .list .t{
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+}
+.ListNews .list .c{
+	height:50px;
+	line-height:25px;
+	overflow:hidden;
+	color:#888;
+}
+.ListNews .list .c a{
+	color:#F30;
+}
+.ListNews .list:hover{
+	background:#F8F8F8;
+}
+.ListNews .list:hover .time{
+	background:#9090A0;
+}
+.abouttitle{
+	width:100%;
+	clear:both;
+	text-align:center;
+	padding:15px 0 10px 0;
+	line-height:30px;
+	font-size:18px;
+	color:#3C9BD3;
+}
+.aboutcontent{	
+	line-height:25px;
+	font-size:16px;
+	color:#666;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+.aboutcontent .showmore{
+	text-align:right;
+}
+.aboutcontent .showmore a{
+	color:#0033CC;
+}

@@ -1,0 +1,134 @@
+
+.Location{
+	padding:12px;
+	height:30px;
+	line-height:34px;
+	color:#999;
+	overflow:hidden;
+	}
+.Location em{
+	color:#333;
+	}
+.dianpu{
+	background:#fff;
+	overflow:hidden;
+	padding:0 12px;}
+.dianpu .name{
+	width:100%;
+	margin:6px 0;
+	overflow:hidden;}
+.dianpu .name h3{
+	float:left;
+	width:50%;
+	height:36px;
+	line-height:36px;
+	font-size:20px;}
+.dianpu .name .btn{
+	float:right;
+	width:30%;
+	margin-top:5px;
+	height:30px;
+	background:#fd7406;
+	text-align:center;
+	line-height:30px;
+	border-radius:10px;
+	color:#fff;
+	font-size:14px;}
+.dianpu .time ul{overflow:hidden; width:100%;}
+.dianpu .time li{
+	float:left;
+	height:40px;
+	font: 15px/40px 'Microsoft Yahei','Simsun'; padding-right:10px;}
+.dianpu .time li em{
+	color:#999;
+	}
+.dianpu .time .m-posttime{}
+.dianpu .time .m-posttime li{float:right; height:30px; line-height:30px; padding-right:0;}
+.lianxi{
+	background:#fff;
+	padding:0 12px;
+	margin:20px 0;
+	overflow:hidden;
+	}
+.lianxi .dizhi{
+	height:80px;
+	border-bottom:#ccc solid 1px;
+	overflow:hidden;
+	}
+.lianxi .dizhi li{
+	float:left;
+	width:50%;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	}
+.lianxi .dizhi li em{
+	color:#999;}
+.lianxi .dianhua{
+	overflow:hidden;
+	margin:12px 0;}
+.lianxi .dianhua li{
+	float:left;
+	width:33%;
+	text-align:center;
+	}
+.lianxi .dianhua li dd{font-size:14px; height:26px; line-height:26px; overflow:hidden;}
+.lianxi .dianhua .midle{
+	border-left:#e5e5e5 solid 1px;
+	border-right:#e5e5e5 solid 1px;
+	}
+.xingxi{
+	background:#fff;
+	padding:0 12px;
+	overflow:hidden;
+	margin-bottom:22px;
+	}
+.xingxi .title{
+	height:56px;
+	line-height:56px;
+	color:#0099ff;
+	border-bottom:#0099ff solid 1px;
+	font-size:20px;
+	}
+.xingxi .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+	width:calc(100% - 20px);
+}
+.xingxi .cont img{max-width:100%}
+
+.xingxi .ditu{
+	margin-top:20px;
+	width:100%;
+	overflow:hidden;
+	}
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}
+.Reminded{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	margin:auto;	
+	background:#FFF;
+}
+.Reminded div{
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:40px;
+	text-indent:10px;
+	border-bottom:#DDD solid 1px;
+	color:#369;
+}
+.Reminded ul{
+	padding:10px;
+}
+.Reminded ul li{
+	line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-indent:5px;
+	font-size:14px;
+	color:#666;
+}

@@ -1,0 +1,129 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font:12px 'Microsoft Yahei','Simsun';color:#333;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#2d374b;}
+a:hover {color:#d00;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+img {vertical-align:middle;}
+/***/
+body{
+	background:#1E8ED8;
+}
+.MainTable{
+	width:100%;
+	height:100%;
+}
+.MainTable td{
+	text-align:center;
+	vertical-align:middle;
+}
+.LoginCont{
+	width:1200px;
+	height:800px;
+	background:url(bg.png) center top no-repeat;
+	margin:auto;
+}
+.LoginCont .header{
+	width:320px;
+	height:120px;
+	padding-top:30px;
+	margin:auto;
+}
+.LoginCont .header ol{
+	height:65px;
+	background:url(head.png) center top no-repeat;
+}
+.LoginCont .header ol span{
+	display:none;
+}
+.LoginCont .header li{
+	height:50px;
+	background:url(print.png) left 24px repeat-x;
+	line-height:50px;
+	text-align:center;
+}
+.LoginCont .header li span{
+	display:inline-block;
+	padding:0 20px;
+	background:url(bg.png) center -95px no-repeat;
+	color:#91D1F1;
+	font-size:18px;
+}
+.FormCont{
+	width:330px;
+	border:#91CFF0 solid 1px;
+	margin:20px auto 0 auto;
+	background:#22A3E2 url(world.png) 30px 90px no-repeat;
+	padding:60px 0 60px 230px;	
+	border-radius:5px;
+}
+.FormCont ul{
+	border-left:#65BFEB solid 1px;
+	min-height:200px;
+	text-align:left;
+}
+.FormCont ul li{
+	width:265px;
+	height:65px;
+	overflow:hidden;
+	margin:auto;
+	position:relative;
+	background:url(input.png) left top no-repeat;
+}
+.FormCont ul li span{
+	display:block;
+	float:left;
+	width:70px;
+	height:45px;
+	line-height:45px;
+	text-align:right;
+	color:#91D1F1;
+	overflow:hidden;
+}
+.FormCont ul li.user span{
+	background:url(user.png) center 8px no-repeat;
+	line-height:120px;
+}
+.FormCont ul li.pass span{
+	background:url(pass.png) center 8px no-repeat;
+	line-height:120px;
+}
+.FormCont ul li.yz em{
+	display:block;
+	width:65px;
+	position:absolute;
+	top:8px;
+	right:15px;	
+}
+.FormCont ul li.yz em img{
+	height:30px;
+	width:60px;
+}
+.FormCont ul li input{
+	width:180px;
+	height:35px;
+	margin-top:5px;
+	line-height:35px;
+	text-indent:5px;
+	border:0;
+	background:none;
+	color:#EEE;
+}
+.FormCont ul li.sub{
+	height:60px;
+	background:none;
+	text-align:center;
+}
+.FormCont ul li.sub input{
+	width:256px;
+	height:52px;
+}

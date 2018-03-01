@@ -1,0 +1,301 @@
+.Location{
+	padding:12px;
+	height:30px;
+	line-height:34px;
+	color:#999;
+	overflow:hidden; font-size:14px;
+	}
+.Location em{
+	color:#333;
+	}
+.banner{
+	background:#fff;
+	overflow:hidden;
+	position:relative;
+	}
+	
+.banner dt{
+	max-width:100%;
+	max-height:326px;
+	overflow:hidden;
+	}
+	
+.banner dt img{
+	width:100%;
+	}
+.banner dd{
+	padding:12px;
+	position:relative;
+	overflow:hidden;
+	}
+	
+.banner dd .Lf{
+	float:left;
+	width:70%;
+	overflow:hidden;
+	}
+.banner dd .Lf .title{
+	max-height:52px;
+	line-height:26px;
+	border-bottom:solid 1px #ededed;
+	overflow:hidden;
+	font-size:14px;
+	}
+.banner dd .Lf .time{
+	height:42px;
+	line-height:56px;
+	overflow:hidden;
+	}	
+.banner dd .Lf .time em{
+	float:right;
+	color:#0099ff;
+	}
+.banner dd .Rg{
+	float:right;
+	width:28%;
+	text-align:center;
+	}
+.banner dd .Rg span{
+	height:64px;
+	line-height:64px;
+	color:#e43838;
+	font-size:20px;
+	}
+.banner dd .Rg p{
+	color:#999;
+	font-size:14px;
+	height:32px;
+	line-height:32px;
+	overflow:hidden;
+	font-size:12px;
+	}
+.banner dd .Rg p em{
+	text-decoration:line-through;
+	}
+.banner dd .xx{
+	width:1px;
+	height:82px;
+	border-left:dashed 1px #ededed;
+	position:absolute;
+	top:20px;
+	right:29%;}
+	
+.other{
+	background:#fff;
+	overflow:hidden;
+	padding:12px;
+	margin-top:16px;font-size:14px;}
+.other li{
+	float:left;
+	width:50%;
+	height:32px;
+	line-height:32px;
+	overflow:hidden;
+	}
+.other li:nth-child(3){width:40%;}
+.other li:nth-child(4){width:60%;}
+.other li em{
+	color:#999;
+	}
+.other li:last-child{float:left; width:100%;}
+
+.btn{
+	overflow:hidden;
+	margin-top:16px;
+	padding:0 12px;
+	}
+.btn li{
+	float:left;
+	width:50%;
+	}
+.btn li a{
+	display:block;
+	height:46px;
+	width:90%;
+	border-radius:20px;
+	line-height:46px;
+	text-align:center;
+	color:#fff;}
+	
+.btn li .gwc{
+	background-color:#ef8937;
+	}
+.btn li .gm{
+	background-color:#fd5d06;
+	}
+.xianqing{
+	background:#fff;
+	overflow:hidden;
+	padding:0 12px;
+	margin-top:16px;}
+.xianqing .title{
+	height:66px;
+	background:url(bj_hx.png) no-repeat bottom center;
+	font: 20px/66px 'Microsoft Yahei','Simsun';
+	text-indent:1em;
+	}
+.xianqing .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+	max-width:620px;
+}
+.xianqing .cont img{max-width:100%;}
+
+.fullbg,.ShowBigPic { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.ShowBigPic{
+	z-index:1002;
+}
+.ShowBigPic img{
+	width:100%;
+}
+.ShowOnePic{
+	text-align:center;
+	padding:10px 0 10px 0;
+	overflow:hidden;
+	width:100%;
+	border-bottom:#DDD solid 1px;
+	border-top:#DDD solid 1px;
+	background:#FFF;
+	margin:10px auto;
+}
+.ShowOnePic img{
+	max-width:100%;
+}
+
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}
+.Reminded{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	margin:auto;	
+	background:#FFF;
+}
+.Reminded div{
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:40px;
+	text-indent:10px;
+	border-bottom:#DDD solid 1px;
+	color:#369;
+}
+.Reminded ul{
+	padding:10px;
+}
+.Reminded ul li{
+	line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-indent:5px;
+	font-size:14px;
+	color:#666;
+}
+.FootSpac{
+	width:100%;
+	height:80px;
+	clear:both;	
+}
+.ShopJoin{
+	text-align:center;
+	azimuth:10px;
+}
+.ShopJoin a { 
+	display:inline-block; 
+	padding:6px 15px; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#f40; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:3px;
+}
+.ShopJoin a:nth-child(2){
+	background-color:#369; 
+}
+.ShopJoin a:hover { 
+	background-color:green;
+	text-decoration:none;
+}
+/******/
+.fullbgs { 
+	background-color:#000; 
+	opacity:0.6; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+}
+.MemberLogin{
+	max-width:400px;
+	min-width:300px;
+	border:#DDD solid 1px;
+	background:#FFF;
+	position:absolute;
+	left:0;
+	top:50px;
+	border-radius: 5px;
+	z-index:1002; 
+}
+.MemberLogin h3{
+	height:45px;
+	line-height:45px;
+	text-align:center;
+	font-size:16px;
+	overflow:hidden;
+	color:#666;
+	background:#EFEFEF;
+}
+.MemberLogin dl{
+	display: table;
+	width: 100%;
+	border-top:#DDD solid 1px;
+}
+.MemberLogin dl dt{
+	width: 80px;
+	text-align: right;
+	display: table-cell;
+	border-right:#DDD solid 1px;
+	line-height:35px;
+	padding-right:5px;
+	color:#666;
+	vertical-align:top;
+	font-size:14px;
+}
+.MemberLogin dl dd{
+	display: table-cell;
+	padding:5px;
+	line-height:25px;
+	color:#888;
+}
+.MemberLogin .text{
+	width:80%;
+	height:20px;
+	border:#EEE solid 1px;
+}
+.MemberLogin .Sub{
+	display: inline-block;
+	padding: 3px 10px;
+	text-align: center;
+	color: #fff;
+	background-color: #f40;
+	border: 0 none;
+	box-shadow: #ddd 0 1px 1px;
+	border-radius: 3px;
+}
+.MemberLogin .reset{
+	background-color:#999;
+}

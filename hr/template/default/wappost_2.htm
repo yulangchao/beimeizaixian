@@ -1,0 +1,146 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+<div class="FormContainer">
+<form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+
+	<dl>
+		<dt>期望职位:<span></span></dt>
+		<dd> <input   type='text' name='postdb[hope_job]' id='atc_hope_job' style='width:300px;' value='$rsdb[hope_job]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>姓名:<span></span></dt>
+		<dd> <input   type='text' name='postdb[truename]' id='atc_truename' style='width:100px;' value='$rsdb[truename]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>性别:<span></span></dt>
+		<dd> <input type='radio' name='postdb[sex]' value='1' {$rsdb[sex]['1']}>男  <input type='radio' name='postdb[sex]' value='2' {$rsdb[sex]['2']}>女  </dd>
+	</dl>
+
+	<dl>
+		<dt>年龄:<span></span></dt>
+		<dd> <input   type='text' name='postdb[age]' id='atc_age' style='width:50px;' value='$rsdb[age]'> 岁</dd>
+	</dl>
+
+	<dl>
+		<dt>身高:<span></span></dt>
+		<dd> <input   type='text' name='postdb[height]' id='atc_height' style='width:50px;' value='$rsdb[height]'> 厘米</dd>
+	</dl>
+
+	<dl>
+		<dt>学历:<span></span></dt>
+		<dd><select name='postdb[school_age]' id='atc_school_age'><option value='1' {$rsdb[school_age]['1']}>小学</option><option value='2' {$rsdb[school_age]['2']}>初中</option><option value='3' {$rsdb[school_age]['3']}>高中</option><option value='4' {$rsdb[school_age]['4']}>中专</option><option value='5' {$rsdb[school_age]['5']}>大专</option><option value='6' {$rsdb[school_age]['6']}>本科</option><option value='7' {$rsdb[school_age]['7']}>研究生</option><option value='9' {$rsdb[school_age]['9']}>博士</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>专业:<span></span></dt>
+		<dd> <input   type='text' name='postdb[speciality]' id='atc_speciality' style='width:50px;' value='$rsdb[speciality]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>毕业学校:<span></span></dt>
+		<dd> <input   type='text' name='postdb[alma_mater]' id='atc_alma_mater' style='width:100px;' value='$rsdb[alma_mater]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>毕业年份:<span></span></dt>
+		<dd> <input   type='text' name='postdb[graduate_time]' id='atc_graduate_time' style='width:50px;' value='$rsdb[graduate_time]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>期望待遇:<span></span></dt>
+		<dd><select name='postdb[wage]' id='atc_wage'><option value='-1' {$rsdb[wage]['-1']}>面议</option><option value='1' {$rsdb[wage]['1']}>800~1500元</option><option value='2' {$rsdb[wage]['2']}>1500~2500元</option><option value='3' {$rsdb[wage]['3']}>2500~3500元</option><option value='4' {$rsdb[wage]['4']}>3500元以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>手机号码:<span></span></dt>
+		<dd> <input   type='text' name='postdb[mobphone]' id='atc_mobphone' style='width:100px;' value='$rsdb[mobphone]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>QQ号码:<span></span></dt>
+		<dd> <input   type='text' name='postdb[qq]' id='atc_qq' style='width:100px;' value='$rsdb[qq]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>常用邮箱:<span></span></dt>
+		<dd> <input   type='text' name='postdb[email]' id='atc_email' style='width:100px;' value='$rsdb[email]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>MSN帐号:<span></span></dt>
+		<dd> <input   type='text' name='postdb[msn]' id='atc_msn' style='width:100px;' value='$rsdb[msn]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>期望工作城市:<span></span></dt>
+		<dd> <input   type='text' name='postdb[lifeplace]' id='atc_lifeplace' style='width:100px;' value='$rsdb[lifeplace]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>工作年限:<span></span></dt>
+		<dd><select name='postdb[workyear]' id='atc_workyear'><option value='0' {$rsdb[workyear]['0']}>应届毕业生</option><option value='1' {$rsdb[workyear]['1']}>一年</option><option value='2' {$rsdb[workyear]['2']}>两年</option><option value='3' {$rsdb[workyear]['3']}>三年以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>到岗日期:<span></span></dt>
+		<dd> <input   type='text' name='postdb[worktime]' id='atc_worktime' style='width:100px;' value='$rsdb[worktime]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>相片:<span></span></dt>
+		<dd><input type='text' name='postdb[facephoto]' id='atc_facephoto' size='50' value='$rsdb[facephoto]'> <br><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=$_pre/$fid&label=atc_facephoto' width=310></iframe></dd>
+	</dl>
+
+	<dl>
+		<dt>教育背景:<span></span></dt>
+		<dd><textarea  name='postdb[education]' id='atc_education' style='width:400px;height:100px;'>$rsdb[education]</textarea></dd>
+	</dl>
+
+	<dl>
+		<dt>工作经验:<span></span></dt>
+		<dd><textarea  name='postdb[work]' id='atc_work' style='width:500px;height:100px;'>$rsdb[work]</textarea></dd>
+	</dl>
+
+	<dl>
+		<dt>自我评价:<span></span></dt>
+		<dd><textarea  name='postdb[introduce]' id='atc_introduce' style='width:500px;height:100px;'>$rsdb[introduce]</textarea></dd>
+	</dl>
+
+	<dl>
+		<dt>技能特长:<span></span></dt>
+		<dd><textarea  name='postdb[skill]' id='atc_skill' style='width:500px;height:100px;'>$rsdb[skill]</textarea></dd>
+	</dl>
+
+	<dl>
+		<dt>体育爱好:<span></span></dt>
+		<dd><textarea  name='postdb[interest]' id='atc_interest' style='width:500px;height:100px;'>$rsdb[interest]</textarea></dd>
+	</dl>
+<!---->
+    <div class="butter">
+	    <input type="submit" name="Submit" class="submits" name="Submit" value="提 交">
+	    <input type="hidden" name="fid" value="$fid">
+	    <input type="hidden" name="id" value="$id">
+	    <input type="hidden" name="postdb[lifeplace]" value="{$city_DB[name][$city_id]}">
+    </div>
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,63 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/style7.0/list.css">
+<!-- main_box  主体内容  s -->
+<div class='main_box'>
+	<!-- banner  横幅 -->
+	<div class='banner'>{$label[style7_list_banner]}</div>
+    <!-- content_first  s -->
+	<div class='content_first'>
+    	<h3>{$fidDB[name]}</h3>
+        <div class="conten_list">
+<!--
+EOT;
+$k=0;
+foreach($listdb AS $key=>$rs){
+$k++;
+$rs[title]=get_word($rs[title],50);
+$url = "bencandy.php?fid=$rs[fid]&id=$rs[id]";
+$codeurl = urlencode("$webdb[www_url]/fuwu/bencandy.php?fid=$rs[fid]&id=$rs[id]");
+$codeimg = "$webdb[www_url]/do/2codeimg.php?url=$codeurl";
+$mg=$k%4?'':'Mg';
+print <<<EOT
+-->
+            	<div class="list_box {$mg}">
+            	<dl >
+                	<dt>
+                        <a href="$url">
+                        <div class="pic"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></div>
+                        <div class="black_div">
+                            <div class="black_box">
+                            </div>
+                            <div class="images">
+                                    <h2>扫一扫手机查看</h2>
+                                    <img src="$codeimg"/>
+                              </div>
+                          </div>
+                        </a>
+                    </dt>
+                    <dd class="title"><a href="$url"><h2>{$rs[title]}</h2></a></dd>
+                    <dd class="jieshao">
+                        	<span class="sf">收费标准：<em>{$rs[moneytype]}</em></span>
+                            <span class="fw">服务时间：<em>{$rs[servetime]}</em></span>
+                    </dd>
+                    <dd class="yuyue">
+                        <div class="btn"><a href="$webdb[_www_url]/member/?main=$Murl/member/join.php?fid=$rs[fid]&cid=$rs[id]" target="_blank">立即预约</a></div>
+                        <div class="renqi"><span  >人气：<em>$rs[hits]</em></span></div>
+                    </dd>
+                </dl>
+                </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div><!-- content_list e -->
+		<div class="showpage">$showpage</div>
+    </div> <!-- content_first e -->	
+</div><!-- main_box  主体内容  e -->
+<!--
+EOT;
+?>
+-->

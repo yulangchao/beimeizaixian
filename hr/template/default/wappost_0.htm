@@ -1,0 +1,61 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+
+
+
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<dl>
+		<dt><span>*</span>职位名称：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入职位名称，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+<!--
+EOT;
+if($job!="edit"&&$webdb[Info_GroupPostYzImg]&&!$web_admin&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupPostYzImg]))){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--{template}-->
+	<dl>
+		<dt>{title}</dt>
+		<dd>{value}</dd>
+	</dl>
+<!--{/template}-->
+    <div class="butter"><sapn class="submits"><input type="submit" name="Submit" value="提 交"/></sapn></div>
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

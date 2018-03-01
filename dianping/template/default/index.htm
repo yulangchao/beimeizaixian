@@ -1,0 +1,190 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<div class="content">
+	<div class="content_com">
+		<div class="call">
+			<div class="head">
+				<div class="tag">{$label[fashion_dianpingindexh1]}</div>
+			</div>
+			<div class="cont">
+				{$label[fashion_dianpingindext0]}
+			</div>
+		</div>
+		<div class="banner">
+			$label[fashion_dianpingindext1]
+		</div>
+		<div class="mycom">
+			<div class="myh" style="padding-top:15px; margin-bottom:10px;">
+    			<div class="but1" style="margin-left:10px;">
+					<a href="post.php" target="_blank">发布点评</a>
+				</div>
+        		<div class="but2" style="margin-right:10px;">
+					<a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/homepage_ctrl.php?atn=info" target="_blank">管理店铺</a>
+				</div>
+    		</div>
+    		<div class="newset">
+    			<div class="head">
+					<div class="tag">{$label[fashion_dianpingindexh2]}</div>
+				</div>
+        		<div class="cont">
+        			{$label[fashion_dianpingindext2]}
+        		</div>
+			</div>
+		</div>			
+	</div>	
+	
+	<div class="content_jion">
+		<div class="jion_left">
+			<div class="head">
+				<div class="tag">{$label[fashion_dianpingindexh3]}</div>
+			</div>
+    		<div class="cont">
+				{$label[fashion_dianpingindext3]}
+    		</div>
+		</div>
+		<div class="jion_right">
+			<div class="head">
+				<div class="tag">{$label[fashion_dianpingindexh4]}</div>
+			</div>
+			<div class="cont2">
+				<div id="showup">
+					<a href="javascript:;" onclick="showup()" class="hidefocus"></a>
+				</div>
+				<ul class="ShowList" id="flashList">
+					{$label[fashion_dianpingindext4]}
+				</ul>
+				<div id="showdown">
+					<a href="javascript:;" onclick="showdown()" class="hidefocus"></a>
+				</div>
+<script type="text/javascript" src="images/life6/showmore.js"></script>
+			</div>
+		</div>
+	</div>
+	
+	<div class="content_ad">
+		{$label[fashion_dianpingindext5]}
+	</div>
+	
+	<div class="content_class">
+		<div class="cl">
+			<div class="tjt">
+				<div class="head"><div class="tag">{$label[fashion_dianpingindexh5]}</div></div>
+        		<div class="cont1">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] as $key=>$value){
+$i++;
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+                				<dl class="dl$i" style="background:url(images/life6/class$i.jpg) no-repeat left center;">
+                    				<dt><a href="$url">{$value}</a></dt>
+                        			<dd>
+<!--
+EOT;
+$y=0;
+foreach($Fid_db[$key] as $keys=>$rs){
+$y++;
+$url=get_info_url('',$keys,$city_id);
+$spacings = $y==1 ? "" : "| ";
+print <<<EOT
+-->
+
+										{$spacings}<a href="$url">{$rs}</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                        			</dd>
+                    			</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->			
+				</div>
+			</div>
+			<div class="tjm">
+				<div class="head">
+					{$label[fashion_dianpingindexh6]}
+				</div>
+        		<div class="cont3">
+        			{$label[fashion_dianpingindext7]}
+        		</div>				
+			</div>
+			<div class="tjf">
+				<div class="head">
+					<div class="tag">{$label[fashion_dianpingindexh7]}</div>
+					<div class="more"><a href="#">more</a></div>
+				</div>
+				<div class="cont4">
+<!--
+EOT;
+$array = get_dianping(3,70);
+foreach($array AS $rs){
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+$rs[icon]=$rs[icon]?$rs[icon]:"$webdb[www_url]/images/default/nobody.gif";
+print <<<EOT
+-->
+					<div class="listdianping">
+						<div class="img">
+							<a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank"><img src="$rs[icon]" height="75"/></a>
+						</div>
+						<div class="t">
+							<a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank" class="m">{$rs[username]}</a>在{$rs[posttime]}点评了<a href="$url" target="_blank" class="b">{$rs[title]}</a>
+						</div>
+						<div class="dp">{$rs[fen]}</div>                        
+						<div class="gray">{$rs[content]}</div>
+					</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</div>					
+			</div>
+		</div>
+		
+		<div class="cr">
+			
+			<div class="cr1">
+    			<div class="head"><div class="tag">{$label[fashion_dianpingindexh8]}</div></div>
+        		<div class="cont">
+					{$label[fashion_dianpingindext6]}
+        		</div>
+    		</div>
+			
+			<div class="cr2">
+				<div class="cr_ad">
+					{$label[fashion_dianpingindext8]}
+				</div>
+			</div>
+			
+			<div class="cr1">
+    			<div class="head">
+					<div class="tag">{$label[fashion_dianpingindexh9]}</div>
+				</div>
+        		<div class="cont2">
+					{$label[fashion_dianpingindext9]}
+        		</div>
+    		</div>
+			
+			<div class="cr1" style="margin:25px 0;">
+				<div class="head">
+					<div class="tag">{$label[fashion_dianpingindexh10]}</div>
+				</div>
+				<div class="cont1">
+					{$label[fashion_dianpingindext10]}
+				</div>
+			</div>								
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,187 @@
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, hr, fieldset, form, label, legend, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, hgroup {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.mainbody{
+	min-width:320px;
+	max-width:640px;
+	margin:10px auto;
+	overflow:hidden;
+	background:#FFF;
+	border:#bbb solid 1px;
+	border-radius: 10px;
+}
+.mainbody .about{
+	padding:15px 5px 5px 10px;
+	line-height:20px;
+}
+.mainbody .time{
+	padding:5px 0 0 15px;
+	font-size:12px;
+	color:#666;
+}
+.voteTable{
+	width:98%;
+	margin:auto;
+}
+.voteTable td.Td3{
+	width:33%;
+	vertical-align:bottom;
+	padding:15px 0 15px 0;
+	border-bottom:#DDD dotted 1px;
+}
+.ListVote{
+	width:90%;
+	overflow:hidden;
+	border:#DDD solid 1px;	
+	margin:auto;
+	border-radius: 5px;
+}
+.ListVote .img {
+	text-align:center;
+	padding:5px 0 5px 0;
+}
+.ListVote .img img{
+	width:95%;
+}
+.ListVote .title{
+	text-align:center;
+	line-height:25px;
+	height:25px;
+	overflow:hidden;
+	border-top:#DDD solid 1px;	
+	font-size:14px;
+	background:#EFEFEF;
+}
+.ListVote .title span{
+	font-weight:bold;
+	color:#F30;
+}
+.ListVote p{
+	border-top:#DDD solid 1px;
+	padding:5px;
+	line-height:20px;
+	font-size:12px;
+	color:#666;
+}
+.mainbody .sub{
+	text-align:center;
+	padding:10px 0 10px 0;
+}
+.Vote1Table{
+	width:90%;
+	margin:20px auto 10px auto;
+}
+.Vote1Table td{
+	height:40px;
+	vertical-align:middle;
+}
+.Vote1Table .tdL{
+	width:50%;
+}
+.Vote1Table .tdL div{
+	height:20px;
+	float:right;
+	background:url(bar1.gif) repeat-x;
+}
+.Vote1Table .tdR div{
+	padding-left:15px;
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	font-size:14px;
+}
+.Vote1Table .tdR div span{
+	font-weight:bold;
+	color:#F30;
+}
+.Pkvote{
+	width:90%;
+	margin:20px auto;
+	background:url(votevs.gif) center top no-repeat;
+	background-size:contain;
+}
+.Pkvote .Td2{
+	width:50%;
+	padding-bottom:15px;
+	float:left;
+}
+.PkVote{
+	width:90%;
+	overflow:hidden;
+	margin:auto;
+}
+.PkVote h3{
+	font-size:16px;
+	text-align:center;
+	line-height:30px;
+	height:30px;
+	overflow:hidden;
+}
+.PkVote h3 a{
+	color:#990033;
+}
+.PkVote .img{
+	width:80%;
+	margin:10px auto;
+	overflow:hidden;
+	text-align:center;
+}
+.PkVote .img img{
+	width:80%;
+}
+.PkVote .title{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	text-align:center;
+	color:#990033;
+}
+.PkVote .Vote{
+	width:60%;
+	margin:15px auto 0 auto;
+}
+.submit{
+	width:90%;
+	margin:auto;
+	background-color:#179f00;
+	padding:10px 0 10px 0;
+	font-size:16px;
+	text-decoration:none;
+	border:1px solid #0b8e00;
+	background-image:linear-gradient(bottom,#179f00 0,#5dd300 100%);
+	background-image:-o-linear-gradient(bottom,#179f00 0,#5dd300 100%);
+	background-image:-moz-linear-gradient(bottom,#179f00 0,#5dd300 100%)
+	;background-image:-webkit-linear-gradient(bottom,#179f00 0,#5dd300 100%);
+	background-image:-ms-linear-gradient(bottom,#179f00 0,#5dd300 100%);
+	background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#179f00),color-stop(1,#5dd300));
+	-webkit-box-shadow:0 1px 0 #94e700 inset,0 1px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow:0 1px 0 #94e700 inset,0 1px 2px rgba(0,0,0,0.5);
+	box-shadow:0 1px 0 #94e700 inset,0 1px 2px rgba(0,0,0,0.5);
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+	color:#fff;
+	display:block;
+	text-align:center;
+	text-shadow:0 1px rgba(0,0,0,0.2)
+}
+.submit:hover,.submit:active{
+	padding-bottom:9px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:11px;top:0;
+	background-image:linear-gradient(bottom,#5dd300 0,#179f00 100%);
+	background-image:-o-linear-gradient(bottom,#5dd300 0,#179f00 100%);
+	background-image:-moz-linear-gradient(bottom,#5dd300 0,#179f00 100%);
+	background-image:-webkit-linear-gradient(bottom,#5dd300 0,#179f00 100%);
+	background-image:-ms-linear-gradient(bottom,#5dd300 0,#179f00 100%);
+	background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#5dd300),color-stop(1,#179f00));
+	-webkit-box-shadow:0 1px 0 #5dd300 inset,0 1px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow:0 1px 0 #5dd300 inset,0 1px 2px rgba(0,0,0,0.5);
+	box-shadow:0 1px 0 #5dd300 inset,0 1px 2px rgba(0,0,0,0.5)
+}
+.FootSpac{
+	width:100%;
+	height:50px;
+}

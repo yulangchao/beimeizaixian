@@ -1,0 +1,86 @@
+<!--
+<?php
+$div_display = $rsdb[renzheng] ? 'none' : '' ;
+print <<<EOT
+-->
+<!-- <div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT> -->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+	<h3>企业认证</h3>
+    	<form action="?" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+        <dl>
+		  <dt>营业执照扫描件:</dt>
+		  <dd>
+			<div><input name="postdb[permit_pic]" type="text" id="permit_pic" value="$rsdb[permit_pic]" /></div>
+			<div style="display:$div_display"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=company/renzheng&label=permit_pic' width="300"></iframe></div>
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>国税扫描件：</dt>
+		  <dd>
+		    <div><input name="postdb[guo_tax_pic]" type="text" id="guo_tax_pic" value="$rsdb[guo_tax_pic]" /></div>
+			<div style="display:$div_display"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=company/renzheng&label=guo_tax_pic' width="300"></iframe></div>
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>地税扫描件：</dt>
+		  <dd>
+            <div><input name="postdb[di_tax_pic]" type="text" id="di_tax_pic" value="$rsdb[di_tax_pic]" /></div>
+			<div style="display:$div_display"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=company/renzheng&label=di_tax_pic' width="300"></iframe></div>
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>组织机构码扫描件：</dt>
+		  <dd>
+            <div><input name="postdb[organization_pic]" type="text" id="organization_pic" value="$rsdb[organization_pic]" /></div>
+			<div style="display:$div_display"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=company/renzheng&label=organization_pic' width="300"></iframe></div>
+		  </dd>
+		</dl>
+		<dl>
+		  <dt>法人身份证扫描件：</dt>
+		  <dd>
+            <div><input name="postdb[idcard_pic]" type="text" id="idcard_pic" value="$rsdb[idcard_pic]" /></div>
+			<div style="display:$div_display"><iframe frameborder=0 height=23 scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=company/renzheng&label=idcard_pic' width="300"></iframe></div>
+		  </dd>
+		</dl>
+<!--
+EOT;
+if(!$rsdb[renzheng]){print <<<EOT
+-->
+         <div class="butters">
+		    <span class="submits"><input type="submit" name="Submit" value="提交"/></span>
+			<input name="action" type="hidden" value="save" />
+			<input name="uid" type="hidden" value="$uid" />
+		 </div>
+
+<!--
+EOT;
+}print <<<EOT
+-->
+        </form>
+</div>	
+<div class="FormContainer">
+	<dl>
+	  <dt>说明：</dt>
+	  <dd>
+	    <ul class="aboutnote">
+        	<li>1.为什么要认证企业?</li>
+            <li>答:只有通过认证,才更有可信度,别人才更放心的跟你交易,增加你的交易量.</li>
+            <li>2.只要上传了“营业执照”扫描件就可成为普通认证，只有同时上传了“营业执照、国税、地税、组织机构码”扫描件才能成为银牌认证，只有全部项目都上传，才能成为金牌认证</li>
+            <li>3.上传之后,需要管理员审核,审核通过之后,就不可以再修改了,审核之前,是可以继续修改的.</li>
+        </ul>
+	  </dd>
+	</dl>
+</div>
+<!--
+EOT;
+?>
+-->	  

@@ -1,0 +1,256 @@
+<!--
+<?php
+$rsdb[price] || $rsdb[price]='';
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/bencandy.css">
+<div style="margin:15px auto; width:1200px;">
+<div class="text">
+	<div class="left">
+		<div class="title_box">
+			<span class="title">{$rsdb[title]}</span>
+			<div class="go_out_box">
+				<div class="go_out">
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=$webdb[baidu_share_uid]" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+				</div>
+			</div>
+		</div>
+		<div class="join">
+			<div class="jion_img">
+				<a href="$rsdb[picurl]" class="picurl" target="_blank"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="220" ></a>
+			</div>
+			<div class="jion_mian">
+				<span><em class="red">活动编号：</em>【{$numtag}】</span>
+<!--
+EOT;
+if($rsdb['sortid']){print <<<EOT
+--><span><em class="red">活动性质：</em>{$rsdb[sortid]} </span><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['place']){print <<<EOT
+--><span><em class="red">活动地点：</em>{$rsdb[place]} </span><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['jointime']){print <<<EOT
+--><span><em class="red">集合时间：</em>{$rsdb[jointime]} </span><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['end_time']){print <<<EOT
+--><span><em class="red">报名截止时间：</em>{$rsdb[end_time]} </span><!--
+EOT;
+}print <<<EOT
+--><!---->
+				<span class="jion_in"><a href="$webdb[_www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id" target="_blank">我要报名</a></span>											
+			</div>
+			<div class="jion_other">
+				<ul>
+					<li>已报名人数：{$rsdb[totaluser]}人</li>
+					<li>发布时间：<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a></li>
+					<li>发起者：{$rsdb[username]}</li>
+					<li>关注度：{$rsdb[hits]}人</li>
+					<li><a href="$webdb[_www_url]/member/?main=$Murl/member/joinlist.php?cid=$id" target="_blank"> >>查看已报名人数</a></li>
+				</ul>
+				<div class="jion_nav">
+					<a href="javascript:;" onClick="window.open('job.php?job=report&fid=$fid&id=$id');" class="submit1">举报该信息</a>
+					<a href="javascript:;" onClick="window.location.href='mailto:';" class="submit1">推荐给朋友</a>
+					<a href="javascript:;" onClick="window.open('job.php?job=collect&fid=$fid&id=$id')" class="submit1">加入收藏夹</a>							
+				</div>
+			</div>
+		</div>
+		<div class="details">
+			<h2 class="details_title">活动详情</h2>
+			<div class="details_text">
+				{$rsdb[content]}
+			</div>
+		
+		</div>
+<!--
+EOT;
+if($rsdb[gg_maps]){
+print <<<EOT
+-->
+		<div class="details">
+			<div class="details_title">地图位置</div>
+			<div class="details_text">
+<iframe src="$webdb[www_url]/hy/job.php?job=show_ggmaps&position=$rsdb[gg_maps]&title=$rsdb[title]"  width="100%" height="350" scrolling="no" frameborder="0" ></iframe>
+			</div>
+		</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>			
+	<div class="right">
+		<dl>
+			<dt class="right_title">
+				<span>相关栏目</span>
+			</dt>
+			<dd class="content_rel">
+				<ul>
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+print <<<EOT
+-->
+				<li class="content_rel_list"><a href="list.php?fid=$fkey">{$fvalue}</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</ul>						
+			</dd>
+		</dl>
+		<div class="recommend">
+			<h1>热门活动</h1>
+<!--
+EOT;
+$array=list_tg(5,'hot','',60);
+foreach($array AS $rs){
+$url = "bencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+			<dl>
+				<dt>
+					<span><a href="$url"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></a></span>
+				</dt>
+				<dd>
+					<a href="$url" target="_blank" class="word_title">$rs[title]</a>
+				</dd>
+			</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</div>	
+		<div class="newset">
+			<h1>最新活动</h1>
+<!--
+EOT;
+$array=list_tg(5,'new','',60);
+foreach($array AS $rs){
+$rsdb[content] = preg_replace("/<a ([^>]+)>(.*?)<\/a>/is","\\2",$rsdb[content]);//把内容页的超级链接去掉
+$rs[content]=preg_replace('/<style([^<]+)<\/style>/is',"",$rs[content]);  //过滤样式代码
+$rs[content]=preg_replace('/<([^<]*)>/is',"",$rs[content]); //把HTML代码过滤掉
+$rs[content]=preg_replace('/ |　|&nbsp;/is',"",$rs[content]); //把多余的空格去除掉
+$rs[content]= get_word($rs[content],60);
+print <<<EOT
+-->
+			<dl>
+				<dt>
+					<span><a href="$url"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></a></span>
+				</dt>
+				<dd>
+					<a href="$url" target="_blank" class="word_title">$rs[title]</a>
+					<p class="newset_word">{$rs[content]}[<a href="$url">详细</a>]</p>
+				</dd>
+			</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</div>					
+	</div>
+									
+	<div class="comment_box">
+		<h2 class="comment_title">发表评论</h2>
+		<div class="comment_top">
+<!--
+EOT;
+if($lfjid){$none='none';}
+print <<<EOT
+-->
+			<div class="top_name" style="display:$none;">
+				<span class="Kern5">称呼：</span>
+				<input type="text" name="textfield2" id="comment_username" value="$lfjid">
+			</div>
+<!--
+EOT;
+if(!$web_admin&&!$groupdb[comment_img]){
+$webdb[yzImgComment]=1;
+print <<<EOT
+-->
+			<div class="top_name">
+				<span>验证码：</span>
+				<input id="yzImgNum" type="text" name="yzimg" size="8" onFocus="commentyzimg()" class="input">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function commentyzimg(){
+	if(/yzimg\.php/.test($("#yz_Img")[0].src)==false){
+		$("#yz_Img").show();
+		$("#yz_Img")[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();
+	}	
+}
+document.write('<span class="top_img"><img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="" style="display:none;"></span>');
+//-->
+</SCRIPT>
+			</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			<div class="input_text_box">
+				<span class="Kern5">内容：</span>
+				<textarea name="textfield" cors="120" rows="2" id="comment_content" onKeyDown="quickpost(event)" class="wbk"></textarea>
+			</div>
+			<a href="javascript:;" id="comment_submit" class="submit" onClick="post_comment();">发表评论</a>
+		</div>
+		<h2 class="comment_title">用户评价</h2>
+		<div class="comment_list">
+			<div id="comment"></div>
+		</div>
+<script language="JavaScript">
+<!--
+getcomment("$webdb[www_url]/tg/job.php?job=comment_ajax&fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event)
+{
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83))
+	{
+		cnt++;
+		if (cnt==1){
+			post_comment();
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+function post_comment(){
+	postcomment('$webdb[www_url]/tg/job.php?job=comment_ajax&action=post&fid=$fid&id=$id','$webdb[yzImgComment]');
+	if(document.getElementById("yz_Img")!=null){
+		//document.getElementById("yz_Img").src="$webdb[www_url]/do/yzimg.php?"+Math.random();;
+		$("#yz_Img")[0].src='';
+		$("#yz_Img").hide();
+	}
+}
+//-->
+</script>
+	</div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

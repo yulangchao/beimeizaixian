@@ -1,0 +1,25 @@
+<!--
+<?php
+unset($listmorsort);
+foreach($Fid_db[$fid] AS $key=>$rs){
+    $listmorsort.="<section class=\"ListMoreSort\">\r\n";
+    $listmorsort.="	<h2><a href=\"list.php?fid=$key\">$rs</a></h2>\r\n";
+    $listmorsort.="	<ul>\r\n";    
+    $listmornews=Get_Info('new',5,60,$key,$mid=0,1);
+foreach($listmornews AS $keys=>$rss){
+	$listmorsort.="		<li><a href=\"bencandy.php?fid=$rss[fid]&id=$rss[id]\">$rss[title]</a></li>\r\n";
+} 
+    $listmorsort.="	</ul>\r\n";
+	$listmorsort.="	<a href=\"list.php?fid=$key\" class=\"ShowMore\">查看{$rs}</a>\r\n";
+    $listmorsort.="</section>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/news.css">
+<div class="GuideCont">当前位置：<a href="./">资讯首页</a> $GuideFid[$fid]</div>
+$listmorsort
+<div class="FootSpa"></div>
+<!--
+EOT;
+?>
+-->

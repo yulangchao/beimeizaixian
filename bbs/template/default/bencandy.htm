@@ -1,0 +1,403 @@
+<!--
+<?php
+$memberinfo=get_members_baseInfo($rsdb[uid]);
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}comments WHERE id='$id' AND cids='0'"));
+$totalcomments=intval($NUM);
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}digguser WHERE id='$id'"));
+$totaldigguser=intval($NUM);
+$listdigguser=get_this_digguser1($id);
+$picdbs=get_this_pics($id);
+$listimgs="";
+if($picdbs){
+	$listimgs="<div class='Listpics'>\r\n";
+	foreach($picdbs AS $keys=>$rss){
+		$listimgs.="<div><a href='$rss[imgurl]'><img src='$rss[imgurl]'></a></div>";
+	}
+	$listimgs.="</div>";
+}
+$showurl=urlencode("$Murl/wapbencandy.php?fid=$fid&id=$id");
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/web/listb.css">
+<div class="GuideFid"><a href="./">首页</a> {$GuideFid[$fid]}</div>
+<div class="MainContainers">
+	<div class="Main">
+		<div class="BaseInfo">
+			<div class="title">$rsdb[title]</div>
+			<ul class="info">
+				<li class="hits">人气：$rsdb[hits]</li>
+				<li class="repaly">回复：<em>{$totalcomments}</em></li>
+				<li class="digger" onClick='add_digguser($id)'><span>赞(<em>{$totaldigguser}</em>)</span></li>
+			</ul>
+			<div class="ActionBox">
+				<a href="?fid=$fid&id=$id&showtype=onelyone">只看楼主</a>
+				<a href="#postcomment">回复</a>
+			</div>
+		</div>
+		<div class="ContentInfo">
+			<table class="InfoTable">
+			  <tr>
+				<td class="member">
+					<div class="landlord"><span>楼主</span></div>
+					<div class="icon"><A HREF='$webdb[www_url]/member/userinfo.php?uid=$memberinfo[uid]'><img src='$memberinfo[icon]' onerror="this.src='$webdb[www_url]/images/default/nobody.gif'"/></A></div>
+					<div class="username"><A HREF='$webdb[www_url]/member/userinfo.php?uid=$memberinfo[uid]'>$memberinfo[username]</A></div>
+					<div class="grouptitle">{$memberinfo[grouptitle]}</div>
+					<div class="time">注册：{$memberinfo[regdate]}</div>
+					<div class="time">登录：{$memberinfo[lastvist]}</div>
+				</td>
+				<td class="infos">
+					<div class="content">
+						$rsdb[content]
+					</div>
+					$listimgs
+					<dl class="listdigguer">
+						<dt onClick='add_digguser($id)'>赞<span>(<em id="digguser_num$id">{$totaldigguser}</em>)</span></dt>
+						<dd id="Listdigguser$id">
+							$listdigguser
+						</dd>
+					</dl>
+					<div class="posttime">楼主 <span>$rsdb[posttime]</span></div>					
+				</td>
+			  </tr>
+			</table>
+		</div>
+		<div class="ListComments ListComments$id" id="ListComments">
+<!--
+EOT;
+if($showtype!='onelyone'){
+//$showMorecomment=(count($plistdb)==$rows)?"<div class='showMorecomment'><span>显示下一页</span></div>":"";
+print <<<EOT
+-->
+			$sowComments		
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</div>
+<style>
+#postcomment .cont .subcont .postsub{cursor: default;}
+#postcomment .cont .subcont .postsub span{width:100%; height:100%; padding-left:0; background-position:20px 12px;}
+#postcomment .cont .subcont .postsub span input {
+    display: inline-block;
+	width:100%;
+	height:100%;
+	border:0;
+    background:none;
+    font-size: 16px;
+    color: #FFF;
+}
+</style>
+		<div class="LoadingBox"><span>内容加载中……,请稍候！</span></div>
+		$showMorecomment
+		<div id="postcomment">
+			<div class="head"><span class="tag">发表回复</span></div>
+			<form name="form1" action="?atc=comment" method="post" enctype="multipart/form-data">
+			<div class="cont">
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/baidu/editor_config.php"></script>
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/baidu/editor_all.js"></script>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/ewebeditor/baidu/themes/default/ueditor.css"/>		
+				<textarea name="content" id="myEditor" style="width:100%;"></textarea>
+<script type="text/javascript">
+var editor_a = new baidu.editor.ui.Editor({minFrameHeight:300});
+editor_a.render( 'myEditor' );
+</script>
+				<div class="subcont">
+					<div class="word">承诺遵守文明发帖，国家相关法规</div>
+					<div class="postsub"><span><input type="submit" name="Submit" value="发表"/></span></div>
+					<input type="hidden" name="fid" value="$fid"/>
+					<input type="hidden" name="id" value="$id"/>
+					<input type="hidden" name="rows" value="$rows"/>
+					<!-- <div class="postsub" onclick="post_comments()"><span>发表</span></div> -->
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="Side">
+		<div class="postInfo"><a href="$Murl/post.php?fid=$fid">我要发帖</a></div>
+		<div class="SortCont">
+			<div class="head"><span class="tag">我的贴吧</span></div>
+			<div class="cont">
+				<div class="all"><a href="$Murl">全部版块</a></div>
+<div class="Menu">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+$color=$fid==$key?'red':'';
+$url="list.php?fid=$key";
+print <<<EOT
+-->
+				<dl class="listsort">
+					<dt class="listsort$i">
+						<div>
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url="list.php?fid=$key2";
+print <<<EOT
+-->
+              	<a href="$url">|--$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<script>
+<!--
+$(".Menu dl").eq(0).addClass("show");
+$(".Menu dl").eq(0).children("dd").show();
+$(".Menu dl dt").click( function(){
+var dlIndex = $(this).parent().index();
+$(".Menu dl").eq(dlIndex).siblings().find("dd").hide();
+$(".Menu dl").eq(dlIndex).siblings().removeClass("show$i show");
+$(this).parent().find('dd').show();
+$(this).parent().addClass("show");
+} );
+//-->
+</script>
+			</div>
+		</div>
+		<div class='searchNA'><a class='searchTitle' href="search.php">搜索帖子</a></div>
+		<div class="wxcodebox">
+			<h3>手机访问论坛</h3>
+			<p><img src="$webdb[www_url]/do/2codeimg.php?url=$showurl"></p>
+		</div>
+	</div>
+</div>
+<div class="getcomments">
+	<input type="hidden"/>
+	<div class="head">给TA留言</div>
+	<div class="conts"><textarea></textarea></div>
+	<div class="sub"><span onClick="add_comments1()">留言</span></div>
+</div>
+<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+<div class="Show_Repalys"></div>
+<script type="text/javascript">
+function add_digguser(id){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/login.php";
+		}
+	}else{
+		$.get("comment1.php?atc=add_dig&types=web&id="+id+"&"+Math.random(),function(d){
+			if(d=='NO'){
+				alert('当前主题您已经点赞过，不可以重复操作！');
+			}else{
+				$('#Listdigguser'+id).html(d);				
+				get_digguser_num(id);
+			}
+		});
+	}
+}
+function get_digguser_num(id){
+	$.get("comment1.php?atc=get_dig&id="+id+"&"+Math.random(),function(d){
+		$('#digguser_num'+id).html(d);
+		$('.BaseInfo .info .digger em').html(d);
+	});
+}
+$('.Listpics').each(function(){
+	var thisnums=$(this).children().index()+1;
+	var thisW;
+	if(thisnums>2){
+		thisW=$(this).width()/4;		
+	}else{
+		thisW=$(this).width()/2;	
+	}
+	var thisW1=thisW-10;
+	var thisW2=thisW1-5;
+	$(this).children().css({'width':thisW+'px','height':thisW+'px','line-height':thisW+'px'});
+	$(this).children().children().css({'width':thisW1+'px','height':thisW1+'px','line-height':thisW2+'px'});
+});
+function add_comments(id,cid){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/login.php";
+		}else{
+			SharHiddenMessage();
+		}
+	}else{
+		$('.getcomments').fadeIn();
+		$('.getcomments input').val(cid);
+		$('.getcomments input').attr('name',id);
+		var LeftW=($(window).width()-300)/2;
+		$('.getcomments').css({'left':LeftW+'px'});
+		var t = $(document).height();
+		$('.Share_Message').height(t).fadeIn();
+	}
+}
+function SharHiddenMessage() {
+	$('.getcomments textarea').val('');
+	$('.getcomments input').val('');
+	check_postcomment=1;
+	$('.Share_Message').fadeOut();
+	$('.getcomments').fadeOut();
+	$('.Show_Repalys').fadeOut();
+}
+var check_postcomment=1;
+var Page=$page,loading=1;
+function add_comments1(){
+	if(check_postcomment==1){
+		var cid=$('.getcomments input').val();
+		var id=$('.getcomments input').attr('name');
+		var content=$('.getcomments textarea').val();
+		if(id==''){
+			alert('没有指定给谁留言');
+		}
+		else if(content==''){
+			alert('请填写留言内容');
+		}else{
+			check_postcomment=0;
+			$.ajax({
+			   type: "POST",
+			   url: "comment1.php",
+			   data: "atc=comment&listnum=$rows&fid=$fid&id="+id+"&cid="+cid+"&content="+content,
+			   success: function(msg){
+				 $('.Listrepeatcomment'+cid).addClass('havecomments');
+				 $('.Listrepeatcomment'+cid).html(msg);
+				 SharHiddenMessage();
+		    	 format_repalyShow();		 
+			   }
+			});			
+		}
+	}else{
+		var erroes = confirm('您的留言已在提交！\\r\\n是否刷新当前页面？');
+		if(erroes==true){
+			window.location.href="?fid=$fid&id=$id";
+		}else{
+			SharHiddenMessage();
+		}
+	}	
+}
+function post_comments(){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/login.php";
+		}
+	}else{
+		var content=editor_a.getContent();
+		if(content==''){
+			alert('请填写回复内容');
+		}else{
+			editor_a.execCommand('clearlocaldata');
+			$.ajax({
+			   type: "POST",
+			   url: "comment1.php",
+			   data: "atc=comment&listnum=$rows&fid=$fid&id=$id&cid=0&content="+content,
+			   success: function(msg){
+			   		//window.location.href="?fid=$fid&id=$id#ListComments";
+					window.location.href="?fid=$fid&id=$id";
+			   }
+			});
+		}
+	}
+}
+function format_repalyShow(){
+	$('.Listrepeatcomment').each(function(){
+		thisNum=$(this).children().index()+1;
+		if(thisNum>=$rows){
+			var thisCid=$(this).attr('title');
+			$(this).find('.ShowMoreRepaly').html('<span onClick="ShowMoreRepaly('+thisCid+',1)">查看更多回复</span>');
+		}
+	});
+}
+format_repalyShow();
+function ShowMoreRepaly(cid,page){
+	$.get("comment1.php?atc=List_repaly&cid="+cid+"&page="+page+"&"+Math.random(),function(d){
+		$('.Show_Repalys').fadeIn();
+		var LeftW=($(window).width()-300)/2;
+		$('.Show_Repalys').css({'left':LeftW+'px'});
+		var t = $(document).height();
+		$('.Share_Message').height(t).fadeIn();
+		$('.Show_Repalys').html(d);
+	});
+}
+function loadMore(urls){
+	$.ajax({
+		url : urls+'&'+Math.random(),
+		dataType : 'json',
+		success : function(json){
+			if(typeof json == 'object'){
+				$('.LoadingBox').fadeOut();
+				var oProducts, Therows, iHeights, iTempHeights,show_htmls='',Theitems;
+				if(json.length>0){			
+					loading=1;
+				}else{
+					loading=0;										
+				}				
+				for(var i=0; i<json.length; i++){
+					oProducts = json[i];
+					show_htmls+=oProducts.htmls;
+					//$('.ListComments$id').append(oProducts.htmls);
+				}
+				if (Page==1){
+					$('.ListComments$id').html(show_htmls);
+				}else{
+					$('.ListComments$id').append(show_htmls);
+				}				
+				format_repalyShow();
+			}
+		}
+	});
+}
+$('.showMorecomment span').click(function(){
+	if(loading<1){
+		$(this).fadeOut();
+		$('.LoadingBox').fadeOut();
+	}else{
+		$('.LoadingBox').fadeIn();
+		Page++;
+		loading=0;
+		var urls='?fid=$fid&id=$id&type=date&pages='+Page;
+		loadMore(urls);
+	}
+});
+function del_comments(id,cid,uid){
+	if('$lfjuid'!=uid){
+		alert('你没有权限删除当前回复');
+	}else{
+		$.get("comment1.php?atc=delcomment&listnum=$rows&id="+id+"&cid="+cid+"&uid="+uid+"&"+Math.random(),function(d){
+			Page=1;
+			loading=0;
+			var urls='?fid=$fid&id=$id&type=date&pages='+Page;
+			loadMore(urls);				
+		});
+	}
+}
+function del_comments1(cids,cid,uid){
+	if('$lfjuid'!=uid){
+		alert('你没有权限删除当前回复');
+	}else{
+		$.get("comment1.php?atc=delcomment1&listnum=$rows&cids="+cids+"&cid="+cid+"&uid="+uid+"&"+Math.random(),function(d){
+			$('.Listrepeatcomment'+cids).html(d);	
+			format_repalyShow();				
+		});
+	}
+}
+function showpagecomments(fid,id,page){
+	$.get('?fid='+fid+'&id='+id+'&showmorepage=1&page='+page+"&"+Math.random(),function(d){
+		$('.ListComments'+id).html(d);	
+		format_repalyShow();				
+	});
+}
+</script>
+<!--
+EOT;
+?>
+-->

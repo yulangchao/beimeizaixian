@@ -1,0 +1,282 @@
+<!--
+<?php
+$showurl=urlencode("$Murl/wapbencandy.php?fid=$fid&id=$id");
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/web/list2.css">
+<div class="GuideFid"><a href="./">首页</a> {$GuideFid[$fid]}</div>
+<div class="MainContainers">
+	<div class="Side">
+		<div class="SortCont">
+			<div class="head"><span class="tag">我的贴吧</span></div>
+			<div class="cont">
+				<div class="all"><a href="$Murl">全部版块</a></div>
+<div class="Menu">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+$color=$fid==$key?'red':'';
+$url="list.php?fid=$key";
+print <<<EOT
+-->
+				<dl class="listsort">
+					<dt class="listsort$i">
+						<div>
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url="list.php?fid=$key2";
+print <<<EOT
+-->
+              	<a href="$url">|--$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<script>
+<!--
+$(".Menu dl").eq(0).addClass("show");
+$(".Menu dl").eq(0).children("dd").show();
+$(".Menu dl dt").click( function(){
+var dlIndex = $(this).parent().index();
+$(".Menu dl").eq(dlIndex).siblings().find("dd").hide();
+$(".Menu dl").eq(dlIndex).siblings().removeClass("show$i show");
+$(this).parent().find('dd').show();
+$(this).parent().addClass("show");
+} );
+//-->
+</script>
+			</div>
+		</div>
+		<div class='searchNA'><a class='searchTitle' href="search.php">搜索帖子</a></div>
+		<div class="wxcodebox">
+			<h3>手机访问论坛</h3>
+			<p><img src="$webdb[www_url]/do/2codeimg.php?url=$showurl"></p>
+		</div>
+	</div>
+	<div class="Main">
+		<div class="fnameCont"><div class="tag">$fidDB[name]</div></div>
+		<div class="BaseInfo">
+<!--
+EOT;
+$fidDB[logo]&&$fidDB[logo]=tempdir($fidDB[logo]);
+$fidDB[logo]||$fidDB[logo]="$webdb[www_url]/images/default/noimg.jpg";
+$thistoday=date("Y-m-d",$timestamp);
+$posttime1=preg_replace("/([\d]+)-([\d]+)-([\d]+) ([\d]+):([\d]+):([\d]+)/eis","mk_time('\\4','\\5', '\\6', '\\2', '\\3', '\\1')",$thistoday." 00:00:01");
+//$posttime2=preg_replace("/([\d]+)-([\d]+)-([\d]+) ([\d]+):([\d]+):([\d]+)/eis","mk_time('\\4','\\5', '\\6', '\\2', '\\3', '\\1')",$thistoday." 23:59:59");
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}content WHERE fid='$fid' AND posttime>$posttime1"));
+$totaltoday=intval($NUM);
+$listadmin='';
+if($fidDB[admin]){
+	$detail=explode(",",$fidDB[admin]);
+	foreach( $detail AS $key=>$value){
+		$memberdb=$userDB->get_info($value,'username');
+		$listadmin.="<a href='$webdb[www_url]/member/homepage.php?uid=$memberdb[uid]'>$value</a> ";
+	}
+}else{
+	$listadmin="本版块没未设置版主";
+}
+$loginword=$lfjid?"":"<li>请点击顶登录按钮<br/>扫描二维码即可登录</li>";
+print <<<EOT
+-->
+			<div class="logo"><span><img src="$fidDB[logo]" /></span></div>
+			<dl class="infos">
+				<dt>
+					<ul>
+						<ol>$fidDB[name] <span>今日:<em>$totaltoday</em></span> <span>主题:<em>$totalcontent</em></span></ol>
+						<li>版主:{$listadmin}</li>
+					</ul>
+				</dt>
+				<dd>
+					<ul>
+						<ol>关注本站<span>(1)</span></ol>
+						$loginword
+					</ul>
+				</dd>
+			</dl>
+		</div>
+		<div class="ListContent">
+			<ul class="head">
+				<li class="li1">
+<!--
+EOT;
+$selecttypes=$listtype?$listtype:'all';
+$selecttype[$selecttypes]="class='ck'";
+print <<<EOT
+-->
+					<a href="list.php?fid=$fid" $selecttype[all]>全部主题</a>
+					<a href="list.php?fid=$fid&listtype=1" $selecttype[1]>最新</a>
+					<a href="list.php?fid=$fid&listtype=2" $selecttype[2]>推荐</a>
+					<a href="list.php?fid=$fid&listtype=3" $selecttype[3]>热门</a>
+				</li>
+				<li class="li2">作者</li>
+				<li class="li3">回复/查看</li>
+				<li class="li4">最后回复</li>
+			</ul>
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}comments WHERE id='$rs[id]' AND cids='0'"));
+$rs[comments]=intval($NUM);
+$lastrepaly=$db->get_one("SELECT uid,username,posttime FROM {$_pre}comments WHERE id='$rs[id]' AND cids='0' ORDER BY cid DESC LIMIT 1");
+$rs[lastreplay]=$lastrepaly[username]?$lastrepaly[username]:'';
+$rs[lastreplaytime]=$lastrepaly[posttime]?format_showtime($lastrepaly[posttime]):'';
+print <<<EOT
+-->
+			<ul class="list list$i">
+				<li class="li1"><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'>$rs[title]</a></li>
+				<li class="li2"><div><a href='$webdb[www_url]/member/homepage.php?uid=$rs[uid]'>$rs[username]</a></div><span>$rs[posttime]</span></li>
+				<li class="li3"><div>$rs[comments]</div><span>$rs[hits]</span></li>
+				<li class="li4"><div><a href='$webdb[www_url]/member/homepage.php?uid=$lastrepaly[uid]'>$rs[lastreplay]</a></div><span>$rs[lastreplaytime]</span></li>
+			</ul>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</div>
+		<div class="OtherCont">
+			<div class="post"><a href="$Murl/post.php?fid=$fid">发帖</a></div>
+			<div class="ShowPage">$showpage</div>
+			<div class="infos">共<span>$totalcontent</span>条记录</div>
+		</div>
+		<div class="PostComment">
+			<div class="head"><span class="tag">快速发帖</span></div>
+			<div class="cont">
+				<form name="FORM" method="post" action="$Murl/post.php?action=postnew"  enctype="multipart/form-data" onSubmit="return juge(this)">
+					<div class="title"><input type="text" name="postdb[title]" placeholder="输入新贴标题"/></div>
+					<div class="selectsort">
+						<ul class="sort0">
+							<ol>请选择分类</ol>
+							<li></li>
+						</ul>
+						<ul class="sort1">
+							<ol>请选择栏目</ol>
+							<li></li>
+						</ul>
+					</div>
+					<div class="content"><textarea name="postdb[content]" id="myEditor" placeholder="输入新贴内容"></textarea></div>
+					<div class="slectEditMode"><a href="javascript:;" onclick="showEditMode()">内容模板选择</a></div>
+					<div class="submit">
+						<input type="submit" name="Submit" value="发表"/>
+						<input type="hidden" class="fid" name="fid" value="$fid"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="editmodes"></div>
+<div class="fullbg" id="fullbg1" onclick="hide_nav($('#editmodes'),$('#fullbg1'))"></div>
+<script type="text/javascript" src="$webdb[_www_url]/ewebeditor/baidu/editor_config.php"></script>
+<script type="text/javascript" src="$webdb[_www_url]/ewebeditor/baidu/editor_all.js"></script>
+<link rel="stylesheet" type="text/css" href="$webdb[_www_url]/ewebeditor/baidu/themes/default/ueditor.css"/>
+<!--
+EOT;
+$fup=$fidDB[fup]?$fidDB[fup]:$fid;
+$fupname=$Fid_db[name][$fup];
+$selectfid1=$fidDB[type]?"SelectThisSort1($fup,'$fupname');":"SelectThisSort2($fid,'$fidDB[name]');";
+$selectfid2=$fidDB[fup]?"SelectThisSort2($fid,'$fidDB[name]')":"";
+print <<<EOT
+-->
+<script type="text/javascript">
+function SelectThisSort0(){
+	$.get("selectsort.php?fup=0&"+Math.random(),function(d){
+		$('.selectsort .sort0 li').html(d);
+	});
+	$('.selectsort .sort1').hide();
+}
+function SelectThisSort1(fup,fidname){
+	$.get("selectsort.php?fup="+fup+"&"+Math.random(),function(d){
+		$('.selectsort .sort1').show();
+		$('.selectsort .sort1 li').html(d);
+	});
+	$('.selectsort .sort0 ol').html(fidname);
+	$('.selectsort .sort1 ol').html('请选择栏目');
+	$('.selectsort .sort0 li').hide();
+	$('.selectsort .sort1 li').hide();
+}
+function SelectThisSort2(fid,fidname){
+	$('.selectsort .sort1').show();
+	$('.PostComment .fid').val(fid);
+	$('.selectsort .sort1 ol').html(fidname);
+	$('.selectsort .sort0 li').hide();
+	$('.selectsort .sort1 li').hide();
+}
+SelectThisSort0();
+$selectfid1
+$selectfid2
+$('.selectsort .sort0 ol').click(function(){
+	$('.selectsort .sort0 li').show();
+});
+$('.selectsort .sort1 ol').click(function(){
+	$('.selectsort .sort1 li').show();
+});
+
+var editor_a = new baidu.editor.ui.Editor({minFrameHeight:300});
+editor_a.render( 'myEditor' );
+
+function showEditMode(){
+	$.get("/ewebeditor/baidu/php/editmode.php?"+Math.random(),function(d){
+		$('#editmodes').html(d);
+	});
+	show_nav($('#editmodes'),$('#fullbg1'));
+	$('#fullbg1').height($(window).height());
+	$('#editmodes').height($(window).height());
+}
+function show_nav(node,fullbg){
+	fullbg.css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		node.stop().animate({'width':'300px','padding':'0px 10px 0 10px'},300);
+	});
+}
+function hide_nav(node,fullbg){
+	fullbg.animate({'opacity':0},300,function(){
+		$(this).css({'display':'none'});
+	});
+	setTimeout(function(){
+		node.html('');
+		node.stop().animate({'width':'0px','padding':'0px 0px 0 0px'},300);
+	}, 500)
+}
+function insertHtml(nums) {
+	var strs=$('.stylemode'+nums).html();
+	editor_a.execCommand('insertHtml',strs);
+	hide_nav($('#editmodes'),$('#fullbg1'));
+}
+function juge(theForm){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以发布新贴！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/login.php";
+		}
+		return (false);
+	}else if ($('.PostComment .title input').val() == ""){
+		alert("请输入新帖标题！");
+		$('.PostComment .title input').focus();
+		return (false);
+	}else if (editor_a.getContent() == ""){
+		alert("请输入新帖内容！");
+		return (false);
+	}
+}
+</script>
+<!--
+EOT;
+?>
+-->

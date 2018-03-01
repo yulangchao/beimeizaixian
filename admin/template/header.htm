@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8"><!-- 强制ie8,for 360 -->
+<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>
+<link rel="stylesheet" href="images/header.css" type="text/css">
+<script src="images/jquery-v1.7.2.js"></script>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="menu_td">
+  <tr>
+    <td class="logo"><a href="index.php?lfj=adminmap&job=list" target="main"><img src="images/logo.png" class="logoimg"/></a></td>
+    <td>
+	  <div class="top-menus">
+	    <div id="more_left"></div>
+        <div class="topmenu">
+            <ul>
+            <div id="top_menu_div"></div>
+            </ul>
+        </div>
+	    <div id="more_right"></div>
+	  </div>
+    </td>
+  </tr>
+</table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var menu_array=new Array(
+$show
+);
+var menu_td_height=document.getElementById("menu_td").offsetHeight;
+var start_id=0;
+var select_id=0;
+function show_top_menu(){
+	var str='';
+	var last_str='';
+	var jj=-1;
+	for(var i=start_id;i<menu_array.length;i++){
+		jj++;
+		var ar=menu_array[i].split('|');
+		str+='<li id="li'+i+'"><a href="javascript:" onclick="sethighlight('+jj+','+i+'); parent.menu.location=\''+ar[2]+'\';return false;">'+ar[0]+'</a></li>';
+		document.getElementById("top_menu_div").innerHTML=str;
+		last_str=str;
+	}
+	sethigh__light();
+}
+show_top_menu();
+
+function sethighlight(n,m) {
+	var lis = document.getElementsByTagName('li');
+	for(var i = 0; i < lis.length; i++){
+		lis[i].className = '';
+	}
+	select_id=m;
+	lis[n].className = 'menuon';
+}
+
+function sethigh__light() {
+	var lis = document.getElementsByTagName('li');
+	for(var i = 0; i < lis.length; i++){
+		if(lis[i].id=='li'+select_id){
+			lis[i].className = 'menuon';
+		}else{
+			lis[i].className = '';
+		}
+	}
+}
+
+function load_window(){
+	sethighlight(0,0);
+	var ar=menu_array[0].split('|');
+	parent.main.location=ar[1];
+	parent.menu.location=ar[2];
+}
+load_window();
+//-->
+</SCRIPT>
+<script>
+<!--
+  $(document).ready(function(e){
+    var funciton_nums=$('#top_menu_div li').length;
+    var change_s=Math.floor(funciton_nums/7);
+    var change_now=0;
+    var change_width=800;
+    
+    $('#more_left').click(function(){
+    	change_now--;
+    	if(change_now<0){
+    		change_now=change_s;
+    	}
+    	chang_functions(change_now);
+    });
+    $('#more_right').click(function(){
+    	change_now++;
+    	if(change_now>change_s){
+    		change_now=0;
+    	}
+    	chang_functions(change_now);
+    });
+    function chang_functions(nums){
+    	var left_widths=change_width*nums;
+    	$('#top_menu_div').stop().animate({'left':'-'+left_widths+'px'},500);
+    }
+	if(funciton_nums<7){
+	  $('#more_right').css("background-position","-84px -67px");
+	}else{
+	  $('#more_left').css("background-position","-48px -67px");
+	}
+  })
+//-->
+</script>
+</body>
+<!--
+EOT;
+?>
+-->
+</html>

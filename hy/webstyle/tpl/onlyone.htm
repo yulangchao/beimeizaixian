@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>设置内容介绍</title>
+<link rel="stylesheet" type="text/css" href="$WebStyleurl/css/style.css">
+<script type="text/javascript" src="$WebStyleurl/images/jquery.min.js"></script>
+</head>
+<body>
+<div class="slideHeight">
+	设置文字内容
+</div>
+<div class="ListSlides">
+<!--
+EOT;
+$hidetag='hide'.$tag;
+if($styleword[$hidetag]){
+	$is_hides[1]="checked";
+}else{
+	$is_hides[0]="checked";
+}
+print <<<EOT
+-->
+<style>
+.Lists .contents{ width:96%; height:200px; border:#DDD solid 1px; line-height:25px; padding:5px; border-radius:5px;}
+.Lists .subs{ text-align:center;padding:10px;}
+.Lists .subs span{display:inline-block; line-height:30px; padding:0 10px; border:#F60 solid 1px; border-radius:5px; background:#F90; color:#FFF; cursor:pointer;}
+</style>
+<div class="Lists">
+	<textarea name="words" class="contents">{$styleword[$tag]}</textarea>
+	<div class="subs"><span>确定修改内容</span></div>
+</div>
+<div class="hide_style">显示状态：<input name="is_hide" type="radio" $is_hides[0] value="0" onClick="edit_hide_style(\$(this).val())"/>显示 <input name="is_hide" type="radio" $is_hides[1] value="1" onClick="edit_hide_style(\$(this).val())"/>隐藏</div>
+</div>
+<div class="ShowStyle"><a href="$WebStyleurl/?uid=$uid&action=setstyle">返回看效果</a></div>
+<script type="text/javascript">
+function editonlyone(vals){
+	$.get("?type=$type&stylename=$stylename&&uid=$uid&job=editonlyone&tag=$tag&vals="+vals+"&"+Math.random());
+}
+function edit_hide_style(vals){
+	$.get("?type=$type&stylename=$stylename&&uid=$uid&job=editonlyone&tag=hide$tag&vals="+vals+"&"+Math.random());
+}
+$('.Lists .subs span').click(function(){
+	var contents=$('.Lists .contents').val();
+     editonlyone(contents);
+});
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

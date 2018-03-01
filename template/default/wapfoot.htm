@@ -1,0 +1,39 @@
+<!--
+<?php
+print <<<EOT
+-->
+<section class="m-footer">
+	<div class="m-CopyRight">
+	  <p><a herf="#">@$webdb[webname]</a> 版权所有</p>
+	  <p><a herf="#">$webdb[miibeian_gov_cn]</a></p>
+	</div>
+</section>
+<footer class="footer">
+	<div><a href="javascript:;history.back()">返回</a></div>
+	
+<!--
+EOT;
+if(count($city_DB[name])>1){print <<<EOT
+-->
+	<div><a href="$webdb[www_url]/wapallcity.php">切换城市</a></div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<div><a href="$webdb[www_url]/f/wapindex.php">分类信息</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+	<div><a href="$webdb[www_url]/wapindex.php"></a></div>
+	<div><a href="$webdb[www_url]/member/wapindex.php">会员中心</a></div>
+	<div><a href="$webdb[www_url]/shop/wapjoin.php">购物车</a></div>
+</footer>
+</div>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

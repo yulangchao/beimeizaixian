@@ -1,0 +1,48 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+
+
+<div class="MainCont">
+	<div class="head"><div class="tag"><a target="_blank" href='../bencandy.php?fid=$fid&id=$id&rid=$rid'>$rsdb[title]</a></div></div>
+    <div class="cont">
+    	<form name="FORM" method="post" action="?action=$job" enctype="multipart/form-data">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="FormTable">
+          <tr>
+            <td class="tdL">副标题:</td>
+            <td class="tdR"><input type="text" name="postdb[subhead]" id="atc_title" size="50" value="$rsdb[subhead]"><span class="blue">(可留空)</span></td>
+          </tr>
+                    
+           <tr id="content_div">
+            <td class="tdL">续发内容:</td>
+            <td class="tdR">
+<textarea name="postdb[content]" id="myEditor" style="width:650px;">$rsdb[content]</textarea>
+<script type="text/javascript">
+var editor_a = new baidu.editor.ui.Editor({minFrameHeight:190});
+editor_a.render( 'myEditor' );
+</script>
+			</td>
+          </tr>
+		  <tr class="moretr">
+            <td class="tdL">采集图片:</td>
+            <td class="tdR"> <input type="checkbox" name="GetOutPic" value=1> 若复制外网的文章中有图片的，是否同时采集回来</td>
+          </tr>
+
+          <tr>
+            <td class="tdL"><br/></td>
+            <td class="tdR">
+            	<input type="submit" name="Submit" value="提 交" class='submit'/>
+                <input type="hidden" name="fid" value="$fid"/>
+                <input type="hidden" name="id" value="$id"/>
+                <input type="hidden" name="rid" value="$rid"/>            </td>
+          </tr>
+         </table>
+         </form>         
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->

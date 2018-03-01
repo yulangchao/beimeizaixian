@@ -1,0 +1,208 @@
+<!--
+<?php
+$listPic="";
+$i=0;
+foreach($picdb AS $key=>$rs){
+	$i++;
+	$picurl=tempdir($rs[imgurl]);
+	$picname=addslashes($rs[name]);
+	$picname=$picname?$picname:$i;
+	$listPic.="<li><img src=\"$picurl\" alt=\"$picname\"/></li>\r\n";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/showshop.css">
+    
+<div class="Location">
+	<em>当前位置：</em><a href="./wapindex.php">商城首页</a> $GuideFid[$fid]
+</div>
+
+<dl class="banner">
+	<dt>
+<!--幻灯片开始-->
+<link rel="stylesheet" href='$webdb[www_url]/images/wap/flash/flash.css'/>
+<script src='$webdb[www_url]/images/wap/flash/flash.js'></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+	{$listPic}
+  </ul>
+</div>
+<!--幻灯片结束-->
+	</dt>
+    <dd>
+    	<div class="Lf">
+        	<div class="title">{$rsdb[title]}</div>
+			<div  class="time"><span>{$rsdb[posttime]}</span><em>{$rsdb[hits]}次</em></div>
+        </div>
+        <div class="xx"></div>
+       	<div class="Rg">
+        	<span>&yen;{$rsdb[price]} </span>
+            <p>价格：<em>&yen;{$rsdb[market_price]} </em></p>
+        </div>
+    </dd>
+</dl>
+<div class="fullbg"></div>
+<div class="ShowBigPic"><img src="$webdb[www_url]/images/default/nopic.jpg" /></div>
+<script>
+$('.am-slides img').click(function(){
+	if ($(window).height() > $("body").height()) {
+		$(".fullbg").height($(window).height());
+	}else{
+		$(".fullbg").height($("body").height());
+	}
+	$(".ShowBigPic").css('top',$(document).scrollTop()+'px');
+	$(".ShowBigPic img").attr('src',$(this)[0].src); 
+	$(".fullbg").css({'display':'block'}).stop().animate({'opacity':.8},500);
+	$(".ShowBigPic").css({'display':'block'}).stop().animate({'opacity':1},500);
+});
+$(".fullbg").click(function(){
+	$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+	$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+});
+$(".ShowBigPic").click(function(){
+	$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+	$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+});
+</script>
+<ul class="other">
+	<li>认证情况：<span>{$renzhengDB[$companydb[renzheng]]}</span></li>
+    <li>发布者ID：<em><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]">$rsdb[username]</a></em></li>
+    <li>联系人：<em>{$companydb[qy_contact]}</em></li>
+    <li>联系电话：<em><a href="tel:$companydb[qy_contact_tel]">{$companydb[qy_contact_tel]}</a></em></li>
+    <li>联系邮箱：<em>{$companydb[qy_contact_email]}</em></li>
+</ul>
+
+<div class="btn">
+	<ul>
+    	<li><a class="gwc">加入购物车</a></li>
+        <li><a class="gm">立即购买</a></li>
+    </ul>
+</div>
+<!--
+EOT;
+$is_login=$lfjuid?1:0;
+print <<<EOT
+-->
+<script>
+var is_login=$is_login;
+$('.btn li').eq(0).click(function(){
+	if(is_login==1){
+		$.get("wapjoin.php?atc=join&cid=$id&num=1&"+Math.random(),function(d){
+			alert('当前商品成功加入购物车！');
+		});
+	}else{
+		alert('您还没有登录！要先登录才能购物！');
+	}
+});
+$('.btn li').eq(1).click(function(){
+	if(is_login==1){
+		$.get("wapjoin.php?atc=join&cid=$id&num=1&"+Math.random(),function(d){
+			window.location.href="wapjoin.php";
+		});
+	}else{
+		alert('您还没有登录！要先登录才能购物！');
+	}
+});
+</script>
+<div class="xianqing">
+	<div class="title">宝贝详情</div>
+    <div class="cont">{$rsdb[content]}</div>
+</div>
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

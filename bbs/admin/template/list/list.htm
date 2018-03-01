@@ -1,0 +1,166 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainContainers">
+    <div class="Header"><span class="tag">内容管理</span><span class="more">&gt;&gt;</span></div>
+    <div class="Conter">
+
+<form name="form_work" method="post" action="$admin_path&job=work">
+
+<table class="ListTable">
+    <tr> 
+      <th width="5%">ID</th>
+      <th width="28%">标 题</th>
+      <th width="9%">发布者</th>
+      <th width="7%">所在栏目</th>
+      <th width="4%">点击</th>
+      <th width="9%">发表日期</th>
+      <th width="8%">审核与否</th>
+      <th width="7%">推荐</th>
+      <th width="4%">标签</th>
+      <th width="7%">所在城市</th>
+      <th width="6%">修改</th>
+      <th width="6%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$pages=$rs[pages]>1?"<font color=red>({$rs[pages]}页)</font>":'';
+print <<<EOT
+-->
+    <tr bgcolor="#FFFFFF"> 
+      <td align="center">$rs[id]</td>
+      <td class='Left'> 
+        <input type="checkbox" name="listdb[{$rs[id]}]" value="$rs[title]">
+        <a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target='_blank'  style="color:$rs[titlecolor];">$rs[title]</a> $pages</td>
+      <td>$rs[username]</td>
+      <td><a href="$admin_path&job=list&fid=$rs[fid]">$rs[fname]</a></td>
+      <td>$rs[hits]</td>
+      <td>$rs[posttime]</td>
+      <td>$rs[ischeck]</td>
+      <td>$rs[iscom]</td>
+      <td><a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]&jobs=show" target="_blank">标签</a></td>
+     
+      <td>{$city_DB[name][$rs[city_id]]}</td>
+      <td>
+	  
+	  <a class='edit' href="javascript:" click=1 editcode="<a href='$Murl/member/post.php?job=chooseedit&fid=$rs[fid]&id=$rs[id]' target=_blank>修改内容</a><br><a href='$Murl/member/editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]' target=_blank>修改分类</a>" title='修改'>
+	 </a></td>
+	  <td>
+	  <a class='del' href="$admin_path&action=work&jobs=delete&id=$rs[id]" onClick="return confirm('你确认要删除吗?不可恢复');" title='点击删除'></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+
+    <tr bgcolor="#FFFFFF" align="center"> 
+
+      <td colspan="12"> 
+      <div class="showpage"> {$showpage}</div>
+        <div class='submits'>
+            <input type="button" onClick="CheckAll('all')" name="Submit2" value="全选" />
+            <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+            <input type="submit" name="Submit2" value="审核操作" onclick="postdo('yz')">
+            <input type="submit" name="Submit42223" value="推荐操作" onclick="postdo('com')">
+            <input type="submit" name="Submit4" value="置顶操作" onclick="postdo('top')">
+            <input type="submit" name="Submit422" value="提前" onclick="postdo('front')">
+            <input type="submit" name="Submit4222" value="沉底" onclick="postdo('bottom')">
+            <input type="submit" name="Submit42222" value="移动" onClick="postdo('move')">
+            <input type="submit" name="Submit3" value="删除" onclick="postdo('delete')">
+            <input type="hidden" name="jobs" value="0">        
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<div class="MainContainers">
+  <div class="Header"><span class="tag">相关选项</span><span class="more">&gt;&gt;</span></div>
+    <table class="ListTable">
+      <tr>
+        <td class='Left'> 
+           <div class="submits">
+            <input type="submit" name="Submit" value="所有" onclick="window.location.href='$admin_path&job=list'">
+            <input type="submit" name="Submit6" value="已审核" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=yz&cityid=$cityid'">
+            <input type="submit" name="Submit5" value="未审核" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=unyz&cityid=$cityid'">
+            <input type="submit" name="Submit52" value="精华" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=levels&cityid=$cityid'">
+            <input type="submit" name="Submit522" value="非精华" onclick="window.location.href='$admin_path&job=list&fid=$fid&type=unlevels&cityid=$cityid'">
+      	  $sort_fid
+          </div>
+        </td>
+      </tr>
+    </table>
+</div>
+
+
+  <div class="Header"><span class="tag">内容搜索</span><span class="more">&gt;&gt;</span></div>
+    <form name="form1" method="post" action="$admin_path&job=$job">
+    <table class="ListTable">
+        <tr> 
+          <td class='Left'>
+<!--
+EOT;
+if(count($city_DB[name])>1){
+print <<<EOT
+-->	  
+      按城市筛选:<select name="select" onChange="window.location.href='$admin_path&job=$job&fid=$fid&type=$type&cityid='+this.options[this.selectedIndex].value">
+          <option value="">不限</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $t=>$v){
+$ck=$cityid==$t?' selected  style="color:red;"':'';
+print <<<EOT
+-->
+	<option value="$t" $ck>$v</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+  </select>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	  
+	  关键字 
+        <input type="text" name="keyword">
+        <select name="type">
+          <option value="title">标题名称</option>
+          <option value="id">ID</option> 
+          <option value="username">发布者</option>
+        </select>
+        <input type="submit" name="Submit7" value="搜索">
+      </td>
+    </tr>
+  </table>
+</form>
+
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->
+ 

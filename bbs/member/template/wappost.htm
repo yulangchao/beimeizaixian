@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<!--
+<?php
+$actname=($job=="edit")?"修改主题":"发布新主题";
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>会员中心 </title>
+<!-- <link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wappost/post.css"> -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/default.js"></SCRIPT>
+<script language="JavaScript">
+<!--
+$(function(){
+	$(".moretr").hide();
+	$("#in_url1").hide();
+	chooseiframe('$chooseiframe');
+	$(":checkbox[name='checkbox2']").click(function(){
+     if($(this).attr("checked")){
+         $(".moretr").show();
+      }else{
+	  	$(".moretr").hide();
+	  }
+    });
+});
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+function chooseiframe(t){
+	$("#iframeurl_div").hide();
+	$("#jumpurl_div").hide();
+	$("#content_div").hide();
+	if(t=='1'){
+		$("#iframeurl_div").show();
+	}else if(t=='2'){
+		$("#jumpurl_div").show();
+	}else{
+		$("#content_div").show();
+	}
+}
+-->
+</script>
+</head>
+<body>
+<!-- <div class="MainContainer"> -->
+<!-- 	<div class="topCont">
+		<div class="home"><a href="$webdb[www_url]/">首页</a></div>
+		<div class="actname">{$actname}</div>
+		<div class="member"><a href="$webdb[www_url]/member/">用户中心</a></div>
+	</div> -->
+<div class="FormContainer">
+	<form name="FORM" id="FORM" method="post" action="?action=$job"  enctype="multipart/form-data">
+	<dl>
+		<dt><div>标题：</div></dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入标题，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+	<dl>
+		<dt><div>内容:</div></dt>
+		<dd><textarea name='postdb[content]'>$rsdb[content]</textarea></dd>
+	</dl>
+<!--
+EOT;
+if($job=='postnew'){
+print <<<EOT
+-->	
+	<dl>
+			<dt><div>图片:</div></dt>
+			<dd id="ListPics">
+<!--
+EOT;
+$i=0;
+$listPics="";
+foreach($listdb AS $key=>$rs){
+if($rs[imgurl]){
+$listPics.="<div class='PicList'><input class='text' type='text' name='photodb[$i]' value='$rs[imgurl]' style='width:70%;'/> <span>删除</span><input type='hidden' name='piddb[$i]' value='$key'></div>\r\n";
+$i++;
+}}
+print <<<EOT
+-->	
+				$listPics	
+				<div class="ListMoreupFile"></div>
+				<div class="addMorePic"><span onClick="$('#morepicurl').val('');SharShowMessage()">添加更多图片</span></div>	
+				<input id="morepicurl" type="hidden"/>				
+			</dd>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>			
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+$('.PicList span').click(function(){
+	$(this).parent().children().eq(0).val('');
+	$(this).parent().hide();
+});
+
+wx.config({
+	debug: false,
+	appId: '{$signPackage["appId"]}',
+	timestamp: {$signPackage["timestamp"]},
+	nonceStr: '{$signPackage["nonceStr"]}',
+	signature: '{$signPackage["signature"]}',
+	jsApiList: [
+		'checkJsApi',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+	  ]
+});
+  
+function SharShowMessage(){
+	if(is_weixn()==false){//如果不是微信不能上传图片
+		alert('移动版上传图片必须要在微信上才能操作');
+	}else{
+		var t = $(document).height();
+		var w = $(document).width();
+		var lw=(w-300)/2;
+		$('.Share_Message').height(t).fadeIn();
+		$('.upflieBox').fadeIn();
+		$('.upflieBox').css('left',lw+'px');
+	}
+}
+
+function SharHiddenMessage() {
+	$('.Share_Message').fadeOut();
+	$('.upflieBox').fadeOut();
+	$('.upflieBox p').html('请选择上传的图片');
+	$('#chooseImage').css({"background":"#F60","border":"#F30 solid 1px"});
+	$('#uploadImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+}
+
+wx.ready(function () {
+  // 5 图片接口
+  // 5.1 拍照、本地选图
+  var images = {
+    localId: [],
+    serverId: []
+  };
+  document.querySelector('#chooseImage').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        images.localId = res.localIds;
+        //alert('已选择 ' + res.localIds.length + ' 张图片，请点击上传按钮开始上传。');
+		$('.upflieBox p').html('已选择'+res.localIds.length+'张图片<br/><font color="red">请点击下面第二个按键上传图片</font>');
+		$('#uploadImage').css({"background":"#F60","border":"#F30 solid 1px"});
+		$('#chooseImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+		postimg();
+      }
+    });
+  };
+
+  // 5.3 上传图片
+  document.querySelector('#uploadImage').onclick = function () {
+    if (images.localId.length == 0) {
+      //alert('请先选择图片');
+	  $('.upflieBox p').html('请先点击下面第一个按键选择图片');
+      return;
+    }
+    var i = 0, length = images.localId.length;
+    images.serverId = [];
+    function upload() {
+      wx.uploadImage({
+        localId: images.localId[i],
+        success: function (res) {
+          i++;
+          //alert('已上传：' + i + '/' + length);
+		  alert('已上传：第 ' + i + ' 张图片，请点击确认继续上传。' );
+		  //window.location.href="u.php?urls="+res.serverId
+		  document.querySelector('#morepicurl').value+=","+res.serverId;
+          images.serverId.push(res.serverId);
+          if (i < length) {
+            upload();
+          }else{
+		  	$('.upflieBox p').html('请选择上传的图片');
+			SharHiddenMessage();
+			//对微信上传的图片时行后处理
+			get_weixin_up_file();
+		  }
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });	  
+    }
+    upload();	
+  };
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+function get_weixin_up_file(){
+	var upfile_str=$('#morepicurl').val();
+	var nowlist=$('#ListPics .PicList').length;
+	$.get("?atc=upmorepic&fid=$fid&upfile_str="+upfile_str+"&nowlist="+nowlist+"&"+Math.random(),function(d){
+		$(".ListMoreupFile").append(d);
+	});
+}
+//-->
+</SCRIPT>		
+		</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+	   <div class="butter">
+			<input type="submit" name="Submit" value="提 交" class='submit'/>
+			<input type="hidden" name="fid" value="$fid"/>
+			<input type="hidden" name="id" value="$id"/>
+		</div>
+	</form> 
+	</div>
+<!-- </div> -->
+
+
+<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+<div class="upflieBox">
+	<p>请选择上传的图片，可同时选择多张</p>
+	<a id="chooseImage">选择图片</a>
+	<a id="uploadImage">上传图片</a>
+</div>
+<!--
+EOT;
+?>
+-->

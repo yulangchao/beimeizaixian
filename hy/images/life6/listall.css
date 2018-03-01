@@ -1,0 +1,34 @@
+.text {width:100%; overflow:hidden; margin:25px auto;}
+.content_text_left {width:278px; float:left;border-top:2px solid #379be9;border-bottom:2px solid #999999; border-left:1px #CCCCCC solid; border-right:1px #CCCCCC solid;}
+.content_text_left_top {width:278px;}
+.showlist_theme {width:278px; height:56px; text-align:center; line-height:58px; font-size:24px; font-weight:bold;background:#f0f0f0; border-top:1px solid #FFFFFF; border-bottom:1px solid #999999;}
+.Menu {width:278px; height:auto; font-size:16px;}
+.Menu dl dt {width:278px; line-height:48px; float:left; border-top:1px solid #FFFFFF; border-bottom:1px solid #CCCCCC; background:#f3f3f3;}
+.show .level_1 {background:url(reduce.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.level_1 {background:url(plus.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.Menu dl{overflow:hidden;}
+.Menu dl ~ dl dd{display:none;}
+.Menu dl dd {border-bottom:1px solid #CCCCCC; float:left;}
+.Menu dl dd a{width:268px; line-height:30px; float:left; padding-left:10px;}
+.Menu dl dd a:hover {background:#CCCCCC;}
+
+.content_text_right {width:895px; margin-left:20px; float:left;}
+.text_title {width:895px; height:45px; font-size:16px; border-top:2px solid #379be9;float:left; line-height:45px; font-weight:bold; overflow:hidden;}
+.text_title span {height:45px; float:left;}
+.title_nav {height:45px; float:right;}
+.title_nav a {height:30px; color:#999999; padding:0 8px; line-height:30px; float:left; margin:7px 0;}
+.title_nav a:hover {background:#379be9; color:#FFFFFF;}
+
+.showlist {width:893px; border:1px solid #dfdede; float:right;}
+.detail {padding:15px 0; margin:0 15px; }
+.textlist {border-bottom:1px dotted #dadada; }
+.textlist td {padding:15px 0;}
+.m1 {width:175px;}
+.m2 {width:415px; line-height:25px;}
+.go_box {width:100%; float:left; margin:30px 0;}
+.go {overflow:hidden; font-size:14px; text-align:center;}
+.go a {padding:0 8px; height:30px; background:#e3e3e3; display:inline-block; border-radius:3px; line-height:30px; text-align:center; margin:0 2px; border:#dbdada;}
+.go a.ck{background:#21aaf3;}
+.go a.ck font{color:#fff;}
+.go a:hover {background:#21aaf3; color:#FFFFFF; text-decoration:none;}
+

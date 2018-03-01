@@ -1,0 +1,87 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/index.css">
+<!--幻灯片开始-->
+<link rel="stylesheet" href='$webdb[www_url]/images/wap/flash/flash.css'/>
+<script src='$webdb[www_url]/images/wap/flash/flash.js'></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+	{$label[wap_newsindex_flash]}
+  </ul>
+</div>
+<!--幻灯片结束-->
+<div class="conter">
+<!--
+EOT;
+$picartic = Get_Info($type="pic",$rows=5,$leng=50,$cityid=$city_id);
+$i=0;
+foreach($picartic AS $key=>$rs){
+print <<<EOT
+-->
+	<dl class="conterBox">
+    	<dt>
+        	<a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[_www_url]/images/default/nopic.jpg'"></a>
+        </dt>
+        <dd>
+        	<a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]">{$rs[title]}</a>
+            <div>
+            	<span class="time">{$rs[posttime]}</span>
+                <span class="pinlun">评论:{$rs[hits]}</span>
+            </div>
+        </dd>
+    </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$rs){
+$i++;
+$listmornews=Get_Info('new',5,60,$key,$mid=0,1,$cityid=$city_id);
+print <<<EOT
+-->
+<div class="Tourism newsList$i">
+   <div class="title"><span>{$rs}</span></div>
+<!--
+EOT;
+foreach($listmornews AS $keys=>$rss){
+print <<<EOT
+-->
+   <dl class="conterBox">
+   	<dt>
+       	<a href="wapbencandy.php?fid=$rss[fid]&id=$rss[id]"><img src="$rss[picurl]" onError="this.src='$webdb[_www_url]/images/default/nopic.jpg'"></a>
+       </dt>
+       
+       <dd>
+       	<a href="wapbencandy.php?fid=$rss[fid]&id=$rss[id]">{$rss[title]}</a>
+           <div>
+           	<span class="time">{$rss[posttime]}</span>
+               <span class="pinlun">评论:{$rss[hits]}</span>
+           </div>
+       </dd>
+   </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+   <div class="buttom">
+   	<a href="waplist.php?fid=$key" class="redbtn">查看{$rs}</a>
+   </div>
+</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+?>
+-->

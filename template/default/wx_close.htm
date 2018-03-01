@@ -1,0 +1,60 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="gb2312">
+  <title> </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/msg_style.css">
+</head>
+<body ontouchstart="">
+<div class="wxapi_container">
+   
+    <div class="lbox_close wxapi_form">
+      <h3 id="menu-basic">提示：</h3>
+      <span class="desc">$showerrMsg</span>
+      <button class="btn btn_primary" id="closeWindow">点击返回</button>
+
+       
+    </div>
+  </div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+      debug: false,
+    appId: '{$signPackage[appId]}',
+    timestamp: $signPackage[timestamp],
+    nonceStr: '{$signPackage[nonceStr]}',
+    signature: '{$signPackage[signature]}',
+      jsApiList: [
+        'checkJsApi',
+		          'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+		  'closeWindow',
+        
+      ]
+  });
+</script>
+ 
+<script type="text/javascript">
+wx.ready(function () {
+  // 关闭当前窗口
+  document.querySelector('#closeWindow').onclick = function () {
+    wx.closeWindow();
+  };
+	
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+</script>
+</html>
+<!--
+EOT;
+?>
+-->

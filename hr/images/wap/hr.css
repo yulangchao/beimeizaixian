@@ -1,0 +1,219 @@
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.SelectType{
+	border-top:#DDD solid 1px;
+	padding:5px 0 5px 10px;
+}
+.SelectType li{
+	padding:5px 0 5px 0;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.SelectType li span{
+	font-weight:bold;
+}
+.SelectType li a{
+	color:#666;
+}
+.SelectSort{
+	height:40px;
+	border-top:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;
+	background-color:#FFF;
+	position:relative;
+}
+.SelectSort h3 span{ 
+	overflow:hidden; 
+	display:block; 
+	text-align:center; 
+	height:40px; 
+	line-height:40px; 
+	position:relative; 
+	border-right:1px solid #d6d6d6;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-weight:normal;
+	cursor:pointer;
+}
+.SelectSort h3 span:after{ 
+	content: '';
+	border-color:#B3AEA8 transparent transparent transparent; 
+	border-width:5px; 
+	display:inline-block; 
+	margin-left:5px; 
+	position:absolute; 
+	top:19px; 
+	border-style:solid;
+}
+.SelectSort ul{
+	width:100%;
+	position:absolute;
+	z-index:10000;
+	left:0;
+	top:45px;
+	background:#FFF;
+	display:none;
+}
+.SelectSort ul dl dt{
+	border-top:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	position:relative;
+	font-family:Arial, Helvetica, sans-serif;
+	overflow:hidden;
+	background:#EFEFEF;
+}
+.SelectSort ul dl dt:after{ 
+	content: '';
+	border-color:#B3AEA8 transparent transparent transparent; 
+	border-width:5px; 
+	display:block; 
+	position:absolute; 
+	top:19px;
+	right:10px; 
+	border-style:solid;
+}
+.SelectSort ul dl dt a{
+	color:#333;
+}
+.SelectSort ul dl.ck dt a{
+	color:red;
+}
+.SelectSort ul dl dd{
+	padding:10px;
+	line-height:25px;
+	word-spacing:10px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.SelectSort ul dl dd a{
+	color:#666;
+}
+.SelectSort ul dl dd a.ck{
+	color:red;
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.ListCont .page{
+	height:100px;
+	padding-top:15px;
+	text-align:center;
+}
+.ListCont .page a{
+	font-family:Arial, Helvetica, sans-serif;
+	display:inline-block; 
+	border:#DDD solid 1px;
+	border-radius:3px;
+	padding:5px 10px;
+	background:#FFF;
+	color:#666;
+	font-size:14px;
+}
+.ListCont .page a.ck{
+	background:green;
+}
+.ListCont .page a.ck font{
+	color:#FFF;
+}
+.ListCont dl{
+	height:85px;
+	padding:10px 0 0 0;
+	border-bottom:#DDD solid 1px;
+	position:relative;
+	overflow:hidden;
+}
+.ListCont dl dd{
+	width:30%;
+	height:50px;
+	position:absolute;
+	right:10px;
+	bottom:10px;
+}
+.ListCont dl dd div{
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	text-align:right;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#666;
+}	
+.ListCont dl dd div span{
+	font-size:18px;
+	color:#F60;
+}
+.ListCont dl dt{
+	width:70%;
+	overflow:hidden;
+	padding-left:10px;
+}
+.ListCont dl dt h3,.ListCont dl dt div{
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.ListCont dl dt h3 a{
+	color:#369;
+}
+.ListCont dl dt div{
+	color:#666;
+	font-size:14px;
+	word-spacing:10px;
+}
+.ListCont dl dt div a{
+	color:#F60;
+}
+.ListPerson{
+	border-top:#DDD solid 1px;
+}
+.ListPerson dl{
+	height:115px;
+	padding-top:15px;
+	border-bottom:#DDD solid 1px;
+	overflow:hidden;
+	position:relative;
+}
+.ListPerson dl dt{
+	width:80px;
+	height:100px;
+	overflow:hidden;
+	position:absolute;
+	left:15px;
+	top:15px;
+	background:#AAA;
+}
+.ListPerson dl dt img{
+	width:100%;
+}	
+.ListPerson dl dd{
+	padding-left:110px;
+}
+.ListPerson dl dd div{
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+}
+.ListPerson dl dd div span{
+	color:#000;
+}

@@ -1,0 +1,30 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<div class="MainContainers">
+  <div class="Header"><span class="tag">请选择要替换哪个模块的内容:</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+<div class='ListLinkCont'>
+<!-- <table width='100%' cellspacing='1' cellpadding='3' class="tablewidth">
+  <tr  class="head"> 
+    <td>请选择要替换哪个模块的内容:</td>
+  </tr> -->
+  <!--
+EOT;
+foreach($module_db AS $key=>$value){
+print <<<EOT
+-->
+<a href="$admin_path&job=choose&mid=$key">$value</a>
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+</div>
+
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,10 @@
+.companyBase .head{
+	background:url(head.png) center top no-repeat;
+	border-radius:5px 5px 0 0;
+}
+.companyBase .cont{
+	border:#70C919 solid 1px;
+}
+.RightMainBox .head .tag:after{
+	background:#70C919;
+}

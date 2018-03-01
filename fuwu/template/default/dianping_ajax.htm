@@ -1,0 +1,57 @@
+<!--
+<?php
+if($listdb){
+foreach($listdb AS $key=>$rs){
+@extract($db->get_one("SELECT icon FROM {$pre}memberdata  WHERE uid=$rs[uid]"));
+$icon && $icon=tempdir($icon);
+$icon = $icon ? $icon : "$webdb[www_url]/images/fashion/dianping/noicon.gif";
+print <<<EOT
+-->
+<div class='piclist'>
+	<div class='imgleft'>
+		<div class='img'><a onclick="if('0'=='$rs[uid]')return false;" href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" class="p" target="_blank"><img src='$icon' width=50 height=50></a></div>
+		<a href="$webdb[_www_url]/member/?main=pm.php?job=send&username=$rs[username]" target="_blank" class='post'>给我留言</a>
+	</div>
+	<div class='inforight'>
+		<div class=user_time>
+			<span class='user'>{$rs[username]}</span><span class='time'>{$rs[posttime]}</span>
+		</div>
+		<div class='comment'>{$rs[content]}</div>
+		<div class='other'>
+			<ul>
+				 
+				<li>
+					{$rs[fen]}
+				</li>
+			<li class="ts"><a HREF="javascript:getcomment('$Murl/job.php?job=dianping_ajax&action=flowers&id=$id&cid=$rs[cid]')">鲜花</a><em class="blue">（{$rs[flowers]}）</em></li>
+			<li class="ts"><a HREF="javascript:getcomment('$Murl/job.php?job=dianping_ajax&action=egg&id=$id&cid=$rs[cid]')">鸡蛋</a><em class="orange">（{$rs[egg]}）</em></li>
+<!--
+EOT;
+if($web_admin||($lfjuid&&$rs[uid]==$lfjuid)){
+print <<<EOT
+-->
+				<li class="ts"><A HREF="javascript:getcomment('$Murl/job.php?job=dianping_ajax&action=del&id=$id&cid=$rs[cid]')">删除评论</A></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!--
+EOT;
+}}else{print <<<EOT
+-->
+<div class="nodianping">暂时还没有点评</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="page">$showpage</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,72 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class='ListLinkCont'>
+  <a href="$admin_path&job=addplace">添加广告位</a>
+  <a href="$admin_path&job=listad">广告位管理</a>
+  <a href="../member/index.php?main=../$dirname/member/norm.php?job=list">购买广告</a>
+</div>
+
+
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+    <tr> 
+      <th width="16%">广告位</th>
+      <th width="11%">用户名</th>
+      <th width="10%">审核与否</th>
+      <th width="11%">申请购买日期</th>
+      <th width="13%">所在城市</th>
+      <th width="15%">投放日期</th>
+      <th width="10%">点击</th>
+      <th width="7%">修改</th>
+      <th width="7%">删除</th>
+    </tr>
+  <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+  <tr> 
+    <td class='Left'>$rs[name]
+	<div><A HREF="$rs[picurl]" target="_blank"><img src="$rs[picurl]" onload="if(this.height<this.width)this.width='200';if(this.height>this.width)this.height='50';" onerror="this.style.display='none'"></A></div>
+	<div><A HREF="$rs[picurl2]" target="_blank"><img src="$rs[picurl2]" onload="if(this.height<this.width)this.width='200';if(this.height>this.width)this.height='50';" onerror="this.style.display='none'"></A></div>
+	<div>$rs[word]</div>
+	</td>
+    <td>$rs[u_username]</td>
+    <td>{$rs[u_yz]}</td>
+    <td>$rs[u_posttime]</td>
+    <td>{$city_DB[name][$rs[city_id]]}</td>
+    <td>开始:$rs[u_begintime]<br>
+      结束:$rs[u_endtime]</td>
+    <td>$rs[hits]</td>
+    <td><a href="$admin_path&job=edituserad&u_id=$rs[u_id]" title='点击修改' class='edit'></a></td>
+    <td><a href="$admin_path&u_id=$rs[u_id]&action=delete_u_ad" onclick="return confirm('你确认要删除这个广告吗?')" title='点击删除' class='del'></a></td>
+  </tr>
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+<!--   <tr> 
+    <td colspan="9">$showpage<a href="$admin_path&id=$rs[id]&action=deleteadplace" onclick="return confirm('你确认要删除这个广告吗?')"></a></td>
+  </tr> -->
+</table>
+<div class="m-showpage">$showpage</div>
+</div>
+</div>
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>注:仅能统计文字跟图片的点击率</li>
+    </ul>
+  </div>
+</div>
+
+<!--
+EOT;
+?>
+-->

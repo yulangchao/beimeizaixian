@@ -1,0 +1,30 @@
+.modemenu{margin-top:20px; overflow:hidden;}
+.modemenu li{float:left; width: 197px; height: 50px; background: #F0F0F0; margin-right: 3px;}
+.modemenu li span{display:block; height:41px; padding:0 20px 0 65px; float:left;}
+.modemenu li span a{display: block; padding: 1px 3px 0 14px; line-height: 50px; font-size: 16px; font-weight: bold;	}
+.modemenu li.li0 span{background: url(information.png) 55px 15px no-repeat;}
+.modemenu li.li1 span{background: url(school.png) 56px 15px no-repeat;}
+.modemenu li.li2 span{background: url(company.png) 52px 16px no-repeat;}
+.modemenu li.li3 span{background: url(case.png) 52px 16px no-repeat;}
+.modemenu li.li4 span{background: url(diary.png) 52px 16px no-repeat;}
+.modemenu li.li5 span{background: url(stylist.png) 52px 16px no-repeat;}
+.modemenu li span.ck a{color:#ff9900;}
+/*modeSearch  */
+.m-search{overflow:hidden;}
+.modeSearch{float:left; margin-top:20px; height:55px; overflow:hidden;}
+.modeSearch .search_div{float:left; width:544px;}
+.modeSearch .search_div .search_main{width:425px; border:2px solid #1AA4ED; height:49px; border-right:0; float:left;}
+.modeSearch .search_div .search_main .keyword{float:left;}
+.modeSearch .search_div .search_main .showtype_div{float: left; margin-top: 13px;}
+.modeSearch .search_div .search_main .showtype_div .showtype{width: 106px; height: 26px; line-height: 23px; text-align: center; cursor: pointer;}
+.modeSearch .search_div .search_main .showtype_div .showtype span{display: block; height: 24px; color: #1AA4ED; overflow: hidden; background:url(xiala.png) right no-repeat;}
+.modeSearch .search_div .search_main .showtype_div .listtype{width: 74px; top: 448px; z-index: 3000; line-height: 25px; padding: 19px 12px 10px 0px; padding-left: 23px; position: absolute; background: #fff; border:2px solid #1AA4ED; border-top:0; border-radius:0 0 5px 5px;}
+.modeSearch .listtype li span.over{background:#EFEFEF;	font-weight:bold; cursor:pointer;}
+.modeSearch .listtype li span.ck{font-weight:bold; color:#f00;}
+.modeSearch .search_div .search_main .keyword input{width: 277px; height: 49px; padding-left: 20px; color: #B4B4B4; font-size: 15px; border:none;}
+.modeSearch .search_div .search_submit{float:left; height:53px; width:108px;}
+.modeSearch .search_div .search_submit {border:none}
+.modeSearch .search_div .search_main ul { display:none;}
+.search_keyword{float:left; width:600px; line-height:46px; margin-top:22px; margin-left:12px;}
+.search_keyword ul li{float:left; margin-right:30px; font-size:16px;}
+.search_keyword ul li.title{color:#1AA4ED;}

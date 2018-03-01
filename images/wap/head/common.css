@@ -1,0 +1,25 @@
+.m-main{max-width:640px; margin:0 auto; background:#f3f3f3; position:relative;}
+.L{float:left;}
+.R{float:right;}
+/* header */
+.m-header{position:relative; background:#0099ff; overflow:hidden; padding:15px 10px;}
+.m-header a{font-size:18px; color:#fff;}
+.m-head1{width:40px; height:30px; padding-left:30px; line-height:30px; background:url('return.png') left center no-repeat;}
+.m-head2 .m-login{width:28px; height:30px; background:url('head1.png') left center no-repeat; background-size: 80%;}
+.m-head2 .m-ChangCity{width:40px; height:30px; padding-left:20px; background:url('head3.png') left center no-repeat; color:#fff; line-height:30px;}
+.m-header h1{position:absolute; margin-left:82px; text-align:center; height:30px; line-height:30px; font-size:20px; color:#fff; letter-spacing:3px; font-weight:normal; font-size:18px; overflow:hidden; width:-webkit-calc(100% - 210px); width:-moz-calc(100% - 210px);width:-ms-calc(100% - 210px);width:calc(100% - 210px);}
+
+.m-MemberCont{width:100%; height:0px; margin:0 auto; overflow:hidden; background:rgba(51,51,51,.5); position:absolute; left:0; top:60px; z-index:9999;}
+.m-MemberCont h4{text-align:center; padding:8px 10px 0 10px;line-height:25px;height:25px;overflow:hidden; font-weight:normal; font-family:Arial, Helvetica, sans-serif; color:#FFF;}
+.m-MemberCont p{text-align:center; color:#FFF; word-spacing:10px; font-family:Arial, Helvetica, sans-serif;}
+.m-MemberCont p a{color:#FFF;}
+/* footer */
+.m-footer{max-width:640px; margin:0 auto;}
+.m-CopyRight{padding:10px 0;}
+.m-CopyRight p{height:25px; line-height:25px; text-align:center; color:#999; font-size:.8rem;}
+.m-CopyRight p a{font-size:.8rem; color:#999;}
+
+
+@media(min-width:640px){
+	.m-header{padding:15px 20px;}
+}

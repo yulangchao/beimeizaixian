@@ -1,0 +1,306 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+<form name="form1" method="post" action="?job=edit&" enctype="multipart/form-data" onsubmit="return ckregdatapost();">
+<h3>个人资料</h3>
+<div class="Note">以下为重要信息</div>
+<dl>
+	<dt>帐号：</dt>
+	<dd>$lfjid</dd>
+</dl>
+<dl>
+  <dt>邮箱：</dt>
+  <dd>
+    <span class="input"><input type="text" name="email" style="width:156px;" value="$lfjdb[email]" $ipunt_email></span>
+    <span>接收邮件通知使用</span>
+  </dd>
+</dl>
+<dl>
+  <dt>新密码：</dt>
+  <dd><input type="password" name="password" style="width:130px;"></dd>
+</dl>
+<dl>
+  <dt>重复输入密码：</dt>
+  <dd><input type="password" name="password2" style="width:130px;"></dd>
+</dl>
+<!--
+<dl>
+  <dt>旧密码：</dt>
+  <dd>
+    <span class="input"><input type="password" name="old_password" style="width:130px;"></span>
+    <span>(如果修改密码或邮箱,必须输入旧密码)</span>
+  </dd>
+</dl>
+-->
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var filed_id='';
+var filed_name='';
+function ckregdata(a,b){
+	filed_id=a;
+	filed_name=b;
+}
+function ckregdatapost(){
+	id_array=filed_id.split(',');
+	name_array=filed_name.split(',');
+	for(var i=0;i<id_array.length;i++){
+		if(id_array[i]!=''&&document.getElementById(id_array[i]).value==''){
+			alert("“"+name_array[i]+'”不能为空');
+			document.getElementById(id_array[i]).focus();
+			return false;
+		}
+	}
+}
+/*如要为页面布局考虑的话，你可以把template\default\regfield.htm里边的内容复制过来，然后把以下两行删除即可*/
+document.write('<div id="showRegDiv"></div>');
+\$.get("$webdb[www_url]/do/regfield.php?job=reg", function(data){\$("#showRegDiv").html(data);});
+//-->
+</SCRIPT>
+<div class="Note">以下为选填信息</div>
+<dl>
+  <dt>个人头像：</dt>
+  <dd>
+<!----------------移动版传图片开始------------------------->
+<!--
+EOT;
+if(is_weixn_open()){
+require(ROOT_PATH."inc/weixin.jsdk.php"); //监控微信分享事件
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+		<div class="map_box">
+			<input type="text" name="icon" id="out_url0" value="$lfjdb[icon]" readonly />
+			<input id="morepicurl" type="hidden"/>
+			<div onClick="Atcupimg();" class="getmap">点击上传图片</div>
+		</div>
+<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+<div class="upflieBox">
+	<p>请选择上传的图片</p>
+	<a id="chooseImage">选择图片</a>
+	<a id="uploadImage">上传图片</a>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>	
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+wx.config({
+	debug: false,
+	appId: '{$signPackage["appId"]}',
+	timestamp: {$signPackage["timestamp"]},
+	nonceStr: '{$signPackage["nonceStr"]}',
+	signature: '{$signPackage["signature"]}',
+	jsApiList: [
+		'checkJsApi',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+	  ]
+});
+function Atcupimg(){
+	$('.Share_Message').fadeIn();
+	$('.upflieBox').fadeIn();
+}
+function SharHiddenMessage() {
+	$('.Share_Message').fadeOut();
+	$('.upflieBox').fadeOut();
+	$('.upflieBox p').html('请选择上传的图片');
+	$('#chooseImage').css({"background":"#F60","border":"#F30 solid 1px"});
+	$('#uploadImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+}
+wx.ready(function () {
+  // 5 图片接口
+  // 5.1 拍照、本地选图
+  var images = {
+    localId: [],
+    serverId: []
+  };
+  document.querySelector('#chooseImage').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        images.localId = res.localIds;
+        //alert('已选择 ' + res.localIds.length + ' 张图片，请点击上传按钮开始上传。');
+		$('.upflieBox p').html('已选择'+res.localIds.length+'张图片<br/><font color="red">请点击下面第二个按键上传图片</font>');
+		$('#uploadImage').css({"background":"#F60","border":"#F30 solid 1px"});
+		$('#chooseImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+		postimg();
+      }
+    });
+  };
+  // 5.3 上传图片
+  document.querySelector('#uploadImage').onclick = function () {
+    if (images.localId.length == 0) {
+      //alert('请先选择图片');
+	  $('.upflieBox p').html('请先点击下面第一个按键选择图片');
+      return;
+    }
+    var i = 0, length = images.localId.length;
+    images.serverId = [];
+    function upload() {
+      wx.uploadImage({
+        localId: images.localId[i],
+        success: function (res) {
+          i++;
+          //alert('已上传：' + i + '/' + length);
+		  alert('已上传：第 ' + i + ' 张图片，请点击确认继续上传。' );
+		  //window.location.href="u.php?urls="+res.serverId
+		  document.querySelector('#morepicurl').value+=","+res.serverId;
+          images.serverId.push(res.serverId);
+          if (i < length) {
+            upload();
+          }else{
+		  	$('.upflieBox p').html('请选择上传的图片');
+			SharHiddenMessage();
+			//对微信上传的图片时行后处理
+			get_weixin_up_file();
+		  }
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });	  
+    }
+    upload();	
+  };
+});
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+function get_weixin_up_file(){
+	var upfile_str=$('#morepicurl').val();
+	$.get("/do/wx_upimg.php?atc=uponepic&dir=wxmember&upfile_str="+upfile_str+"&"+Math.random(),function(d){
+		$("#out_url0").val(d);
+	});
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<div class="upfile_box">
+		  <input class='upfile' type="text" name="icon" id='out_url0' value='$lfjdb[icon]' placeholder="请上传图片"/>
+		  <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=icon&label=out_url0'></iframe></div>
+		</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+<!----------------移动版传图片结束------------------------->
+  </dd>
+</dl>
+<dl>
+  <dt>生日：</dt>
+  <dd>
+    <span class="input"><input type="text" name="bday" style="width:130px;" value="$lfjdb[bday]"></span>
+    <span>格式为1981-08-13</span>
+  </dd>
+</dl>
+<dl>
+  <dt>所在城市：</dt>
+  <dd><select name="cityid">
+<!--
+EOT;
+foreach($city_DB[name] AS $key=>$value){
+if($job=='edit'){
+	$city_id=$lfjdb[cityid];
+}
+$ckk=$key==$lfjdb[cityid]?' selected ':'';
+print <<<EOT
+-->
+	<option value="$key" $ckk>$value</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</select>
+  </dd>
+</dl>
+<dl>
+  <dt>性别：</dt>
+  <dd>
+    <span><input type="radio" name="sex" value="0" $sex_db[0]>保密</span> 
+    <span style="display:inline-block; margin:0 10px;"><input type="radio" name="sex" value="1" $sex_db[1]>男</span> 
+    <span><input type="radio" name="sex" value="2" $sex_db[2]>女</span>
+  </dd>
+</dl>
+<dl>
+  <dt>QQ：</dt>
+  <dd><input type="text" name="oicq" style="width:130px;" value="$lfjdb[oicq]"></dd>
+</dl>
+<dl>
+  <dt>MSN：</dt>
+  <dd><input type="text" name="msn" style="width:130px;" value="$lfjdb[msn]"></dd>
+</dl>
+<dl>
+  <dt>个人主页：</dt>
+  <dd><input type="text" name="homepage" style="width:250px;" value="$lfjdb[homepage]"></dd>
+</dl>
+<dl>
+  <dt>自我介绍：</dt>
+  <dd>
+	<!--<script type='text/javascript'>loadBaiduEditorJs();</script>-->
+	<textarea name='introduce' id='atc_content'>$lfjdb[introduce]</textarea> 
+	
+	<!--
+	<script type='text/javascript'>				
+			var editor_content = new baidu.editor.ui.Editor({toolbars:[['fullscreen','source','undo','redo','bold', 'italic', 'underline']] ,minFrameHeight:200});
+				editor_content.render( 'atc_content' );
+	</script>-->
+
+
+  </dd>
+</dl>
+<dl>
+  <dt>联系地址：</dt>
+  <dd><input type="text" name="address" style="width:95%;" value="$lfjdb[address]"></dd>
+</dl>
+<dl>   <dt>邮政编码：</dt>
+  <dd><input type="text" name="postalcode" style="width:130px;" value="$lfjdb[postalcode]"></dd>
+</dl>
+<dl>   <dt>联系电话：</dt>
+  <dd><input type="text" name="telephone" style="width:130px;" value="$lfjdb[telephone]"></dd>
+</dl>
+<dl>   <dt>联系手机：</dt>
+  <dd><input type="text" name="mobphone" style="width:130px;" value="$lfjdb[mobphone]" $ipunt_mob></dd>
+</dl>
+<dl>   <dt>身份证号码：</dt>
+  <dd><input type="text" name="idcard" style="width:30%;" value="$lfjdb[idcard]" $ipunt_idcard></dd>
+</dl>
+<dl><dt>真实姓名：</dt>
+  <dd><input type="text" name="truename" style="width:130px;" value="$lfjdb[truename]" $ipunt_idcard></dd>
+</dl>
+<div class="butter">
+	<input type="submit" name="Submit3" value="提 交"/>
+	<input type="hidden" name="step" value="2"/>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+$('.PicList').hover(
+	function(){
+		$(this).css('border-bottom', 'dotted #DDD 1px');
+	},function(){
+		$(this).css('border-bottom', '0');
+	}
+);
+$('.PicList span').click(function(){
+	//$(this).parent().remove();
+	$(this).parent().children().eq(0).val('');
+});
+//-->
+</SCRIPT>
+</div>
+<!--
+EOT;
+?>
+-->

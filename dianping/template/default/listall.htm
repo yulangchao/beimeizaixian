@@ -1,0 +1,122 @@
+<!--
+<?php
+$ordertype = $ordertype ? $ordertype : "id";
+$select[$ordertype] = "ch";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/listall.css">
+<!--
+<?php
+$ordertype = $ordertype ? $ordertype : "id";
+$select[$ordertype] = "ch";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<div class="content_text" style="margin:15px auto; width:1200px;">
+<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>点评分类</span>
+			</div>
+<div class="Menu">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$color=$fid==$key?'red':'';
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+				<dl>
+					<dt>
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+var dlIndex = $(this).parent().index();
+$(".Menu dl").eq(dlIndex).siblings().find("dd").hide();
+$(".Menu dl").eq(dlIndex).siblings().find("dt").removeClass("show");
+$(this).parent().find('dd').show();
+$(this).addClass("show");
+} );
+//-->
+</script>
+		</div>
+</div>
+<div class="content_text_right">
+	<div class="text_title">
+		<span>{$fidDB[name]}</span>
+		<div class="title_nav">
+            <a href="listall.php?ordertype=" class="$select[id]">最新信息</a>
+            <a href="listall.php?ordertype=hits" class="$select[hits]">热门信息</a>
+            <a href="listall.php?ordertype=levelstime" class="$select[levelstime]">推荐信息</a>
+		</div>
+	</div>	
+<div class="Showlist_box">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$target=$rs[target]?'_blank':'_self';
+$url=get_info_url('',$rs[fid],$rs[city_id]);
+print <<<EOT
+-->
+  <dl class="Showlist listAllShow">
+  	<dt>
+  		<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></a> 
+  	</dt>
+  	<dd>
+  		<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];" class="store_name">$rs[title]</a>
+		<div class="m-fenlei">所属分类：<a href="list.php?city_id=$rs[city_id]&fid=$rs[fid]">{$rs[fname]}</a></div>
+		<div class="m-fenlei"> <span class="L">发布日期：{$rs[posttime]}</span><span class="R">发布者:<em>{$rs[username]}</em></span></div>
+  		<div class="Showlist_Price">
+  			<p>关注度：<em>{$rs[hits]}</em>人次</p>
+  			<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]">查看详情</a>
+  		</div>
+  	</dd>
+  </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+
+<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+ <div class="Jump_box">$showpage</div>
+<!--
+EOT;
+}print <<<EOT
+-->	
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

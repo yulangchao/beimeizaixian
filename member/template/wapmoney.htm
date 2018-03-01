@@ -1,0 +1,110 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<!--
+EOT;
+if($job=="record"){
+print <<<EOT
+-->
+<div class="ListContainer">
+	<div class="head"><div class="tag">付款记录</div> <div class='more'><a href="?job=list">{$webdb[MoneyName]}充值</a></div></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	<div class="Listcont">
+		<div class="cont">
+			订单号:<span class="blue">$rs[numcode]</span><br/>
+			日期:<span class="blue">$rs[posttime]</span><br/>
+			金额:<span class="blue">$rs[money]元</span><br/>
+			支付方式:<span class="blue">$rs[banktype]</span><br/>
+			$rs[ifpay]
+		</div>
+		<div class="butter"><a href="?job=$job&action=del_record&id=$rs[id]">删除</a></div>
+	</div>
+<!--
+EOT;
+}$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+	$showpage
+</div>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<style type="text/css">
+.Listcont .cont li{padding:5px 0;}
+.Listpays:after{content:'';display:block;width:100%;height:1px;clear:both;}
+.Listpays li{width:50%;height:40px;padding-top:15px;overflow:hidden;text-align:center;float:left;}
+.Listpays li img{max-width:80px;max-height:35px;}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+$(function(){
+	$(".buymoney").click(function(){
+		var val=$('input:radio[name="paytype"]:checked').val();
+		if(val==null){
+			alert("请选择充值的方式!");
+			return false;
+		}
+		else{
+			window.location=("../do/wapbuymoneycard.php?paytype="+val);
+		}
+	});
+});
+</SCRIPT>
+<div class="ListContainer">
+	<div class="head"><div class="tag">{$webdb[MoneyName]}充值</div> <div class='more'><a href="wapmoney.php?job=record">充值记录</a></div></div>
+	<div class="Listcont">
+		<ul class="cont">
+			<li>1.{$webdb[MoneyName]}不足,网站很多功能受限制,那怎么办呢?可以通过以下方式购买</li>
+            <li>2.你当前拥有{$webdb[MoneyName]}数为<img src="images/moneycard.gif"><span class="B red">{$lfjdb[money]}</span>{$webdb[MoneyDW]},每一块钱人民币可换取<span class="B blue">{$webdb[alipay_scale]}</span>{$webdb[MoneyDW]}{$webdb[MoneyName]},你可以选择以下方式在线即时购买{$webdb[MoneyName]}</li>
+			<li>3.充值促销优惠:每充值10块钱赠送<span class="B blue">{$webdb[alipay_give_scale]}</span>{$webdb[MoneyDW]}{$webdb[MoneyName]},以此类推</li>
+		</ul>
+		<ul class="Listpays">
+ 
+<!--
+EOT;
+if($webdb[wapAlipay_id]&&$webdb[alipay_key]&&$webdb[wapAlipay_partner]){print <<<EOT
+-->
+			<li>
+            	<input type="radio" name="paytype" value="alipay"/>
+				<img src="../images/default/alipay_logo.gif"/>
+			</li>
+<!--
+EOT;
+}
+if($webdb[wxpay_ID]&&$webdb[wxpay_ApiKey]&&$webdb[wxpay_AppSecret]&&$webdb[wxpay_AppID]){print <<<EOT
+-->
+			<li>
+            	<input type="radio" name="paytype" value="wxpay"/>
+				<img src="../images/wap/weixin_pay.png"/>
+			</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<li>
+            	<input type="radio" name="paytype" value="card"/>
+				<img src="../images/default/diangcard.gif"/>
+			</li>
+			<li>
+            	<input type="radio" name="paytype" value="yu_er"/>
+				<img src="../images/default/yu_er.gif"/>
+			</li>
+		</ul>
+		<div class="butter">
+			<a href="wapmoney.php?job=record">充值记录</a> 
+            <a href="javascript:;" class="buymoney">立即充值</a>
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+}
+?>
+-->

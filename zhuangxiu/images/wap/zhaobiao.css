@@ -1,0 +1,116 @@
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, hr, fieldset, form, label, legend, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, hgroup {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.Location{
+	padding:12px;
+	height:30px;
+	line-height:34px;
+	color:#999;
+	overflow:hidden;
+	}
+.Location em{
+	color:#333;
+	}
+	
+.conter{
+	background:#fff;
+	padding:0 12px;
+	overflow:hidden;
+	}
+.conter .m-zhaobiao{
+	border-bottom:solid 1px #e5e5e5;
+	padding:10px 0 20px 0;
+	}
+.conter .m-zhaobiao h3{
+	height:36px;
+	line-height:36px; overflow:hidden; width:100%;}
+.conter .m-zhaobiao span{
+	line-height:25px; font-size:14px; padding-left:22px;}
+
+.conter .m-zhaobiao .time{
+	display:inline-block;  background:url(time.png) no-repeat left center;}
+.conter .m-zhaobiao .time em{
+	color:#999;}
+.conter .m-zhaobiao .liulan{
+	float:right;
+	}
+.conter .m-zhaobiao .liulan em{
+	color:#0099ff;}
+.MoreInfo li{
+	padding:5px 0;
+	line-height:20px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.MoreInfo li a{
+	color:#333;
+}
+.MoreInfo li span{
+	color:#666;
+}
+.Contact{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:3px;
+	margin:10px auto;	
+}
+.Contact li{
+	height:40px;
+	line-height:40px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:14px;
+}
+.Contact li a{
+	color:#333;
+}
+.Contact li span{
+	color:#666;
+}
+.Contents h3{
+	display:block;
+	border-top:#999 solid 1px;
+	border-bottom:#DDD solid 1px;
+	height:40px;
+	line-height:40px;
+	background:#FFF;
+	text-indent:10px;
+}
+.Contents .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+}
+.Contents .cont img{max-width:100%;}
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}
+.Reminded{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	margin:auto;	
+	background:#FFF;
+}
+.Reminded div{
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:40px;
+	text-indent:10px;
+	border-bottom:#DDD solid 1px;
+	color:#369;
+}
+.Reminded ul{
+	padding:10px;
+}
+.Reminded ul li{
+	line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-indent:5px;
+	font-size:14px;
+	color:#666;
+}

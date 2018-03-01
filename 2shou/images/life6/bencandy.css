@@ -1,0 +1,106 @@
+/*¡–±ÌœÍ«È“≥*/
+/*
+*MainCont
+ */
+.MainCont{margin-top:30px; border:#E0E0E0 solid 1px;}
+.MainCont .Mhead{height:50px; overflow:hidden; background:#ECECEC; line-height: 10px;}
+.MainCont .Mhead .tag{float:left; padding:20px 0 0 15px; font-size:18px;}
+.MainCont .Mhead .info{float:right; padding: 19px 45px 0 0; color:#666;}
+/*
+*
+*/
+.MainCont .baseinfo{height: 256px; overflow: hidden; padding: 34px 0 5px 0; position:relative;}
+.MainCont .baseinfo dt{width: 769px; height: 220px; float: left; border-right: #E0E0E0 solid 1px; overflow:hidden;}
+.MainCont .baseinfo dt .infopic{width: 266px; height: 184px; float: left; border: 1px solid #DFDEDE; margin-left: 10px; padding:3px;}
+.MainCont .baseinfo dt .infopic div{width:120px; text-align:center; margin:0 auto; padding-top:10px; line-height:30px;}
+.MainCont .baseinfo dt .infopic div.img{width: 266px; height: 184px; overflow: hidden; padding:0; line-height:184px;}
+.MainCont .baseinfo dt .infopic div.img img{max-width:266px; height:100%;}
+.MainCont .baseinfo dt .liststyle{width:380px; float:left;}
+.MainCont .baseinfo dt .liststyle div{width: 204px; height: 35px; float: left; padding-right: 10px; overflow: hidden; line-height: 21px; font-size: 14px; padding-left: 29px; font-size: 16px;}
+.MainCont .baseinfo dt .liststyle  tr td div a{color:#0066FF;}
+.MainCont .baseinfo dt .moreaction{width: 439px; overflow: hidden; position: absolute; left: 300px; bottom: 8px; z-index: 1000; word-spacing: 10px;}
+.MainCont .baseinfo dd{width: 350px; height: 222px; float: left; overflow: hidden; padding-left: -43px; padding-left: 37px;}
+.moreinfo{width:500px;}
+.MainCont .baseinfo dd .moreinfo div{overflow:hidden; line-height:25px; font-size:16px;}
+.MainCont .baseinfo dd .moreinfo div span{color:#666;}
+.MainCont .contents .heads{height:50px; overflow:hidden; background:#ECECEC;}
+.MainCont .contents .heads .tag{float:left; padding-right:6px;}
+.MainCont .contents .heads .tag span{display:block; padding:2px 20px 0 20px; line-height:35px; font-size:14px; font-weight:bold;}
+.MainCont .contents .heads .more{width:100px; height:50px; float:right; margin-right:-1px;}
+.MainCont .contents .conts{padding:15px; line-height:30px; font-size:14px; background:red;}
+/*œÍœ∏–≈œ¢*/
+.contents{margin-top:30px; border:1px solid #DFDEDE;}
+.contents .heads{height:50px; line-height:50px; background:#ECECEC;}
+.contents .heads .tag {width:150px; text-align:center; background:#fff; border-top:2px solid #3399FF; display:block; padding:2px 20px 0 20px; font-size:16px; font-weight:bold;}
+.contents .conts{padding-top: 20px; line-height: 32px; margin: 0 auto; padding: 20px 2px 10px 35px;}
+/*
+*Õ¯”—¡Ù—‘
+*/
+.bottoms{width:1200px; min-height:800px; margin:0 auto;}
+.MainCont1{margin-top:28px; margin-bottom: 30px;}
+.MainCont1 .CommentCont{width:720px; float:left; border:1px solid #DFDEDE;}
+.CommentCont .head{height:50px; overflow:hidden; background:#ECECEC;}
+.CommentCont .head .tag{border-top:2px solid #3399FF; width:185px; height:50px; text-align:center; background:#fff; float:left; padding-right:6px;}
+.CommentCont .head .tag span{display:block; padding:2px 20px 0 20px; line-height:35px; font-size:16px; font-weight:bold;}
+.CommentCont .head .more{float:right; width:100px; height:37px;}
+.CommentCont .cont{border-top:0;}
+.MainCont1 .side{float:right;}
+/*
+ *¡Ù—‘
+*/
+.comment_box{border-bottom:1px dashed #E5E5E5 ; overflow:hidden; padding: 23px 5px 15px 0px;}
+.comment_box .pic{float:left;}
+.comment_box .comment_main{float:left; margin-left: 16px; width: 587px;}
+.comment_box .comment_main .notes{padding: 6px 0px 10px 0px;}
+.comment_box .comment_main .user{color:#0066CC; text-align:left;}
+.comment_box .comment_main .date{color:#999; text-align:right; padding-left: 40px;}
+#comment{padding:15px 15px 5px 15px;}
+.comment_box .comment_main ul li{float:left;width:50px;padding-right: 108px;}
+.comment_box .comment_main ul li span{color:red;}
+.post_form{width:718px; height:536px; border-top:1px solid #DFDEDE;}
+.post_form .head{height:50px; line-height:50px; background:#fff; padding: 14px 10px 10px 29px;}
+.post_comment{width:600px; margin:0 auto;}
+.post_comment span{font-size:16px;}
+.post_comment  .ch{width: 526px; height: 35px; margin-bottom: 17px;}
+.post_comment .yzm{width:178px; height:35px;}
+.post_form  .submit{width: 141px; margin: 0 auto; padding-top: 20px;}
+#comment dl{margin-bottom:10px;}
+#comment dl dt{float:left; width:75px; height:50px; padding-top:5px;}
+#comment dl dt a{display:block; width:45px; height:45px; overflow:hidden; margin:auto;}
+#comment dl dd{width:600px; float:left; line-height:20px; padding-left:5px; color:#666;}
+#comment dl div{clear:both; line-height:30px; word-spacing:10px;}
+#comment dl div em{color:#f30;}
+#comment .page{text-align:center; line-height:30px;}
+#comment .no_comment{text-align:center; line-height:60px; font-size:16px; color:#f30;}
+.comment_form{border-top:#e0e0e0 solid 1px;}
+.comment_form .h{height:40px; vertical-align:middle; font-size:14px; font-weight:bold; padding-left:35px; color:#005CA5;}
+.comment_form .left{width:100px; line-height:25px; text-align:right; padding-right:10px;}
+.comment_form .right{padding-top:3px;}
+#comment_content{width: 528px; height: 248px; margin-top: 14px;}
+.comment_form .submits{padding:10px 0 15px 0;}
+.comment_form .submits input{border:0;}
+/*
+*
+*/
+.ActCont{height:187px; width:430px; padding-top:15px; margin-bottom:10px; text-align:center; overflow:hidden; word-spacing:8px; border:1px solid #DFDEDE;}
+.ActCont img{margin-bottom:5px; padding: 19px 7px 12px 12px;}
+.Poster{height:250px; width:430px; border:1px solid #DFDEDE; margin: 26px 0px 26px 0px;}
+.Poster .head{height:50px; overflow:hidden; line-height:50px; background:#ECECEC; padding-left:10px; font-size:14px; font-weight:bold;}
+.Poster dl{height: 142px; overflow:hidden; padding:10px 10px 0 10px; border-bottom:0;}
+.Poster dl dt{width:120px; height:120px; padding:8px 10px 0 5px; overflow:hidden; float:left;}
+.Poster dl dd{width: 234px; float: left; line-height: 27px;padding: 13px 5px 5px 5px;}
+.Poster .all{clear:both; height:20px; left:20px; overflow:hidden; padding: 5px 10px 0 101px;}
+.Poster .all a{color:#0066FF; font-size:15px;}
+.Poster .all a:hover{color:#FF6600;}
+.sidecont{margin-top:20px; width:430px; height:250px; border:1px solid #DFDEDE;}
+.sidecont .head{height:50px; background:#ECECEC; line-height:50px; overflow:hidden;}
+.sidecont .head .tag{width:120px; height:50px; text-align:center; background:#fff; float:left; padding:0 15px 0 15px; background:#FFF; font-size:16px; font-weight:bold;}
+.sidecont .head .more{float:right; padding-right:10px;}
+.sidecont .head .more a{color:#888;}
+.sidecont .cont{padding:10px; line-height:23px;}
+.sidecont .cont div{height: 29px; overflow:hidden;}
+.sidecont .cont1 div span{display:block; width:16px; height:16px; line-height:16px; text-align:center; float:left; color:#FFF; margin-right: 9px; margin-top:5px;}
+.sidecont .cont1 div.list3 span,.sidecont .cont1 div.list1 span,.sidecont .cont1 div.list2 span{background:#39F;}
+.sidecont .cont1 div.list4 span,.sidecont .cont1 div.list5 span,.sidecont .cont1 div.list6 span,.sidecont .cont1 div.list7 span,.sidecont .cont1 div.list8 span,.sidecont .cont1 div.list9 span,.sidecont .cont1 div.list10 span{background:#A5A5A5;}
+.sidecont .cont div a:hover{color:#FF6600;}
+.sidecont .cont div a{color:#666;}

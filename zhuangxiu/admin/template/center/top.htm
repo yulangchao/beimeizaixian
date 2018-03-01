@@ -1,0 +1,58 @@
+<!--
+<?php
+$Info_showsorttype[intval($webdb[Info_showsorttype])]=' checked ';
+print <<<EOT
+-->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function foreColor_font()
+{
+  
+  var arr = showModalDialog('$webdb[www_url]/images/default/selcolor.htm', '', 'dialogWidth:18.5em; dialogHeight:17.5em; status:0');
+  if (arr != null)  get_obj('titlecolor').value=arr;
+  else  get_obj('titlecolor').focus();
+  get_obj('titlecolor').style.background=arr;
+}
+//-->
+</SCRIPT>
+<form name="form1" method="post" action="$admin_path&action=config">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">信息列表页置顶设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr> 
+      <td class='tdL'>每个栏目最多同时置顶几条信息:<br>
+        留空则不限制 </td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[Info_TopNum]" size="4" value="$webdb[Info_TopNum]">
+        条</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>每条信息最多置顶几天:<br>
+      </td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[Info_TopDay]" size="4" value="$webdb[Info_TopDay]">
+        天</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>每条置顶信息收费多少积分:</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[Info_TopMoney]" size="4" value="$webdb[Info_TopMoney]">
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>置顶信息标题颜色:</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[Info_TopColor]" size="10" value="$webdb[Info_TopColor]"  onclick="foreColor_font();" id="titlecolor" style="color:$webdb[Info_TopColor];">
+      </td>
+    </tr>
+    </table>
+    <div class='submits'><input  class=mmcinb  type='submit' name='w' value='保存设置'></div>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

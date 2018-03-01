@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>会员中心 </title>
+<link rel="stylesheet" type="text/css" href="images/blue/css.css">
+<link rel="stylesheet" type="text/css" href="images/style7/index.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8"><!-- 强制ie8,for 360 -->
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+</head>
+<body>
+<div class="TopContainer">
+	<div class="Infos">
+		<div class="Citys">当前城市[<span>{$city_DB[name][$city_id]}</span>] <a href="$webdb[www_url]/allcity.php">选择城市</a></div>
+		<div class="times">
+			你好!<a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid">$lfjid</a>
+			<span id="liveclock"></span>
+<script type="text/javascript">
+function qb_time(){ 
+	var Digital=new Date();
+	var hours=Digital.getHours();
+	var minutes=Digital.getMinutes();
+	var seconds=Digital.getSeconds();
+	var year=Digital.getFullYear();
+	var month=Digital.getMonth()+1; 
+	var day=Digital.getDate();	
+	if(month<=9) month="0"+month;
+	if(day<=9) day="0"+day;
+	if(minutes<=9) minutes="0"+minutes;
+	if(seconds<=9) seconds="0"+seconds ;
+	myclock="当前时间<em> "+year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+"</em>";
+	$('#liveclock').html(myclock);
+	setTimeout("qb_time()",1000) 
+} 
+qb_time();
+</script>
+		</div>
+	</div>
+	<div class="LogoMenu">
+		<div class="logo"><a href="$webdb[www_url]"><span><img src="./images/style7/logo.png"/></span></a></div>
+		<div class="MainMenus">
+			<dl class="changemenu">
+				<dt></dt>
+				<dd></dd>
+			</dl>
+			<div class="ListMenuBox">
+				<div class="MenuContent">
+<!--
+EOT;
+$listmenus='';
+foreach($menudb1 AS $key=>$rs){
+	$listmenus.="<dl class='m_$key'>\r\n";
+	$listmenus.="	<dt><span>$rs[name]</span></dt>\r\n";
+	if($rs[links]){
+		$listmenus.="	<dd>\r\n";
+		if($key=='other'){
+			foreach($rs[links] AS $key1=>$rs1){
+				$listmenus.="		<ul>\r\n";
+				$listmenus.=" 			<ol>$rs1[name]</ol>\r\n";
+				foreach($rs1[links] AS $key2=>$rs2){
+					if($power<$rs2[power])continue;
+					if(strstr($rs2[link],'../')){
+						$target='_blank';
+					}else{
+						$target='member_mainiframe';
+					}
+					$title=strip_tags($key2);
+					$listmenus.=" 			<li onclick='linksthis(\$(this))'><A HREF='$rs2[link]' title='$title' target='$target'>$key2</A></li>\r\n";
+				}
+				$listmenus.=" 		</ul>\r\n";
+			}
+		}else{
+			$listmenus.=" 		<ul>\r\n";
+			$listmenus.=" 			<ol>$rs[name]</ol>\r\n";
+			foreach($rs[links] AS $key1=>$rs1){
+				if($power<$rs1[power])continue;
+				if(strstr($rs1[link],'../')){
+					$target='_blank';
+				}else{
+					$target='member_mainiframe';
+				}
+				$title=strip_tags($key1);
+				$listmenus.=" 			<li onclick='linksthis(\$(this))'><A HREF='$rs1[link]' title='$title' target='$target'>$key1</A></li>\r\n";
+			}
+			$listmenus.=" 		</ul>\r\n";
+		}
+		$listmenus.="	</dd>\r\n";
+	}
+	$listmenus.="</dl>\r\n";
+}
+print<<<EOT
+-->
+$listmenus
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="MainContainer">
+	<div class="LeftCont">
+		<div class="members">
+			<div class="icon"><a href="$webdb[www_url]/member/userinfo.php?uid=$lfjuid" target="_blank"><span><img src="$lfjdb[icon]" onerror="$webdb[www_url]/this.src='images/default/nobody.gif'"/></span></a></div>
+			<div class="username"><a href="$webdb[www_url]/member/userinfo.php?uid=$lfjuid" target="_blank">$lfjid</a></div>
+<!--
+EOT;
+$group_db=$db->get_one("SELECT totalspace,grouptitle FROM {$pre}group WHERE gid='$lfjdb[groupid]' ");
+//用户已使用空间
+$lfjdb[usespace]=number_format($lfjdb[usespace]/(1024*1024),3);
+//系统允许使用空间
+$space_system=number_format($webdb[totalSpace],0);
+//用户组允许使用空间
+$space_group=number_format($group_db[totalspace],0);
+//用户本身具有的空间
+$space_user=number_format($lfjdb[totalspace]/(1024*1024),0);
+//用户余下可用空间大小
+$onlySpace=number_format($webdb[totalSpace]+$group_db[totalspace]+$lfjdb[totalspace]/(1024*1024)-$lfjdb[usespace],3);
+$companyDB=$db->get_one("SELECT * FROM `{$pre}hy_company` WHERE uid='$lfjuid'");
+$companyer=$companyDB?"<span>企业会员</span>":"非企业会员";
+print <<<EOT
+-->
+			<div class="companyer"><span>$companyer</span></div>
+			<div class="moneys"><div>{$webdb[MoneyName]}:{$lfjdb[money]}{$webdb[MoneyDW]} 可用空间:{$onlySpace}M</div></div>
+		</div>
+		<dl class="LoginAct">
+			<dt><a href="$webdb[www_url]/do/login.php?action=quit">安全退出</a></dt>
+			<dd><a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid" target="_blank">个人信息</a></dd>
+		</dl>
+		<div class="LeftMenus"></div>
+	</div>
+	<div class="RightCont">
+		<iframe name="member_mainiframe" id="member_mainiframe" marginwidth=0 marginheight=0 frameborder="0" src="$MainUrl"></iframe>
+	</div>
+</div>
+<script type="text/javascript">
+$('.MainContainer .LeftCont').height($(window).height()-155);
+$('.MainContainer .RightCont').height($(window).height()-155);
+function selectMenu(num){
+	$('.MenuContent dl').find('dt').removeClass('ck');
+	$('.MenuContent dl').eq(num).find('dt').addClass('ck');
+	var leftMenus=$('.MenuContent dl').eq(num).find('dd').html();
+	$('.LeftMenus').html(leftMenus);
+}
+$('.MenuContent dl').click(function(){
+	var thisnum=$(this).index();
+	selectMenu(thisnum);
+});
+var totalmenus=$('.MenuContent dl').length;
+var menushow_W=770;
+var totalmenu_W=110*totalmenus;
+var topselects=1;
+var showmenus=7;
+var max_changes= Math.ceil(totalmenus/showmenus);
+if(totalmenu_W>menushow_W){
+	$('.changemenu dd').addClass('ck');
+}
+function next_topmenu(){
+	topselects++;
+	if(topselects>max_changes){
+		topselects=max_changes;
+	}else{
+		change_topmenu(topselects);
+	}
+}
+function prev_topmenu(){
+	topselects--;
+	if(topselects<1){
+		topselects=1;
+	}else{
+		change_topmenu(topselects);
+	}
+}
+function change_topmenu(num){
+	var thisnum=(num-1);
+	if(num<max_changes){
+		$('.changemenu dd').addClass('ck');
+	}else{
+		$('.changemenu dd').removeClass('ck');
+	}
+	if(num>1){
+		$('.changemenu dt').addClass('ck');
+	}else{
+		$('.changemenu dt').removeClass('ck');
+	}
+	var left_width=menushow_W*thisnum;
+	$('.MenuContent').animate({'left':'-'+left_width+'px'},500);
+}
+$('.changemenu dt').click(function(){
+	prev_topmenu();
+});
+$('.changemenu dd').click(function(){
+	next_topmenu();
+});
+selectMenu(0);
+function linksthis(objs){
+	var fobj=objs.parent();
+	fobj.find('li').removeClass('ck');
+	objs.addClass('ck');
+}
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

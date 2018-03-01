@@ -1,0 +1,75 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form_work" method="post" action="$admin_path&job=work">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">关键字管理</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="ListTable">
+    <tr> 
+      <th width="15%">ID</th>
+      <th width="31%">关键字</th>
+      <th width="15%">个数</th>
+      <th width="15%">查看</th>
+      <th width="12%">修改</th>
+      <th width="12%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$color=$rs[color]?"color:$rs[color];":"";
+$bold=$rs[bold]?"font-weight:bold;":"";
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[kid]</td>
+      <td class="Left" style="$color $bold"><input type="checkbox" name="listdb[{$rs[kid]}]" value="$rs[keywords]">$rs[keywords]</td>
+      <td>$rs[num]</td>  
+      <td><a href="$Murl/tag.php?keyword=$rs[keywords]" target="_blank">查看</a></td>     
+      <td><a href="$admin_path&job=edit&kid=$rs[kid]" title='点击修改' class='edit'></a></td>
+      <td><a href="$admin_path&action=work&jobs=delete&kid=$rs[kid]" onClick="return confirm('你确认要删除吗?不可恢复');" title='点击删除' class='del'></a></td>
+    </tr>
+
+<!--
+EOT;
+}$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+  </table>
+
+      $showpage
+	<div class="submits">
+        <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+        <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input type="submit" name="Submit3" value="删除" onclick="postdo('delete')">
+        <input type="hidden" name="jobs" value="0">
+    </div>
+  </div>
+</div>
+
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->
+ 

@@ -1,0 +1,190 @@
+<!--
+<?php
+$url = urlencode("$Murl/wapbencandy.php?fid=$fid&id=$id");
+$makecodeimg = "$webdb[www_url]/do/2codeimg.php?url=$url";
+$listmembers=$lfjid?"<a href='$webdb[www_url]/member/'>管理</a> <a href='$webdb[www_url]/do/login.php?action=quit'>退出</a>":"<a href='$webdb[www_url]/do/pclogin.php'>注册</a> <a href='$webdb[www_url]/do/pclogin.php'>登录</a>";
+$memberinfo=$userDB->get_info($rsdb[uid]);
+$memberinfo[icon]=$memberinfo[icon]?tempdir($memberinfo[icon]):"$webdb[www_url]/images/default/noface.gif";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wei/wei.css">
+<ul class="WeiContent">
+	<li class="MainLeft">
+    	<dl class="members">
+        	<dt>
+            	<a href="$webdb[_www_url]/member/homepage.php?uid=$rsdb[uid]"><img src="$memberinfo[icon]" onError="this.src='$webdb[_www_url]/images/default/nopic.jpg'"></a>
+            </dt>
+            <dd><h4>$rsdb[username]</h4><div>在 <span>$rsdb[posttime]</span> 发表了以下动态</div></dd>
+        </dl>
+<!--
+EOT;
+if($rsdb[picurl]){
+print <<<EOT
+-->
+        <div class='listpic'><img src="$rsdb[picurl]" onError="this.src='$webdb[_www_url]/images/default/nopic.jpg'"></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        <div class="content">$rsdb[content]</div>
+        <div class="CommentTable">
+            <div class="ListComment"></div>
+            <div class="AddComment">
+                <div class="head">我来说两句</div>
+                <dl>
+                    <dt>称呼:</dt>
+                    <dd><input type="text" name="username" value="$lfjid"/></dd>
+                </dl>
+<!--
+EOT;
+if(!$web_admin){
+print <<<EOT
+-->
+                <dl>
+                    <dt>验证码:</dt>
+                    <dd>
+                        <div><input type="text" name="yzimg"/></div>
+                        <div><img class="yzimgs"></div>
+                    </dd>
+                </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                <dl>
+                    <dt>内容:</dt>
+                    <dd><textarea name="content"></textarea></dd>
+                </dl>
+                <div class="postcom"><input type="button" name="Submit" value="发表评论" onClick="PostComments()"/></div>
+            </div>
+<script>
+var limitTime;
+function limitComment1(){
+	limitTime=limitTime-1;
+	if(limitTime>0){
+		$('.AddComment textarea').val('还剩'+limitTime+'秒,你才可以再发表评论');
+		$('.AddComment textarea').attr("disabled",true);
+		$('.AddComment .postcom input').attr("disabled",true); 
+		setTimeout("limitComment1()",1000);
+	}else if(limitTime==0){
+		$('.AddComment textarea').val('');
+		$('.AddComment textarea').attr("disabled",false);
+		$('.AddComment .postcom input').attr("disabled",false); 
+	}
+	
+}
+$(".AddComment .yzimgs").attr("src","$webdb[_www_url]/do/yzimg.php?"+Math.random());
+$(".AddComment .yzimgs").click(function(){
+	$(this).attr("src","$webdb[_www_url]/do/yzimg.php?"+Math.random());
+});
+function PostComments(){
+	var username=$('.AddComment input[name="username"]').val();
+	var yzimg=$('.AddComment input[name="yzimg"]').val();
+	var content=$('.AddComment textarea[name="content"]').val();
+	if(content==''){
+		alert('评论内容不能为空！');
+	}else{
+		limitTime=10;
+		limitComment1();	
+		
+		$.ajax({
+		   type: "POST",
+		   url: "comment_ajax.php",
+		   data: "action=post&id=$id&yzimg="+yzimg+"&username="+username+"&content="+content,
+		   success: function(msg){
+			 $('.ListComment').html(msg);
+			 $(".AddComment .yzimgs").attr("src","$webdb[_www_url]/do/yzimg.php?"+Math.random());
+			 $('.AddComment input[name="yzimg"]').val('');		 
+		   }
+		});	
+			
+		//$.get("comment_ajax.php?action=post&id=$id&yzimg="+yzimg+"&username="+username+"&content="+content+"&"+Math.random(),function(d){
+			//$('.ListComment').html(d);
+			//$(".AddComment .yzimgs").attr("src","$webdb[_www_url]/do/yzimg.php?"+Math.random());
+			//$('.AddComment input[name="yzimg"]').val('');
+		//});
+	}
+}
+function delcomments(id,cid){
+	$.get("comment_ajax.php?action=del&id="+id+"&cid="+cid+"&"+Math.random(),function(d){
+		$('.ListComment').html(d);
+	});
+}
+function getcomments(url){
+	$.get(url+"&"+Math.random(),function(d){
+		$('.ListComment').html(d);
+	});
+}
+getcomments("comment_ajax.php?id=$id");
+</script>
+		</div>
+    </li>
+    <li class="SideRight">
+    	<div class="MemberCont">
+        	<div class="head"><span class="tag">会员相关</span></div>
+            <div class="cont">
+				$listmembers
+            </div>
+        </div>
+        <div class="WeixinCode">
+        	<h3>微信扫一扫查看</h3>
+            <p><img src="$makecodeimg" width="150" height="150"/></p>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">分类</span><span class="more"><a href="list.php">更多</a></span></div>
+            <div class="cont">
+<!--
+EOT;
+
+foreach($Fid_db[0] AS $key=>$rs){
+
+print <<<EOT
+-->
+				<ul>
+                	<ol><a href="list.php?fid=$key">$rs</a></ol>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[$key] AS $keys=>$rss){
+$i++;
+if($i>1) break;
+print <<<EOT
+-->
+                	<li><a href="list.php?fid=$keys">$rss</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</ul>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">热门分享</span></div>
+            <ul class="listHot">
+<!--
+EOT;
+$array=Get_Info('hot',10,40);
+foreach($array AS $rs){print <<<EOT
+-->
+             
+            	<li><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title]"><span>·</span>$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+        </div>
+    </li>
+</ul>
+<!--
+EOT;
+?>
+-->

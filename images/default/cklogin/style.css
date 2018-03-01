@@ -1,0 +1,53 @@
+
+ html{
+    overflow: hidden;
+	
+	margin:auto;
+	padding:inherit;
+}
+
+body{ margin-left:auto;
+    margin-right: auto;
+	position:relative;
+	font-size:28px;}
+
+#top{ width:100%;
+      height:500px;
+	  background:none;
+	  margin-top:80px;
+	  margin-left:-200px;}
+
+.div01{ width:72px;
+      height:100px;
+	  background:none;
+	  float:left;}
+
+
+.top01{ width:510px;
+    height:100px;
+	background: url(a3.png) no-repeat;
+	 background-position:right;}
+
+
+.img01{ float:left;
+padding-left:9px;}
+
+.span01{ color:#06F;
+         font-size:1em;
+		 font-family:"新宋体";
+		 line-height:26px;
+		  float:left;
+		  padding-left:19px;}
+
+.img02{ position:absolute;}
+
+
+.bottom{ 
+		 background:none;
+		 margin-left:160px;
+}
+#codeimg{
+		 border:#999 1px solid;
+}
+
+.img03{ padding-top:2px;}

@@ -1,0 +1,92 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<form name="form_work" method="post" action="$admin_path&">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">订单管理</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="ListTable">
+      <tr> 
+        <th width="5%" >订单号</th>
+        <th width="26%" >产品名称</th>
+        <th width="12%" >产品单价</th>
+        <th width="7%" >总额</th>
+        <th width="7%" >客户</th>
+        <th width="10%" > 订购时间</th>
+        <th width="9%" >订购数量</th>
+        <th width="7%" >付款与否</th>
+        <th width="7%" >发货与否</th>
+        <th width="5%" >详情</th>
+        <th width="5%" >删除</th>
+      </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){print <<<EOT
+-->
+    <tr> 
+      <td class="middle" valign="top">$rs[id]</td>
+      <td class="middle Left" valign="top" width="26%"><a href="$Murl/bencandy.php?city_id={$rs[shop][city_id]}&fid=$rs[fid]&id=$rs[cid]" target="_blank"> 
+        <input type="checkbox" name="iddb[]" value="$rs[id]">
+        {$rs[shop][title]}</a></td>
+      <td class="middle" valign="top" >{$rs[shop][price]}</td>
+      <td class="middle" valign="top">$rs[totalmoney]</td>
+      <td class="middle" valign="top">$rs[username]</td>
+      <td class="middle" valign="top" >$rs[posttime]</td>
+      <td class="middle" valign="top">$rs[shopnum]</td>
+      <td class="middle" valign="top">$rs[pay]</td>
+      <td class="middle" valign="top">$rs[send]</td>
+      <td class="middle" valign="top"><a href="$Murl/member/joinshow.php?fid=$rs[fid]&id=$rs[id]" target="_blank">查看</a></td>
+      <td class="middle" valign="top"><a href="$admin_path&act=del&iddb[]=$rs[id]" title='点击删除' class='del'>删</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+    <div class='submits'>
+        <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+        <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input type="submit" name="Submit" value="删除" onclick="postdo()">
+        <input type="hidden" name="act" value="del">      
+    </div>
+  </div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(){
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明</span></div>
+  <div class="Conter">
+    <ul class="notes">
+
+      <li>站长可以代商家发布团购，然后会员拿着“消费密码”去商家那里消费，商家就可以通过以下网址来核实该消费密码是否已付款，一旦核实就会标注为已消费的状态。<br />
+        <a href="$Murl/yz.php" target="_blank">$Murl/yz.php</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+<!--
+EOT;
+?>
+-->

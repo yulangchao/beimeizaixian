@@ -1,0 +1,36 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<div class="FormContainer">
+  <h3><a href='bencandy.php?fid=$fid&id=$cid'>$infodb[title]</a></h3>
+  <form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+  <dl>
+    <dt>上门时间:<span></span></dt>
+	<dd> <input   type='text' name='postdb[gototime]' id='atc_gototime' style='width:100px;' value='$rsdb[gototime]'> </dd>
+  </dl><dl>
+    <dt>联系人:<span></span></dt>
+	<dd> <input   type='text' name='postdb[realname]' id='atc_realname' style='width:100px;' value='$rsdb[realname]'> </dd>
+  </dl><dl>
+    <dt>联系电话:<span></span></dt>
+	<dd> <input   type='text' name='postdb[telphone]' id='atc_telphone' style='width:100px;' value='$rsdb[telphone]'> </dd>
+  </dl><dl>
+    <dt>附注留言:<span></span></dt>
+	<dd><textarea  name='postdb[content]' id='atc_content' style='width:500px;height:100px;'>$rsdb[content]</textarea></dd>
+  </dl><!---->
+  <div class="butters">
+        <span class="submits"><input type="submit" name="Submit" value="提交"></span>
+  </div>
+  <input type="hidden" name="fid" value="$fid">
+  <input type="hidden" name="id" value="$id">
+  <input type="hidden" name="cid" value="$cid">
+  <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+  </form>
+</div>
+<!--
+EOT;
+?>
+-->

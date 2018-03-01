@@ -1,0 +1,268 @@
+<!--
+<?php
+$listPic="";
+$i=0;
+foreach($picdb AS $key=>$rs){
+	$i++;
+	$picurl=tempdir($rs[imgurl]);
+	$picname=addslashes($rs[name]);
+	$picname=$picname?$picname:$i;
+	$listPic.="<div class='cell'><img src=\"$picurl\" alt=\"$picname\" /><span class='title'>$picname</span></div>\r\n";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/showshop.css">
+<div class="GuideCont">当前位置：<a href="./">商城首页</a> $GuideFid[$fid]</div>
+<div class="titles">$rsdb[title]</div>
+<div class="baseinfo">发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>　浏览量：{$rsdb[hits]}次</div>
+<!--
+EOT;
+if($listPic){print <<<EOT
+-->
+<div class="fullbg"></div>
+<div class="ShowBigPic"><img src="$webdb[www_url]/images/default/nopic.jpg" /></div>
+<div class="ShowSlide">
+<script src="./images/wap/slide.js"></script>
+<div id="slide" class="clearfix" style="display:none">
+	<div id="content">
+		$listPic
+	</div>
+	<ul id="indicator"></ul>
+	<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+</div>
+<script>
+(function($){
+	var list = $('#content').find('.cell');
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		$('#content').find('.cell').each(function(i){
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#indicator').html(txt);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:'320',intervalTime:5000,lazyIMG:!!0});},200);
+	}
+	$('#content img').click(function(){
+		if ($(window).height() > $("body").height()) {
+			$(".fullbg").height($(window).height());
+		}else{
+			$(".fullbg").height($("body").height());
+		}
+		$(".ShowBigPic").css('top',$(document).scrollTop()+'px');
+		$(".ShowBigPic img").attr('src',$(this)[0].src); 
+		$(".fullbg").css({'display':'block'}).stop().animate({'opacity':.8},500);
+		$(".ShowBigPic").css({'display':'block'}).stop().animate({'opacity':1},500);
+	});
+	$(".fullbg").click(function(){
+		$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+		$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+	});
+	$(".ShowBigPic").click(function(){
+		$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+		$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+	});
+})(jQuery);
+</script>
+</div>
+<!--
+EOT;
+}elseif($rsdb[picurl]){print <<<EOT
+-->
+<div class="ShowOnePic"><img src='$rsdb[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<ul class="MoreInfo">
+	<li><span>本店价格：</span><font color="#FF0000">￥ {$rsdb[price]} 元</font></li>
+<!--
+EOT;
+if($rsdb['order_username']){print <<<EOT
+-->
+	<li><span>顾客姓名：</span>{$rsdb[order_username]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_phone']){print <<<EOT
+-->
+	<li><span>联系电话：</span>{$rsdb[order_phone]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_mobphone']){print <<<EOT
+-->
+	<li><span>联系手机：</span>{$rsdb[order_mobphone]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_email']){print <<<EOT
+-->
+	<li><span>联系邮箱：</span>{$rsdb[order_email]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_qq']){print <<<EOT
+-->
+	<li><span>联系QQ：</span>{$rsdb[order_qq]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_postcode']){print <<<EOT
+-->
+	<li><span>邮政编码：</span>{$rsdb[order_postcode]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_sendtype']){print <<<EOT
+-->
+	<li><span>配送方式：</span>{$rsdb[order_sendtype]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_paytype']){print <<<EOT
+-->
+	<li><span>支付方式：</span>{$rsdb[order_paytype]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_address']){print <<<EOT
+-->
+	<li><span>联系地址：</span>{$rsdb[order_address]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+</ul>
+<div class="Contents">
+	<h3>详细介绍</h3>
+	<div class="cont">
+		$rsdb[content]
+	</div>
+</div>
+<div class="bdsharebuttonbox">
+	<A class=bds_more href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="more"></A>
+	<A class=bds_qzone title=分享到QQ空间 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="qzone"></A>
+	<A class=bds_tsina title=分享到新浪微博 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="tsina"></A>
+	<A class=bds_tqq title=分享到腾讯微博 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="tqq"></A>
+	<A class=bds_renren title=分享到人人网 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="renren"></A>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> 
+<div class="FootSpac"></div>
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

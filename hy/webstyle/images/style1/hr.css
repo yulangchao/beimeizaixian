@@ -1,0 +1,74 @@
+body{
+	background:#FFF;
+}
+.MainContainer .MinLefts{
+	width:190px;
+	float:left;
+}
+.MainContainer .MainRights{
+	min-height:400px;
+	width:980px;
+	float:right;
+	overflow:hidden;
+}
+.ShowType li{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	text-align:center;
+	background:#F5F5F5;
+	margin-bottom:20px;
+}
+.ShowType li a{
+	display:block;
+	font-size:16px;
+	color:#666;
+}
+.ShowType li.ck a{
+	background:#2CB9FF;
+	color:#FFF;
+}
+.ListShopCont{
+	overflow:hidden;
+	padding-top:10px;
+}
+.ListShopCont:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+ul.listHr{
+	display:table;
+	width:100%;
+}
+ul.listHrH{
+	background:#F5F5F5;
+	font-weight:bold;
+}
+ul.listHr li{
+	display:table-cell;	
+	padding:5px 0;
+	line-height:30px;
+	font-size:14px;
+	color:#666;
+	border-bottom:#ddd dotted 1px;
+}
+ul.listHrC li{
+	text-indent:15px;
+	padding:8px 0;
+}
+ul.listHrC:hover{
+	background:#F9F9F5;
+}
+ul.listHr li.li1{
+	width:500px;
+	text-indent:15px;
+}
+ul.listHr li.li2{
+	width:200px;
+}
+ul.listHrC a{
+	color:#369;
+}

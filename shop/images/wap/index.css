@@ -1,0 +1,146 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.TheBigMenu {
+    background: #FFF;
+    padding: 20px 5px 10px 5px;
+	overflow:hidden;
+}
+.TheBigMenu li {
+    width: 25%;
+    height: 130px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+
+.TheBigMenu li dl dt {
+    width: 90%;
+    height: 80px;
+	line-height:80px;
+    margin: auto;
+    overflow: hidden;
+    
+    text-align: center;
+}
+.TheBigMenu li dl dt img {
+    max-width: 100%;
+    max-height: 100%;
+	border-radius: 50%;
+    vertical-align: middle;
+}
+.TheBigMenu li dl dd {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+	font-size:0.9rem;
+}
+
+.Ability{
+	margin:20px 0;
+	padding:0 12px;
+	overflow:hidden;
+	}
+.Ability .title{
+	height: 56px;
+    font: 18px/56px 'Microsoft Yahei','Simsun';
+    border-bottom: solid 1px #ccc;
+    background: url(fanxian.png) no-repeat right center;
+	overflow:hidden;
+	}
+.Ability .title span{
+	display: block;
+    width: 120px;
+    height: 54px;
+    background:url(new.png)no-repeat left center;
+    border-bottom: 2px solid #ff790c;
+    text-indent: 2em;
+	}
+.Ability dl{
+	float:left;
+	width:48%;
+	position:relative;
+	overflow:hidden;
+	background:#fff;
+	margin-top:12px;
+	}
+.Ability dl dt{
+	width:90%;
+	overflow:hidden;
+	margin:12px auto;
+	}
+.Ability dl dt a{display:block; width:100%; height:100%; text-align:center;}
+.Ability dl dt img{
+	max-width:100%;
+	max-height:100%;
+	vertical-align:middle;
+	}
+.Ability dl dd{
+	overflow:hidden;
+	padding:0 12px;
+	}
+.Ability dl dd p{
+	height:36px;
+	line-height:36px;
+	overflow:hidden;}
+.Ability dl dd .b{
+	color:#fb3434;
+	font-size:20px;
+	}
+.Ability dl dd .s{
+	text-decoration:line-through;
+	color:#999;
+	}
+.Ability dl:nth-child(2n){
+	margin-right:12px;}
+	
+@media only screen and (max-width:321px) {
+	.Ability dl{
+		width:47%;
+		}
+}
+.ListMoreSorts{
+	position:absolute;
+	width:1px;
+	right:-1px;
+	top:60px;
+	overflow:hidden;
+	z-index:9999;
+	border-left:#DDD solid 1px;
+	background:#FFF;
+	padding-bottom:70px;
+}
+.ListMoreSorts dl dt{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	overflow:hidden;
+	border-top:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	background:url('updown.jpg') right center no-repeat;
+}
+.ListMoreSorts dl dt a{
+	/* display:block; */
+	color:#888;
+}
+.ListMoreSorts dd div{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	padding-left:25px;
+}
+.ListMoreSorts dd div a{
+	display:block;
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:60px; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}

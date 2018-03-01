@@ -1,0 +1,76 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/login.css">
+<div class="GuideCont">当前位置：<a href="$webdb[www_url]">首页</a> -> 会员登录</div>
+<form name="form1" method="post" action="?f">
+<div class="LoginCont">
+    <dl>
+        <dt class='user'>用户名：</dt>
+        <dd><input type="text" name="username" maxlength="32" placeholder="用户名"/></dd>
+    </dl>
+    <dl>
+        <dt class='pass'>用户名：</dt>
+        <dd><input type="password" name="password" maxlength="32" autocomplete="off" placeholder="密码"/></dd>
+    </dl>
+<!--
+EOT;
+if($webdb[yzImgLogin]){
+print <<<EOT
+-->
+    <dl>
+        <dt class='yzcode'>验证码：</dt>
+        <dd class='yzinput'><input type="text" style="width:70px" name="yzimg" placeholder="验证码"/> 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"></span>');
+//-->
+</SCRIPT>
+		</dd>
+    </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    <div class="sub"><input class='comn-submit' type="submit" value="登录" /></div>
+    <input type="hidden" name="step" value="2">
+    <input type="hidden" name="fromurl" value="$FROMURL">
+    <input type="hidden" name="cookietime" value="86400">
+    <p class="txt">还没有帐号？<a href="$webdb[www_url]/do/wapreg.php">立即注册</a></p>
+
+<!--
+EOT;
+if($webdb[WXlogin_API]==2){print <<<EOT
+-->
+	<div class="wxlogin"><a href="$webdb[www_url]/do/wx_login.php">微信登录</a></div>
+	<p class="txt">微信可以实现快速一键注册与登录</p>
+
+<!--
+EOT;
+}elseif($webdb[WXlogin_API]==1){print <<<EOT
+-->
+	<div class="wxlogin"><a href="$webdb[www_url]/do/wapwxlogin.php">微信登录</a></div>
+	<p class="txt">微信可以实现快速一键注册与登录</p>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+if($webdb[QQ_login]){print <<<EOT
+-->
+	  <!--<div class="more">您还可以<a href="$webdb[www_url]/do/qq_login.php"><img src="$webdb[www_url]/images/more/qq_login.png"/></a></div>-->
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

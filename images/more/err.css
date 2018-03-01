@@ -1,0 +1,125 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td {
+	margin: 0;
+	padding: 0;
+}
+body,button,input,select,textarea {
+	font: 16px/26px 'Microsoft Yahei','Simsun';
+	color: #333;
+}
+html, body {
+	min-width:320px;
+	background: #f7f7f7;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+}
+address,cite,dfn,em,var {
+	font-style: normal;
+}
+code,kbd,pre,samp {
+	font-family: courier new,courier,monospace;
+}
+small {
+	font-size: 12px;
+}
+ul,ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #2d374b;
+}
+a:hover {
+	color: #d00;
+}
+sup {
+	vertical-align: text-top;
+}
+sub {
+	vertical-align: text-bottom;
+}
+legend {
+	color: #000;
+}
+fieldset,img {
+	border: 0;
+}
+button,input,select,textarea {
+	font-size: 100%;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+	vertical-align: middle;
+}
+.ErrContainer{
+	/*max-width:600px;
+	min-width:300px;*/
+	width:95%;
+	margin:15px auto;
+	border:#DDD solid 1px;
+	background:#FFF;
+	border-radius:5px;
+}
+.ErrContainer .Header{
+	display: table;
+	width: 100%;
+	border-bottom:#DDD solid 1px;
+}
+.ErrContainer .Header dt{
+	width:250px;
+}
+.ErrContainer .Header dt img{
+	width:100%;
+}
+.ErrContainer .Header dd{
+	display: table-cell;	
+	vertical-align:middle;	
+}
+.ErrContainer .Header dd a{
+	color:#888;
+}
+.ErrContainer .Header dd div{
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	color:#888;
+	font-size:14px;
+	text-align:right;
+	padding-right:15px;
+}
+.showerrMsg{	
+	background:#FAFAFA url(errbg.gif) no-repeat;
+	/*background-size: 100% auto;	
+	min-height:300px;*/
+	padding:50px 0 0 150px;
+	border-bottom:#DDD solid 1px;
+}
+.showerrMsg .Msg{
+	background:#FAFAFA url(errbg.gif) right bottom no-repeat;
+	padding:0 15px 200px 0;
+	max-width:400px;
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+}
+.ActButtom{
+	padding:5px;
+	text-align:center;
+}
+.ActButtom a{ 
+	display:inline-block; 
+	padding:3px 10px;
+	font-size:14px; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#f40; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+.ActButtom a:nth-child(2){ 
+	background-color:#3d8de2;
+}

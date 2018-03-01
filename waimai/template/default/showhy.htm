@@ -1,0 +1,334 @@
+<!--
+<?php
+@extract($db->get_one("SELECT COUNT(cid) AS TotalDp FROM `{$_pre}dianping` WHERE id=$id"));
+@extract($db->get_one("SELECT sum(fen1) AS Totalfen1 FROM `{$_pre}dianping` WHERE id=$id"));
+$thisFen=intval($Totalfen1/$TotalDp*10)/10;
+$thisPC=intval($thisFen/5*100);
+print <<<EOT
+-->
+<link rel="stylesheet" href="$Murl/images/ordering/ordering.css">
+<div class='main_box_bg'>
+	<div class='main_box'>
+		<div class='detail_introduce'>
+			<div class='img'><ul><ol><img src="{$rsdb[picurl]}"/></ol></ul></div>
+			<div class='info'>
+				<div class='title'>$rsdb[title]</div>
+				<div class='comment'>
+					<div class="xingxing"><div style="width:{$thisPC}%;"></div></div>
+					<span>{$thisFen}分</span>
+				</div>
+				<div class='time'><span>接单时间：09:00-21:00</span><span class='state'>营业中</span></div>
+				<div class='address'>$rsdb[address]</div>
+			</div>
+			<div class='ico'>
+				<ul>
+					<li class='transport_time'> <div class='number'>{$rsdb[arrive_time]}分钟</div><div class='describe'>送达时间</div></li>
+					<li class='min_price'><div class='number'>&yen;$rsdb[price]</div><div class='describe'>起送价</div></li>
+					<li class='send_price'><div class='number'>&yen; $rsdb[sendprice]</div><div class='describe'>配送费</div></li>
+				</ul>
+			</div>
+		</div> 
+		<div class='main_content'>
+			<div class='content_left'>
+				<div class='select_show'>
+					<span class='ck'><a href="javascript:;">菜单</a></span>
+					<span><a href="javascript:;">评价</a></span>
+				</div>
+				<div class='select_showtype'>
+					<div class='show_menu'>
+						<div class='sort'>
+							<ul>
+<!--
+EOT;
+$myfid||$allmyshop="class='ck'";
+print <<<EOT
+-->	
+								<li $allmyshop><a href='?fid=$fid&id=$id'>全部</a></li>
+								$listmysort
+							</ul>
+						</div>
+						<div class='hot_piclist'>
+							<div class='head'><span>$tagname</span></div>
+							<div class='piclist_box'>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$showurl = urlencode("$Murl/wapbencandy.php?fid=$rs[fid]&id=$rs[id]");
+print <<<EOT
+-->
+								<div class='piclist'>
+									<div class='img'><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><span><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></span></a></div>
+									<div class='title'><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></div>
+									<div class='info'>
+										<div class='info_left'>
+											<p class='number'>浏览{$rs[hits]}次</p>
+											<p class='price'>&yen; $rs[price]</p>
+										</div>
+										<div class='info_right'><a href="javascript:;JoinShopCar($rs[id])" title='加入购物车'><img src="$Murl/images/ordering/buy.png"/></a></div>
+									</div>
+									<div class="weixincode" onClick="window.open('bencandy.php?fid=$rs[fid]&id=$rs[id]')">
+										<h3>微信扫码手机查看</h3>
+										<p><img src="$webdb[www_url]/do/2codeimg.php?url=$showurl" width="120" height="120"/></p>
+									</div>
+								</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+							</div> 
+							<div class="jump">$showpage</div>	
+						</div>						
+					</div> 
+					<div class='show_comment'>
+						<div class="get_comments">
+							<!--异步加载店铺评价-->
+						</div>
+<!--
+EOT;
+if($lfjid){
+print <<<EOT
+-->
+						<div class="HyDianpingForm">
+							<input class="dpfen" type="hidden" value="5" />
+							<dl>
+								<dt>评分：</dt>
+								<dd>
+									<ul class="fen">
+										<li><span>差</span></li>
+										<li><span>一般</span></li>
+										<li><span>好</span></li>
+										<li><span>很好</span></li>
+										<li><span>非常好</span></li>
+									</ul>
+								</dd>
+							</dl>
+<!--
+EOT;
+if(!$web_admin){
+print <<<EOT
+-->
+							<dl>
+								<dt>验证码：</dt>
+								<dd class="yzimg">
+									<span><input id="yzImgNum" type="text" placeholder="输入验证码"/></span>
+									<span><img id="yz_Img" src=""/></span>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function refurbishYzImg(){
+	$("#yz_Img").attr("src",'$webdb[www_url]/do/yzimg.php?'+Math.random());
+}
+refurbishYzImg();
+$("#yz_Img").click(function(){
+	refurbishYzImg();
+});
+//-->
+</SCRIPT>
+								</dd>
+							</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+							<dl>
+								<dt>内容：</dt>
+								<dd><textarea id="comment_content" placeholder="输入评论内容"></textarea></dd>
+							</dl>
+							<dl>
+								<dt><br/></dt>
+								<dd><input type="button" id="comment_submit" value="提交" onClick="post_dianping();"/></dd>
+							</dl>
+						</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$(".HyDianpingForm .fen li").hover(function(){
+	var fennum=$(this).index()+1;	
+	$(this).parent().removeClass('fen1');
+	$(this).parent().removeClass('fen2');
+	$(this).parent().removeClass('fen3');
+	$(this).parent().removeClass('fen4');
+	$(this).parent().removeClass('fen5');
+	$(this).parent().addClass('fen'+fennum);
+	$('.HyDianpingForm .dpfen').val(fennum);
+});
+var limitTime=10;
+function post_dianping(){
+	var fen1=$('.HyDianpingForm .dpfen').val();
+	var yzimg=$("#yzImgNum").val()?$("#yzImgNum").val():"";
+	var content=$("#comment_content").val();
+	if(content==""){
+		alert("内容不能为空");
+		return false;
+	}else{
+		var urls="hydianping.php?job=adddianping&fid=$fid&id=$id&fen1="+fen1+"&yzimg="+yzimg+"&content="+content;
+		limitTime=10;
+		limitComment();
+		get_dianping(urls);
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function get_dianping(url){
+	$.get(url+"&"+Math.random(),function(d){
+		$(".get_comments").html(d);
+	});
+}
+get_dianping("hydianping.php?fid=$fid&id=$id");
+//-->
+</SCRIPT>
+					</div>
+				</div>
+			</div>
+			<div class='content_right'>
+				<div class='collect'><a href="javascript:;"><span onclick="collecthy('job.php?job=collecthy&id=$id')">收藏商家</span></a></div>
+				<div class='notice'>
+					<div class='head'>进店须知</div>
+					<div class='content'>
+						<div class='announcement'>
+							<p class='title'><span class='green'>本店公告：</span></p>
+							<p>配送范围：$rsdb[ranges]</p>
+							<p>咨询商家电话<span class='green'>$rsdb[telphoto]</span></p>
+						</div>
+						<div class='favorable'>
+							<div class='new'><span>新用户下单立减10元</span></div>
+							<div class='subtract'><span>在线支付满24减6元</span></div>
+							<div class='give'><span>每单满60元送老火炖汤</span></div>
+						</div>
+						<div class='weixin_img'>
+<!--
+EOT;
+$showurl = urlencode("$Murl/wapshowhy.php?fid=$fid&id=$fid");
+print <<<EOT
+-->
+							<div class='img'><img src="$webdb[www_url]/do/2codeimg.php?url=$showurl" width="169" height="169"/></div>							
+							<span>微信下单享受更多优惠</span>
+						</div>				
+					</div>
+				</div>
+			</div>		
+		</div>		
+	</div>
+</div>
+<!--
+EOT;
+$lfjuid||$lfjuid=0;
+if($lfjuid>0){
+print <<<EOT
+-->
+<div class="MyShopCar">
+	<div class="head"><span class="tag">购物车</span><span class="clear" onclick="clearShopCar()">清空</span></div>
+	<ul>
+		<li class="li1">菜名</li>
+		<li class="li2">份数</li>
+		<li class="li3">单价</li>
+	</ul>
+	<div class="ListCar">
+		<ul>
+			<li class="li1"><a href="#">招牌烧鸭饭</a></li>
+			<li class="li2"><span class="move">-</span> <input type="text" class="shopnum" value="1" onBlur="ckshopnums()"  readOnly='true'/> <span class="add">+</span></li>
+			<li class="li3">&yen;<span>12</span></li>
+		</ul>
+	</div>
+	<div class="other">
+		<span>配送费（不计入起送价）</span>
+		<p>&yen;<em>$rsdb[sendprice]</em></p>
+	</div>
+	<dl>
+		<dt><em>共 &yen; <span>129</span></em></dt>
+		<dd><a href="join.php">去结算</a></dd>
+	</dl>
+</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<script type="text/javascript">
+function select_showtype(num){
+	$('.select_show span').removeClass('ck');
+	$('.select_show span').eq(num).addClass('ck');
+	$('.select_showtype').children().hide();
+	$('.select_showtype').children().eq(num).show();
+}
+select_showtype(0);
+$('.select_show span').click(function(){
+	var thisnum=$(this).index();
+	select_showtype(thisnum);
+});
+function collecthy(url){
+	$.get(url+"&"+Math.random(),function(d){
+		alert(d);
+	});
+}
+
+function total_price(){
+	var totalprice=0,prices,nums;
+	$('.MyShopCar .ListCar ul').each(function(){
+		prices=parseFloat($(this).find('.li3 span').html());
+		nums=parseInt($(this).find('.li2 input').val());
+		totalprice+=prices*nums;
+	});
+	totalprice+=parseFloat($('.MyShopCar .other em').html());
+	$('.MyShopCar dl dt span').html(totalprice);
+}
+
+var top_height=$(window).height()-$(".MyShopCar").height()-5;
+function show_shopCar(url){
+	$.get(url+"&"+Math.random(),function(d){
+		$('.MyShopCar .ListCar').html(d);
+		top_height=$(window).height()-$(".MyShopCar").height()-5;
+		total_price();
+	});
+}
+
+var myuid=$lfjuid;
+if(myuid>0){
+	show_shopCar("shopcar.php?cuid=$rsdb[uid]");	
+	$(document).ready(function () {
+		$(window).scroll(function () {
+			if ($(window).scrollTop() > 50) {
+				$(".MyShopCar").show();
+			}
+			scrollheight=top_height+$(window).scrollTop();
+			$(".MyShopCar").css({'top':scrollheight+'px'});
+		});
+	});
+}
+
+function addshop(id){
+	var nownum=parseInt($('.shopcar'+id+' .li2 input').val());
+	nownum++;
+	show_shopCar("shopcar.php?cuid=$rsdb[uid]&job=changenum&id="+id+"&joins="+nownum);
+}
+
+function moveshop(id){
+	var nownum=parseInt($('.shopcar'+id+' .li2 input').val());
+	nownum--;
+	show_shopCar("shopcar.php?cuid=$rsdb[uid]&job=changenum&id="+id+"&joins="+nownum);
+}
+function clearShopCar(){
+	show_shopCar("shopcar.php?cuid=$rsdb[uid]&act=clearShopCar");
+}
+function JoinShopCar(cid){
+	if(myuid>0){
+		show_shopCar("shopcar.php?cuid=$rsdb[uid]&act=joincar&cid="+cid);
+	}else{
+		var msay = confirm('您还没有登录！要先登录才能购物！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/login.php?fromurl=$fromurl";
+		}		
+	}
+}
+</script>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,1 @@
+INSERT INTO `qb_hack` (`keywords`, `name`, `isclose`, `author`, `config`, `htmlcode`, `hackfile`, `hacksqltable`, `adminurl`, `about`, `class1`, `class2`, `list`, `linkname`, `isbiz`) VALUES ('baidu_sitemap', '百度地图', 0, '', '', '', '', '', 'index.php?lfj=baidu_sitemap&job=make', '', 'other', '插件大全', 1, '', 0);

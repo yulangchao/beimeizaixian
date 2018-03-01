@@ -1,0 +1,238 @@
+<!--
+<?php
+print <<<EOT
+-->
+<script src="images/life6/changeshow.js"></script>
+<link rel="stylesheet" type="text/css" href="$Mdomain/images/life6/index.css">
+<div style="width:1200px; margin:auto;">
+<div class="content">   <!--  content  s -->
+<!-- 主体内容1  s -->
+	<div class="MainCont1">  <!-- MainCont1 s -->
+		<div class="sideL">  <!-- sideL s -->
+			<div class="sidecont1">  <!-- sidecont1 资讯、公告 s -->
+				<div class="head">
+					$label[flea_indext2]
+				</div>
+				<div class="cont" id="Tab1">
+					<dl>
+						$label[flea_indext3]
+					</dl>
+					<ul>$label[flea_indext4]</ul>
+				</div>
+				<div class="cont" id="Tab2" style="display:none;">
+					<dl>
+						$label[flea_indext5] 
+					</dl>
+					<ul>
+						$label[flea_indext6]
+					</ul>
+				</div>
+			</div>  <!-- sidecont1 资讯、公告 e -->
+			<div class="showSorts">  <!--  showSorts  分类栏目  s -->
+				<div class="head">分类栏目</div>
+					<div class="cont">
+						<ul id="ShowSortTable">
+<!--
+EOT;
+$trnum=0;
+foreach($Fid_db[0] as $key=>$value){
+$url=get_info_url('',$key,$city_id);
+if($trnum==0){
+print <<<EOT
+-->
+							<li>
+<!--
+EOT;
+}$trnum++;print <<<EOT
+-->
+								<dl>
+								<dt><span>|&nbsp;</span><a href="$url">{$value}</a></dt>
+									<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] as $keys=>$rs){
+$InfoNum[$keys]=intval($InfoNum[$keys]);
+$url=get_info_url('',$keys,$city_id);
+print <<<EOT
+-->
+										<div><a href="$url">{$rs}</a>({$InfoNum[$keys]})</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+									</dd>
+								</dl>
+<!--
+EOT;
+if($trnum==2){
+$trnum=0;print <<<EOT
+-->
+<!--
+EOT;
+}}if($trnum && $trnum<2){
+for($i=$trnum;$i<2;$i++){print <<<EOT
+-->
+								<dl>&nbsp;</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+							</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+								</ul>
+<ul id="ShowSorts"></ul>
+<div id="ShowUpS" onclick="showups()" onmouseout="clearcss()"></div>
+<div id="ShowDownS" onclick="showdowns()" onmouseout="clearcss()"></div>
+<div id="moveUpS" onclick="showups()" onmouseover="this.className='up'" onmouseout="this.className=''"></div>
+<div id="moveDownS" onclick="showdowns()" onmouseover="this.className='down'" onmouseout="this.className=''"></div>
+<script src="images/life6/showsort.js"></script>
+					</div>
+			</div><!-- showSorts  分类栏目  e -->
+		</div>   <!--  sideL e -->
+		<div class="sideC">  <!-- sideC   中间部分  s -->
+			<div class="SlideCont">  <!-- SlideCont  轮播图 s -->
+			$label[flea_indext7]
+			</div>      <!--   SlideCont  轮播图 e -->
+			<div class="sidecont2"> <!--  sidecont2  s -->
+				<div class="head">$label[flea_indext8]</div>
+				<div class="cont" id="Tab3">
+					<dl>
+						$label[flea_indext9]
+					</dl>
+					<div class="m-conts">
+						$label[flea_indext10]
+					</div>
+				</div>
+				<div class="cont" id="Tab4" style="display:none;">
+					<dl>
+						$label[flea_indext11] 
+					</dl>
+					<div class="m-conts">
+						$label[flea_indext12] 
+					</div>
+				</div>
+			</div>    <!-- sidecont2  e -->
+			<dl class="CenterMinAd">  <!-- CenterMinAd  s -->
+				<dt>$label[flea_indext13] </dt>
+				<dd>$label[flea_indext14] </dd>
+			</dl>   <!-- CenterMinAd  e -->
+					<div class="sidecont2">   <!-- sidecont2  s -->
+						<div class="head">
+							$label[flea_indext15]
+						</div>
+						<div class="cont" id="Tab5">
+							<dl>
+								$label[flea_indext16]
+							</dl>
+							<div class="m-conts">
+								$label[flea_indext17]
+							</div>
+						</div>
+						<div class="cont" id="Tab6" style="display:none;">
+							<dl>
+								$label[flea_indext18]
+							</dl>
+							<div class="m-conts">
+								$label[flea_indext19]
+							</div>
+						</div>
+					</div>  <!-- sidecont2  e -->
+
+					<dl class="CenterMinAd">  <!-- CenterMinAd  s -->
+						<dt>$label[flea_indext20] </dt>
+						<dd>$label[flea_indext21] </dd>
+					</dl>   <!-- CenterMinAd  e -->
+				</div>  <!-- sideC   中间部分  e -->
+
+			<div class="sideR">  <!--  sideR  s -->
+				<div class="ActCont">   <!-- ActCont  s -->
+					<div class="head">
+						<div class="tag">最新二手</div>
+						<div class="post"><a href="post.php" target="_blank"><img src="images/life6/post.png"/></a></div>
+					</div>
+					<div class="cont">
+						$label[flea_indext22]				
+					</div>
+					<dl class="Act">
+						<dt><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/2shou/member/list.php" target="_blank"><img src="images/life6/gl.png"/></a></dt>
+						<dd><a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/2shou/member/collection.php" target="_blank"><img src="images/life6/sc.png"/></a></dd>
+					</dl>
+				</div>   <!-- ActCont  e -->
+				<div class="sidecont3"> <!--  sidecont3  s -->
+					<div class="head">
+						$label[flea_indext23]
+					</div>
+					<div class="cont">
+						$label[flea_indext24]
+					</div>
+				</div>   <!--  sidecont3  e -->
+				<div class="RightMinAd">$label[flea_indext25]</div>
+				<div class="sidecont4">  <!--  sidecont4  s -->
+					<div class="head">
+						$label[flea_indext26]
+					</div>
+					<div class="cont" id="Tab7">
+						$label[flea_indext27]			  
+					</div>
+
+					<div class="cont" id="Tab8" style="display:none;">
+						$label[flea_indext28]			
+					</div>
+					<div class="cont" id="Tab9" style="display:none;">
+						$label[flea_indext29]
+					</div>
+					<div class="cont" id="Tab10" style="display:none;">
+						$label[flea_indext30]
+					</div>
+				</div>  <!--  sidecont4  e -->
+			</div>  <!-- sideR  e -->
+	</div>  <!-- MainCont1 e -->
+	<div class="PhotoCont">    <!-- PhotoCont  s -->
+		<div class="head">
+			$label[flea_indext31]
+		</div>
+		<div class="cont">
+			$label[flea_listpic]
+		</div>
+	</div>   <!--  PhotoCont  e -->
+	<div class="MoreCont">   <!-- MoreCont s -->
+<!--
+EOT;
+foreach($listdb_moresort AS $key1=>$rss){
+$url=get_info_url('',$rss[fid],$city_id);
+print <<<EOT
+-->
+				<dl>        	
+					<dt><a href="$url" target="_blank">$rss[name]</a></dt>
+					<dd>
+						<ul>
+<!--
+EOT;
+foreach($rss[article] AS $key2=>$rs){
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+print <<<EOT
+-->
+							<li  style="list-style-type:disc;list-style-position:inside;color:#ccc;font-size:14px"><a href="$url" title="$rs[full_title]" target="_blank">$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->		
+						</ul>
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>   <!-- MoreCont e -->	
+</div>   <!--  content e -->
+</div>
+<!--
+EOT;
+?>
+-->

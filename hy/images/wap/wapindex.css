@@ -1,0 +1,47 @@
+.s-skin{margin-bottom:15px; background:#fff;}
+
+.m-nav{padding:10px 0 5px 0;}
+.m-nav ul{overflow:hidden;}
+.m-nav ul li{float:left; width:25%; text-align:center; padding-bottom:15px;}
+.m-nav ul li span{display:block;}
+.m-nav ul li span:first-child{width:60px; height:60px; line-height:60px; overflow:hidden; border-radius:50%; margin:0 auto; background:#ddd;}
+.m-nav ul li span:last-child{padding-top:5px; height:25px; line-height:25px; color:#666; font-size:14px;}
+.m-nav ul li span img{vertical-align:initial; width:60px; height:60px;}
+.m-NavMore{width:150px; height:35px; line-height:35px; margin:10px auto; text-align:center; border:1px solid #d7d7d7; border-radius:8px; font-size:16px; color:#666; cursor:pointer;}
+/* m-News */
+.m-News{overflow:hidden;}
+.m-News .NewsCont{padding-bottom:10px;}
+.NewsCont h2{height:25px; line-height:25px; padding:10px; background:url('more.png') right center no-repeat; border-bottom:1px solid #e5e5e5;}
+.NewsCont h2 a{float:left; width:100%; height:100%; font-size:16px; color:#666;}
+.NewsCont dl{overflow:hidden; padding:10px 0; margin:0 10px; border-bottom:1px solid #e5e5e5;}
+.NewsCont dl dt{width:30%; height:80px; line-height:80px; overflow:hidden; text-align:center;}
+.NewsCont dl dt img{max-width:100%; max-height:100%;}
+.NewsCont dl dd{width:calc(70% - 10px); position:relative;}
+.NewsCont dl dd h3{height:20px; line-height:20px; font-size:.9rem; color:#666; font-weight:400; overflow:hidden;}
+.NewsCont dl dd p{overflow:hidden; font-size:.9rem;}
+.NewsCont dl dd p a{color:#999; font-size:.9rem;}
+.NewsCont dl dd .m-sortname{display:block; width:calc(100% - 60px);}
+.NewsCont dl dd p span{height:20px; line-height:20px; font-size:.8rem; color:#999;}
+
+.fullbg { background-color:#000;  opacity:0;  top:0;  left:0;  width:100%;  height:100%;  z-index:1001;  position:absolute; display:none;}
+.navbox {position:absolute;  top:0;   right:-1px;  z-index:1002;  width:1px; overflow:hidden; background-color:#eee;  font-family:Arial, Helvetica, sans-serif;}
+.navbox:after{content: '';  display: block; width: 100%;	 height: 80px; clear:both;}
+.navbox a{font-family:Arial, Helvetica, sans-serif; color:#333;}
+.navbox dl{border-bottom:1px solid #d6d6d6;}
+.navbox dl dt{height:35px; line-height:35px; padding-left:10px; border-bottom:1px solid #FFF; border-top:1px solid #FFF; overflow:hidden; position:relative;}
+.navbox dl dt:after{content: ''; width: 14px; height: 14px; display: block; position: absolute; top: 12px; right: 10px; width:0; height:0; border:8px solid transparent; border-left: 8px solid rgba(0,0,0,0.8); border-right:0; cursor:pointer;}
+.navbox dl.ck dt:after{border:8px solid transparent; border-top: 8px solid rgba(0,0,0,0.8); border-bottom:0;}
+.navbox dl.ck dt a{color:red;}
+.navbox dl dd{padding:10px; background:#FFF; border-top:1px solid #d6d6d6; display:none;}
+.navbox dl.ck dd{display:block;}
+.navbox dl dd div a{display:block; height:30px; line-height:30px; overflow:hidden;}
+.navbox dl dd div a.ck{color:red;}
+
+.ShowMoreShop{text-align:center; margin:10px auto; width:80%; border:#d5d5d5 solid 1px; background:#fff; border-radius:5px; cursor: pointer;}
+.ShowMoreShop span{display:inline-block; color:#666;padding:8px 15px;}
+
+@media(min-width:640px){
+	.m-nav ul li span:first-child{width:80px; height:80px; line-height:80px;}
+	.m-nav ul li span img{width:80px; height:80px;}
+	.m-Look span{width:80px; height:35px; line-height:35px;}
+}

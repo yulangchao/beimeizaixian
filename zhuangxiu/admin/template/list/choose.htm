@@ -1,0 +1,35 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainContainers">
+  <div class="Conter">
+  <table class="ListTable">
+     <tr> 
+      <th width="27%">类别</th>
+      <th width="27%">SEO</th>
+      <th width="18%">内容</th>
+      <th width="28%">发布</th>
+    </tr>
+    <!--
+EOT;
+foreach($Fid_db['name'] AS $key=>$value){
+print <<<EOT
+-->
+    <tr> 
+    <td align="center" width="27%"><a href="$Murl/list.php?fid=$key" target="_blank">$value</a></td>
+    <td width="27%" align="center"><a href="$admin_path&file=sort&job=editsort&fid=$key">管理</a></td>
+      <td width="18%" align="center"><a href="$admin_path&job=list&fid=$key">管理</a></td>
+      <td align="center" width="28%"><a href="$Murl/post.php?fid=$key" target=_blank>发布</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+ </table>
+ </div>
+</div>
+<!--
+EOT;
+?>
+-->

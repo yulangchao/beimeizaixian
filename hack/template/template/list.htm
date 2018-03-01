@@ -1,0 +1,57 @@
+<!--
+<?php
+print <<<EOT
+--> 
+ 
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=$job">
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+
+    <tr> 
+      <th width="5%">序号 </th>
+      <th width="12%">模板类型</th>
+      <th width="20%">名称</th>
+      <th width="36%">存 放 路 径 </th>
+      <th width="10%">可回档</th>
+      <th width="9%">修改模板</th>
+      <th width="8%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id]</td>
+      <td class='Left'>$rs[typename]</td>
+      <td class='Left'>$rs[name]</td>
+      <td class='Left'>$rs[filepath] </td>
+      <td>$rs[NUM] </td>
+      <td><a href="index.php?lfj=template&job=edit&id=$rs[id]&notop=1" title='点击修改' class='edit'></a></td>
+      <td><a href="index.php?lfj=$lfj&action=delete&id=$rs[id]"  onClick="return confirm('模板会一起被删除,不可恢复,你确实要删除吗?')" title='点击删除' class='del'></a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+</div>
+</div>
+</form>
+
+ <div class="MainContainers">
+  <div class="Header"><span class="tag">帮助说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>1.这里创建的模板是提供给发表文章、修改栏目、发布独立页时候选择调用的。</li>
+      <li> 2.为防止误修改模板,系统会在修改模板的时候,自动备份之前的模板,以供回档。</li>
+    </ul>
+  </div>
+</div>
+
+<!--
+EOT;
+?>
+-->

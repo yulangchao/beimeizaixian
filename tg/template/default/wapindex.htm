@@ -1,0 +1,116 @@
+<?php
+require(ROOT_PATH."inc/waphead.php");
+?>
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/wap/wapindex.css"/>
+<!-- nav -->
+  <section class="s-skin m-nav">
+	<ul>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$url="waplist.php?fid=$key";
+$i++;
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/ficon$i.png"))?"./images/wap/ficon$i.png":"./images/wap/ficon1.png");
+if($i>8) break;
+print <<<EOT
+-->
+	  <li><a href="$url"><span><img src="$logo"/>$name</span></a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</ul>
+  </section>
+<!-- /nav -->
+<!-- m-modleCont -->
+  <section class="s-skin m-modleCont">
+    <div class="modleCont">
+	  <h2><a href="#">团购活动</a></h2>
+	  <div class="allCont">
+	    <ul>
+<!--
+EOT;
+$listdbnews=list_tg(4,'new');
+foreach($listdbnews AS $key=>$rs){
+$rs[url] = "wapbencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+		  <li>
+		    <a href="$rs[url]"><div class="List">
+			  <div class="ListPic"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></div>
+			  <h3>$rs[title]</h3>
+			</div></a>
+		  </li>
+<!--
+EOT;
+}print <<<EOT
+-->	
+		</ul>
+	  </div>
+	</div>
+  </section>
+<!-- /m-modleCont -->
+<!-- m-Hot -->
+  <section class="s-skin m-Hot">
+    <div class="Listall HotCont">
+	  <h2><a href="#">报名参团</a></h2>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	 <dl>
+	    <dt class="L"> <a href="$rs[url]"><img src="$rs[picurl]"/></a></dt>
+		<dd class="R">
+		  <h3><a href="$rs[url]">$rs[title]</a></h3>
+		  <p class="ListPrice"><span class="L">$rs[totaluser]</span><span class="R"><a href="$rs[url1]">立即报名</a></span></p>
+		  <p class="ListOther"><span class="L">团长：$rs[username]</span><span class="R">申请时间：$rs[posttime]</span></p>
+		</dd>
+	  </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>
+  </section> 
+  <div class="ShowMoreShop" onclick="showMoreCont();"><span>点击查看更多</span></div>
+<script>
+var page=1;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreShop").hide();
+		}else{
+			$(".HotCont").append(d);
+			$(".ShowMoreShop").html("<span>点击查看更多</span>");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".HotCont dl").length%rows!=0){
+		$(".ShowMoreShop").hide();
+	}
+}
+countlist();
+</script>
+<!-- /m-Hot -->
+<!--
+EOT;
+?>
+-->
+<?php
+require(ROOT_PATH."inc/wapfoot.php");
+?>

@@ -1,0 +1,30 @@
+<!--
+<?php
+foreach($listdb AS $key=>$rs){
+$atc_dels=($rs[ifadmin])?"<A HREF=\"javascript:getcomment('./job.php?job=comment_ajax&fid=$fid&id=$id&cid=$rs[cid]')\">删除</A>":"";
+print <<<EOT
+-->
+<div class="ListComment">
+	<dl>
+		<dt><A HREF="$webdb[www_url]/member/userinfo.php?uid=$rs[uid]" target="_blank"><img src='$rs[icon]' onerror="this.src='$webdb[www_url]/images/default/nobody.gif'"/></A></dt>
+		<dd>{$rs[content]}</dd>
+	</dl>
+	<div class="moreinfo">
+		称呼:{$rs[username]} 日期:{$rs[posttime]} <A HREF="javascript:getcomment('{$Mdomain}/comment_ajax.php?action=vote&id=$id&cid=$rs[cid]&posttype=ajax&job=agree')">支持:<span>{$rs[agree]}</span>票</A> 
+      <A HREF="javascript:getcomment('{$Mdomain}/comment_ajax.php?action=vote&id=$id&cid=$rs[cid]&posttype=ajax&job=disagree')">反对:<em>{$rs[disagree]}</em>票</A>
+	  $atc_dels
+	</div>
+</div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+$no_Comment=$listdb?"":"<div class='no_Comment'>暂时还没有任何评论</div>";
+print <<<EOT
+-->
+$showpage
+$no_Comment
+<!--
+EOT;
+?>
+-->

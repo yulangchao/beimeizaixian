@@ -1,0 +1,55 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+	<div class="head"><div class="tag">以下是你最近的{$webdb[MoneyName]}赚取与消费记录,你当前的{$webdb[MoneyName]}总数是：<span class="b red">$lfjdb[money]</span> 
+            {$webdb[MoneyDW]} </div></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable">
+          <tr>
+            <th width="45%">项目</th>
+            <th width="20%">{$webdb[MoneyName]}数({$webdb[MoneyDW]})</th>
+            <th width="15%">日期</th>
+            <th width="10%">详情</th>
+            <th width="10%">删除</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>            
+            <td class="tL">$rs[title]</td>
+            <td class="b">$rs[money]</td>
+            <td>$rs[posttime]</td>           
+            <td class="look"><a href="javascript:;" id="look">查看</a> <div class="show">{$rs[about]}</div></td>
+            <td><a href="?act=del&id=$rs[id]">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+        </table>
+        $showpage
+    </div>
+</div>
+<script>
+$(".look div").hide();
+$(".look").mouseover(function(){
+   $(this).find("div").show();
+});
+$(".look").mouseout(function(){
+   $(this).find("div").hide();
+});
+</script>
+<style>
+.look{position:relative;}
+.show{background:#fff; border:1px solid #f90; width:200px; padding:10px; border-radius:5px; line-height:30px; position:absolute; top:10px; right:100px; z-index:10;}
+</style>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,29 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<script type="text/javascript" src="$webdb[www_url]/ewebeditor/ckeditor/ckeditor.js"></script>
+<script src="$webdb[www_url]/images/default/setday.js"></script>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+  <form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+    <h3><a href='bencandy.php?fid=$fid&id=$cid'>$infodb[title]</a></h3>
+	<!--{template}--><dl>
+		<dt>{title}</dt>
+		<dd>{value}</dd>
+	</dl><!--{/template}-->
+	<div class="Sub">
+	  <div class="butter">
+         <span class="submits"><input type="submit" name="Submit" value="Ìב ½»"/></span>
+      </div>
+	  <input type="hidden" name="fid" value="$fid">
+      <input type="hidden" name="id" value="$id">
+      <input type="hidden" name="cid" value="$cid">
+      <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+	</div>
+  </form>
+</div>
+<!--
+EOT;
+?>
+-->

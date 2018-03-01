@@ -1,0 +1,111 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/web/list.css">
+<div class="ShopTgContainer" style="margin:15px auto; width:1200px;">
+	<div class="Main">
+		<div class="ListCont">
+			<div class="head">{$fidDB[name]}</div>
+			<div class="cont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[save] = $rs[market_price] - $rs[price];
+print <<<EOT
+-->
+				<div class="ListTg">
+					<div class="time">{$rs[posttime]}</div>
+					<div class="c"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="$target" title='$rs[full_title]'>{$rs[content]}</a></div>
+					<dl>
+						<dt><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank"><span><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></span></a></dt>
+						<dd>
+							<div><span>{$rs[pay_num]}</span>人购买</div>
+							<div>原价：<strike>￥{$rs[market_price]}</strike></div>
+							<div>现价：<em>￥{$rs[price]}</em></div>
+							<div>折扣：<span>{$rs[shoptype]}折</span></div>
+							<div>节省：<em>￥{$rs[save]}</em></div>
+						</dd>
+					</dl>
+				</div>	
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>
+			<div class="ShowPage">$showpage</div>
+		</div>		
+	</div>
+	<div class="Side">
+		<div class="sidecont">
+        	<div class="head"><span class="tag">官方团购分类</span></div>
+            <div class="cont">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$name=get_word($name,20);
+print <<<EOT
+-->
+				<dl class="listsort">
+                	<dt><a href="list.php?fid=$key" target="_blank">$name</a></dt>
+<!--
+EOT;
+if($Fid_db[$key]){print <<<EOT
+-->
+                    <dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $fid=>$name ){
+$name=get_word($name,24);
+print <<<EOT
+-->
+						<a href="list.php?fid=$fid" target="_blank">$name</a> | 
+<!--
+EOT;
+}print <<<EOT
+-->
+                    </dd>
+<!--
+EOT;
+}print <<<EOT
+-->
+                </dl>
+<!--
+EOT;
+}print <<<EOT
+-->	          
+            </div>
+        </div>
+		<div class="sidecont">          
+        	<div class="head"><span class="tag">热门团购消息</span></div>
+        	<div class="listcont">
+<!--
+EOT;
+$array=list_title('hot',8);
+foreach($array AS $rs){print <<<EOT
+-->
+             
+            	<div class="list"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</div>
+        </div> 	
+	</div>
+</div>
+<script type="text/javascript">
+$('.ListTg dl dt a').hover(
+	function(){
+		$(this).animate({'height':'280px','width':'340px','margin-left':'-50px','margin-top':'-50px'},300);
+	},
+	function(){
+		$(this).animate({'height':'180px','width':'240px','margin-left':'0px','margin-top':'0px'},300);
+	}
+);
+</script>
+<!--
+EOT;
+?>
+-->

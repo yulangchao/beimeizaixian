@@ -1,0 +1,103 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/yellow/fenlie_allcity.css">
+<!--
+EOT;
+if($webdb[Info_allcityType]==1){
+print <<<EOT
+-->
+      <table width="99%" border="0" cellspacing="1" cellpadding="3" class="dragTable">
+        <tr align="left" height="18"  > 
+          <td style="line-height:180%;background:#FFF7DE;">城市列表: 
+            <!--
+EOT;
+foreach($listdb AS $key=>$array){
+print <<<EOT
+-->
+            &nbsp;<a href="#$key">{$key}</a> 
+            <!--
+EOT;
+}print <<<EOT
+-->
+          </td>
+        </tr>
+  
+        <tr  style="line-height:150%;"> 
+          <td align="left" style="border-bottom:1px dotted #ccc;">
+		        <!--
+EOT;
+foreach($listdb AS $key=>$array){
+print <<<EOT
+-->
+ <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:8px;">
+  <tr>
+                <td style="background:#F6F6F6;line-height:170%;" align="center"><b><a name='$key'></a><font color="#0000FF">$key</font></b></td>
+  </tr>
+  <tr>
+                <td>
+                  <!--
+EOT;
+foreach($array AS $key2=>$rs){
+$color=$rs[hits]?'color:red;':'';
+print <<<EOT
+-->
+                  &nbsp;<a href="{$city_DB[url][$rs[fid]]}" style="font-size:15px;$color">{$rs[name]}</a>&nbsp;&nbsp; 
+                  <!--
+EOT;
+}print <<<EOT
+-->
+                </td>
+  </tr>
+</table>
+
+   <!--
+EOT;
+}print <<<EOT
+--> </td>
+        </tr>
+      
+      </table><!--
+EOT;
+}else{
+print <<<EOT
+-->
+<!--
+EOT;
+foreach($area_DB[name] AS $key=>$value){
+print <<<EOT
+-->
+		<table class="ListArea">
+		  <tr>
+			<td class="name">$value</td>
+			<td class="city">
+<!--
+EOT;
+foreach($city_DB[$key] AS $key2=>$value2){
+$city_DB[url][$key2] = str_replace("index.php","wapindex.php",$city_DB[url][$key2]);
+$color=$city_DB[hits][$key2]?'color:red;':'';
+print <<<EOT
+-->
+            <a href="{$city_DB[url][$key2]}" style="$color">$value2</a> 
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</td>
+		  </tr>
+		</table>
+
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

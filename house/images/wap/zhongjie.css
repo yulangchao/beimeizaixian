@@ -1,0 +1,298 @@
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.BaseInfo{
+	border-top:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	position:relative;
+	height:150px;
+	overflow:hidden;
+}
+.BaseInfo dt{
+	width:110px;
+	height:130px;
+	overflow:hidden;
+	position:absolute;
+	left:10px;
+	top:10px;
+}
+.BaseInfo dt img{
+	width:100%;
+}
+.BaseInfo dt span{
+	display:block;
+	height:30px;
+	left:30px;
+	width:110px;
+	opacity:0.6; 
+	bottom:0; 
+	left:0; 
+	position:absolute;
+	background:#000;
+	text-align:center;
+	line-height:30px;
+	color:#FFF;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;	
+}
+.BaseInfo dt:hover span{
+	display:none;
+}
+.BaseInfo dd{
+	padding:5px 0 0 135px;
+}
+.BaseInfo dd div{
+	height:28px;
+	line-height:28px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;	
+}
+.BaseInfo dd div.icon img{
+	height:18px;
+	margin-right:5px;
+}
+.BaseInfo dd div.tt span{
+	color:#000;
+}
+.BaseInfo dd div.hits span{
+	color:#F60;
+	font-weight:bold;
+}
+.MoreInfo li{
+	padding:5px 0;
+	line-height:20px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.MoreInfo li a{
+	color:#333;
+}
+.MoreInfo li span{
+	color:#666;
+}
+.Contact{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:3px;
+	margin:10px auto;	
+}
+.Contact li{
+	height:40px;
+	line-height:40px;
+	border-top:#DDD solid 1px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:14px;
+}
+.Contact li a{
+	color:#333;
+}
+.Contact li span{
+	color:#666;
+}
+.ListCont{
+	padding-top:15px;
+}
+.ListCont dl{
+	height:110px;
+	overflow:hidden;
+	position:relative;
+	background:url(dotted.png) left 95px repeat-x;
+}
+.ListCont dl dt{
+	width:120px;
+	border:#DDD solid 1px;
+	padding:1px;
+	position:absolute;
+	left:15px;
+	top:0;
+}
+.ListCont dl dt a{
+	display:block;
+	width:120px;
+	height:75px;
+	background:#EFEFEF;
+	overflow:hidden;
+}
+.ListCont dl dt a img{
+	width:100%;
+}
+.ListCont dl dd{
+	height:105px;
+	padding-left:150px;
+	overflow:hidden;
+	/*background:url(icon.png) right bottom no-repeat;*/
+}
+.ListCont dl dd h3,.ListCont dl dd div{
+	height:25px;
+	line-height:25px;
+	display:block;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#666;
+	word-spacing:10px;
+}
+.ListCont dl dd h3 a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#369;
+	font-weight:normal;
+}
+.ListCont dl dd div strike{
+	color:#999;
+}
+.ListCont dl dd div span{
+	color:#F60;
+	font-size:16px;
+	font-weight:bold;
+}
+.ListCont dl dd div em{
+	color:green;
+	font-size:16px;
+	font-style:normal;
+}
+.Contents h3,.ShowCont .head{
+	display:block;
+	border-top:#999 solid 1px;
+	border-bottom:#DDD solid 1px;
+	height:40px;
+	line-height:40px;
+	background:#FFF;
+	text-indent:10px;
+}
+.Contents .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+}
+.fullbg,.ShowBigPic { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.ShowBigPic{
+	z-index:1002;
+}
+.ShowBigPic img{
+	width:100%;
+}
+.ShowCont{
+	margin-top:15px;
+}
+.ShowCont ul {
+	padding:10px;
+}
+.ShowCont ul li{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:5px 0 5px 0;
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+}
+.ShowCont ul li span{
+	color:#333;
+}
+.SelectShow li { 
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	width:98%;
+	margin:10px auto 10px auto;
+	cursor:pointer;
+	line-height:35px;
+	background:#EFEFEF;
+}
+.SelectShow li.ck { 
+	background-color:#3d8de2;
+	color:#FFF;
+}
+.ShowCont .ps{
+	text-align:center;	
+	padding-bottom:15px;
+}
+.ShowCont .ps a{
+	display:inline-block; 
+	padding:6px 15px;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#f40; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+.ShowCont .aa{
+	font-family:Arial, Helvetica, sans-serif; 
+	padding:10px;
+}
+.ListPic{
+	width:320px;
+	margin:15px auto 0 auto;
+	overflow:hidden;
+}
+.ListPic:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 5px;
+	clear:both;
+}
+.ListPic div{
+	width:160px;
+	overflow:hidden;
+	padding-bottom:5px;
+	float:left;
+}
+.ListPic div a{
+	display:block;
+	width:140px;
+	height:100px;
+	overflow:hidden;
+	margin:auto;
+}
+.ListPic div a img{
+	width:100%;
+}
+.ListPic div span{
+	display:block;
+	text-align:center;
+	height:25px;
+	width:140px;
+	margin:auto;
+	line-height:25px;
+	height:25px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif; 
+}
+.ShowMap{
+	width:98%;
+	margin:15px auto 5px auto;
+}
+.ShowMv{
+	padding:15px 0 5px 0;
+	text-align:center;
+}
+.SpacFoot{
+	width:100%;
+	clear:both;
+	height:50px;
+}

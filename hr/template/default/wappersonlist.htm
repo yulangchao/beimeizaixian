@@ -1,0 +1,39 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/hr.css">
+<div class="GuideCont">当前位置：<a href="./">招聘首页</a> -> 人才列表</div>
+<ul class="SelectType">
+<!--{filter}-->
+	<li><span>{title}：</span>{value}</li>
+<!--{/filter}-->
+</ul>
+<div class="ListPerson">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[facephoto]=tempdir($rs[facephoto]);
+print <<<EOT
+-->
+	<dl>
+    	<dt><a href="$Murl/wapjoinshow.php?id=$rs[id]"><img src="$rs[facephoto]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></a></dt>
+        <dd>
+        	<div><span>姓名：</span>{$rs[truename]}</div>
+            <div><span>性别：</span>{$rs[sex]}</div>
+            <div><span>年龄：</span>{$rs[age]}岁</div>
+            <div><span>工作年限：</span>{$rs[workyear]}</div>
+        </dd>
+    </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+<div class="ListCont">
+	<div class="page">$showpage</div>
+</div>
+<!--
+EOT;
+?>
+-->

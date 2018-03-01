@@ -1,0 +1,65 @@
+div, p, dl, dt, dd,td,span,li,a,h3,h4{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.b{
+	font-weight:bold;
+}
+.red{
+	color:red;
+}
+.blue{
+	color:blue;
+}
+.RmbPayCont{
+	width:98%;
+	border:#DDD solid 1px;
+	margin:10px auto;
+	border-radius:10px;
+	background:#FFF;
+	-webkit-box-shadow: 0 0 10px 3px #DDD;
+	box-shadow:0 0 10px 3px #DDD;
+	padding-bottom:15px;
+}
+.RmbPayCont h3{
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border-bottom:#DDD solid 1px;
+	-webkit-box-shadow: 0 0 10px 2px #DDD;
+	box-shadow:0 0 10px 2px #DDD;
+	margin-bottom:10px;
+}
+.RmbPayCont div.list,.RmbPayCont div.sub{
+	padding:5px 10px 5px 10px;
+	line-height:25px;
+	text-align:center;
+	color:#666;
+}
+.RmbPayCont div.sub a{
+	display: inline-block;
+	padding: 3px 10px;
+	text-align: center;
+	color: #fff;
+	background-color: #f40;
+	border: 0 none;
+	box-shadow: #ddd 0 1px 1px;
+	border-radius: 3px;
+}
+ul.payList{
+	width: 320px;
+	margin:10px auto;
+}
+ul.payList li{
+	display: table;
+}
+ul.payList li span,ul.payList em {
+	display: table-cell;
+	vertical-align:middle;
+	height:60px;
+}
+ul.payList em{
+	width:30px;
+}
+ul.payList li span img{
+	height:40px;
+}

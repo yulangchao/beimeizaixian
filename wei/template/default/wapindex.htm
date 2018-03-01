@@ -1,0 +1,86 @@
+<!--
+<?php
+$ListWei="";
+foreach($listdb AS $key=>$rs){
+$pic=$rs[picurl]?"<dt><a href='./wapbencandy.php?fid=$rs[fid]&id=$rs[id]'><img src='$rs[picurl]' onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\"></a></dt>\r\n":"";
+$ListWei.="<dl>\r\n";
+$ListWei.=$pic;
+$ListWei.="<dd>\r\n";
+$ListWei.="<h4><a href='./wapbencandy.php?fid=$rs[fid]&id=$rs[id]'>$rs[title]</a></h4>\r\n";			
+$ListWei.="<p>$rs[content]</p>\r\n";
+$ListWei.="<div>发布者(<a href='$webdb[www_url]/member/waphomepage.php?uid=$rs[uid]'>$rs[username]</a>) 点击(<span>$rs[hits]</span>)</div>\r\n";
+$ListWei.="</dd>\r\n";
+$ListWei.="</dl>\r\n";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/wei.css">
+<div class="SelectList">
+	<ul class="ChangeSele">
+		<li><a href="javascript:;" id="show_sort">查看类别<em></em></a></li>
+		<li><a href="javascript:;" id="show_zone">查看标签<em></em></a></li>
+	</ul>	
+</div>
+<div class="ListWei">
+	$ListWei
+</div>
+<div class="ShowPages">$showpage</div>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$ck_class=($key==$fidDB[fup])?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"waplist.php?fid=$key\">{$value}</a></dt>\r\n";
+if($Fid_db[$key]){
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"waplist.php?fid=$keys\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+}
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="navbox" id="navbox_zone">
+<!--
+EOT;
+$listZones="";
+$listdb = list_hot_keyword($rows=20);
+foreach($listdb AS $rss){
+$ck_class=($keyword==$rss[keywords])?"class='ck'":"";
+$listZones.="<dl $ck_class>\r\n";
+$listZones.="	<dt><a href=\"waptag.php?keyword=$rss[keywords]\">{$rss[keywords]}</a></dt>\r\n";
+$listZones.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listZones
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<div class="fullbg" id="fullbg2"></div>
+<script type="text/javascript">
+<!--
+var shows=1,page=$page,loading=1;
+
+$(window).scroll(function(){
+	// 当滚动到最底部以上100像素时， 加载新内容
+	if ($(document).height() - $(this).scrollTop() <800 && loading==1){
+		shows++;
+		loading=0;
+		var urls='?type=date&page='+page+'&shows='+shows;
+		loadMore(urls);
+	} 	
+});
+//-->
+</script>
+<SCRIPT LANGUAGE="JavaScript" src="./images/wap/waterfall.js"></SCRIPT>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,61 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/manage_public.css">
+
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+
+<div class="MainCont">
+	<div class="head"><div class="tag">我发布的商品信息</div> <a class='more' href="wappost_choose.php">发布商品</a></div>
+    <div class="cont">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ListTable ListShop">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[picurl] = tempdir($rs[picurl]);
+print <<<EOT
+-->
+	<tr>
+	            <td class="img">
+			<div><a href="../wapbencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onerror="this.src='$webdb[_www_url]/images/default/nopic.jpg';"/></a></div>
+		</td>
+		<td class='word'>
+			<div class='t'>
+				<a href="../wapbencandy.php?fid=$rs[fid]&id=$rs[id]" class="t">$rs[title]</a>
+			</div>
+			<div style="min-height:70px">
+				<a href="../waplist.php?fid=$rs[fid]" class="f">$rs[fname]</a>
+				<span style="display:block">(浏览量：$rs[hits])</span>
+				<span style="display:block">发布时间：$rs[posttime]</span>
+				
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class='submits' colspan='2'>
+			<div class="submit">
+				<a href='wappost.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改</a>
+				<a href='wapeditsort.php?job=edit&fid=$rs[fid]&id=$rs[id]&listnum=$listnum'>修改分类</a>
+				$rs[update]
+				$rs[dotop]
+				<a href='wappost.php?action=del&fid=$rs[fid]&id=$rs[id]' onclick="return confirm('你确认要删除吗?不可恢复');">删除</a>	
+			</div>
+		</td>
+	</tr>
+
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+
+        <div class="Showpage">$showpage</div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,141 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/list.css">
+<link rel="stylesheet" type="text/css" href="./images/wap/decoration_list.css">
+
+<div class="DecorationPath">当前位置：<span class='Apath'><a href="$webdb[_www_url]">首页</a> -> <a href="./">装修</a> $GuideFid[$fid]</span></div>
+<div class="MemberOperate">
+	<a href="wappost.php?fid=$fid" class="PostMessage">快速发布信息</a>　
+	<a href="$webdb[_www_url]/zhuangxiu/member/waplist.php" class="PostMessage ManageMessage">管理我的信息</a>
+</div>
+<div class="DecorationSearch">
+	<form name="searchlive" action="wapsearch.php?action=search" method="post">
+		<input type="hidden" name="action" value="search"/>
+		<input type="text" name="keyword" class="InputKey"/>
+		<span class='searchSubmit'><input type="submit" class="s_btn po_ab" value="搜索" /></span>
+	</form>
+</div>
+<div class="SelectSort">
+	<ul class="ChangeSele">
+		<li><a href="javascript:;" id="show_sort"><span>全部类别</span></a></li>
+		<li><a href="javascript:;" id="show_zone"><span>全部区域</span></a></li>
+	</ul>	
+</div>
+<!-- <div class="GuideCont">当前位置：<a href="$webdb[_www_url]">首页</a> -> <a href="./">装修</a> $GuideFid[$fid]</div> -->
+<!-- <div class="searchbar">
+	<form name="searchlive" action="wapsearch.php?action=search" method="post">
+		<input type="hidden" name="action" value="search"/>
+		<input type="text" name="keyword" class="s_ipt"/>
+		<input type="submit" class="s_btn po_ab" value="搜索" />
+	</form>
+</div>
+<div class="MemberAct">
+	<a href="wappost.php?fid=$fid" class="comn-submit">快速发布信息</a>　
+	<a href="$webdb[_www_url]/zhuangxiu/member/waplist.php" class="comn-submit reg-submit">管理我的信息</a>
+</div>
+<div class="SelectList">
+	<ul class="ChangeSele">
+		<li><a href="javascript:;" id="show_sort">全部类别<em></em></a></li>
+		<li><a href="javascript:;" id="show_zone">全部区域<em></em></a></li>
+	</ul>	
+</div> -->
+
+<div class="SelectSortType">
+<!--{filter}-->
+<div class='sort_title'><span>{title}：</span></div>
+<ul>
+
+	<li>{value}</li>
+
+</ul>
+<!--{/filter}-->
+</div>
+<div class="ListContentWrapped">
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$rs[full_title] = get_word($rs[full_title],40);
+if($i ==1){
+	$rs[full_title] = get_word($rs[full_title],30);
+	if($rs[fid] ==3){
+	$rs[full_title]="$rs[full_title]"."<img src='$webdb[_www_url]/zhuangxiu/images/wap/new_ico.png' style='margin-left:5px'>";
+	}
+	else if($rs[fid] ==4){
+	$rs[full_title]="$rs[full_title]"."<img src='$webdb[_www_url]/zhuangxiu/images/wap/hot_ico.png' style='margin-left:8px'>";
+	}
+}
+print <<<EOT
+-->
+	<div class="ListContent"><a href="$rs[url]">$rs[full_title]</a> <span></span></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<div class="page">$showpage</div>
+</div>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url=get_info_url('',$key,$city_id);
+$ck_class=($key==$fidDB[fup] || $fid==$key)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+if($Fid_db[$key]){
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls=get_info_url('',$keys,$city_id);
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+}
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="navbox" id="navbox_zone">
+<!--
+EOT;
+$listZones="";
+if($city_id){
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+$ck_class=($zone_id)?"":"class='ck'";
+$listZones.="<dl $ck_class>\r\n";
+$listZones.="	<dt><a href=\"$url\">{$city_DB[name][$city_id]}</a></dt>\r\n";
+$listZones.="</dl>\r\n";
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$ck_class=($zone_id==$key)?"class='ck'":"";
+$listZones.="<dl $ck_class>\r\n";
+$listZones.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+if($street_DB[$key]){
+$listZones.="	<dd>\r\n";
+foreach($street_DB[$key] AS $keys=>$values){
+$ck_class=($street_id==$keys)?"class='ck'":"";
+$urls=get_info_url('',$fid,$city_id,$key,$keys,$TempSearch_array);
+$listZones.="		<div><a href=\"$urls\" $ck_class>{$values}</a></div>\r\n";
+}
+$listZones.="	</dd>\r\n";
+}
+$listZones.="</dl>\r\n";
+}}
+print <<<EOT
+-->
+$listZones
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<div class="fullbg" id="fullbg2"></div>
+<script type="text/javascript" src="./images/wap/list.js"></script>
+<!--
+EOT;
+?>
+-->

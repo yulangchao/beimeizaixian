@@ -1,0 +1,387 @@
+<!--
+<?php
+$fromurl = urlencode($WEBURL);
+print <<<EOT
+-->
+<link type="text/css" rel="stylesheet" href="./images/wap/list.css" />
+<style>
+.Listrepeatcomment .listrepeat .delcomment1,.Thecomment .listcont .delcomment{display:none;}
+</style>
+<!--
+EOT;
+$showurl = $WEBURL;
+$showurl .= strstr($showurl,'?')?"&WXID=$WXID":"?WXID=$WXID";
+$showurl = urlencode($showurl);
+if(!is_mobile()){print <<<EOT
+-->
+<div class="wx_code">
+	<img src="$webdb[www_url]/do/2codeimg.php?url=$showurl">
+	<p>扫一扫看效果 <a href="javascript:;" style="color:blue;">关闭</a></p>
+</div>
+<script type="text/javascript">
+$('.wx_code a').click(function(){
+	$('.wx_code').css('display','none');
+});
+</script>
+<!--
+EOT;
+}
+$topbgimg="./images/wap/topbg.png";
+$logoimg="./images/wap/logo.png";
+$morelinks=$fidDB[fup]?"?fid=$fidDB[fup]":"index.php";
+$listTypes=$listType?$listType:'all';
+$checktypes[$listTypes]="class='ck'";
+print <<<EOT
+-->
+<div class="ContainerBox">
+	<div class="TopContentBox">
+		<div class="SearchBox">
+			<ul>
+				<form action="wapsearch.php?action=search" method="post">
+					<li class="keyword"><input name="keyword" type="text" value="$keyword" /></li>
+					<li class="submit"><span>搜索</span></li>
+					<li class="close"><span>关闭</span></li>
+				</form>
+			</ul>
+		</div>
+		<div class="Search"><span>搜索</span></div>
+		<div class="topbg"><img src="$topbgimg"/></div>
+		<div class="logo"><img src="$logoimg"/></div>
+		<div class="Fname">{$fidDB[name]}</div>
+		<ul class="tjcont">
+			<ol><span>主题 {$totalcontent} 篇</span></ol>
+			<li><span>浏览 {$totalhits} 次</span></li>
+		</ul>
+		<dl class="ActionBox">
+			<dt>
+<!--
+EOT;
+if($rsdb[_posttime]=='1458865110'){print <<<EOT
+-->
+	<a href="http://dwz.cn/362UUu">关注</a>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<a href="$webdb[weixin_attention_url]">关注</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+		 
+			
+			</dt>
+			<dd><a href="$webdb[www_url]/member/job.php?job=signIn">签到</a></dd>
+		</dl>
+	</div>
+	<div class="descripBox">$fidDB[descrip]</div>
+	<ul class="nav-head">
+		<li><a href="?fid=$fid" $checktypes[all]>全部</a></li>
+		<li><a href="?fid=$fid&listType=1" $checktypes[1]>热贴</a></li>
+		<li><a href="?fid=$fid&listType=2" $checktypes[2]>悬赏</a></li>
+		<li><a href="$morelinks">更多</a></li>
+	</ul>
+	<div class="ListConts">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[icon]=get_member_icon($rs[uid]);
+$level=$rs[levels]?"精":"新";
+if($rs['list'] && $rs['list']>$rs[posttime]){
+	$hots="置顶";
+}else{
+	$hots="热";
+}
+$picdbs=get_this_pics($rs[id]);
+$listimgs="";
+if($picdbs){
+	$listimgs="<div class='Listpics'>\r\n";
+	foreach($picdbs AS $keys=>$rss){
+		$listimgs.="<div><a href='$rss[imgurl]'><img src='$rss[imgurl]'></a></div>";
+	}
+	$listimgs.="</div>";
+}
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}comments WHERE id='$rs[id]' AND cids='0'"));
+$totalcomments=intval($NUM);
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}digguser WHERE id='$rs[id]'"));
+$totaldigguser=intval($NUM);
+$listdigguser=get_this_digguser($rs[id]);
+$listcomment=get_this_comments($rs[id],3);
+print <<<EOT
+-->
+		<div class="contList">
+			<div class="listHead"><span>{$level}</span><span>{$hots}</span><h3><A HREF='wapbencandy.php?fid=$rs[fid]&id=$rs[id]' class='title'>$rs[title]</A></h3></div>
+			<div class="listCont">$rs[content]</div>
+			$listimgs
+			<div class="listOther">
+			<div class="other1"><span><A HREF='$webdb[www_url]/member/waphomepage.php?uid=$rs[uid]'><img src='$rs[icon]' onerror="this.src='$webdb[www_url]/images/default/nobody.gif'"/></A></span><span style="display:none;">$rs[username]</span><span>{$rs[posttime]}</span></div>
+			<div class="other2"><span onClick='add_comments($rs[id],0)'>评论<em id="comment_num$rs[id]">{$totalcomments}</em></span><span onClick='add_digguser($rs[id])'>赞<em id="digguser_num$rs[id]">{$totaldigguser}</em></span></div>
+			</div>
+		</div>
+		<div class="ListBox" style="display:none;">
+			<dl class="members">
+				<dt><A HREF='$webdb[www_url]/member/waphomepage.php?uid=$rs[uid]'><img src='$rs[icon]' onerror="this.src='$webdb[www_url]/images/default/nobody.gif'"/></A></dt>
+				<dd>
+					<h3><A HREF='$webdb[www_url]/member/waphomepage.php?uid=$rs[uid]'>$rs[username]</A> <span class="hot">热</span> <span class="ding">顶</span></h3>
+					<p>{$rs[posttime]} &nbsp;&nbsp; 浏览{$rs[hits]}</p>
+				</dd>
+			</dl>
+			<div class="titles">
+				<A HREF='waplist.php?fid=$rs[fid]' class="fname">$rs[fname]</A>
+				<A HREF='wapbencandy.php?fid=$rs[fid]&id=$rs[id]' class='title'>$rs[title]</A>
+			</div>
+			<div class="content">
+				$rs[content]
+			</div>
+			$listimgs
+			<div class="ListOthers">
+				<!--<span class="type1">赏<em>6</em></span>
+				<span class="type2">转<em>6</em></span>-->
+				<span class="type3" onClick='add_comments($rs[id],0)'>评论<em id="comment_num$rs[id]">{$totalcomments}</em></span>
+				<span class="type4" onClick='add_digguser($rs[id])'>赞<em id="digguser_num$rs[id]">{$totaldigguser}</em></span>
+			</div>
+			<dl class="listgetmoney" style="display:none;">
+				<dt>赏</dt>
+				<dd id="Listgetmoney$rs[id]">
+					
+				</dd>
+			</dl>
+			<dl class="listdigguer">
+				<dt>赞</dt>
+				<dd id="Listdigguser$rs[id]">
+					$listdigguser
+				</dd>
+			</dl>
+			<div class="commentBox">
+				<div class="head"><span>评论</span></div>
+				<div class="ListComments ListComments$rs[id]">
+					{$listcomment}
+				</div>
+			</div>
+			<div class="ShowRepaly"><A HREF='wapbencandy.php?fid=$rs[fid]&id=$rs[id]'>查看全部回复</A></div>
+		</div>
+<!--
+EOT;
+}
+$posturl = $fidDB[type] ? './member/wappost_choose.php' : "./member/wappost.php?fid=$fid";
+print <<<EOT
+-->
+	</div>	
+	<div class="getcomments">
+		<input type="hidden"/>
+		<div class="head">给TA留言</div>
+		<div class="conts"><textarea></textarea></div>
+		<div class="sub"><span onClick="add_comments1()">留言</span></div>
+	</div>
+	<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+</div>
+<div class="FootConts">
+	<ul>
+		<li class="li1"><a href="javascript:;" id="show_sort">板块</a></li>
+		<li class="li2"><a href="$posturl">我要发帖</a></li>
+		<li class="li3"><a href="./member/waplist.php?job=list">我的</a></li>
+	</ul>
+</div>
+<div class="topUpCont" style="display:none;">
+    <ul>
+    	<li class="Refresh"><a href="?fid=$fid"><span>刷新</span></a></li>
+        <li class="toTop"><div>回到顶部</div></li>
+    </ul>
+</div>
+<!-- navhide -->
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+//$url=get_info_url('',$key,$city_id);
+$url="waplist.php?fid=$key";
+$ck_class=($key==$fidDB[fup]||$key==$fid)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+//$urls=get_info_url('',$keys,$city_id);
+$urls="waplist.php?fid=$keys";
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script type="text/javascript" src="./images/wap/shop.js"></script>
+<!-- /navhide -->
+<script>
+$('.TopContentBox .Search').click(function(){
+	$('.TopContentBox .SearchBox').fadeIn();
+});
+$('.TopContentBox .SearchBox .close').click(function(){
+	$('.TopContentBox .SearchBox').fadeOut();
+});
+$('.TopContentBox .SearchBox .submit').click(function(){
+	var keyword=$('.TopContentBox .SearchBox input[name="keyword"]').val();
+	if(keyword==''){
+		alert('请输入要搜索的关键字！');
+	}else{
+		$('.TopContentBox .SearchBox form').submit();
+	}
+});
+$('.ListBox .content').each(function(){
+	var thisHeight=$(this).height();
+	if(thisHeight>100){
+		$(this).addClass('MoreContent');
+		$(this).append('<div class="ShowMores"><span>展开</span></div>');
+		$(this).css({'padding-bottom':'50px'});
+	}
+});
+$('.ShowMores').click(function(){
+	var thisF=$(this).parent();
+	if(thisF.hasClass('MoreContent')){
+		thisF.removeClass('MoreContent');
+		$(this).html('<span>收起</span>');
+	}else{
+		thisF.addClass('MoreContent');
+		$(this).html('<span>展开</span>');
+	}
+});
+$('.ListBox .Listpics').each(function(){
+	var thisnums=$(this).children().index()+1;
+	var thisW;
+	if(thisnums>2){
+		thisW=$(this).width()/4;		
+	}else{
+		thisW=$(this).width()/2;	
+	}
+	var thisW1=thisW-10;
+	var thisW2=thisW1-5;
+	$(this).children().css({'width':thisW+'px','height':thisW+'px','line-height':thisW+'px'});
+	$(this).children().children().css({'width':thisW1+'px','height':thisW1+'px','line-height':thisW2+'px'});
+});
+function add_comments(id,cid){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/wx_login.php?fromurl=$fromurl";
+		}else{
+			SharHiddenMessage();
+		}
+	}else{
+		$('.getcomments').fadeIn();
+		$('.getcomments input').val(cid);
+		$('.getcomments input').attr('name',id);
+		var LeftW=($(window).width()-300)/2;
+		$('.getcomments').css({'left':LeftW+'px'});
+		var t = $(document).height();
+		$('.Share_Message').height(t).fadeIn();
+	}
+}
+function SharHiddenMessage() {
+	$('.getcomments textarea').val('');
+	$('.getcomments input').val('');
+	check_postcomment=1;
+	$('.Share_Message').fadeOut();
+	$('.getcomments').fadeOut();
+}
+var check_postcomment=1;
+function add_comments1(){
+	if(check_postcomment==1){
+		var cid=$('.getcomments input').val();
+		var id=$('.getcomments input').attr('name');
+		var content=$('.getcomments textarea').val();
+		if(id==''){
+			alert('没有指定给谁留言');
+		}
+		else if(content==''){
+			alert('请填写留言内容');
+		}else{
+			check_postcomment=0;
+			$.get("comment.php?atc=comment&listnum=3&id="+id+"&cid="+cid+"&content="+content+"&"+Math.random(),function(d){
+				if(cid==0){
+					$('.ListComments'+id).html(d);
+					get_comment_num(id);
+				}else{
+					$('.Listrepeatcomment'+cid).html(d);
+				}								
+				SharHiddenMessage();				
+			});
+		}
+	}else{
+		var erroes = confirm('您的留言已在提交！\\r\\n是否刷新当前页面？');
+		if(erroes==true){
+			window.location.href="?fid=$fid";
+		}else{
+			SharHiddenMessage();
+		}
+	}	
+}
+function get_comment_num(id){
+	$.get("comment.php?atc=get_num&id="+id+"&"+Math.random(),function(d){
+		$('#comment_num'+id).html(d);
+	});
+}
+function add_digguser(id){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/wx_login.php?fromurl=$fromurl";
+		}
+	}else{
+		$.get("comment.php?atc=add_dig&id="+id+"&"+Math.random(),function(d){
+			if(d=='NO'){
+				alert('当前主题您已经点赞过，不可以重复操作！');
+			}else{
+				$('#Listdigguser'+id).html(d);
+				get_digguser_num(id);
+			}
+		});
+	}
+}
+function get_digguser_num(id){
+	$.get("comment.php?atc=get_dig&id="+id+"&"+Math.random(),function(d){
+		$('#digguser_num'+id).html(d);
+	});
+}
+$(document).ready(function () {
+	/*$(window).scroll(function () {
+		if ($(window).scrollTop() > 100) {
+			$(".topUpCont").show(100);
+		} else {
+			$(".topUpCont").hide(100);
+		}
+	});
+	$(".topUpCont .toTop").click(function () {
+		$("html,body").animate({scrollTop: 0},500);
+	});*/
+});
+function del_comments(id,cid,uid){
+	if('$lfjuid'!=uid){
+		alert('你没有权限删除当前回复');
+	}else{
+		$.get("comment.php?atc=delcomment&listnum=$rows&id="+id+"&cid="+cid+"&uid="+uid+"&"+Math.random(),function(d){
+			$('.ListComments'+id).html(d);
+			get_comment_num(id);				
+		});
+	}
+}
+function del_comments1(cids,cid,uid){
+	if('$lfjuid'!=uid){
+		alert('你没有权限删除当前回复');
+	}else{
+		$.get("comment.php?atc=delcomment1&listnum=$rows&cids="+cids+"&cid="+cid+"&uid="+uid+"&"+Math.random(),function(d){
+			$('.Listrepeatcomment'+cids).html(d);	
+			format_repalyShow();				
+		});
+	}
+}
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

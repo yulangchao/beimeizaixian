@@ -1,0 +1,36 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/pub.css">
+<div class="GuideCont">当前位置：<a href="$webdb[www_url]">首页</a>  -&gt; <a href="./">分类</a>  -&gt; <A href='./post.php'>发布信息</A></div>
+<h1>请选择类别</h1>
+<div class="PubContainer">
+<!--
+EOT;
+$listSorts="";
+$i=0;
+foreach($Fid_db[0] AS $key=>$array){
+$i++;
+$listSorts.="<dl>\r\n";
+$listSorts.="<dt>$array</dt>\r\n";
+if($Fid_db[$key]){
+$listSorts.="<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$listSorts.="<div><a href='wappost.php?fid=$keys'>$rs</a></div>\r\n";
+}
+$listSorts.="</dd>\r\n";
+}
+$listSorts.="</dl>\r\n";
+if($i%2==0){
+$listSorts.="<p></p>\r\n";	
+}
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<!--
+EOT;
+?>
+-->

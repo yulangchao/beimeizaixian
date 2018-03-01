@@ -1,0 +1,37 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+<form name="form1" method="post" action="">
+<h3>发短消息</h3>
+<dl>
+ <dt>接收者：</dt>
+ <dd><input type="text" value="$username" name="touser"  style="width:50%;"/></dd>
+</dl>
+<dl>
+ <dt>标题：</dt>
+ <dd><input type="text" name="title" style="width:95%;"></dd>
+</dl>
+<dl>
+  <dt>内容：</dt>
+  <dd>
+    <script type='text/javascript'>loadBaiduEditorJs();</script>
+	<textarea name='postdb[content]' id='myEditor'>$rsdb[content]</textarea> 
+	<script type='text/javascript'>				
+			var editor_content = new baidu.editor.ui.Editor({toolbars:[['fullscreen','source','undo','redo','bold', 'italic', 'underline']] ,minFrameHeight:200});
+				editor_content.render( 'myEditor' );
+	</script>
+  </dd>
+</dl>
+<div class="butter">
+	<input type="submit" value="提交"/>
+	<input type="hidden" name="step" value="2">
+</div>
+</form>
+</div>
+<!--
+EOT;
+?>
+-->

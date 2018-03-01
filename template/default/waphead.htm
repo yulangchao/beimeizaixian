@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+$bodyondblclick = (function_exists('label_array')&&$web_admin&&!$MakeIndex) ?"dblclick_label();":"";
+$member_act=$lfjid?"<a href=\"$webdb[_www_url]/member/wapindex.php\">会员中心</a> <a href=\"$webdb[www_url]/do/waplogin.php?action=quit\">退出</a>":"<a href=\"$webdb[_www_url]/do/waplogin.php\">登录</a> <a href=\"$webdb[www_url]/do/wapreg.php\">注册</a> <a href=\"$webdb[www_url]/do/wxlogin.php\">微信快速登录</a>";
+$actions=$_pre?"wapsearch.php":"$webdb[www_url]/news/wapsearch.php";
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>$titleDB[title]</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/global.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/head/common.css">
+<meta name="keywords" content="$titleDB[keywords]">
+<meta name="description" content="$titleDB[description]">
+<script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/default/default.js"></script>
+</head>
+<body ondblclick="$bodyondblclick">
+<div class="m-main">
+  <header class="m-header">
+    <div class="L m-head1"><a href="$webdb[www_url]/do/wapindex.php">首页</a></div>
+	<div class="R m-head2">
+      <a href="javascript:;" class="L m-login"></a>
+	  <a href="$webdb[www_url]/do/wapallcity.php" class="R m-ChangCity">{$city_DB[name][$city_id]}</a>
+	</div>
+	<h1><a href="$Murl/wapindex.php">{$webdb[Info_webname]}</a></h1>
+  </header>
+  <div class="m-MemberCont">
+    <h4>您好！欢迎来到{$webdb[webname]}</h4>
+    <p>$member_act</p>
+  </div>
+<script>
+$(document).ready(function(){
+  $('.m-header .m-login').click(function(){
+  	if($('.m-MemberCont').hasClass("showThis")){
+  		$('.m-MemberCont').removeClass('showThis');
+  		$('.m-MemberCont').animate({'height':'0px'},300);
+  	}else{
+  		$('.m-MemberCont').addClass('showThis');
+  		$('.m-MemberCont').animate({'height':'60px'},300);
+  	}								  
+  });
+});
+
+</script>
+<!--
+EOT;
+?>
+-->
+

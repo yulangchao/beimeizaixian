@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<!-- <div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT> -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+
+<div class="FormContainer">
+	<h3>修改订单</h3>
+
+    	<form name="form1" method="post" action="?job=edit">
+
+<!--
+EOT;
+if(!$rsdb[ifpay]){
+print <<<EOT
+--> 
+          <dl> 
+              <dt> 应付总额:</dt>
+              <dd><input type="text" name="totalmoney" size="10" style="width:80px;" value="$rsdb[totalmoney]"><span>元</span>  </dd>
+          </dl>
+<!--
+EOT;
+}print <<<EOT
+--> 
+			  
+          <dl> 
+              <dt>快递单号:</dt>
+              <dd><input type="text" name="emscode" size="50" value="$rsdb[emscode]"> 快递名称+单号 </dd>
+          </dl>
+          <div class='butter'>
+              <input type="submit" name="Submit" value="提交">
+                <input type="button" style="border-radius: 3px;border: 1px solid #999;padding: 0 6px;color: #666;" name="Submit2" onclick="window.location.href='?job=list'" value="返回">
+                <input type="hidden" name="step" value="2">
+                <input type="hidden" name="id" value="$id">            
+          </div>
+
+        </form>
+
+</div>
+<!--
+EOT;
+?>
+-->

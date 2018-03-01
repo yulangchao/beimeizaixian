@@ -1,0 +1,173 @@
+<!--
+<?php
+$listmoresorts="<div class='ListMoreSorts'>\r\n";
+foreach($Fid_db[0] AS $key=>$name){
+$listmoresorts.="<dl>\r\n";
+$listmoresorts.="<dt><a href=\"waplist.php?fid=$key\">$name</a></dt>\r\n";
+if($Fid_db[$key]){
+$listmoresorts.="<dd>\r\n";
+foreach($Fid_db[$key] AS $fid=>$names ){
+$listmoresorts.="<a href=\"waplist.php?fid=$fid\">$names</a>\r\n";
+}
+$listmoresorts.="</dd>\r\n";
+}
+$listmoresorts.="</dl>\r\n";
+}
+$listmoresorts.="</div>\r\n";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/index.css">
+
+<div class="ctrl">
+	<ul>
+    	<li class="qiye geren"><a href="javascript:;">企业服务</a></li>
+        <li class="geren"><a href="javascript:;">个人服务</a></li>
+        <span></span>
+    </ul>
+</div>
+<ul class="nav"> 
+	<li><a href="$Murl/member/wappost_choose.php">发布职位</a></li>
+	<li><a href="$Murl/member/waplistjob.php?job=list">职位管理</a></li>
+	<li><a href="$Murl/member/waplistapplyer.php?job=list">求职信</a></li>
+	<li><a href="waplistperson.php">找人才</a></li>
+</ul>
+<ul class="nav" style="height:0;"> 
+	<li><a href="$Murl/member/wapjoin.php">更新简历</a></li>
+	<li><a href="wapjoinshow.php?uid=$lfjuid">查看简历</a></li>
+	<li><a href="$Murl/member/wapapplyjob.php?job=list">申请的职位</a></li>
+</ul>
+{$listmoresorts}
+<div class="btn">
+	<a href="javascript:;">按类目查看招聘职位</a>
+</div>
+ <div class="newJob">
+  	<div class="title"><span>最新职位</span></div>
+<!--
+EOT;
+$array = list_hr_job('new',10,true);
+foreach($array AS $key=>$rs){
+$rs[posttime] = date("Y-m-d h:i:s",$rs[posttime]);
+print <<<EOT
+--->
+     <div class="list">
+    	<div class="left">
+        	<div class="select"></div>
+        </div>
+        <div class="right">
+			<p class="rightL1">
+			  <a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]">{$rs[title]}</a><span>{$rs[wage]}</span>
+			</p>
+			<p class="rightL2">
+			  <span>{$rs[workplace]}</span><span><a href="$webdb[www_url]/home/?uid=$rs[uid]">{$rs[company]}</a></span>
+			</p>
+			<p class="rightL3"><span>{$rs[posttime]}</span></p>
+        </div>
+    </div>
+<!--
+EOT;
+}
+print <<<EOT
+--->
+<div class="Ability">
+	<div class="title"><span>最新人才</span></div>
+<!--
+EOT;
+$array = list_hr_member('new',10);
+foreach($array AS $key=>$rs){
+$rs[facephoto] = tempdir($rs[facephoto]);
+$rs[posttime] = date("Y-m-d h:i:s",$rs[posttime]);
+print <<<EOT
+--->
+	<dl>
+    	<dt><a href="wapjoinshow.php?id=$rs[id]"><img src="$rs[facephoto]" onError="this.src='$webdb[www_url]/images/default/noface.gif'"/></a></dt>
+        <dd>
+        	<div ><span class="name">{$rs[truename]}</span><em>{$rs[hope_job]}</em><em>{$rs[workyear]}</em><em>{$rs[school_age]}</em></div>
+        	<div class="gongzi"><span>期望薪资 <em>{$rs[wage]}</em></span><span>{$rs[posttime]}</span></div>
+        </dd>
+    </dl>
+<!--
+EOT;
+}
+print <<<EOT
+--->
+</div>
+
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function pic_height(){
+	$(".Ability dl dt").each(function(){
+		var this_H=$(this).width()*2;
+		if(this_H>102){
+		this_H = 102;
+		}
+		$(this).css({"height":this_H+'px',"line-height":this_H+'px'});
+	});
+}
+pic_height();
+$(window).resize(function(){
+	pic_height()
+});
+$('.ctrl ul li').eq(0).click(function(){
+	ShowMore_type($('.nav').eq(0),100,$('.nav').eq(1));
+	$(this).addClass("qiye").siblings().removeClass("qiye");
+});
+$('.ctrl ul li').eq(1).click(function(){
+	ShowMore_type($('.nav').eq(1),100,$('.nav').eq(0));
+	$(this).addClass("qiye").siblings().removeClass("qiye");
+});
+function ShowMore_type(o,heights,other){
+	if(o.hasClass("showThis")){
+		o.removeClass('showThis');
+		o.animate({'height':'0px'},300);
+	}else{
+		o.addClass('showThis');
+		o.animate({'height':heights+'px'},300);
+	}	
+	other.removeClass('showThis');
+
+	other.animate({'height':'0px'},300);
+}
+function format_height(o1,o2){
+	var fullbg_H;
+	if(o1.height()>$("body").height() && o1.height()>$("window").height()){
+		fullbg_H=o1.height();
+	}
+	else if ($(window).height() > $("body").height()){
+		fullbg_H=$(window).height();
+	}else{
+		fullbg_H=$('body').height();
+	}
+	o1.height(fullbg_H);
+	o2.height(fullbg_H);
+}
+function Show_mode(o1,o2){
+	o2.css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		o1.css({'display':'block'}).stop().animate({'right':'0px'},300);
+	});	
+}
+function Hide_mode(o1,o2){
+	o2.animate({'opacity':0},300,function(){
+		$(this).css({'display':'none'});
+	});
+	setTimeout(function(){
+		o1.stop().animate({'right':'-250px'},300,function(){
+			$(this).css({'display':'none'});
+		});
+	}, 500);
+}
+
+$('.btn a').click(function(){	
+	Show_mode($(".ListMoreSorts"),$('#fullbg1'));
+	format_height($(".ListMoreSorts"),$('#fullbg1'));
+});
+$('#fullbg1').click(function(){
+	Hide_mode($(".ListMoreSorts"),$('#fullbg1'))
+});
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

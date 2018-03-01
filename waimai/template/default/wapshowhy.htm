@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<?php
+$lfjuid||$lfjuid=0;
+$rsdb[arrive_time]||$rsdb[arrive_time]=0;
+$rsdb[title]=get_word($rsdb[title],16);
+print <<<EOT
+-->
+<head>
+	<meta charset="gb2312" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>$rsdb[title]</title>
+	<link rel="stylesheet" href="./images/shop/base.css">
+	<link rel="stylesheet" href="./images/shop/menu/menu.css">
+	<script src='./images/shop/jquery-v1.7.2.js'></script>
+</head>
+<body>
+<div class='mHead'>
+	<a href="javascript:;history.go(-1);" class='return'>返回</a>
+	<span class='title'>$rsdb[title]</span>
+	<div class='icoRight' style="display:none;">
+		<a href="" class='search'></a>
+		<a href="" class='menu'></a>			
+	</div>
+</div>
+<div class='nav'>
+	<ul class='selectShow'>
+		<li class='ck'><a class='caidan ' href="javascript:;">菜单</a></li>
+		<li><a class='dianping' href="javascript:;">点评</a></li>
+		<li><a class='jieshao' href="javascript:;">介绍</a></li>
+	</ul>
+</div>
+<div class='selectShowType'>
+	<div class='showMenu'>	
+		<div class='announcement'>
+			<span class='content'>公告：欢迎光临本店铺。</span>
+			<span class='del'></span>
+		</div>
+<script>
+$('.announcement .del').click(function(){
+	$('.announcement').hide();
+});
+</script>
+		<div class='introduce'>
+			<ul>
+				<li>
+					<div>起送价</div>
+					<div class='number'><span class='red'>$rsdb[price]</span>元</div>
+				</li>
+				<li>
+					<div>送达时间</div>
+					<div class='number'><span class='blue'>{$rsdb[arrive_time]}</span>分钟</div>				
+				</li>
+				<li>
+					<div>配送费</div>
+					<div class='number'><span class='yellow'>$rsdb[sendprice]</span>元</div>	
+				</li>
+			</ul>
+		</div>
+		<div class='goodsMain'>
+			<div class='goodsList'>
+				<div class='ThisGoods'>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+					<dl>
+						<dt>
+							<div class='img'><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></div>
+						</dt>
+						<dd>
+							<div class='t'><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></div>
+							<div class='more'><span><em>&yen;$rs[price]</em>/份</span> <a href="javascript:;JoinShopCar($rs[id])"></a></div>
+						</dd>
+					</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+				</div>
+				<div class="ShowMoreGood"><span onClick="showMoreCont()">点击显示更多&gt;&gt;</span></div>
+<script>
+var page=$page;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMoreGood span").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&fid=$fid&id=$id&myfid=$myfid&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreGood").hide();
+		}else{
+			$(".ThisGoods").append(d);
+			if(page==$totalpage){
+				$(".ShowMoreGood").hide();
+			}else{
+				$(".ShowMoreGood span").html("点击显示更多&gt;&gt;");
+			}
+		}
+	});	
+}
+if(page==$totalpage){
+	$(".ShowMoreGood").hide();
+}
+</script>
+			</div>
+			<div class='goodsSort'>
+				<ul>
+<!--
+EOT;
+$myfid||$allmyshop="class='ck'";
+print <<<EOT
+-->	
+					<li $allmyshop><a href='?fid=$fid&id=$id'>全部分类</a></li>
+					$listmysort
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class='showComment'>
+		<div class='shopPic'><img src="{$picdb[0][imgurl]}" alt="{$picdb[0][name]}"></div>
+		<div class='shopDetail'>
+			<div class='info'>
+				<div class='title'>$rsdb[title]<span class='state'>营业中</span></div>
+<!--
+EOT;
+@extract($db->get_one("SELECT COUNT(cid) AS TotalDp FROM `{$_pre}dianping` WHERE id=$id"));
+@extract($db->get_one("SELECT sum(fen1) AS Totalfen1 FROM `{$_pre}dianping` WHERE id=$id"));
+$thisFen=intval($Totalfen1/$TotalDp*10)/10;
+$thisPC=intval($thisFen/5*100);
+print <<<EOT
+-->	
+				<div class="xingxing"><div style="width:{$thisPC}%;"></div></div>
+				<div class='time'>营业时间：<span>11:00-14:30 17:00-22:00</span></div>
+				
+			</div>
+			<div class='send'>
+				<span>商家自送</span>
+			</div>
+		</div>
+
+		<div class='introduce'>
+			<ul>
+				<li>
+					<div>起送价</div>
+					<div class='number'><span class='red'>$rsdb[price]</span>元</div>
+				</li>
+				<li>
+					<div>送达时间</div>
+					<div class='number'><span class='blue'>{$rsdb[arrive_time]}</span>分钟</div>				
+				</li>
+				<li>
+					<div>配送费</div>
+					<div class='number'><span class='yellow'>$rsdb[sendprice]</span>元</div>	
+				</li>
+			</ul>
+		</div>
+
+		<div class='commentSort'>
+			<ul class='commentSortSelect'>
+				<li class='ck'><a href="javascript:;showdianpings(0);">全部</a></li>
+				<li><a href="javascript:;showdianpings(1);">好评</a></li>
+				<li><a href="javascript:;showdianpings(2);">中评</a></li>
+				<li><a href="javascript:;showdianpings(3);">差评</a></li>
+			</ul>
+		</div>
+		<div class='commentDetail'>
+			<div class='allComment'>
+				<div class='commentListPic'>
+				</div>
+			</div>
+		</div>
+		<div class=postComment>
+			<div class='title'>发布评论</div>
+			<div class='commentContent'>
+				<textarea id="comment_content" maxlength="300"  placeholder='文明上网 礼貌发帖 仅限300字' ></textarea>
+				<div class='chooseComment'>
+					<ul class='xx'  id='pingStar'>
+						<li rel="1"><a href="javascript:;"></a></li>
+						<li rel="2"><a href="javascript:;"></a></li>
+						<li rel="3"><a href="javascript:;"></a></li>
+						<li rel="4"><a href="javascript:;"></a></li>
+						<li rel="5"><a href="javascript:;"></a></li>
+					</ul>
+					<input class="dpfen" type="hidden" value="5" />
+					<ul class='wz' style='display:none;'>
+						<li><input type="radio" name='comment' id='good' checked><label for="good" class="radioLabel red">好评</label></li>
+						<li><input type="radio" name='comment' id='medium'><label for="medium" class="radioLabel yellow">中评</label></li>
+						<li><input type="radio" name='comment' id='bad'><label for="bad" class="radioLabel grey">差评</label></li>
+					</ul>
+				</div>
+				<div class='submit' id="comment_submit"><a href="javascript:;" onClick="post_dianping();">提交</a></div>
+			</div>
+		</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$("#pingStar li").hover(function(){
+	var fennum=$(this).index()+1;	
+	$(this).parent().removeClass('fen1');
+	$(this).parent().removeClass('fen2');
+	$(this).parent().removeClass('fen3');
+	$(this).parent().removeClass('fen4');
+	$(this).parent().removeClass('fen5');
+	$(this).parent().addClass('fen'+fennum);
+	$('.chooseComment .dpfen').val(fennum);
+});
+var limitTime=10;
+function post_dianping(){
+	var fen1=$('.chooseComment .dpfen').val();
+	//var yzimg=$("#yzImgNum").val()?$("#yzImgNum").val():"";
+	var content=$("#comment_content").val();
+	if(content==""){
+		alert("内容不能为空");
+		return false;
+	}else{
+		var urls="hydianping.php?job=adddianping&showtype=2&fid=$fid&id=$id&fen1="+fen1+"&content="+content;
+		limitTime=10;
+		limitComments();
+		get_dianping(urls);
+		showdianpings(0);
+	}	
+}
+function get_dianping(url){
+	$.get(url+"&"+Math.random(),function(d){
+		$(".commentListPic").html(d);
+	});
+}
+var limitTime;
+function limitComments(){
+	limitTime=limitTime-1;
+	if(limitTime>0){
+		document.getElementById("comment_content").value='还剩'+limitTime+'秒,你才可以再发表评论';
+		document.getElementById("comment_content").disabled=true;
+		$('#comment_submit').html('<a href="javascript:;" style="background:#EFEFEF;">提交</a>');
+		setTimeout("limitComments()",1000);
+	}else if(limitTime==0){
+		document.getElementById("comment_content").value='';
+		document.getElementById("comment_content").disabled=false;
+		$('#comment_submit').html('<a href="javascript:;" onClick="post_dianping();">提交</a>');
+	}
+	
+}
+get_dianping("hydianping.php?fid=$fid&id=$id&showtype=2");
+
+function showdianpings(listtype){
+	$('.commentSortSelect li').removeClass('ck');
+	$('.commentSortSelect li').eq(listtype).addClass('ck');
+	get_dianping("hydianping.php?fid=$fid&id=$id&showtype=2&listtype="+listtype);
+}
+
+function post_flowers(cid){
+	var url="hydianping.php?fid=$fid&id=$id&act=flowers&cid="+cid;
+	$.get(url+"&"+Math.random(),function(d){
+		if(d=='no'){
+			alert('请不要重复点赞！');
+		}else{
+			$('#flowers'+cid+' em').html(d);
+		}
+	});	
+}
+//-->
+</SCRIPT>
+	</div>
+
+	<div class='showIntroduce'>
+		<div class='shopPic'><img src="{$picdb[0][imgurl]}" alt="{$picdb[0][name]}"></div>
+		<div class='shopDetail'>
+			<div class='info'>
+				<div class='title'>$rsdb[title]<span class='state'>营业中</span></div>
+				<div class="xingxing"><div style="width:{$thisPC}%;"></div></div>
+				<div class='time'>营业时间：<span>11:00-14:30 17:00-22:00</span></div>
+				
+			</div>
+			<div class='send'>
+				<span>商家自送</span>
+			</div>
+		</div>
+		<div class='introduce'>
+			<ul>
+				<li>
+					<div>起送价</div>
+					<div class='number'><span class='red'>$rsdb[price]</span>元</div>
+				</li>
+				<li>
+					<div>送达时间</div>
+					<div class='number'><span class='blue'>{$rsdb[arrive_time]}</span>分钟</div>				
+				</li>
+				<li>
+					<div>配送费</div>
+					<div class='number'><span class='yellow'>$rsdb[sendprice]</span>元</div>	
+				</li>
+			</ul>
+		</div>
+		<div class='contact'>
+			<div class='shopAddress'>快店地址：$rsdb[address]</div>
+			<div class='shopPhone'>快店电话：$rsdb[telphoto]</div>
+		</div>
+		<div class=shopSupport>
+			<div class='title'>快店支持</div>
+			<!--ul>
+				<li class='pay'><img src="./images/shop/menu/pay.png" alt=""><span>货到付款，当面交易。</span></li>
+				<li><img src="./images/shop/menu/favorable.png" alt=""><span>支持立减优惠，每单满60元减5元</span></li>
+				<li><img src="./images/shop/menu/give.png" alt=""><span>送可口可乐一杯</span></li>
+			</ul-->
+			<div class='showcontent'>
+				$rsdb[content]
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function selectShowType(num){
+$('.selectShow li').removeClass('ck');
+$('.selectShow li').eq(num).addClass('ck');
+$('.selectShowType').children().hide();
+$('.selectShowType').children().eq(num).show();
+}
+selectShowType(0);
+$('.selectShow li').click(function(){
+var thisnum=$(this).index();
+selectShowType(thisnum);
+});
+</script>
+<div class="MyShopCar" style="display:none;">
+	<div class="ListCar"></div>
+</div>
+
+<div class='footMenu'>
+	<div class='carPrice'>
+		<div class="num"><span>0</span></div>
+		<div class='price'>&yen;<em>0</em></div>
+	</div>
+	<div class='order'><a href="wapjoin.php">立即下单</a></div>
+</div>
+<script>
+function total_price(){
+	var totalprice=0,prices,nums,totalnum=0;
+	$('.MyShopCar .ListCar ul').each(function(){
+		prices=parseFloat($(this).find('.li3 span').html());
+		nums=parseInt($(this).find('.li2 input').val());
+		totalprice+=prices*nums;
+		totalnum++;
+	});
+	$('.footMenu .carPrice .price em').html(totalprice);
+	$('.footMenu .carPrice .num span').html(totalnum);
+}
+function show_shopCar(url){
+	$.get(url+"&"+Math.random(),function(d){
+		$('.MyShopCar .ListCar').html(d);
+		total_price();
+	});
+}
+var myuid=$lfjuid;
+if(myuid>0){
+	show_shopCar("shopcar.php?cuid=$rsdb[uid]");
+}
+function JoinShopCar(cid){
+	if(myuid>0){
+		show_shopCar("shopcar.php?cuid=$rsdb[uid]&act=joincar&cid="+cid);
+	}else{
+		var msay = confirm('您还没有登录！要先登录才能购物！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/waplogin.php?fromurl=$fromurl";
+		}		
+	}
+}
+</script>
+<!--
+EOT;
+?>
+--> 
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="gb2312">
+  <title>$webdb[webname]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/msg_style.css">
+  <script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+</head>
+
+<body ontouchstart="">
+<div class="wxapi_container">
+   
+    <div class="lbox_close wxapi_form">
+      <h3 id="menu-basic">请选择一种方式登录！</h3>
+      <span class="desc">	
+<FORM METHOD="POST" ACTION="?action=reg">
+				<div style="padding:8px 0 0 0;"><INPUT TYPE="radio" NAME="act" value="2" checked id="settype2">自动注册新帐号</div>
+
+				<div style="padding:8px 0 8px 0;border-bottom:#DDD solid 1px;"><INPUT TYPE="radio" NAME="act" value="1" id="settype1">绑定旧帐号</div>
+
+				<div style="padding:8px 0 10px 0;border-bottom:#DDD solid 1px;margin-bottom:10px;" id="regtype2">
+					新昵称：<INPUT TYPE="text" NAME="atc_username2" value="$postdb[nickname]">
+				</div>	
+				
+				<div id="regtype1" style="padding:8px 0 8px 0;margin-bottom:10px;border-bottom:#DDD solid 1px;display:none;">
+					<div style="padding:0 0 8px 0;">帐号：<INPUT TYPE="text" NAME="atc_username"></div>
+					<div>密码：<INPUT TYPE="password" NAME="atc_password"></div>
+				</div>
+				<div style="padding-bottom:8px;text-align:center;">
+				<INPUT TYPE="submit"  class="btn btn_primary" value="下一步"></div>
+			</FORM></span>
+      
+
+       
+    </div>
+  </div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$('#settype2').click(function(){
+	$('#regtype1').hide();
+	$('#regtype2').show();
+});
+$('#settype1').click(function(){
+	$('#regtype2').hide();
+	$('#regtype1').show();
+});
+//-->
+</SCRIPT>
+
+</body>
+ 
+</html>
+<!--
+EOT;
+?>
+-->

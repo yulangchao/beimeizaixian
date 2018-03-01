@@ -1,0 +1,132 @@
+<!--
+<?php
+print<<<EOT
+-->
+<!--
+EOT;
+if( $get_area_guide){
+print<<<EOT
+-->
+<table width=100% cellspacing=1 cellpadding=3  class="tablewidth">
+ 
+  <tr> 
+    <td bgcolor=#FFFFFF>
+    地段管理,当前位置: $get_area_guide
+    </td>
+</table>
+<!--
+EOT;
+}
+print<<<EOT
+-->       
+<div class="MainContainers">
+	<div class="Header"><span class="tag">创建地段</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+      <form action="$admin_path&action=addstreet" method=POST>
+       
+        <table class="FormTable">
+          <tr>
+            <td class="tdL">名称</td>
+            <td class="tdR"> 
+              <textarea name="name" cols="40" rows="5"></textarea>
+              注:如要同时添加多个地名,每个地名换一行.</td>
+          </tr>
+          <tr>
+            <td class="tdL">归属</td>
+            <td class="tdR">{$rsdb[name]}
+              <input type="hidden" name="fup" value="$fup">
+            </td>
+          </tr>
+        </table>
+		<div class="submits"><input type=submit value="创 建" name="submit"></div>
+      </form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function lookup(inputString) {
+		if(inputString.length == 0) {
+			// Hide the suggestion box.
+			$('#suggestions').hide();
+		} else {
+			$.post("s_city.php", {queryString: ""+inputString+"",tabname: "street"}, function(data){
+				if(data.length >0) {
+					$('#suggestions').show();
+					$('#autoSuggestionsList').html(data);
+				}
+			});
+		}
+	} // lookup
+	
+	function fill(thisValue) {
+		//$('#inputString').val(thisValue);
+		setTimeout("$('#suggestions').hide();", 200);
+	}
+</script>
+<style>
+.Conter{position:relative;}
+.suggestionsBox{display:none; position:absolute; top:50px; left:341px; width:200px; line-height:25px; border:1px solid #019BC4; background:#fff; border-top:0; z-index:999999;}
+.suggestionsBox li{padding-left:10px; cursor:default;}
+.suggestionsBox li:hover{background:#dcdcdc; color:#333;}
+.suggestionsBox li a{display:block;}
+</style>
+<div class="MainContainers">
+	<div class="Header"><span class="tag">搜索地段</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+	  <form action="$admin_path&job=street" method="POST">
+	  <table class="FormTable">
+	    <tr><td class="tdL">地段名</td><td class="tdR"><input type="text" name="keyword" id="inputString" value="$keyword" placeholder="请输入要搜索的地段名" style="width:200px;" onkeyup="lookup(this.value);" onblur="fill();"/></td></tr>
+	  </table>
+	  <div class="suggestionsBox" id="suggestions">
+		<ul class="suggestionList" id="autoSuggestionsList">
+					&nbsp;
+		</ul>
+	  </div>
+	  <div class="submits"><input type="submit" value="搜 索" name="submit"></div>
+	  </form>
+	</div>
+</div>
+
+<form name="formlist" method="post" action="$admin_path&action=editlist_street">
+<div class="MainContainers">
+	<div class="Header"><span class="tag">地段列表</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+	<div class="WarrIngs">注意:排序的规则是,数值大的排在前面</div>
+        <table class="ListTable">
+		  <tr> 
+            <th width="6%">FID</th>
+            <th width="46%">名称</th>
+            <th width="10%">排序值</th>
+            <th width="9%">所在城市</th>
+			<th width="11%">所在辖区</th>
+            <th width="9%">设置</th>
+            <th width="9%">删除</th>
+          </tr>
+<!--
+EOT;
+foreach($sortdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr> 
+            <td class="b red">$rs[fid]</td>
+            <td class="Left">$rs[icon]【<a href="../index.php?choose_cityID=$rs[cityid]&zone_id=$rs[fup]&street_id=$rs[fid]" target="_blank">{$rs[name]}</a>】</td>
+            <td><input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'></td>
+            <td><a href="$admin_path&job=zone&fup=$rs[city_id]">$rs[city]</a></td>
+            <td><a href="$admin_path&job=street&fup=$rs[fup]">$rs[zone]</a></td>
+            <td><a href='$admin_path&job=edit_street&fid=$rs[fid]' class="edit">修改</a></td>
+            <td><a href="$admin_path&action=delete_street&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');" class="del">删除</a></td>
+          </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+		<div class="m-showpage">$showpage</div>
+		<div class="submits"><input type="submit" name="Submit2" value="修改排序" ></div>
+	</div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

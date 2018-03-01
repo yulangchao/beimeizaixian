@@ -1,0 +1,91 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+
+
+
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<dl>
+		<dt><span>*</span>职位名称：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入职位名称，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+<!--
+EOT;
+if($job!="edit"&&$webdb[Info_GroupPostYzImg]&&!$web_admin&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupPostYzImg]))){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+	<dl>
+		<dt>工作城市:<font color=red>*</font><span></span></dt>
+		<dd> <input  ifmust=1   type='text' name='postdb[workplace]' id='atc_workplace' style='width:150px;' value='$rsdb[workplace]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>招聘人数:<span></span></dt>
+		<dd> <input   type='text' name='postdb[nums]' id='atc_nums' style='width:50px;' value='$rsdb[nums]'> 人</dd>
+	</dl>
+
+	<dl>
+		<dt>工作经验要求:<span></span></dt>
+		<dd><select name='postdb[wageyear]' id='atc_wageyear'><option value='1' {$rsdb[wageyear]['1']}>一年以上</option><option value='2' {$rsdb[wageyear]['2']}>两年以上</option><option value='3' {$rsdb[wageyear]['3']}>三年以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>性别要求:<span></span></dt>
+		<dd> <input type='radio' name='postdb[asksex]' value='1' {$rsdb[asksex]['1']}>男性  <input type='radio' name='postdb[asksex]' value='2' {$rsdb[asksex]['2']}>女性  </dd>
+	</dl>
+
+	<dl>
+		<dt>学历要求:<span></span></dt>
+		<dd><select name='postdb[schoo_age]' id='atc_schoo_age'><option value='1' {$rsdb[schoo_age]['1']}>小学以上</option><option value='2' {$rsdb[schoo_age]['2']}>中学以上</option><option value='3' {$rsdb[schoo_age]['3']}>中专以上</option><option value='4' {$rsdb[schoo_age]['4']}>高中以上</option><option value='5' {$rsdb[schoo_age]['5']}>大专以上</option><option value='6' {$rsdb[schoo_age]['6']}>本科以上</option><option value='7' {$rsdb[schoo_age]['7']}>硕士以上</option><option value='8' {$rsdb[schoo_age]['8']}>博士以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>薪水待遇:<span></span></dt>
+		<dd><select name='postdb[wage]' id='atc_wage'><option value='-1' {$rsdb[wage]['-1']}>面议</option><option value='1' {$rsdb[wage]['1']}>800~1500元</option><option value='2' {$rsdb[wage]['2']}>1500~2500元</option><option value='3' {$rsdb[wage]['3']}>2500~3500元</option><option value='4' {$rsdb[wage]['4']}>3500元以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>详情:<span></span></dt>
+		<dd><textarea  name='postdb[content]' id='atc_content' style='width:500px;height:120px;'>$rsdb[content]</textarea></dd>
+	</dl>
+<!---->
+    <div class="butter"><sapn class="submits"><input type="submit" name="Submit" value="提 交"/></sapn></div>
+                <input type="hidden" name="fid" value="$fid">
+                <input type="hidden" name="id" value="$id">
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

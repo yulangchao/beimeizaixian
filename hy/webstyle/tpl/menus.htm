@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>设置菜单</title>
+<link rel="stylesheet" type="text/css" href="$WebStyleurl/css/style.css">
+<script type="text/javascript" src="$WebStyleurl/images/jquery.min.js"></script>
+</head>
+<body>
+<div class="slideHeight">
+	<em onClick="AddSlides()">添加菜单</em>
+</div>
+<div class="ListSlides">
+<!--
+EOT;
+foreach($styleword[$tag]  AS $key=>$rs){
+print <<<EOT
+-->
+<div class="Lists Lists$key">
+	<input class="slidenum" type="hidden" value="$key"/>
+	<div class="word"><em>链接：</em><input type="text" value="$rs[url]" onBlur="editslide(\$(this).val(),$key,'url')"/></div>
+	<div class="word"><em>名称：</em><input type="text" value="$rs[title]" onBlur="edittitles(\$(this).val(),$key,'title')"/></div>
+	<div class="del"><span onClick="DelMenu($key)">删除</span> <span onClick="SelectMenu($key)" style="background:#999;border:#666 solid 1px;">选择默认菜单</span></div>
+</div>
+<!--
+EOT;
+}
+$hidetag='hide'.$tag;
+if($styleword[$hidetag]){
+	$is_hides[1]="checked";
+}else{
+	$is_hides[0]="checked";
+}
+print <<<EOT
+-->
+</div>
+<div class="hide_style">显示状态：<input name="is_hide" type="radio" $is_hides[0] value="0" onClick="edit_hide_style(\$(this).val())"/>显示 <input name="is_hide" type="radio" $is_hides[1] value="1" onClick="edit_hide_style(\$(this).val())"/>隐藏</div>
+<div class="backContBox" onClick="HiddenMoreAciton()"></div>
+<div class="upflieBox"><div>上传图片</div><input type="hidden" id="uppic_url"/><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=wapstyle/$uid&label=uppic_url'></iframe></div>
+<div class="SetContentBox">
+	<input name="nums" type="hidden"/>
+	<div class="head">选择商品链接</div>
+	<div class="ListMyShop"></div>
+</div>
+<div class="ShowStyle"><a href="$WebStyleurl/?uid=$uid&action=setstyle">返回看效果</a></div>
+<script type="text/javascript">
+function editslide(vals,num,types){
+	//vals=escape(vals);
+	vals=encodeURIComponent(vals); //对url进行编码
+	$.ajax({
+	   type: "POST",
+	   url: "setmenus.php",
+	   data: "type=$type&stylename=$stylename&uid=$uid&job=editmenu&tag=$tag&vals="+vals+"&num="+num+"&types="+types,
+	   success: function(msg){
+	   	  if(types=='img'){
+		  	$('.showimg'+num).attr("src",msg);
+		  }		 
+	   }
+	});
+}
+function edittitles(vals,num,types){
+	$.get("setmenus.php?type=$type&stylename=$stylename&uid=$uid&job=editmenu&tag=$tag&vals="+vals+"&num="+num+"&types="+types+"&"+Math.random());
+}
+function AddSlides(){
+	var listpicnum=$(".ListSlides").children().length;
+	if(listpicnum>=30){
+		alert("菜单最多不能超过30个！");
+	}else{
+		var maxnum=0;
+		$('.ListSlides .Lists .slidenum').each(function(){
+			var thisnum=$(this).val();
+			if(maxnum<thisnum){
+				maxnum=thisnum;
+			}
+		});
+		maxnum++;
+		var slidehtml='<div class="Lists Lists'+maxnum+'"><input class="slidenum" type="hidden" value="'+maxnum+'"/><div class="word"><em>链接：</em><input name="link" class="link'+maxnum+'" type="text" value="" onBlur="editslide(\$(this).val(),'+maxnum+',\'url\')"/></div><div class="word"><em>名称：</em><input name="link" class="link'+maxnum+'" type="text" value="" onBlur="edittitles(\$(this).val(),'+maxnum+',\'title\')"/></div><div class="del"><span onClick="DelMenu('+maxnum+')">删除</span>  <span onClick="SelectMenu('+maxnum+')" style="background:#999;border:#666 solid 1px;">选择默认菜单</span></div></div>';
+		$(".ListSlides").append(slidehtml);
+	}
+}
+function DelMenu(num){
+	var listpicnum=$(".ListSlides").children().length;
+	if(listpicnum<4){
+		alert("菜单至少保持3个！");
+	}else{
+		$.get("setmenus.php?type=$type&stylename=$stylename&&uid=$uid&job=DelMenu&tag=$tag&num="+num+"&"+Math.random(),function(d){
+			$(".ListSlides .Lists"+num).remove();
+		});
+	}
+}
+function edit_hide_style(vals){
+	$.get("setmenus.php?type=$type&stylename=$stylename&&uid=$uid&job=edit_hide_style&tag=hide$tag&slide_hide="+vals+"&"+Math.random());
+}
+function SelectMenu(num){
+	$(".SetContentBox input").val(num);
+	$('.backContBox').show();
+	$('.SetContentBox').show();
+	$('.backContBox').stop().animate({'opacity':0.7},200,function(){
+		$('.SetContentBox').stop().animate({'left':0},200);
+		Show_SelectMenu(num);
+	});
+}
+function Show_SelectMenu(num){
+	$.get("?job=selectmenu&num="+num+"&"+Math.random(),function(d){
+		$('.SetContentBox .ListMyShop').html(d);
+	});
+}
+function select_Menu1(url,name,num){
+	var url1=encodeURIComponent(url);
+	$.get("setmenus.php?type=$type&stylename=$stylename&&uid=$uid&job=edit_url_name&tag=$tag&url="+url1+"&title="+name+"&num="+num+"&"+Math.random(),function(d){
+		$('.Lists'+num+' .word').eq(0).find('input').val(url);
+		$('.Lists'+num+' .word').eq(1).find('input').val(name);
+		HiddenMoreAciton();
+	});
+	//editslide(url,num,'url');
+	//$('.Lists'+num+' .word').eq(0).find('input').val(url);
+	//edittitles(name,num,'title');
+	//$('.Lists'+num+' .word').eq(1).find('input').val(name);	
+	//HiddenMoreAciton();
+}
+function ResetSlides(){
+	$.get("$TheSet/slide.php?type=$type&stylename=$stylename&&uid=$uid&job=ResetSlides&"+Math.random(),function(d){
+		$(".ListSlides").html(d);
+		$(".slideHeight input").val(300);
+	});
+}
+function SelectShopurl(fid,id){
+	var thisnum=$(".SetContentBox input").val();
+	var thisurl="$webdb[www_url]/shop/bencandy.php?fid="+fid+"&id="+id;
+	$('.link'+thisnum).val(thisurl);
+	editslide(thisurl,thisnum,'url');
+	HiddenMoreAciton();
+}
+
+function upSlidePic(num){
+	$(".upflieBox input").attr('name',num);
+	$(".upflieBox iframe").attr('src','$webdb[www_url]/do/upfile.php?fn=upfile&dir=wapstyle/$uid&label=uppic_url&'+Math.random());
+	$('.backContBox').show();
+	$('.upflieBox').show();
+	$('.backContBox').stop().animate({'opacity':0.7},200,function(){
+		$('.upflieBox').stop().animate({'opacity':1},200);
+	});
+}
+function HiddenMoreAciton(){
+	$('.SetContentBox').stop().animate({'left':'-20%'},200);
+	$('.backContBox').stop().animate({'opacity':0},200,function(){
+		$('.backContBox').hide();
+		$('.SetContentBox').hide();
+		$('.upflieBox').hide();
+	});
+}
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+	var thisnum=$(".upflieBox input").attr('name');
+	$('.picurl'+thisnum).val(url);
+	editslide(url,thisnum,'img');
+	HiddenMoreAciton();
+}
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

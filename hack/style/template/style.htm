@@ -1,0 +1,104 @@
+<!--
+<?php
+print <<<EOT
+--> 
+ <SCRIPT LANGUAGE="JavaScript">
+<!--
+function foreColor_font(obj)
+{
+  
+  var arr = showModalDialog('images/selcolor.htm', '', 'dialogWidth:18.5em; dialogHeight:17.5em; status:0');
+  if (arr != null)  obj.value=arr;
+  else  obj.focus();
+  obj.style.background=arr;
+}
+//-->
+</SCRIPT>
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=$job">
+<div class="MainContainers">
+
+<!--
+EOT;
+if($job=="addstyle"){
+print <<<EOT
+-->
+ <div class="Header"><span class="tag">添加风格 </span><span class="more">&gt;&gt;</span></div>
+<!--
+EOT;
+}elseif($job=="editstyle"){
+print <<<EOT
+-->
+<div class="Header"><span class="tag">修改风格  </span><span class="more">&gt;&gt;</span></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+  <div class="Conter">
+    <table class="FormTable">
+    <tr> 
+      <td class='tdL'> 
+        <!--
+EOT;
+if($job=="addstyle"){
+print <<<EOT
+-->
+        现有风格 
+        <!--
+EOT;
+}elseif($job=="editstyle"){
+print <<<EOT
+-->
+        请选择一个要修改的风格: 
+        <!--
+EOT;
+}print <<<EOT
+-->
+      </td>
+      <td class='tdR'> {$style_select}</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>风格名称(可以汉字):</td>
+      <td class='tdR'> 
+        <input type="text" name="postdb[name]" value="$rsdb[name]">
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>风格关键字:(必须是英文/数字/下划线)</td>
+      <td class='tdR'> 
+        <input type="text" name="postdb[keywords]" value="$rsdb[keywords]" $keywords_check>
+        (风格存放目录名) </td>
+    </tr>
+ 
+    <tr> 
+      <td class='tdL'>风格css样式表:</td>
+      <td class='tdR'> 
+        <textarea name="CssCode" cols="100" rows="15">$CssCode</textarea>
+      </td>
+    </tr>
+    </table>
+    <div class='submits'>
+        <input type="hidden" name="id" value="$id">
+        <input type="submit" name="Submit" value="提交">      
+    </div>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">帮助说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+    <li>1.每个风格都配套对应</li>
+    <li>一个配置文件 “/data/style/风格关键字.php” </li>
+     <li> 一个模板目录 “/template/风格关键字/”</li>
+     <li> 一个图片目录 “/images/风格关键字/”</li>
+      <li>2.要新做一个风格，建议在后台这里添加风格。然后系统会自动创建对应的文件与目录，然后再对其加以修改即可。</li>
+      <li>3.这里创建新增风格后，系统会自动生成几个最常用，最基本的模板文件,如果你还要修改其它模板的话，从/template/default/目录复制过去再加以修改。</li>
+      <li>4.建议不要修改默认风格default，以方便今后升级。要修改风格的话。新建一个风格加以修改。</li>
+    </ul>
+  </div>
+</div>

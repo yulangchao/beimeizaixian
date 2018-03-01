@@ -1,0 +1,87 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header">
+    
+
+
+<!-- <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable">
+  <tr> 
+    <td width="100%" height="100" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" id="map_art" class="">
+        <tr> 
+          <td class="middle" valign="top"> -->
+<!--
+EOT;
+if($cid){
+print <<<EOT
+--> 
+<span class="tag">该职位下的应聘者如下</span><span class="more">&gt;&gt;</span>
+		  <!-- 该职位下的应聘者如下 -->
+<!--
+EOT;
+}print <<<EOT
+-->
+  </div>
+  <div class="Conter">
+      <table class="FormTable">
+
+            <table class='ListTable'>
+              <tr> 
+                
+                <th width="277">职位名称</th>
+                
+                <th width="180">姓名</th>
+                
+                <th width="183">专业</th>
+                
+                <th width="122">性别</th>
+                <!---->
+                <th  width="96">年龄</th>
+                <th  width="153">工作年限</th>
+                <th width="116" >申请日期</th>
+                <th style="width:120px;" width="155">简历</th>
+              </tr>
+              <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+              <tr> 
+                
+                <td align="center" width="277"><a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></td>
+                
+                <td align="center" width="180">{$rs[truename]}</td>
+                
+                <td align="center" width="183">{$rs[speciality]}</td>
+                
+                <td align="center" width="122">{$rs[sex]} </td>
+                <!---->
+                <td align="center" width="96">{$rs[age]}岁</td>
+                <td align="center" width="153">{$rs[workyear]} </td>
+                <td align="center" width="116">$rs[posttime]</td>
+                <td align="center" width="155"><a href="$Murl/joinshow.php?id=$rs[person_id]" target=_blank>查看</a> 
+                  <A HREF='$admin_path&job=delete_apply&id=$rs[apply_id]' title=’点击踢除‘ class='del'>踢除</A> 
+                </td>
+              </tr>
+              <!--
+EOT;
+}print <<<EOT
+-->
+<!--               <tr align="center"> 
+                <td colspan="17"> {$showpage}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr> -->
+
+</table>
+<!--
+EOT;
+?>
+-->

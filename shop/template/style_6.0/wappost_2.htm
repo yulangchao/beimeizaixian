@@ -1,0 +1,334 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/join.css">
+<form name="form_order" method="post" action="?action=$atc" enctype="multipart/form-data">
+<!--
+EOT;
+$total_all=0;
+foreach($listdb AS $name=>$array){
+$uid=$array[0][uid];
+@extract($db->get_one("SELECT title FROM {$pre}hy_company WHERE uid=$uid"));
+$total=0;
+print <<<EOT
+-->
+<div class="ListJoin">
+	<ul class="head">
+		<li><input class="checkboxA" type="checkbox" value="1"/></li>
+		<li><a href="$webdb[www_url]/home/?uid=$uid">$title</a></li>
+		<li class='editJoin'><span>编辑</span></li>
+	</ul>
+<!--
+EOT;
+foreach($array AS $rs){
+@extract($db->get_one("SELECT storage FROM {$_pre}content_$rs[mid] WHERE id=$rs[id]"));
+$checked=($rs[type])?"checked='checked'":"";
+print <<<EOT
+-->
+	<ul class="list">
+		<li><input class="checkboxB" type="checkbox" value="$rs[id]" $checked /></li>
+		<li><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></li>
+		<li>
+			<h3><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></h3>
+			<div><span>￥<em class='price'>{$rs[price]}</em></span><span class="num">X<input type="text" value="$rs[joins]" class="num1"/></span></div>
+		</li>
+		<li>
+			<dl class="changJoin">
+				<dt><span class='move'>-</span><span class='num0'>$rs[joins]</span><span class='add'>+</span><input type="hidden" value="$storage"></dt>
+				<dd>
+                	<div>库存量：<span class='storage'>$storage</span> 价格：<em>￥{$rs[price]}</em></div>
+                	<div>商品分类：<a href="list.php?fid=$rs[fid]">$rs[fname]</a></span>
+                </dd>
+			</dl>
+		</li>
+		<li class='delJoin'>删除</li>
+	</ul>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+<!--
+EOT;
+}if(!$listdb){print <<<EOT
+-->
+<div class="NoJoins">当前购物车没有商品，请先选购商品!<a href="javascript:;history.back()">返回</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<ul class="AllJoin">
+	<li class='select'><input class="allselect" type="checkbox" value="1"/> 全选</li>
+	<li>合计：<span class='total_price'></span> 元</li>
+	<li class='but'>结算(<span class='Join_num'></span>)</li>
+</ul>
+<div class="FormConts">
+	<h3>订单资料</h3>
+	<dl>
+		<dt>收货地址：</dt>
+		<dd class="address">
+			$address_list
+			<ul><li><input class="newaddress" name="postdb[address_type]" type="radio" value="-1"/></li><li><div>使用新地址</div></li></ul>
+		</dd>
+	</dl>
+
+	<dl>
+		<dt>顾客姓名:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_username]' id='atc_order_username' style='width:100px;' value='$rsdb[order_username]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>联系电话:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_phone]' id='atc_order_phone' style='width:100px;' value='$rsdb[order_phone]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>联系手机:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_mobphone]' id='atc_order_mobphone' style='width:100px;' value='$rsdb[order_mobphone]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>联系邮箱:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_email]' id='atc_order_email' style='width:100px;' value='$rsdb[order_email]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>联系QQ:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_qq]' id='atc_order_qq' style='width:100px;' value='$rsdb[order_qq]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>邮政编码:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_postcode]' id='atc_order_postcode' style='width:100px;' value='$rsdb[order_postcode]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>配送方式:<span></span>：</dt>
+		<dd> <input type='radio' name='postdb[order_sendtype]' value='1' {$rsdb[order_sendtype]['1']}>上门取货  <input type='radio' name='postdb[order_sendtype]' value='2' {$rsdb[order_sendtype]['2']}>平邮  <input type='radio' name='postdb[order_sendtype]' value='3' {$rsdb[order_sendtype]['3']}>普通快递  <input type='radio' name='postdb[order_sendtype]' value='4' {$rsdb[order_sendtype]['4']}>EMS快递  </dd>
+	</dl>
+
+	<dl>
+		<dt>支付方式:<span></span>：</dt>
+		<dd> <input type='radio' name='postdb[order_paytype]' value='1' {$rsdb[order_paytype]['1']}>货到付款   <input type='radio' name='postdb[order_paytype]' value='2' {$rsdb[order_paytype]['2']}>银行电汇或ATM转帐  <input type='radio' name='postdb[order_paytype]' value='3' {$rsdb[order_paytype]['3']}>邮局汇款  <input type='radio' name='postdb[order_paytype]' value='4' {$rsdb[order_paytype]['4']}>网上即时支付  </dd>
+	</dl>
+
+	<dl>
+		<dt>联系地址:<span></span>：</dt>
+		<dd> <input   type='text' name='postdb[order_address]' id='atc_order_address' style='width:200px;' value='$rsdb[order_address]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>附注留言:<span></span>：</dt>
+		<dd><textarea  name='postdb[content]' id='atc_content' style='width:400px;height:50px;'>$rsdb[content]</textarea></dd>
+	</dl>
+<!---->
+	<dl>
+		<dt>&nbsp; </dt>
+		<dd class="submit">
+      <input type="submit" value="提交" />
+      <input type="hidden" name="fid" value="$fid"/>
+      <input type="hidden" name="id" value="$id"/>
+      <input type="hidden" name="cid" value="$cid"/>
+      <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]"/>
+      共<span class='Join_num1'></span>件商品 合计：<span class='total_price1'></span>元
+<!--
+EOT;
+if($job=='edit'){print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$(document).ready(function(){
+$(".FormConts").show();$(".AllJoin").hide();
+});
+//-->
+</SCRIPT>
+          <a href="?action=del&id=$id&cid=$cid&fid=$rsdb[fid]" onClick="return confirm('你确认要删除吗?');">删除</a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+		</dd>
+	</dl>
+</div> 
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function changJoins(){
+	var total_price=0;
+	var Join_num=0;
+	$('.AllJoin .allselect').attr("checked",'true');
+	$('.ListJoin').each(function(){
+		var thisallsel=1;
+		$(this).find('.list').each(function(){
+			var price=$(this).find('.price').html();
+			var num=$(this).find('.num0').html();
+			var num1=$(this).find('.num1');
+			var checkboxB=$(this).find('.checkboxB');
+			var cid=checkboxB.val();
+
+			num1.val(num);
+			if(checkboxB.attr("checked")){
+				total_price+=price*num;
+				Join_num++;
+				$.get("wapjoin.php?atc=join&type=1&cid="+cid+"&num="+num+"&"+Math.random());
+			}else{
+				$.get("wapjoin.php?atc=join&type=0&cid="+cid+"&num="+num+"&"+Math.random());
+				$('.AllJoin .allselect').removeAttr("checked");
+				thisallsel=0;
+			}
+		});
+		if(thisallsel==1){
+			$(this).find('.checkboxA').attr("checked",'true');
+		}else{
+			$(this).find('.checkboxA').removeAttr("checked"); 
+		}
+	});	
+	$('.total_price').html(total_price);
+	$('.total_price1').html(total_price);
+	$('.Join_num').html(Join_num);
+	$('.Join_num1').html(Join_num);
+}
+$('.AllJoin .allselect').click(function(){
+	if($(this).attr("checked")){
+		$('.ListJoin input[type="checkbox"]').attr("checked",'true');
+	}else{
+		$('.ListJoin input[type="checkbox"]').removeAttr("checked");
+	}
+	changJoins();
+});
+$('.ListJoin .list .checkboxB').click(function(){
+	changJoins();
+});
+$('.ListJoin .checkboxA').click(function(){
+	var thisList1=$(this).parent().parent().parent();
+	if($(this).attr("checked")){
+		thisList1.find('.checkboxB').attr("checked",'true');
+	}else{
+		thisList1.find('.checkboxB').removeAttr("checked");
+	}
+	changJoins();
+});
+$('.delJoin').click(function(){
+	var thisList2=$(this).parent();
+	var thisList3=$(this).parent().parent();
+	var cid=thisList2.find('.checkboxB').val();	
+	$.get("wapjoin.php?atc=deljoin&cid="+cid+"&"+Math.random());
+	thisList2.remove();
+	if(thisList3.height()<90){
+		thisList3.remove();
+	}
+	changJoins();
+});
+changJoins();
+$('.editJoin').click(function(){
+	var big_o=$(this).parent().parent();
+	if($(this).hasClass("over")){
+		$(this).removeClass('over');
+		$(this).children('span').html('编辑');
+		big_o.children('.list').each(function(){
+			$(this).children('li').eq(2).css('display','table-cell');
+			$(this).children('li').eq(3).css('display','none');
+			$(this).children('li').eq(4).css('display','none');
+		});
+	}else{
+		$(this).addClass('over');
+		$(this).children('span').html('完成');
+		big_o.children('.list').each(function(){
+			$(this).children('li').eq(2).css('display','none');
+			$(this).children('li').eq(3).css('display','table-cell');
+			$(this).children('li').eq(4).css('display','table-cell');
+		});
+	}
+});
+$('.ListJoin .list .add').click(function(){
+	var nums=$(this).parent().children('.num0').html();
+	var storage=$(this).parent().children('input').val();
+	nums++;
+	if(nums>storage){
+		alert('本商品库存量是'+storage+',不能购买大于库存数量！');
+		nums=storage;
+	}
+	$(this).parent().children('.num0').html(nums);
+	changJoins();
+});
+$('.ListJoin .list .move').click(function(){
+	var nums=$(this).parent().children('.num0').html();
+	nums--;
+	if(nums<1) nums=1;
+	$(this).parent().children('.num0').html(nums);
+	changJoins();
+});
+function chooseAddress(){
+	ifHideMoreTr(false);
+	$('.FormConts .seladdress').each(function(){		
+		if($(this).attr("checked")){
+			ifHideMoreTr(true);
+		}
+	});
+}
+function ifHideMoreTr(type){
+	var arr = ["username","phone","mobphone","email","qq","postcode","address" ];
+	for (var i=0;i<arr.length;i++){
+		var objs=$("input[name='postdb[order_"+arr[i]+"]']").parent().parent();
+		if(type==true){
+			objs.hide()
+		}else{
+			objs.show()
+		}
+	}
+}
+$('.AllJoin .but').click(function(){
+	$('.AllJoin').hide();
+	$('.FormConts').show();
+});
+$("input[name='postdb[address_type]']").click(function(){
+	chooseAddress();
+});
+chooseAddress();
+//-->
+</SCRIPT>
+<!--
+EOT;
+if(!$lfjid){print <<<EOT
+-->
+<div class="MemberLogin">
+<form name="form_login" method="post" action="$webdb[www_url]/do/login.php">	
+	<h3>您必须登录后才可进行购物</h3>
+	<dl>
+		<dt>帐号：</dt>
+		<dd><input class="text" type="text" name="username"/></dd>
+	</dl>
+	<dl>
+		<dt>密码：</dt>
+		<dd><input class="text" type="password" name="password"/></dd>
+	</dl>
+	<dl>
+		<dt><br/></dt>
+		<dd>
+			<input class="Sub" type="submit" name="Submit" value="登录"/> 
+			<input class="Sub reset" onclick="history.back()" type="button" value="返回"/>
+		</dd>
+	</dl>
+	<input type="hidden" name="step" value="2">
+	<input class="radio" type="hidden" name="cookietime" value="86400" > 
+</form>
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script>
+if ($(window).height() > $("body").height()) {
+	$('#fullbg1').height($(window).height());
+} else {
+	$('#fullbg1').height($("body").height());
+}
+var lefts=($(window).width()-$('.MemberLogin').width())/2;
+$('.MemberLogin').css('left',lefts+'px');
+$(window).scroll(function(){
+	var tops=$(this).scrollTop()+50;
+	$('.MemberLogin').css('top',tops+'px');
+});
+</script>
+<!--
+EOT;
+}?>
+-->

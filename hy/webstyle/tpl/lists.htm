@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+$order=$styleword[$tag][order];
+$nums=$styleword[$tag][nums];
+$lists=$styleword[$tag][lists];
+$orderselect="";
+$orderselect[$order]="selected";
+$listsselect="";
+$listsselect[$lists]="selected";
+$actJsWord="";
+if(!$order){
+	$actJsWord.="editnums('hits','order');";
+}
+if(!$nums){
+	$actJsWord.="editnums(2,'nums');";
+}
+if(!$lists){
+	$actJsWord.="editnums(2,'lists');";
+}
+if($styleword[$tag][hide]){
+	$is_hides[1]="checked";
+}else{
+	$is_hides[0]="checked";
+}
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>设置列表参数</title>
+<link rel="stylesheet" type="text/css" href="$Murl/wapstyle/set/css/style.css">
+<script type="text/javascript" src="$Murl/wapstyle/jquery.min.js"></script>
+</head>
+<body>
+<div class="slideHeight">
+	设置商品显示方式
+</div>
+<div class="ListSlides">
+	<div class="Lists">
+		<div style="height:40px;">
+			排序方式 
+			<select name="order" class="orders">
+			  <option value="hits" $orderselect[hits]>按浏览量排</option>
+			  <option value="id" $orderselect[id]>按最新发布排</option>
+			  <option value="comments" $orderselect[comments]>按评论数排</option>
+			  <option value="levelstime" $orderselect[levelstime]>按推荐排</option>
+			  <option value="lastview" $orderselect[lastview]>最新浏览排</option>
+			</select>
+		</div>
+		<div style="height:40px;">显示条数 <input class="rows" type="text" value="{$nums}" onBlur="editnums(\$(this).val(),'nums')"/ style="width:50px;"></div>
+		<div style="height:40px;">
+			显示列数 
+			<select name="lists" class="lists">
+			  <option value="1" $listsselect[1]>一列</option>
+			  <option value="2" $listsselect[2]>二列</option>
+			  <option value="3" $listsselect[3]>三列</option>
+			</select>
+		</div>
+		<div style="height:40px;">
+			显示状态 
+			<input name="is_hide" type="radio" $is_hides[0] value="0" onClick="editnums(\$(this).val(),'hide')"/>显示 <input name="is_hide" type="radio" $is_hides[1] value="1" onClick="editnums(\$(this).val(),'hide')"/>隐藏
+		</div>
+	</div>
+</div>
+<div class="ShowStyle"><a href="$Murl/waphome.php?styles=$stylename&job=set">返回看效果</a> <a href="$Murl/waphome.php?styles=$stylename" style="display:none;">查看效果</a></div>
+<script type="text/javascript">
+function editnums(vals,types){
+	$.get("$TheSet/lists.php?type=$type&stylename=$stylename&uid=$uid&job=editlist&tag=$tag&vals="+vals+"&types="+types+"&"+Math.random());
+}
+$(".orders").change(function(){
+	var vals=$(this).val();
+	editnums(vals,'order');
+}); 
+$(".lists").change(function(){
+	var vals=$(this).val();
+	editnums(vals,'lists');
+});
+$actJsWord
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

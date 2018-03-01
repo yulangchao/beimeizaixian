@@ -1,0 +1,290 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/pc/bencandy.css">
+<div class="FenLieContainer">
+	<div class="Main">
+		<div class="Mhead">
+			<div class="tag">$fidDB[name]</div>
+			<div class="baidu_share">
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+			</div>
+			<div class="post"><a href="post.php?fid=$fid">免费发布此类信息</a></div>
+		</div>
+		<dl class="AtcBox">
+			<dt>发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>　有效日期:{$rsdb[showday]}　浏览量:{$rsdb[hits]}次</dt>
+			<dd>
+				<a href="post.php?job=edit&fid=$fid&id=$id">修改</a>
+				<a href="post.php?action=del&fid=$fid&id=$id">删除</a> 
+				<a href="job.php?job=update&fid=$fid&id=$id" title="顶一下,可将信息排在所属栏目的列表页的前面!">顶一下</a>
+			</dd>
+		</dl>
+		<div class="BaseInfoTable">
+			<div class="ShowPic">
+				<div class="ShowShopPic">
+<!--
+EOT;
+$listPics="";
+foreach($picdb AS $key=>$rs){
+$picurl=tempdir($rs[imgurl]);
+$picname=addslashes($rs[name]);
+$picname=$picname?$picname:$i;
+$listPics.="<li><span><img src=\"$picurl\" alt=\"$picname\" onError=\"this.src='./images/pc/icon.png'\"/></span></li>\r\n";
+}
+$listPics=$listPics?$listPics:"<li><span><img src='./images/pc/nopic.png'></span></li>";
+print <<<EOT
+-->	
+					<div class="ShopPicShowStyle">
+						<ul>
+							$listPics
+						</ul>
+					</div>
+					<script type="text/javascript" src="./images/pc/showpic.js"></script>
+				</div>
+			</div>
+			<div class="ShowInfo">
+				<div class="title">$rsdb[title]</div>
+				<ul class="Infos">
+					<li><span>地区：</span>{$rsdb[showarea]}</li>
+<!--
+EOT;
+if($rsdb['sortid']){print <<<EOT
+-->
+					<li><span>人均消费：</span>{$rsdb[sortid]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['sortid2']){print <<<EOT
+-->
+					<li><span>环境：</span>{$rsdb[sortid2]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_382']){print <<<EOT
+-->
+					<li><span>停车位：</span>{$rsdb[my_382]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_835']){print <<<EOT
+-->
+					<li><span>公交线路：</span>{$rsdb[my_835]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_491']){print <<<EOT
+-->
+					<li><span>附近公交站：</span>{$rsdb[my_491]} </li>
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+<!--
+EOT;
+if($rsdb[keywords]){print <<<EOT
+-->
+					<li><span>标签：</span>$rsdb[keywords]</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</ul>
+<!--
+EOT;
+$listmobphone=$rsdb[mobphone]?$rsdb[mobphone]:($rsdb[telephone]?$rsdb[telephone]:'暂无……');
+print <<<EOT
+-->
+				<div class="telphone"><span>电话号码:</span>$listmobphone</div>
+				<div class="moreaction">
+					<input type="button" value="举报该信息" onClick="window.open('$city_url/job.php?job=report&fid=$fid&id=$id');" class="zb"/>
+					<input type="button" value="推荐给朋友" onClick="window.location.href='mailto:';" class="tz"/>
+					<input type="button" value="加入收藏夹" onClick="window.open('job.php?job=collect&fid=$fid&id=$id')" class="sc"/>
+				</div>
+			</div>
+		</div>
+		<div class="InfoContent">
+			<div class="head">详细介绍</div>
+			$rsdb[content]
+		</div>
+		<div class="PostComment">
+			<div class="head">发布评论</div>
+			<dl>
+				<dt>称呼:</dt>
+				<dd><input type="text" id="comment_username" value="$lfjid" style="width:150px;"/></dd>
+			</dl>
+<!--
+EOT;
+if(!$web_admin&&!$groupdb['comment_img']){
+print <<<EOT
+-->
+			<dl>
+				<dt>验证码:</dt>
+				<dd>
+					<div class="Yzcode">
+						<span><input id="yzImgNum" type="text" name="yzimg" style="width:60px;"/></span>
+						<span><img src="/do/yzimg.php"></span>
+					</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$('.Yzcode img').click(function(){
+	$(this).attr("src",'$webdb[www_url]/do/yzimg.php?'+Math.random());
+});
+//-->
+</SCRIPT>
+				</dd>
+			</dl>			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			<dl>
+				<dt>内容:</dt>
+				<dd><textarea name="textfield" id="comment_content" onKeyDown="quickpost(event)"></textarea></dd>
+			</dl>
+			<div class="sub"><input type="button" id="comment_submit" name="Submit" value="发表评论" onClick="post_comment();"></div>
+		</div>
+		<div class="ShowComment">
+			<div class="head">用户评价</div>
+			<div id="comment"></div>
+		</div>
+<script language="JavaScript">
+<!--
+getcomment("./job.php?job=comment_ajax&fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event){
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83)){
+		cnt++;
+		if (cnt==1){
+			postcomment('./job.php?job=comment_ajax&fid=$fid&id=$id')
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+function hiddenyzimg(){
+	$('.Yzcode input').val('');
+	//$('.Yzcode img').attr("src",'$webdb[www_url]/do/yzimg.php?'+Math.random());
+}
+function post_comment(){
+	postcomment('./job.php?job=comment_ajax&action=post&fid=$fid&id=$id','$webdb[yzImgComment]');
+	hiddenyzimg()
+}	
+//-->
+</script>
+	</div>
+	<div class="Side">
+		<ul class="AcitonBut">
+        	<li><a href="post.php" class="post">免费发布信息</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/hy/member/page_choose.php" class="mg">管理店铺</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/f/member/list.php" class="edit">修改删除信息</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/member/userinfo.php?job=edit" class="rz">修改资料</a></li>     
+		</ul>
+        <div class="MemberCont">
+<!--
+EOT;
+if($lfjid){
+$lfjdb[icon]||$lfjdb[icon]="$webdb[www_url]/images/default/noface.gif";
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d H:i",$lfjdb[regdate]);
+$lfjdb[money]=get_money($lfjdb[uid]);
+print <<<EOT
+-->	
+			<dl>
+            	<dt class="headicon"><div><a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid"><img src="$lfjdb[icon]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></a></div></dt>
+                <dd>
+                	<ul class='info'>
+						<li>级别:{$ltitle[$lfjdb[groupid]]}</li>     
+						<li>{$webdb[MoneyName]}:$lfjdb[money] {$webdb[MoneyDW]}</li>     
+						<li>注册日期:$lfjdb[regdate]</li>     
+					</ul>
+                    <input type="button"  onClick="window.location.href='$webdb[www_url]/do/login.php?action=quit';" value="退出"/>
+                </dd>
+				<input type="hidden" name="step" value="2">
+            </dl>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<form  name="memberlogin" method="POST" action="$webdb[www_url]/do/login.php">
+            <dl>
+                <dt><input type="text" name="username" placeholder="输入用户名" /></dt>
+                <dd><a href="$webdb[www_url]/do/sendpwd.php">忘记密码？</a></dd>
+            </dl>    
+    		<dl>
+                <dt><input type="password" name="password" placeholder="输入密码" /></dt>
+                <dd><input type="submit" value="登录"/> <input type="button"  onClick="window.location.href='$webdb[www_url]/do/reg.php';" value="注册"/></dd>
+            </dl>
+		 </form>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+		<div class="sidecont">
+			<div class="head">热门信息</div>
+			<ul class="List">
+<!--
+EOT;
+$listHot=Get_Info('hot',10,40,$fid=0);
+$i=0;
+foreach($listHot AS $key=>$rs){
+$i++;
+print <<<EOT
+-->
+            	<li><span>$i</span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+		<div class="sidecont">
+			<div class="head">最新浏览</div>
+			<ul class="List">
+<!--
+EOT;
+$listlevel=Get_Info('lastview',10,40,$fid=0);
+$i=0;
+foreach($listlevel AS $key=>$rs){
+$i++;
+print <<<EOT
+-->
+            	<li><span>$i</span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

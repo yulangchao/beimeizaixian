@@ -1,0 +1,99 @@
+body{
+	background:#FFF;
+}
+.MainContainer .MinLefts{
+	width:190px;
+	float:left;
+}
+.MainContainer .MainRights{
+	width:980px;
+	float:right;
+	overflow:hidden;
+}
+.ShowType li{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	text-align:center;
+	background:#F5F5F5;
+	margin-bottom:20px;
+}
+.ShowType li a{
+	display:block;
+	font-size:16px;
+	color:#666;
+}
+.ShowType li.ck a{
+	background:#2CB9FF;
+	color:#FFF;
+}
+.ListShopCont{
+	width:1000px;
+	overflow:hidden;
+	padding-top:10px;
+	margin-left:-10px;
+}
+.ListShopCont:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.ListFuwuBox .listfuwu{
+	width:50%;
+	height:380px;
+	padding-top:20px;
+	overflow:hidden;
+	float:left;
+}
+.ListFuwuBox .listfuwu ul{
+	width:95%;
+	border:#DDD solid 1px;
+	height:378px;
+	margin:auto;
+	overflow:hidden;
+}
+.ListFuwuBox .listfuwu ul .img{
+	width:95%;
+	height:250px;
+	overflow:hidden;
+	margin:10px auto 0 auto;
+	background:#EFEFEF;
+}
+.ListFuwuBox .listfuwu ul .img a{
+	display:table;
+	width:100%;
+}
+.ListFuwuBox .listfuwu ul .img a span{
+	display:table-cell;
+	height:250px;
+	text-align:center;
+	vertical-align:middle;
+}
+.ListFuwuBox .listfuwu ul .img a span img{
+	max-width:100%;
+	max-height:250px;
+}
+.ListFuwuBox .listfuwu ul .t{
+	text-align:center;
+	line-height:30px;
+	width:95%;
+	height:30px;
+	margin:5px auto 0 auto;
+	overflow:hidden;
+	font-size:16px;
+}
+.ListFuwuBox .listfuwu ul .c{
+	width:95%;
+	height:60px;
+	line-height:20px;
+	margin:auto;
+	overflow:hidden;
+	font-size:14px;
+	color:#666;
+}
+.ListFuwuBox .listfuwu ul:hover{
+	background:#EFEFEF;
+	border:#F60 solid 1px;
+}

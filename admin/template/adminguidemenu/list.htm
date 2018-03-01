@@ -1,0 +1,97 @@
+<!--
+<?php
+print<<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Header"><span class="tag">管理员后台菜单设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+
+        <table class="FormTable">
+            <tr> 
+              <td class='tdL'><b>请选择一个用户组</b></td>
+<!--             </tr>
+            <tr>  -->
+              <td class='tdR'> 
+<!--
+EOT;
+foreach($group_db AS $key=>$rs){
+print <<<EOT
+-->
+             [<a href="index.php?lfj=adminguidemenu&job=list&gid=$rs[gid]" style="color:{$colordb[$key]};">{$rs[grouptitle]}</a>] 
+<!--
+EOT;
+}print <<<EOT
+-->
+              </td>
+            </tr>
+         </table>
+
+
+
+<br>
+        <form name="formlist" method="post" action="index.php?lfj=$lfj&action=editlist">
+          <div class="Header"><span class="tag">菜单管理</span><span class="more">&gt;&gt;</span></div>
+          <div class="WarrIngs" style='text-align:left;'>以下是用户组“<font color="#FF0000"><b>{$grouptitle_db[$gid]}</b></font>”的自定义菜单<br/>排序的规则是,数值大的排在前面</div>
+        <!-- <table class="ListTable"> -->
+<!--           <tr> 
+              <td class="head" bgcolor="#EAEAEA"><font color="#FFFFFF">菜单管理</font></td>
+          </tr> -->
+          <!-- <tr>  -->
+<!--               <td bgcolor=#FFFFFF align="left"> 
+                <ul>
+                  <li>以下是用户组“<font color="#FF0000"><b>{$grouptitle_db[$gid]}</b></font>”的自定义菜单</li>
+                  <li>排序的规则是,数值大的排在前面</li>
+                </ul>  -->
+                <table class="ListTable">
+                <tr>
+                  <th width="50%">菜单名称</th>
+                  <th width="10%">排序</th>
+                  <th width="17%">修改</th>
+                  <th width="13%">删除</th>
+<!--                 </tr>
+                  <tr align="center" class="head"> 
+                    <td  style="border-right:1px solid #fff;" width="50%">菜单名称</td>
+                    <td width="10%" style="border-right:1px solid #fff;">排序</td>
+                    <td width="17%" style="border-right:1px solid #fff;">修改</td>
+                    <td width="13%" style="border-right:1px solid #fff;">删除</td>
+                  </tr> -->
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+                  <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+                    <td bgcolor="#FFFFFF" width="50%" style="text-align:left;border-bottom:1px dotted #ccc;color:$rs[color];" height="33"> 
+                      $rs[icon]【<a href="$rs[linkurl]">{$rs[name]}</a>】</td>
+                    <td width="10%" bgcolor="#FFFFFF" align="center" style="border-bottom:1px dotted #ccc;" height="33"> 
+                      <input type='text' name='order[{$rs[id]}]' value='$rs[list]' size='5' maxlength="4">
+                    </td>
+                    <td width="17%" bgcolor="#FFFFFF" align="center" style="border-bottom:1px dotted #ccc;" height="33"><a href="index.php?lfj=$lfj&job=edit&id=$rs[id]" class='edit'></a></td>
+                    <td width="13%" bgcolor="#FFFFFF" align="center" style="border-bottom:1px dotted #ccc;" height="33"><a href="?lfj=$lfj&action=delete&id=$rs[id]&gid=$gid" onclick="return confirm('你确实要删除吗?不可恢复');" class='del'></a></td>
+                  </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+                </table>
+                <div align="center"><br>
+                  <a href="javascript:" onClick="CheckAll('all')"> </a>
+                  <div class="submits">
+                    <input type="submit" name="Submit2" value="修改排序"/>
+                    <input type="hidden" name="gid" value="$gid">
+                  </div>
+                  <!-- <input type="submit" name="Submit2" value="修改排序"  > -->
+                  <!-- <input type="hidden" name="gid" value="$gid"> -->
+                </div>
+              </td>
+          </tr> </table>
+        </form>
+
+
+    </div>
+</div>
+<br>
+<!--
+EOT;
+?>
+-->

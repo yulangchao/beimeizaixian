@@ -1,0 +1,197 @@
+.maincontainer{
+	margin:25px auto 0 auto;
+	border:#CCC solid 1px;
+}
+.maincontainer:after,.regtypes li:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.maincontainer .Header{
+	background:#ececec;
+	line-height:48px;
+	border-bottom:#CCC solid 1px;
+	height:48px;
+	padding:0 15px;
+}
+.maincontainer .Header span.tag{
+	font-size:16px;
+	font-weight:bold;
+	background:url(title_bj.png) left center no-repeat;
+	padding-left:15px;
+}
+.maincontainer .Header .more{
+	float:right;
+}
+.maincontainer .Header .more em{
+	display:inline-block;
+	padding:0 5px;
+	color:#03F;
+}
+.regtypes{
+	padding:50px 30px 30px 30px;
+	background:url(bj_xian.png) center center no-repeat;
+} 
+.regtypes:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.regtypes li{
+	width:400px;
+	float:left;
+	padding-left:100px;
+}
+.regtypes li.rights{
+	float:right;
+	padding-left:0;
+	padding-right:50px;
+}
+.regtypes li div{
+	width:50%;
+	height:35px;
+	line-height:35px;
+	float:left;
+	text-indent:30px;
+	background:url(huanguang.png) left center no-repeat;
+}
+.regtypes li dl{
+	clear:both;
+	width:100%;
+}
+.regtypes li dl dt{
+	line-height:30px;
+}
+.regtypes li dl dd a{
+	display:block;
+	width:200px;
+	height:45px;
+	background:#ffa200;
+	text-align:center;
+	line-height:45px;
+	margin:20px 0 20px 60px;
+	font-size:16px;
+	color:#FFF;
+}
+.regtypes li.lefts dl dd a{
+	background:#04bf02;
+}
+.regtypes li dl dd a span{
+	display:inline-block;
+	padding-left:20px;
+	background:url(qiye.png) no-repeat center left;
+}
+.regtypes li.lefts dl dd a span{
+	background:url(geren.png) no-repeat center left;
+}
+/**/
+.regForm{
+	padding:50px 20px 30px 100px;
+	font-size:14px;
+}
+.regForm .list1,.regForm .list2{
+	line-height:50px;
+	font-size:16px;
+	color:#4DD23B;
+}
+.regForm .list2 span{
+	font-size:14px;
+	color:#444;
+}
+.regForm dl{
+	display:table;
+	width:100%;
+	margin-bottom:10px;
+}
+.regForm dl:hover{
+	background:#F9F9F9;
+}
+.regForm dl dt,.regForm dl dd{
+	display:table-cell;
+	vertical-align:top;
+}
+.regForm dl dt{
+	width:120px;
+	padding:10px 10px 10px 0;
+	line-height:30px;
+}
+.regForm dl dt span{
+	color:#0067FA;
+	display:inline-block;
+	padding-right:5px;
+}
+.regForm dl dd{
+	padding-top:10px;
+	color:#888;
+	line-height:30px;
+}
+.regForm dl dd a{
+	color:#09F;
+}
+.regForm dl dd input[type=text],.regForm dl dd input[type=password]{
+	border:#DDD solid 1px;
+	height:30px;
+	line-height:30px;
+	text-indent:5px;
+}
+.regForm dl dd input[type=submit]{
+	height:45px;
+	border:0;
+	left:45px;
+	background:#21AAF3 url(geren.png) 20px 13px no-repeat;
+	padding:0 20px 0 50px;
+	font-size:16px;
+	color:#FFF;
+	cursor:pointer;
+}
+.regForm dl dd input[type=submit]:hover{
+	background:#ffa200 url(geren.png) 20px 13px no-repeat;
+}
+.Agreement{
+	width:50%;
+	background:#FFF;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	position:fixed;
+	top:80px;
+	left:25%;
+}
+.Agreement .h{
+	padding:15px 0 10px 0;
+	line-height:30px;
+	text-align:center;
+	font-size:16px;
+	position:relative;
+	background:#EFEFEF;
+}
+.Agreement .h a{
+	display:block;
+	width:50px;
+	text-align:center;
+	position:absolute;
+	right:8px;
+	top:5px;
+	color:red;
+}
+.Agreement .c{
+	padding:10px 10px 20px 20px;
+}
+.Agreement .c h3{
+	padding:5px 0;
+	line-height:30px;
+	font-size:14px;
+}
+.Agreement .c div{
+	padding:5px 0;
+	line-height:20px;
+	color:#666;
+}
+.wximg{position:relative;}
+.wximg .wxbtn{cursor:pointer;}
+.wximg .codeimg{positin:absolute; display:none; padding:10px; width:180px; background:#fff; border-radius:5px; border:1px solid #ececec;}
+.wximg .codeimg img{width:180px; height:180px;}
+.wximg .codeimg span{position:absolute; top:40px; left:200px; height:30px; line-height:30px; width:50px; text-align:center; background:#f90; color:#fff; border-radius:5px; cursor:pointer;}

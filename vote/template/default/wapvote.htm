@@ -1,0 +1,33 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/vote/images/wap/vote.css">
+<div class="mainbody">
+	<div class="about">$about</div>
+    <div class="time">开始：{$begintime} / 结束：{$endtime}</div>
+    <form name="formv" method="post" action="$Murl/vote.php?action=vote&cid=$cid">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="Vote1Table">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tdL"><div style="width:{$percentage[$rs[id]]}%;"></div></td>
+            <td class="tdR"><div>$rs[type] <a href="$rs[url]" target="_blank" title="$rs[describes]">{$rs[title]}</a> (<span>{$rs[votenum]}</span>)</div></td>
+          </tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </table>
+		<div class="sub"><input type="submit" name="Submit" class="submit" value="投票"/></div>
+    </form>
+</div> 
+<div class="FootSpac"></div>
+<!--
+EOT;
+?>
+-->

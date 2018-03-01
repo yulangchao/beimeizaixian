@@ -1,0 +1,47 @@
+<!--
+<?php
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+<dl class="pllist">
+	<dt class="img">
+		<a onclick="if('0'=='$rs[uid]')return false;" href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" class="ii" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src='$rs[icon]' border="0"></a>
+	</dt>
+	<dd class="word">
+		<div class="name">
+			<span class="blue"><a onclick="if('0'=='$rs[uid]')return false;" href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" target="_blank">$rs[username]</a></span>
+			<span class="time">{$rs[posttime]}</span>
+		</div>
+		<div class="write">{$rs[content]}</div>
+		<div class="like">
+<!--
+EOT;
+if($web_admin||($lfjuid&&$rs[uid]==$lfjuid)){
+print <<<EOT
+-->
+      <span><A HREF="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=del&fid=$fid&id=$id&cid=$rs[cid]')">删除</A></span>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<span><a HREF="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=flowers&fid=$fid&id=$id&cid=$rs[cid]')" class="fl">鲜花</a>(<em class="red">{$rs[flowers]}</em>)</span>   
+			<span><a HREF="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=egg&fid=$fid&id=$id&cid=$rs[cid]')" class="egg">鸡蛋</a>(<em class="orange">{$rs[egg]}</em>)</span>   
+			<a href="$webdb[_www_url]/member/?main=pm.php?job=send&username=$rs[username]" class="blue">点击回复</a>
+		</div>
+	</dd>
+</dl>
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+<div class="page">$showpage</div>
+<!--
+EOT;
+}if(!$listdb){print <<<EOT
+-->
+<div class="no_comment"><b><font color="#FF0000">暂时还没有评论</font></b></div>		
+<!--
+EOT;
+}
+?>
+-->

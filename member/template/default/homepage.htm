@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title>{$rsdb[username]}的个人主页                     Powered By www.qibosoft.com</title>
+<link rel="stylesheet" type="text/css" href="images/default/homepage.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body style="background:#f8f8f8;">
+<SCRIPT LANGUAGE="JavaScript" src="../images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="../images/default/default.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function get_obj(obj){
+   return document.getElementById(obj);
+}
+if( window.self!=window.top ){
+	window.top.location.href='homepage.php?uid=$uid';
+}
+//-->
+</SCRIPT>
+	<div class="Header">
+		<div class="HeadMain">
+			<div class="LOGO">
+				<a href="$webdb[www_url]"><img src="images/default/logo.png" width="210" height="70" /></a>
+				<span>|&nbsp;个人主页</span>			</div>
+			<div class="HeadNav">
+<!--
+EOT;
+if($lfjuid){print <<<EOT
+-->
+	<ul>
+		<li class="ck"><a href="./homepage.php?uid=$lfjuid">个人中心</a></li>
+		<li><a href="./">控制版面</a></li>
+	</ul>
+	<div class="m-login"><span class="return"><a href="$webdb[www_url]">返回首页</a></span>
+	<span class="leave"><a href="$webdb[www_url]/do/login.php?action=quit" target="_blank">安全离开</a></span></div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<div class="m-login"><span class="return"><a href="$webdb[www_url]/do/login.php" target="_blank">登录</a></span>
+	<span class="leave"><a href="$webdb[www_url]/do/reg.php" target="_blank">注册</a></span></div>
+	 
+    
+<!--
+EOT;
+}print <<<EOT
+-->
+			</div>
+		</div>
+	</div>
+	<!--Header END-->	
+	<div class="Content">
+		<div class="ContMain">
+			<div class="AllInfo">
+				<div class="HeadInfo">
+					<a href="javascript:;"><img src="{$rsdb[icon]}?$timestamp" onerror="this.src='$webdb[www_url]/images/default/nobody.gif'" width="145" height="135" /></a>
+					<h3>$rsdb[username]</h3>
+					<div>
+<!--
+EOT;
+if($rsdb[grouptype]==1){
+print <<<EOT
+-->
+						<span><img src="images/default/qy.png" /></span>
+<!--
+EOT;
+}
+$idimg = $rsdb[idcard_yz]==1?"id.png":"id0.png";
+$emailimg = $rsdb[email_yz]==1?"email.png":"email0.png";
+$mobimg = $rsdb[mob_yz]==1?"mob.png":"mob0.png";
+print <<<EOT
+-->
+						<span><img src="images/default/{$idimg}" /></span>
+						<span><img src="images/default/{$emailimg}" /></span>
+						<span><img src="images/default/{$mobimg}" /></span>					</div>
+					<p>等级： {$group_db[grouptitle]}</p>
+				</div>
+				<div class="BaseInfo">
+					<h2>个人基本信息</h2>
+					<ul>
+						<li>性别：{$rsdb[sex]}</li>
+						<li>生日：{$rsdb[bday]}</li>
+						<li>所在城市：{$city_DB[name][$rsdb[cityid]]}</li>
+						<li>联系QQ：{$rsdb[oicq]}</li>
+						<li>个人网站：<a href="$rsdb[homepage]" target="_blank">{$rsdb[homepage]}</a></li>
+						<li>注册日期：{$rsdb[regdate]}</li>
+						<li style="height:64px; overflow:hidden;">自我介绍：{$rsdb[introduce]}</li>
+					</ul>
+				</div>
+				<div class="IntInfo">
+					<h2>个人积分信息</h2>
+					<ul>
+						<li>{$webdb[MoneyName]}： <em class="red">{$rsdb[money]} {$webdb[MoneyDW]}</em> (<a href="../do/jf.php">查看如何获取积分?</a>)</li>
+						<li>已用空间： <em class="blue">{$rsdb[usespace]} M</em>(兆) </li>
+						<li>
+						   <span>可用空间大小：</span>
+						   <span>$space_system + $space_group + $space_user - $rsdb[usespace] = $rsdb[totalspace]  M(兆)</span>
+						</li>
+						<li>
+							<span>空间计算方式：</span>
+							<span>系统默认容量 + 用户组默认容量 + 自身容量 - 已用空间 = 可用空间大小 </span>						</li>
+					</ul>
+				</div>
+			</div><!--AllInfo END-->
+				
+			<div class="Dynamic">
+				<div class="SideHead"><span>个人动态信息</span></div>
+				<div class="DyCont">
+					<ul>
+						<li>
+							<span>最后登录时间：{$rsdb[lastvist]}</span>
+							<span>主页被访问数：<em class="red">{$rsdb[hits]}</em>人次</span>						</li>
+						<li>
+							
+							<span>主页最近被访问日期：{$rsdb[lastview]}</span>						</li>
+					</ul>
+				</div>
+			</div>
+<!--
+EOT;
+if($web_admin||$lfjuid==$uid){print <<<EOT
+-->
+			<div class="Dynamic">
+				<div class="SideHead"><span>我的私密资料</span></div>
+				<div class="DyCont">
+					<ul>
+						<li>
+							<span>真实姓名：{$rsdb[truename]}</span>
+							<span>注册IP：$rsdb[regip]</span>
+					    </li>
+						<li>
+							<span>最后登录IP：{$rsdb[lastip]}</span>
+							<span>邮政编码：{$rsdb[postalcode]}</span>						</li>
+						<li>
+							<span>身份证号码：{$rsdb[idcard]}</span>
+							<span>联系手机：{$rsdb[mobphone]}</span>						</li>
+						<li>
+							<span>联系电话：{$rsdb[telephone]}</span>
+							<span>联系地址：{$rsdb[address]}</span>						</li>
+					</ul>
+				</div>
+			</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<div class="Dynamic" style="display:none;">
+				<div class="SideHead"><span>系统自定义个人信息字段</span></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<div id="DyCont"></div>');
+\$.get("../do/regfield.php?job=show&uid=$uid", function(data){\$("#DyCont").html(data);});
+//-->
+</SCRIPT>
+			</div>
+			<div class="OtherInfo">
+				<div class="Left">
+					<div class="MyPic">
+						<div class="SideHead"><span>我的图片主题</span></div>
+						<div class="SideCont">
+<!--
+EOT;
+foreach($myphotoDB AS $rs){
+$rs[title]=get_word($rs[title],20,0);
+$rs[url]="../news/bencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+	<dl>
+		<dt class="img"><a href="$rs[url]"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="170" height="170" /></a></dt>
+		<dd class="word"><a href="$rs[url]" target="_blank">{$rs[title]}</a></dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+						</div>
+					</div>
+					<div class="MyArt">
+						<div class="SideHead"><span>我的热门文章</span></div>
+						<div class="SideCont">
+							<ul>
+<!--
+EOT;
+foreach($myhotnewsDB AS $rs){
+$rs[title]=get_word($rs[title],40,0);
+print <<<EOT
+-->
+	<li><a href="../news/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">{$rs[title]}</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="Right">
+					<div class="MyNew">
+						<div class="SideHead"><span>我的最新主题</span></div>
+						<div class="SideCont">
+							<ul>
+<!--
+EOT;
+foreach($myarticleDB AS $rs){
+$rs[title]=get_word($rs[title],40,0);
+print <<<EOT
+-->
+	<li><a href="../news/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">{$rs[title]}</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+							</ul>
+						</div>
+					</div>
+					<div class="MyRec">
+						<div class="SideHead"><span>系统推荐主题</span></div>
+						<div class="SideCont">
+							<ul>
+<!--
+EOT;
+foreach($myotherDB AS $rs){
+$rs[title]=get_word($rs[title],40,0);
+print <<<EOT
+-->
+	<li><a href="../news/bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">{$rs[title]}</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div><!--OtherInfo END-->
+		</div><!--ContMain END-->
+	</div>
+	<!--Content END-->
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

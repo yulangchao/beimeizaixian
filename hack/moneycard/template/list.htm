@@ -1,0 +1,93 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="?lfj=$lfj&">
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+    <tr> 
+      <th width="5%">ID</th>
+      <th width="18%">充值卡密码</th>
+      <th width="14%">面值(元)</th>
+      <th width="19%">可充值{$webdb[MoneyName]}数({$webdb[MoneyDW]})</th>
+      <th width="12%">使用与否</th>
+      <th width="13%">使用日期</th>
+      <th width="11%">使用者</th>
+      <th width="8%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id]</td>
+      <td> 
+        <input type="checkbox" name="listdb[{$rs[id]}]" value="{$rs[id]}">
+        $rs[passwd]</td>
+      <td>$rs[moneyrmb]</td>
+      <td>$rs[moneycard]</td>
+      <td>$rs[ifsell]</td>
+      <td>$rs[posttime]</td>
+      <td>$rs[username]</td>
+      <td><a href="?lfj=$lfj&action=delete&id=$rs[id]" title='点击删除' class='del'>删除</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+  <div class='submits'>
+           <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input type="submit" name="Submit" value="删除" onclick="postdo('delete')">
+        <input type="submit" name="Submit2" value="打印出售" onclick="postdo('print')">
+         <input type="hidden" name="action">
+  </div>
+
+
+        <SCRIPT LANGUAGE="JavaScript">
+<!--
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+function postdo(d){
+	document.form_work.action.value=d;
+	document.form_work.submit();
+}
+//-->
+</SCRIPT>
+  </div>
+</div>
+</form>
+
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">充值卡查询</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="ListTable">
+    <tr> 
+      <td class='Left'><form name="form1" method="post" action="?lfj=$lfj&job=$job">
+        请输入查询密码
+        <input type="text" name="atc_passwd" size="15">
+       
+        <input type="submit" name="Submit" value="查询">      </form> </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<!--
+EOT;
+?>
+-->

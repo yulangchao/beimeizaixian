@@ -1,0 +1,278 @@
+.HeaderTop{
+	width:100%;
+	height:30px;
+	background:#F8F8F8;
+	border-bottom:#EEEEEE solid 1px;
+}
+.MainContainer{
+	width:1200px;
+	clear:both;
+	margin:auto;
+	position:relative;
+}
+.HeaderTop .MainContainer{
+	height:30px;
+	z-index:1000000;
+}
+.HeaderTop .MainContainer .webinfo{
+	float:left;
+	line-height:30px;
+	color:#666;
+}
+.HeaderTop .MainContainer .TopMenu{
+	height:30px;
+	float:right;
+} 
+.HeaderTop .MainContainer .TopMenu dl{
+	height:30px;
+	width:85px;
+	float:left;
+	position:relative;
+	margin-left:7px;
+}
+.HeaderTop .MainContainer .TopMenu dl:before{
+	content:'';
+	display:block;
+	width:1px;
+	height:15px;
+	position:absolute;
+	left:-3px;
+	top:7px;
+	background:#bbb;
+}
+.HeaderTop .MainContainer .TopMenu dl:nth-child(1):before{
+	display:none;
+}
+.HeaderTop .MainContainer .TopMenu dl dt{
+	height:30px;
+	line-height:32px;
+	overflow:hidden;
+	position:relative;
+	z-index:1000000;
+	color:#666;
+	text-indent:10px;
+	border-left:#F8F8F8 solid 1px;
+	border-right:#F8F8F8 solid 1px;
+}
+.HeaderTop .MainContainer .TopMenu dl dt span{
+	display:block;
+	width:20px;
+	height:6px;
+	background:url(array.png) center top no-repeat;
+	position:absolute;
+	top:13px;
+	right:5px;
+}
+.HeaderTop .MainContainer .TopMenu dl dd{
+	width:100%;
+	position:absolute;
+	left:0;
+	top:28px;	
+	display:none;
+}
+.HeaderTop .MainContainer .TopMenu dl dd.otermenus{
+	width:1200px;
+	left:-1115px;
+}
+.HeaderTop .MainContainer .TopMenu dl dd ul{
+	border:#EEE solid 1px;
+	padding-top:5px;
+	padding-bottom:5px;
+	background:#FFF;
+	border-radius:0 0 5px 5px;
+}
+.HeaderTop .MainContainer .TopMenu dl dd ul a{
+	color:#666;
+}
+.HeaderTop .MainContainer .TopMenu dl dd ul a:hover{
+	color:#F30;
+}
+.HeaderTop .MainContainer .TopMenu dl dd ul li{
+	height:20px;
+	line-height:20px;
+	text-indent:10px;
+	overflow:hidden;
+}
+/*
+*
+*/
+.LogoSearchInfo{
+	display:table;
+	width:100%;
+}
+.LogoSearchInfo .logo,.LogoSearchInfo .search,.LogoSearchInfo .info,.LogoSearchInfo .city{
+	display:table-cell;
+	height:100px;
+	vertical-align:middle;
+}
+.LogoSearchInfo .logo{
+	width:200px;
+	text-align:center;
+}
+.LogoSearchInfo .logo img{
+	max-width:180px;
+	max-height:80px;
+}
+.LogoSearchInfo .city{
+	width:60px;
+}
+.LogoSearchInfo .city div{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+}
+.LogoSearchInfo .city a{
+	display:block;
+	background:#EDEDED;
+	text-align:center;
+	line-height:25px;
+	color:#888;
+	border-radius:5px;
+}
+.LogoSearchInfo .city a:hover{
+	background:#F60;
+	color:#FFF;
+}
+.LogoSearchInfo .info{
+	width:120px;
+	padding-left:50px;
+	background:url(tel.png) left 30px no-repeat;
+}
+.LogoSearchInfo .info div{
+	height:20px;
+	left:20px;
+	overflow:hidden;
+	color:#666;
+	font-size:13px;
+}
+.LogoSearchInfo .info div.tel{
+	color:#F60;
+	font-size:14px;
+	letter-spacing:1px;
+}
+.TopSearch{
+	width:500px;
+	height:40px;
+	margin:auto;
+	background:#F60;
+	position:relative;
+	z-index:10000;
+}
+.TopSearch .Select{
+	width:80px;
+	background:#FFE4D2;
+	position:absolute;
+	top:2px;
+	left:2px;
+}
+.TopSearch .Select dt{
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	font-size:16px;
+	color:#666;
+}
+.TopSearch .Select dd{
+	border:#EEE solid 1px;
+	background:#FFF;
+	display:none;
+}
+.TopSearch .Select dd div{
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	border-bottom:#EEE solid 1px;
+	font-size:16px;
+	color:#666;
+}
+.TopSearch .Select dd div:hover{
+	background:#FFE4D2;
+}
+.TopSearch .keyword{
+	width:320px;
+	height:36px;
+	background:#FFF;
+	position:absolute;
+	top:2px;
+	left:83px;
+}
+.TopSearch .keyword input{
+	width:100%;
+	border:0;
+	line-height:36px;
+	text-indent:5px;
+	font-size:16px;
+	color:#666;
+}
+.TopSearch .submit{
+	width:100px;
+	height:40px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.TopSearch .submit input{
+	height:40px;
+	width:100px;
+	padding-right:40px;
+	border:0;
+	background:none;
+	font-size:18px;
+	font-weight:bold;
+	color:#FFF;
+	background:url(search.png) 60px 10px no-repeat;
+	cursor:pointer;
+	outline:none;
+	outline-style:none;
+}
+.TopSearch .submit input::-moz-focus-inner{outline:none;}
+/*
+*
+*/
+.MainMenus{
+	width:100%;
+	height:40px;
+	overflow:hidden;
+	clear:both;
+	background:#2BB8AA;
+}
+.MainMenus .MainContainer{
+	height:40px;
+}
+.MainMenus .MainContainer .tag{
+	height:40px;
+	width:250px;
+	float:left;
+	background:url(tag.png);
+	line-height:40px;
+	text-indent:10px;
+	font-size:16px;
+	color:#FFF;
+}
+.MainMenus .MainContainer ul{
+	height:30px;
+	padding-top:5px;
+	padding-left:10px;
+	float:left;
+}
+.MainMenus .MainContainer ul li{
+	height:30px;
+	line-height:30px;
+	float:left;
+	padding:0 15px 0 15px;
+}
+.MainMenus .MainContainer ul li a{
+	font-size:16px;
+	font-weight:bold;
+	color:#FFF;
+}
+.MainMenus .MainContainer ul li:hover{
+	background:#FFF;
+	border-radius:5px;
+}
+.MainMenus .MainContainer ul li:hover a{
+	color:#F30;
+}

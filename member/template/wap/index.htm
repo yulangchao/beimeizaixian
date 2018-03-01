@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<!--
+<?php
+$signIn = date('d',$timestamp)!=date('d',$lfjdb[signin_time])?"<A HREF='job.php?job=signIn'>签到</A>":'';
+$iscompany=$lfjdb[grouptype]==1?"企业会员":"个人会员";
+$idcard_yz=$lfjdb[idcard_yz]==1?"<img src=\"$webdb[www_url]/images/default/yz/idcard_1.gif\" alt=\"身份认证会员\">":"<img src=\"$webdb[www_url]/images/default/yz/idcard_0.gif\" alt=\"身份还未认证\">";
+$email_yz=$lfjdb[email_yz]==1?"<img src=\"$webdb[www_url]/images/default/yz/email_1.gif\" alt=\"邮箱认证会员\">":"<img src=\"$webdb[www_url]/images/default/yz/email_0.gif\" alt=\"邮箱还未认证\">";
+$mob_yz=$lfjdb[mob_yz]==1?"<img src=\"$webdb[www_url]/images/default/yz/mob_1.gif\" alt=\"手机认证会员\">":"<img src=\"$webdb[www_url]/images/default/yz/mob_0.gif\" alt=\"手机还未认证\">";
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d",$lfjdb[regdate]);
+function get_member_link($uid){
+	global $db,$pre;
+	@extract($db->get_one("SELECT username FROM {$pre}memberdata WHERE uid='$uid'"));
+	$show=$username?"<a href=\"waphomepage.php?uid=$uid\">$username</a>":"";
+	return $show;
+}
+$tz_username=$lfjdb[introducer_1]?get_member_link($lfjdb[introducer_1]):"";
+$tz_username||$tz_username=$webdb[webname];
+@extract($db->get_one("SELECT COUNT(*) AS pmNUM FROM `{$pre}pm` WHERE `touid`='$lfjuid' AND type='rebox' AND ifnew='1'"));
+$listnewMsg=$pmNUM>0?"<a href='wappm.php' style='color:red;'>有<span style='color:yellow;'>{$pmNUM}</span>条新消息</a>":"";
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>会员中心 </title>
+<link rel="stylesheet" type="text/css" href="images/wap/index1.css">
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+</head>
+<body>
+<div class="TopContainers">
+	<dl>
+		<dt><a href="waphomepage.php?uid=$lfjuid"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src="$lfjdb[icon]"/></a></dt>
+		<dd>
+			<div>昵称:$lfjid $listnewMsg</div>
+			<div>等级:$iscompany</div>
+			<div>注册:{$lfjdb[regdate]}</div>
+		</dd>
+	</dl>
+	<div class="ToGift"><a href="$webdb[www_url]/gift/wapindex.php"><span>兑换礼品</span></a></div>
+</div>
+<div class="ListMyMoneys">
+	<ul><ol>{$lfjdb[money]}</ol><li>总积分</li></ul>
+	<ul><ol>{$lfjdb[rmb]}</ol><li>可用金额</li></ul>
+	<ul><ol>{$lfjdb[rmb_freeze]}</ol><li>冻结金额</li></ul>
+</div>
+<!--
+EOT;
+if($menudb3){
+foreach($menudb3 AS $MenuName=>$array){
+print<<<EOT
+-->
+<div class="ifsysCont">
+	<dl>
+		<dt><span><img src='images/wap/icon7.png'></span><em>$MenuName</em></dt>
+		<dd>
+			<ul>
+<!--
+EOT;
+foreach($array AS $MenuName1=>$array2){
+print<<<EOT
+-->
+          		<li><a href="$array2[link]">$MenuName1</a></li>
+<!--
+EOT;
+}print<<<EOT
+-->
+			</ul>
+		</dd>
+	</dl>
+</div>
+<!--
+EOT;
+}}else{
+$tagmenupic = array("基本功能"=>"<img src='images/wap/icon1.png'>","插件功能"=>"<img src='images/wap/icon2.png'>","资讯频道"=>"<img src='images/wap/icon3.png'>","房产频道"=>"<img src='images/wap/icon4.png'>","点评频道"=>"<img src='images/wap/icon5.png'>","装修频道"=>"<img src='images/wap/icon6.png'>","分类系统"=>"<img src='images/wap/icon7.png'>","商城系统"=>"<img src='images/wap/icon8.png'>","万能表单"=>"<img src='images/wap/icon9.png'>","微分享"=>"<img src='images/wap/icon10.png'>","黄页店铺"=>"<img src='images/wap/icon11.png'>","聚会活动"=>"<img src='images/wap/icon12.png'>","商家团购"=>"<img src='images/wap/icon13.png'>","人才招聘"=>"<img src='images/wap/icon14.png'>","礼品兑换"=>"<img src='images/wap/icon15.png'>","优惠促销"=>"<img src='images/wap/icon16.png'>","二手市场"=>"<img src='images/wap/icon17.png'>",'分类系统'=>'<img src="images/wap/fl.png">','上门服务'=>'<img src="images/wap/fuwu.png">','论坛交流'=>'<img src="images/wap/bbs.png">','外卖'=>'<img src="images/wap/waimai.png">');
+print<<<EOT
+-->
+<div class="ifsysCont">
+	<dl>
+		<dt><span>{$tagmenupic['基本功能']}</span><em>基本功能</em></dt>
+		<dd>
+			<ul>
+<!--
+EOT;
+foreach($menudb['基本功能'] AS $MenuName=>$array2){
+print<<<EOT
+-->
+          		<li><a href="$array2[link]">$MenuName</a></li>
+<!--
+EOT;
+}print<<<EOT
+-->
+			</ul>
+		</dd>
+	</dl>
+</div>
+<!--
+EOT;
+if($menudb['插件功能']){
+print<<<EOT
+-->
+<div class="ifsysCont">
+	<dl>
+		<dt><span>{$tagmenupic['插件功能']}</span><em>插件功能</em></dt>
+		<dd>
+			<ul>
+<!--
+EOT;
+foreach($menudb['插件功能'] AS $MenuName=>$array2){
+print<<<EOT
+-->
+          		<li><a href="$array2[link]">$MenuName</a></li>
+<!--
+EOT;
+}print<<<EOT
+-->
+			</ul>
+		</dd>
+	</dl>
+</div>
+<!--
+EOT;
+}
+foreach($menudb1 AS $SortName=>$array){
+$tagmenupic[$SortName]||$tagmenupic[$SortName]="<img src='images/wap/icon7.png'>";
+print<<<EOT
+-->
+<div class="ifsysCont">
+	<dl>
+		<dt><span>{$tagmenupic[$SortName]}</span><em>$SortName</em></dt>
+		<dd>
+			<ul>
+<!--
+EOT;
+foreach($array AS $MenuName=>$array2){
+if($power<$array2[power])continue;
+print<<<EOT
+-->
+          		<li><a href="$array2[link]">$MenuName</a></li>
+<!--
+EOT;
+}print<<<EOT
+-->
+			</ul>
+		</dd>
+	</dl>
+</div>
+<!--
+EOT;
+}
+print<<<EOT
+-->
+<div class="OtherModules1">
+	<div class="OtherModules">
+<!--
+EOT;
+foreach($menudb2 AS $SortName=>$array){
+$tagmenupic[$SortName]||$tagmenupic[$SortName]="<img src='images/wap/icon7.png'>";
+print<<<EOT
+-->
+	<dl>
+		<dt><span>{$tagmenupic[$SortName]}</span><em>$SortName</em></dt>
+		<dd>
+			<ul>
+<!--
+EOT;
+foreach($array AS $MenuName=>$array2){
+if($power<$array2[power])continue;
+print<<<EOT
+-->
+          		<li><a href="$array2[link]">$MenuName</a></li>
+<!--
+EOT;
+}print<<<EOT
+-->
+			</ul>		
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print<<<EOT
+-->
+	</div>
+</div>
+<!--
+EOT;
+}
+print<<<EOT
+-->
+<div class="QuitLogin">
+	<a href="$webdb[www_url]/do/waplogin.php?action=quit">退出登录</a>
+</div>
+<div class="CopyRight">
+  <p>@$webdb[webname] 版权所有</p>
+  <p>$webdb[miibeian_gov_cn]</p>
+</div>
+<footer class="footer">
+	<div><a href="javascript:;history.back()">返回</a></div>
+	
+<!--
+EOT;
+if(count($city_DB[name])>1){print <<<EOT
+-->
+	<div><a href="$webdb[www_url]/allcity.php">切换城市</a></div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<div><a href="$webdb[www_url]/f/wapindex.php">分类信息</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+	<div><a href="$webdb[www_url]/wapindex.php"></a></div>
+	<div><a href="$webdb[www_url]/member/wapindex.php">会员中心</a></div>
+	<div><a href="$webdb[www_url]/shop/wapjoin.php">购物车</a></div>
+</footer>
+<div class="ShowBgFull"></div>
+<div class="ShowMenu"></div>
+<!--
+EOT;
+?>
+-->
+<script type="text/javascript">
+$('.OtherModules dl').click(function(){
+	var thismenu=$(this).find('dd').html();
+	$('.ShowMenu').html(thismenu);
+	$('.ShowBgFull').css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		$('.ShowMenu').animate({'width':'200px'},300);
+	});
+});
+$('.ShowBgFull').click(function(){
+	$('.ShowMenu').html('');
+	$('.ShowMenu').animate({'width':'0px'},300);
+	$(this).animate({'opacity':0},300,function(){$(this).css({'display':'none'});});	
+});
+</script>
+</body>
+</html>

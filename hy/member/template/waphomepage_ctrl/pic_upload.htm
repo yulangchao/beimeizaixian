@@ -1,0 +1,91 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style>
+.PicList span{display:block; margin-bottom:5px;}
+</style>
+<script>
+function kill_Err(){
+	return true;
+}
+window.onerror=kill_Err;
+function ckpost(){
+	if($("#psid").val()==''){
+		alert('请选择一个图集');
+		return false
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+<form name="form1" method="post" action="?atn=$atn&uid=$uid&step=2" onsubmit="return ckpost();">
+  <dl>
+    <dt>图片</dt>
+	<dd>
+<!--
+EOT;
+$i=0;
+$listPics="";
+foreach($picdb AS $key=>$ts){
+$i++;
+if($ts[url]){
+$listPics.="<div class='PicList'>{$i}、<input type='text' name='piclistdb[1][$i]' value='$ts[title]' placeholder='图片标题' style='width:100px; display:none;'><input class='text' type='text' name='piclistdb[2][$i]' value='$ts[url]' placeholder='图片地址' style='width:80%;'/><input type='hidden' name='piclistdb[3][$i]' value='$ts[pid]'/></div>\r\n";
+}}
+print <<<EOT
+-->	
+$listPics
+	</dd>
+  </dl>
+  <dl>
+		<dt>上传图片：</dt>
+		<dd>
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="photodb[0]" id='out_url0' placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=homepage/pic/$uid&label=out_url0'></iframe></div>
+            </div>
+		</dd>
+  </dl>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+$('.PicList').hover(
+	function(){
+		$(this).css('border-bottom', 'dotted #DDD 1px');
+	},function(){
+		$(this).css('border-bottom', '0');
+	}
+);
+//-->
+</SCRIPT>
+  <dl>
+    <dt>所属图集:</dt>
+	<dd>
+	  <select name="psid" size="1" id="psid">
+	    <option value="">请选择一个图集</option>
+<!--
+EOT;
+foreach($listdb as $rs){
+$ck=$rs[psid]==$psid?" selected":"";
+print <<<EOT
+-->
+        <option value="$rs[psid]" $ck>$rs[name]</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	  </select>
+	</dd>
+  </dl>
+  <div class="butters">
+      <span class="submits"><input type="submit" name="Submit" value="提交"></span>
+  </div>
+</form>
+</div>
+<!--
+EOT;
+?>
+-->

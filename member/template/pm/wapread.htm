@@ -1,0 +1,50 @@
+<!--
+<?php
+print <<<EOT
+-->
+<!-- <div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT> -->
+
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<style>
+  .FormContainer .butter a{
+    border: 1px solid #FF3300;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 8px 3px 8px;
+    background: #FF6600;
+  }
+</style>
+<div class="FormContainer">
+
+	<h3>查看短消息</h3>
+
+          <dl>
+            <dt>来自:</dt>
+            <dd>$rsdb[username]</dd>
+          </dl>
+          <dl>
+            <dt>标题:</dt>
+            <dd>$rsdb[title]</dd>
+          </dl>
+          <dl>
+            <dt>时间:</dt>
+            <dd>$rsdb[mdate]</dd>
+          </dl>
+          <dl>
+            <dt >内容:</dt>
+            <dd>$rsdb[content]</dd>
+          </dl>
+
+          <div class='butter'>
+              <a href="?job=send&username=$rsdb[username]">回复</a>
+                <a href="?job=del&mid=$rsdb[mid]">删除</a>
+                <a href="?job=list">返回</a>   
+          </div>
+
+
+</div>
+<!--
+EOT;
+?>
+-->

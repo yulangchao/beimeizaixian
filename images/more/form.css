@@ -1,0 +1,165 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica,microsoft yahei, sans-serif;
+}
+.b{
+	font-weight:bold;
+}
+.red{
+	color:red;
+}
+.blue{
+	color:blue;
+}
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.FormContainer{
+	width:98%;
+	margin:10px auto;
+	border:#DDD solid 1px;
+	background:#FFF;
+	border-radius: 2px;
+	-webkit-box-shadow: 1px 1px 2px #eee inset;
+	-webkit-box-sizing: border-box;
+	margin-bottom:50px;
+}
+.FormContainer h3{
+	text-align:center;
+	border-bottom:#DDD solid 1px;
+	line-height:35px;
+	font-size:16px;
+}
+.FormContainer dl{
+	display: table;
+	width: 100%;
+	border-bottom:#DDD solid 1px;
+}
+.FormContainer dl dt{
+	width: 100px;
+	text-align: right;
+	display: table-cell;
+	border-right:#DDD solid 1px;
+	line-height:35px;
+	padding-right:5px;
+	color:#666;
+	vertical-align:top;
+}
+.FormContainer dl dt span{
+	color:#F00;
+}
+.FormContainer dl dd{
+	display: table-cell;
+	padding:5px;
+	line-height:25px;
+	color:#888;
+	position:relative;
+}
+.FormContainer .text,.FormContainer .time,.FormContainer textarea,.FormContainer select,.FormContainer .upfile,.FormContainer .onepic{
+	/*border: 0 none;*/
+	border:#EEE solid 1px;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	color:#888;
+	font-size:14px;
+}
+.FormContainer .text,.FormContainer .time,.FormContainer .upfile,.FormContainer .onepic{
+	width:60%;
+	height:25px;
+}
+.FormContainer select{
+	width:80%;
+	height:25px;
+}
+.FormContainer textarea{
+	height:200px;
+}
+.FormContainer select{
+	/*-webkit-appearance: none;
+	margin: 0;*/
+}
+.FormContainer select option{
+	color:#888;
+}
+.FormContainer .select:after {
+	/*content: '';
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	width: 7px;
+	height: 7px;
+	border-top: solid 2px #c4c4c4;
+	border-right: solid 2px #c4c4c4;
+	-webkit-transform: rotate(135deg);
+	margin-top: -7px;*/
+}
+.FormContainer .Sub{
+	text-align:center;
+	padding:5px 0 5px 0;
+}
+.FormContainer .Sub input{
+	display: inline-block;
+	padding: 6px 15px;
+	text-align: center;
+	color: #fff;
+	background-color: #f40;
+	border: 0 none;
+	box-shadow: #ddd 0 1px 1px;
+	border-radius: 3px;
+}
+.FormContainer .Sub input:visited {
+	color: #fff;
+}
+.FormCont .Sub input:hover {
+	background-color: #f22d00;
+	color: #fff;
+	text-decoration: none;
+}
+.FormContainer dl dd .yzimg,.FormContainer dl dd .units{
+	padding-left:5px;
+	/*display:block;
+	float:left;
+	width:70px;
+	height:25px;
+	position:absolute;
+	right:5px;
+	top:5px;*/
+}
+.FormContainer dl dd .yzimg img{
+	width:70px;
+	height:25px;
+}
+.FormContainer dl dd .upfile_box,.FormContainer dl dd .PicList{
+	height:30px;
+	width:100%;
+	position:relative;
+}
+.FormContainer dl dd .PicList span{
+	display:block;
+	width:80px;
+	height:20px;
+	position:absolute;
+	right:0;
+	top:0;
+	color:#F60;
+	cursor:pointer;	
+}
+.FormContainer dl dd .iframe{
+	width:250px;
+	height:30px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.FormContainer dl dd .iframe iframe{
+	width:100%;
+	height:30px;
+}

@@ -1,0 +1,381 @@
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.SelectList{	
+	width:100%;
+	position:relative;
+}
+.ChangeSele{
+	height:40px;
+	border-top:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;
+	background-color:#FFF;
+}
+.ChangeSele li{
+	float:left; 
+	width:100%;
+}
+.ChangeSele li a { 
+	overflow:hidden; 
+	display:block; 
+	text-align:center; 
+	height:40px; 
+	line-height:40px; 
+	position:relative; 
+	border-right:1px solid #d6d6d6;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.ChangeSele li:nth-child(even) a { 
+	border-right:0 none;
+}
+.ChangeSele li a em { 
+	border-color:#B3AEA8 transparent transparent transparent; 
+	border-width:5px; 
+	display:inline-block; 
+	margin-left:5px; 
+	position:absolute; 
+	top:19px; 
+	border-style:solid;
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.navbox { 
+	position:absolute; 
+	top:0;  
+	right:0; 
+	z-index:1002; 
+	width:1px;
+	overflow:hidden;
+	background-color:#eee; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+.navbox:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 80px;
+	clear:both;
+}
+.navbox a{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.navbox dl{
+	border-bottom:1px solid #d6d6d6;
+}
+.navbox dl dt{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	border-bottom:1px solid #FFF;
+	border-top:1px solid #FFF;
+	overflow:hidden;
+	position:relative;
+}
+.navbox dl dt:after{
+	content: '';
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+	width:0;
+	height:0;
+	border:8px solid transparent;
+	border-left: 8px solid rgba(0,0,0,0.8);
+	border-right:0;
+	cursor:pointer;
+}
+.navbox dl.ck dt:after{
+	border:8px solid transparent;
+	border-top: 8px solid rgba(0,0,0,0.8);
+	border-bottom:0;
+}
+.navbox dl.ck dt a{
+	color:red;
+}
+.navbox dl dd{
+	padding:10px;
+	background:#FFF;
+	border-top:1px solid #d6d6d6;
+	display:none;
+}
+.navbox dl.ck dd{
+	display:block;
+}
+.navbox dl dd div a{
+	display:block;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+}
+.navbox dl dd div a.ck{
+	color:red;
+}
+/*.ListCoupon dl{
+	height:90px;
+	overflow:hidden;
+	position:relative;
+	border-bottom:#DDD solid 1px;
+	padding-top:15px;
+}
+.ListCoupon dl dt{
+	width:120px;
+	border:#DDD solid 1px;
+	padding:1px;
+	position:absolute;
+	left:10px;
+	top:15px;
+}
+.ListCoupon dl dt a{
+	display:block;
+	width:120px;
+	height:75px;
+	background:#EFEFEF;
+	overflow:hidden;
+}
+.ListCoupon dl dt a img{
+	width:100%;
+}
+.ListCoupon dl dd{
+	height:105px;
+	padding-left:150px;
+	overflow:hidden;
+	background:url(icon.png) right bottom no-repeat;
+}
+.ListCoupon dl dd h3,.ListCoupon dl dd div{
+	height:25px;
+	line-height:25px;
+	display:block;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#666;
+	word-spacing:10px;
+}
+.ListCoupon dl dd h3 a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#369;
+	font-weight:normal;
+}
+.ListCoupon dl dd div strike{
+	color:#999;
+}
+.ListCoupon dl dd div span{
+	color:#F60;
+	font-size:16px;
+	font-weight:bold;
+}
+.ListCoupon .page{
+	height:100px;
+	padding-top:15px;
+	text-align:center;
+}
+.ListCoupon dl dd div em{
+	font-style:normal;
+	color:green;
+}*/
+.ListCoupon .page a{
+	font-family:Arial, Helvetica, sans-serif;
+	display:inline-block; 
+	border:#DDD solid 1px;
+	border-radius:3px;
+	padding:5px 10px;
+	background:#FFF;
+	color:#666;
+	font-size:14px;
+}
+.ListCoupon .page a.ck{
+	background:green;
+}
+.ListCoupon .page a.ck font{
+	color:#FFF;
+}
+
+
+
+
+
+.ListCoupon dl{
+	width:100%;
+	display: table;
+	border-bottom:#DDD solid 1px;
+}
+.ListCoupon dl dt,.ListCoupon dl dd{
+	display:table-cell;
+}
+.ListCoupon dl dt{
+	width:120px;
+	padding:10px;
+	vertical-align:middle;
+	text-align:center;
+}
+.ListCoupon dl dt a{
+	display:block;
+	width:120px;
+	max-height:100px;
+	border-radius:5px;
+	overflow:hidden;
+}
+.ListCoupon dl dt a img{
+	width:100%;
+}
+.ListCoupon dl dd{
+	padding-top:5px;
+}
+.ListCoupon dl dd h3,.ListCoupon dl dd div{
+	height:28px;
+	line-height:28px;
+	overflow:hidden;
+	color:#666;
+}
+.ListCoupon dl dd h3 a{
+	font-weight:normal;
+	color:#369;
+}
+.ListCoupon dl dd div.price span{
+	font-size:22px;
+	color:#F90;
+}
+.ListCoupon dl dd div.price strike{
+	font-size:14px;
+	color:#888;
+	padding-left:10px;
+}
+.ListCoupon dl dd div.more span{
+	display:block;
+	float:left;
+	padding-left:20px;
+	background:url(time.png) 2px 7px no-repeat;
+	font-size:14px;
+}
+.ListCoupon dl dd div.more span.hits{
+	margin-left:10px;
+	background:url(hits.png) 2px 7px no-repeat;
+}
+/*
+*/
+.titles{
+	border-top:#DDD solid 1px;
+	line-height:25px;
+	padding:10px 10px 5px 10px;
+	font-size:18px;
+}
+.baseinfo{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	padding-left:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:14px;
+}
+.ShowPic{
+	margin:10px auto;
+	text-align:center;
+}
+.ShowPic img{
+	max-width:100%;
+	/*min-width:320px;*/
+}
+.MoreInfo li{
+	padding:5px 0;
+	line-height:20px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.MoreInfo li a{
+	color:#333;
+}
+.MoreInfo li span{
+	color:#666;
+}
+.Contact{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:3px;
+	margin:10px auto;	
+}
+.Contact li{
+	height:40px;
+	line-height:40px;
+	border-top:#DDD solid 1px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:14px;
+}
+.Contact li a{
+	color:#333;
+}
+.Contact li span{
+	color:#666;
+}
+.Contents h3{
+	display:block;
+	border-top:#999 solid 1px;
+	border-bottom:#DDD solid 1px;
+	height:40px;
+	line-height:40px;
+	background:#FFF;
+	text-indent:10px;
+}
+.Contents .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+}
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}
+.Reminded{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	margin:auto;	
+	background:#FFF;
+}
+.Reminded div{
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:40px;
+	text-indent:10px;
+	border-bottom:#DDD solid 1px;
+	color:#369;
+}
+.Reminded ul{
+	padding:10px;
+}
+.Reminded ul li{
+	line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-indent:5px;
+	font-size:14px;
+	color:#666;
+}
+.FootSpac{
+	width:100%;
+	height:80px;
+	clear:both;	
+}

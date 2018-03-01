@@ -1,0 +1,125 @@
+<!--
+<?php
+$listmembers=$lfjid?"<a href='$webdb[www_url]/member/wapindex.php' target='_blank' class='ck'>管理</a> <a href='$webdb[www_url]/do/waplogin.php?action=quit'>退出</a>":"<a href='$webdb[www_url]/do/wapreg.php'>注册</a> <a href='$webdb[www_url]/do/waplogin.php' class='ck'>登录</a>";
+$rsdb[title] || $rsdb[title] = get_txt_word($rsdb[content],40);
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/bencandy.css">
+<div class="GuideCont">当前位置：<a href="$webdb[_www_url]/wapindex.php">首页</a> -> <a href="./wapindex.php">微分享</a> $GuideFid[$fid]</div>
+<div class="titles">$rsdb[title]</div>
+<div class="baseinfo"> 评论(<span>$rsdb[comments]</span>) 浏览(<span>{$rsdb[hits]}</span>) 发布者(<a href='$webdb[www_url]/member/waphomepage.php?uid=$rsdb[uid]'>$rsdb[username]</a>)</div>
+<div class="ShowContent">
+<!--
+EOT;
+if($rsdb[picurl] && !strstr($rsdb[content],substr(basename($rsdb[picurl]),0,20))){print <<<EOT
+-->
+	<div class="ShowPic"><img src="$rsdb[picurl]" onerror="this.style.display:none;"/></div>
+
+<!--
+EOT;
+}print <<<EOT
+-->
+	<div class="cont">
+		$rsdb[content]
+	</div>
+	<div class="keywords">$rsdb[keywords]</div>
+</div>
+<div class="FootSpac"></div>
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

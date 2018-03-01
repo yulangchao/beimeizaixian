@@ -1,0 +1,127 @@
+<?php
+require(ROOT_PATH."inc/waphead.php");
+?>
+<!--
+<?php
+$picartic = get_company_list('hot',5);
+$slideCode="";
+$slideList="";
+$i=0;
+foreach($picartic AS $key=>$rs){
+	$rs[picurl] && $rs[picurl]=tempdir($rs[picurl]);
+	$i++;
+	$slideCode.="<li class='li'><a href=\"$webdb[_www_url]/home/?uid=$rs[uid]\"><img src=\"$rs[picurl]\" onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\" title=\"$rs[title]\"></a></li>\r\n";
+	$slideList.="<li class='li'>$i<span>$rs[title]</span></li>\r\n";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/hy/images/wap/wapindex.css"/>
+<!-- nav -->
+  <section class="s-skin m-nav">
+	<ul>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file(ROOT_PATH."hy/images/wap/ficon{$i}.png"))?"./images/wap/ficon{$i}.png":"./images/wap/ficon8.png");
+$url="$webdb[www_url]/hy/waplist.php?fid=$key";
+$i++;
+if($i>8) break;
+print <<<EOT
+-->
+	  <li><a href="$url"><span><img src="$logo"/></span><span>$name</span></a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</ul>
+	<div class="m-NavMore" id="show_sort">查看更多类目&gt;&gt;</div>
+  </section>
+<!-- /nav -->
+<!-- m-News -->
+
+  <section class="s-skin m-News">
+    <div class="NewsCont">
+	  <h2><a href="#">黄页推荐</a></h2>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[url]="$webdb[www_url]/hy/waphomepage.php?uid=$rs[uid]";
+print <<<EOT
+-->
+	  <dl>
+	    <dt class="L"><a href="$rs[url]"><img src="$rs[picurl]" onerror="src='$webdb[www_url]/images/wap/newspic.png'"/></a></dt>
+		<dd class="R">
+		  <h3><a href="$rs[url]">$rs[title]</a></h3>
+		  <p class="m-sortname">电话：<a href="tel:$rs[tel]">$rs[tel]</a></p>
+		  <p>地址：{$rs[qy_regplace]}{$rs[qy_address]}</p>
+		</dd>
+	  </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>
+  </section>
+<div class="ShowMoreShop" onclick="showMoreCont();"><span class="ShowMore">点击查看更多</span></div>
+<script>
+var page=1;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreShop").hide();
+		}else{
+			$(".NewsCont").append(d);
+			$(".ShowMoreShop").html("<span>点击查看更多</span>");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".NewsCont dl").length%rows!=0){
+		$(".ShowMoreShop").hide();
+	}
+}
+countlist();
+</script>
+
+<!-- /m-News -->
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url="$webdb[www_url]/hy/waplist.php?fid=$key";
+$ck_class=($key==$fidDB[fup]||$key==$fid)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls="$webdb[www_url]/f/waplist.php?fid=$keys";
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script type="text/javascript" src="$webdb[www_url]/f/images/wap/sort.js"></script>
+
+<!--
+EOT;
+?>
+-->
+<?php
+require(ROOT_PATH."inc/wapfoot.php");
+?>

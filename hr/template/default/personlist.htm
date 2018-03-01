@@ -1,0 +1,77 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/listjob.css">
+<div class="content_text " style="width:1200px; overflow:hidden; margin:15px auto;">
+	<div class="text_left" style="width:24%; float:left;">
+		<table style="width:100%; border:1px solid #1aa4ed;">
+			<tr>
+				<td class="jc_head"><div class="jc">相关信息</div></td>
+			</tr>
+			<tr>
+				<td class="middle">
+					<div class="content_ad">$label[personglist]</div>
+					<div class="hj">热门职位</div>
+					<div class="hjc">
+<!--
+EOT;
+$array=list_hr_job('hot',$rows=10);
+foreach($array AS $rs){print <<<EOT
+-->
+·<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</div>
+			</td>
+		</tr>
+	</table> 
+</div>
+<div class="text_right" style="width:76%; float:left; margin-bottom:75px;">
+	<div class="job_rep">
+<!--{filter}--><div><span class='title'>{title}：</span><span class='condition'>{value}</span></div><!--{/filter}-->
+	</div>
+	<table class="find_box" style="width:97%; margin-left:25px; border:1px solid #dfdfdf;">
+		<tr> 
+		<td class="dr_head">找人才</td>
+		</tr>
+		<tr> 
+		<td class="text_mar"> 
+			<table class="find_job">
+			<tr class="pos_head">
+<!--{template}--> <td align="center">{title}</td><!--{/template}-->
+				<td>更新日期</td>
+				<td>查看</td>
+			</tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+			<tr>
+				<!--{template}--> <td align="center">{value}</td><!--{/template}-->
+				<td class="company">$rs[posttime]</td>
+				<td><a href="$Murl/joinshow.php?id=$rs[id]" target=_blank>查看</a></td>
+			</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="page">
+              <tr>
+                <td align="center">$showpage</td>
+              </tr>
+            </table>
+		</td>
+		</tr>
+	</table>
+</div>			
+	
+</div>
+<!--
+EOT;
+?>
+-->

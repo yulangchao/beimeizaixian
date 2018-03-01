@@ -1,0 +1,162 @@
+.cross {
+	text-decoration:line-through; color:#666666;
+} 
+.Kern5 {
+	letter-spacing:5px;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.red {
+	color:#ff3300;
+}
+
+.main{width:1200px;margin:25px auto; overflow:hidden;}
+
+.main_left{width:860px; float:left;}
+.main_left .top_div{float:left;width:100%;border:#CCC solid 1px;}
+.top_box{width:100%; height:48px;line-height:48px;background:rgba(204,204,204,0.5);border-bottom:#CCC solid 1px;}
+.top_box span{padding-left:12px;background:url(title_bj.png) no-repeat center left;margin-left:10px;font-size:16px;font-family:"Î¢ÈíÑÅºÚ";}
+.top_box span.right{background:none;padding-right:10px;}
+.top_div .small_box{margin-top:12px;margin-bottom:42px;margin-left:12px;margin-right:12px;}
+.top_div h2{font-size:18px;line-height:42px; text-align:center;font-weight:400;}
+.top_div h3{font-size:12px;text-align:center;color:#999; letter-spacing:1px;}
+.top_div .div_p{margin-top:12px;margin-bottom:22px;width:98%;margin-left:12px;}
+.top_div p{line-height:40px; text-indent:24px;font-size:14px;}
+.top_div .icon{float:left;width:98%;margin-bottom:48px;margin-left:14px;}
+.top_div .icon a{}
+.top_div .icon span{float:right;}
+.comment_div{float:left;width:100%;border:#ccc solid 1px;margin-top:26px;}
+.comment_div .comment_title{float:left;width:100%;line-height:48px;background:rgba(204,204,204,0.5);border-bottom:#CCC solid 1px;}
+.comment_title span{float:left;padding-left:12px;background:url(title_bj.png) no-repeat center left;margin-left:10px;font-size:16px;font-family:"Î¢ÈíÑÅºÚ";}
+.comment_div .touxian_box{width:96%;float:left;margin-left:12px;margin-top:20px; border-bottom:rgba(204,204,204,0.5) dashed 1px;}
+.comment_div .touxian_box img{float:left;margin-right:12px;}
+.comment_div .touxian,.wenan{float:left;width:100%;line-height:42px;}
+.comment_div .touxian span{display:inline-block; width:90%;}
+.comment_div .wenan{margin-bottom:50px;line-height:50px;}
+.comment_div .wenan span{float:left;}
+.comment_div .wenan #f_color{color:#09F;margin-right:30%;margin-left:14px;}
+.comment_div .wenan a{float:left;margin-left:30px;}
+.comment_div .wenan em{color:#F33;}
+.comment_div .Message{float:left;width:100%;border-top:solid #CCC 1px;}
+.Message .message_title{float:left;line-height:46px;width:90%;margin-left:12px;font-size:18px;font-weight:400;color:#09F;}
+.message_title span{float:left; padding-left:32px;background:url(bianji.png) no-repeat center left;margin-top:22px;}
+.warp_comment{width:100%;}
+.warp_comment .tdL{text-align:right; padding:10px 0;}
+.post_comment{
+	width:600px;
+	float:left;
+	margin-left:46px;
+	margin-top:30px;
+
+}
+.post_comment span{
+	font-size:16px;
+}
+.post_comment #c_span{
+	float:left;
+	margin-top:12px;
+	}
+.post_comment  .ch{
+    width: 526px;
+    height: 35px;
+    margin-bottom: 17px;
+}
+.post_comment .yzm{
+	width:178px;
+	height:35px;
+}
+.post_form  .submit{
+    width: 260px;
+    float:left;
+    padding-top: 20px;
+	margin:9px auto 37px 284px
+}
+
+#comment dl{
+	background:url(dotted.gif) left bottom repeat-x;
+	margin-bottom:10px;
+}
+#comment dl dt{
+	float:left;
+	width:75px;
+	height:50px;
+	padding-top:5px;
+	background:url(iconbg.gif) center top no-repeat;
+}
+#comment dl dt a{
+	display:block;
+	width:45px;
+	height:45px;
+	overflow:hidden;
+	margin:auto;
+}
+#comment dl dd{
+	width:600px;
+	float:left;
+	line-height:20px;
+	padding-left:5px;
+	color:#666;
+}
+#comment dl div{
+	clear:both;
+	line-height:30px;
+	word-spacing:10px;
+}
+#comment dl div em{
+	color:#f30;
+}
+#comment .page{
+	text-align:center;
+	line-height:30px;
+}
+#comment .no_comment{
+	text-align:center;
+	line-height:60px;
+	font-size:16px;
+	color:#f30;
+}
+.comment_form{
+	border-top:#e0e0e0 solid 1px;
+}
+.comment_form .h{
+	height:40px;
+	vertical-align:middle;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:35px;
+	background:url(add.gif) 10px 9px no-repeat;
+	color:#005CA5;
+}
+.comment_form .left{
+	width:100px;
+	line-height:25px;
+	text-align:right;
+	padding-right:10px;
+}
+.comment_form .right{
+	padding-top:3px;
+}
+#comment_content{
+    width: 528px;
+    height: 248px;
+    margin-top: 14px;
+}
+.comment_form .submits{
+	padding:10px 0 15px 0;
+}
+.comment_form .submits input{
+	border:0;
+}
+.no_Comment{padding:10px; text-align:center; color:#09f; font-size:20px; font-weight:600; overflow:hidden;}
+
+.main_right{width:320px;float:right;}
+.right_box01{width:318px;line-height:42px;float:left;border:#CCC solid 1px;}
+.right_box01 a{float:left;width:60%;padding-left:26px;background:url(hand_icon.png) no-repeat center left;margin-left:22px;}
+.right_box02{width:318px;line-height:42px;float:left;border:#CCC solid 1px;margin-top:20px;}
+.right_box02 a{float:left;width:100%;padding-left:14px;background:url(yuan_icon.png) no-repeat center left;margin-left:22px;}
+.box_title{float:left;width:100%;line-height:48px;background:rgba(204,204,204,0.5);border-bottom:#CCC solid 1px;}
+.box_title span{float:left;padding-left:12px;background:url(title_bj.png) no-repeat center left;margin-left:10px;font-size:16px;font-family:"Î¢ÈíÑÅºÚ";}

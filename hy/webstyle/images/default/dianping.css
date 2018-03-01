@@ -1,0 +1,269 @@
+.RightMainBox .head .postdp{
+	display:inline-block;
+	background:#2CB9FF;
+	float:right;
+	padding:0 15px;
+	line-height:35px;
+	color:#FFF;
+	font-size:16px;
+	margin-top:10px;
+}
+.RightMainBox .head .postdp:hover{
+	background:#F60;
+}
+.SelectDpType{
+	padding:15px 0;
+	height:35px;
+	overflow:hidden;
+}
+.SelectDpType span{
+	display:inline-block;
+	line-height:32px;
+	background:#F5F5F5;
+	border:#DDD solid 1px;
+	padding:0 15px;
+	margin-right:10px;
+	font-size:14px;
+	color:#666;
+}
+.SelectDpType span.ck{
+	background:#2CB9FF;
+	border:#2CB9FF solid 1px;
+	color:#FFF;
+}
+.ListHyDianping{
+	border-top:#DDD solid 1px;
+}
+.ListHyDianping .listdp{
+	border-bottom:#DDD dotted 1px;
+	position:relative;
+	padding:10px 0 15px 105px;
+	min-height:90px;
+}
+.ListHyDianping .listdp .img{
+	width:90px;
+	height:90px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:15px;
+	border-radius:45px;
+}
+.ListHyDianping .listdp .img a{
+	display:table;
+	width:100%;
+}
+.ListHyDianping .listdp .img a span{
+	display:table-cell;
+	width:100%;
+	height:90px;
+	text-align:center;
+	vertical-align:middle;
+	background:#EFEFEF;
+}
+.ListHyDianping .listdp .img a span img{
+	max-width:100%;
+	max-height:90px;
+}
+.ListHyDianping .listdp .info .name a{
+	display:block;
+	line-height:30px;
+	overflow:hidden;
+	font-size:16px;
+	color:#2CB9FF;
+}
+.ListHyDianping .listdp .info .fen{
+	height:30px;
+	overflow:hidden;	
+}
+.ListHyDianping .listdp .info .fen .fen1{
+	display:block;
+	width:80px;
+	height:22px;
+	float:left;
+	background:url(xing0.png) left 3px no-repeat;
+}
+.ListHyDianping .listdp .info .fen .fen1 em{
+	display:block;
+	height:22px;
+	background:url(xing1.png) left 3px no-repeat;
+}
+.ListHyDianping .listdp .info .dp{
+	display:block;
+	height:22px;
+	float:left;
+	line-height:22px;
+	margin-left:15px;
+	padding:0 10px;
+	background:#AAA;
+	color:#FFF;
+}
+.ListHyDianping .listdp .info .dp3{
+	background:#FE6D24;
+}
+.ListHyDianping .listdp .info .dp2{
+	background:#D9B800;
+}
+.ListHyDianping .listdp .info p{
+	font-size:16px;
+	color:#666;
+	line-height:25px;
+}
+.ListHyDianping .listdp .info .other{
+	height:30px;
+	line-height:30px;
+	margin-top:5px;
+	color:#999;
+}
+.ListHyDianping .listdp .info .other .time{
+	float:left;
+}
+.ListHyDianping .listdp .info .other .good{
+	float:right;
+	padding-left:25px;
+	background:url(ding.png) left 5px no-repeat;
+	cursor:pointer;
+}
+.PostDianPing .h{
+	height:50px;
+	background:url(tagpostdp.png) no-repeat;
+}
+.PostDianPing .h span{
+	display:block;
+	line-height:42px;
+	text-indent:20px;
+	font-size:18px;
+	color:#FFF;
+}
+.PostDianPing .PostCont{
+	padding:15px;
+}
+.PostDianPing .PostCont .fen5{
+	height:26px;
+	overflow:hidden;
+	line-height:26px;
+	font-size:16px;
+	color:#666;
+}
+.PostDianPing .PostCont .fen5 input{
+	display:none;
+}
+.PostDianPing .PostCont .fen5 span{
+	display:inline-block;
+	margin:0 5px 0 0;
+	line-height:24px;
+	padding:0 10px;
+	border:#999999 solid 1px;
+	color:#999;
+	position:relative;
+	cursor:pointer;
+}
+.PostDianPing .PostCont .fen5 span.dp3{
+	border:#FE6D24 solid 1px;
+	color:#FE6D24;
+}
+.PostDianPing .PostCont .fen5 span.dp2{
+	border:#D9B800 solid 1px;
+	color:#D9B800;
+}
+.PostDianPing .PostCont .fen5 span.ck:after{
+	content:'';
+	display:block;
+	width:20px;
+	height:15px;
+	background:url(ck.png) no-repeat;
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.PostDianPing .PostCont .fen1{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.PostDianPing .PostCont .fen1 span{
+	display:block;
+	font-size:16px;
+	color:#666;
+	float:left;
+	word-spacing:25px;
+}
+.PostDianPing .PostCont .fen1 ul{
+	width:80px;
+	height:20px;
+	overflow:hidden;
+	float:left;
+	background:url(xing0.png) left 2px no-repeat;
+	margin-left:5px;
+}
+.PostDianPing .PostCont .fen1 ul li{
+	width:16px;
+	height:20px;
+	float:left;
+	cursor:pointer;
+}
+.PostDianPing .PostCont .fen1 ul li.ck{
+	background:url(xing1.png) left 2px no-repeat;
+}
+.PostDianPing .PostCont .c textarea{
+	border:#DDD solid 1px;
+	width:97%;
+	padding:5px 1% 5px 1%;
+	font-size:14px;
+	color:#666;
+	height:200px;
+}
+.PostDianPing .PostCont .submits{
+	padding-top:15px;
+}
+.PostDianPing .PostCont .submits span{
+	display:inline-block;
+	width:130px;
+	height:50px;
+	background:url(postdpbut.png) no-repeat;
+	cursor:pointer;
+}
+.PostDianPing .PostCont .submits span em{
+	display:inline-block;
+	line-height:40px;
+	text-indent:45px;
+	font-size:16px;
+	color:#FFF;
+}
+.ListHyMsg{
+	border-top:0;
+}
+/*.PostDianPing .PostCont .yzcode{
+	height:25px;
+	overflow:hidden;
+	line-height:25px;
+	margin-bottom:15px;
+	font-size:16px;
+	color:#666;
+}
+.PostDianPing .PostCont .yzcode span{
+	display:block;
+	float:left;
+	padding-right:10px;
+}
+.PostDianPing .PostCont .yzcode span input{
+	width:60px;
+	height:22px;
+	border:#DDD solid 1px;
+}*/
+.PostDianPing .PostCont .yzcode{
+	display:table;
+	margin-bottom:15px;	
+}
+.PostDianPing .PostCont .yzcode span{
+	display:table-cell;
+	vertical-align:middle;
+	padding-right:5px;
+}
+.PostDianPing .PostCont .yzcode span input{
+	width:60px;
+	height:22px;
+	border:#DDD solid 1px;
+}

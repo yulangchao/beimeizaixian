@@ -1,0 +1,258 @@
+<!--
+<?php
+$priceColordb["c$price1$price2"]='red';
+$orderColordb["$ordertype"]='red';
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<div class="main">
+	<div class="main_left">
+    	<div class="category">
+<!--
+EOT;
+$array = $Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $key=>$value){
+$url=get_info_url('',$key,$city_id);
+$acolor = $fid==$key ? "class='ck'" : "";
+print <<<EOT
+-->
+        	<a href="$url" $acolor>{$Fid_db[name][$key]}</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+        <div class="search">
+        	<div class="search_title"><span>按条件搜索</span></div>
+            <div class="quyu_search">
+            	<span>区    域：</span><span style="width:90%">
+<!--
+EOT;
+if($city_id){
+$class0 = $zone_id ? "" : "class=\"ck\"";
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+print <<<EOT
+-->
+				<A HREF="$url" $class0>{$city_DB[name][$city_id]}</A>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$class1 = $zone_id==$key ? "class=\"ck\"" : "";
+print <<<EOT
+-->
+				<A HREF="$url" $class1>$value</A>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</span>
+<!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+				<div class="m-area">
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$zone_id,$key,$TempSearch_array);
+$class2 = $street_id==$key ? "class=\"ck\"" : "";
+print <<<EOT
+-->
+					<A HREF="$url" $class2>$value</A>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</div>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+            </div>
+            
+			<div class="xingzhi_search">
+            	<span class="left">人均消费：</span><span class="right"><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[sortid][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'1'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['1']}>30元以下</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'2'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['2']}>30~50元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'3'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['3']}>50~100元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'4'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['4']}>100~150元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'5'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['5']}>150~200元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'6'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['6']}>200~300元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid2'=>"$sortid2",'my_228'=>"$my_228",'sortid'=>'7'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['7']}>300元以上</A></span>
+            </div>
+			
+			<div class="xingzhi_search">
+            	<span class="left">环境：</span><span class="right"><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[sortid2][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'1'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['1']}>家庭聚会</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'2'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['2']}>随便吃吃</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'3'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['3']}>情侣约会</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'4'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['4']}>商务洽谈</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'5'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['5']}>朋友聚会</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'6'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['6']}>工作午餐</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'my_228'=>"$my_228",'sortid2'=>'7'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid2]['7']}>大型聚会</A></span>
+            </div>
+			
+			<div class="xingzhi_search">
+            	<span class="left">停车位：</span><span class="right"><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'sortid2'=>"$sortid2",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[my_228][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'sortid2'=>"$sortid2",'my_228'=>'1'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[my_228]['1']}>免费</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'sortid2'=>"$sortid2",'my_228'=>'2'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[my_228]['2']}>收费</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'sortid2'=>"$sortid2",'my_228'=>'3'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[my_228]['3']}>无</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'sortid2'=>"$sortid2",'my_228'=>'4'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[my_228]['4']}>未知</A></span>
+            </div>
+			<!---->
+            <div class="clierfix"></div>
+        </div>
+        
+        <div class="list_box">
+        	<div class="list_title"><span>{$city_DB[name][$city_id]}$fidDB[name]</span><a target="_blank" href="$city_url/wappost.php?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id">免费发布信息</a></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[ip]=preg_replace("/\.([0-9]+)\.([0-9]+)$/is",".*.*",$rs[ip]);
+print <<<EOT
+-->
+			<div class="list_small_box">
+            	<a href="$rs[url]" title='$rs[full_title]' target="_blank"><img src="$rs[picurl]" onload="makesmallpic(this,80,60);" width="80" height="60" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a>
+                <div class="wen_an">
+                	<h2><a href="$rs[url]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></h2>
+					<!----><span>类型:<em>$rs[fname]</em></span><span>发布时间：<em>{$rs[times]}</em></span><br />
+                    <span>发布者:<em>{$rs[username]}</em></span><span>关注度:<em>{$rs[hits]}次</em> </span>
+                    <div style="width:100%;float:left"><a href="$rs[url]" class="click_bo">点击浏览</a></div>
+                </div>
+            </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<div class="ye_ma">{$showpage}</div>
+		</div>
+    </div>
+    <div class="main_right">
+    	<div class="ctrl2">
+          <a href="#" class="ctrl2_01" href="$city_url/post.php?fid=$fid"  target="_blank"><span>免费发布信息</span></a> 
+          <a href="#" class="ctrl2_02" href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/homepage_ctrl.php?atn=info"  target="_blank"><span>管理店铺</span></a> 
+          <a href="#" class="ctrl2_03" href="$webdb[_www_url]/member/?main=$Murl/member/list.php" target="_blank"><span>修改删除信息</span></a> 
+          <a href="#" class="ctrl2_04" href="$webdb[_www_url]/member/?main=$webdb[_www_url]/hy/member/renzheng.php" target="_blank"><span>认证企业</span></a>
+          <div class="ctrl_line"></div>	
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="fenlie_loginer">$Load_Msg</span>');
+document.write('<div style="display:none;"><iframe src="$webdb[www_url]/do/hack.php?hack=login&iframeID=fenlie_loginer&styletype=fenlieindex" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>
+          <div class="clierfix"></div>
+         </div> 
+         <div class="gong_gao">
+         		<span>公<br />告</span>
+                <a href="#">子栏目推广显示要花费{$webdb[AdInfoSortShow]}{$webdb[MoneyDW]}{$webdb[MoneyName]}</a>
+                <a href="#">子栏目推广显示要花费{$webdb[AdInfoBigsortShow]}{$webdb[MoneyDW]}{$webdb[MoneyName]}</a>
+         </div>
+         <div class="main_right_banner">
+         	$labal[f_list_ad_1]
+         </div>
+         <div class="fufei_tuiguang">
+        	<div class="fufei_tuiguang_box"><span>付费推广</span></div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span id="side_adinfo">$Load_Msg</span>');
+document.write('<div style="display:none;"><iframe src="$city_url/job.php?job=adinfo&fid=$fid&rows=$webdb[AdInfoListRow]&leng=$webdb[InfoListLeng]&iframeID=side_adinfo" width=0 height=0></iframe></div>');
+//-->
+</SCRIPT>
+            <div class="clierfix"></div>
+        </div>
+        <div class="main_right_banner">
+         	$labal[f_list_ad_2]
+        </div>
+         <div class="fufei_tuiguang">
+        	<div class="fufei_tuiguang_box"><span>赞助商</span></div>
+            <div class="main_right_banner">
+				$labal[f_list_ad_3]
+         	</div>
+            <div class="main_right_banner">
+				$labal[f_list_ad_4]
+         	</div>
+            <div class="main_right_banner">
+				$labal[f_list_ad_5]
+         	</div>
+            <div class="clierfix"></div>
+        </div>
+        <div class="clierfix"></div>
+    </div>
+    <div class="clierfix"></div>
+</div>
+<!--
+EOT;
+?>
+-->

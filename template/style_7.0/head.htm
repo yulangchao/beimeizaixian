@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<?php
+$thiscityname = $city_DB[name][$city_id] ? $city_DB[name][$city_id] : "&nbsp;";
+$GuideFid[$fid]=str_replace("<a href='$webdb[www_url]' class='guide_menu'>&gt;首页</a>","",$GuideFid[$fid]);
+$bodyondblclick = (function_exists('label_array')&&$web_admin&&!$MakeIndex) ?"dblclick_label();":"";
+$changecity = count($city_DB[name])>1 ? "<a href=\"$webdb[www_url]/allcity.php\">切换城市</a>":"当前城市";
+$web_logo=($city_DB[logo][$city_id])?"<img src='".tempdir($city_DB[logo][$city_id])."'/>":"<img src=\"$webdb[www_url]/images/style7.0/logo.png\"/>";
+print <<<EOT
+-->
+<head>
+<title>$titleDB[title]</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style6.0/cms.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style7.0/global.css"/>
+<link rel="shortcut icon" type="image/ico" href="$webdb[www_url]/images/css4.0/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="X-UA-Compatible" content="IE=8"><!-- 强制ie8,for 360 -->
+<meta name="keywords" content="$titleDB[keywords]">
+<meta name="description" content="$titleDB[description]">
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function killErr(){
+	return true;
+}
+window.onerror=killErr;
+//-->
+</SCRIPT>
+<!--
+EOT;
+if($webdb[cookieDomain]){print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+//解决不同域名的框架跨域问题
+document.domain = "$webdb[cookieDomain]";
+</SCRIPT>
+<!--
+EOT;
+}print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/default.js"></SCRIPT>
+<script type="text/javascript" src="$webdb[www_url]/images/style7.0/rotate.js"></script>
+<body ondblclick="$bodyondblclick">
+<!-- 头部  s -->
+<div class="HeaderTop">
+	<div class="MainContainer">
+		<dl class="citys">			
+			<dt>地区：<a href="$webdb[www_url]/allcity.php">{$thiscityname}</a><span></span></dt>
+			<dd>
+<!--
+EOT;
+if(count($city_DB[name])>1){
+$i=0;
+foreach($city_DB[hits] AS $key=>$value){
+$i++;
+if($i>9)break;
+print <<<EOT
+-->
+				<a href="{$city_DB[url][$key]}">{$city_DB[name][$key]}</a>             
+<!--
+EOT;
+}}
+print <<<EOT
+--> 
+			<a href="$webdb[www_url]/allcity.php">更多城市</a>
+			</dd>
+		</dl>
+		<div class="TopMember">
+<!--
+EOT;
+if($lfjid){
+print <<<EOT
+-->
+
+			<div class="Logincont">
+				<span>欢迎你回来:<em>$lfjid</em></span> 
+      			<span class="msg">$MSG</span>
+				<a href="$webdb[_www_url]/member/homepage.php?uid=$lfjuid" target="_blank">个人信息</a> 
+      			<a href="$webdb[_www_url]/member/" target="_blank">会员中心</a>
+				<a href="$webdb[_www_url]/member/index.php?main=userinfo.php?job=edit" target="_blank">修改资料</a> 
+      			<a href="$webdb[www_url]/do/login.php?action=quit">安全退出</a></span>
+			</div>
+<!--
+EOT;
+}elseif( $nickName=get_cookie('QQ_nickName') ){
+print <<<EOT
+-->
+<div class="Logincont">
+    <span>欢迎你:<em>$nickName</em> </span>
+    <a href="$webdb[www_url]/do/reg.php?step=1">完善帐号信息</a> 
+    <a href="$webdb[www_url]/do/qq_bind.php?step=1">绑定已有帐号</a>
+    <a href="$webdb[www_url]/do/qq_login.php?action=quit">退出</a>
+</div>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<form name="TopLogin" method="post" action="$webdb[www_url]/do/login.php">
+			<div class="Logincont">
+				<span>通行证</span>
+				<span><input type="text" name="username" placeholder="帐号"/></span>
+				<span><input type="password" name="password" placeholder="密码"/></span>
+				<span><input type="submit" name="Submit" value="登录" /></span>
+				<a href="$webdb[www_url]/do/reg.php">注册</a> 
+				<span>|</span>
+				<a href="$webdb[www_url]/do/login.php">登录</a>
+<!--
+EOT;
+if($webdb[QQ_login]){print <<<EOT
+-->
+         		<a href="$webdb[www_url]/do/qq_login.php" class="qq">登录</a>
+<!--
+EOT;
+}if($webdb[WXlogin_API]){
+print <<<EOT
+-->
+         		<a href="$webdb[www_url]/do/wxlogin.php" class="wx">登录</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				<input type="hidden" name="step" value="2">
+      			<input class="radio" type="hidden" name="cookietime" value="86400" >
+			</div>
+		</form>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var city_rotate=0;
+$('.HeaderTop .MainContainer .citys').rotate({ 
+    bind : {
+        mouseover : function(){
+			city_rotate=1; //如果浏览器能够兼容转动
+            $(this).find('dt span').rotate({animateTo: 180});
+			$(this).find('dt').css({'background':'#FFF'});
+			$(this).find('dd').css({'display':'block'});
+        }, mouseout : function(){
+            $(this).find('dt span').rotate({animateTo: 0});
+			$(this).find('dt').css({'background':'none'});
+			$(this).find('dd').css({'display':'none'});
+        }
+    }
+});
+$('.HeaderTop .MainContainer .citys').hover(
+	function(){
+		if(city_rotate==0){
+			$(this).find('dt').css({'background':'#FFF'});
+			$(this).find('dd').css({'display':'block'});
+		}
+	},
+	function(){
+		if(city_rotate==0){
+			$(this).find('dt').css({'background':'none'});
+			$(this).find('dd').css({'display':'none'});
+		}
+	}
+);
+</script>
+<div class="TopSecondBox">
+	<div class="Logo_Search">
+		<div class="logo"><a href="$webdb[www_url]">{$web_logo}</a></div>
+		<div class="search">
+		<form  name="TopSearch" method="POST" action="$webdb[www_url]/shop/search.php?action=search" onSubmit="return checkInput()">
+			<ul class="types">
+				<li>资讯</li>
+				<li>分类</li>
+				<li class="ck">商品</li>
+				<li>商家</li>
+				<li>活动</li>
+				<li>促销</li>
+				<li>论坛</li>
+				<li>上门服务</li>
+				<li>外卖</li>
+			</ul>
+			<div class="keyword"><input type="text" name="keyword" placeholder="输入您要搜索的内容"/></div>
+			<div class="submit"><input type="submit" value="搜索"/><input type="hidden" name="action" value="search"/></div>		
+		</form>
+		</div>
+		<p class="m-mobleLook mobCode">
+<!--
+EOT;
+$showurl = "$webdb[www_url]/do/wapindex.php";
+$showurl .= strstr($showurl,'?')?"&WXID=$WXID":"?WXID=$WXID";
+$showurl = urlencode($showurl);
+$webdb[weixin_code_img] = tempdir($webdb[weixin_code_img]);
+print <<<EOT
+-->
+				<img src="$webdb[www_url]/do/2codeimg.php?url=$showurl"/>
+				<span>扫一扫看效果 <a href="javascript:;" style="color:blue;">关闭</a></span>
+		</p>
+		<p class="m-mobleLook CodeWxin">
+				<img src="$webdb[weixin_code_img]"/>
+				<span>扫一扫看效果 <a href="javascript:;" style="color:blue;">关闭</a></span>
+		</p>
+		<ul class="MoreAct">
+			<li class="post"><a href="$webdb[www_url]/f/post.php">发布信息</a></li>
+			<li class="wx"><a href="javascript:;">公众号</a></li>
+			<li class="mob"><a href="javascript:;">手机版</a></li>
+		</ul>
+<script>
+$('.MoreAct .mob').hover(function(){
+	$('.mobCode').show(100);
+	$('.CodeWxin').hide(100);
+},function(){
+	$('.mobCode').hide(100);
+});
+$('.mobCode span a').click(function(){
+	$('.mobCode').hide(100);
+});
+$('.MoreAct .wx').hover(function(){
+	$('.CodeWxin').show(100);
+	$('.mobCode').hide(100);
+},function(){
+	$('.CodeWxin').hide(100);
+});
+$('.CodeWxin span a').click(function(){
+	$('.CodeWxin').hide(100);
+});
+</script>
+
+	</div>
+</div>
+<script>
+function checkInput(){
+	if($('.search .keyword input').val()==''){
+		alert('关键字不能为空!');
+		return false;
+	}
+}
+$('.Logo_Search .search .types li').click(function(){
+	$('.Logo_Search .search .types li').removeClass('ck');
+	$(this).addClass('ck');
+	var searchurl='';
+	var selectname=$(this).html();
+	if(selectname=='资讯') searchurl='$webdb[www_url]/news/search.php';
+	else if(selectname=='分类') searchurl='$webdb[www_url]/f/search.php';
+	else if(selectname=='商品') searchurl='$webdb[www_url]/shop/search.php';
+	else if(selectname=='商家') searchurl='$webdb[www_url]/hy/search.php';
+	else if(selectname=='活动') searchurl='$webdb[www_url]/tg/search.php';
+	else if(selectname=='促销') searchurl='$webdb[www_url]/coupon/search.php';
+	else if(selectname=='招聘') searchurl='$webdb[www_url]/hr/search.php';
+	else if(selectname=='论坛') searchurl='$webdb[www_url]/bbs/search.php';
+	else if(selectname=='上门服务') searchurl='$webdb[www_url]/fuwu/search.php';
+	else if(selectname=='外卖') searchurl='$webdb[www_url]/waimai/search.php';
+	$(".Logo_Search form").attr("action",searchurl);
+});
+</script>
+<!-- /nav -->
+<div class="MainMenuBox">
+	<div class="MenuList">
+<!--
+EOT;
+$choose_class[intval($webdb['module_id'])]="choose";
+$detail=explode("\r\n",$webdb[guide_word]);
+foreach($detail AS $key=>$value){
+if(!$value)continue;
+list($Hname,$Hurl,$Hblank,$Hcolor,$Hlid,$link)=explode("|",$value);
+if(ereg("^\/",$Hurl)){$Hurl="$webdb[www_url]$Hurl";}elseif(!ereg("://",$Hurl)){$Hurl="$webdb[www_url]/$Hurl";}
+$Hblank=$Hblank?"  target=\"_blank\"":'';
+$Hcolor=$Hcolor?" style=\"color:$Hcolor;\"":'';
+$menu_check = $choose_class[$link] ? "class='ck'" : "";
+print <<<EOT
+-->
+		<dl $menu_check>
+        	<dt><span><a href="$Hurl"{$Hblank}{$Hcolor}>{$Hname}</a></span></dt>
+<!--
+EOT;
+$ch_guide_word="guide_word_".$Hlid;
+if($webdb[$ch_guide_word]){
+$details=explode("\r\n",$webdb[$ch_guide_word]);
+print <<<EOT
+-->
+			<dd>
+<!--
+EOT;
+foreach($details AS $keys=>$values){
+if(!$values)continue;
+list($Hnames,$Hurls,$Hblanks,$Hcolors,$Hlids,$links)=explode("|",$values);
+if(ereg("^\/",$Hurls)){$Hurls="$webdb[www_url]$Hurls";}elseif(!ereg("://",$Hurls)){$Hurls="$webdb[www_url]/$Hurls";}
+$Hblanks=$Hblanks?"  target=\"_blank\"":'';
+$Hcolors=$Hcolors?" style=\"color:$Hcolors;\"":'';
+$Hnames=get_word($Hnames,15);
+print <<<EOT
+-->
+					<a href="$Hurls"{$Hblanks}{$Hcolors}>{$Hnames}</a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </dd>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>
+</div>
+<!-- /nav -->
+<!--
+EOT;
+if($GuideFid[$fid]){
+print <<<EOT
+-->
+<div id="nav_guide">
+    <div class="t1">当前位置：</div><div class="t2"><a href="$Mdomain/">首页</a> $GuideFid[$fid] </div>
+</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+//目的是为了做风格方便
+document.write('<div class="wrap">');
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->
+

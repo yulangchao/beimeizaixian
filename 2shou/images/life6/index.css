@@ -1,0 +1,166 @@
+/*2shou*/
+/*
+*MainCont1
+*/
+.MainCont1{width:1200px; overflow:hidden; margin-bottom:30px; margin-top: 30px;}
+.sideL{width:329px; float:left;}
+.sideC{width:514px; float:left; margin-left:30px;}
+.sideR{width:300px; float:right;}
+/*
+*sidecont1
+*/
+.sidecont1{margin-bottom:10px; overflow:hidden; border:1px solid #DFDEDE;}
+.sidecont1 .head{height:50px; overflow:hidden; line-height:50px; background:#ececec;}
+.sidecont1 .head div{float:left; cursor:pointer; background:#ECECEC;}
+.sidecont1 .head div span{display:block; font-weight:600; font-size:16px;  display:block; width:130px;  color:#333333; text-align:center;}
+.sidecont1 .head div.more{float:right;cursor:auto;}
+.sidecont1 .head div.ck{background:#fff;}
+.sidecont1 .head div.ck span{font-weight:bold;}
+.sidecont1 .cont{height:244px; padding:10px; border-top:0; overflow:hidden;}
+.sidecont1 .cont dl dt{padding:0 10px 10px 10px; height:25px; line-height:25px; text-align:center; overflow:hidden;}
+.sidecont1 .cont dl dt a{font-size:14px; font-weight:bold; color:#0066CC; letter-spacing:1px;}
+.sidecont1 .cont dl a:hover{color:#f60;}
+.sidecont1 .cont dl dd{height:40px; line-height:20px; margin:0 5px 5px 5px; overflow:hidden;}
+.sidecont1 .cont ul{margin-top:5px; height:156px; padding:12px 0 5px 0; overflow:hidden; border-top:#e0e0e0 dotted 1px;}
+.sidecont1 .cont ul li{height:25px; line-height:25px; padding:0 5px 4px 10px; overflow:hidden; list-style-type:disc;list-style-position:inside;}
+.sidecont1 .cont ul li a{color:#666;font-size:14px; letter-spacing:1px;}
+.sidecont1 .cont ul li a:hover{color:#f60;}
+/*
+*showSorts
+*/
+.showSorts{margin-top:30px; height:688px; overflow:hidden; border:1px solid #DFDEDE;}
+.showSorts .head{height:50px; line-height:45px; overflow:hidden; padding:0 15px 0 15px; font-size:16px; font-weight:bold; color:#333333; background:#ECECEC;}
+.showSorts .cont{padding:10px 35px 15px 18px; height:613px; overflow:hidden; position:relative;}
+.showSorts .cont ul{height:613px; width:236px; overflow:hidden;}
+.showSorts .cont ul li{height:245px; margin-top:23px; width:236px; overflow:hidden;}
+.showSorts .cont ul li dl{height:245px; width:118px; float:left; overflow:hidden;}
+.showSorts .cont ul li dl dt{height:25px; line-height:25px; overflow:hidden;}
+.showSorts .cont ul li dl dt span{color:#FF6633;}
+.showSorts .cont ul li dl dt a{font-weight:bold; font-size:15px;}
+.showSorts .cont ul li dl dd{height:220px; overflow:hidden;}
+.showSorts .cont ul li dl dd div{height:25px; line-height:25px; overflow:hidden; padding:0 5px 0 5px; color:#999;}
+.showSorts .cont ul li dl dd div a{color:#2582F5; font-size:15px;}
+.showSorts .cont ul li dl dd div a:hover{color:#f60;}
+#ShowUpS,#ShowDownS{width:35px; height:33px; position:absolute; cursor:pointer; background:url(showup.png); right:15px; z-index:1000; margin-top: 24px; margin-bottom: 45px;}
+#ShowUpS{top:15px;}
+#ShowDownS{bottom:15px; background:url(showdown.png);}
+#moveUpS,#moveDownS{width:35px; height:200px; position:absolute; cursor:pointer; right:14px; z-index:1000;}
+#moveUpS{top:40px;}
+#moveDownS{bottom:40px;}
+/*中间部分*/
+/*
+*SlideCont
+*/
+.SlideCont{width:512px; height:316px; overflow:hidden; border:1px solid #DFDEDE; position:relative; margin-bottom: 30px;}
+.SlideCont .BigImg{padding:9px 9px 7px 9px;}
+.SlideCont .BigImg a{display:block; width:100%; height:100%; overflow:hidden;}
+.SlideCont .BigImg img{width:100%; height:272px;}
+#ShowTitle{padding:0 5px 0 7px;}
+#ShowTitle td{height:22px; width:22px; text-align:center; vertical-align:middle; background:#1AA8DC;	 color:#FFF; font-size:14px;}
+#ShowTitle td.ck{background:#C0D9E6;	}
+#listtitle{height:30px; width:200px; line-height:30px; overflow:hidden; padding:0 10px 0 10px;	 position:absolute; right:9px; bottom:5px; font-size:14px; text-align:center; color:#666;}
+/*
+*sidecont2
+*/
+.sidecont2{margin-top:13px; height:198px; overflow:hidden; border:1px solid #DFDEDE;}
+.sidecont2 .head{height:48px; overflow:hidden; line-height:50px; background:#ECECEC;}
+.sidecont2 .head div{padding-left:15px;float:left; cursor:pointer;}
+.sidecont2 .head div span{ display:block; padding-right:15px; font-size:16px; display: block;width: 120px;text-align:center;}
+.sidecont2 .head div.more{padding:0 20px 0 20px; cursor:auto; float: right; font-size: 14px;}
+.sidecont2 .head div.more a{color:#888;}
+.sidecont2 .head div.ck{background:#fff;}
+.sidecont2 .head div.ck span{font-weight:bold;}
+.sidecont2 .cont{height:147px; width: 492px; padding:10px; border-top:0; overflow:hidden;}
+.sidecont2 .cont dl{width:135px; height:145px; overflow:hidden; float:left; padding-top:-1px;}
+.sidecont2 .cont dl dt{width:120px; border:#DDD solid 1px;}
+.sidecont2 .cont dl dt a{display:block; width:120px; height:90px; overflow:hidden; text-align:center; background:#FAFAFA;}
+.sidecont2 .cont dl dd{width:120px; padding-top:2px;}
+.sidecont2 .cont dl dd h3{height:20px; line-height:20px; text-align:center; overflow:hidden; font-weight:normal; font-size:12px;}
+.sidecont2 .cont dl dd div{height:20px; line-height:20px; text-align:center; color:#FF3300;}
+.sidecont2 .cont dl dd div span{color:#888;}
+.m-conts{width:350px; height:133px; overflow:hidden; float:left; line-height:25px;}
+.m-conts div{padding-left:25px; padding-bottom:10px; height:25px; overflow:hidden; position:relative;}
+.m-conts div:before{content:''; display:block; width:5px; height:5px; position:absolute; left:8px; top:11px; background:#3366FF;}
+.sidecont2 .cont ul li a{color:#3366FF;font-size:14px}
+.sidecont2 .cont ul li span{float:right; padding-right:3px; color:#FF3333;}
+.sidecont2 .cont ul div{height:24px; overflow:hidden; padding:0 5px 0 10px; clear:both;}
+.sidecont2 .cont ul div a{float:left;}
+.sidecont2 .cont ul div span{float:right; color:#FF3300;}
+/*
+*CenterMinAd
+*/
+.CenterMinAd{ margin-top:10px; height:127px; overflow:hidden;}
+.CenterMinAd dt{float:left; width:49%;}
+.CenterMinAd dd{float:right; width:49%;}
+.CenterMinAd img{height:127px; width:100%;}
+/*
+*ActCont
+*/
+.ActCont{height:316px; overflow:hidden; border:#E4E5E4 solid 1px; background:#F6F6F6;}
+.ActCont .head{height:50px; overflow:hidden; background:#FFFFFF;}
+.ActCont .head .tag{float:left; padding:15px 0 0 10px; font-size:16px; font-weight:bold;}
+.ActCont .head .post{float:right; padding:8px 10px 0 0;}
+.ActCont .cont{padding-top:11px;}
+.ActCont .cont div{padding:0 5px 0 25px; position:relative; line-height:25px; height:25px; overflow:hidden;}
+.ActCont .cont div:before{content:''; display:block; width:5px; height:5px; position:absolute; left:11px; top:11px; background:#3366FF;}
+.ActCont .cont li{height:36px; line-height:36px; border-bottom:#E4E5E4 solid 1px; padding:0 10px 0 30px; overflow:hidden;}
+.ActCont .cont li span{color:#FA875B;float:right;padding-right:8px;}
+.ActCont .cont div a{float:left; color:#0163AF; font-size:14px;}
+.ActCont .Act{height: 50px; padding: 14px 1px 0px 0px; overflow: hidden; padding-left: 10px; margin: 1px -10px 0px 0px;}
+.ActCont .Act dt,.ActCont .Act dd{width:50%; height:50px; line-height:35px; text-align:center; overflow:hidden; float:left;}
+.ActCont .Act dd{}
+.ActCont .Act a{font-size:16px; color:#FFF; font-family:黑体;}
+/*
+*sidecont3
+*/
+.sidecont3{overflow:hidden; border:#E4E5E4 solid 1px; margin-top:30px;}
+.sidecont3 .head{height:50px; overflow:hidden; background:#ECECEC; line-height:32px;}
+.sidecont3 .head .tag{float: left; padding: 8px 19px 0px 15px; font-size: 16px; font-weight: bold; text-align: center;}
+.sidecont3 .head .more{float: right; padding-right: 10px; font-size: 14px; padding-top: 10px;}
+.sidecont3 .head .more a{color:#888;}
+.sidecont3 .cont{padding:10px; overflow:hidden;line-height:24px;}
+.sidecont3 .cont div{height:25px; line-height:25px; overflow:hidden; margin:3px 0;}
+.sidecont3 .cont div span{display:block; float:left; color:#FFF; margin-right:2px;height:16px; width:16px; line-height:16px; text-align:center; margin-top:5px; font-size:5px;}
+.sidecont3 .cont div.list1 span,.sidecont3 .cont div.list2 span,.sidecont3 .cont div.list3 span{background:#f90; }
+.sidecont3 .cont div.list4 span,.sidecont3 .cont div.list5 span,.sidecont3 .cont div.list6 span,.sidecont3 .cont div.list7 span,.sidecont3 .cont div.list8 span,.sidecont3 .cont div.list9 span,.sidecont3 .cont div.list10 span{background:#A5A5A5;}
+/*
+*RightMinAd
+*/
+.RightMinAd{width:300px; height:70px; overflow:hidden; margin:10px auto;}
+.RightMinAd img{width:100%; height:100%;}
+/*
+*sidecont4
+*/
+.sidecont4{overflow:hidden; border:#E4E5E4 solid 1px;}
+.sidecont4 .head{height:50px; overflow:hidden; background:#ECECEC; line-height:50px;}
+.sidecont4 .head div{width: 78.5px; text-align:center; float:left; font-size:16px; cursor:pointer;}
+#Mune10{width:62px; border-right:0;}
+.sidecont4 .head div.ck{background:#FFF; font-weight:bold;}
+.sidecont4 .cont{padding:10px; overflow:hidden; line-height:25px;}
+.sidecont4 .cont div{height:25px; overflow:hidden; padding-left:15px; margin:3px 0; position:relative;}
+.sidecont4 .cont div:before{content:''; display:block; width:5px; height:5px; position:absolute; left:2px; top:11px; background:#FF9900;}
+/*
+*PhotoCont
+*/
+.PhotoCont .head{height:50px; overflow:hidden; line-height:40px; background:#ECECEC;}
+.PhotoCont .head .tag{float:left; line-height:50px; padding-left:18px;}
+.PhotoCont .head .tag span{display:block; padding-right:20px; font-size:16px; font-weight:bold;}
+.PhotoCont .head .more{float:right;padding:5px 15px 0 80px;}
+.PhotoCont .head .more a{color:#888;}
+.PhotoCont .cont{border:#E4E5E4 solid 1px; border-top:0; padding:20px 0 0 8px; height:470px; overflow:hidden;}
+.PhotoCont .cont dl{width:155px; height:235px; overflow:hidden; float:left; padding-right: 13px; padding-left: 2px; text-align:center;}
+.PhotoCont .cont dl dt,.PhotoCont .cont dl dd{width:155px; margin:auto;}
+.PhotoCont .cont dl dt{padding:1px;}
+.PhotoCont .cont dl dt a{display:block; width:155px; height:135px; overflow:hidden; background:#FAFAFA;}
+.PhotoCont .cont dl dt a img{width:155px; height:100%;}
+.PhotoCont .cont dl dd h3{height: 46px; line-height: 21px; overflow: hidden; padding-top: 8px; text-align: left; font-weight: normal; font-size: 15px;}
+.PhotoCont .cont dl dd div{height:18px; line-height:18px; text-align:left; overflow:hidden; color:#f30;}
+/*
+*MoreCont
+*/
+.MoreCont{width:1230px; overflow:hidden; margin-top:30px; margin-bottom: 15px;}
+.MoreCont dl{width:282px; height:256px; padding-right:24px; overflow:hidden; float:left;}
+.MoreCont dl dt{border:#E4E5E4 solid 1px; border-bottom:0; height:50px; overflow:hidden; line-height:50px; padding-left:10px; background:#ECECEC;}
+.MoreCont dl dt a{font-size:14px; font-weight:bold;}
+.MoreCont dl dd{border:#E4E5E4 solid 1px; border-top:0; padding: 10px 10px 10px 20px; height:169px; overflow:hidden; margin-top: 4px;}
+.MoreCont dl dd li{height:24px; line-height:24px; overflow:hidden; color:#f30; padding-top: 4px;}

@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+<!-- <table width="100%" border="0" cellspacing="0" cellpadding="0"> -->
+      <tr>
+        <td class='Left'>请选择一个风格：{$style_select}<br>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- <div class="Conter"> -->
+    <table class="ListTable">
+      <tr> 
+        <th width="17%">名称</th>
+        <th width="64%">存 放 路 径 </th>
+        <th width="11%">修改模板</th>
+      </tr>
+  <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+  <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+    <td class='Left'>$rs[name]</td>
+    <td class='Left'><a href="../template/$keywords/$rs[file]" target="_blank">/template/$keywords/$rs[file]</a></td>
+    <td><a href="index.php?lfj=$lfj&job=editcode&keywords=$keywords&filename=$rs[file]" title='点击修改' class='edit'></a></td>
+  </tr>
+  <!--
+EOT;
+}print <<<EOT
+-->
+</table>
+</div>
+</div>
+
+<!--
+EOT;
+?>
+-->

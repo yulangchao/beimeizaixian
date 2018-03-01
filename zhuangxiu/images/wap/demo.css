@@ -1,0 +1,113 @@
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, hr, fieldset, form, label, legend, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, hgroup {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.Location{
+	padding:12px;
+	height:30px;
+	line-height:34px;
+	color:#999;
+	overflow:hidden;
+	}
+.Location em{
+	color:#333;
+	}
+.banner{
+	width:100%;
+	overflow:hidden;}
+.banner img{
+	width:100%;
+	vertical-align:middle;}
+
+.demo-info{
+	background:#fff;
+	padding:12px;
+	overflow:hidden;
+	line-heigh*-t:30px;
+	}
+.demo-info h3{
+	height:28px;
+	line-height:28px;
+	overflow:hidden;}
+.demo-info span{
+	margin-right:12px; font-size:14px;}
+.demo-info span em{
+	color:#999;}
+
+.conter{
+	background:#fff;
+	padding:12px;
+	overflow:hidden;
+	margin:20px 0;
+	}
+.conter .jieshao{
+	overflow:hidden;
+	border-bottom:#e5e5e5 solid 1px;
+	}
+.jieshao .title{
+	height:46px;
+	line-height:46px;
+	border-bottom:dashed 1px #e5e5e5;
+	font-size:18px;
+	}
+.jieshao .pd{
+	padding:12px 0;	font-size:12px;
+	}
+.jieshao ul li{
+	float:left; line-height:30px; width: 50%;
+	}
+
+.jieshao .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+	width:calc(100% - 20px);
+}
+.jieshao .cont img{max-width:100%;}
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}
+
+.Reminded{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	margin:auto;	
+	background:#FFF;
+}
+.Reminded div{
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:40px;
+	text-indent:10px;
+	border-bottom:#DDD solid 1px;
+	color:#369;
+}
+.Reminded ul{
+	padding:10px;
+}
+.Reminded ul li{
+	line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-indent:5px;
+	font-size:14px;
+	color:#666;
+}
+.fullbg,.ShowBigPic { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.ShowBigPic{
+	z-index:1002;
+}
+.ShowBigPic img{
+	width:100%;
+}

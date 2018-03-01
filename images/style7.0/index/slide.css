@@ -1,0 +1,64 @@
+.slideConts{
+	width:680px;
+	height:310px;
+	overflow:hidden;
+	position:relative;
+}
+.slideConts .ListPic li{
+ 	width:680px;
+	height:310px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:0;
+	border-radius:5px;
+}
+.slideConts .ListPic li p{
+	display:block;
+	width:600px;
+	height:50px;
+	padding:0 70px 0 10px;
+	overflow:hidden;
+	background:#000;
+	position:absolute;
+	left:0;
+	bottom:0;
+	filter:alpha(opacity=60); 
+	-moz-opacity:0.6; 
+	opacity:0.6;
+	line-height:50px;
+	color:#FFF;
+	font-size:16px;
+}
+.slideConts .ListPic li img{
+	width:680px;
+	height:310px;
+}
+.slideConts .ListNum{
+	height:30px;
+	line-height:30px;
+	width:670px;
+	position:absolute;
+	left:0;
+	bottom:0px;
+	text-align:right;
+	z-index:1000;
+	padding-right:10px;
+}
+.slideConts .ListNum li{
+	display:inline-block;
+	width:10px;
+	height:10px;
+	overflow:hidden;
+	background:#EFEFEF;
+	line-height:40px;
+	border-radius:5px;
+	margin-left:10px;
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
+	cursor:pointer;
+}
+.slideConts .ListNum li.ck{
+	background:#F60;
+}

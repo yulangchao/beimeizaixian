@@ -1,0 +1,1686 @@
+<?php
+$haveCache=1;
+$label['head_menu']=stripslashes('<a href=\"http://localhost:8003/member/?main=http://localhost:8003/hy/member/homepage_ctrl.php?atn=info\" target=\"_blank\">管理商铺</a> 
+<a href=\"http://localhost:8003/member/?main=http://localhost:8003/sell/member/post_choose.php\" target=\"_blank\">发布产品</a> 
+<a href=\"http://localhost:8003/member/?main=http://localhost:8003/buy/member/post_choose.php\" target=\"_blank\">发布求购</a> 
+<a href=\"http://localhost:8003/buy/\" target=\"_blank\">寻找商机</a>');
+$label['head_topmenu']=stripslashes('<a href=\"http://localhost:8003/do/jf.php\" target=\"_blank\">如何赚积分</a> | <a href=\"http://localhost:8003/do/list.php?fid=43\" target=\"_blank\">新手入门</a> 
+| <a href=\"http://localhost:8003/guestbook/\" target=\"_blank\">访问留言</a> ');
+$label['head_tel']=stripslashes('400-45874147');
+$label['head_menus']=stripslashes('<div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>
+        <div class=\"listm\"><a href=\"#\">空白链接</a></div>');
+$label['deepblue_topmeun']=stripslashes('<ul>
+<li><a href=\"#\"><b>新闻</b></a> <a href=\"#\">视频</a> <a href=\"#\">图片</a> <a href=\"#\">评论</a></li>
+<li><a href=\"#\"><b>财经</b></a> <a href=\"#\">股票</a> <a href=\"#\">港股</a> <a href=\"#\">基金</a></li>
+</ul>
+<ul>
+<li><a href=\"#\"><b>娱乐</b></a> <a href=\"#\">明星</a> <a href=\"#\">电影</a> <a href=\"#\">音乐</a></li>
+<li><a href=\"#\"><b>体育</b></a> <a href=\"#\">NBA</a> <a href=\"#\">彩票</a> <a href=\"#\">大运会</a></li>
+</ul>
+<ul>
+<li><a href=\"#\"><b>汽车</b></a> <a href=\"#\">房产</a> <a href=\"#\">家居</a> <a href=\"#\">家电</a></li>
+<li><a href=\"#\"><b>科技</b></a> <a href=\"#\">数码</a> <a href=\"#\">手机</a> <a href=\"#\">下载</a></li>
+</ul>
+<ul>
+<li><a href=\"#\"><b>女性</b></a> <a href=\"#\">结婚</a> <a href=\"#\">美容</a> <a href=\"#\">育儿</a></li>
+<li><a href=\"#\"><b>时尚</b></a> <a href=\"#\">购物</a> <a href=\"#\">杂志</a> <a href=\"#\">旅游</a></li>
+</ul>
+<ul>
+<li><a href=\"#\"><b>读书</b></a> <a href=\"#\">小说</a> <a href=\"#\">教育</a> <a href=\"#\">出国</a></li>
+<li><a href=\"#\"><b>游戏</b></a> <a href=\"#\">动漫</a> <a href=\"#\">动画</a> <a href=\"#\">星座</a></li>
+</ul>
+<ul>
+<li><a href=\"#\"><b>博客</b></a> <a href=\"#\">微博</a></li>
+<li><a href=\"#\"><b>军事</b></a> <a href=\"#\">论坛</a></li>
+</ul>
+<ul>
+<li><a href=\"#\"><b>公益</b></a> <a href=\"#\">绿色</a></li>
+<li><a href=\"#\"><b>儿童</b></a> <a href=\"#\">天气</a></li>
+</ul>
+');
+$label['deepblue_weather']=stripslashes('<iframe src=\"http://m.weather.com.cn/m/pn4/weather.htm \" width=\"160\" height=\"20\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\"></iframe>');
+$label['deepblue_hotsearch']=stripslashes('更多热门搜索:<a href=\"#\" style=\"color:red;\">3G手机</a> <a href=\"#\" style=\"color:green;\">掌上电脑</a>');
+$label['deepblue_topadcont']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/deepblue/ad1.gif\' width=\'280\' height=\'85\' border=\'0\' /></a>');
+$label['light_blue_topad']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad1.gif\' width=\'470\' height=\'60\' border=\'0\' /></a>');
+$label['light_blue_topinfo']=stripslashes('<a href=\"#\">uggs outlet</a>
+<a href=\"#\">深思小屋</a>
+<a href=\"#\">百倍网络营销</a>
+<a href=\"#\">松原吧</a>
+<a href=\"#\">七彩美术用品店</a>
+<a href=\"#\">淘宝网</a>');
+$label['light_blue_hotsearch']=stripslashes('热闹搜索:<a href=\"#\" style=\"color:red\">3G手机</a> <a href=\"#\" style=\"color:green\">平板电脑</a>');
+$label['green_headhottel']=stripslashes('热线电话：<span>13813813800</span>');
+$label['green_headweather']=stripslashes('<iframe src=\"http://m.weather.com.cn/m/pn3/weather.htm \" width=\"225\" height=\"20\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\"></iframe>');
+$label['style_51_navmenu']=stripslashes('<table>
+    	<th class=\"th1\"><a href=\"/news/\">看新鲜</a></th>
+        <td>
+        	<div><a href=\"/news/\">最新资讯</a> <a href=\"/shoptg/all.php\">今日团购</a> <a href=\"/coupon/all.php\">促销</a></div>
+            <div><a href=\"/hr/list.php?fid=1\">最新职位</a> <a href=\"/house/list.php?fid=2\">今日笋盘</a> <a href=\"/house/list.php?fid=1\">招租</a></div>
+        </td>
+    </table>
+    <table>
+    	<th class=\"th2\"><a href=\"#\">找信息</a></th>
+        <td>
+        	<div><a href=\"/f/\">分类信息</a> <a href=\"/f/list.php?fid=72\">保洁</a> <a href=\"/f/list.php?fid=71\">家政</a> <a href=\"/f/list.php?fid=9\">车辆</a></div>
+            <div><a href=\"/wei/\">同城曝料</a> <a href=\"/hr/listperson.php\">人才</a> <a href=\"/house/list.php?fid=6\">中介</a> <a href=\"/house/list.php?fid=5\">楼盘</a></div>
+        </td>
+    </table>
+    <table>
+    	<th class=\"th3\"><a href=\"#\">淘便宜</a></th>
+        <td>
+        	<div><a href=\"/coupon/all.php\">促　销</a> <a href=\"/shop/all.php\">打折商品</a></div>
+            <div><a href=\"/shoptg/all.php\">团　购</a> <a href=\"/gift/all.php\">礼品兑换</a></div>
+        </td>
+    </table>
+    <table>
+    	<th class=\"th4\"><a href=\"#\">查地图</a></th>
+        <td>
+        	<div> <a href=\"/hy/ditu.php\">黄页</a> <a href=\"/dianping/ditu.php\">商家点评</a></div>
+            <div> <a href=\"/house/ditu.php\">房产</a> <a href=\"/zhuangxiu/ditu.php\">家居装潢</a></div>
+        </td>
+    </table>
+    <table>
+    	<th class=\"th5\"><a href=\"#\">学装修</a></th>
+        <td>
+        	<div> <a href=\"/zhuangxiu/list.php?fid=4\">学堂</a> <a href=\"/zhuangxiu/list.php?fid=3\">日志</a> <a href=\"/zhuangxiu/list.php?fid=5\">装修公司</a></div>
+            <div><a href=\"/zhuangxiu/list.php?fid=1\">招标</a> <a href=\"/zhuangxiu/list.php?fid=2\">案例</a> <a href=\"/zhuangxiu/list.php?fid=6\">设计大师</a></div>
+        </td>
+    </table>');
+$label['style_51_headerad']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/headad.jpg\' width=\'980\' height=\'60\' border=\'0\' /></a>');
+$label['style_51_copyright']=stripslashes('<a href=\"#\">关于本站</a> |
+        <a href=\"#\">友情链接</a> |
+        <a href=\"#\">网站地图</a> |
+        <a href=\"#\">招聘信息</a> |
+        <a href=\"#\">广告服务</a> |
+        <a href=\"#\">联系我们</a> |        
+        <a href=\"#\">举报投诉</a> |
+        <a href=\"#\">免责声明</a>');
+$label['style60_index_foot']=stripslashes('<li class=\"contact\">
+	<div>客服电话：</div>
+	<div class=\"tel\">020-28998648</div>
+	<div class=\"qq\">咨询QQ：27781017</div>
+</li>
+<li class=\"menu\">
+	<dl>
+		<dt><a href=\"$webdb[www_url]/shop/\">网上商城</a></dt>
+		<dd>
+			<a href=\"$webdb[www_url]/shop/list.php?fid=5\">数码影音</a>
+			<a href=\"$webdb[www_url]/shop/list.php?fid=1\">家居用品</a>
+			<a href=\"$webdb[www_url]/shop/list.php?fid=2\">餐饮休闲</a>
+			<a href=\"$webdb[www_url]/shop/list.php?fid=54\">服装打扮</a>
+		</dd>
+	</dl>
+	<dl>
+		<dt><a href=\"$webdb[www_url]/f/\">分类广告</a></dt>
+		<dd>
+			<a href=\"$webdb[www_url]/f/list.php?fid=10\">教育培训</a>
+			<a href=\"$webdb[www_url]/f/list.php?fid=5\">同城交友</a>
+			<a href=\"$webdb[www_url]/f/list.php?fid=150\">餐饮美食</a>
+			<a href=\"$webdb[www_url]/f/list.php?fid=165\">休闲娱乐</a>
+		</dd>
+	</dl>
+	<dl>
+		<dt><a href=\"$webdb[www_url]/house/\">房产频道</a></dt>
+		<dd>
+			<a href=\"$webdb[www_url]/house/list.php?fid=1\">出租房源</a>
+			<a href=\"$webdb[www_url]/house/list.php?fid=2\">房屋出售</a>
+			<a href=\"$webdb[www_url]/house/list.php?fid=5\">小区新盘</a>
+			<a href=\"$webdb[www_url]/house/list.php?fid=6\">房产中介</a>
+		</dd>
+	</dl>
+	<dl>
+		<dt><a href=\"$webdb[www_url]/zhuangxiu/\">家居装修</a></dt>
+		<dd>
+			<a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=5\">装修公司</a>
+			<a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=2\">装修案例</a>
+			<a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=1\">招标信息</a>
+			<a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=4\">装修学堂</a>
+			
+		</dd>
+	</dl>
+</li>');
+$label['style7_index_foot']=stripslashes('<ul class=\"P_list\">
+	<li><h4 class=\"title\">网上商城</h4></li>
+	<li><a href=\"$webdb[www_url]/shop/list.php?fid=5\">数码影音</a></li>
+	<li><a href=\"$webdb[www_url]/shop/list.php?fid=1\">家居用品</a></li>
+	<li><a href=\"$webdb[www_url]/shop/list.php?fid=2\">餐饮休闲</a></li>
+	<li><a href=\"$webdb[www_url]/shop/list.php?fid=54\">服装打扮</a></li>					
+</ul>
+<ul class=\"P_list\">
+	<li><h4 class=\"title\">分类广告</h4></li>
+	<li><a href=\"$webdb[www_url]/f/list.php?fid=10\">教育培训</a></li>
+	<li><a href=\"$webdb[www_url]/f/list.php?fid=5\">同城交友</a></li>
+	<li><a href=\"$webdb[www_url]/f/list.php?fid=150\">餐饮美食</a></li>
+	<li><a href=\"$webdb[www_url]/f/list.php?fid=165\">休闲娱乐</a></li>					
+</ul>
+<ul class=\"P_list\">
+	<li><h4 class=\"title\">房产频道</h4></li>
+	<li><a href=\"$webdb[www_url]/house/list.php?fid=1\">出租房源</a></li>
+	<li><a href=\"$webdb[www_url]/house/list.php?fid=2\">房屋出售</a></li>
+	<li><a href=\"$webdb[www_url]/house/list.php?fid=5\">小区新盘</a></li>
+	<li><a href=\"$webdb[www_url]/house/list.php?fid=6\">房产中介</a></li>					
+</ul>
+<ul class=\"P_list\">
+	<li><h4 class=\"title\">家居装修</h4></li>
+	<li><a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=5\">装修公司</a></li>
+	<li><a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=2\">装修案例</a></li>
+	<li><a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=1\">招标信息</a></li>
+	<li><a href=\"$webdb[www_url]/zhuangxiu/list.php?fid=4\">装修学堂</a></li>					
+</ul>
+<ul class=\"Phone\">
+	<li><h4 class=\"title\">联系我们</h4></li>
+	<li><a>020-28998648</a></li>
+	<li><a>020-46546313</a></li>
+	<li><a>156030112543</a></li>
+	<li class=\"QQcall\"><a title=\"在线咨询\" href=\" http://wpa.qq.com/msgrd?v=3&uin=27781017&site=qq&menu=yes\" target=\"_blank\">QQ联系</a></li>					
+</ul>');
+$label['wapindex_flash']=stripslashes('<style>
+body{max-width:640px; margin:auto;}
+.ShowSlide{
+	width:100%;
+	border-top:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	margin:10px auto;
+	background:#FFF;
+	position:relative;
+}
+#slide,#slide .cell,#slide .cell img { 
+	height:auto;
+}
+#slide{ 
+	position:static; 
+	z-index:2; 
+	background-color:#f3f3f3;
+	margin:auto; 
+	width:100%; 
+	overflow: hidden; 
+	-webkit-user-select:none; 
+	-moz-user-select:none; 
+	-ms-user-select:none; 
+	-o-user-select:none; 
+	user-select:none;
+}
+#slide .cell{ 
+	position:relative; 
+	z-index:2; 
+	width:100%;
+	vertical-align:middle;
+	display:table-cell;
+}
+#slide .cell .title { 
+	display:none;
+}
+#slide .cell img { 
+	vertical-align:top; 
+	width:100%; 
+	height:auto; 
+	display:block;
+	cursor:pointer;
+}
+#indicator { 
+	position:absolute; 
+	width:100%;
+	bottom:0;
+	left:0;
+	text-align:center;
+}
+#indicator li {
+	color:#fff; 
+	margin:0 4px; 
+	text-indent:-999em;  
+	width:8px; 
+	height:8px; 
+	border-radius:8px;  
+	display:inline-block;
+	overflow:hidden;
+	background-color:#ccc;
+}
+#indicator .active { 
+	background-color:#f50;
+}
+</style>
+<div class=\"ShowSlide\">
+<script src=\"/shop/images/wap/slide.js\"></script>
+<div id=\"slide\" class=\"clearfix\" style=\"display:none\">
+	<div id=\"content\">
+<!--
+
+-->
+		<li class=\'cell\'><a href=\"\" title=\"\"><img src=\"http://localhost:8003/images/wap/flash.png\" name=\"http://localhost:8003/images/wap/flash.png\"/><span class=\'title\'></span></a></li>
+<!--
+
+-->
+		<li class=\'cell\'><a href=\"\" title=\"\"><img src=\"http://localhost:8003/images/wap/flash1.png\" name=\"http://localhost:8003/images/wap/flash1.png\"/><span class=\'title\'></span></a></li>
+<!--
+
+-->
+		<li class=\'cell\'><a href=\"\" title=\"\"><img src=\"http://localhost:8003/images/wap/flash2.png\" name=\"http://localhost:8003/images/wap/flash2.png\"/><span class=\'title\'></span></a></li>
+<!--
+
+-->
+	</div>
+	<ul id=\"indicator\"></ul>
+	<span class=\"prev\" id=\"slide_prev\" style=\"display:none\">上一张</span><span class=\"next\" id=\"slide_next\" style=\"display:none\">下一张</span>
+</div>
+<script>
+(function($){
+	var list = $(\'#content\').find(\'.cell\');
+	if(list.length > 0){
+		$(\'#slide\').show();
+		var txt = \'\';
+		$(\'#content\').find(\'.cell\').each(function(i){
+			if(i === 0){
+				txt += \'<li class=\"active\">1</li>\';
+			}else{
+				txt += \'<li>\'+(i+1)+\'</li>\';
+			}
+		});
+		$(\'#indicator\').html(txt);
+		setTimeout(function(){new C_Scroll({container:\'slide\',content:\'content\',ct:\'indicator\',size:\'400\',intervalTime:5000,lazyIMG:!!0});},200);
+	}
+	/*$(\'#content img\').click(function(){
+		var pics=$(this).attr(\"src\");
+		var picdbs=new Array();
+		var i=0;
+		$(\'#content img\').each(function(){
+			var thisurl=$(this).attr(\"src\");
+			picdbs[i]=thisurl;
+			i++;
+		});
+		view_pic1(pics,picdbs);
+	});*/
+})(jQuery);
+/*function view_pic1(pic,picdbs) {	
+	wx.previewImage({
+	  current: pic,
+	  urls:picdbs
+	});
+}*/
+</script>
+</div>');
+$label['wapindex_banner1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/wap/likeBanner.png\'   border=\'0\' /></a>');
+$label['wapindex_likes']=stripslashes('<dl class=\"Showbox\">
+  	<dt>T5777-2016夏新款女</dt>
+      <dd class=\"pic\"><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=56&id=9\"><img src=\"https://img.alicdn.com/imgextra/i4/14197825/TB2PulMpFXXXXXdXFXXXXXXXXXX_!!14197825.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dd>
+      <dd class=\"jg\"><div><strong><em>￥</em>100</strong><span></span><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=56&id=9\">去看看</a></div></dd>
+</dl><dl class=\"Showbox\">
+  	<dt>新款2016夏装韩版女</dt>
+      <dd class=\"pic\"><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=8\"><img src=\"https://img.alicdn.com/imgextra/i3/56651352/TB2pRrtopXXXXbAXXXXXXXXXXXX_!!56651352.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dd>
+      <dd class=\"jg\"><div><strong><em>￥</em>90</strong><span></span><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=8\">去看看</a></div></dd>
+</dl><dl class=\"Showbox\">
+  	<dt>A哚啦 夏季纯色上衣</dt>
+      <dd class=\"pic\"><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=7\"><img src=\"https://img.alicdn.com/imgextra/i4/20868741/TB2GxrSqpXXXXXcXpXXXXXXXXXX_!!20868741.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dd>
+      <dd class=\"jg\"><div><strong><em>￥</em>110</strong><span></span><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=7\">去看看</a></div></dd>
+</dl><dl class=\"Showbox\">
+  	<dt>西西小可*2016夏季新</dt>
+      <dd class=\"pic\"><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=6\"><img src=\"https://img.alicdn.com/imgextra/i1/13410985/TB2XhQwpXXXXXcoXXXXXXXXXXXX_!!13410985.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dd>
+      <dd class=\"jg\"><div><strong><em>￥</em>100</strong><span></span><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=6\">去看看</a></div></dd>
+</dl>');
+$label['wapindex_banner2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/wap/server_banner.png\'   border=\'0\' /></a>');
+$label['wapindex_servers']=stripslashes('<dl class=\"Sbox\">
+	<dt><a href=\"http://localhost:8003/fuwu/wapbencandy.php?fid=4&id=47\"><img src=\"http://localhost:8003/upload_files/qb_fuwu_/4/1_20160623110639_fk3jx.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dt>
+    <dd class=\"Sright\">
+		<h3>APP上门洗车</h3>
+        <p>上门洗车加盟，1-2周即可完成前期培训及筹备工作，低自行寻找客户，每天轻松接单!上门洗车加..</p>
+        <div class=\"btn\">
+        	<a href=\"http://localhost:8003/fuwu/wapbencandy.php?fid=4&id=47\">立即预约</a>
+        	<span>人气：<em>1</em></span>
+        </div>
+    </dd>
+</dl><dl class=\"Sbox\">
+	<dt><a href=\"http://localhost:8003/fuwu/wapbencandy.php?fid=10&id=46\"><img src=\"http://www.haogongzhang.com/Uploads/baike/201412/54817665903d0.png\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dt>
+    <dd class=\"Sright\">
+		<h3>广州市通马桶</h3>
+        <p>广州市通马桶收费标准，速度快。技术专业可靠正规疏通公司，疏通疏通管道工具齐全，票据齐全..</p>
+        <div class=\"btn\">
+        	<a href=\"http://localhost:8003/fuwu/wapbencandy.php?fid=10&id=46\">立即预约</a>
+        	<span>人气：<em>1</em></span>
+        </div>
+    </dd>
+</dl><dl class=\"Sbox\">
+	<dt><a href=\"http://localhost:8003/fuwu/wapbencandy.php?fid=6&id=45\"><img src=\"http://file.youboy.com/d/152/68/45/3/865223.JPG\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/></a></dt>
+    <dd class=\"Sright\">
+		<h3>深圳沙发翻新</h3>
+        <p>沙发是客厅中必须要有的家具，没有沙发的家里会显得空荡荡。沙发大多非常的好看，但使用久了..</p>
+        <div class=\"btn\">
+        	<a href=\"http://localhost:8003/fuwu/wapbencandy.php?fid=6&id=45\">立即预约</a>
+        	<span>人气：<em>8</em></span>
+        </div>
+    </dd>
+</dl>');
+$label['wapindex_banner3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/wap/wm_banner.png\'   border=\'0\' /></a>');
+$label['wapindex_waimai']=stripslashes('<dl class=\"BusinesShow\">
+    <dt><a href=\"http://localhost:8003/waimai/wapshowhy.php?fid=2&id=9\">
+    	<img src=\"http://i1.s2.dpfile.com/pc/b42512412979f207f5c21c1e322ae242%28700x700%29/thumb.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/>
+        <span>营业中</span></a>
+    </dt>
+    <dd class=\"ShowRight\">
+        <h3>喜士多便利店</h3>
+        <p ><span>起送:￥10</span> <span>配送:￥5</span> <span>15送达</span></p>
+        <div class=\"time\">接单时间：09:00-21:00</div>
+        <div class=\"didian\">方庄簋街二楼(家乐福与阳光市场旁)</div>
+    </dd>
+</dl><dl class=\"BusinesShow\">
+    <dt><a href=\"http://localhost:8003/waimai/wapshowhy.php?fid=2&id=5\">
+    	<img src=\"http://file.youboy.com/d/85/7/54/6/850636.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/>
+        <span>营业中</span></a>
+    </dt>
+    <dd class=\"ShowRight\">
+        <h3>辉记士多店</h3>
+        <p ><span>起送:￥20</span> <span>配送:￥5</span> <span>20送达</span></p>
+        <div class=\"time\">接单时间：09:00-21:00</div>
+        <div class=\"didian\">中华路23号</div>
+    </dd>
+</dl><dl class=\"BusinesShow\">
+    <dt><a href=\"http://localhost:8003/waimai/wapshowhy.php?fid=1&id=4\">
+    	<img src=\"http://qcloud.dpfile.com/pc/zFecokyNOin1OixxrD0YOZUi0BJ612KeLYfMYhiT3eDRhHMmqiV8YanicpcwG53UsUUjuoRat_w088HnHHkzYQ.jpg\" onerror=\"this.src=\'http://localhost:8003/images/default/nopic.jpg\'\"/>
+        <span>营业中</span></a>
+    </dt>
+    <dd class=\"ShowRight\">
+        <h3>潇湘95号院</h3>
+        <p ><span>起送:￥20</span> <span>配送:￥5</span> <span>30送达</span></p>
+        <div class=\"time\">接单时间：09:00-21:00</div>
+        <div class=\"didian\">西城区 宣武门西大街95号</div>
+    </dd>
+</dl>');
+$label['wapindex_newt1']=stripslashes('<li><a href=\"../news/waplist.php?fid=1\">旅游资讯</a></li>
+<li><a href=\"../news/waplist.php?fid=36\">美食资讯</a></li>
+<li><a href=\"../news/waplist.php?fid=32\">图片新闻</a></li>
+<li><a href=\"../news/waplist.php?fid=43\">热门新闻</a></li>');
+$label['wapindex_newc1']=stripslashes('<dl class=\"NewsList\">
+	<dt><a href=\"http://localhost:8003/news/wapbencandy.php?fid=32&id=963\"><img src=\"http://localhost:8003/upload_files/qb_news_/32/1_20160426140413_p45bu.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/newspic.png\'\"/></a></dt>
+    <dd>
+    	<p><a href=\"http://localhost:8003/news/wapbencandy.php?fid=32&id=963\">寒冷天气还将持续 欧洲机场继续瘫痪</a></p>
+    	<div><span>admin</span><span>2010-12-22 10:59:06</span></div>
+    </dd>
+</dl><dl class=\"NewsList\">
+	<dt><a href=\"http://localhost:8003/news/wapbencandy.php?fid=34&id=966\"><img src=\"http://localhost:8003/upload_files/qb_news_/34/1_20180301080340_5vy7w.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/newspic.png\'\"/></a></dt>
+    <dd>
+    	<p><a href=\"http://localhost:8003/news/wapbencandy.php?fid=34&id=966\">测试12</a></p>
+    	<div><span>admin</span><span>2018-03-01 08:50:40</span></div>
+    </dd>
+</dl><dl class=\"NewsList\">
+	<dt><a href=\"http://localhost:8003/news/wapbencandy.php?fid=33&id=964\"><img src=\"http://localhost:8003/upload_files/qb_news_/33/1_20160622150635_boapa.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/newspic.png\'\"/></a></dt>
+    <dd>
+    	<p><a href=\"http://localhost:8003/news/wapbencandy.php?fid=33&id=964\">圣诞玩什么?香港快乐混搭 澳门葡式浪漫</a></p>
+    	<div><span>admin</span><span>2010-12-22 10:59:47</span></div>
+    </dd>
+</dl><dl class=\"NewsList\">
+	<dt><a href=\"http://localhost:8003/news/wapbencandy.php?fid=31&id=962\"><img src=\"http://localhost:8003/upload_files/qb_news_/31/1_20160615180653_syezn.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/newspic.png\'\"/></a></dt>
+    <dd>
+    	<p><a href=\"http://localhost:8003/news/wapbencandy.php?fid=31&id=962\">6年走遍广州 绘出徒步地图</a></p>
+    	<div><span>admin</span><span>2010-12-22 10:58:29</span></div>
+    </dd>
+</dl><dl class=\"NewsList\">
+	<dt><a href=\"http://localhost:8003/news/wapbencandy.php?fid=39&id=961\"><img src=\"http://localhost:8003/upload_files/qb_news_/39/1_20160426140415_p939h.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/newspic.png\'\"/></a></dt>
+    <dd>
+    	<p><a href=\"http://localhost:8003/news/wapbencandy.php?fid=39&id=961\">蚝自远方来 鲜甜美味难挡</a></p>
+    	<div><span>admin</span><span>2010-12-22 10:57:15</span></div>
+    </dd>
+</dl>');
+$label['wapindex_bbs']=stripslashes('<!--
+
+-->
+<dl class=\"Fb\">
+		<dt><span class=\"jing\">新</span><span class=\"zhiding\">热</span>网站全新改版，大家</dt>
+		<dd><span><img src=\"http://down.qibosoft.com/other/testv6/upload_files/icon/1.jpg\" /></span><span class=\"tm\">admin</span><span class=\"zhang\">赞<em>1</em></span><span class=\"pinlun\">评论<em>5</em></span></dd>
+</dl>
+<!--
+
+-->');
+$label['wapindex_hotcont']=stripslashes('<ul>
+  <li><a href=\"#\" class=\"active\">热门商品</a></li>
+  <li><a href=\"#\">热门楼盘</a></li>
+ <li><a href=\"#\">优惠促销</a></li>
+ <li><a href=\"#\">热门招聘</a></li>
+</ul>');
+$label['wapindex_hot']=stripslashes('<a href=\"http://localhost:8003/shop/wapbencandy.php?fid=56&id=9\">
+  <dl>
+    <dt class=\"L\"><img src=\"https://img.alicdn.com/imgextra/i4/14197825/TB2PulMpFXXXXXdXFXXXXXXXXXX_!!14197825.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoppic.png\'\"/></dt>
+	<dd class=\"R\">
+	  <h3>T5777-2016夏新款女装韩版拼色娃娃领条纹百搭无袖衬衫上衣0530</h3>
+	  <p class=\"ListPrice\"><span class=\"L\">￥ 100</span><strike class=\"L\">￥ 150</strike></p>
+	  <p><span class=\"L\">2010-11-03 11:18:43</span><span class=\"R\">浏览：193人</span></p>
+	</dd>
+  </dl>
+</a><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=8\">
+  <dl>
+    <dt class=\"L\"><img src=\"https://img.alicdn.com/imgextra/i3/56651352/TB2pRrtopXXXXbAXXXXXXXXXXXX_!!56651352.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoppic.png\'\"/></dt>
+	<dd class=\"R\">
+	  <h3>新款2016夏装韩版女装翻领印花宽松显瘦雪纺衬衫E-10</h3>
+	  <p class=\"ListPrice\"><span class=\"L\">￥ 90</span><strike class=\"L\">￥ 1600</strike></p>
+	  <p><span class=\"L\">2010-11-03 11:16:49</span><span class=\"R\">浏览：73人</span></p>
+	</dd>
+  </dl>
+</a><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=7\">
+  <dl>
+    <dt class=\"L\"><img src=\"https://img.alicdn.com/imgextra/i4/20868741/TB2GxrSqpXXXXXcXpXXXXXXXXXX_!!20868741.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoppic.png\'\"/></dt>
+	<dd class=\"R\">
+	  <h3>A哚啦 夏季纯色上衣时尚女装修身吊带性感半露肩短袖棉T恤女6241</h3>
+	  <p class=\"ListPrice\"><span class=\"L\">￥ 110</span><strike class=\"L\">￥ 150</strike></p>
+	  <p><span class=\"L\">2010-11-03 11:15:53</span><span class=\"R\">浏览：134人</span></p>
+	</dd>
+  </dl>
+</a><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=6\">
+  <dl>
+    <dt class=\"L\"><img src=\"https://img.alicdn.com/imgextra/i1/13410985/TB2XhQwpXXXXXcoXXXXXXXXXXXX_!!13410985.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoppic.png\'\"/></dt>
+	<dd class=\"R\">
+	  <h3>西西小可*2016夏季新款条纹连帽防晒衣防晒休闲外套中长款女</h3>
+	  <p class=\"ListPrice\"><span class=\"L\">￥ 100</span><strike class=\"L\">￥ 200</strike></p>
+	  <p><span class=\"L\">2010-11-03 11:14:27</span><span class=\"R\">浏览：15人</span></p>
+	</dd>
+  </dl>
+</a><a href=\"http://localhost:8003/shop/wapbencandy.php?fid=55&id=5\">
+  <dl>
+    <dt class=\"L\"><img src=\"https://img.alicdn.com/imgextra/i2/20604171/TB2HmxinFXXXXcIXpXXXXXXXXXX_!!20604171.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoppic.png\'\"/></dt>
+	<dd class=\"R\">
+	  <h3>夏装新款女装2016 韩版时尚立领绣花五分袖百搭开衫防晒外套</h3>
+	  <p class=\"ListPrice\"><span class=\"L\">￥ 100</span><strike class=\"L\">￥ 200</strike></p>
+	  <p><span class=\"L\">2010-11-03 11:13:05</span><span class=\"R\">浏览：17人</span></p>
+	</dd>
+  </dl>
+</a>');
+$label['wapindex_banner']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/wap/banner.png\'   border=\'0\' /></a>');
+$label['wapindex_modleNav']=stripslashes('<ul>
+   <li><a href=\"#\">点评</a></li>
+  <li><a href=\"#\" class=\"active\">团购</a></li>
+   <li><a href=\"#\">分类</a></li>
+   <li><a href=\"#\">分页</a></li>
+</ul>');
+$label['wapindex_allCont']=stripslashes('<li><a href=\"http://localhost:8003/shoptg/wapbencandy.php?fid=1&id=11\"><div class=\"List\">
+ <div class=\"ListPic\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_shoptg_/1/1_20101227211213_likqz.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoptgpic.png\'\"/></div>
+  <h3>仅售49元！原价135元的楹记酒楼“秋冬滋补超值鹧鸪双人套餐”1份</h3>
+  <div class=\"ListPrice\"><span class=\"L\">￥49</span><strike class=\"L\">￥ 135</strike></div>
+ <div class=\"ListOther\"><span>已售0</span><span>5分</span><span>0人参团</span></div>
+ </div>
+</a></li><li><a href=\"http://localhost:8003/shoptg/wapbencandy.php?fid=1&id=10\"><div class=\"List\">
+ <div class=\"ListPic\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_shoptg_/1/1_20101227211204_mwrvk.jpg\" onerror=\"src=\'http://localhost:8003/images/wap/shoptgpic.png\'\"/></div>
+  <h3>仅售998元！原价1819元的悦来粤顺酒家“喜庆年餐”1份</h3>
+  <div class=\"ListPrice\"><span class=\"L\">￥1819</span><strike class=\"L\">￥ 998</strike></div>
+ <div class=\"ListOther\"><span>已售0</span><span>5分</span><span>8人参团</span></div>
+ </div>
+</a></li>');
+$label['wapindex_ListNav']=stripslashes('<dl>
+  <dt><a href=\"http://localhost:8003/house/wapindex.php\"><img src=\"http://localhost:8003/images/wap/modle1.png\"/></a></dt>
+  <dd><a href=\"http://localhost:8003/house/wapindex.php\"><h3>房产信息</h3></a></dd>
+  <dd><span><a href=\"#\">出租</a></span>/<span><a href=\"#\">出售</a></span>/<span><a href=\"#\">经纪人</a></span></dd>
+</dl>
+<dl>
+  <dt><a href=\"http://localhost:8003/2shou/wapindex.php\"><img src=\"http://localhost:8003/images/wap/modle2.png\"/></a></dt>
+  <dd><a href=\"http://localhost:8003/2shou/wapindex.php\"><h3>二手市场</h3></a></dd>
+  <dd><span><a href=\"#\">旧物</a></span>/<span><a href=\"#\">古董</a></span>/<span><a href=\"#\">其他物品</a></span></dd>
+</dl>
+<dl>
+  <dt><a href=\"http://localhost:8003/hy/wapindex.php\"><img src=\"http://localhost:8003/images/wap/modle3.png\"/></a></dt>
+  <dd><a href=\"http://localhost:8003/hy/wapindex.php\"><h3>商家服务</h3></a></dd>
+  <dd><span><a href=\"#\">公司注册</a></span>/<span><a href=\"#\">广告</a></span>/<span><a href=\"#\">媒体</a></span></dd>
+</dl>
+<dl>
+  <dt><a href=\"http://localhost:8003/zhuangxiu/wapindex.php\"><img src=\"http://localhost:8003/images/wap/modle4.png\"/></a></dt>
+  <dd><a href=\"http://localhost:8003/zhuangxiu/wapindex.php\"><h3>家居装修</h3></a></dd>
+  <dd><span><a href=\"#\">装修预算</a></span>/<span><a href=\"#\">免费设计</a></span></dd>
+</dl>
+<dl>
+  <dt><a href=\"http://localhost:8003/hr/wapindex.php\"><img src=\"http://localhost:8003/images/wap/modle5.png\"/></a></dt>
+  <dd><a href=\"http://localhost:8003/hr/wapindex.php\"><h3>求职招聘</h3></a></dd>
+  <dd><span><a href=\"#\">个人求职</a></span>/<span><a href=\"#\">企业招聘</a></span> </dd>
+</dl>
+<dl>
+  <dt><a href=\"http://localhost:8003/gift/wapindex.php\"><img src=\"http://localhost:8003/images/wap/modle6.png\"/></a></dt>
+  <dd><a href=\"http://localhost:8003/gift/wapindex.php\"><h3>礼品兑换</h3></a></dd>
+  <dd><span><a href=\"#\">赚积分</a></span>/<span><a href=\"#\">换礼品</a></span></dd>
+</dl>');
+$label['wap_slidecont']=stripslashes('fffffgggggggeeeeeeeeee');
+$label['wap_SiteModule']=stripslashes('wwwwwwwwwwww');
+$label['wap_HotNews']=stripslashes('');
+$label['wap_ListCont1']=stripslashes('');
+$label['wap_ListCont2']=stripslashes('');
+$label['wap_ListCont3']=stripslashes('');
+$label['wap_ListCont4']=stripslashes('');
+$label['wap_ListCont5']=stripslashes('');
+$label['wap_ListCont6']=stripslashes('');
+$label['wap_ListAd1']=stripslashes('');
+$label['wap_ListAd2']=stripslashes('');
+$label['wap_ListCont7']=stripslashes('');
+$label['wap_ListCont8']=stripslashes('');
+$label['wap_MoreModule']=stripslashes('');
+$label['wap_OtherModule']=stripslashes('');
+$label['wap_ListAd3']=stripslashes('');
+$label['wap_ListAd4']=stripslashes('');
+$label['life_t1']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\"><u>提升团队招生咨询和成交法宝</u></a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\"><u>如何打造学校高水平招生团队</u></a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\"><u>求学择校，充电培训，请进！</u></a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\"><u>首页文字链火热招商进行中！</u></a></div>');
+$label['life_t2']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\"><u>中国打破了世界软件巨头规则</u></a></div>
+        <div class=\"list\"><a href=\"#\" target=\"_blank\"><u>轻松点击择校网未来前途无忧</u></a></div>
+        <div class=\"list\"><a href=\"#\" target=\"_blank\"><u>９大名师揭秘２０１１年高考</u></a></div>
+        <div class=\"list\"><a href=\"#\" target=\"_blank\"><u>２０１１高考-如何突破600分</u></a></div>');
+$label['life_t3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101102201154_6s95f.jpg\'  width=\'640\'  height=\'80\' border=\'0\' /></a>');
+$label['life_t4']=stripslashes('
+
+<script type=\'text/javascript\'>
+var widths=270;
+var heights=175;
+var counts=2;
+
+				img1=new Image ();img1.src=\'http://localhost:8003/upload_files/label/1_20101102201151_zxdvu.jpg\';
+				url1=new Image ();url1.src=\'#\';
+				
+				img2=new Image ();img2.src=\'http://localhost:8003/upload_files/label/1_20101102201157_a9ie2.jpg\';
+				url2=new Image ();url2.src=\'#\';
+				
+var nn=1;
+var key=0;
+function change_img()
+{if(key==0){key=1;}
+else if(document.all)
+{document.getElementById(\"pic\").filters[0].Apply();document.getElementById(\"pic\").filters[0].Play(duration=2);}
+eval(\'document.getElementById(\"pic\").src=img\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").href=url\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").target=\"blank\"\');
+for (var i=1;i<=counts;i++){document.getElementById(\"xxjdjj\"+i).className=\'axx\';}
+document.getElementById(\"xxjdjj\"+nn).className=\'bxx\';
+nn++;if(nn>counts){nn=1;}
+tt=setTimeout(\'change_img()\',4000);}
+function changeimg(n){nn=n;window.clearInterval(tt);change_img();}
+document.write(\'<style>\');
+document.write(\'.axx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.axx:link,a.axx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#666;}\');
+document.write(\'a.axx:active,a.axx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#999;}\');
+document.write(\'.bxx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.bxx:link,a.bxx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'a.bxx:active,a.bxx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'</style>\');
+document.write(\'<div style=\"width:\'+widths+\'px;height:\'+heights+\'px;overflow:hidden;text-overflow:clip;\">\');
+document.write(\'<div><a id=\"url\"><img id=\"pic\" style=\"border:0px;filter:progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward)\" width=\'+widths+\' height=\'+heights+\' /></a></div>\');
+document.write(\'<div style=\"filter:alpha(style=1,opacity=10,finishOpacity=80);background: #888888;width:100%-2px;text-align:right;top:-12px;position:relative;margin:1px;height:12px;padding:0px;margin:0px;border:0px;\">\');
+for(var i=1;i<counts+1;i++){document.write(\'<a href=\"javascript:changeimg(\'+i+\');\" id=\"xxjdjj\'+i+\'\" class=\"axx\" target=\"_self\">\'+i+\'</a>\');}
+document.write(\'</div></div>\');
+change_img();
+</script>
+	
+	');
+$label['life_a1']=stripslashes('<a href=\"#\" target=\"_blank\">最新信息</a> 
+            <a href=\"#\" target=\"_blank\">推荐信息</a> <a href=\"#\" target=\"_blank\">热门信息</a> ');
+$label['life_a4']=stripslashes('<a href=\"#\" target=\"_blank\">最新信息</a> <a href=\"#\" target=\"_blank\">推荐信息</a> <a href=\"#\" target=\"_blank\">热门信息</a>');
+$label['life_a6']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141157_dxj9d.gif\'  width=\'220\'  height=\'62\' border=\'0\' /></a>');
+$label['life_a7']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141119_huh4r.gif\'  width=\'220\'  height=\'62\' border=\'0\' /></a>');
+$label['life_a8']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141136_ewaqs.gif\'  width=\'220\'  height=\'62\' border=\'0\' /></a>');
+$label['life_a11']=stripslashes('<a href=\"#\" target=\"_blank\">最新信息</a> <a href=\"#\" target=\"_blank\">推荐信息</a> <a href=\"#\" target=\"_blank\">热门信息</a> ');
+$label['life_a12']=stripslashes('<a href=\"#\" target=\"_blank\">最新信息</a> <a href=\"#\" target=\"_blank\">推荐信息</a> <a href=\"#\" target=\"_blank\">热门信息</a>');
+$label['life_a15']=stripslashes('<div class=\"list1\"><a href=\"#\" target=\"_blank\">想要出国留学吗？请致电：</a> <span>2854547474</span></div>
+               
+ <div class=\"list2\">想找个好家教吗？请致电：010-88888888</div>');
+$label['life_a16']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141131_2ie4w.gif\'  width=\'230\'  height=\'65\' border=\'0\' /></a>');
+$label['life_a20']=stripslashes('旅游资讯');
+$label['life_a21']=stripslashes('饮食资讯');
+$label['life_a24']=stripslashes('<a href=\"#\" target=\"_blank\">更多</a>');
+$label['life_a25']=stripslashes('<a href=\"#\" target=\"_blank\">更多</a>');
+$label['life_a30']=stripslashes('<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=950\" class=\"a1\" target=\"_blank\">火车票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=951\" class=\"a2\" target=\"_blank\">天气预报</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=952\" class=\"a3\" target=\"_blank\">机票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=953\" class=\"a4\" target=\"_blank\">公交查询</a> 
+<a href=\"http://localhost:8003/f/job.php?job=ip\" class=\"a5\" target=\"_blank\">IP查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?fid=45&id=954\" class=\"a6\" target=\"_blank\">交通违章</a>');
+$label['life_a31']=stripslashes('<SCRIPT LANGUAGE=\"JavaScript\">
+document.write(\'<span id=\"sellstelephone\"><img alt=\"内容加载中,请稍候...\" src=\"http://localhost:8003/images/default/ico_loading3.gif\"></span>\');
+AJAX.get(\"sellstelephone\",\"do/hack.php?hack=sell_telephone&job=js\",1);
+</SCRIPT>');
+$label['life_a32']=stripslashes('	<div class=\"tel\">热线电话:<span>010-88888888</span></div>
+                <div class=\"qq\">客服QQ1:<a href=\"#\">88888888</a></div>
+                <div class=\"qq\">客服QQ2:<a href=\"#\">88888888</a></div>
+                <div class=\"qq1\">QQ群:<a href=\"#\">88888888</a></div>');
+$label['red_indexslide']=stripslashes('
+
+<script type=\'text/javascript\'>
+var widths=420;
+var heights=190;
+var counts=2;
+
+				img1=new Image ();img1.src=\'http://localhost:8003/upload_files/label/1_20101102201151_zxdvu.jpg\';
+				url1=new Image ();url1.src=\'#\';
+				
+				img2=new Image ();img2.src=\'http://localhost:8003/upload_files/label/1_20101102201157_a9ie2.jpg\';
+				url2=new Image ();url2.src=\'#\';
+				
+var nn=1;
+var key=0;
+function change_img()
+{if(key==0){key=1;}
+else if(document.all)
+{document.getElementById(\"pic\").filters[0].Apply();document.getElementById(\"pic\").filters[0].Play(duration=2);}
+eval(\'document.getElementById(\"pic\").src=img\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").href=url\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").target=\"blank\"\');
+for (var i=1;i<=counts;i++){document.getElementById(\"xxjdjj\"+i).className=\'axx\';}
+document.getElementById(\"xxjdjj\"+nn).className=\'bxx\';
+nn++;if(nn>counts){nn=1;}
+tt=setTimeout(\'change_img()\',4000);}
+function changeimg(n){nn=n;window.clearInterval(tt);change_img();}
+document.write(\'<style>\');
+document.write(\'.axx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.axx:link,a.axx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#666;}\');
+document.write(\'a.axx:active,a.axx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#999;}\');
+document.write(\'.bxx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.bxx:link,a.bxx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'a.bxx:active,a.bxx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'</style>\');
+document.write(\'<div style=\"width:\'+widths+\'px;height:\'+heights+\'px;overflow:hidden;text-overflow:clip;\">\');
+document.write(\'<div><a id=\"url\"><img id=\"pic\" style=\"border:0px;filter:progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward)\" width=\'+widths+\' height=\'+heights+\' /></a></div>\');
+document.write(\'<div style=\"filter:alpha(style=1,opacity=10,finishOpacity=80);background: #888888;width:100%-2px;text-align:right;top:-12px;position:relative;margin:1px;height:12px;padding:0px;margin:0px;border:0px;\">\');
+for(var i=1;i<counts+1;i++){document.write(\'<a href=\"javascript:changeimg(\'+i+\');\" id=\"xxjdjj\'+i+\'\" class=\"axx\" target=\"_self\">\'+i+\'</a>\');}
+document.write(\'</div></div>\');
+change_img();
+</script>
+	
+	');
+$label['red_indexwebinfo']=stripslashes('<SCRIPT LANGUAGE=\"JavaScript\">
+document.write(\'<span id=\"siteinfo\"><img alt=\"内容加载中,请稍候...\" src=\"http://localhost:8003/images/default/ico_loading3.gif\"></span>\');
+document.write(\'<div style=\"display:none;\"><iframe src=\"http://localhost:8003/do/job.php?job=webinfo&iframeID=siteinfo\" width=0 height=0></iframe></div>\');
+</SCRIPT>');
+$label['index_redlisthead1']=stripslashes('<span class=\"fl\">本地资讯</span><span class=\"fr\"><a href=\"/news/\" target=\"_blank\">更多</a></span>');
+$label['red_indexnoteh']=stripslashes('<span class=\"fl\">网站公告</span><span class=\"fr\"><a href=\"/do/list.php?fid=40\" target=\"_blank\">更多</a></span>');
+$label['red_indexfenlieimg']=stripslashes('<a href=\"http://localhost:8003/images/red/lenovo.gif\"><img src=\"http://localhost:8003/images/red/lenovo.gif\"></a>
+<a href=\"http://localhost:8003/images/red/kela.bmp\"><img src=\"http://localhost:8003/images/red/kela.bmp\"></a>');
+$label['red_indexhyimg']=stripslashes('<a href=\"http://localhost:8003/images/red/hybmp.bmp\"><img src=\"http://localhost:8003/images/red/hybmp.bmp\" width=\"260\" height=\"90\" /></a>');
+$label['index_redbannerad']=stripslashes('<a href=\'http://www.sudu.cn/\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/red/banner_ad.gif\'  width=\'990\'  height=\'80\' border=\'0\' /></a>');
+$label['blue_indexad1']=stripslashes('<a href=\'../images/blue/ad1.gif\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad1.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['blue_indexad2']=stripslashes('<a href=\'../images/blue/ad2.gif\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad2.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['blue_indexad3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad3.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['blue_indexad4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad4.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['blue_indexad5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad5.gif\'  width=\'250\'  height=\'80\' border=\'0\' /></a>');
+$label['blue_indexweather']=stripslashes('<iframe src=\"http://m.weather.com.cn/m/pn4/weather.htm \" width=\"160\" height=\"20\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\"></iframe>');
+$label['blue_middlead1']=stripslashes('<a href=\'http://www.qibosoft.com\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad2.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['blue_mainadr1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141157_dxj9d.gif\'  width=\'240\'  height=\'60\' border=\'0\' /></a>');
+$label['blue_mainadr2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141119_huh4r.gif\'  width=\'240\'  height=\'60\' border=\'0\' /></a>');
+$label['blue_middlead2']=stripslashes('<a href=\'http://www.qibosoft.com\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad3.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['blue_middlead3']=stripslashes('<a href=\'http://www.qibosoft.com\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/blue/ad4.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['deepblue_mainslide']=stripslashes('
+
+<script type=\'text/javascript\'>
+var widths=300;
+var heights=210;
+var counts=2;
+
+				img1=new Image ();img1.src=\'http://localhost:8003/upload_files/label/1_20101102201151_zxdvu.jpg\';
+				url1=new Image ();url1.src=\'#\';
+				
+				img2=new Image ();img2.src=\'http://localhost:8003/upload_files/label/1_20101102201157_a9ie2.jpg\';
+				url2=new Image ();url2.src=\'#\';
+				
+var nn=1;
+var key=0;
+function change_img()
+{if(key==0){key=1;}
+else if(document.all)
+{document.getElementById(\"pic\").filters[0].Apply();document.getElementById(\"pic\").filters[0].Play(duration=2);}
+eval(\'document.getElementById(\"pic\").src=img\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").href=url\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").target=\"blank\"\');
+for (var i=1;i<=counts;i++){document.getElementById(\"xxjdjj\"+i).className=\'axx\';}
+document.getElementById(\"xxjdjj\"+nn).className=\'bxx\';
+nn++;if(nn>counts){nn=1;}
+tt=setTimeout(\'change_img()\',4000);}
+function changeimg(n){nn=n;window.clearInterval(tt);change_img();}
+document.write(\'<style>\');
+document.write(\'.axx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.axx:link,a.axx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#666;}\');
+document.write(\'a.axx:active,a.axx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#999;}\');
+document.write(\'.bxx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.bxx:link,a.bxx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'a.bxx:active,a.bxx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'</style>\');
+document.write(\'<div style=\"width:\'+widths+\'px;height:\'+heights+\'px;overflow:hidden;text-overflow:clip;\">\');
+document.write(\'<div><a id=\"url\"><img id=\"pic\" style=\"border:0px;filter:progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward)\" width=\'+widths+\' height=\'+heights+\' /></a></div>\');
+document.write(\'<div style=\"filter:alpha(style=1,opacity=10,finishOpacity=80);background: #888888;width:100%-2px;text-align:right;top:-12px;position:relative;margin:1px;height:12px;padding:0px;margin:0px;border:0px;\">\');
+for(var i=1;i<counts+1;i++){document.write(\'<a href=\"javascript:changeimg(\'+i+\');\" id=\"xxjdjj\'+i+\'\" class=\"axx\" target=\"_self\">\'+i+\'</a>\');}
+document.write(\'</div></div>\');
+change_img();
+</script>
+	
+	');
+$label['deepblue_mainh1']=stripslashes('<span onmouseover=\"ShowTab(1,1,3)\" id=\"Span1\">新闻排行榜</span>
+<span onmouseover=\"ShowTab(2,1,3)\" id=\"Span2\">图片新闻</span>
+<span class=\"more\"><a href=\"#\">更多&gt;&gt;</a></span>');
+$label['deepblue_mainh2']=stripslashes('今日头条');
+$label['deepblue_mad2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/deepblue/ad2.gif\'  width=\'670\'  height=\'90\' border=\'0\' /></a>');
+$label['deepblue_mainh3']=stripslashes('<span class=\"tag\">今日话题</span><span class=\"more\"><a href=\"#\">更多&gt;&gt;</a></span>');
+$label['deepblue_mainh4']=stripslashes('<span class=\"tag\">24小时即时新闻</span><span class=\"more\"><a href=\"#\">更多&gt;&gt;</a></span>');
+$label['deepblue_mainh5']=stripslashes('<span class=\"tag\">热门栏目</span>');
+$label['deepblue_maint8']=stripslashes('<div class=\"list1\"><a href=\"./f/list.php?fid=11\" target=\"_blank\">出租房</a></div>
+<div class=\"list5\"><a href=\"./f/list.php?fid=129\" target=\"_blank\">找男友</a></div>
+<div class=\"list2\"><a href=\"./f/list.php?fid=12\" target=\"_blank\">二手房出售</a></div>
+<div class=\"list6\"><a href=\"./f/list.php?fid=59\" target=\"_blank\">电脑/网络相关</a></div>
+<div class=\"list3\"><a href=\"./f/list.php?fid=25\" target=\"_blank\">二手笔记本</a></div>
+<div class=\"list7\"><a href=\"./f/list.php?fid=92\" target=\"_blank\">旅游/酒店餐饮</a></div>
+<div class=\"list4\"><a href=\"./f/list.php?fid=19\" target=\"_blank\">写字楼出租/求租</a></div>
+<div class=\"list8\"><a href=\"./f/list.php?fid=24\" target=\"_blank\">二手台式电脑</a></div>');
+$label['deepblue_mainad3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/deepblue/ad3.gif\'  width=\'980\'  height=\'90\' border=\'0\' /></a>');
+$label['deepblue_mainad4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/deepblue/ad4.gif\'  width=\'260\'  height=\'120\' border=\'0\' /></a>');
+$label['deepblue_maint25b']=stripslashes('<a href=\"#\"><img src=\"http://localhost:8003/images/deepblue/hrad1.gif\"/></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/deepblue/hrad2.gif\"/></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/deepblue/hrad3.gif\"/></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/deepblue/hrad4.gif\"/></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/deepblue/hrad5.gif\"/></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/deepblue/hrad6.gif\"/></a>');
+$label['deepblue_mainad5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20101103141131_2ie4w.gif\'  width=\'230\'  height=\'65\' border=\'0\' /></a>');
+$label['deepblue_mainad7']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/deepblue/ad6.gif\'  width=\'260\'  height=\'90\' border=\'0\' /></a>');
+$label['deepblue_mainad6']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/deepblue/ad5.gif\'  width=\'710\'  height=\'90\' border=\'0\' /></a>');
+$label['deepblue_mainh6']=stripslashes('<span class=\"tag\">分类信息</span><span class=\"more\"><a href=\"./f/post.php\">免费发布&gt;&gt;</a></span>');
+$label['deepblue_mainh7']=stripslashes('<span class=\"tag\">房产信息</span>
+<span onmouseover=\"ShowTab(3,3,7)\" id=\"Span3\">楼盘信息</span>
+<span onmouseover=\"ShowTab(4,3,7)\" id=\"Span4\">出售信息</span>
+<span onmouseover=\"ShowTab(5,3,7)\" id=\"Span5\">出租信息</span>
+<span onmouseover=\"ShowTab(6,3,7)\" id=\"Span6\">经纪人</span>');
+$label['deepblue_mainh8']=stripslashes('
+<span onmouseover=\"ShowTab(7,7,9)\" id=\"Span7\">热销楼盘</span>
+<span onmouseover=\"ShowTab(8,7,9)\" id=\"Span8\">推荐楼盘</span>
+		');
+$label['deepblue_mainh9']=stripslashes('<span class=\"tag\">推荐礼品</span><span class=\"more\"><a href=\"./gift/\">更多&gt;&gt;</a></span>');
+$label['deepblue_mainh10']=stripslashes('<span class=\"tag\">商家黄页</span>
+<span onmouseover=\"ShowTab(9,9,12)\" id=\"Span9\">最新商家</span>
+<span onmouseover=\"ShowTab(10,9,12)\" id=\"Span10\">热门商家</span>
+<span onmouseover=\"ShowTab(11,9,12)\" id=\"Span11\">推荐商家</span>
+<span class=\"more\"><a href=\"./hy/member/post_company.php\">登记商家&gt;&gt;</a></span>');
+$label['deepblue_mainh11']=stripslashes('<span class=\"tag\">打折优惠信息</span>');
+$label['deepblue_mainh12']=stripslashes('<span class=\"tag\">推荐团购</span><span class=\"more\"><a href=\"./tg/\">更多&gt;&gt;</a></span>');
+$label['deepblue_mainh13']=stripslashes('<span class=\"tag\">同城网购</span>
+<span onmouseover=\"ShowTab(12,12,15)\" id=\"Span12\">最新商品</span>
+<span onmouseover=\"ShowTab(13,12,15)\" id=\"Span13\">热门商品</span>
+<span onmouseover=\"ShowTab(14,12,15)\" id=\"Span14\">推荐商品</span>');
+$label['deepblue_mainh14']=stripslashes('热卖排行版');
+$label['deepblue_mainh15']=stripslashes('<span class=\"tag\">名企招聘</span><span class=\"more\"><a href=\"./hr/\">更多</a></span>');
+$label['deepblue_mainh16']=stripslashes('
+<span onmouseover=\"ShowTab(15,15,17)\" id=\"Span15\">人才招聘</span>
+<span onmouseover=\"ShowTab(16,15,17)\" id=\"Span16\">最新简历</span>
+        ');
+$label['deepblue_mainh17']=stripslashes('想要出国留学吗？请致电：<span>2854547474</span>');
+$label['deepblue_mainh18']=stripslashes('想找个好家教吗？请致电：<span>010-88888888</span>');
+$label['deepblue_mainh19']=stripslashes('
+            <div><a href=\"f/list.php?fid=3\" target=\"_blank\" class=\"b\">个人免费找工作</a> </div>
+            <div><a href=\"f/post.php?fid=87\" target=\"_blank\">免费发布个人简历</a></div> 
+        ');
+$label['deepblue_mainh20']=stripslashes('
+            <div><a href=\"f/list.php?fid=4\" target=\"_blank\" class=\"b\">企业免费找人才</a></div>
+            <div><a href=\"f/post.php?fid=55\" target=\"_blank\">免费发布招聘信息</a></div>
+        ');
+$label['deepblue_mainh21']=stripslashes('
+        	<span class=\"tag\">生活百宝箱</span>
+            <span class=\"more\">想让您的电话显示在这里吗?名额有限哦,赶快联系客服吧!</span>
+        ');
+$label['deepblue_mainh22']=stripslashes('<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=950\" class=\"a1\" target=\"_blank\">火车票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=951\" class=\"a2\" target=\"_blank\">天气预报</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=952\" class=\"a3\" target=\"_blank\">机票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=953\" class=\"a4\" target=\"_blank\">公交查询</a> 
+<a href=\"http://localhost:8003/f/job.php?job=ip\" class=\"a5\" target=\"_blank\">IP查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?fid=45&id=954\" class=\"a6\" target=\"_blank\">交通违章</a>');
+$label['deepblue_mainh23']=stripslashes('<SCRIPT LANGUAGE=\"JavaScript\">
+document.write(\'<span id=\"sellstelephone\"><img alt=\"内容加载中,请稍候...\" src=\"http://localhost:8003/images/default/ico_loading3.gif\"></span>\');
+AJAX.get(\"sellstelephone\",\"do/hack.php?hack=sell_telephone&job=js\",1);
+</SCRIPT>');
+$label['deepblue_mainh25']=stripslashes('<div class=\"tel\">热线电话:<span>010-88888888</span></div>
+<div class=\"qq\">客服QQ1:<a href=\"#\">88888888</a></div>
+<div class=\"qq\">客服QQ2:<a href=\"#\">88888888</a></div>
+<div class=\"qq1\">QQ群:<a href=\"#\">88888888</a></div>
+<div class=\"qq1\">QQ群:<a href=\"#\">88888888</a></div>');
+$label['deepblue_mainh26']=stripslashes('<span class=\"tag\">友情链接/合作伙伴</span><span class=\"more\"><a href=\"#\">申请链接</a> | <a href=\"./do/alonepage.php?id=1\">查看更多</a></span>');
+$label['orange_mad1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110527170513_YWQx.gif\'  width=\'505\'  height=\'90\' border=\'0\' /></a>');
+$label['orange_mad2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110527170535_YWQy.gif\'  width=\'235\'  height=\'90\' border=\'0\' /></a>');
+$label['orange_mad3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110527170542_YWQz.gif\'  width=\'230\'  height=\'90\' border=\'0\' /></a>');
+$label['orange_slide']=stripslashes('
+
+<script type=\'text/javascript\'>
+var widths=300;
+var heights=210;
+var counts=2;
+
+				img1=new Image ();img1.src=\'http://localhost:8003/upload_files/label/1_20101102201151_zxdvu.jpg\';
+				url1=new Image ();url1.src=\'#\';
+				
+				img2=new Image ();img2.src=\'http://localhost:8003/upload_files/label/1_20101102201157_a9ie2.jpg\';
+				url2=new Image ();url2.src=\'#\';
+				
+var nn=1;
+var key=0;
+function change_img()
+{if(key==0){key=1;}
+else if(document.all)
+{document.getElementById(\"pic\").filters[0].Apply();document.getElementById(\"pic\").filters[0].Play(duration=2);}
+eval(\'document.getElementById(\"pic\").src=img\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").href=url\'+nn+\'.src\');
+eval(\'document.getElementById(\"url\").target=\"blank\"\');
+for (var i=1;i<=counts;i++){document.getElementById(\"xxjdjj\"+i).className=\'axx\';}
+document.getElementById(\"xxjdjj\"+nn).className=\'bxx\';
+nn++;if(nn>counts){nn=1;}
+tt=setTimeout(\'change_img()\',4000);}
+function changeimg(n){nn=n;window.clearInterval(tt);change_img();}
+document.write(\'<style>\');
+document.write(\'.axx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.axx:link,a.axx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#666;}\');
+document.write(\'a.axx:active,a.axx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#999;}\');
+document.write(\'.bxx{padding:1px 7px;border-left:#cccccc 1px solid;}\');
+document.write(\'a.bxx:link,a.bxx:visited{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'a.bxx:active,a.bxx:hover{text-decoration:none;color:#fff;line-height:12px;font:9px sans-serif;background-color:#D34600;}\');
+document.write(\'</style>\');
+document.write(\'<div style=\"width:\'+widths+\'px;height:\'+heights+\'px;overflow:hidden;text-overflow:clip;\">\');
+document.write(\'<div><a id=\"url\"><img id=\"pic\" style=\"border:0px;filter:progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward)\" width=\'+widths+\' height=\'+heights+\' /></a></div>\');
+document.write(\'<div style=\"filter:alpha(style=1,opacity=10,finishOpacity=80);background: #888888;width:100%-2px;text-align:right;top:-12px;position:relative;margin:1px;height:12px;padding:0px;margin:0px;border:0px;\">\');
+for(var i=1;i<counts+1;i++){document.write(\'<a href=\"javascript:changeimg(\'+i+\');\" id=\"xxjdjj\'+i+\'\" class=\"axx\" target=\"_self\">\'+i+\'</a>\');}
+document.write(\'</div></div>\');
+change_img();
+</script>
+	
+	');
+$label['orange_mt6']=stripslashes('<div><font color=\"#336699\">想出国留学吗?请致电:</font><font color=\"#c00\">010-28282828</font></div>
+<div>想找个好家教吗?请致电:010-28282828</div>');
+$label['orange_mt8']=stripslashes('<div><font color=\"#336699\">想出国留学吗?请致电:</font><font color=\"#c00\">010-28282828</font></div>
+<div>想找个好家教吗?请致电:010-28282828</div>');
+$label['orange_mt7']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110530140557_YWQx.gif\'  width=\'220\'  height=\'60\' border=\'0\' /></a>');
+$label['orange_mt9']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110530140546_YWQy.gif\'  width=\'220\'  height=\'60\' border=\'0\' /></a>');
+$label['orange_mt25']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110531170533_YWQx.gif\'  width=\'980\'  height=\'90\' border=\'0\' /></a>');
+$label['orange_mt30']=stripslashes('
+<a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/orange/hr1.gif\"/></a>
+<a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/orange/hr2.gif\"/></a>
+<a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/orange/hr3.gif\"/></a>
+<a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/orange/hr4.gif\"/></a>
+<a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/orange/hr5.gif\"/></a>
+<a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/orange/hr6.gif\"/></a>');
+$label['orange_mt33']=stripslashes('<a href=\"f/list.php?fid=3\" target=\"_blank\" class=\"b\">个人免费找工作</a>
+        <a href=\"f/post.php?fid=87\" target=\"_blank\" class=\"s\">免费发布个人简历</a>');
+$label['orange_mt34']=stripslashes('<a href=\"f/list.php?fid=4\" target=\"_blank\" class=\"b\">企业免费找人才</a>  
+          <a href=\"f/post.php?fid=55\" target=\"_blank\" class=\"s\">免费发布招聘信息</a>');
+$label['orange_mt35']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110601130611_YWQx.gif\'  width=\'710\'  height=\'90\' border=\'0\' /></a>');
+$label['orange_mt36']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/label/1_20110601130653_YWQy.gif\'  width=\'260\'  height=\'90\' border=\'0\' /></a>');
+$label['orange_mh1']=stripslashes('<span class=\"tag\">图文资讯</span><span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>');
+$label['orange_mh2']=stripslashes('<span class=\"tag\">24小时即时新闻</span>
+<span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>');
+$label['orange_mh3']=stripslashes('<span onmouseover=\"ShowTab(1,1,4)\" id=\"Span1\">最新信息</span>
+                <span onmouseover=\"ShowTab(2,1,4)\" id=\"Span2\">推荐信息</span>
+                <span onmouseover=\"ShowTab(3,1,4)\" id=\"Span3\">热门信息</span>');
+$label['orange_mh4']=stripslashes('热门栏目');
+$label['orange_mh5']=stripslashes('<span class=\"tag\">房产信息</span>
+            	<span onmouseover=\"ShowTab(4,4,7)\" id=\"Span4\">楼盘信息</span>
+                <span onmouseover=\"ShowTab(5,4,7)\" id=\"Span5\">出售信息</span>
+                <span onmouseover=\"ShowTab(6,4,7)\" id=\"Span6\">出租信息</span>');
+$label['orange_mh6']=stripslashes('<span class=\"tag\">热销楼盘</span>
+                <span class=\"cent\"><a href=\"#\" target=\"_blank\">切换楼盘</a></span>
+                <span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>');
+$label['orange_mh7']=stripslashes('<span onmouseover=\"ShowTab(7,7,10)\" id=\"Span7\">最新商品</span>
+                <span onmouseover=\"ShowTab(8,7,10)\" id=\"Span8\">推荐商品</span>
+                <span onmouseover=\"ShowTab(9,7,10)\" id=\"Span9\">热门商品</span>');
+$label['orange_mh8']=stripslashes('<span class=\"tag\">商家黄页</span>
+            	<span onmouseover=\"ShowTab(10,10,13)\" id=\"Span10\">最新商家</span>
+                <span onmouseover=\"ShowTab(11,10,13)\" id=\"Span11\">推荐商家</span>
+                <span onmouseover=\"ShowTab(12,10,13)\" id=\"Span12\">热门商家</span>');
+$label['orange_mh9']=stripslashes('<span class=\"tag\">优惠券</span>
+                <span class=\"cent\"><a href=\"#\" target=\"_blank\">兑换礼品</a></span>
+                <span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>');
+$label['orange_mh10']=stripslashes('<span class=\"tag\">团购进行时...</span>
+                <span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>');
+$label['orange_mh11']=stripslashes('<span onmouseover=\"ShowTab(13,13,16)\" id=\"Span13\">最新团购</span>
+                <span onmouseover=\"ShowTab(14,13,16)\" id=\"Span14\">推荐团购</span>
+                <span onmouseover=\"ShowTab(15,13,16)\" id=\"Span15\">热门团购</span>
+                <span class=\"more\"><a href=\"./shop/\" target=\"_blank\">进入同城网购</a></span>');
+$label['orange_mh12']=stripslashes('企业招聘');
+$label['orange_mh13']=stripslashes('<span onmouseover=\"ShowTab(16,16,18)\" id=\"Span16\">最新简历</span>
+                <span onmouseover=\"ShowTab(17,16,18)\" id=\"Span17\">招聘人才</span>');
+$label['orange_mh14']=stripslashes('<span class=\"tag\">生活百宝箱</span>
+                <span class=\"more\">想让您的电话显示在这里吗？名额有限哦，赶快联系客服吧！</span>');
+$label['orange_mh15']=stripslashes('客服中心');
+$label['orange_mh16']=stripslashes('<span class=\"tag\">友情链接/合作伙伴</span>
+        <span class=\"more\"><a href=\"./do/alonepage.php?id=1\">更多&gt;&gt;</a></span> 
+        <span class=\"other\"><a href=\"do/friendlink.php?job=apply\">申请链接</a></span> ');
+$label['light_blue_mainad1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad2.gif\'  width=\'980\'  height=\'60\' border=\'0\' /></a>');
+$label['light_blue_maint6']=stripslashes('<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=950\" class=\"a1\" target=\"_blank\">火车票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=951\" class=\"a2\" target=\"_blank\">天气预报</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=952\" class=\"a3\" target=\"_blank\">机票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=953\" class=\"a4\" target=\"_blank\">公交查询</a> 
+<a href=\"http://localhost:8003/f/job.php?job=ip\" class=\"a5\" target=\"_blank\">IP查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?fid=45&id=954\" class=\"a6\" target=\"_blank\">交通违章</a>');
+$label['light_blue_maint7']=stripslashes('<div><a href=\"#\" style=\"color:red\" target=\"_blank\">全国酒店最低折扣在线预订中</a></div>
+<div><a href=\"#\" target=\"_blank\">Sex铭品黛安芬精品内衣折扣店</a></div>
+<div><a href=\"#\" style=\"color:blue\" target=\"_blank\">精油柔珠按摩塑形文胸 仅售89元</a></div>
+<div><a href=\"#\" style=\"color:blue\" target=\"_blank\">魅族M8 8G SE 全新机 包邮 带发票</a></div>
+<div><a href=\"#\"  target=\"_blank\">杜拉拉的私人鞋柜</a></div>');
+$label['light_blue_maint9']=stripslashes('<div><a href=\"#\" target=\"_blank\">闫食娇第三季流出 美狂下载</a></div>
+<div><a href=\"#\" style=\"color:red\" target=\"_blank\">联通iphone俱乐部会员火势招募中</a></div>
+<div><a href=\"#\" target=\"_blank\">热烈祝贺长沙信息频道正式开通</a></div>
+<div><a href=\"#\"target=\"_blank\">长沙网址导航站源码免费下载</a></div>');
+$label['light_blue_maint8']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad3.gif\'  width=\'210\'  height=\'60\' border=\'0\' /></a>');
+$label['light_blue_mainad2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad4.gif\'  width=\'730\'  height=\'90\' border=\'0\' /></a>');
+$label['light_blue_mainad3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad5.gif\'  width=\'240\'  height=\'90\' border=\'0\' /></a>');
+$label['light_blue_mainad4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad6.gif\'  width=\'730\'  height=\'90\' border=\'0\' /></a>');
+$label['light_blue_mainad5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad7.gif\'  width=\'240\'  height=\'90\' border=\'0\' /></a>');
+$label['light_blue_mainad6']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad8.gif\'  width=\'730\'  height=\'90\' border=\'0\' /></a>');
+$label['light_blue_mainad7']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad9.gif\'  width=\'240\'  height=\'90\' border=\'0\' /></a>');
+$label['light_blue_maint24']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad10.gif\'  width=\'80\'  height=\'60\' border=\'0\' /></a>');
+$label['light_blue_maint25']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad11.gif\'  width=\'80\'  height=\'60\' border=\'0\' /></a>');
+$label['light_blue_maint26']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad10.gif\'  width=\'80\'  height=\'60\' border=\'0\' /></a>');
+$label['light_blue_maint28']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/light_blue/ad13.gif\'  width=\'210\'  height=\'65\' border=\'0\' /></a>');
+$label['light_blue_maint28a']=stripslashes('<div><a href=\"#\" target=\"_blank\">热烈祝贺长沙信息频道正式开通</a></div>
+<div><a href=\"#\"target=\"_blank\">长沙网址导航站源码免费下载</a></div>');
+$label['light_blue_maint29']=stripslashes('<dl>
+<dt><a href=\"f/list.php?fid=3\" target=\"_blank\">个人免费找工作</a></dt>
+<dd><a href=\"f/post.php?fid=87\" target=\"_blank\">免费发布个人简历</a></dd>
+</dl>');
+$label['light_blue_maint30']=stripslashes('<dl>
+<dt><a href=\"f/list.php?fid=4\" target=\"_blank\">企业免费找人才</a></dt>
+<dd><a href=\"f/post.php?fid=55\" target=\"_blank\">免费发布招聘信息</a></dd>
+</dl>');
+$label['light_blue_maint31']=stripslashes('<SCRIPT LANGUAGE=\"JavaScript\">
+document.write(\'<span id=\"sellstelephone\"><img alt=\"内容加载中,请稍候...\" src=\"http://localhost:8003/images/default/ico_loading3.gif\"></span>\');
+AJAX.get(\"sellstelephone\",\"do/hack.php?hack=sell_telephone&job=js\",1);
+</SCRIPT>');
+$label['light_blue_maint32']=stripslashes('<div class=\"tel\">热线电话:<span>010-88888888</span></div>
+<div class=\"qq\">客服QQ1:<a href=\"#\">88888888</a></div>
+<div class=\"qq\">客服QQ2:<a href=\"#\">88888888</a></div>
+<div class=\"qq1\">QQ群:<a href=\"#\">88888888</a></div>');
+$label['light_blue_flinkh']=stripslashes('<span class=\"tag\">友情链接/合作伙伴</span>
+<span class=\"more\"><a href=\"./do/friendlink.php?job=apply\">申请链接</a> <a href=\"./do/alonepage.php?id=1\">更多&gt;&gt;</a></span> ');
+$label['fashoin_mainslide']=stripslashes('<div class=\"focus \">
+            <div id=focus_cont class=focus_show>
+<!--
+
+-->
+			<DIV class=list><a href=\"htpp://www.qibosort.ocm\"  target=\"_blank\"><IMG alt=\"众女星皆爱白裙　走清纯路线\" src=\"http://localhost:8003/images/fashion/main/1.jpg\" width=300 height=345></a></DIV>
+<!--
+
+-->
+			<DIV class=list><a href=\"#\"  target=\"_blank\"><IMG alt=\"\" src=\"http://localhost:8003/images/fashion/main/2.jpg\" width=300 height=345></a></DIV>
+<!--
+
+-->
+			<DIV class=list><a href=\"#\"  target=\"_blank\"><IMG alt=\"\" src=\"http://localhost:8003/images/fashion/main/3.jpg\" width=300 height=345></a></DIV>
+<!--
+
+-->
+			<DIV class=list><a href=\"#\"  target=\"_blank\"><IMG alt=\"\" src=\"http://localhost:8003/images/fashion/main/4.jpg\" width=300 height=345></a></DIV>
+<!--
+
+-->
+			<DIV class=list><a href=\"#\"  target=\"_blank\"><IMG alt=\"\" src=\"http://localhost:8003/images/fashion/main/5.jpg\" width=300 height=345></a></DIV>
+<!--
+
+-->
+            </div>
+            <ul id=focus class=hdtab>
+              <li class=on><br/></li>
+              <li><br/></li>
+              <li><br/></li>
+              <li><br/></li>
+              <li><br/></li>
+            </ul>
+    		<div class=go_left><br/></div>
+    		<div class=go_right><br/></div>
+  		</div>
+<SCRIPT type=text/javascript src=\"http://localhost:8003/images/fashion/main/jquery-1.4.2.min.js\"></SCRIPT>
+<SCRIPT type=text/javascript>
+setInterval(function(){jQuery(\'#focus\').parent().find(\'.go_right\').click();},4000);
+</SCRIPT>
+<SCRIPT type=text/javascript src=\"http://localhost:8003/images/fashion/main/lady.js\"></SCRIPT>');
+$label['fashoin_maint2']=stripslashes('<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=950\" class=\"a1\" target=\"_blank\">火车票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=951\" class=\"a2\" target=\"_blank\">天气预报</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=952\" class=\"a3\" target=\"_blank\">机票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=953\" class=\"a4\" target=\"_blank\">公交查询</a> 
+<a href=\"http://localhost:8003/f/job.php?job=ip\" class=\"a5\" target=\"_blank\">IP查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?fid=45&id=954\" class=\"a6\" target=\"_blank\">交通违章</a>');
+$label['fashoin_maint4']=stripslashes('<div onclick=\"showup()\" id=\"showup\"><br/></div>
+<ul id=\"ShowList\">
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?&fid=2&id=28\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/2/1_20110408140417_OQ==.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?&fid=2&id=28\" target=\"_blank\">乐意居 中层靓景四期少有单位放盘 住家婚房首选</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=25\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/2/1_20110408140437_Mw==.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=25\" target=\"_blank\">旭景家园 精致三房 少有南向 132万 过五年</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=24\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/2/1_20110408140434_MQ==.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=24\" target=\"_blank\">马赛国际 高层大单间可改两房 视野开阔</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=26\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/2/1_20110408140415_NQ==.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=26\" target=\"_blank\">祈福新村 蝶舞轩 业主急售 有钥匙可以马上看</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=27\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/2/1_20110408140434_Nw==.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=2&id=27\" target=\"_blank\">金碧翡翠华庭 装修新净 厅出阳台 楼盘最低价</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?&fid=1&id=33\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/1/1_20110408150427_MTk=.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?&fid=1&id=33\" target=\"_blank\">勤天E品 豪华复式一房一厅 展现厅的双倍空间</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=31\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/1/1_20110408150430_MTU=.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=31\" target=\"_blank\">万科城市花园 二房笋租 家电齐全 现在唯有几套</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=29\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/1/1_20110408150445_MTE=.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=29\" target=\"_blank\">第三金碧花园 三房两厅全新装修 家私电器全齐</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=32\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/1/1_20110408150432_MTc=.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=32\" target=\"_blank\">天河员村大院一房一厅</A></div>
+</li>
+<!--
+
+-->
+<li>
+<div class=\"img\"><a href=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=30\" target=\"_blank\"><img src=\"http://down.qibosoft.com/other/testv6/upload_files/qb_house_/1/1_20110408150439_MTM=.jpg.gif\" height=\"90\"/></a></div>
+<div class=\"t\"><A HREF=\"http://localhost:8003/house/bencandy.php?city_id=1&fid=1&id=30\" target=\"_blank\">黄埔花园 园景小区 电梯三房 南向吉屋</A></div>
+</li>
+<!--
+
+-->
+</ul>
+<div onclick=\"showdown()\" id=\"showdown\"><br/></div>
+<SCRIPT LANGUAGE=\"JavaScript\">
+<!--
+var showlist = 5;
+var beginnum = 0;
+var obj = document.getElementById(\"ShowList\").getElementsByTagName(\"li\");
+var listnum = obj.length;
+var endnum = listnum - showlist;
+function showup(){
+ if(beginnum>0){
+  beginnum-=1;
+  showlist-=1;
+  showstyle();   
+ }
+}
+function showdown(){
+ lastnum = listnum - showlist;
+ if(lastnum>0){
+  beginnum+=1;
+  showlist+=1;  
+  showstyle();  
+ } 
+}
+function showstyle(){
+ for(var i=0;i<listnum;i++ ){
+  if(i<beginnum || i>=showlist){
+   obj[i].style.display=\'none\';
+  }else{
+   obj[i].style.display=\'\';
+  }
+ }
+ if(beginnum==0){
+ 	document.getElementById(\"showup\").className=\'up0\';
+	document.getElementById(\"showdown\").className=\'down\';
+ }else if(endnum==beginnum){
+ 	document.getElementById(\"showdown\").className=\'down0\';
+	document.getElementById(\"showup\").className=\'up\';
+ }else{
+ 	document.getElementById(\"showdown\").className=\'down\';
+  	document.getElementById(\"showup\").className=\'up\'; 
+ }
+}
+showstyle();
+//-->
+</SCRIPT>');
+$label['fashoin_mainad1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fashion/main/ad1.gif\'  width=\'720\'  height=\'40\' border=\'0\' /></a>');
+$label['fashoin_maint5']=stripslashes('<div class=\"list1\"><a href=\"http://localhost:8003/f/list.php?fid=7\">生活服务</a></div>
+<div class=\"list2\"><a href=\"http://localhost:8003/f/list.php?fid=2\">物品交易</a></div>
+<div class=\"list3\"><a href=\"http://localhost:8003/f/list.php?fid=10\">教育培训</a></div>
+<div class=\"list4\"><a href=\"http://localhost:8003/f/list.php?fid=8\">办公商务</a></div>
+<div class=\"list5\"><a href=\"http://localhost:8003/f/list.php?fid=23\">宠物用品</a></div>
+<div class=\"list6\"><a href=\"http://localhost:8003/f/list.php?fid=140\">结伴出游</a></div>
+
+<div class=\"list7\"><a href=\"http://localhost:8003/f/list.php?fid=143\">讲座/研讨会</a></div>
+<div class=\"list8\"><a href=\"http://localhost:8003/f/list.php?fid=5\">同城交友</a></div>
+<div class=\"list9\"><a href=\"http://localhost:8003/f/list.php?fid=111\">律师</a></div>
+<div class=\"list10\"><a href=\"http://localhost:8003/f/list.php?fid=138\">活动召集</a></div>
+<div class=\"list11\"><a href=\"http://localhost:8003/f/list.php?fid=134\">真情告白</a></div>
+<div class=\"list12\"><a href=\"http://localhost:8003/f/list.php?fid=124\">电脑/网络</a></div>');
+$label['fashoin_mainad2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fashion/main/ad2.gif\'  width=\'238\'  height=\'156\' border=\'0\' /></a>');
+$label['fashoin_mainbanner1']=stripslashes('<img src=\'http://localhost:8003/upload_files/../images/fashion/main/banner1.gif\'  width=\'980\'  height=\'40\'  border=\'0\' />');
+$label['fashoin_mainbanner2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fashion/main/banner2.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['fashoin_mainbanner3']=stripslashes('<img src=\'http://localhost:8003/upload_files/../images/fashion/main/banner3.gif\'  width=\'980\'  height=\'40\'  border=\'0\' />');
+$label['fashoin_mainbanner4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fashion/main/banner4.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['fashoin_maint21']=stripslashes('<div class=\"tel\">热线电话:<span>010-88888888</span></div>
+<div class=\"qq\">客服QQ1:<a href=\"#\">88888888</a></div>
+<div class=\"qq\">客服QQ2:<a href=\"#\">88888888</a></div>
+<div class=\"qq1\">QQ群:<a href=\"#\">88888888</a></div>');
+$label['fashoin_mainad5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fashion/main/ad3.gif\'  width=\'238\'  height=\'100\' border=\'0\' /></a>');
+$label['fashoin_maint22']=stripslashes('<SCRIPT LANGUAGE=\"JavaScript\">
+document.write(\'<span id=\"sellstelephone\"><img alt=\"内容加载中,请稍候...\" src=\"http://localhost:8003/images/default/ico_loading3.gif\"></span>\');
+AJAX.get(\"sellstelephone\",\"do/hack.php?hack=sell_telephone&job=js\",1);
+</SCRIPT>');
+$label['fashoin_mainh1']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag1.gif\">');
+$label['fashoin_mainh3']=stripslashes('<span class=\"tag\"><img src=\"http://localhost:8003/images/fashion/main/tag3.gif\"></span>
+<span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>
+<span class=\"other\"><a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/fashion/main/tag5.gif\"></a></span>');
+$label['fashoin_mainh2']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag2.gif\">');
+$label['fashoin_mainh4']=stripslashes('<span class=\"tag\"><img src=\"http://localhost:8003/images/fashion/main/tag4.gif\"></span>
+<span class=\"more\"><a href=\"#\" target=\"_blank\">更多&gt;&gt;</a></span>
+<span class=\"other\"><a href=\"#\" target=\"_blank\"><img src=\"http://localhost:8003/images/fashion/main/tag6.gif\"></a></span>
+');
+$label['fashoin_mainh5']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag7.gif\">');
+$label['fashoin_mainh6']=stripslashes('<span class=\"tg\"><img src=\"http://localhost:8003/images/fashion/main/tag8.gif\"></span>
+<span class=\"m\"><a href=\"./hy/listall.php\" target=\"_blank\">最新</a> | <a href=\"./hy/listall.php?ordertype=levelstime\" target=\"_blank\">推荐</a> | <a href=\"./hy/listall.php?ordertype=hits\" target=\"_blank\">热门</a></span>
+');
+$label['fashoin_mainh7']=stripslashes('<span class=\"tg\"><img src=\"http://localhost:8003/images/fashion/main/tag9.gif\"></span>
+<span class=\"m\"><a href=\"./shop/listall.php\" target=\"_blank\">最新</a> | <a href=\"./shop/listall.php?ordertype=levelstime\" target=\"_blank\">推荐</a> | <a href=\"./shop/listall.php?ordertype=hits\" target=\"_blank\">热门</a></span>
+');
+$label['fashoin_main8h']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag10.gif\">');
+$label['fashoin_mainh9']=stripslashes('<span onmouseover=\"ShowTab(1,1,3)\" id=\"Span1\">优惠券</span>
+<span onmouseover=\"ShowTab(2,1,3)\" id=\"Span2\">兑换礼品</span>
+');
+$label['fashoin_mainh10']=stripslashes('<span class=\"tg\"><img src=\"http://localhost:8003/images/fashion/main/tag11.gif\"></span>
+<span class=\"m\"><a href=\"./tg/listall.php\" target=\"_blank\">最新</a> | <a href=\"./tg/listall.php?ordertype=levelstime\" target=\"_blank\">推荐</a> | <a href=\"./tg/listall.php?ordertype=hits\" target=\"_blank\">热门</a></span>
+');
+$label['fashoin_mainh11']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag12.gif\">');
+$label['fashoin_mainh12']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag13.gif\">');
+$label['fashoin_mainh13']=stripslashes('<span onmouseover=\"ShowTab(3,3,5)\" id=\"Span3\">资讯排行</span>
+<span onmouseover=\"ShowTab(4,3,5)\" id=\"Span4\">产品排行</span>');
+$label['fashoin_mainh14']=stripslashes('<span class=\"tg\"><img src=\"http://localhost:8003/images/fashion/main/tag14.gif\"></span>
+<span class=\"m ms\"><a href=\"./member/?main=http://localhost:8003/hr/member/post_choose.php\" target=\"_blank\">免费找工作</a></span>');
+$label['fashoin_mainh15']=stripslashes('<span class=\"tg\"><img src=\"http://localhost:8003/images/fashion/main/tag15.gif\"></span>
+<span class=\"m mr\"><a href=\"./hr/listperson.php\" target=\"_blank\">免费找人才</a></span>');
+$label['fashoin_mainh16']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag16.gif\">');
+$label['fashoin_mainh17']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag17.gif\">');
+$label['fashoin_mainh18']=stripslashes('<img src=\"http://localhost:8003/images/fashion/main/tag18.gif\">');
+$label['fashoin_mainh19']=stripslashes('<span class=\"tag\"><img src=\"http://localhost:8003/images/fashion/main/tag19.gif\"></span>
+<span class=\"more\">想要您的电话在这里显示吗？名额有限哦！<a href=\"http://localhost:8003/member/?main=hack.php?hack=sell_telephone&job=buy\" target=\"_blank\" style=\"color:#F3F124;\">赶快购买电话广告位</a></span>');
+$label['fashoin_mainh20']=stripslashes('<span class=\"tag\"><img src=\"http://localhost:8003/images/fashion/main/tag20.gif\" /></span>
+<span class=\"more\">
+<a href=\"http://localhost:8003/do/friendlink.php?job=apply\" target=\"_blank\">申请链接</a>
+<a href=\"http://localhost:8003/do/friendlink.php\" target=\"_blank\">全部链接</a>
+</span>');
+$label['fresh_indext2']=stripslashes('<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=950\" class=\"a1\" target=\"_blank\">火车票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=951\" class=\"a2\" target=\"_blank\">天气预报</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=952\" class=\"a3\" target=\"_blank\">机票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=953\" class=\"a4\" target=\"_blank\">公交查询</a> 
+<a href=\"http://localhost:8003/f/job.php?job=ip\" class=\"a5\" target=\"_blank\">IP查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?fid=45&id=954\" class=\"a6\" target=\"_blank\">交通违章</a>');
+$label['fresh_indext16']=stripslashes('<a href=\"#\"><img src=\"http://localhost:8003/images/fresh/main/1.gif\" width=\"130\" height=\"60\" /></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/fresh/main/2.gif\" width=\"130\" height=\"60\" /></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/fresh/main/3.gif\" width=\"130\" height=\"60\" /></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/fresh/main/4.gif\" width=\"130\" height=\"60\" /></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/fresh/main/5.gif\" width=\"130\" height=\"60\" /></a>
+<a href=\"#\"><img src=\"http://localhost:8003/images/fresh/main/6.gif\" width=\"130\" height=\"60\" /></a>');
+$label['fresh_indext19']=stripslashes('<div class=\"list\"><span>想要出国留学吗？请致电：</span><em>2854547412</em></div>
+<div class=\"list\">想找个好家教吗？请致电：88888888</div>');
+$label['fresh_indext20']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad8.gif\'  width=\'230\'  height=\'60\' border=\'0\' /></a>');
+$label['fresh_indexslide']=stripslashes('<table id=\"pictable\" style=\"DISPLAY: none\">
+ <tbody>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/fresh/main/0.jpg\"/></td>
+<td> photo1</td>
+<td>http://www.php168.com</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/fresh/main/1.jpg\"/></td>
+<td> photo2</td>
+<td>http://www.qibosoft.com</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/fresh/main/2.jpg\"/></td>
+<td> photo3</td>
+<td>#</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/fresh/main/3.jpg\"/></td>
+<td> photo4</td>
+<td>#</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/fresh/main/4.jpg\"/></td>
+<td> photo5</td>
+<td>#</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/fresh/main/5.jpg\"/></td>
+<td> photo6</td>
+<td>#</td>
+</tr>
+<!--
+
+-->
+ </tbody>
+</table>');
+$label['fresh_indexh1']=stripslashes('最新资讯 热门话题');
+$label['fresh_indexm1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad1.gif\'  width=\'210\'  height=\'60\' border=\'0\' /></a>');
+$label['fresh_indexh2']=stripslashes('生活百宝箱');
+$label['fresh_indexh3']=stripslashes('信息分类导航');
+$label['fresh_indexh4']=stripslashes('图文资讯');
+$label['fresh_indexm4']=stripslashes('<a href=\"./news/\">更多&gt;&gt;</a>');
+$label['fresh_indexh5']=stripslashes('分类信息');
+$label['fresh_indexm5']=stripslashes('<a href=\"./f/listall.php\">最新</a> | <a href=\"./f/listall.php?ordertype=levelstime\">推荐</a> | <a href=\"./f/listall.php?ordertype=hits\">热门</a>');
+$label['fresh_indexh6']=stripslashes('热门分类栏目');
+$label['fresh_indexh7']=stripslashes('热门商品');
+$label['fresh_indexm7']=stripslashes('<a href=\"./shop/listall.php\">最新</a> | <a href=\"./shop/listall.php?ordertype=levelstime\">推荐</a>');
+$label['fresh_indexh8']=stripslashes('房产信息');
+$label['fresh_indexm8']=stripslashes('<a href=\"./house/list.php?fid=5\">楼盘</a> | <a href=\"./house/list.php?fid=2\">出售</a> | <a href=\"./house/list.php?fid=1\">出租</a>');
+$label['fresh_indexh9']=stripslashes('热销楼盘');
+$label['fresh_indexm9']=stripslashes('<a href=\"./house/list.php?fid=5\">更多&gt;&gt;</a>');
+$label['fresh_indexh10']=stripslashes('赞助商推广');
+$label['fresh_indexad1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad2.gif\'  width=\'180\'  height=\'85\' border=\'0\' /></a>');
+$label['fresh_indexad2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad3.gif\'  width=\'180\'  height=\'85\' border=\'0\' /></a>');
+$label['fresh_indexad3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad4.gif\'  width=\'180\'  height=\'85\' border=\'0\' /></a>');
+$label['fresh_indexad4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad5.gif\'  width=\'180\'  height=\'85\' border=\'0\' /></a>');
+$label['fresh_indexad5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad5.gif\'  width=\'180\'  height=\'85\' border=\'0\' /></a>');
+$label['fresh_indexh11']=stripslashes('商家黄页');
+$label['fresh_indexm11']=stripslashes('<a href=\"./hy/listall.php\">最新</a> | <a href=\"./hy/listall.php?ordertype=levelstime\">推荐</a> | <a href=\"./hy/listall.php?ordertype=hits\">热门</a>');
+$label['fresh_indexh12']=stripslashes('团购活动');
+$label['fresh_indexm12']=stripslashes('<a href=\"./tg/listall.php\">最新</a> | <a href=\"./tg/listall.php?ordertype=levelstime\">推荐</a> | <a href=\"./tg/listall.php?ordertype=hits\">热门</a>');
+$label['fresh_indexh13']=stripslashes('官方团');
+$label['fresh_indexm13']=stripslashes('<a href=\"./shoptg/\">更多&gt;&gt;</a>');
+$label['fresh_indexh14']=stripslashes('打折促销');
+$label['fresh_indexh15']=stripslashes('企业招聘');
+$label['fresh_indexh16']=stripslashes('最新简历');
+$label['fresh_indexh17']=stripslashes('招聘人才');
+$label['fresh_indexh18']=stripslashes('便民黄页');
+$label['fresh_indexad6']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/fresh/main/ad7.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['green_mainh6']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>');
+$label['green_mainh1']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">Excel服务器做管理系统</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>');
+$label['green_mainh2']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">Excel服务器做管理系统</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>');
+$label['green_mainh4']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">Excel服务器做管理系统</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>');
+$label['green_mainh3']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">Excel服务器做管理系统</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>');
+$label['green_mainh7']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>');
+$label['green_mainh8']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">Excel服务器做管理系统</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">网易移民频道全新上线！</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>');
+$label['green_mainh9']=stripslashes('<div class=\"list\"><a href=\"#\" target=\"_blank\">洋家教一对一轻松容易</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">找个老外英语聊天</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">大选投票羸ipad2</a></div>
+<div class=\"list\"><a href=\"#\" target=\"_blank\">中小企业总裁公开课</a></div>');
+$label['green_mainh5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad1.gif\'  width=\'620\'  height=\'80\' border=\'0\' /></a>');
+$label['green_indexslide']=stripslashes('<table id=\"pictable\" style=\"DISPLAY: none\">
+ <tbody>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/1.jpg\"/></td>
+<td> 门户新版即将上线</td>
+<td>http://life2.php168.com/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/2.jpg\"/></td>
+<td> 最新领先的地方门户</td>
+<td>http://life3.php168.com/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/3.jpg\"/></td>
+<td> 地方门户创业首选</td>
+<td>http://life.php168.com/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/4.jpg\"/></td>
+<td> 齐博分类信息系统</td>
+<td>http://beijing.soyixia.net/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/5.jpg\"/></td>
+<td> B2B垂直行业门户</td>
+<td>http://b2b_blue.php168.com/</td>
+</tr>
+<!--
+
+-->
+ </tbody>
+</table>');
+$label['green_mainh10']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad2.gif\'  width=\'150\'  height=\'145\' border=\'0\' /></a>');
+$label['green_maint3']=stripslashes('<div class=\"list\"><span>想出国留学吗？请致电：</span><em>010-28282828</em></div>
+<div class=\"list\">想找个好的家教吗？请致电：010-28282828</div>');
+$label['green_maint5']=stripslashes('<div class=\"list\"><span>想出国留学吗？请致电：</span><em>010-28282828</em></div>
+<div class=\"list\">想找个好的家教吗？请致电：010-28282828</div>');
+$label['green_maint4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad3.gif\'  width=\'275\'  height=\'95\' border=\'0\' /></a>');
+$label['green_maint8']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad4.gif\'  width=\'490\'  height=\'85\' border=\'0\' /></a>');
+$label['green_maint6a']=stripslashes('<a href=\"./f/list.php?fid=11\" target=\"_blank\">出租房</a>      
+                    <a href=\"./f/list.php?fid=12\" target=\"_blank\">二手房出售</a>
+                    <a href=\"./f/list.php?fid=13\" target=\"_blank\">合租房</a>
+                    <a href=\"./f/list.php?fid=14\" target=\"_blank\">短期租房</a>
+                    <a href=\"./f/list.php?fid=15\" target=\"_blank\">求租房</a>
+                    <a href=\"./f/list.php?fid=16\" target=\"_blank\">二手房求购</a>
+                    <a href=\"./f/list.php?fid=17\" target=\"_blank\">商铺出租/求租</a>');
+$label['green_maint7a']=stripslashes('<a href=\"./f/list.php?fid=128\" target=\"_blank\">找女友</a>            
+<a href=\"./f/list.php?fid=129\" target=\"_blank\">找男友</a>
+<a href=\"./f/list.php?fid=130\" target=\"_blank\">男士征婚</a>
+<a href=\"./f/list.php?fid=131\" target=\"_blank\">女士征婚</a>
+<a href=\"./f/list.php?fid=132\" target=\"_blank\">同乡会</a>
+<a href=\"./f/list.php?fid=133\" target=\"_blank\">兴趣交友</a>
+<a href=\"./f/list.php?fid=134\" target=\"_blank\">真情告白/祝福</a>');
+$label['green_maint13']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad5.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['green_maint17']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad6.gif\'  width=\'300\'  height=\'85\' border=\'0\' /></a>');
+$label['green_maint18']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad7.gif\'  width=\'150\'  height=\'85\' border=\'0\' /></a>');
+$label['green_maint26']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad8.gif\'  width=\'300\'  height=\'77\' border=\'0\' /></a>');
+$label['green_maint27']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/green/main/ad9.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['green_maint31']=stripslashes('<a href=\"#\" target=\"_blank\"><img src=\"images/green/main/1.gif\" width=\"120\" height=\"60\" /></a>
+<a href=\"#\" target=\"_blank\"><img src=\"images/green/main/2.gif\" width=\"120\" height=\"60\" /></a>
+<a href=\"#\" target=\"_blank\"><img src=\"images/green/main/3.gif\" width=\"120\" height=\"60\" /></a>
+<a href=\"#\" target=\"_blank\"><img src=\"images/green/main/4.gif\" width=\"120\" height=\"60\" /></a>
+<a href=\"#\" target=\"_blank\"><img src=\"images/green/main/5.gif\" width=\"120\" height=\"60\" /></a>
+<a href=\"#\" target=\"_blank\"><img src=\"images/green/main/6.gif\" width=\"120\" height=\"60\" /></a>');
+$label['green_maint32']=stripslashes('<SCRIPT LANGUAGE=\"JavaScript\">
+document.write(\'<span id=\"sellstelephone\"><img alt=\"内容加载中,请稍候...\" src=\"http://localhost:8003/images/default/ico_loading3.gif\"></span>\');
+AJAX.get(\"sellstelephone\",\"do/hack.php?hack=sell_telephone&job=js\",1);
+</SCRIPT>');
+$label['green_maint33']=stripslashes('<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=950\" class=\"a1\" target=\"_blank\">火车票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=951\" class=\"a2\" target=\"_blank\">天气预报</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=952\" class=\"a3\" target=\"_blank\">机票查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?&fid=45&id=953\" class=\"a4\" target=\"_blank\">公交查询</a> 
+<a href=\"http://localhost:8003/f/job.php?job=ip\" class=\"a5\" target=\"_blank\">IP查询</a> 
+<a href=\"http://localhost:8003/news/bencandy.php?fid=45&id=954\" class=\"a6\" target=\"_blank\">交通违章</a>');
+$label['main_openad']=stripslashes('<a href=\'http://www.qibosoft.com/\' target=_blank><img src=\'http://down.qibosoft.com/other/testv6/upload_files/label/1_20120809140835_gnfe0.jpg\'  width=\'980\'  height=\'400\' border=\'0\' /></a>');
+$label['style4_title9']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/css4.0/main/ad1.gif\'  width=\'230\'  height=\'60\' border=\'0\' /></a>');
+$label['style4_title10']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/css4.0/main/ad2.gif\'  width=\'230\'  height=\'60\' border=\'0\' /></a>');
+$label['style4_marquees']=stripslashes('<div style=\"width:980px;;height:60px;background:url(http://localhost:8003/images/css4.0/main/marquee.png);margin-top:10px;\">
+<div id=\"drk_colee_left0\" style=\"overflow:hidden;width:960px;margin:5px auto 0 auto;\">
+	<table>
+      <tr>
+      	<td id=\"drk_colee_left1\">
+        	<div style=\"white-space:nowrap;\">
+            	<a href=\"http://www.qibosoft.com\" target=\"_blank\" style=\"font-size:45px;font-family:黑体;color:#FFFF00;\">创业，首选互联网、做门户，首选齐博！</a>&nbsp;
+                <a href=\"http://www.qibosoft.com\" target=\"_blank\" style=\"font-size:45px;font-family:黑体;color:#FFFFFF;\">齐博地方门户系统助你轻松打造本市最领先的互动媒体平台！</a>
+            </div>
+        </td>
+        <td id=\"drk_colee_left2\"></td>
+      </tr>
+    </table>
+</div>
+</div>
+<script type=\"text/javascript\">
+var drk_colee_left2 = get_ids(\"drk_colee_left2\");
+var drk_colee_left1 = get_ids(\"drk_colee_left1\");
+var drk_colee_left0 = get_ids(\"drk_colee_left0\");
+var drk_ledtd = get_ids(\"drk_ledtd\");
+drk_colee_left2.innerHTML = drk_colee_left1.innerHTML; 
+function drk_Marquee3(){
+   if(drk_colee_left2.offsetWidth - drk_colee_left0.scrollLeft<=0)
+      drk_colee_left0.scrollLeft -= drk_colee_left1.offsetWidth
+   else{
+      drk_colee_left0.scrollLeft++
+   }
+}
+var drk_MyMar3 = setInterval(drk_Marquee3,20)
+drk_colee_left0.onmouseover = function() {clearInterval(drk_MyMar3)}
+drk_colee_left0.onmouseout  = function() {drk_MyMar3 = setInterval(drk_Marquee3,20)}
+function get_ids(id){
+	return document.getElementById(id);
+}
+</script>');
+$label['style_51_mainad1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/ad1.gif\'  width=\'700\'  height=\'90\' border=\'0\' /></a>');
+$label['style_51_slides']=stripslashes('<table id=\"pictable\" style=\"DISPLAY: none\">
+ <tbody>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/1.jpg\"/></td>
+<td> 门户新版即将上线</td>
+<td>http://life2.php168.com/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/2.jpg\"/></td>
+<td> 最新领先的地方门户</td>
+<td>http://life3.php168.com/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/3.jpg\"/></td>
+<td> 地方门户创业首选</td>
+<td>http://life.php168.com/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/4.jpg\"/></td>
+<td> 齐博分类信息系统</td>
+<td>http://beijing.soyixia.net/</td>
+</tr>
+<!--
+
+-->
+<tr>
+<td><img src=\"http://localhost:8003/upload_files/../images/green/main/5.jpg\"/></td>
+<td> B2B垂直行业门户</td>
+<td>http://b2b_blue.php168.com/</td>
+</tr>
+<!--
+
+-->
+ </tbody>
+</table>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"http://localhost:8003/images/style5.1/main/slide.css\">
+<script type=\"text/javascript\" src=\"http://localhost:8003/images/style5.1/main/slide.js\"></script> ');
+$label['style_51_title14']=stripslashes('<div class=\"list\"><span>想出国留学吗？请致电：</span><em>010-28282828</em></div>
+<div class=\"list\">想找个好的家教吗？请致电：010-28282828</div>
+<div class=\"list\"><span>想出国留学吗？请致电：</span><em>010-28282828</em></div>');
+$label['style_51_title15']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/ad2.gif\'  width=\'250\'  height=\'90\' border=\'0\' /></a>');
+$label['style_51_title16']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/ad3.gif\'  width=\'980\'  height=\'40\' border=\'0\' /></a>');
+$label['style_51_title21']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/ad4.gif\'  width=\'270\'  height=\'75\' border=\'0\' /></a>');
+$label['style_51_title22']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/ad5.gif\'  width=\'980\'  height=\'90\' border=\'0\' /></a>');
+$label['style_51_footerad']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/upload_files/../images/style5.1/main/footerad.jpg\'  width=\'980\'  height=\'60\' border=\'0\' /></a>');
+$label['style7_index_flash']=stripslashes('<!--
+
+-->
+		<tr>
+			<td><img src=\"http://img10.360buyimg.com/da/jfs/t2896/9/2013131591/86534/f67a50c7/57555039N2142fe13.jpg\" width=\'681\' height=\'336\' /></td>
+			<td> 门户新版即将上线</td>
+			<td>#</td>
+		</tr>
+<!--
+
+-->
+		<tr>
+			<td><img src=\"http://img14.360buyimg.com/da/jfs/t2962/277/173421787/194838/8f3e3362/574ebc90N0c2c7560.jpg\" width=\'681\' height=\'336\' /></td>
+			<td> 最新领先的地方门户</td>
+			<td>#</td>
+		</tr>
+<!--
+
+-->
+		<tr>
+			<td><img src=\"http://img20.360buyimg.com/da/jfs/t2935/226/211135726/144106/1f6378bd/57500fd3N11785d3e.jpg\" width=\'681\' height=\'336\' /></td>
+			<td> 地方门户创业首选</td>
+			<td>#</td>
+		</tr>
+<!--
+
+-->
+		<tr>
+			<td><img src=\"http://img20.360buyimg.com/da/jfs/t2587/9/2378651078/387617/36861d6e/57621d3bN07e0c57e.jpg\" width=\'681\' height=\'336\' /></td>
+			<td> 齐博分类信息系统</td>
+			<td>#</td>
+		</tr>
+<!--
+
+-->
+		<tr>
+			<td><img src=\"http://img20.360buyimg.com/da/jfs/t2860/142/2044993009/213591/c4c4144b/57552077N26d5960b.jpg\" width=\'681\' height=\'336\' /></td>
+			<td> B2B垂直行业门户</td>
+			<td>#</td>
+		</tr>
+<!--
+
+-->');
+$label['style7_index_banner']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/banner.png\'   border=\'0\' /></a>');
+$label['style7_index_banner1']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/1200_160_banner.png\'  width=\'1200\'  height=\'160\' border=\'0\' /></a>');
+$label['style7_index_head']=stripslashes('<span class=\'tag\'>生活超市</span>
+<span class=\'more\'><a href=\"\">查看更多</a></span>');
+$label['style7_index_banner2']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/280_506.png\'  width=\'280\'  height=\'506\' border=\'0\' /></a>');
+$label['style7_index_banner3']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/1200_160_banner3.png\'  width=\'1200\'  height=\'160\' border=\'0\' /></a>');
+$label['style7_index_banner4']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/banner.png\'  width=\'1200\'  height=\'165\' border=\'0\' /></a>');
+$label['style7_index_6']=stripslashes('<div class=\'news\'>
+	<div class=\'title\'>装修</div>
+	<ul>
+		<li><a href=\"/zhuangxiu/list.php?fid=5\">装修公司</a></li>
+		<li><a href=\"/zhuangxiu/list.php?fid=2\">装修案例</a></li>
+		<li><a href=\"/zhuangxiu/list.php?fid=1\">招标</a></li>
+		<li><a href=\"/zhuangxiu/list.php?fid=6\">设计专员</a></li>
+		<li><a href=\"/zhuangxiu/list.php?fid=3\">装修日志</a></li>
+		<li><a href=\"/zhuangxiu/list.php?fid=4\">学堂</a></li>
+	</ul>
+</div>
+<div class=\'shop\'>
+	<div class=\'title\'>房产</div>
+	<ul>
+		<li><a href=\"/house/list.php?fid=1\">出租信息</a></li>
+		<li><a href=\"/house/list.php?fid=2\">出售信息</a></li>
+		<li><a href=\"/house/list.php?fid=3\">求租</a></li>
+		<li><a href=\"/house/list.php?fid=5\">楼盘信息</a></li>
+		<li><a href=\"/house/list.php?fid=6\">中介信息</a></li>
+		<li><a href=\"/house/list.php?fid=4\">求购</a></li>
+	</ul>		
+</div>
+	<div class=\'active\'>
+		<div class=\'title\'>招聘</div>
+		<ul>
+			<li><a href=\"/hr/list.php?fid=2\">职位列表</a></li>
+			<li><a href=\"/hr/member/post_choose.php\">发布职位</a></li>
+			<li><a href=\"\">其它</a></li>
+			<li><a href=\"/hr/listperson.php\">人才列表</a></li>
+			<li><a href=\"/hr/member/join.php\">登记简历</a></li>
+			<li><a href=\"\">空白</a></li>
+		</ul>		
+	</div>
+<div class=\'forum\'>
+	<div class=\'title\'>互动</div>
+	<ul>
+		<li><a href=\"/dianping/\">商家点评</a></li>
+		<li><a href=\"/dianping/post.php\">发布商家</a></li>
+		<li><a href=\"/dianping/all.php?show_type=2\">热门</a></li>
+		<li><a href=\"/2shou/\">二手市场</a></li>
+		<li><a href=\"/2shou/post.php\">发布二手</a></li>
+		<li><a href=\"\">空白</a></li>
+	</ul>	
+</div>
+<div class=\'gift\'>
+	<div class=\'title\'>礼品</div>
+	<ul>
+		<li><a href=\"\">空白链接</a></li>
+		<li><a href=\"\">空白链接</a></li>
+		<li><a href=\"\">空白</a></li>
+		<li><a href=\"\">空白链接</a></li>
+		<li><a href=\"\">空白链接</a></li>
+		<li><a href=\"\">空白</a></li>
+	</ul>	
+</div>');
+$label['style7_index_head1']=stripslashes('<span class=\'tag\'>快餐外卖</span>
+<span class=\'more\'><a href=\"http://localhost:8003/waimai\">查看更多</a></span>');
+$label['style7_index_head2']=stripslashes('<a href=\"\">餐饮美食类</a>');
+$label['style7_index_head3']=stripslashes('<a href=\"\">士多便利店类</a>');
+$label['style7_index_banner5']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/w.png\'  width=\'280\'  height=\'506\' border=\'0\' /></a>');
+$label['style7_index_banner6']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/1200_165_a.png\'  width=\'1200\'  height=\'165\' border=\'0\' /></a>');
+$label['style7_index_head4']=stripslashes('<span class=\'tag\'>上门服务</span>
+<span class=\'more\'><a href=\"http://localhost:8003/fuwu\">查看更多</a></span>');
+$label['style7_index_banner7']=stripslashes('<a href=\'#\' target=_blank><img src=\'http://localhost:8003/images/style7.0/index/280_467.png\'  width=\'280\'  height=\'467\' border=\'0\' /></a>');
+?>

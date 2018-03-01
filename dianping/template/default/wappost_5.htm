@@ -1,0 +1,248 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/form.css">
+<div class="GuideCont">当前位置：<a href="$webdb[www_url]">首页</a>  -&gt; <a href="./">点评</a>  -&gt; <A href='./wappost.php'>发布点评信息</A></div>
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<h3>基本资料</h3>
+	<dl>
+		<dt>所在城市：</dt>
+		<dd><div id="select_city" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt>辖区：</dt>
+		<dd><div id="select_zone" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt>街道：</dt>
+		<dd><div id="select_street" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>商家名称：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入商家名称，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>商家地址：</dt>
+		<dd><input type="text" name="postdb[address]" class="text" placeholder="输入商家地址，仅限40字" value="$rsdb[address]" /></dd>
+	</dl>
+<!--
+EOT;
+if($job!="edit"&&$webdb[Info_GroupPostYzImg]&&!$web_admin&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupPostYzImg]))){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+		<dt>图片：</dt>
+		<dd>
+<!--
+EOT;
+$i=0;
+$listPics="";
+foreach($listdb AS $key=>$rs){
+$i++;
+if($rs[imgurl]){
+$listPics.="<div class='PicList'><input class='text' type='text' name='photodb[$i]' value='$rs[imgurl]'/><span>删除图片</span><input type='hidden' name='piddb[$i]' value='$key'></div>\r\n";
+}}
+print <<<EOT
+-->	
+$listPics
+			<div class="upfile_box">
+                <input class='upfile' type="text" name="photodb[0]" id='out_url0' placeholder="请上传图片"/>
+                <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+            </div>
+		</dd>
+	</dl>
+<!--
+EOT;
+if($m_config[moduleSet][useMap]){
+if($webdb[if_GGmap]){
+print <<<EOT
+-->
+	<dl>
+		<dt>地图位置：</dt>
+		<dd>
+			<input class="text" type="text" name="postdb[maps]" id="mapid" value="$rsdb[maps]" readonly  onclick="window.open('job.php?job=ggmap_position&position=$rsdb[maps]&mapid=mapid&cityid='+document.getElementById('mapid_v').value);" placeholder="点击设置地图公位置"/>
+			<div><a onclick="window.open('job.php?job=ggmap_position&position=$rsdb[maps]&mapid=mapid&cityid='+document.getElementById('mapid_v').value);" href="javascript:;" >点击标注地图位置</a> 
+<font color="#999999">标注后，店铺将定位到电子地图上</font>) (<A onclick="document.getElementById('mapid').value='';" HREF="javascript:;">清除</A>) 
+<input type="hidden" name="hiddenField" id="mapid_v" value="$city_id"></div>
+		</dd>
+	</dl>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+	<dl>
+		<dt>地图位置：</dt>
+		<dd>
+			<input class="text" type="text" name="postdb[maps]" id="mapid" value="$rsdb[maps]" readonly  onclick="window.open('$city_url/job.php?job=map_position&mapid=mapid&cityid='+document.getElementById('mapid_v').value);" placeholder="点击设置地图公位置"/>
+			<div>(<img src="$webdb[www_url]/images/default/icon_qi.gif"><a onclick="window.open('$city_url/job.php?job=map_position&mapid=mapid&cityid='+document.getElementById('mapid_v').value);" href="javascript:;" >点击标注地图位置</a> 
+                    <font color="#999999">标注后，店铺将定位到电子地图上</font>) (<A onclick="document.getElementById('mapid').value='';" HREF="javascript:;">清除</A>) 
+                    <input type="hidden" name="hiddenField" id="mapid_v" value="$city_id"></div>
+		</dd>
+	</dl>
+<!--
+EOT;
+}}print <<<EOT
+--> 
+	<dl>
+		<dt>有效日期：</dt>
+		<dd class="select">
+<!--
+EOT;
+$list_option="";
+if(!$webdb[Info_UseEndTime]){
+$list_option.="<option value='0'>不限</option>\r\n";
+}
+$webdb[Info_showday] || $webdb[Info_showday]="90/60/30";
+$array=explode("/",$webdb[Info_showday]);
+foreach($array AS $key=>$value){
+$selecteds=($rsdb[showday]==$value)?"selected":"";
+$list_option.="<option value='$value' $selecteds>{$value}天</option>\r\n";
+}
+print <<<EOT
+-->
+			<select name="postdb[showday]">
+$list_option
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt>联系人：</dt>
+		<dd><input type="text" name="postdb[linkman]" class="text" placeholder="输入姓名" value="$rsdb[linkman]" /></dd>
+	</dl>
+	<dl>
+		<dt>电话：</dt>
+		<dd><input type="text" name="postdb[telephone]" class="text" placeholder="输入电话" value="$rsdb[telephone]" /></dd>
+	</dl>
+	<dl>
+		<dt>手机：</dt>
+		<dd><input type="text" name="postdb[mobphone]" class="text" placeholder="输入手机" value="$rsdb[mobphone]" /></dd>
+	</dl>
+	<dl>
+		<dt>邮箱：</dt>
+		<dd><input type="text" name="postdb[email]" class="text" placeholder="输入邮箱" value="$rsdb[email]" /></dd>
+	</dl>
+	<dl>
+		<dt>QQ：</dt>
+		<dd><input type="text" name="postdb[oicq]" class="text" placeholder="输入QQ" value="$rsdb[oicq]" /></dd>
+	</dl>
+	<dl>
+		<dt>MSN：</dt>
+		<dd><input type="text" name="postdb[msn]" class="text" placeholder="输入MSN" value="$rsdb[msn]" /></dd>
+	</dl>
+	<dl>
+		<dt>标签：</dt>
+		<dd><input type="text" name="postdb[keywords]" class="text" placeholder="多个用空格隔开" value="$rsdb[keywords]" /></dd>
+	</dl>
+<!--
+EOT;
+if(!$lfjid){print <<<EOT
+-->
+	<dl>
+		<dt>管理密码：</dt>
+		<dd><input type="text" name="postdb[editpwd]" class="text" placeholder="设置密码后,将可以凭借密码删除信息" value="$rsdb[editpwd]" /></dd>
+	</dl>
+<!--
+EOT;
+}if($lfjid){print <<<EOT
+-->
+	<h3>增值服务</h3>
+	<dl>
+		<dt>是否置顶：</dt>
+		<dd>
+			<input type="radio" name="iftop" value="0" $ifTop[0]> 不置顶 
+            <input type="radio" name="iftop" value="1" $ifTop[1]> 置顶
+			(注:栏目内置顶需要消费积分:<span class='b red'>{$webdb[Info_TopMoney]}</span>个,<a href="$webdb[www_url]/do/jf.php" target="_blank"><span class='blue'>点击查上看如何获取积分?</span></a>)
+		</dd>
+	</dl>
+	<dl>
+		<dt>头条显示：</dt>
+		<dd>
+			<input type="checkbox" name="buyfid[]" value="Index" {$buyfid['Index']}> 首页焦点显示 
+            <input type="checkbox" name="buyfid[]" value="Sort" {$buyfid['Sort']}> 栏目焦点显示 
+            <input type="checkbox" name="buyfid[]" value="BigSort" {$buyfid['BigSort']}> 分类焦点显示
+            <p>注意:系统规定首页焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoIndexShow]}</span>{$webdb[MoneyDW]},栏目焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoSortShow]}</span>{$webdb[MoneyDW]},分类焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoBigsortShow]}</span>{$webdb[MoneyDW]},有效期<span class='blue'>{$webdb[AdInfoShowTime]}</span>天.你目前有{$webdb[MoneyName]}<span class='red'>{$lfjdb[money]}</span>{$webdb[MoneyDW]}.<a href="$webdb[www_url]/do/jf.php" target="_blank">点击查看如何获取积分?</a> 
+		</dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<h3>补充资料</h3>
+
+	<dl>
+		<dt>详情:<br></dt>
+		<dd><textarea  name='postdb[content]' id='atc_content' style='width:400px;height:50px;'>$rsdb[content]</textarea></dd>
+	</dl>
+
+	<dl>
+		<dt>人均消费:<br></dt>
+		<dd> <input type='radio' name='postdb[sortid]' value='1' {$rsdb[sortid]['1']}>30元以下  <input type='radio' name='postdb[sortid]' value='2' {$rsdb[sortid]['2']}>30~50元  <input type='radio' name='postdb[sortid]' value='3' {$rsdb[sortid]['3']}>50~100元  <input type='radio' name='postdb[sortid]' value='4' {$rsdb[sortid]['4']}>100~150元  <input type='radio' name='postdb[sortid]' value='5' {$rsdb[sortid]['5']}>150~200元  <input type='radio' name='postdb[sortid]' value='6' {$rsdb[sortid]['6']}>200~300元  <input type='radio' name='postdb[sortid]' value='7' {$rsdb[sortid]['7']}>300元以上  </dd>
+	</dl>
+
+	<dl>
+		<dt>环境氛围:<br></dt>
+		<dd> <input type='radio' name='postdb[sortid2]' value='1' {$rsdb[sortid2]['1']}>家庭聚会  <input type='radio' name='postdb[sortid2]' value='2' {$rsdb[sortid2]['2']}>随便吃吃  <input type='radio' name='postdb[sortid2]' value='3' {$rsdb[sortid2]['3']}>情侣约会  <input type='radio' name='postdb[sortid2]' value='4' {$rsdb[sortid2]['4']}>商务洽谈  <input type='radio' name='postdb[sortid2]' value='5' {$rsdb[sortid2]['5']}>朋友聚会  <input type='radio' name='postdb[sortid2]' value='6' {$rsdb[sortid2]['6']}>工作午餐  <input type='radio' name='postdb[sortid2]' value='7' {$rsdb[sortid2]['7']}>大型聚会  </dd>
+	</dl>
+<!---->
+    <div class="Sub"><input type="submit" name="Submit" value="提 交"/></div>
+    <input type="hidden" name="fid" value="$fid">
+    <input type="hidden" name="id" value="$id">
+    <input type="hidden" name="fid_bak1" value="$rsdb[fid_bak1]">
+    <input type="hidden" name="fid_bak2" value="$rsdb[fid_bak2]">
+    <input type="hidden" name="fid_bak3" value="$rsdb[fid_bak3]">
+    <input type="hidden" name="$webdb[rand_num_inputname]" value="$webdb[rand_num]">	
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function select_where(selects,fup,name,fid){
+	$.get("$webdb[www_url]/f/select_where.php?selects="+selects+"&fups="+fup+"&name="+name+"&fids="+fid+"&"+Math.random(),function(d){
+		$("#select_"+selects).html(d);
+	});
+}
+
+select_where('city','','postdb[city_id]',$city_id);
+select_where('zone',$city_id,'postdb[zone_id]',$zone_id);
+select_where('street',$zone_id,'postdb[street_id]',$street_id);
+
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+
+$('.PicList').hover(
+	function(){
+		$(this).css('border-bottom', 'dotted #DDD 1px');
+	},function(){
+		$(this).css('border-bottom', '0');
+	}
+);
+$('.PicList span').click(function(){
+	//$(this).parent().html('');
+	//$(this).parent().remove();
+	$(this).parent().children().eq(0).val('');
+});
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

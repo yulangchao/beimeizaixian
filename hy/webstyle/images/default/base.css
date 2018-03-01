@@ -1,0 +1,525 @@
+.MainContainers{
+	width:1200px;
+	margin:20px auto 0 auto;
+	overflow:hidden;
+	position:relative;
+}
+.MainContainers:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.MainContainers .LeftContainers{
+	width:300px;
+	float:left;
+	overflow:hidden;
+}
+.MainContainers .RightContainers{
+	width:880px;
+	float:right;
+	overflow:hidden;
+}
+.companyBase .head{
+	height:80px;
+	text-align:center;
+	line-height:80px;
+	background:url(head.png) center top no-repeat;
+	font-size:16px;
+	color:#FFF;
+}
+.companyBase .cont{
+	border:#FF9933 solid 1px;
+	margin-top:15px;
+}
+.companyBase .cont .icon{
+	width:95%;
+	overflow:hidden;
+	margin:8px auto 0 auto;
+}
+.companyBase .cont .icon span{
+	display:table;
+	width:100%;
+}
+.companyBase .cont .icon span em{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	background:#EFEFEF;
+	min-height:100px;
+}
+.companyBase .cont .icon span em img{
+	max-width:100%;
+	max-height:180px;
+}
+.companyBase .cont .title{
+	text-align:center;
+	padding:10px;
+	line-height:20px;
+	font-size:14px;
+}
+.companyBase .cont .renzhengicon{
+	text-align:center;
+}
+.companyBase .cont .other{
+	padding:15px 20px 15px 50px;
+}
+.companyBase .cont .other dt,.companyBase .cont .other dd{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:25px;
+	font-size:14px;
+}
+.companyBase .cont .other dt{
+	background:url(tx.png) left 8px no-repeat;
+}
+.companyBase .cont .other dd{
+	background:url(sj.png) left 8px no-repeat;
+}
+.AddFavorite,.sendmsg{
+	margin-top:15px;
+}
+.AddFavorite span{
+	display:block;
+	text-align:center;
+	line-height:55px;
+	background:#FFA200;
+}
+.AddFavorite span em{
+	display:inline-block;
+	font-size:16px;
+	color:#FFF;
+	padding-left:25px;
+	background:url(s_c.png) left 16px no-repeat;
+}
+.sendmsg a{
+	display:block;
+	text-align:center;
+	line-height:55px;
+	background:#66CC33;
+}
+.sendmsg a span{
+	display:inline-block;
+	font-size:16px;
+	color:#FFF;
+	padding-left:25px;
+	background:url(xinxi.png) left 18px no-repeat;
+}
+.tjInfo{
+	border:#DDD solid 1px;
+	margin-top:15px;
+}
+.tjInfo .head{
+	height:55px;
+	background:#87B9ED;
+	line-height:55px;
+	text-align:center;
+	color:#FFF;
+	font-size:16px;
+}
+.tjInfo  ul{
+	padding:15px;
+}
+.tjInfo  ul li{
+	line-height:20px;
+	padding:5px 0 5px 5px;
+	font-size:14px;
+	color:#666;
+}
+.tjInfo  ul li span{
+	display:inline-block;
+	color:#F60;
+	padding:0 5px;
+}
+.RightMainBox{
+	margin-bottom:15px;
+}
+.RightMainBox .head{
+	height:50px;
+	line-height:50px;
+	border-bottom:#CCC solid 1px;
+	position:relative;
+	overflow:hidden;
+}
+.RightMainBox .head .tag{
+	display:block;
+	float:left;
+	padding-right:30px;
+	height:50px;
+	float:left;
+	position:relative;
+	font-size:16px;
+	font-weight:bold;
+	color:#666;
+}
+.RightMainBox .head .tag em{
+	display:inline-block;
+	font-size:12px;
+	font-weight:normal;
+	color:#AAA;
+	padding-left:10px;
+}
+.RightMainBox .head .tag:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:2px;
+	background:#FF9B57;
+	position:absolute;
+	left:0;
+	bottom:0;
+}
+.abouttitle{
+	width:100%;
+	clear:both;
+	text-align:center;
+	padding:15px 0 10px 0;
+	line-height:30px;
+	font-size:18px;
+	color:#3C9BD3;
+}
+.aboutcontent{
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+}
+.aboutcontent .showmore{
+	text-align:right;
+}
+.aboutcontent .showmore a{
+	color:#0033CC;
+}
+dl.aboutUs{
+	display:table;
+	width:100%;
+	margin-top:20px;
+}
+dl.aboutUs dt,dl.aboutUs dd{
+	display:table-cell;
+}
+dl.aboutUs dt ul li{
+	padding:5px 0 5px 30px;
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+	background:url(d04.png) 5px 10px no-repeat;
+}
+dl.aboutUs dt ul li.sort{
+	background:url(d01.png) 5px 10px no-repeat;
+}
+dl.aboutUs dt ul li.qq{
+	background:url(d03.png) 5px 10px no-repeat;
+}
+dl.aboutUs dt ul li.address{
+	background:url(d06.png) 5px 10px no-repeat;
+}
+dl.aboutUs dd{
+	width:300px;
+}
+dl.aboutUs dd ul ol{
+	text-align:center;
+	line-height:40px;
+	font-size:14px;
+}
+dl.aboutUs dd ul li{
+	width:150px;
+	padding:5px;
+	background:#AAA;
+	margin:auto;
+}
+dl.aboutUs dd ul li img{
+	width:150px;
+	height:150px;
+}
+.ShowMaps{
+	width:100%;
+	height:300px;
+	background:#EEE;
+	margin-top:15px;
+}
+.ShowMaps1{
+	height:500px;
+}
+.ShowMaps iframe{
+	width:100%;
+	height:100%;
+}
+.ListNews .list{
+	clear:both;
+	height:90px;
+	overflow:hidden;
+	padding:15px 0 15px 120px;
+	position:relative;
+	border-bottom:#DDD dotted 1px;
+}
+.ListNews .list .time{
+	width:100px;
+	height:90px;
+	position:absolute;
+	left:5px;
+	top:15px;
+	background:#A7A7A7;
+	color:#FFF;
+}
+.ListNews .list .time ul ol{
+	text-align:center;
+	line-height:40px;
+	height:40px;
+	padding-top:10px;
+	overflow:hidden;
+	font-size:32px;
+}
+.ListNews .list .time ul li{
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	font-size:16px;
+}
+.ListNews .list .t{
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+}
+.ListNews .list .c{
+	height:50px;
+	line-height:25px;
+	overflow:hidden;
+	color:#888;
+}
+.ListNews .list .c a{
+	color:#F30;
+}
+.ListNews .list:hover{
+	background:#F8F8F8;
+}
+.ListNews .list:hover .time{
+	background:#9090A0;
+}
+.ShowPage{
+	clear:both;
+	width:100%;
+	text-align:center;
+	padding:15px 0;
+}
+.ShowPage a{
+	display:inline-block;
+	line-height:35px;
+	border:#DDD solid 1px;
+	background:#F7F7F7;
+	padding:0 10px;
+	font-size:14px;
+	margin:3px 2px 0 2px;
+}
+.ShowPage a.ck{
+	border:#2CB9FF solid 1px;
+	background:#2CB9FF;
+	color:#FFF;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}
+.ListShops{
+	padding-top:20px;
+}
+.ListShops dl{
+	width:25%;
+	height:240px;
+	overflow:hidden;
+	float:left;
+}
+.ListShops dl dt{
+	margin:0 10px;
+	border-radius:5px;
+	overflow:hidden;
+}
+.ListShops dl dt a{
+	display:table;
+	width:100%;
+}
+.ListShops dl dt a span{
+	display:table-cell;
+	text-align:center;
+	height:160px;
+	vertical-align:middle;
+	background:#EFEFEF;
+}
+.ListShops dl dt a span img{
+	max-width:100%;
+	max-height:160px;
+}
+.ListShops dl dd{
+	margin:0 10px;
+}
+.ListShops dl dd ul ol a{
+	display:block;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	font-size:14px;
+	padding-top:5px;
+}
+.ListShops dl dd ul li{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	font-size:16px;
+	color:#F30;
+	position:relative;
+}
+.ListShops dl dd ul li .gifnum{
+	width:80%;
+	height:20px;
+	position:absolute;
+	text-align:right;
+	top:0;
+	right:5px;
+	color:#666;
+}
+.ListShops dl dd ul li .gifnum span{
+	color:blue;
+}
+.ListShops dl:hover dt a span{
+	background:#AAA;
+}
+.contactTable{
+	border-top:#DDD solid 1px;
+	border-left:#DDD solid 1px;
+}
+.contactTable td{
+	border-right:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	padding:5px;
+	line-height:35px;
+	font-size:14px;
+	color:#666;
+}
+.contactTable td.tdL{
+	width:15%;
+	text-align:right;
+	color:#333;
+}
+.contactTable tr:hover td{
+	background:#EFEFEF;
+}
+ul.listHr{
+	display:table;
+	width:100%;
+}
+ul.listHrH{
+	background:#F5F5F5;
+	font-weight:bold;
+}
+ul.listHr li{
+	display:table-cell;	
+	padding:5px 0;
+	line-height:30px;
+	font-size:14px;
+	color:#666;
+	border-bottom:#ddd dotted 1px;
+}
+ul.listHrC li{
+	text-indent:15px;
+	padding:8px 0;
+}
+ul.listHrC:hover{
+	background:#F9F9F5;
+}
+ul.listHr li.li1{
+	width:500px;
+	text-indent:15px;
+}
+ul.listHr li.li2{
+	width:200px;
+}
+ul.listHrC a{
+	color:#369;
+}
+div.ListWei{
+	display:table;
+	width:99%;
+	border:#DDD solid 1px;
+	margin-bottom:15px;
+}
+div.ListWei div{
+	display:table-cell;
+}
+div.ListWei div.img{
+	width:80px;
+	padding:5px;
+	text-align:center;
+	vertical-align:middle;
+	background:#F5F5F5;
+}
+div.ListWei div.img img{
+	max-width:80px;
+	max-height:60px;
+}
+div.ListWei div.word{
+	padding:5px 10px;
+	line-height:25px;
+	color:#666;
+	font-size:14px;
+}
+div.ListWei:hover{
+	border:#F60 solid 1px;
+}
+.ListFuwuBox .listfuwu{
+	width:50%;
+	height:380px;
+	padding-top:20px;
+	overflow:hidden;
+	float:left;
+}
+.ListFuwuBox .listfuwu ul{
+	width:95%;
+	border:#DDD solid 1px;
+	height:378px;
+	margin:auto;
+	overflow:hidden;
+}
+.ListFuwuBox .listfuwu ul .img{
+	width:95%;
+	height:250px;
+	overflow:hidden;
+	margin:10px auto 0 auto;
+	background:#EFEFEF;
+}
+.ListFuwuBox .listfuwu ul .img a{
+	display:table;
+	width:100%;
+}
+.ListFuwuBox .listfuwu ul .img a span{
+	display:table-cell;
+	height:250px;
+	text-align:center;
+	vertical-align:middle;
+}
+.ListFuwuBox .listfuwu ul .img a span img{
+	max-width:100%;
+	max-height:250px;
+}
+.ListFuwuBox .listfuwu ul .t{
+	text-align:center;
+	line-height:30px;
+	width:95%;
+	height:30px;
+	margin:5px auto 0 auto;
+	overflow:hidden;
+	font-size:16px;
+}
+.ListFuwuBox .listfuwu ul .c{
+	width:95%;
+	height:60px;
+	line-height:20px;
+	margin:auto;
+	overflow:hidden;
+	font-size:14px;
+	color:#666;
+}
+.ListFuwuBox .listfuwu ul:hover{
+	background:#EFEFEF;
+	border:#F60 solid 1px;
+}

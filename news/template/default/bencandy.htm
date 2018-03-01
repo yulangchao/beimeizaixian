@@ -1,0 +1,229 @@
+<!--
+<?php
+$rsdb[iframeurl]?$isiframe[1]=" checked ":$isiframe[0]=" checked ";
+if(!$nextdb[id]){$nextdb[links]=" onclick='return false;' ";$nextdb[subject]="没有了";}
+if(!$backdb[id]){$backdb[links]=" onclick='return false;' ";$backdb[subject]="没有了";}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/bencandy.css">
+<div class="main">
+    <div class="main_left">
+      <div class="top_div">
+        <div class="top_box"><span class="left">TOP</span><span class="right">
+<!--
+EOT;
+if($lfjuid){
+print <<<EOT
+-->
+  <a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$fid">投稿</a>
+<!--
+EOT;
+}
+if(($lfjuid&&$lfjuid==$rsdb[uid])||$web_admin){
+print <<<EOT
+-->
+  <a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?job=edit&fid=$fid&id=$id&rid=$rid">修改</a>
+  <a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?action=del&fid=$fid&id=$id&rid=$rsdb[rid]">删除</a>
+<!--
+EOT;
+}print <<<EOT
+-->  
+		</span></div>
+        <div class="small_box">
+        <h2>$rsdb[title]</h2><p>$rsdb[subhead]</p><p>$MSG</p>
+        <h3> 编辑:{$rsdb[username]} 时间:{$rsdb[posttime]}  浏览:<em>{$rsdb[hits]}</em>次  来源: <a href="$rsdb[copyfromurl]" target="_blank">{$rsdb[copyfrom]}</a> 作者:{$rsdb[author]}</h3>
+        <div class="div_p">
+		  <table class="content" width="99%" cellspacing="0" cellpadding="0" style='TABLE-LAYOUT: fixed;WORD-WRAP: break-word'>
+              <tr> 
+                <td align="left" class="content_word"><font id="zoom" face="宋体"><span id="post1">$rsdb[content]</span></font>
+				<br><center>$showpage</center>
+				</td>
+              </tr>
+            </table>
+    	</div>
+			<div class="icon">
+<div class="baidu_share"><!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=$webdb[baidu_share_uid]" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END --></div>
+<span><SCRIPT LANGUAGE="JavaScript" src="$webdb[www_url]/images/default/bencandy.js"></SCRIPT>
+【<a href="javascript:doZoom(18)">大</a> <a href="javascript:doZoom(14)">中</a> <a href="javascript:doZoom(12)">小</a>】
+【<a href="javascript:doPrint()">打印</a>】<input type=hidden value=1 name="h1" id="h1">
+【<a id="Maiweb1" href="javascript:ft(1)">繁体</a>】
+【<a target="_blank" href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$fid">投稿</a>】 
+【<a href="javascript:window.close()">关闭</a>】
+【<a target="_blank" href="$Mdomain/comment.php?fid=$fid&id=$id">评论</a>】 
+【<a href="javascript:window.close()"> </a><a href="#">返回顶部</a>】
+</span>
+            </div>
+            <div><a href="bencandy.php?fid=$backdb[fid]&id=$backdb[id]" $backdb[links]>上一篇：</a><a $backdb[links] href="bencandy.php?fid=$backdb[fid]&id=$backdb[id]" title="$backdb[title]">$backdb[subject]</a></div>
+            <div style="margin-top:12px;"><a href="bencandy.php?fid=$nextdb[fid]&id=$nextdb[id]" $nextdb[links]>下一篇：</a><a $nextdb[links] href="bencandy.php?fid=$nextdb[fid]&id=$nextdb[id]" title="$nextdb[title]"><em style="color:#09F">$nextdb[subject]</em></a></div>
+            <div class="clierfix"></div>
+        </div>
+      </div>
+<!--
+EOT;
+if( $fidDB[allowcomment] ){
+print <<<EOT
+-->
+            <div class="comment_div">
+            	<div class="comment_title"><span>评论</span></div>
+				<div id="comment"></div>
+                <div class="Message">
+                	<div class="message_title"><span>添加留言</span></div>
+                    <div class='post_form'>  <!-- post_form  s -->
+								<div class='post_comment'>
+									<span>称呼：&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="text" name="textfield2" id="comment_username" class='ch' value="$lfjid">
+<!--
+EOT;
+if(!$web_admin&&!$groupdb['comment_img']){
+print <<<EOT
+-->
+									<span>验证码：</span> <input id="yzImgNum" type="text" name="yzimg" size="8" onFocus="commentyzimg()" class='yzm'/>
+									<br />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function commentyzimg(){
+	if(/yzimg\.php/.test($("#yz_Img")[0].src)==false){
+		$("#yz_Img").show();
+		$("#yz_Img")[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();
+	}
+	
+}
+
+document.write('<img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="" style="display:none;">');
+//-->
+</SCRIPT>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+									<span id="c_span">内容：&nbsp;&nbsp;&nbsp;&nbsp;</span><textarea name="textfield" cols="50" rows="5" id="comment_content" onKeyDown="quickpost(event)"></textarea>
+								</div>
+<script language="JavaScript">
+<!--
+getcomment("./comment_ajax.php?fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event)
+{
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83))
+	{
+		cnt++;
+		if (cnt==1){
+			postcomment('./comment_ajax.php?action=post&fid=$fid&id=$id')
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+function hiddenyzimg(){
+	$("#yz_Img")[0].src='';
+	$("#yz_Img").hide();
+}
+
+
+
+//-->
+</script>
+								<div class='submit'><input type="image" src="images/life6/tijiao.png" id="comment_submit" name="Submit" value="提交" onClick="postcomment('./comment_ajax.php?action=post&fid=$fid&id=$id','$webdb[yzImgComment]');hiddenyzimg()"></div>
+
+							</div>  <!-- post_form  e -->
+                </div>
+                <div class="clierfix"></div>
+            </div>
+            <div class="clierfix">
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+        	
+    	
+        </div>
+        <div class="main_right">
+        	<div class="right_box01">
+<!--
+EOT;
+$webdb[InfoListsortnameline]>0 || $webdb[InfoListsortnameline]=1;
+$Listsortnameline=floor(94/$webdb[InfoListsortnameline]).'%';
+foreach($Fid_db[$fidDB[fup]] AS $key=>$value){
+print <<<EOT
+-->
+            	<a href="list.php?fid=$key">$value</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="right_box02">
+            	<div class="box_title"><span>热门文章</span></div>
+<!--
+EOT;
+$array=Get_Info($type='hot',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:8,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:28,$fid,$mid=0);
+foreach($array AS $rs){
+print <<<EOT
+-->
+                <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="right_box02">
+            	<div class="box_title"><span>推荐文章</span></div>
+<!--
+EOT;
+$array=Get_Info($type='level',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:8,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:28,$fid,$mid=0);
+foreach($array AS $rs){
+print <<<EOT
+-->
+                <a HREF="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+               <div class="clierfix"></div>
+            </div>
+            <div class="clierfix"></div>
+        
+        </div>
+        <div class="clierfix"></div>
+    </div>
+<!--
+EOT;
+?>
+-->
+<script type="text/javascript">
+<!--
+function post_comments(cid){ 
+	var yzimg=$("#yzImgNum_"+cid).val();
+	var urls=$("#form_comment_"+cid).attr("action");
+	if(document.getElementById("comment_yzimg_tr_"+cid).style.display==''){
+		if(document.getElementById("yzImgNum_"+cid).value==''){
+			alert('验证码不能为空!');
+			return false;
+		}
+	}
+	var username=$("#comment_username_"+cid).attr("value");
+	var content=$("#comment_content_"+cid).attr("value");
+	if(content==""){
+		alert('内容不能为空!');
+		return false;
+	}
+	getcomment(urls+'&action=post&yzimg='+yzimg+'&username='+username+'&content='+content);
+}
+//-->
+</script>

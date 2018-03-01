@@ -1,0 +1,535 @@
+/*
+*index
+*/
+.shoptgad{
+	height:110px;
+	margin-top:20px;
+	width:1200px;
+	overflow:hidden;
+}
+.shoptgad .ad1{
+	width:320px;
+	float:left;
+}
+.shoptgad .ad2{
+	width:460px;
+	float:left;
+	margin-left:20px;
+}
+.shoptgad .ad3{
+	width:380px;
+	float:right;
+}
+.ShopTgContainer{
+	margin:20px auto;
+}
+.shoptgad img{
+	width:100%;
+	height:110px;
+}
+.ShopTgContainer:after,.tgInfoBox:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.ShopTgContainer .Main{
+	width:880px;
+	float:left;
+}
+.ShopTgContainer .Side{
+	width:300px;
+	float:right;
+}
+.sidecont{
+	border:#F96 solid 1px;
+	border-radius:5px;
+	margin-bottom:20px;
+}
+.sidecont .head{
+	height:40px;
+	line-height:40px;
+	padding:0 10px 0 15px;
+}
+.sidecont .head .tag{
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+}
+.sidecont .head .more{
+	float:right;
+}
+.listsort{
+	border-top:#FBD686 solid 1px;
+	border-bottom:#FBD686 solid 1px;
+	background:#FFF8E8;
+	margin-bottom:10px;
+}
+.listsort dt a{
+	display:block;
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	font-size:14px;
+	padding:0 10px 0 15px;
+}
+.listsort dd{
+	border-top:#FBD686 solid 1px;
+	background:#FFF;
+	padding:5px;
+	line-height:25px;
+	word-spacing:5px 10px 5px 15px;
+}
+.listcont .list{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	border-top:#FBD686 dotted 1px;
+	padding:0 10px 0 25px;
+	position:relative;
+}
+.listcont .list:before{
+	content:'';
+	display:block;
+	width:6px;
+	height:6px;
+	background:#FBD686;
+	border-radius:3px;
+	position:absolute;
+	left:12px;
+	top:15px;
+}
+.ListShopTg{
+	border:#F96 solid 2px;
+	padding:30px 15px 15px 15px;
+	border-radius:8px 8px 0 0;
+	margin-bottom:20px;
+	position:relative;
+	box-shadow:0 0 6px #ccc;
+}
+.ListShopTg .tag{
+	width:120px;
+	height:85px;
+	background:url(tag.png) left top no-repeat;
+	position:absolute;
+	left:-2px;
+	top:-2px;
+}
+.ListShopTg .tag span{
+	display:block;
+	width:20px;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+	background:#FFF;
+	position:absolute;
+	left:10px;
+	top:10px;
+	font-weight:bold;
+	font-size:16px;
+	color:#F60;
+	border-radius:10px;
+}
+.ListShopTg .about{
+	position:relative;
+	padding:10px 0 0 30px;
+	line-height:35px;
+	font-size:24px;
+	font-weight:bold;
+}
+.ListShopTg .about span{
+	color:#F30;
+	display:inline-block;
+	padding:0 10px;
+}
+.tgInfoBox{
+	margin-top:30px;
+	padding-left:300px;
+	position:relative;
+	min-height:380px;
+}
+.tgInfoBox .baseinfo{
+	width:210px;
+	padding-top:80px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.tgInfoBox .baseinfo .price{
+	width:300px;
+	height:90px;
+	background:url(stgbutter.gif) left top no-repeat;
+	position:absolute;
+	left:-28px;
+	top:0;
+}
+.tgInfoBox .baseinfo .price a{
+	display:block;
+	width:105px;
+	height:65px;
+	position:absolute;
+	top:8px;
+	right:70px;
+	overflow:hidden;
+	line-height:200px;
+}
+.tgInfoBox .baseinfo .price span{
+	display:block;
+	height:80px;
+	line-height:80px;
+	overflow:hidden;
+	text-indent:15px;
+	font-size:28px;
+	color:#FFF;
+}
+.tgInfoBox .baseinfo .Offer{
+	border:#60CA80 solid 1px;
+	border-top:0;
+	background:#CFF6DA;
+	padding:10px 5px;
+	height:50px;
+}
+.tgInfoBox .baseinfo .Offer div{
+	width:33%;
+	height:50px;
+	float:left;
+}
+.tgInfoBox .baseinfo .Offer div span{
+	display:block;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	overflow:hidden;
+	font-weight:bold;
+}
+.tgInfoBox .baseinfo .Offer div.red{
+	color:red;
+}
+.tgInfoBox .baseinfo .timeover{
+	border:#FBD686 solid 1px;
+	background:#FFF8E8;
+	margin:10px auto;
+	padding:10px 40px 10px 10px;
+	height:50px;
+	line-height:25px;
+	position:relative;
+	text-align:center;
+}
+.tgInfoBox .baseinfo .timeover .pic{
+	width:25px;
+	height:50px;
+	position:absolute;
+	right:15px;
+	top:12px;
+}
+.tgInfoBox .baseinfo .Status{
+	border:#FBD686 solid 1px;
+	background:#FFF8E8;
+	padding:10px;
+}
+.tgInfoBox .baseinfo .Status .now{
+	heiht:25px;
+	line-height:25px;
+	text-align:center;
+	overflow:hidden;
+	font-weight:bold;
+}
+.tgInfoBox .baseinfo .Status .now span{
+	color:#F30;
+}
+.tgInfoBox .baseinfo .Status .red{
+	heiht:40px;
+	line-height:20px;
+	text-align:center;
+	overflow:hidden;
+	font-weight:bold;
+	color:red;
+	padding:5px 0;
+}
+.tgInfoBox .baseinfo .Status .m{
+	line-height:30px;
+	font-size:14px;
+	color:#666;
+	text-align:center;
+}
+.tgInfoBox .cont .img{
+	border:#DDD solid 1px;
+	padding:1px;
+	text-align:center;
+	height:300px;
+	line-height:295px;
+}
+.tgInfoBox .cont .img img{
+	max-wdith:100%;
+	max-height:300px;
+	vertical-align:middle;
+}
+.tgInfoBox .cont .title{
+	margin-top:10px;
+	line-height:36px;
+	padding:0 50px;
+	position:relative;
+}
+.tgInfoBox .cont .title:before,.tgInfoBox .cont .title:after{
+	content:'';
+	display:block;
+	width:50px;
+	height:36px;
+	position:absolute;
+}
+.tgInfoBox .cont .title:before{
+	left:0;
+	top:0;
+	background:url(stgtitle.gif) left top no-repeat;
+}
+.tgInfoBox .cont .title:after{
+	right:0;
+	bottom:0;
+	background:url(stgtitle.gif) right bottom no-repeat;
+}
+.tgInfoBox .cont .Address{
+	background:#EFEFEF;
+	padding:5px 10px;
+	line-height:20px;
+}
+
+.tgInfoBox .baseinfo .ifquit{
+	border:#FBD686 solid 1px;
+	border-top:0px;
+	padding-bottom:10px;
+}
+.tgInfoBox .baseinfo .ifquit div{
+	padding:10px 0 0 60px;
+	line-height:40px;
+	background:url(quit.gif) 10px 10px no-repeat;
+	font-size:16px;
+	font-weight:bold;
+	color:#888;
+}
+.tgInfoBox .baseinfo .ifquit div.quit0{
+	background:url(quit.gif) 10px -50px no-repeat;
+}
+.ListShopTg .TgNote{
+	TABLE-LAYOUT:fixed;
+	WORD-WRAP:break-word;
+	padding-top:70px;
+}
+.ListShopTg .TgNote h3{
+	line-height:35px;
+	font-size:24px;
+	font-weight:bold;
+	color:#FF6600;
+}
+.ListShopTg .TgNote p{
+	padding-top:5px;
+	line-height:20px;
+}
+
+/****/
+.ChangeShow{
+	height:38px;
+	overflow:hidden;
+	border-bottom:#E97407 solid 3px;
+}
+.ChangeShow span{
+	display:block;
+	width:145px;
+	height:38px;
+	line-height:38px;
+	text-align:center;
+	border:#C0C0C0 solid 1px;
+	border-radius:5px 5px 0 0;
+	float:left;
+	margin-right:10px;
+	cursor:pointer;
+	font-size:14px;
+	color:#666;
+}
+.Othercontent{
+	border:#FEBF96 solid 1px;
+	border-top:0;
+	padding:15px;
+	border-radius:0 0 5px 5px;
+}
+.ChangeShow span.ck{
+	border:#E97407 solid 1px;
+	background:#E97407;
+	font-weight:bold;
+	color:#FFF;
+}
+.MainContainer .Main .content .h{
+	background:url(stgcontent.gif) center top no-repeat;
+	height:50px;
+	line-height:50px;
+	padding-left:30px;
+	font-size:28px;
+	font-weight:bold;
+	font-family: "ºÚÌå";
+}
+.MainContainer .Main .content .h a{
+	font-size:28px;
+}
+.MainContainer .Main .content .c{
+	background:url(stgcontentm.gif) center top repeat-y;
+	padding:15px 20px 5px 20px;
+	line-height:20px;
+}
+.ShowComment .h3{
+	border-bottom:#CCC solid 3px;
+	line-height:35px;
+	font-size:18px;
+	font-weight:bold;
+}
+.ShowComment .h3 span{
+	color:#D82926;
+	padding-left:5px;
+}
+.ShowComment dl.zh{
+	height:40px;
+	padding-top:10px;
+	overflow:hidden;
+	border-bottom:#CCC dotted 1px;
+}
+.ShowComment dl.zh dt{
+	float:left;
+	line-height:30px;
+	padding:0 10px 0 15px;
+}
+.ShowComment dl.zh dd{
+	float:left;
+}
+.ShowComment dl.zh dd a{
+	display:block;
+	width:120px;
+	height:30px;
+	overflow:hidden;
+	background:url(shoptg_x1.gif) left 3px no-repeat;
+}
+.ShowComment dl.zh dd a.fen1{
+	background:url(shoptg_x1.gif) left -27px no-repeat;
+}
+.ShowComment dl.zh dd a.fen2{
+	background:url(shoptg_x1.gif) left -57px no-repeat;
+}
+.ShowComment dl.zh dd a.fen3{
+	background:url(shoptg_x1.gif) left -87px no-repeat;
+}
+.ShowComment dl.zh dd a.fen4{
+	background:url(shoptg_x1.gif) left -117px no-repeat;
+}
+.ShowComment dl.zh dd a.fen5{
+	background:url(shoptg_x1.gif) left -147px no-repeat;
+}
+.ShowComment .h4{
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	padding-top:5px;
+}
+.listComment .listC dt{
+	background:#F5F5F5;
+	height:30px;
+	overflow:hidden;
+	padding:0 10px 0 10px;
+	line-height:32px;
+}
+.listComment .listC dt a{
+	display:block;
+	float:left;
+	padding-right:10px;
+}
+.listComment .listC dt a.fen{
+	width:52px;
+	height:30px;
+	background:url(shoptg_x2.gif) left top no-repeat;
+}
+.listComment .listC dt a.fen1{
+	background:url(shoptg_x2.gif) left -30px no-repeat;
+}
+.listComment .listC dt a.fen2{
+	background:url(shoptg_x2.gif) left -60px no-repeat;
+}
+.listComment .listC dt a.fen3{
+	background:url(shoptg_x2.gif) left -90px no-repeat;
+}
+.listComment .listC dt a.fen4{
+	background:url(shoptg_x2.gif) left -120px no-repeat;
+}
+.listComment .listC dt a.fen5{
+	background:url(shoptg_x2.gif) left -150px no-repeat;
+}
+.listComment .listC dt span{
+	float:left;
+	color:#D84C27;
+}
+.listComment .listC dt em{
+	float:right;
+	font-style:normal;
+	color:#666;
+}
+.listComment .listC dd{
+	padding:10px 5px 8px 5px;
+	line-height:20px;
+}
+.ShowJoin{
+	border:#DDD solid 1px;
+	margin-top:15px;
+	padding:10px;
+}
+.ShowJoin .head{
+	border-bottom:#F96 solid 3px;
+	line-height:35px;
+	font-size:18px;
+	font-weight:bold;
+}
+.ShowJoin .cont{
+	padding:20px 10px 5px 10px;
+}
+.listjoin th{
+	height:25px;
+	vertical-align:middle;
+	background:#F3F3F3;
+	border-right:#FFF solid 2px;
+	width:20%;
+	font-weight:normal;
+}
+.listjoin th.ck{
+	width:30%;
+	background:#E8E8E8;
+}
+.listjoin td{
+	height:30px;
+	vertical-align:middle;
+	border-bottom:#DDD solid 1px;
+	text-align:center;
+}
+.listjoin td span{
+	color:#DF3226;
+	font-weight:bold;
+	font-size:14px;
+}
+.listjoin td em{
+	color:#8C85D2;
+	font-size:14px;
+	font-style:normal;
+}
+.nojoins{
+	text-align:center;
+	line-height:50px;
+	font-size:30px;
+	color:#999;
+}
+.ShowJoin .buys{
+	text-align:center;
+	padding:20px 0 10px 0;
+}
+.joinpage,.commentpage{
+	text-align:center;
+	padding-top:15px;
+}
+.joinpage a,.commentpage a{
+	border:#DDD solid 1px;
+	padding:3px 5px 2px 5px;
+	color:#666;
+}

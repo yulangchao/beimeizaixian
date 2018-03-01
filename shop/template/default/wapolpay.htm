@@ -1,0 +1,46 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/pay.css">
+<div class="RmbPayCont">
+	<h3>请选择一种支付方式</h3>
+<!--
+EOT;
+$note_word=(get_cookie('olpay_id'))?"<div class='list blue'><span class='b'>提示:</span>你同时选购了多个商品但不属于同一个商家,需要分开多次支付!</div>":"";
+//$yeepay_ids=($array[yeepay_id])?"<li><em><input type='radio' name='paytype' value='yeepay'/></em><span><img src='$webdb[www_url]/images/default/yeepay_logo.gif'/></span></li>":"";
+$wxpay_ids=($array[wxpay_id])?"<li><em><input type='radio' name='paytype' value='wxpay'/></em><span><img src='$webdb[www_url]/images/wap/weixin_pay.png'/></span></li>":"";
+$wapAlipay_ids=($array[wapAlipay_id])?"<li><em><input type='radio' name='paytype' value='alipay'/></em><span><img src='$webdb[www_url]/images/default/alipay_logo.gif'/></span></li>":"";
+//$chinabank_ids=($array[chinabank_id])?"<li><em><input type='radio' name='paytype' value='chinabank'/></em><span><img src='$webdb[www_url]/images/default/chinabank_logo.gif'/></span></li>":"";
+//$paypal_ids=($array[paypal_id])?"<li><em><input type='radio' name='paytype' value='paypal'/></em><span><img src='$webdb[www_url]/images/default/paypal_logo.gif'/></span></li>":"";
+print <<<EOT
+-->
+    $note_word
+	<div class="list">你需要支付人民币 <span class="b red">{$infodb[totalmoney]}</span>元，请选择一种支付方式！</div>
+    <ul class="payList">
+    	
+        $wxpay_ids
+        $wapAlipay_ids
+    
+    </ul>
+    <div class="list"><a href="javascript:paytype();"><img src="images/default/next.gif" /></a</div>
+</div>
+<script language="JavaScript">
+<!--
+function paytype(){
+	var type='';
+	$(".payList input").each(function(i){
+		if(this.checked==true)type=this.value;
+	});
+	if(type==''){
+		alert("请选择一种支付类型!");
+		return ;
+	}
+	window.location.href="?pay_code=$pay_code&banktype="+type;
+}
+//-->
+</script>
+<!--
+EOT;
+?>
+-->

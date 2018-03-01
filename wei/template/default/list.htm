@@ -1,0 +1,159 @@
+<!--
+<?php
+$url = urlencode("$Murl/waplist.php?fid=$fid");
+$makecodeimg = "$webdb[www_url]/do/2codeimg.php?url=$url";
+$listmembers=$lfjid?"<a href='$webdb[www_url]/member/'>管理</a> <a href='$webdb[www_url]/do/login.php?action=quit'>退出</a>":"<a href='$webdb[www_url]/do/login.php'>注册</a> <a href='$webdb[www_url]/do/login.php'>登录</a>";
+$listhtml1=$listhtml2=$listhtml3=$listhtml4="";
+$i=0;
+foreach($listdbs AS $key=>$rs){
+	$i++;
+    $listhtmls="";
+    $listhtmls.="<ul class='listwei'>\r\n";
+    if($rs[picurl]){
+    	$listhtmls.="<li class='img'><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'><img src=\"$rs[picurl]\" onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\"></a></li>\r\n";
+    }
+    $listhtmls.="<li class='cont'><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'>$rs[content]</a></li>\r\n";
+    $listhtmls.="<li class='info'><dl><dt><a href='$webdb[_www_url]/member/homepage.php?uid=$rs[uid]'><img src=\"$rs[head_icon]\" onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\"></a></dt><dd><h4>$rs[username]</h4><div>在 <span>$rs[posttime]</span> 说</div></dd></dl></li>\r\n";
+    $listhtmls.="</ul>\r\n";
+    if($i<3){
+    	$listhtml1.=$listhtmls;
+    }elseif($i<5){
+    	$listhtml2.=$listhtmls;
+    }elseif($i<7){
+    	$listhtml3.=$listhtmls;
+    }else{
+    	$listhtml4.=$listhtmls;
+    }
+}
+$listhtml1||$listhtml1="&nbsp;";
+$listhtml2||$listhtml2="&nbsp;";
+$listhtml3||$listhtml3="&nbsp;";
+$listhtml4||$listhtml4="&nbsp;";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/wei/wei.css">
+<ul class="WeiContent">
+	<li class="ListCont">$listhtml1</li>
+    <li class="ListCont">$listhtml2</li>
+    <li class="ListCont">$listhtml3</li>
+    <li class="ListCont">$listhtml4</li>
+    <li class="ListCont">
+    	<div class="MemberCont">
+        	<div class="head"><span class="tag">会员相关</span></div>
+            <div class="cont">
+				$listmembers
+            </div>
+        </div>
+        <div class="WeixinCode">
+        	<h3>微信扫一扫查看</h3>
+            <p><img src="$makecodeimg" width="150" height="150"/></p>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">分类</span><span class="more"><a href="list.php">更多</a></span></div>
+            <div class="cont">
+<!--
+EOT;
+
+foreach($Fid_db[0] AS $key=>$rs){
+
+print <<<EOT
+-->
+				<ul>
+                	<ol><a href="list.php?fid=$key">$rs</a></ol>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[$key] AS $keys=>$rss){
+$i++;
+if($i>1) break;
+print <<<EOT
+-->
+                	<li><a href="list.php?fid=$keys">$rss</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</ul>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+        </div>
+        <div class="SideConts">
+        	<div class="head"><span class="tag">热门分享</span></div>
+            <ul class="listHot">
+<!--
+EOT;
+$array=Get_Info('hot',10,40);
+foreach($array AS $rs){print <<<EOT
+-->
+             
+            	<li><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[title]"><span>·</span>$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+        </div>
+    </li>
+</ul>
+<div class="ShowPage">$showpage</div>
+<script type="text/javascript">
+<!--
+$(".WebSeitUrl").hide();
+var shows=1,loading=1;
+$(window).scroll(function(){
+	// 当滚动到最底部以上100像素时， 加载新内容
+	if ($(document).height() - $(this).scrollTop() <1000 && loading==1){
+		shows++;
+		loading=0;
+		var urls='list.php?fid=$fid&page=$page&type=date&shows='+shows;
+		loadMore(urls);
+	} 	
+});
+function loadMore(urls){
+	$.ajax({
+		url : urls+'&'+Math.random(),
+		dataType : 'json',
+		success : function(json){
+			if(typeof json == 'object'){
+				var oProduct, Therow, iHeight, iTempHeight,picHtml,show_html,Theitem;
+				if(json.length>0){					
+					loading=1;
+				}else{
+					loading=0;					
+				}
+				for(var i=0; i<json.length; i++){
+					oProduct = json[i];					
+					iHeight = -1;
+					$('.WeiContent .ListCont').each(function(){
+						iTempHeight = Number( $(this).height() );
+						if(iHeight==-1 || iHeight>iTempHeight){
+							iHeight = iTempHeight;
+							Therow = $(this);
+						}
+					});
+					picHtml=oProduct.picurl?"<li class='img'><a href='bencandy.php?fid="+oProduct.fid+"&id="+oProduct.id+"'><img src='"+oProduct.picurl+"' onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\"/></a></li>":"";
+					show_html='';
+					show_html+='<ul class="listwei">';
+					show_html+=picHtml;
+					show_html+='<li class="cont"><a href="bencandy.php?fid='+oProduct.fid+'&id="'+oProduct.id+'>'+oProduct.content+'</a></li>';
+					show_html+='<li class="info"><dl><dt><a href="$webdb[_www_url]/member/homepage.php?uid='+oProduct.uid+'"><img src="'+oProduct.head_icon+'"/></a></dt><dd><h4>'+oProduct.homename+'</h4><div>在 <span>'+oProduct.posttime+'</span> 说</div></dd></dl></li>';
+					show_html+='</ul>';
+					Theitem = $(show_html).hide();
+					Therow.append(Theitem);
+					Theitem.fadeIn();
+				}
+			}
+		}
+	});
+}
+//-->
+</script>
+<!--
+EOT;
+?>
+-->

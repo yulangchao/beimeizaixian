@@ -1,0 +1,222 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.focusPic{
+	max-height:500px;
+	min-height:200px;
+	position:relative;
+	overflow:hidden;
+	margin:auto;
+	background:#FFF;
+}
+.focusPic .views li{
+	float:left;
+	text-align:center;
+}
+.focusPic .views img{
+	max-height:500px;
+	max-width:100%;
+	margin:auto;
+}
+.focusPic .tabs{
+	position:absolute;
+	bottom:10px;
+	left:0;
+	width:100%;
+	height:10px;
+	text-align:right;
+	line-height:10px;
+}
+.focusPic .tabs li{
+	display:inline-block;
+	width:8px;
+	height:8px;
+	background:#a9a9a9;
+	border-radius:10px;
+	text-indent:66px;
+	overflow:hidden;
+	margin-right:3px
+}
+.focusPic .tabs li.on{
+	background:#ff7200
+}
+.focusPic .tabs li span{
+	display:block;
+	width:100%;
+	text-align:center;
+	line-height:30px;
+	height:30px;
+	background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+	position:absolute;
+	left:0;
+	bottom:-10px;
+	display:none;
+	color:#FFF;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+	text-indent:0;
+}
+.focusPic .tabs li.on span{
+	display:block;
+}
+.ListSorts{
+	width:98%;
+	overflow:hidden;
+	margin:5px auto;
+}
+.ListSorts li{
+	width:50%;
+	float:left;
+	overflow:hidden;
+}
+.ListSorts li a{
+	display:block;
+	text-align:center;
+	width:95%;
+	margin:10px auto 5px auto;
+	margin-top:10px;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	-webkit-box-shadow: 0 0 6px 2px #ddd;
+	box-shadow:0 0 6px 2px #ddd;
+}
+.ListSorts li a img{
+	height:28px;
+}
+.ListSorts li a:hover{
+	border:#3294D5 solid 1px;
+	-webkit-box-shadow: 0 0 6px 2px #3294D5;
+	box-shadow:0 0 6px 2px #3294D5;
+}
+.ListSorts li a span{
+	color:#333;
+	font-weight:normal;
+	display:inline-block; 
+	padding-left:5px;
+}
+.ListSorts:after{
+	content: '';
+	display:block;
+	width:100%;
+	height:10px;
+	clear:both;
+}
+.ListCont{
+	width:100%;
+	clear:both;
+}
+.ListCont .head{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	background: -moz-linear-gradient(top,rgba(250,150,0,0),rgba(250,150,0,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(250,150,0,0)),to(rgba(250,150,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(250,150,0,0),rgba(250,150,0,0.9));
+    background: -o-linear-gradient(top,rgba(250,150,0,0),rgba(250,150,0,0.9));
+	border:#F1E0C8 solid 1px;
+	color:#FFF;
+}
+.ListCont .ListDemo{
+	width:50%;
+	overflow:hidden;
+	float:left;
+	padding-top:15px;
+}
+.ListCont .ListDemo a{
+	display:block;
+	width:90%;
+	overflow:hidden;
+	margin:auto;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	padding:5px;
+	background:#FFF;	
+}
+.ListCont .ListDemo a em{
+	display:block;
+	width:100%;
+	overflow:hidden;
+}
+.ListCont .ListDemo a em img{
+	width:100%;
+}
+.ListCont .ListDemo a span{
+	display:block;
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	text-align:center;
+	color:#666;
+}
+.ListDianPing{
+	width:98%;
+	border:#DDD solid 1px;
+	margin:15px auto 0 auto;
+	background:#FFF;
+	clear:both;
+	border-radius:5px;
+	height:105px;
+	padding-top:15px;
+	overflow:hidden;
+	position:relative;
+}
+.ListDianPing dt{
+	width:70px;
+	height:90px;
+	overflow:hidden;
+	position:absolute;
+	left:15px;
+	top:15px;
+	border-radius:5px;
+}
+.ListDianPing dt img{
+	with:70px;
+	height:90px;
+}
+.ListDianPing dd{
+	height:90px;
+	padding-left:100px;
+	overflow:hidden;
+}
+.ListDianPing dd div,.ListDianPing dd p{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	color:#666;
+}
+.ListCont .spac{
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.MiddleSpac{
+	clear:both;
+	width:100%;
+	margin-bottom:15px;
+}
+.FootSpac{
+	width:100%;
+	height:60px;
+	clear:both;	
+}
+.listJoin{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	padding-left:5px;
+	color:#666;
+}
+.listJoin span{
+	color:#F60;
+	display:inline-block;
+	padding:0 5px 0 5px;
+}
+.listJoin a{
+	color:#369;
+	display:inline-block;
+	padding-left:5px;
+}

@@ -1,0 +1,485 @@
+.MainCont1{
+	width:1200px;
+	display:table;
+	margin:15px auto 0 auto;	
+}
+.MainCont1 .Left,.MainCont1 .Right{
+	display:table-cell;
+	vertical-align:top;
+}
+.MainCont1 .Left{
+	width:830px;
+	padding-right:20px;
+}
+.MainCont1 .Right{
+	width:350px;
+	background:#EDEDED;
+}
+.SideCont1{
+	width:830px;
+	overflow:hidden;
+}
+.HeadStyle1{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	border-bottom:#1CB29D solid 2px;
+	position:relative;
+}
+.HeadStyle1 span{
+	float:left;	
+	font:22px 'Microsoft Yahei','Simsun';
+	font-weight:bold;
+	line-height:45px;
+}
+.HeadStyle1 a{
+	display:block;
+	width:50px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	position:absolute;
+	right:0;
+	bottom:2px;
+}
+.HeadStyle1 a:hover{
+	background:#369;
+	color:#FFF;
+	border-radius:3px;
+}
+.SideCont1 .List1 li{
+	border-bottom:#DDD solid 1px;
+	padding:15px 10px 15px 10px;
+	position:relative;
+}
+.SideCont1 .List1 li:hover{
+	background:#EFEFEF;
+}
+.SideCont1 .List1 li dl{
+	display:table;
+}
+.SideCont1 .List1 li dl dt,.SideCont1 .List1 li dl dd{
+	display:table-cell;
+	vertical-align:top;
+}
+.SideCont1 .List1 li dl dt{
+	width:260px;
+	height:200px;
+	padding-right:15px;
+	text-align:center;
+	vertical-align:middle;
+}
+.SideCont1 .List1 li dl dt img{
+	max-width:260px;
+	max-height:200px;
+	vertical-align:middle;
+}
+.SideCont1 .List1 li dl dd h4 a{
+	display:block;
+	margin-bottom:5px;
+	line-height:30px;
+	font-size:18px;
+}
+.SideCont1 .List1 li dl dd p{
+	line-height:25px;
+	font-size:16px;
+	color:#666;
+}
+.SideCont1 .List1 li dl dd div{
+	height:25px;
+	line-height:25px;
+	width:530px;
+	position:absolute;
+	right:10px;
+	bottom:15px;
+	color:#888;
+}
+.SideCont1 .List1 li dl dd div span{
+	float:left;
+}
+.SideCont1 .List1 li dl dd div span a{
+	color:#888;
+}
+.SideCont1 .List1 li dl dd div em{
+	float:right;
+	padding-left:25px;
+	background:url(time.png) left 3px no-repeat;
+}
+.SideCont1 .List2{
+	width:830px;
+	padding-top:8px;
+}
+.SideCont1 .List2:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.SideCont1 .List2 li{
+	height:35px;
+	line-height:35px;
+	width:50%;
+	overflow:hidden;
+	float:left;
+	font-size:16px;
+	color:#999;
+	text-indent:5px;
+}
+.SideCont1 .List2 li:hover{
+	background:#F90;
+	border-radius:5px;
+	color:#FFF;
+}
+.SideCont1 .List2 li:hover a{
+	color:#FFF;
+}
+.HeadStyle2{
+	height:40px;
+	line-height:40px;
+	border-bottom:#DDD solid 1px;
+	padding:0 8px 0 15px;
+	position:relative;
+	overflow:hidden;
+}
+.HeadStyle2 span{
+	float:left;	
+	font:22px 'Microsoft Yahei','Simsun';
+	font-weight:bold;
+	line-height:45px;
+}
+.HeadStyle2 a{
+	float:right;
+	font-size:16px;
+	color:#666;
+	line-height:25px;
+	margin-top:10px;
+	padding:0 8px;
+}
+.HeadStyle2 a:hover{
+	background:#F90;
+	border-radius:5px;
+	color:#FFF;
+}
+.TodayNews .HeadStyle2{
+	padding-left:25px;
+}
+.TodayNews .HeadStyle2:before{
+	content:'';
+	display:block;
+	width:3px;
+	height:22px;
+	position:absolute;
+	left:15px;
+	top:12px;
+	background:#1CB29D;
+}
+.TodayNews .list{
+	padding:10px;
+}
+.TodayNews .list li{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	color:#0A78CB;
+	font-size:13px;
+	text-indent:5px;
+}
+.TodayNews .list li:hover{
+	background:#369;
+	color:#FFF;
+	border-radius:5px;
+}
+.TodayNews .list li a{
+	color:#666;
+}
+.TodayNews .list li:hover a{
+	color:#FFF;
+}
+.TodayNews .list li:nth-child(1),.TodayNews .list li:nth-child(4),.TodayNews .list li:nth-child(7),.TodayNews .list li:nth-child(10){
+	margin:5px auto;
+	font-size:16px;
+	font-weight:bold;
+}
+.TodayNews .list li:nth-child(1) span,.TodayNews .list li:nth-child(4) span,.TodayNews .list li:nth-child(7) span,.TodayNews .list li:nth-child(10) span{
+	display:none;
+}
+.PhotoNews{
+	padding-bottom:10px;
+}
+.PhotoNews .list dl{
+	width:320px;
+	overflow:hidden;
+	margin:15px auto 0 auto;
+	position:relative;
+	padding-bottom:35px;
+}
+.PhotoNews .list dl dt{
+	display:table;
+	width:320px;
+}
+.PhotoNews .list dl dt a{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	min-height:100px;
+}
+.PhotoNews .list dl dt a img{
+	max-width:320px;
+	max-height:300px;
+}
+.PhotoNews .list dl dd a{
+	display:block;
+	width:100%;
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	background:#DDD;
+	font-size:14px;
+	text-indent:10px;
+	position:absolute;
+	left:0;
+	bottom:0;
+}
+.PhotoNews .list dl:hover dd a{
+	height:100%;
+	opacity:0.5;
+	text-align:center;
+	background:#000;
+	color:#FFF;
+	font-size:16px;
+	font-weight:bold;
+}
+.PhotoNews .list dl:hover dd a:before{
+	content:'';
+	display:block;
+	height:30%;
+	width:100%;
+}
+.StoryNews{
+	padding-bottom:10px;
+}
+.StoryNews .list dl{
+	width:320px;
+	overflow:hidden;
+	margin:15px auto 0 auto;
+	position:relative;
+	padding-bottom:60px;
+}
+.StoryNews .list dl dt{
+	display:table;
+	width:320px;
+}
+.StoryNews .list dl dt a{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	min-height:100px;
+}
+.StoryNews .list dl dt a img{
+	max-width:320px;
+	max-height:300px;
+}
+.StoryNews .list dl dd{
+	display:block;
+	width:100%;
+	height:60px;
+	overflow:hidden;
+	background:#DDD;
+	position:absolute;
+	left:0;
+	bottom:0;
+}
+.StoryNews .list dl dd h4{
+	padding:5px 5px 0 10px;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+}
+.StoryNews .list dl dd p{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	color:#666;
+	padding:0 10px 0 10px;
+	font-size:14px;
+}
+.StoryNews .list dl dd div a{
+	display:block;
+	width:80px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	border:#F30 solid 1px;
+	background:#F60;
+	color:#FFF;
+	position:absolute;
+	left:120px;
+	bottom:8px;
+	border-radius:3px;
+	display:none;
+}
+.StoryNews .list dl:hover dd {
+	height:100%;
+	z-index:200;
+	background:none;
+}
+.StoryNews .list dl:hover dt:before {
+	content:'';
+	display:block;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0.5;
+	background:#042844;
+	z-index:100;
+}
+.StoryNews .list dl:hover dd h4{
+	margin-top:5px;
+}
+.StoryNews .list dl:hover dd h4 a{
+	color:#FFF;
+}
+.StoryNews .list dl:hover dd p{
+	display:table;
+	color:#FFF;
+}
+.StoryNews .list dl:hover dd div a{
+	display:block;
+}
+/****/
+.MainCont2{
+	width:1200px;
+	margin:15px auto 0 auto;
+	overflow:hidden;
+}
+.MainCont2 .ListStyle1,.MainCont2 .ListStyle2{
+	width:1250px;
+}
+.MainCont2 .ListStyle1:after,.MainCont2 .ListStyle2:after{
+	content:'';
+	display:block;
+	width:1250px;
+	height:1px;
+	clear:both;
+}
+.MainCont2 .ListStyle1{
+	padding-top:10px;
+}
+.MainCont2 .ListStyle1 dl{
+	width:395px;
+	height:250px;
+	overflow:hidden;
+	margin:8px 8px 0 0;
+	float:left;
+	position:relative;
+}
+.MainCont2 .ListStyle1 dl dt{
+	width:495px;
+	height:250px;
+	text-align:center;
+	margin-left:-50px; display:table;
+}
+.MainCont2 .ListStyle1 dl dt a{display:table-cell; width:100%; height:100%; text-align:center; vertical-align:middle; background:#f5f5f5;}
+.MainCont2 .ListStyle1 dl dt img{
+	max-width:495px; max-height:250px;
+}
+.MainCont2 .ListStyle1 dl:hover dt:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0.5;
+	background:#042844;
+}
+.MainCont2 .ListStyle1 dl:hover dd a{
+	display:block;
+	width:395px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	color:#FFF;
+	text-align:center;
+	line-height:250px;
+	font-size:14px;
+	background:url(xing.png) left bottom no-repeat;
+}
+.MainCont2 .ListStyle2 dl{
+	width:295px;
+	height:350px;
+	overflow:hidden;
+	margin:8px 8px 0 0;
+	float:left;
+	position:relative;
+}
+.MainCont2 .ListStyle2 dl dt{
+	width:695px;
+	height:350px;
+	text-align:center;
+	margin-left:-200px;
+}
+.MainCont2 .ListStyle2 dl dt img{
+	height:350px;
+}
+.MainCont2 .ListStyle2 dl:hover dt:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0.5;
+	background:#042844;
+}
+.MainCont2 .ListStyle2 dl:hover dd a{
+	display:block;
+	width:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	color:#FFF;
+	text-align:center;
+	line-height:350px;
+	font-size:14px;
+	background:url(xing.png) left bottom no-repeat;
+}
+/*****/
+.headstyle8{
+	height:40px;
+	border-bottom:#DDD solid 1px;
+	position:relative;
+	line-height:40px;
+}
+.headstyle8 span{
+	width:80px;
+	text-align:center;
+	position:absolute;
+	top:0;
+	top:0;
+	border-bottom:#379BE9 solid 2px;
+	font-size:16px;
+	font-weight:bold;
+}
+.ListFrendLink{
+	padding:10px 0 10px 0;
+	line-height:25px;
+}
+.ListFrendLink:after{
+	content:'';
+	display:block;
+	width:1200px;
+	height:1px;
+	clear:both;
+}
+.ListFrendLink li{
+	float:left;
+	height:25px;
+	overflow:hidden;
+	margin-right:10px;
+}

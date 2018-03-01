@@ -1,0 +1,391 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('分类信息');
+$('header .web').html('分类信息');
+</script>
+
+<div class="FormContainer">
+<form name="FORM" id="FORM" method="post" action="?action=$atc"  enctype="multipart/form-data">
+	<h3>基本资料</h3>
+	<dl>
+		<dt>所在城市：</dt>
+		<dd><div id="select_city" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt>辖区：</dt>
+		<dd><div id="select_zone" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt>街道：</dt>
+		<dd><div id="select_street" class="select"></div></dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>信息标题：</dt>
+		<dd><input type="text" name="postdb[title]" class="text" placeholder="输入标题，仅限40字" value="$rsdb[title]" /></dd>
+	</dl>
+<!--
+EOT;
+if($job!="edit"&&$webdb[Info_GroupPostYzImg]&&!$web_admin&&in_array($groupdb['gid'],explode(",",$webdb[Info_GroupPostYzImg]))){
+print <<<EOT
+-->
+	<dl>
+		<dt><span>*</span>验证码：</dt>
+		<dd class="Yzcode">
+			<input id="yzImgNum" type="text" name="yzimg" class="text" placeholder="输入验证码" />
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<span class="yzimg"><img name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'"/></span>');
+//-->
+</SCRIPT>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+		<dt>图片：</dt>
+		<dd>
+<!--
+EOT;
+$i=0;
+$listPics="";
+foreach($listdb AS $key=>$rs){
+$i++;
+if($rs[imgurl]){
+$listPics.="<div class='PicList'><input class='text' type='text' name='photodb[$i]' value='$rs[imgurl]'/><span>删除图片</span><input type='hidden' name='piddb[$i]' value='$key'></div>\r\n";
+}}
+print <<<EOT
+-->	
+			<div class="ListThisPic">
+				$listPics
+			</div>
+<!----------------移动版传图片开始------------------------->
+<!--
+EOT;
+if(is_weixn_open()){
+require(ROOT_PATH."inc/weixin.jsdk.php"); //监控微信分享事件
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+		<div style="text-align:center;padding:5px;">
+			<input id="morepicurl" type="hidden"/>
+			<div onClick="Atcupimg();" style="width:50%;text-align:center;line-height:30px;border:#F60 solid 1px;background:#F90;color:#FFF;margin:auto;">点击上传图片</div>
+		</div>
+<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+<div class="upflieBox">
+	<p>请选择上传的图片</p>
+	<a id="chooseImage">选择图片</a>
+	<a id="uploadImage">上传图片</a>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>	
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+wx.config({
+	debug: false,
+	appId: '{$signPackage["appId"]}',
+	timestamp: {$signPackage["timestamp"]},
+	nonceStr: '{$signPackage["nonceStr"]}',
+	signature: '{$signPackage["signature"]}',
+	jsApiList: [
+		'checkJsApi',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+	  ]
+});
+function Atcupimg(){
+	$('.Share_Message').fadeIn();
+	$('.upflieBox').fadeIn();
+}
+function SharHiddenMessage() {
+	$('.Share_Message').fadeOut();
+	$('.upflieBox').fadeOut();
+	$('.upflieBox p').html('请选择上传的图片');
+	$('#chooseImage').css({"background":"#F60","border":"#F30 solid 1px"});
+	$('#uploadImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+}
+wx.ready(function () {
+  // 5 图片接口
+  // 5.1 拍照、本地选图
+  var images = {
+    localId: [],
+    serverId: []
+  };
+  document.querySelector('#chooseImage').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        images.localId = res.localIds;
+        //alert('已选择 ' + res.localIds.length + ' 张图片，请点击上传按钮开始上传。');
+		$('.upflieBox p').html('已选择'+res.localIds.length+'张图片<br/><font color="red">请点击下面第二个按键上传图片</font>');
+		$('#uploadImage').css({"background":"#F60","border":"#F30 solid 1px"});
+		$('#chooseImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+		postimg();
+      }
+    });
+  };
+
+  // 5.3 上传图片
+  document.querySelector('#uploadImage').onclick = function () {
+    if (images.localId.length == 0) {
+      //alert('请先选择图片');
+	  $('.upflieBox p').html('请先点击下面第一个按键选择图片');
+      return;
+    }
+    var i = 0, length = images.localId.length;
+    images.serverId = [];
+    function upload() {
+      wx.uploadImage({
+        localId: images.localId[i],
+        success: function (res) {
+          i++;
+          //alert('已上传：' + i + '/' + length);
+		  alert('已上传：第 ' + i + ' 张图片，请点击确认继续上传。' );
+		  //window.location.href="u.php?urls="+res.serverId
+		  document.querySelector('#morepicurl').value+=","+res.serverId;
+          images.serverId.push(res.serverId);
+          if (i < length) {
+            upload();
+          }else{
+		  	$('.upflieBox p').html('请选择上传的图片');
+			SharHiddenMessage();
+			//对微信上传的图片时行后处理
+			get_weixin_up_file();
+		  }
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });	  
+    }
+    upload();	
+  };
+});
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+function get_weixin_up_file(){
+	var upfile_str=$('#morepicurl').val();
+	var nowlist=$('.ListThisPic .PicList').length;
+	$.get("/do/wx_upimg.php?atc=upmorepic&dir=wxfenlei&upfile_str="+upfile_str+"&nowlist="+nowlist+"&"+Math.random(),function(d){
+		$(".ListThisPic").append(d);
+	});
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<div class="upfile_box">
+			<input class='upfile' type="text" name="photodb[0]" id='out_url0' placeholder="请上传图片"/>
+			<div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir={$_pre}/$fid&label=out_url0'></iframe></div>
+		</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+<!----------------移动版传图片结束------------------------->
+			
+		</dd>
+	</dl>
+<!--
+EOT;
+if($m_config[moduleSet][useMap]){
+$if_baidu_map=$webdb[if_baidu_map]?1:0;
+print <<<EOT
+-->
+	<dl>
+		<dt>地图位置：</dt>
+		<dd>
+			<div class="map_box">
+				<input class="text" type="text" name="postdb[maps]" id="mapid" value="$rsdb[maps]" readonly />
+				<div onClick="reloadLocation();" class="getmap">获取当前位置</div>
+			</div>
+<script src="$webdb[www_url]/images/default/gps.js"></script>
+<script type="text/javascript">
+var if_baidu_map=$if_baidu_map;
+</script>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	<dl>
+		<dt>有效日期：</dt>
+		<dd class="select">
+<!--
+EOT;
+$list_option="";
+if(!$webdb[Info_UseEndTime]){
+$list_option.="<option value='0'>不限</option>\r\n";
+}
+$webdb[Info_showday] || $webdb[Info_showday]="90/60/30";
+$array=explode("/",$webdb[Info_showday]);
+foreach($array AS $key=>$value){
+$selecteds=($rsdb[showday]==$value)?"selected":"";
+$list_option.="<option value='$value' $selecteds>{$value}天</option>\r\n";
+}
+print <<<EOT
+-->
+			<select name="postdb[showday]">
+$list_option
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt>联系人：</dt>
+		<dd><input type="text" name="postdb[linkman]" class="text" placeholder="输入姓名" value="$rsdb[linkman]" /></dd>
+	</dl>
+	<dl>
+		<dt>电话：</dt>
+		<dd><input type="text" name="postdb[telephone]" class="text" placeholder="输入电话" value="$rsdb[telephone]" /></dd>
+	</dl>
+	<dl>
+		<dt>手机：</dt>
+		<dd><input type="text" name="postdb[mobphone]" class="text" placeholder="输入手机" value="$rsdb[mobphone]" /></dd>
+	</dl>
+	<dl>
+		<dt>邮箱：</dt>
+		<dd><input type="text" name="postdb[email]" class="text" placeholder="输入邮箱" value="$rsdb[email]" /></dd>
+	</dl>
+	<dl>
+		<dt>QQ：</dt>
+		<dd><input type="text" name="postdb[oicq]" class="text" placeholder="输入QQ" value="$rsdb[oicq]" /></dd>
+	</dl>
+	<dl>
+		<dt>MSN：</dt>
+		<dd><input type="text" name="postdb[msn]" class="text" placeholder="输入MSN" value="$rsdb[msn]" /></dd>
+	</dl>
+	<dl>
+		<dt>标签：</dt>
+		<dd><input type="text" name="postdb[keywords]" class="text" placeholder="多个用空格隔开" value="$rsdb[keywords]" /></dd>
+	</dl>
+<!--
+EOT;
+if(!$lfjid){print <<<EOT
+-->
+	<dl>
+		<dt>管理密码：</dt>
+		<dd><input type="text" name="postdb[editpwd]" class="text" placeholder="设置密码后,将可以凭借密码删除信息" value="$rsdb[editpwd]" /></dd>
+	</dl>
+<!--
+EOT;
+}if($lfjid){print <<<EOT
+-->
+	<h3>增值服务</h3>
+	<dl>
+		<dt>是否置顶：</dt>
+		<dd>
+			<input type="radio" name="iftop" value="0" $ifTop[0]> 不置顶 
+            <input type="radio" name="iftop" value="1" $ifTop[1]> 置顶
+			(注:栏目内置顶需要消费积分:<span class='b red'>{$webdb[Info_TopMoney]}</span>个,<a href="$webdb[www_url]/do/jf.php" target="_blank"><span class='blue'>点击查上看如何获取积分?</span></a>)
+		</dd>
+	</dl>
+	<dl>
+		<dt>头条显示：</dt>
+		<dd>
+			<input type="checkbox" name="buyfid[]" value="Index" {$buyfid['Index']}> 首页焦点显示 
+            <input type="checkbox" name="buyfid[]" value="Sort" {$buyfid['Sort']}> 栏目焦点显示 
+            <input type="checkbox" name="buyfid[]" value="BigSort" {$buyfid['BigSort']}> 分类焦点显示
+            <p>注意:系统规定首页焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoIndexShow]}</span>{$webdb[MoneyDW]},栏目焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoSortShow]}</span>{$webdb[MoneyDW]},分类焦点显示最低收费{$webdb[MoneyName]}<span class='red'>{$webdb[AdInfoBigsortShow]}</span>{$webdb[MoneyDW]},有效期<span class='blue'>{$webdb[AdInfoShowTime]}</span>天.你目前有{$webdb[MoneyName]}<span class='red'>{$lfjdb[money]}</span>{$webdb[MoneyDW]}.<a href="$webdb[www_url]/do/jf.php" target="_blank">点击查看如何获取积分?</a> 
+		</dd>
+	</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<h3>补充资料</h3>
+
+	<dl>
+		<dt>期望从事职业:<span></span></dt>
+		<dd> <input   type='text' name='postdb[my_jobs]' id='atc_my_jobs' style='width:30px;' value='$rsdb[my_jobs]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>学历:<span></span></dt>
+		<dd><select name='postdb[my_schoolage]' id='atc_my_schoolage'><option value='小学' {$rsdb[my_schoolage]['小学']}>小学</option><option value='初中' {$rsdb[my_schoolage]['初中']}>初中</option><option value='高中' {$rsdb[my_schoolage]['高中']}>高中</option><option value='中专' {$rsdb[my_schoolage]['中专']}>中专</option><option value='大专' {$rsdb[my_schoolage]['大专']}>大专</option><option value='本科' {$rsdb[my_schoolage]['本科']}>本科</option><option value='研究生' {$rsdb[my_schoolage]['研究生']}>研究生</option><option value='博士以上' {$rsdb[my_schoolage]['博士以上']}>博士以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>年龄:<span></span></dt>
+		<dd> <input   type='text' name='postdb[my_age]' id='atc_my_age' style='width:100px;' value='$rsdb[my_age]'> 岁</dd>
+	</dl>
+
+	<dl>
+		<dt>性别:<span></span></dt>
+		<dd> <input type='radio' name='postdb[my_sex]' value='男' {$rsdb[my_sex]['男']}>男  <input type='radio' name='postdb[my_sex]' value='女' {$rsdb[my_sex]['女']}>女  <input type='radio' name='postdb[my_sex]' value='保密' {$rsdb[my_sex]['保密']}>保密  </dd>
+	</dl>
+
+	<dl>
+		<dt>工作经验:<span></span></dt>
+		<dd> <input type='radio' name='postdb[sortid]' value='1' {$rsdb[sortid]['1']}>应届生  <input type='radio' name='postdb[sortid]' value='2' {$rsdb[sortid]['2']}>一年  <input type='radio' name='postdb[sortid]' value='3' {$rsdb[sortid]['3']}>两年  <input type='radio' name='postdb[sortid]' value='4' {$rsdb[sortid]['4']}>三年以上  </dd>
+	</dl>
+
+	<dl>
+		<dt>期望工作城市:<span></span></dt>
+		<dd> <input   type='text' name='postdb[my_workplace]' id='atc_my_workplace' style='width:100px;' value='$rsdb[my_workplace]'> </dd>
+	</dl>
+
+	<dl>
+		<dt>期望月薪:<span></span></dt>
+		<dd><select name='postdb[my_wage]' id='atc_my_wage'><option value='面议' {$rsdb[my_wage]['面议']}>面议</option><option value='1000元以内' {$rsdb[my_wage]['1000元以内']}>1000元以内</option><option value='1000元-2000元' {$rsdb[my_wage]['1000元-2000元']}>1000元-2000元</option><option value='2000元-3000元' {$rsdb[my_wage]['2000元-3000元']}>2000元-3000元</option><option value='3000元-4000元' {$rsdb[my_wage]['3000元-4000元']}>3000元-4000元</option><option value='4000元-5000元' {$rsdb[my_wage]['4000元-5000元']}>4000元-5000元</option><option value='5000元以上' {$rsdb[my_wage]['5000元以上']}>5000元以上</option></select></dd>
+	</dl>
+
+	<dl>
+		<dt>自我介绍:<span></span></dt>
+		<dd><textarea  name='postdb[content]' id='atc_content' style='width:400px;height:100px;'>$rsdb[content]</textarea></dd>
+	</dl>
+<!---->
+    <div class="butter"><span class="submits"><input type="submit" name="Submit" value="提 交"/></span></div>
+    <input type="hidden" name="fid" value="$fid">
+    <input type="hidden" name="id" value="$id">
+    <input type="hidden" name="fid_bak1" value="$rsdb[fid_bak1]">
+    <input type="hidden" name="fid_bak2" value="$rsdb[fid_bak2]">
+    <input type="hidden" name="fid_bak3" value="$rsdb[fid_bak3]">
+    <input type="hidden" name="$webdb[rand_num_inputname]" value="$webdb[rand_num]">	
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function select_where(selects,fup,name,fid){
+	$.get("select_where.php?selects="+selects+"&fups="+fup+"&name="+name+"&fids="+fid+"&"+Math.random(),function(d){
+		$("#select_"+selects).html(d);
+	});
+}
+
+select_where('city','','postdb[city_id]',$city_id);
+select_where('zone',$city_id,'postdb[zone_id]',$zone_id);
+select_where('street',$zone_id,'postdb[street_id]',$street_id);
+
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+
+$('.PicList').hover(
+	function(){
+		$(this).css('border-bottom', 'dotted #DDD 1px');
+	},function(){
+		$(this).css('border-bottom', '0');
+	}
+);
+$('.PicList span').click(function(){
+	//$(this).parent().html('');
+	//$(this).parent().remove();
+	$(this).parent().children().eq(0).val('');
+});
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>

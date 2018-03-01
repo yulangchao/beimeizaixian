@@ -1,0 +1,104 @@
+
+.InfoTable .ShowPic{
+	width:350px;
+	padding-top:10px;
+}
+.InfoTable .ShowPic .BigPic{
+	width:350px;
+	height:324px;
+	background:#FFF;
+	margin: 10px 10px 10px 22px;
+}
+.InfoTable .ShowPic .BigPic td{
+	text-align:center;
+	vertical-align:middle;
+	border:1px solid #DFDFDF;
+}
+.ChangePic{height:90px; width:330px; overflow:hidden; position:relative; padding-left:20px; margin-left:22px;}
+.ChangePic #Up_atc,.ChangePic #Down_atc{
+	width:18px;
+	height:64px;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	cursor:pointer;
+}
+.ChangePic #Up_atc{top:10px; left:0; background:url(array.gif) left top no-repeat;}
+.ChangePic #Down_atc{top:10px; right:0; background:url(array.gif) right top no-repeat;}
+.ChangePic .listminpic{
+	width:305px;
+	height:98px;
+	overflow:hidden;
+	position:relative;
+}
+.ChangePic .listminpic .lists{
+	width:10000px;
+	position:absolute;
+}
+.ChangePic .listminpic .lists ul{
+	float:left;
+}
+.ChangePic .listminpic .lists ul li{
+	width:90px;
+	height:80px;
+	float:left;
+	margin-right:13px;
+}
+.ChangePic .listminpic .lists ul li img{max-width:90px; height:80px;}
+.ChangePic .listminpic .lists ul li div{border:#DDD solid 1px; width:90px; margin:auto; opacity: 0.6;}
+.ChangePic .listminpic .lists ul li.cur div{opacity: 1; border:#F00 solid 2px;}
+.ChangePic .listminpic .lists ul li div a{display:block; width:90px; height:80px; text-align:center; overflow:hidden;}
+.InfoTable .MoreInfo{vertical-align:top;}
+.InfoTable .MoreInfo .title{margin-top: 10px; width: 96%; margin-left: 2%; line-height: 25px; border-bottom: 1px dashed #E0E0E0; font-size: 16px;}
+.InfoTable .MoreInfo div.infoa{padding-bottom: 5px; width: 96%; margin-left: 2%; height: 40px; line-height: 40px;}
+.InfoTable .MoreInfo div.infob{height:170px; width: 96%; padding-left: 2%;}
+.InfoTable .MoreInfo div.infob div{width:49%; float:left; line-height:36px;}
+.InfoTable .MoreInfo div.infob div span{font-size:14px; color:#333;}
+.order_do{clear:both; margin-left: 2%;}
+.order_do a{float: left; display: block; margin-right: 10px; width: 80px; height: 28px; background: #ddd; line-height: 28px; text-align: center; 		   border-radius: 5px;}
+
+/*
+*Í¼±ê
+*/
+.InfoTable .MoreInfo div.shopbuys{
+	height:90px;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum{
+	height:30px;
+	padding-top:10px;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum dt{
+	width:120px;
+	float:left;
+	line-height:30px;
+	font-size:14px;
+	color:#CC6500;
+	text-align:right;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum dd{
+	float:left;
+	padding:3px 0 0 10px;
+}
+.InfoTable .MoreInfo div.shopbuys .buynum dd input{
+	width:30px;
+}
+.InfoTable .MoreInfo div.shopbuys .butter{
+    word-spacing: 27px;
+    padding-left: 2%;
+}
+
+.InfoTable .MoreInfo .order{
+	height:30px;
+	padding-top:15px;
+}
+.InfoTable .MoreInfo .order a{
+	float:right;
+	display:block;
+	margin-right:10px;
+	padding-left:22px;
+	/*background:url(pro_report.gif) no-repeat;*/
+}
+.InfoTable .MoreInfo .order a.fav{
+	padding-left:16px;
+	/*background:url(pro_fav.gif) no-repeat;*/
+}

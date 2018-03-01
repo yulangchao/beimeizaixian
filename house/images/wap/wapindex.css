@@ -1,0 +1,67 @@
+.s-skin{margin-bottom:15px; background:#fff;}
+
+.m-nav{padding:10px 0 5px 0;}
+.m-nav ul{overflow:hidden;}
+.m-nav ul li{float:left; width:50%; margin:10px 0;}
+.m-nav ul li a{display:block; width:90%; margin:0 auto; padding:8px 0; border:1px solid #e5e5e5; box-shadow:1px 1px 2px #e6e6e6; border-radius:6px; overflow:hidden; background:#f3f3f3;}
+.m-nav ul li span{display:block; text-align:center;height:22px; line-height:22px; color:#666; font-size:16px;}
+
+/* m-modleCont */
+.m-modleCont{}
+.modleCont h2{height:25px; line-height:25px; padding:15px 10px; background:url('hothouse.png') 10px center no-repeat; border-bottom:1px solid #e5e5e5; box-shadow:0px 1px 0px #F5F5F5;}
+.modleCont h2 a{float:left; width:100%; height:100%; font-size:16px; color:#666;}
+.modleCont .allCont{padding:15px 15px 5px 15px;}
+.allCont ul{overflow:hidden;}
+.allCont ul li{float:left; width:50%;}
+.allCont ul li:nth-child(2n-1) .List{float:left;}
+.allCont ul li:nth-child(2n) .List{float:right;}
+.List{width:96%;}
+.List .ListPic{overflow:hidden;text-align:center; height:140px; line-height:140px; position:relative;}
+.List .ListPic img{max-width:100%; height:100%;}
+.List h3{position:absolute; bottom:0; left:0; width:calc(100% - 10px); background:rgba(103,103,103,.6); height:25px; line-height:25px; padding:0 5px; font-size:.9rem; font-weight:400; overflow:hidden; text-align:center; color:#fff;}
+.List .ListPrice{height:20px; line-height:20px; padding:6px; overflow:hidden; text-align:center;}
+.List .ListPrice em{color:#ff6600; font-size:16px;}
+/* m-Hot */
+.m-Hot{overflow:hidden; padding-bottom:15px;}
+.m-Hot h2{height:25px; line-height:25px; padding:15px 10px; background:url('newshouse.png') 10px center no-repeat; border-bottom:1px solid #e5e5e5; box-shadow:0px 1px 0px #F5F5F5;}
+.m-Hot h2 a{float:left; width:100%; height:100%; font-size:16px; color:#666;}
+.Listall dl{overflow:hidden; padding:10px 0 40px 10px; margin:0 10px; border-bottom:1px solid #e5e5e5; position: relative;}
+.Listall dl dt{width:80px; overflow:hidden; text-align:center;}
+.Listall dl dt img{max-width:80px;}
+.Listall dl dd{width:calc(100% - 85px);}
+.Listall dl dd h3{max-height:40px; line-height:20px; font-size:.9rem; color:#666; font-weight:400; overflow:hidden;}
+.Listall dl dd p{overflow:hidden; padding-top:8px;}
+.Listall dl dd p span{height:20px; line-height:20px; font-size:.8rem; color:#999;}
+.Listall dl dd .ListPrice span em{color:#ff9900;}
+.Listall dl dd p~p{position:absolute; left:0; bottom:10px; width:100%;}
+.Listall dl dd p~p span{display:inline-block; width:33.3%; text-align:center;}
+.Listall dl dd p~p span em{color:#0066ff;}
+.Listall dl dd p~p span:first-child{text-align:left;}
+.Listall dl dd p~p span:last-child{text-align:right;}
+.ShowMoreShop{padding:0 10px 15px 10px; background:#f3f3f3;}
+.ShowMoreShop span{display:block; width:100%; height:25px; line-height:25px; padding:10px 0; text-align:center; font-size:18px; border:1px solid #d5d5d5; border-radius:8px; background:#fff; color:#666; cursor:pointer;}
+
+
+
+@media(min-width:360px){
+	.List .ListPic{height:160px; line-height:160px;}
+}
+@media(min-width:400px){
+	.Listall dl dd h3{max-height:50px; line-height:25px; }
+	.List .ListPic{height:180px; line-height:180px;}
+	.Listall dl dt{width:90px;}
+	.Listall dl dt img{max-width:90px;}
+	.Listall dl dd{width:calc(100% - 100px);}
+}
+@media(min-width:640px){
+	.modleCont .allCont{padding:15px 25px 5px 25px;}
+	.List .ListPic{height:270px; line-height:270px;}
+	.Listall dl dt{width:140px;}
+	.Listall dl dd{width:calc(100% - 160px);}
+	.Listall dl dt img{max-width:140px;}
+	.Listall dl dd h3{max-height:70px; line-height:35px; font-size:1rem;}
+	.Listall dl dd p{padding-top:5px}
+	.Listall dl dd p span{font-size:.9rem;}
+	.Listall dl dd p~p{position:static;}
+	.List .ListPrice a,.List h3,.NewsCont dl dd h3 span em,.NewsCont dl dd p span{font-size:1rem;}
+}

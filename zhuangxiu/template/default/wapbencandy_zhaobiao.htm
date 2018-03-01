@@ -1,0 +1,61 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/zhaobiao.css">
+<div class="Location">
+	<em>当前位置：</em><a href="$webdb[_www_url]/wapindex.php">首页</a> -> <a href="./wapindex.php">装修</a> $GuideFid[$fid]
+</div>
+
+<div class="conter">
+	<div class="m-zhaobiao">
+    	<h3>{$rsdb[title]}</h3>
+        <span class="time">时间：<em>{$rsdb[posttime]}</em>  </span>
+		<span class="time">有效日期：<em>{$rsdb[showday]}</em>  </span>
+        <span class="liulan">浏览:<em>{$rsdb[hits]}</em>次</span>
+    </div>
+	<ul class="MoreInfo">
+		<!--{template}--> 
+			<li><span>{title}：</span>{value}</li>
+		<!--{/template}-->
+	</ul>
+	<ul class="Contact">
+<!--
+EOT;
+if(!$webdb[group_view_contact] || in_array($groupdb[gid],explode(",",$webdb[group_view_contact]))){print <<<EOT
+-->
+		<li><span>联系人：</span>{$rsdb[linkman]}</li>
+		<li><span>电话号码:</span><a href="tel:$rsdb[telephone]">$rsdb[telephone]</a></li>
+		<li><span>手机号码:</span><a href="tel:$rsdb[mobphone]">$rsdb[mobphone]</a></li>
+		<li><span>QQ　号码:</span><a href="tencent://message/?uin=$rsdb[_oicq]&Site=$webdb[Info_webname]&Menu=yes">$rsdb[oicq]</a></li>
+		<li><span>MSN 帐号:</span>$rsdb[msn]</li>
+		<li><span>邮箱帐号:</span>$rsdb[email]</li>
+		<li><span>IP归属地:</span>{$rsdb[ipfrom]} </li>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	<CENTER>******你所在用户组无限查看联系方式******</CENTER>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</ul>
+	<div class="Contents">
+		<h3>招标详情</h3>
+		<div class="cont">
+			$rsdb[content]
+		</div>
+	</div>
+</div>
+<div class="Reminded">
+	<div>网站提醒您：</div>
+	<ul>
+		<li>交易时请警惕网络诈骗、先付款后发货交易、欺诈交易。</li>
+		<li>网站建议您只进行同城或当面交易，并检查物品的相关资料和手续。</li>
+	</ul>
+</div>
+<!--
+EOT;
+?>
+-->

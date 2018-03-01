@@ -1,0 +1,74 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<!-- <div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT> -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<!--
+EOT;
+if(!$action){
+print <<<EOT
+-->
+<div class="ListContainer">
+	<div class="head"><div class="tag"> 友情链接管理</div><A class='more' HREF="wapcankao.php?action=add&listnum=$listnum">新创建一个友情链接</A></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+  <div class="Listcont">
+          <div class='cont'>
+            <div class='title'><a href="$rs[url]" target="_blank">$rs[title]</a></div>
+            <div class='time'>描述：$rs[description]</div>
+        </div>
+        <div class='butter'>
+          <a href="?action=add&amp;ck_id=$rs[ck_id]">编辑</a>
+          <a href="?action=del&amp;ck_id=$rs[ck_id]" onclick="return confirm('删除后不能恢复，确定要继续吗？')">删除</a>
+        </div>
+  </div>
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+        $showpage
+
+</div>
+<!--
+EOT;
+}elseif($action=='add'){
+print <<<EOT
+-->
+<div class="FormContainer">
+	<h3>友情链接</h3>
+    	<form action="?" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+        <input name="action" type="hidden" id="action" value="save_add" />
+        <dl>
+		  <dt>友情链接：(比如：网站名称,最多40个字符)</dt>
+		  <dd><input name="title" type="text" value="$rsdb[title]" /></dd>
+		</dl>
+		<dl>
+		  <dt>网址：(http://开头)</dt>
+		  <dd><input name="url" type="text" value="$rsdb[url]" /></dd>
+		</dl>
+		<dl>
+		  <dt>描述：(简单描述，最多400个字符)</dt>
+		  <dd><textarea name="description"  rows="5">$rsdb[description]</textarea> </dd>
+		</dl>
+		<div class="butter">
+		  <span class="submits"><input type="submit" name="Submit" value="提交保存"/></span>
+		  <input type="button" name="Submit2" value="放 弃"  onclick="window.location='?';"/>
+		  <input name="action" type="hidden" id="action" value="save_add" />
+          <input name="ck_id" type="hidden" id="ck_id" value="$ck_id" />
+		</div>
+        </form>
+</div>
+<!--
+EOT;
+}
+?>
+-->

@@ -1,0 +1,107 @@
+<!--
+<?php
+$webdb[weixin_code_img]=tempdir($webdb[weixin_code_img]);
+$city_DB[copyright][$city_id] && $webdb[copyright]=stripslashes($city_DB[copyright][$city_id]);
+$webdb[copyright] && $webdb[copyright].='</br>';
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+function selectsearch(theA,word){
+	obj=document.getElementById("selectsearch").getElementsByTagName("a");
+	for(var i=0;i< obj.length;i++ ){
+		obj[i].className='';
+	}
+	theA.className='choose';
+	document.getElementById("searchtype").value=word;
+}
+
+$("input[type='submit']").each(function(i){
+	this.className='buttonStyle';
+});
+$("input[type='button']").each(function(i){
+	this.className='buttonStyle';
+});
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+clickEdit.init(); //生成一些快速操作按钮
+get_cache_button("$webdb[ComebackDate]");	//生成表单中的数据恢复按钮
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--//目的是为了做风格方便
+document.write('</div>');
+//-->
+</SCRIPT>
+<div class="FootContainer">
+	<ul class="Infos">
+		{$label[style60_index_foot]}
+		<li class="wx_code">
+			<dl>
+				<dt>扫一扫访问手机版</dt>
+				<dd><img src="$webdb[www_url]/do/2codeimg.php?url=$webdb[www_url]/wapindex.php"/></dd>
+			</dl>
+			<dl>
+				<dt>关注微信公众号</dt>
+				<dd><img src="$webdb[weixin_code_img]" onerror="this.src='$webdb[www_url]/do/2codeimg.php?url=$webdb[www_url]/wapindex.php'" /></dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="copyright">
+		$webdb[copyright] 
+		Copyright@{$webdb[www_url]} all rights reserved <a href="http://www.miibeian.gov.cn" target="_blank">{$webdb[miibeian_gov_cn]}</a> <br>
+		Powered by <a href="http://www.qibosoft.com/" target="_blank">qibosoft {$qibosoft_Edition}</a> 
+		Code &copy; 2007-2016 <a href="http://bbs.qibosoft.com/" target="_blank">qibosoft</a> <br><a href="http://www.qibomoban.com/" target="_blank">特别鸣谢石头版主参与风格设计</a>
+	</div>
+</div>
+
+<div id="copyright" style="display:none;">
+	<div class="FootMenu">
+    	$label[style_51_copyright]
+    </div>
+	$webdb[copyright] 
+    Copyright@{$webdb[www_url]} all rights reserved <a href="http://www.miibeian.gov.cn" target="_blank">{$webdb[miibeian_gov_cn]}</a> <br>
+    Powered by <a href="http://www.qibosoft.com/" target="_blank">qibosoft {$qibosoft_Edition}</a> 
+    Code &copy; 2007-2016 <a href="http://bbs.qibosoft.com/" target="_blank">qibosoft</a> 
+</div>
+
+<!-- 侧栏导航-->
+<link type="text/css" rel="stylesheet" href="$webdb[www_url]/images/default/foot/foot.css" />
+<div class="topUpCont">
+    <ul>
+    	<li class="kefu"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=$webdb[kefuQQ]&amp;site=$webdb[www_url]&amp;menu=yes"><div>在线客服</div></a></li>
+        <li class="topBack"><div>回到<br />顶部</div></li>
+        <li class="topUpWx"><div><span><img src="$webdb[weixin_code_img]"/></span><p>扫描二维码关注微信</p></div></li>
+    </ul>
+</div>
+<script>
+$(document).ready(function () {
+	$(window).scroll(function () {
+		if ($(window).scrollTop() > 100) {
+			$(".topUpCont").show();
+		} else {
+			$(".topUpCont").hide();
+		}
+	});
+	$(".topBack").click(function () {
+		$("html,body").animate({scrollTop: 0},500);
+	});
+});
+</script>
+<!-- /侧栏导航-->
+
+<!--CNZZ站点统计
+EOT;
+if($webdb[cnzz_open]&&$webdb[cnzz_id]){print <<<EOT
+-->
+<div style="display:none"><script src='http://pw.cnzz.com/c.php?id=$webdb[cnzz_id]&l=2' language='JavaScript' charset='gb2312'></script></div>
+<!--CNZZ站点统计
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+?>
+--> 
+</body>
+</html>

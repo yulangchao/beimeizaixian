@@ -1,0 +1,307 @@
+.TopContent{
+	width:1200px;
+	height:50px;
+	margin:15px auto;
+	padding-top:10px;
+	position:relative;
+	z-index:10000;
+}
+.TopContent .Logo{
+	width:380px;
+	height:60px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:0;	
+}
+.TopContent .Logo a{
+	display:table-cell;
+	vertical-align:middle;
+	height:60px;;
+}
+.TopContent .Logo a img{
+	max-width:380px;
+	max-height:60px;
+}
+.TopContent .Logo a span{
+	display:table;
+}
+.TopContent .topinfo{
+	width:380px;
+	height:60px;
+	overflow:hidden;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.TopContent .topinfo dl{
+	display:table;
+	margin:0 0 0 auto;
+}
+.TopContent .topinfo dl dt,.TopContent .topinfo dl dd{
+	display:table-cell;
+	vertical-align:middle;
+	height:60px;
+}
+.TopContent .topinfo dl dt span{
+	display:block;
+	width:40px;
+	height:40px;
+	text-align:center;
+	line-height:35px;
+	overflow:hidden;
+	border-radius:20px;
+}
+.TopContent .topinfo dl dt span img{
+	max-width:40px;
+	max-height:40px;
+}
+.TopContent .topinfo dl dd{
+	font-size:14px;
+	color:#666;
+	line-height:20px;
+	padding-left:10px;
+}
+.TopContent .topinfo dl dd span{
+	color:#F60;
+}
+.TopContent .SearchCont{
+	width:400px;
+	height:40px;
+	background:#FF6600;
+	margin:auto;
+	position:relative;
+}
+.TopContent .SearchCont .keyword{
+	height:36px;
+	padding:2px 80px 0 80px;
+	overflow:hidden;
+}
+.TopContent .SearchCont .keyword input{
+	height:36px;
+	border:0;
+	background:#FFF;
+	width:100%;
+	text-indent:5px;
+}
+.TopContent .SearchCont .submit{
+	width:80px;
+	height:40px;
+	position:absolute;
+	right:0;
+	top:0;
+	overflow:hidden;
+}
+.TopContent .SearchCont .submit input{
+	width:100%;
+	border:0;
+	background:url(find.png) center 10px no-repeat;
+	padding-top:45px;
+	cursor:pointer;
+}
+.TopContent .SearchCont .Select{
+	width:77px;
+	background:#FFE4D2;
+	position:absolute;
+	top:0;
+	left:0;
+	border:#FF6600 solid 2px;
+	border-right:#FF6600 solid 1px;
+}
+.TopContent .SearchCont .Select dt{
+	text-align:center;
+	height:36px;
+	line-height:36px;
+	overflow:hidden;
+	cursor:pointer;
+	font-size:16px;
+	color:#666;
+}
+.TopContent .SearchCont .Select dd{
+	display:none;
+}
+.TopContent .SearchCont .Select dd div{
+	height:35px;
+	text-align:center;
+	font-size:16px;
+	line-height:35px;
+	overflow:hidden;
+	border-top:#FFF solid 1px;
+	color:#666;
+	cursor:pointer;
+}
+.TopContent .SearchCont .Select dd div:hover{
+	background:#F90;
+	color:#FFF;
+}
+
+.MainMenu{
+	width:1200px;
+	height:40px;
+	margin:auto;
+	position:relative;
+	background:#414545;
+}
+.MainMenu ul{
+	padding-left:10px;
+}
+.MainMenu ul li{
+	float:left;
+	height:38px;
+	padding:2px 5px 0 5px;
+}
+.MainMenu ul li a{
+	display:block;
+	height:38px;
+	line-height:38px;
+	overflow:hidden;
+	padding:0 15px;
+	color:#FFF;
+	font-size:16px;
+}
+.MainMenu ul li.choose a{
+	background:#FFF;
+	color:#333;
+	border-radius:3px 3px 0 0;
+	font-weight:bold;
+}
+
+.LeftBaseInfo .head{
+	height:49px;
+	background:url(head.png) center top no-repeat;
+}
+.LeftBaseInfo .head span{
+	display:none;
+}
+.LeftBaseInfo .cont{
+	border:#CCC solid 1px;
+}
+.LeftBaseInfo .cont .icon{
+	width:90%;
+	overflow:hidden;
+	margin:15px auto 0 auto;
+}
+.LeftBaseInfo .cont .icon span{
+	display:table;
+	width:100%;
+}
+.LeftBaseInfo .cont .icon span em{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	background:#EFEFEF;
+	min-height:100px;
+}
+.LeftBaseInfo .cont .icon span em img{
+	max-width:100%;
+	max-height:180px;
+}
+.LeftBaseInfo .cont .title{
+	text-align:center;
+	padding:10px;
+	line-height:20px;
+	font-size:16px;
+}
+.LeftBaseInfo .cont .renzhengicon{
+	text-align:center;
+}
+.LeftBaseInfo .cont .other{
+	padding:10px 10px 10px 15px;
+}
+.LeftBaseInfo .cont .other li{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:20px;
+	font-size:14px;
+	color:#666;
+}
+.LeftBaseInfo .cont .other li span{
+	color:#F30;
+}
+.LeftBaseInfo .cont .other li.time{
+	background:url(rz1.png) left 8px no-repeat;
+}
+.LeftBaseInfo .cont .other li.guest{
+	background:url(rz2.png) left 8px no-repeat;
+}
+.LeftBaseInfo .cont .other li.hits{
+	background:url(rz3.png) left 8px no-repeat;
+}
+.LeftBaseInfo .cont .wxcode dt{
+	text-align:center;
+	line-height:35px;
+	font-size:26px;
+	color:#F60;
+}
+.LeftBaseInfo .cont .wxcode dd{
+	text-align:center;
+	padding:10px 0 20px 0;
+}
+.LeftBaseInfo .cont .wxcode dd img{
+	width:200px;
+	height:200px;
+}
+.LeftBaseInfo .contact{
+	border:#CCC solid 1px;
+	margin-top:15px;
+	overflow:hidden;
+	border-radius:10px 10px 0 0;
+	position:relative;
+}
+.LeftBaseInfo .contact ol{
+	text-align:center;
+}
+.LeftBaseInfo .contact ol img{
+	max-width:100%;
+	max-height:300px;
+}
+.LeftBaseInfo .contact li{
+	background:#FF8C40 url(phone.png) 15px 8px no-repeat;
+	height:45px;
+	line-height:45px;
+	overflow:hidden;
+	padding:0 10px 0 50px;
+	font-size:20px;
+	color:#FFF;
+}
+.MainBanner{
+	width:1200px;
+	margin:auto;
+	position:relative;
+	text-align:center;
+	max-height:500px;
+	overflow:hidden;
+}
+.MainBanner img{
+	max-width:100%;
+	max-height:500px;
+}
+
+.FootContainer{
+	clear:both;
+	width:1200px;
+	margin:auto;
+	padding-top:25px;
+	position:relative;
+}
+.FootContainer .footlink{
+	position:relative;
+	width:100%;
+	height:35px;
+	margin:5px auto;
+	overflow:hidden;
+	text-align:center;
+}
+.FootContainer .footlink li{
+	display:inline-block;
+	padding:0 10px;
+}
+.FootContainer .copyright{
+	position:relative;
+	text-align:center;
+	padding:5px 0 15px;
+	line-height:20px;
+	font-size:14px;
+	color:#999;
+}

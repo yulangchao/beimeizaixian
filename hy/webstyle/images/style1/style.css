@@ -1,0 +1,355 @@
+body{
+	background:#F5F5F5;
+}
+.SetStyleBut{
+	display:block;
+	width:100%;
+	height:100%;
+	background:#000;
+	filter:alpha(opacity=30); 
+	-moz-opacity:0.3; 
+	opacity:0.3;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:10000;
+	cursor:pointer;
+	line-height:35px;
+	text-align:center;
+	overflow:hidden;
+	color:#FFF;	
+}
+.SetStyleBut:hover{
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
+}
+.quit_setstyle{
+	text-align:center;
+	padding:10px;
+}
+.quit_setstyle a{
+	display:inline-block;
+	line-height:40px;
+	padding:0 20px;
+	border:#F60 solid 1px;
+	background:#f90;
+	color:#FFF;
+	border-radius:5px;
+}
+.quit_setstyle a:hover{
+	border:#F30 solid 1px;
+	background:#f60;
+}
+.TopContent{
+	width:100%;
+	height:100px;
+	background:#F5F5F5;
+	overflow:hidden;
+}
+.TopContentBox{
+	width:1200px;
+	margin:auto;
+	overflow:hidden;
+	position:relative;
+}
+.TopContentBox .Logo{
+	float:left;
+	position:relative;
+	width:500px;
+	height:100px;
+}
+.TopContentBox .Logo a{
+	display:table;
+}
+.TopContentBox .Logo a span{
+	display:table-cell;
+	height:100px;
+	vertical-align:middle;
+}
+.TopContentBox .Logo a span img{
+	max-width:500px;
+	max-height:90px;
+}
+.TopContentBox .ActBox{
+	width:500px;
+	height:42px;
+	float:right;
+	margin-top:30px;
+	overflow:hidden;
+	text-align:right;
+}
+.TopContentBox .ActBox a{
+	display:inline-block;
+	line-height:40px;
+	border:#A9A9A9 solid 1px;
+	background:#A9A9A9;
+	padding:0 10px;
+	font-size:16px;
+	color:#FFF;
+	margin-left:10px;
+	border-radius:5px;
+}
+.TopContentBox .ActBox a:hover{
+	border:#F60 solid 1px;
+	background:#F60;
+}
+.TopContentBox .ActBox a.order{
+	border:#FE6D24 solid 1px;
+	background:#FFF;
+	color:#FE6D24;
+}
+.TopContentBox .ActBox a.login{
+	border:#1ACC78 solid 1px;
+	background:#1ACC78;
+	padding:0 20px;
+}
+.TopContentBox .ActBox a.reg{
+	border:#FE6D24 solid 1px;
+	background:#FE6D24;
+	padding:0 20px;
+}
+.TopContentBox .ActBox a.member{
+	border:#1ACC78 solid 1px;
+	background:#1ACC78;
+}
+.TopContentBox .ActBox a.quit{
+	border:#F00 solid 1px;
+	background:#F00;
+}
+.CompanyBaseInfoBox{
+	width:100%;
+	overflow:hidden;
+	background:#FFF;
+}
+.CompanyBaseInfo{
+	width:1200px;
+	overflow:hidden;
+	margin:20px auto;
+}
+.CompanyBaseInfo:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.CompanyBaseInfo .BaseInfo{
+	width:1000px;
+	float:left;
+}
+.CompanyBaseInfo .BaseInfo .title{
+	height:25px;
+	line-height:25px;
+	margin-bottom:15px;
+	font-size:20px;
+}
+.CompanyBaseInfo .BaseInfo .title span{
+	display:inline-block;
+	background:#AAA;
+	padding:0 15px 0 5px;
+	font-size:14px;
+	color:#FFF;
+	position:relative;
+	margin-left:5px;
+}
+.CompanyBaseInfo .BaseInfo .title span:after{
+	content:'';
+	display:block;
+	width:11px;
+	height:9px;
+	position:absolute;
+	background:url(check0.png) no-repeat;
+	right:1px;
+	bottom:1px;
+}
+.CompanyBaseInfo .BaseInfo .title span.hy_yz{
+	background:#2CB9FF;
+}
+.CompanyBaseInfo .BaseInfo .title span.id_yz{
+	background:#FE6D24;
+}
+.CompanyBaseInfo .BaseInfo .title span.mail_yz{
+	background:#1ACC78;
+}
+.CompanyBaseInfo .BaseInfo .title span.mob_yz{
+	background:#FF5454;
+}
+.CompanyBaseInfo .BaseInfo .title span.hy_yz:after,.CompanyBaseInfo .BaseInfo .title span.id_yz:after,.CompanyBaseInfo .BaseInfo .title span.mail_yz:after,.CompanyBaseInfo .BaseInfo .title span.mob_yz:after{
+	background:url(check.png) no-repeat;
+}
+.CompanyBaseInfo .BaseInfo .address,.CompanyBaseInfo .BaseInfo .time{
+	height:20px;
+	line-height:20px;
+	padding-left:25px;
+	font-size:16px;
+	color:#666;
+	background:url(address.png) left top no-repeat;
+	margin-bottom:15px;
+}
+.CompanyBaseInfo .BaseInfo .time{
+	background:url(time.png) left top no-repeat;
+}
+.CompanyBaseInfo .BaseInfo .address a{
+	color:#2CB9FF;
+	display:inline-block;
+	padding-left:10px;
+}
+.CompanyBaseInfo .BaseInfo .more{
+	line-height:20px;
+	font-size:14px;
+	color:#888;
+	margin-bottom:10px;
+}
+.CompanyBaseInfo .BaseInfo .contact{
+	height:27px;
+	overflow:hidden;
+}
+.CompanyBaseInfo .BaseInfo .contact span{
+	display:inline-block;
+	line-height:27px;
+	padding:0 25px 0 50px;
+	font-size:20px;
+	margin-right:16px;
+	border-right:#DDD solid 1px;
+}
+.CompanyBaseInfo .BaseInfo .contact span.tel{
+	background:url(tel.png) no-repeat;
+	color:#2CB9FF;
+}
+.CompanyBaseInfo .BaseInfo .contact span.mob{
+	background:url(mob.png) no-repeat;
+	color:#1ACC78;
+}
+.CompanyBaseInfo .BaseInfo .contact span.qq{
+	background:url(qq.png) no-repeat;
+	color:#FE6D24;
+	border-right:0;
+}
+.CompanyBaseInfo .wxcode{
+	width:150px;
+	overflow:hidden;
+	float:right;
+}
+.CompanyBaseInfo .wxcode ul ol{
+	border:#DDD solid 1px;
+	text-align:center;
+	padding:5px;
+}
+.CompanyBaseInfo .wxcode ul ol img{
+	width:140px;
+	height:140px;
+}
+.CompanyBaseInfo .wxcode ul li{
+	text-align:center;
+	line-height:35px;
+	font-size:16px;
+}
+.CompanyBaseInfo .wxcode .addhy{
+	text-align:center;
+	background:#FE6D24;
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	color:#FFF;
+	margin-top:10px;
+	cursor:pointer;
+}
+.CompanyBaseInfo .wxcode .addhy span{
+	display:inline-block;
+	padding-left:25px;
+	background:url(xing.png) left 12px no-repeat;
+}
+.MainmenuBox{
+	width:100%;
+	overflow:hidden;
+	background:#2CB9FF;
+}
+.MainmenuBox .Mainmenu{
+	width:1200px;
+	height:60px;
+	margin:auto;
+	overflow:hidden;
+	position:relative;
+}
+.MainmenuBox .Mainmenu ul li{
+	float:left;
+	height:60px;
+	padding:0 5px;
+	
+}
+.MainmenuBox .Mainmenu ul li a{
+	display:block;
+	line-height:40px;
+	padding:0 15px;
+	margin-top:10px;
+	font-size:18px;
+	color:#FFF;
+}
+.MainmenuBox .Mainmenu ul li a:hover{
+	background:#BFE3F5;
+	border-radius:5px;
+}
+.MainmenuBox .Mainmenu ul li.choose{
+	background:#FFF;
+}
+.MainmenuBox .Mainmenu ul li.choose a{
+	color:#2CB9FF;
+}
+.ShowPage{
+	clear:both;
+	width:100%;
+	text-align:center;
+	padding:15px 0;
+}
+.ShowPage a{
+	display:inline-block;
+	line-height:35px;
+	border:#DDD solid 1px;
+	background:#F7F7F7;
+	padding:0 10px;
+	font-size:14px;
+	margin:3px 2px 0 2px;
+}
+.ShowPage a.ck{
+	border:#2CB9FF solid 1px;
+	background:#2CB9FF;
+	color:#FFF;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}
+.FootContainer{
+	width:100%;
+	margin:30px auto 0 auto;
+	background:#333;
+	position:relative;
+	padding:10px 0;
+}
+.FootContainer .footlink{
+	width:1200px;
+	height:40px;
+	text-align:center;
+	margin:auto;
+	line-height:40px;
+	position:relative;
+	overflow:hidden;
+}
+.FootContainer .footlink li{
+	display:inline-block;
+	padding:0 10px;
+}
+.FootContainer .footlink li a{
+	font-size:16px;
+	color:#EEE;
+}
+.FootContainer .copyright{
+	width:1200px;
+	padding-top:5px;
+	text-align:center;
+	line-height:25px;
+	color:#DDD;
+	position:relative;
+	font-size:14px;
+	margin:auto;
+}

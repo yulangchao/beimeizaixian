@@ -1,0 +1,103 @@
+.jobtable {
+	width:100%; margin-bottom:70px; overflow:hidden; margin-top:25px;
+}
+.content_left {
+	width:25px; vertical-align:top; 
+}
+.content_right {
+	width:75%;overflow:hidden; padding-left:25px;
+}
+.left_table {
+	width:100%; height:auto; border:1px solid#1aa4ed;
+}
+.head_blue {
+	width:100%; line-height:40px; background:#1aa4ed; padding-left:15px; font-size:16px; color:#FFFFFF;
+}
+.company {
+	width:100%; padding:15px;
+}
+.company em {
+	color:#ff9600; line-height:30px;
+}
+.com_name {
+	background:url(rd_renzheng.jpg) no-repeat left center; padding:16px 0 16px 55px;
+}
+.com_look {
+	background:url(rd_look.jpg) no-repeat center center; line-height:40px; text-align:center; margin-top:10px;
+}
+.com_look a {
+	font-size:16px; color:#FFFFFF; font-weight:bold; padding-left:15px;
+}
+.com_look a:hover {
+	text-decoration:underline;
+}
+.m_head {
+	width:100%;line-height:40px; background:#f0f0f0; padding-left:15px;
+}
+.m_head span {
+	background:url(rd_hbg.jpg) no-repeat left center; padding-left:15px; font-size:16px; font-weight:bold;
+}
+.morejob_box {
+	width:100%; padding:15px
+}
+.morejob { 
+	width:100%;; font-size:16px; color:#43bbfb;
+}
+.morejob a {
+	font-size:16px;color:#43bbfb; line-height:30px;
+}
+.morejob a:hover {
+	text-decoration:underline;
+}
+
+.text {
+	width:100%; border:1px solid #dfdfdf; 
+}
+.head_black {
+	width:100%; background:#f0f0f0; line-height:40px; padding-left:15px; font-size:16px; font-weight:bold; color:#696969;
+}
+.title {
+	width:100%; line-height:37px; font-size:15px;
+}
+.mian_text {
+	padding:15px; font-size:15px;
+}
+.btable {
+	width:100%;
+}
+.base {
+	width:100%; margin-bottom:30px; overflow:hidden;
+}
+.base .bt {
+	line-height:35px; width:25%; float:left;
+}
+.h3 {
+	background:url(h3_bg.jpg) repeat-x center;
+}
+.tag2 {
+	width:100px; line-height:40px; background:#ffffff;
+}
+.duty {
+	width:100%; line-height:30px; color:#666666;
+}
+.sq {
+	background:url(rd_shenqing.jpg) no-repeat center center; line-height:40px; text-align:center; margin:25px 0;
+}
+.sq a {
+	font-size:16px; color:#FFFFFF; font-weight:bold; padding-left:10px;
+}
+.sq a:hover { 
+	text-decoration:underline;
+}
+.call {
+	width:100%; line-height:30px;
+}
+.t_sq {
+	background:url(t_sq.jpg) repeat-x center; text-align:center; line-height:35px; width:100%; margin:25px 0;
+}
+.t_sq input[type=button]{
+	width:102px; height:35px; background:#1aa4ed; border:none; color:#FFFFFF; font-size:16px; font-weight:bold;
+}
+.sp_input:hover {
+	background:#1981b8; text-decoration:underline;
+}

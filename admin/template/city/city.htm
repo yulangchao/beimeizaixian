@@ -1,0 +1,119 @@
+<!--
+<?php
+if(in_array('fenlei',$BIZ_MODULEDB)&&LIFE_MORE===true){
+print<<<EOT
+-->
+<div class="MainContainers">
+	<div class="Header"><span class="tag">创建城市</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+      <form action="$admin_path&action=addcity" method="POST">
+		<table class="FormTable">
+		  <tr>
+		    <td class="tdL">名称</td>
+			<td class="tdR">
+              <textarea name="name" cols="40" rows="5"></textarea>
+              注:如要同时添加多个城市,每个城市名换一行.</td>
+          </tr>
+          <tr>
+		    <td class="tdL">归属</td>
+			<td class="tdR">{$sort_fup}</td>
+          </tr>
+        </table>      
+		<div class="submits"><input type="submit" value="创 建" name="submit"></div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	function lookup(inputString) {
+		if(inputString.length == 0) {
+			// Hide the suggestion box.
+			$('#suggestions').hide();
+		} else {
+			$.post("s_city.php", {queryString: ""+inputString+"",tabname: "city"}, function(data){
+				if(data.length >0) {
+					$('#suggestions').show();
+					$('#autoSuggestionsList').html(data);
+				}
+			});
+		}
+	} // lookup
+	
+	function fill(thisValue) {
+		//$('#inputString').val(thisValue);
+		setTimeout("$('#suggestions').hide();", 200);
+	}
+</script>
+<style>
+.Conter{position:relative;}
+.suggestionsBox{display:none; position:absolute; top:50px; left:341px; width:200px; line-height:25px; border:1px solid #019BC4; background:#fff; border-top:0; z-index:999999;}
+.suggestionsBox li{padding-left:10px; cursor:default;}
+.suggestionsBox li:hover{background:#dcdcdc; color:#333;}
+.suggestionsBox li a{display:block;}
+</style>
+<div class="MainContainers">
+	<div class="Header"><span class="tag">搜索城市</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+	  <form action="$admin_path&job=city" method="POST">
+	  <table class="FormTable">
+	    <tr><td class="tdL">城市名</td><td class="tdR"><input type="text" name="keyword" id="inputString" value="$keyword" placeholder="请输入要搜索的城市名" style="width:200px;" onkeyup="lookup(this.value);" onblur="fill();"/></td></tr>
+	  </table>
+	  <div class="suggestionsBox" id="suggestions">
+		<ul class="suggestionList" id="autoSuggestionsList">
+					&nbsp;
+		</ul>
+	  </div>
+	  <input type="hidden" name="fup" value="$fup"/>
+	  <div class="submits"><input type="submit" value="搜 索" name="submit"></div>
+	  </form>
+	</div>
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<form name="formlist" method="post" action="$admin_path&action=editlist_city">
+<div class="MainContainers">
+	<div class="Header"><span class="tag">城市列表</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+		<div class="WarrIngs">注意:排序的规则是,数值大的排在前面</div>
+        <table class="ListTable">
+          <tr> 
+            <th width="7%">FID</th>
+            <th width="23%">名称</th>
+            <th width="11%">管理</th>
+            <th width="10%">排序值</th>
+            <th width="15%">城市辖区管理</th>
+            <th width="9%">标签</th>
+            <th width="8%">设置</th>
+            <th width="9%">删除</th>
+          </tr>
+<!--
+EOT;
+foreach($sortdb AS $key=>$rs){
+$num=intval($infodb[$rs[fid]]);
+$cityadmins=( count($city_DB[name])>1 )?"<a href='$webdb[www_url]/city_admin/?admin_city=$rs[fid]' target='_blank'>分城市管理</a>":"<br/>";
+print <<<EOT
+-->
+          <tr> 
+            <td class="b red">$rs[fid]</td>
+            <td class="Left">$rs[icon]【<a href="$rs[url]" target="_blank">{$rs[name]}</a>】</td>
+            <td>$cityadmins </td>
+            <td><input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'/></td>
+            <td><a href="$admin_path&job=zone&fup=$rs[fid]">创建及管理市辖区</a></td>
+            <td><a href="../index.php?choose_cityID=$rs[fid]&jobs=show" target="_blank">标签</a></td>
+            <td><a href='$admin_path&job=edit_city&fid=$rs[fid]' class="edit">修改</a></td>
+            <td><a href="$admin_path&action=delete_city&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');" class="del">删除</a></td>
+          </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+		<div class="submits"><input type="submit" name="Submit2" value="修改以上设置"/></div>
+	</div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

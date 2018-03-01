@@ -1,0 +1,79 @@
+.conter,.Tourism,.Weather,.Customer{
+	background: #FFF;
+    padding: 10px;
+    margin: 15px 0;
+    overflow: hidden;
+	}
+ .conterBox{
+	border-bottom: #ccc solid 1px;
+    overflow: hidden;
+    padding: 10px 0px;
+    margin: 4px 0;
+	}
+.conter .nBottom{ border:none;}
+ .conterBox dt{
+	float:right;
+	width:34%;
+	height:auto;
+	position:relative;}
+ .conterBox dt img{
+	max-width:100%;
+	}
+ .conterBox dd{
+	max-width:66%;
+	overflow:hidden;}
+ .conterBox dd a{
+	font: 15px/26px 'Microsoft Yahei','Simsun';
+	height:52px;
+	overflow:hidden;
+	display:inline-block;}
+ .conterBox dd div{
+	color:#999;
+	}
+ .conterBox dd .time{
+	margin-right:18px;}
+	
+ .title{
+	height:46px;
+	line-height:46px;
+	font-size:20px;
+	border-bottom:solid #ccc 1px;
+	background:url(fanxian.png) no-repeat right center;
+	}
+ .title span{
+	display:block;
+	width:120px;
+	height:46px;
+	text-indent: 1em;
+	}
+.Tourism .title span{
+	background:url(bj.png) no-repeat left center;
+    border-bottom: 1px solid #23d27a;
+	}
+.newsList2 .title span{
+	background:url(bj_red.png) no-repeat left center;
+	border-bottom:1px solid #E73336}
+.newsList3 .title span{
+	background:url(bj_blue.png) no-repeat left center;
+	border-bottom:1px solid #3c9efa}	
+.buttom{
+	height:88px;
+	overflow:hidden;
+	}
+.buttom a{
+	display:block;
+	width:80%;
+	height:52px;
+	line-height:52px;
+	font-size:20px;
+	color:#fff;
+	text-align:center;
+	margin:22px auto;
+	border-radius:16px;
+	background-color:#16cd86;}
+.newsList2 .buttom a{
+	background-color:#ff790c;
+	}
+.newsList3 .buttom a{
+	background-color:#3c9efa;
+	}

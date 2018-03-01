@@ -1,0 +1,117 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<form   method="post" action="index.php?lfj=$lfj&action=addword">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">添加关键字</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr> 
+      <td class='tdL'> 
+        关 键 词：
+            
+      </td>
+      <td class='tdR'><input name="ask" type="text" size="50" />
+      （多个个关键词，请用半角空格隔开）</td>
+    </tr>
+    <tr>
+      <td class='tdL'>回复内容：</td>
+      <td class='tdR'><textarea name="answer" cols="50" rows="3"></textarea></td>
+    </tr>
+    </table>
+    <div class='submits'><input type="submit" name="Submit2" value=" 提 交 " /></div>
+  </div>
+</div>
+</form>
+
+<form name="form_work" method="post" action="index.php?lfj=$lfj&action=delete">
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+      <tr> 
+        <th width="6%">排序值</th>
+        <th width="16%">关 键 词</th>
+        <th width="62%">回复内容</th>
+        <th width="8%">修改</th>
+        <th width="8%">删除</th>
+      </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[list]</td>
+      <td class='Left'> 
+        <input type="checkbox" name="iddb[{$rs[id]}]" value="{$rs[id]}">
+        $rs[ask]</td>
+      <td class='Left'> $rs[answer]</td>
+      <td><a href="index.php?lfj=$lfj&job=edit&id=$rs[id]" title='点击修改' class='edit'></a><a href="index.php?lfj=$lfj&job=add"></a></td>
+      <td><a href="index.php?lfj=$lfj&action=delete&iddb[{$rs[id]}]=$rs[id]" title='点击删除' class='del'></a></td>
+    </tr>  <!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+  <div class="m-showpage">$showpage</div>
+  <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input type="submit" name="Submit" value="删 除">    
+  </div>
+  </div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<form   method="post" action="index.php?lfj=$lfj&action=set">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">默认设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr>
+      <td class='tdL'>新用户关注微信时回复内容：</td>
+      <td class='tdR'><textarea name="webdbs[weixin_welcome]" cols="70" rows="3"  >$webdb[weixin_welcome]</textarea></td>
+    </tr>  <tr>
+      <td class='tdL'>不能解答时回复内容：</td>
+      <td class='tdR'><textarea name="webdbs[weixin_problem]" cols="70" rows="3"  >$webdb[weixin_problem]</textarea></td>
+    </tr>
+    </table>
+    <div class='submits'><input type="submit" name="Submit2" value=" 提 交 " /></div>
+  </div>
+</div>
+</form>
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">帮助说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>1、这里可以设置类似机器人回复微信用户提出的问题，你可以设置关键词，根据用户提出的问题中包含此关键字时，就回复对应的内容。回答不上的内容，就按系统默认的设置回复.</li>
+      <li> 2、排在最前面的会优先匹配。</li>
+    </ul>
+  </div>
+</div>
+
+<!--
+EOT;
+?>
+-->

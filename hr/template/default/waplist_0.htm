@@ -1,0 +1,89 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/hr.css">
+<div class="GuideCont">当前位置：<a href="./">招聘首页</a> $GuideFid[$fid]</div>
+<ul class="SelectType">
+<!--{filter}-->
+	<li><span>{title}：</span>{value}</li>
+<!--{/filter}-->
+</ul>
+<div class="SelectSort">
+	<h3><span>职位分类</span></h3>
+    <ul>
+<!--
+EOT;
+$list_sort="";
+foreach($Fid_db[0] AS $key=>$rs){
+$ck_class=($fid==$key || $key==$fidDB[fup])?"class='ck'":"";
+$list_sort.="<dl $ck_class>\r\n";
+$list_sort.="	<dt><a href=\"waplist.php?fid=$key\">{$rs}</a></dt>\r\n";
+if($Fid_db[$key]){
+$list_sort.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rss){
+$ck_class=($fid==$keys)?"class='ck'":"";
+$list_sort.="		<a href=\"waplist.php?fid=$keys\" $ck_class>{$rss}</a>\r\n";
+}
+$list_sort.="	</dd>\r\n";
+}
+$list_sort.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$list_sort
+    </ul>
+</div>
+<div class="ListCont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	<dl>
+    	<dd>
+        	<div><span>$rs[wage]</span></div>
+            <div>$rs[posttime]</div>
+        </dd>
+    	<dt>
+        	<h3><a href="$rs[url]">$rs[title]</a></h3>
+            <div><a href="$webdb[www_url]/home/?uid=$rs[uid]">$rs[company]</a></div>
+            <div>
+<!--{template}-->
+				{value}
+<!--{/template}-->
+            	$rs[workplace]
+            </div>
+        </dt>        
+    </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<div class="page">$showpage</div>
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script>
+$(".SelectSort h3 span").click(function(){
+	if ($(window).height() > $("body").height()) {
+		$('#fullbg1').height($(window).height());
+	} else {
+		$('#fullbg1').height($("body").height());
+	}
+	$('#fullbg1').css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		$(".SelectSort ul").css({'display':'block'}).stop().animate({'opacity':1},300);
+	});
+});
+$('#fullbg1').click(function(){
+	$(".SelectSort ul").animate({'opacity':0},300,function(){
+		$(this).css({'display':'none'});});
+	setTimeout(function(){
+		$('#fullbg1').stop().animate({'opacity':0},300);
+		$('#fullbg1').css({'display':'none'});
+	}, 500)
+});
+</script> 
+<!--
+EOT;
+?>
+-->

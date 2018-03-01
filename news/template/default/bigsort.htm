@@ -1,0 +1,112 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/bigsort.css">
+<div class="main">
+	<div class="main_left">
+<!--
+EOT;
+$moreline=$webdb[InfoListSonline]>0?$webdb[InfoListSonline]:2;
+$array=array_chunk($listdb_moresort,$moreline);
+$moretdwidth=floor(100/$moreline)."%";
+$moreline>1&&$moretimedisplay='none';
+foreach($array AS $key2=>$array2){
+print <<<EOT
+-->
+<!--
+EOT;
+$iii=0;
+foreach($array2 AS $key=>$rss){
+$iii++;
+$more_box = $iii % 2==0?"more_boxs":"";
+if($moreline>1&&$iii%$moreline==1){
+$tbstyle=" style='padding-right:2px;' ";
+}elseif($moreline>1&&$iii%$moreline==0){
+$tbstyle=" style='padding-left:2px;' ";
+}else{
+$tbstyle=" ";
+}
+print <<<EOT
+-->
+		<div class="more_box $more_box">
+        	<div class="box_title"><span>$rss[name]</span><a href="list.php?fid=$rss[fid]">more</a></div>
+            <div class="select_box">
+<!--
+EOT;
+foreach($rss[article] AS $key1=>$rs){
+print <<<EOT
+-->
+            	<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+				<span style="display:$moretimedisplay;">({$rs[posttime]})</span>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="clierfix"></div>
+        </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+}print <<<EOT
+-->
+        <div class="clierfix"></div>
+    </div>
+    <div class="main_right">
+    	<div class="right_box01">
+<!--
+EOT;
+$webdb[InfoListsortnameline]>0 || $webdb[InfoListsortnameline]=1;
+$Listsortnameline=floor(94/$webdb[InfoListsortnameline]).'%';
+$array=$listdb_moresort?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $key=>$value){
+print <<<EOT
+-->
+        	<a href="list.php?fid=$key">$value</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+        <div class="right_box02">
+        	<div class="box_title"><span>热门文章</span></div>
+<!--
+EOT;
+$array=Get_Info($type='hot',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:8,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:28,$fid,$mid=0,1);
+foreach($array AS $rs){
+print <<<EOT
+-->
+            <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+        <div class="right_box02">
+        	<div class="box_title"><span>推荐文章</span></div>
+<!--
+EOT;
+$array=Get_Info($type='level',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:8,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:28,$fid,$mid=0,1);
+foreach($array AS $rs){
+print <<<EOT
+-->
+            <a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+           
+        </div>
+        <div class="clierfix"></div>
+    
+    </div>
+    <div class="clierfix"></div>
+</div>
+<!--
+EOT;
+?>
+-->

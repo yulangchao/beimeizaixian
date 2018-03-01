@@ -1,0 +1,395 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div style="display:none;"> 
+  <iframe width=1 height=1 src='' id="iframe_zone" name="iframe_zone"></iframe> 
+  <iframe width=1 height=1 src='' id="iframe_street" name="iframe_street"></iframe> 
+  <form name="form1" method="post" action="" target="iframe_zone" id="form_zone">
+  </form>
+</div>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<form action="?" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<div class="FormContainer">
+	<h3>店铺设置</h3>
+	<dl>
+		<dt><span>*</span>公司全称：</dt>
+		<dd><input type='text' name='title' id='atc_title' class='text' value='$intro[title]' /></dd>
+	</dl>
+    <dl>
+		<dt>商家LOGO：</dt>
+		<dd>
+			<img src="$rsdb[logo]" style="margin:5px 0 5px 0;max-width:90%;max-height:50px;" class="logoimg"/>
+<!----------------移动版传图片开始------------------------->
+<!--
+EOT;
+$dirid=ceil($uid/1000);
+if(is_weixn_open()){
+require(ROOT_PATH."inc/weixin.jsdk.php"); //监控微信分享事件
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+		<div class="map_box">
+			<input type="hidden" name="oldfile" id="out_url0" value="$lfjdb[icon]"/>
+			<input id="morepicurl" type="hidden"/>
+			<div onClick="Atcupimg();" class="getmap">点击上传图片</div>
+		</div>
+<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+<div class="upflieBox">
+	<p>请选择上传的图片</p>
+	<a id="chooseImage">选择图片</a>
+	<a id="uploadImage">上传图片</a>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>	
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+wx.config({
+	debug: false,
+	appId: '{$signPackage["appId"]}',
+	timestamp: {$signPackage["timestamp"]},
+	nonceStr: '{$signPackage["nonceStr"]}',
+	signature: '{$signPackage["signature"]}',
+	jsApiList: [
+		'checkJsApi',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+	  ]
+});
+function Atcupimg(){
+	$('.Share_Message').fadeIn();
+	$('.upflieBox').fadeIn();
+}
+function SharHiddenMessage() {
+	$('.Share_Message').fadeOut();
+	$('.upflieBox').fadeOut();
+	$('.upflieBox p').html('请选择上传的图片');
+	$('#chooseImage').css({"background":"#F60","border":"#F30 solid 1px"});
+	$('#uploadImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+}
+wx.ready(function () {
+  // 5 图片接口
+  // 5.1 拍照、本地选图
+  var images = {
+    localId: [],
+    serverId: []
+  };
+  document.querySelector('#chooseImage').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        images.localId = res.localIds;
+        //alert('已选择 ' + res.localIds.length + ' 张图片，请点击上传按钮开始上传。');
+		$('.upflieBox p').html('已选择'+res.localIds.length+'张图片<br/><font color="red">请点击下面第二个按键上传图片</font>');
+		$('#uploadImage').css({"background":"#F60","border":"#F30 solid 1px"});
+		$('#chooseImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+		postimg();
+      }
+    });
+  };
+  // 5.3 上传图片
+  document.querySelector('#uploadImage').onclick = function () {
+    if (images.localId.length == 0) {
+      //alert('请先选择图片');
+	  $('.upflieBox p').html('请先点击下面第一个按键选择图片');
+      return;
+    }
+    var i = 0, length = images.localId.length;
+    images.serverId = [];
+    function upload() {
+      wx.uploadImage({
+        localId: images.localId[i],
+        success: function (res) {
+          i++;
+          //alert('已上传：' + i + '/' + length);
+		  alert('已上传：第 ' + i + ' 张图片，请点击确认继续上传。' );
+		  //window.location.href="u.php?urls="+res.serverId
+		  document.querySelector('#morepicurl').value+=","+res.serverId;
+          images.serverId.push(res.serverId);
+          if (i < length) {
+            upload();
+          }else{
+		  	$('.upflieBox p').html('请选择上传的图片');
+			SharHiddenMessage();
+			//对微信上传的图片时行后处理
+			get_weixin_up_file();
+		  }
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });	  
+    }
+    upload();	
+  };
+});
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+function get_weixin_up_file(){
+	var upfile_str=$('#morepicurl').val();
+	$.get("/do/wx_upimg.php?atc=uponepic&dir=homepage/logo/{$dirid}&upfile_str="+upfile_str+"&"+Math.random(),function(d){
+		//$("#out_url0").val(d);
+		changeLogoImg(d);
+	});
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	//document.getElementById(ty).value=url;
+	changeLogoImg(url);
+}
+//-->
+</SCRIPT>
+		<div class="upfile_box">
+		  <input class='upfile' type="hidden" name="oldfile" id='out_url0' value='$intro[picurl]'/>
+		  <div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=homepage/logo/{$dirid}&label=out_url0'></iframe></div>
+		</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+<!----------------移动版传图片结束------------------------->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function changeLogoImg(str){
+	$.get("?atn=info&uid=$uid&act=editlogo&picurl="+str+"&"+Math.random(),function(d){
+		$(".logoimg").attr("src",d);
+	});
+}
+//-->
+</SCRIPT>
+        </dd>
+	</dl>
+    <dl>
+		<dt><span>*</span>主营分类：</dt>
+		<dd class="SelectFids">
+<!--
+EOT;
+$listSelFup="";
+$i=0;
+foreach($Fid_db[0] AS $key=>$rss){
+$i++;
+if($i==1) $morefid=$key;
+$listSelFup.="<option value='$key'>$rss</option>\n";
+}
+$listSelFid="<option value='0'>请选择栏目</option>";
+foreach($Fid_db[$morefid] AS $key=>$rss){
+$listSelFid.="<option value='$key'>$rss</option>\n";
+}
+print <<<EOT
+-->
+  	<div>请先选择大类再选择小类<br>
+		大类
+		<select name="SelFup" style="width:100px;">
+		  $listSelFup
+		</select><br>
+		小类
+		<select name="SelFid" style="width:100px;">
+		  $listSelFid
+		</select>
+	</div>
+<!--
+EOT;
+foreach($fids as $fid){		
+print <<<EOT
+-->
+	<div><input type='checkbox' name='fids[]' value='$fid' checked> {$Fid_db['name'][$Fid_db['fup'][$fid]]} &gt {$Fid_db['name'][$fid]}</div>
+<!--
+EOT;
+}
+$webdb[maxCompanyFidNum]||$webdb[maxCompanyFidNum]=10;
+print <<<EOT
+-->
+        </dd>
+	</dl>
+<SCRIPT type=text/javascript>
+$("select[name='SelFup']").change(function(){
+	var fup=$(this).val();
+	$.get("?atn=$atn&job=showsort&fup="+fup+"&"+Math.random(),function(d){
+		$("select[name='SelFid']").html(d);		
+	});	
+});
+$("select[name='SelFid']").change(function(){
+	var fid=$(this).val();
+	var checks=1;
+	var sorts=0;
+	var maxsorts=$webdb[maxCompanyFidNum];
+	$(".SelectFids input[type='checkbox']").each(function(){
+		sorts++;
+		if(fid==$(this).val()){
+			alert('不能重复添加!');
+			checks=0;
+		}
+	});
+	if(sorts>=maxsorts){
+		alert('你添加的分类数大于'+maxsorts+'不能添加更多!');
+		checks=0;
+	}
+	if(checks==1){
+		$.get("?atn=$atn&job=selsort&fid="+fid+"&"+Math.random(),function(d){
+			$(".SelectFids").append(d);		
+		});	
+	}
+});
+$(".SelectFids input[type='checkbox']").click(function(){
+	var delsort=1;
+	var sorts=0;
+	if($(this).attr("checked")){
+		delsort=0;
+	}else{
+		$(".SelectFids input[type='checkbox']").each(function(){			
+			if($(this).attr("checked")){
+				sorts++;
+			}
+		});
+		if(sorts<1){
+			alert('至少要选择一个分类!');
+			delsort=0;
+			$(this).attr("checked",'true');
+		}
+	}
+	if(delsort==1){
+		$(this).parent().remove();
+	}
+});
+</SCRIPT>
+    <dl>
+		<dt><span >*</span>所属行业：</dt>
+		<dd>
+        <select name='my_trade' id='atc_my_trade'>
+<!--
+EOT;
+$detail=explode("\r\n",$webdb[companyTrade]);
+foreach($detail AS $key=>$value){
+$ckk=$intro[my_trade]==$value?' selected ':' ';
+print <<<EOT
+-->
+          <option value="$value" $ckk>$value</option>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </select>
+        </dd>
+	</dl> 
+    <dl>
+		<dt><span >*</span>企业类型：</dt>
+		<dd>
+        <select name='qy_cate' id='atc_qy_cate'>
+          <option value='个体经营' {$qy_cate['个体经营']}>个体经营</option>
+          <option value='个人独资企业' {$qy_cate['个人独资企业']}>个人独资企业</option>
+          <option value='私营合伙企业' {$qy_cate['私营合伙企业']}>私营合伙企业</option>
+          <option value='私营有限责任公司' {$qy_cate['私营有限责任公司']}>私营有限责任公司</option>
+          <option value='私营股份有限公司' {$qy_cate['私营股份有限公司']}>私营股份有限公司</option>
+          <option value='国有企业' {$qy_cate['国有企业']}>国有企业</option>
+          <option value='集体企业' {$qy_cate['集体企业']}>集体企业</option>
+          <option value='股份合作企业' {$qy_cate['股份合作企业']}>股份合作企业</option>
+          <option value='联营企业有限责任公司(国有独资)' {$qy_cate['联营企业有限责任公司(国有独资)']}>联营企业有限责任公司(国有独资)</option>
+          <option value='其他有限责任公司' {$qy_cate['其他有限责任公司']}>其他有限责任公司</option>
+          <option value='股份有限公司' {$qy_cate['股份有限公司']}>股份有限公司</option>
+          <option value='其他内资企业' {$qy_cate['其他内资企业']}>其他内资企业</option>
+          <option value='三来一补' {$qy_cate['三来一补']}>三来一补</option>
+          <option value='分支机构' {$qy_cate['分支机构']}>分支机构</option>
+          <option value='合资经营企业(港或澳、台资)' {$qy_cate['合资经营企业(港或澳、台资)']}>合资经营企业(港或澳、台资)</option>
+          <option value='合作经营企业(港或澳、台资)' {$qy_cate['合作经营企业(港或澳、台资)']}>合作经营企业(港或澳、台资)</option>
+          <option value='港、澳、台商独资经营企业' {$qy_cate['港、澳、台商独资经营企业']}>港、澳、台商独资经营企业</option>
+          <option value='港、澳、台商投资股份有限公司' {$qy_cate['港、澳、台商投资股份有限公司']}>港、澳、台商投资股份有限公司</option>
+          <option value='中外合资经营企业' {$qy_cate['中外合资经营企业']}>中外合资经营企业</option>
+          <option value='中外合作经营企业' {$qy_cate['中外合作经营企业']}>中外合作经营企业</option>
+          <option value='外资企业' {$qy_cate['外资企业']}>外资企业</option>
+          <option value='外商投资股份有限公司' {$qy_cate['外商投资股份有限公司']}>外商投资股份有限公司</option>
+          <option value='政府机构' {$qy_cate['政府机构']}>政府机构</option>
+          <option value='非盈利组织' {$qy_cate['非盈利组织']}>非盈利组织</option>
+          <option value='其他有限责任公司' {$qy_cate['其他有限责任公司']}>其他有限责任公司</option>
+          <option value='有限责任公司（国内合资）' {$qy_cate['有限责任公司（国内合资）']}>有限责任公司（国内合资）</option>
+          <option value='一人有限责任公司' {$qy_cate['一人有限责任公司']}>一人有限责任公司</option>
+          <option value='私营独资企业' {$qy_cate['私营独资企业']}>私营独资企业</option>
+        </select>
+        </dd>
+	</dl> 
+    <dl>
+		<dt><span >*</span>注册资本：</dt>
+		<dd><input type='text' name='qy_regmoney' id='atc_qy_regmoney' class="text" value='$intro[qy_regmoney]' /><span class="b red">万</span>人民币</dd>
+	</dl>
+    <dl>
+		<dt><span >*</span>经营模式：</dt>
+		<dd>
+        <select name='qy_saletype' id='atc_qy_saletype'>
+          <option value='生产型' {$qy_saletype['生产型']}>生产型</option>
+          <option value='贸易型' {$qy_saletype['贸易型']}>贸易型</option>
+          <option value='服务型' {$qy_saletype['服务型']}>服务型</option>
+          <option value='政府或其他机构' {$qy_saletype['政府或其他机构']}>政府或其他机构</option>
+        </select>
+        </dd>
+	</dl> 
+    <dl>
+		<dt><span >*</span>注册资本：</dt>
+		<dd><input type='text' name='qy_regmoney' id='atc_qy_regmoney' class="text" value='$intro[qy_regmoney]' /><span class="b red">万</span>人民币</dd>
+	</dl>    
+    <dl>
+		<dt>成立时间:</dt>
+		<dd><input type='text' name='qy_createtime' id='atc_qy_createtime' class="text" value='$intro[qy_createtime]' /></dd>
+	</dl>    
+    <dl>
+		<dt>主营产品:</dt>
+		<dd><input type='text' name='qy_pro_ser' id='atc_qy_pro_ser' class="text" value='$intro[qy_pro_ser]' /></dd>
+	</dl>    
+    <dl>
+		<dt>主要采购产品:</dt>
+		<dd><input type='text' name='my_buy' id='atc_my_buy' class="text" value='$intro[my_buy]' /></dd>
+	</dl>    
+    <dl>
+		<dt>注册地址:</dt>
+		<dd><input type='text' name='qy_regplace' id='atc_qy_regplace' class="text" value='$intro[qy_regplace]' /></dd>
+	</dl>
+<!--
+EOT;
+$city_fid=select_where("{$pre}city","'postdb[city_id]'  onChange=\"choose_where('getzone',this.options[this.selectedIndex].value,'','1','')\"",$intro[city_id]);
+print <<<EOT
+-->
+    <dl>
+		<dt>所在区域:</dt>
+<style>
+.ListSelect3 select{width:30%;}
+</style>
+		<dd class="ListSelect3">{$city_fid}<span id="showzone"></span><span id="showstreet"></span></dd>
+	</dl>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function choose_where(t,fup,fid,delstreet,typeid){
+	if(t=='getzone'){
+		url="$webdb[www_url]/f/job.php?job=getzone&typeid="+typeid+"&fup="+fup+"&fid="+fid+"&delstreet="+delstreet;
+		target='iframe_zone';
+	}else{
+		url="$webdb[www_url]/f/job.php?job=getstreet&typeid="+typeid+"&fup="+fup+"&fid="+fid;
+		target='iframe_street';
+	}
+	document.getElementById("form_zone").action=url;
+	document.getElementById("form_zone").target=target;
+	document.getElementById("form_zone").submit();
+}
+choose_where("getzone","$intro[city_id]","$intro[zone_id]",'','');
+choose_where("getstreet","$intro[zone_id]","$intro[street_id]",'','');
+//-->
+</SCRIPT>
+  <div class="butter">
+     <span class="submits"><input type="submit" name="button8" id="button12" value="提 交" /></span>
+     <input name="atn" type="hidden" id="atn" value="$atn" />
+     <input name="step" type="hidden" id="step" value="1" />
+     <input name="uid" type="hidden" id="uid" value="$uid" />
+  </div>
+</div>
+</form>       
+<!--
+EOT;
+?>
+-->

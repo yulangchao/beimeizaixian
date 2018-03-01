@@ -1,0 +1,123 @@
+<!--
+<?php
+$picartic = list_title('com',5);
+$slideCode="";
+$slideList="";
+$i=0;
+foreach($picartic AS $key=>$rs){
+	$i++;
+	$slideCode.="<li class='li'><a href=\"wapbencandy.php?fid=$rs[fid]&id=$rs[id]\"><img src=\"$rs[picurl]\" onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\" title=\"$rs[title]\"></a></li>\r\n";
+	$slideList.="<li class='li'>$i</li>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/index.css">
+<!--幻灯片开始-->
+<link rel="stylesheet" href='$webdb[www_url]/images/wap/flash/flash.css'/>
+<script src='$webdb[www_url]/images/wap/flash/flash.js'></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+	{$label[wap_shopindex_flash]}
+  </ul>
+</div>
+<!--幻灯片结束-->
+<!--
+EOT;
+$i=0;
+$listsorts="";
+$listmoresorts="<div class='ListMoreSorts'>\r\n";
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+if($i<8){
+	@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+	$logo=$logo?tempdir($logo):((is_file("./images/wap/icon$i.png"))?"./images/wap/icon$i.png":"./images/wap/icon3.png");
+	$listsorts.="<li><a href=\"waplist.php?fid=$key\"><dl><dt><img src=\"$logo\"/></dt><dd>$name</dd></dl></a></li>\r\n";
+}
+$listmoresorts.="<dl>\r\n";
+$listmoresorts.="<dt><a href=\"waplist.php?fid=$key\">$name</a></dt>\r\n";
+if($Fid_db[$key]){
+$listmoresorts.="<dd>\r\n";
+foreach($Fid_db[$key] AS $fid=>$names ){
+$listmoresorts.="<div><a href=\"waplist.php?fid=$fid\">$names</a></div>\r\n";
+}
+$listmoresorts.="</dd>\r\n";
+}
+$listmoresorts.="</dl>\r\n";
+}
+$listmoresorts.="</div>\r\n";
+print <<<EOT
+-->
+
+<ul class="TheBigMenu">
+	{$listsorts}
+	<li class="showmoresorts"><a href="javascript:;"><dl><dt><img src='./images/wap/more.png'/></dt><dd>更多类目</dd></dl></a></li>
+</ul>
+{$listmoresorts}
+<div class="Ability">
+  <div class="title"><span>最新商品</span></div>
+<!--
+EOT;
+$listnews = list_title('new',30);
+foreach($listnews AS $key=>$rs){
+print <<<EOT
+-->
+  <dl>
+      <dt><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[_www_url]/images/default/nopic.jpg'"></a></dt>
+      <dd>
+         <p>{$rs[title]}</p>
+         <span class="b">&yen;{$rs[price]} </span><span class="s">&yen;{$rs[market_price]} </span>
+      </dd>
+  </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script>
+function pic_height(){
+	$(".Ability dl dt").each(function(){
+		var this_H=$(this).width()*0.75;
+		if(this_H>180){
+		this_H = 180;
+		}
+		$(this).css({"height":this_H+'px',"line-height":this_H+'px'});
+	});
+}
+pic_height();
+$(window).resize(function(){
+	pic_height()
+});
+var fullbg_H;
+if($(".ListMoreSorts").height()>$("body").height() && $(".ListMoreSorts").height()>$("window").height()){
+	fullbg_H=$(".ListMoreSorts").height();
+}else if ($(window).height() > $("body").height()){
+	fullbg_H=$(window).height();
+}else{
+	fullbg_H=$('body').height();
+}
+$('#fullbg1').height(fullbg_H + 70);
+$('.ListMoreSorts').height(fullbg_H);
+$('.showmoresorts a').click(function(){
+	$('#fullbg1').css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		$(".ListMoreSorts").stop().animate({'width':'250px'},300);
+	});	
+});
+$('#fullbg1').click(function(){
+	$(this).animate({'opacity':0},300,function(){
+		$(this).css({'display':'none'});
+	});
+	setTimeout(function(){
+		$(".ListMoreSorts").stop().animate({'width':'1px'},300);
+	}, 500);
+});
+$(".ListMoreSorts dl dd").css("display","none");
+$(".ListMoreSorts dl dt").click(function(){
+  $(this).parent().find("dd").show().parent().siblings().find("dd").hide();
+});
+</script>
+<!--
+EOT;
+?>
+-->

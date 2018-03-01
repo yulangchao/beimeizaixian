@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php print <<<EOT
+-->
+<head>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/others/refreshto.css">
+<title>$webdb[webname] powered by www.qibosoft.com</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8"><!-- 强制ie8,for 360 -->
+<script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body>
+<div class="MainContainer">
+	<div class="ContainerTd">
+		<div class="ContBox">
+			<div class="Noteword">
+				<p>网页正在跳转当中,请稍候...</p>
+				<p>$msg</p>
+			</div>
+			<div class="other">
+				如果您的浏览器没有自动跳转 <a href='$url'>请点击这里</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+$('.ContainerTd').height($(window).height());
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,52 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<div class="FormContainer">
+	<h3>用户申请资料如下</h3>
+
+    <dl>
+      <dt>头像</dt>
+      <dd><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" title='$rs[full_title]' target="_blank"><img width="150" height="150" onError="this.src='$webdb[www_url]/images/default/noface.gif'"  src="$rsdb[picurl]"/></a></dd>
+    </dl>
+    <dl>
+      <dt>申请礼品:</dt>
+      <dd><a href="../bencandy.php?fid={$rsdb[C][fid]}&id={$rsdb[C][id]}&city_id={$rsdb[C][city_id]}" target="_blank">{$rsdb[C][title]}</a></dd>
+    </dl>
+      <dl>
+          <dt>申请者帐号:</dt>
+          <dd><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></dd>
+      </dl>
+    </dl>
+      <dl>
+          <dt>申请时间:</dt>
+          <dd>$rsdb[posttime]</dd>
+      </dl>
+    </dl>
+
+
+<!--
+EOT;
+$rsdb[yz]=$rsdb[yz]?"<font color=\"#FF0000\">已审核</font>":"<font color=\"#0000FF\">未审核</font>";
+print <<<EOT
+-->
+      <dl>
+          <dt>审核与否:</dt>
+          <dd>$rsdb[yz]</dd>
+      </dl>
+
+<!--{template}-->
+      <dl>
+          <dt>{title}:</dt>
+          <dd>{value}</dd>
+      </dl>
+
+<!--{/template}--> 
+
+
+</div>
+<!--
+EOT;
+?>
+-->

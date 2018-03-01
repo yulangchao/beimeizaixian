@@ -1,0 +1,129 @@
+<style>
+.ListTable{
+	/*border:#1A5DB0 solid 1px;*/
+	width:99%;
+	margin:auto;
+}
+.ListTable .head{
+	border:#EFEFEF solid 1px;
+	background:#6799B8;
+	height:25px;
+	text-align:center;
+	vertical-align:middle;
+	color:#FFF;
+}
+.ListTable .cont{
+	padding:5px;
+}
+.ListTable .cont .liststyles{
+	height:40px;
+	border-bottom:#DDD dotted 1px;
+	overflow:hidden;
+}
+.ListTable .cont .liststyles span{
+	float:left;
+	padding:6px 0 0 15px;
+}
+.ListTable .cont .liststyles span em{
+	font-style:normal;
+	color:#f00;
+}
+.ListTable .cont .liststyles a{
+	float:right;
+	padding:6px 10px 0 0;
+	color:#00f;
+}
+.ListTable .cont .note{
+	line-height:30px;
+	text-align:center;
+	color:#888;
+}
+.ListTable .cont .info{
+	line-height:25px;
+	padding-left:10px;
+	color:#666;
+}
+.ListTable .cont .info span{
+	color:#f00;
+}
+.ListTable .cont dl{
+	height:30px;
+	padding:0;
+	margin:0;
+}
+.ListTable .cont dl dt{
+	width:30%;
+	float:left;
+	text-align:left;
+	padding:7px 5px 0 0;
+	margin:0;
+}
+.ListTable .cont dl dd{
+	width:40%;
+	float:left;
+	padding:5px 5px 0 0;
+	margin:0;
+}
+</style>
+<!--
+<?php
+if($job == "out"){
+print <<<EOT
+-->
+<div class="MainContainers">
+  <div class="Header"><span class="tag">选择所要导出的风格标签</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <ul class='notes'>
+  	<li><b><font color="#FF0000">注意:</font></b> 你共享一套风格给别人的时候,务必把标签数据也同时导出来给别人.</li>
+  </ul>
+   <table class="ListTable">
+    <tr>
+      <td class="cont">
+      	$show
+      </td>
+    </tr>
+</table>
+</div>
+</div>
+<!--
+EOT;
+}if($job == "in" || $job == "label"){
+print <<<EOT
+--> 
+<script>
+function upfile(url,name,size,b){
+	document.form1.upsql.value=url;
+}
+</script>
+
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">导入标签数据</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <ul class='notes'>
+  	<li>如果你安装了他人提供的风格,还需要把相应的标签数据导入到数据库,但不能重复导入!</li>
+  	<li>请上传要导入的标签文件,如果<font color='red'>.sql</font>后缀文件不允许上传，则请改后缀名为<font color='red'>.txt</font>></li>
+  </ul>
+  <form name="form1" method="post" action="?lfj=$lfj&action=sql">
+<table class='ListTable'>
+	<tr>
+		<td class='Left'><input type='text' name='upsql' size='30' value='' id=upsql>
+		<iframe name='mainFrame2' frameBorder=0 height=23 scrolling=no src='upfile.php?postid=upsql' width=380></iframe></td>
+	</tr>
+	
+	<tr>
+		<td class='Left'>上传成功后，请再点击下面的(导入标签文件)
+		<div class='submits'><input type='submit' name='Submit' value='导入标签文件'></div></td>
+	</tr>
+</table>
+</form>
+	</div>
+</div>
+
+
+
+<!--
+EOT;
+}
+?>
+-->

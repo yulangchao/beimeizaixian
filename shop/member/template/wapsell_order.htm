@@ -1,0 +1,77 @@
+<!--
+<?php
+if($pay=='yes') $cktype[1]="class='ck'";
+elseif($pay=='no') $cktype[2]="class='ck'";
+elseif($ifsend=='yes') $cktype[3]="class='ck'";
+elseif($ifsend=='no') $cktype[4]="class='ck'";
+else $cktype[0]="class='ck'";
+print <<<EOT
+-->
+<script type="text/javascript">
+//更改页面项部的名称
+$('header .web').html('管理客户下的订单');
+</script> 
+<link rel="stylesheet" type="text/css" href="$wbdb[www_url]/member/images/wap/order.css"/>
+<div class="ShowType">
+	<a $cktype[0] href="?job=list"><span>全部</span></a>
+	<a $cktype[1] href="?job=list&pay=yes"><span>已付款</span></a>
+    <a $cktype[2] href="?job=list&pay=no"><span>待付款</span></a>
+    <a $cktype[3] href="?job=list&ifsend=yes"><span>已发货</span></a>
+	<a $cktype[4] href="?job=list&ifsend=no"><span>待发货</span></a>
+</div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$companydb=$db->get_one("SELECT picurl,title FROM {$pre}hy_company WHERE uid='$rs[cuid]'");
+$companydb[picurl]=$companydb[picurl]?tempdir($companydb[picurl]):"$wbdb[www_url]/member/images/wap/pic.png";
+print <<<EOT
+-->
+<div class="ListOrder">
+	<div class="company">
+		<a href="/hy/waphomepage.php?uid=$rs[cuid]"><em><img src="{$companydb[picurl]}" onerrror="this.src='$wbdb[www_url]/member/images/wap/pic.png'"/></em>{$companydb[title]}</a>
+        <span>{$rs[posttime]}</span>
+	</div>
+<!--
+EOT;
+foreach($rs['plist'] AS $rs2){
+$rs2[picurl]=$rs2[picurl]?tempdir($rs2[picurl]):"$wbdb[www_url]/member/images/wap/pic.png";
+print <<<EOT
+-->
+	<ul class="shop">
+		<li class="img"><a href="../wapbencandy.php?fid=$rs2[fid]&id=$rs2[id]"><img src="{$rs2[picurl]}" onerrror="this.src='$wbdb[www_url]/member/images/wap/pic.png'"/></a></li>
+		<li class="cont">
+			<div class="t"><a href="../wapbencandy.php?fid=$rs2[fid]&id=$rs2[id]">$rs2[title]</a></div>
+			<div class="m"><a href="../waplist.php?fid=$rs2[fid]">$rs2[fname]</a></div>
+		</li>
+		<li class="num">
+			<dl>
+				<dt>&yen;{$rs2[price]}</dt>
+				<dd>X{$rs2[ordernum]}</dd>
+			</dl>
+		</li>
+	</ul>
+<!--
+EOT;
+}print <<<EOT
+-->
+	<dl class="other">
+		<dt>合计：<span>&yen;{$rs[totalmoney]}</span></dt>
+		<dd>订单号: {$rs[id]}</dd>
+	</dl>
+	<div class="Action">
+		$rs[moreshow]
+		$rs[moreact]
+		<a href='?action=del&id=$rs[id]&cid=$rs[cid]'>删除</a>
+		<a href='?job=edit&id=$rs[id]'>修改</a>
+	</div>
+</div>	
+<!--
+EOT;
+}$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+$showpage
+<!--
+EOT;
+?>
+-->

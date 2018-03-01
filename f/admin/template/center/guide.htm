@@ -1,0 +1,41 @@
+<!--
+<?php
+$Info_showsorttype[intval($webdb[Info_showsorttype])]=' checked ';
+print <<<EOT
+-->
+<form name="form1" method="post" action="$admin_path&action=config">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">付费推广设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="FormTable">
+    <tr> 
+      <td class='tdL'>付费推广有效天数:</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[AdInfoShowTime]" size="5" value="$webdb[AdInfoShowTime]">
+        天 </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>子栏目付费推广要收费{$webdb[MoneyName]}</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[AdInfoSortShow]" size="7" value="$webdb[AdInfoSortShow]">
+        $webdb[MoneyDW] </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>大分类付费推广要收费{$webdb[MoneyName]}</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[AdInfoBigsortShow]" size="7" value="$webdb[AdInfoBigsortShow]">
+        $webdb[MoneyDW] </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>首页付费推广要收费{$webdb[MoneyName]}</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[AdInfoIndexShow]" size="7" value="$webdb[AdInfoIndexShow]">
+        $webdb[MoneyDW] </td>
+    </tr>
+  </table>
+  <div class='submits'><input  class=mmcinb  type='submit' name='w' value='保存设置'></div>
+</form>
+<!--
+EOT;
+?>
+-->

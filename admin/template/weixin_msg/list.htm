@@ -1,0 +1,236 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style>
+.List_Msg{
+	/*border:#5EA0D6 solid 1px;*/
+	width:99%;
+	margin:0 auto 10px auto;
+	border-radius:5px;
+	position:relative;
+}
+.List_Msg .atc{
+	width:90px;
+	height:30px;
+	position:absolute;
+	text-align:center;
+	bottom:0;
+	right:0;
+}
+.List_Msg .atc a{ 
+	display:inline-block; 
+	padding:3px 5px;
+	text-align:center; 
+	color:#fff; 
+	background-color:#f30; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+.List_Msg .atc a:nth-child(1){
+	background-color:green;
+}
+.List_Msg .cont,.List_Msg .reply{
+	padding:5px 100px 5px 10px;
+	line-height:20px;
+	color:#666;
+}
+.List_Msg .cont a,.List_Msg .reply a{
+	color:#369;
+}
+.List_Msg .cont span{
+	color:#F60;
+}
+.List_Msg .cont em{
+	display: inline-block;
+	width:23px;
+	height:23px;
+	line-height:25px;
+	overflow:hidden;
+	background:#EFEFEF;
+	text-indent:30px;
+	vertical-align:middle;
+}
+.List_Msg .cont em.pic{
+	background:url(../member/images/pic.png) no-repeat;
+	background-size:23px 23px;
+}
+.List_Msg .cont em.sound{
+	background:url(../member/images/sound.png) no-repeat;
+	background-size:23px 23px;
+}
+.List_Msg .cont em.video{
+	background:url(../member/images/video.png) no-repeat;
+	background-size:23px 23px;
+}
+.List_Msg .reply{
+	padding-top:0;
+	padding-left:45px;
+}
+.List_Msg .reply span{
+	color:#999;
+}
+.List_Msg .reply em{
+	font-style:normal;
+	font-weight:bold;
+	color:#333;
+}
+.Reply_Msg{ 
+	position: fixed; 
+	width:100%; 
+	height: 100%; 
+	background: rgba(0,0,0,0.8);
+	z-index: 900000; 
+	top:0; 
+	left: 0; 
+	display: none;
+}
+.replymsg{
+	display:table;
+	width:100%; 
+	height: 100%;
+}
+.replymsg .replyin{
+	display:table-cell;
+	text-align:center;
+	padding-top:50px;
+}
+.replymsg .replyin ul{
+	width:400px;
+	padding:10px 0 20px 0;
+	border:#DDD solid 1px;
+	margin:auto;
+	background:#FFF;
+	border-radius:5px;
+}
+.replymsg .replyin ul li{
+	padding:0;
+	margin:0;
+	list-style:none;
+	text-align:center;
+	padding-top:10px;
+}
+.replymsg .replyin textarea{
+	background:#FFF;
+	width:350px;
+	height:100px;
+	border:#DDD solid 1px;
+}
+.AtcCont,.showpage{
+	text-align:center;
+	padding-top:10px;
+}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+function ckdel(){
+	msg=confirm('你确认要批量删除选中信息吗？你慎重考虑，不可恢复！');
+	if(!msg){
+		return false;
+	}
+}
+function reply_msg(id){
+	var t = $(document).height();
+	$('.Reply_Msg').height(t).fadeIn();
+	$('.Reply_Msg .replymsg .replyin').height(t);
+	$('.reply_id').val(id);
+}
+function HiddenMessage() {
+	$('.Reply_Msg').fadeOut();
+}
+//-->
+</SCRIPT>
+
+<form name="form_work" id="form_work" method="post" action="?lfj=$lfj&action=delete" onsubmit="return ckdel();">
+<div class="MainContainers">
+	<div class="Header"><span class="tag">微信聊天记录</span><span class="more">&gt;&gt;</span></div>
+	<div class="Conter">
+<!--
+EOT;
+		foreach($listdb AS $key=>$rs){
+		$rs[content]=get_word($rs[content],120);
+		$list_reply="";
+		if($rs[reply]){
+		foreach($rs[reply] AS $keys=>$rss){
+		$rss[content]=get_word($rss[content],100);
+		$list_reply.="<div class='reply'><em>回复: </em>{$rss[content]} <a href=\"$webdb[www_url]/member/userinfo.php?uid=$rss[uid]\">$rss[username]</a> <span>{$rss[posttime]}</span></div>";
+		}}
+		print <<<EOT
+-->
+		<table class="FormTable">
+			<tr>
+				<td>
+					<div class="List_Msg">
+					<div class="cont">
+					<input type="checkbox" name="id_db[]" value="$rs[id]"/>
+					<a href="$webdb[www_url]/member/userinfo.php?uid=$rs[uid]">$rs[username]</a>
+					<span>{$rs[posttime]}</span>
+					$rs[content]
+					</div>
+					$list_reply
+					<div class="atc">
+					<!-- <a href="javascript:;" onclick="return reply_msg($rs[id])">回复</a> -->
+					<a href="index.php?lfj=$lfj&action=delete&id=$rs[id]" onclick="return confirm('你确实要删除此信息吗?不可恢复,请慎重!')" title="删除当前信息">删除</a>
+					</div>
+					</div>						
+				</td>
+			</tr>
+		</table>
+		<!-- <div class="List_Msg">
+		<div class="cont">
+		<input type="checkbox" name="id_db[]" value="$rs[id]"/>
+		<a href="$webdb[www_url]/member/userinfo.php?uid=$rs[uid]">$rs[username]</a>
+		<span>{$rs[posttime]}</span>
+		$rs[content]
+		</div>
+		$list_reply
+		<div class="atc">
+		<a href="javascript:;" onclick="return reply_msg($rs[id])">回复</a>
+		<a href="index.php?lfj=$lfj&action=delete&id=$rs[id]" onclick="return confirm('你确实要删除此信息吗?不可恢复,请慎重!')" title="删除当前信息">删除</a>
+		</div>
+		</div> -->
+		<!--
+EOT;
+		}
+		print <<<EOT
+		-->
+		<div class="showpage">$showpage</div>
+		<div class="AtcCont">
+			<div class="submits">
+				<input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+				<input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+				<input type="submit" name="Submit2" value="批量删除" /> 
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+<!-- <div class="Reply_Msg">
+<form name="form_work1" id="form_work1" method="post" action="?lfj=$lfj&action=reply">
+<div class="replymsg">
+	<div class="replyin">
+		<ul>
+			<li><textarea name="content"></textarea></li>		
+			<li><input type="submit" name="Submit" value="回复"/> <input onclick="HiddenMessage();" type="button" value="关闭"/></li>
+			<input class="reply_id" name="id" type="hidden"/>
+		</ul>
+	</div>
+</div>
+</form>
+</div> -->
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,103 @@
+<!-- 
+<?php
+print<<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/pc/list.css">
+<div class="BencandyCont">
+	<div class="main_left">
+<!--
+EOT;
+$moreline=$webdb[InfoListSonline]>0?$webdb[InfoListSonline]:2;
+$array=array_chunk($listdb_moresort,$moreline);
+$moretdwidth=floor(100/$moreline)."%";
+$moreline>1&&$moretimedisplay='none';
+foreach($array AS $key2=>$array2){
+print <<<EOT
+-->
+<!--
+EOT;
+$iii=0;
+foreach($array2 AS $key=>$rss){
+$iii++;
+$more_box = $iii % 2==0?"more_boxs":"";
+if($moreline>1&&$iii%$moreline==1){
+$tbstyle=" style='padding-right:2px;' ";
+}elseif($moreline>1&&$iii%$moreline==0){
+$tbstyle=" style='padding-left:2px;' ";
+}else{
+$tbstyle=" ";
+}
+print <<<EOT
+-->
+		<div class="more_box $more_box">
+        	<div class="box_title"><span>$rss[name]</span><a href="list.php?fid=$rss[fid]">more</a></div>
+            <div class="select_box">
+<!--
+EOT;
+foreach($rss[article] AS $key1=>$rs){
+print <<<EOT
+-->
+            	<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a>
+				<span style="display:$moretimedisplay;">({$rs[posttime]})</span>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="clierfix"></div>
+        </div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+}print <<<EOT
+-->
+        <div class="clierfix"></div>
+    </div>
+	<div class="Side">
+		<div class="sidecont">
+			<div class="head">相关栏目</div>
+			<ul class="ListSort">
+<!--
+EOT;
+$thisfids=($fidDB[type]==1)?"$fid":"$fidDB[fup]";
+foreach($Fid_db[$thisfids] AS $key=>$value){
+print <<<EOT
+-->
+            	<li><a href="list.php?fid=$key">$value</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+		<div class="sidecont">
+			<div class="head">热门新闻</div>
+			<ul class="ListHot">
+<!--
+EOT;
+$listHot=Get_Info('hot',5,40);
+foreach($listHot AS $key=>$rs){
+$rs[picurl]=$rs[picurl]?$rs[picurl]:"$webdb[www_url]/images/default/nopic.jpg";
+print <<<EOT
+-->
+            	<li>
+					<dl>
+						<dt><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+						<dd><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></dd>
+					</dl>
+				</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

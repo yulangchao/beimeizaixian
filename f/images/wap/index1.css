@@ -1,0 +1,125 @@
+.MainContainer{
+	padding:10px 10px 60px 10px;
+	background:#F0F0F0;
+}
+.baseCont{
+	background:#FFF;
+	border-radius:5px;
+}
+.baseCont ul{
+	width:100%;
+	display: table;
+}
+.baseCont ul li{
+	display: table-cell;
+	width:25%;
+	height:90px;
+	vertical-align:middle;
+	text-align:center;	
+}
+.baseCont ul li a{
+	display:block;
+	height:25px;
+	width:70px;
+	line-height:25px;
+	text-align:center;
+	overflow:hidden;
+	margin:auto;
+	padding-top:45px;
+	position:relative;
+	font-size:14px;
+}
+.baseCont ul li a:before{
+	content:"";
+	display:block;
+	width:40px;
+	height:40px;
+	background:#FFF;
+	position:absolute;
+	left:15px;
+	top:5px;
+	border-radius:20px;
+}
+.baseCont ul li a.home:before{
+	background:#F93D5F url(home.png) center 7px no-repeat;
+	background-size:26px 26px;
+}
+.baseCont ul li a.member:before{
+	background:#BE87D4 url(member.png) center 7px no-repeat;
+	background-size:26px 26px;
+}
+.baseCont ul li a.admin:before{
+	background:#F1792D url(admin.png) center 7px no-repeat;
+	background-size:26px 26px;
+}
+.baseCont ul li a.post:before{
+	background:#8FC051 url(post.png) center 7px no-repeat;
+	background-size:26px 26px;
+}
+.sortside{
+	background:#FFF;
+	border-radius:5px;
+	margin-top:10px;
+	-webkit-box-shadow: 0 0 6px 2px #CCC;
+	box-shadow:0 0 6px 2px #CCC;
+}
+.sortside ul{
+	width:100%;
+	display: table;
+}
+.sortside ul li{
+	display: table-cell;
+	background:url(list.png);	
+}
+.sortside ul li h3{
+	height:40px;
+	position:relative;
+}
+.sortside ul li h3:before{
+	content:"";
+	display:block;
+	width:100%;
+	height:3px;
+	background:#EDD567;
+	position:absolute;
+	left:0px;
+	top:-2px;
+	border-radius:3px 3px 0 0;
+}
+.sortside ul li h3.head1:before{
+	background:#00A285;
+}
+.sortside ul li h3.head2:before{
+	background:#F1654E;
+}
+.sortside ul li h3.head3:before{
+	background:#009BAD;
+}
+.sortside ul li h3 a{
+	display:block;
+	position:relative;
+	padding-left:15px;
+	height:30px;
+	padding-top:5px;
+	font-weight:normal;
+}
+.sortside ul li h3 span{
+	display:block;
+	position:absolute;
+	width:200px;
+	height:30px;
+	line-height:30px;
+	left:50px;
+	top:8px;
+}
+.sortside ul li h3 a img{
+	width:28px;
+	height:28px;
+}
+.sortside ul li div{
+	float:left;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	padding-left:15px;
+}

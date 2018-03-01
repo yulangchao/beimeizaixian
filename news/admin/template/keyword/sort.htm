@@ -1,0 +1,148 @@
+<!--
+<?php
+print<<<EOT
+-->
+ <script src="../images/default/setday.js"></script>
+<form name="formlist" method="post" action="$admin_path&action=getword">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">编辑栏目</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+        <ul class='notes'>
+          <li>注意:<font color="#FF0000">本功能可以智能提取标题中的词语作为关键字.但有可能把一些生僻词也提取出来.</font></li>
+          <li>已有关键字的内容将不会再重复提取</li>
+        </ul>  
+    <table class="ListTable">
+ $show_guide
+          <tr> 
+            <th width="6%">FID</th>
+            <th  width="43%">栏目名称</th>
+            <th  width="51%">类型</th>
+          </tr>
+          <!--
+EOT;
+foreach($sortdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+            <td><b><font color="#FF0000">$rs[fid]</font></b></td>
+            <td class='Left'> 
+              <input type="checkbox" name="fiddb[]" value="{$rs[fid]}" style="border:0px;" checked>
+              $rs[icon]【<a href='$Murl/list.php?fid=$rs[fid]' target="_blank">{$rs[name]}</a>】 
+            </td>
+            <td> 
+              <!--
+EOT;
+if($rs[type]==2){print <<<EOT
+-->
+              <font color="#0000FF">文章</font> 
+              <!--
+EOT;
+}elseif($rs[type]==1){print <<<EOT
+-->
+              大分类
+              <!--
+EOT;
+}else{print <<<EOT
+-->
+              子栏目 
+              <!--
+EOT;
+}print <<<EOT
+-->
+            </td>
+          </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+    <tr>
+      <td colspan='3' class='Left'>
+            <input type="radio" name="maketype" value="all" onClick="choose('all');" checked>
+          提取全部
+          <input type="radio" name="maketype" value="part" onClick="choose('part');">
+          提取部分 
+      </td>
+    </tr>
+    <tr>
+      <td colspan='3' class='Left'>
+          <input type="radio" name="if_replace" value="1">
+          替换原有关键字 
+          <input type="radio" name="if_replace" value="0" checked>
+          不替换原有关键字 
+      </td>
+    </tr>
+
+    </table>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ 
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(e.name=='maketype')continue;
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+          <table class='FormTable' id="makeshow" style="display:none;">
+            <tr> 
+              <td class='tdL'>最早发表的日期</td>
+              <td class='tdR'> 
+                <input type="text" name="beginTime" onclick="setday(this)">
+                (注:留空则最早,格式2007-07-16 22:29:50)</td>
+            </tr>
+            <tr> 
+              <td class='tdL'>最后发表的日期</td>
+              <td class='tdR'> 
+                <input type="text" name="endTime" onclick="setday(this)">
+                (注:留空则最晚,格式2007-07-16 22:29:50) </td>
+            </tr>
+            <tr> 
+              <td class='tdL'>内容的开始ID</td>
+              <td class='tdR'> 
+                <input type="text" name="beginId">
+              </td>
+            </tr>
+            <tr> 
+              <td class='tdL'>内容的结束ID</td>
+              <td class='tdR'>
+                <input type="text" name="endId">
+              </td>
+            </tr>
+          </table>
+
+      <div class="m-showpage">$showpage</div>
+        <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+          <input type="submit" name="Submit" value="开始提取关键字">
+        </div>
+
+
+         <SCRIPT LANGUAGE="JavaScript">
+ <!--
+ function choose(t){
+	if(t=='all'){
+		document.getElementById("makeshow").style.display='none';
+	}else{
+		document.getElementById("makeshow").style.display='';
+	}
+ }
+ //-->
+ </SCRIPT>
+ 		  </div>
+    </div>
+</form>
+<!--
+EOT;
+?>
+-->

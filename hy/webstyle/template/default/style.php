@@ -1,0 +1,5 @@
+<?php
+unset($webstyledb);
+$webstyledb['name']='Ä¬ÈÏ·ç¸ñ';
+$webstyledb['keywords']='default';
+?>

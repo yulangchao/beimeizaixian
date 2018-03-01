@@ -1,0 +1,53 @@
+<!--
+<?php
+$IF_Private_tpl[intval($webdb[IF_Private_tpl])]=' checked ';
+print <<<EOT
+--> 
+ 
+<form name="form1" method="post" action="$admin_path&action=config">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">{$webdb[MoneyName]}设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr> 
+      <td class='tdL'> 
+        <div align="left">发表文章奖励{$webdb[MoneyName]}多少:</div>
+      </td>
+      <td class='tdR'> 
+        <input    type='text' name='webdbs[postArticleMoney]' size='10' value='$webdb[postArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr> 
+      <td class='tdL'> 
+        <div align="left">删除文章扣除{$webdb[MoneyName]}多少:</div>
+      </td>
+      <td class='tdR'> 
+        <input    type='text' name='webdbs[deleteArticleMoney]' size='10' value='$webdb[deleteArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr>
+      <td class='tdL'>管理员设置文章精华奖励{$webdb[MoneyName]}多少:</td>
+      <td class='tdR'>
+        <input    type='text' name='webdbs[comArticleMoney]' size='10' value='$webdb[comArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+    <tr>
+      <td class='tdL'>管理员设置文章提前奖励{$webdb[MoneyName]}多少:</td>
+      <td class='tdR'>
+        <input    type='text' name='webdbs[frontArticleMoney]' size='10' value='$webdb[frontArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr><tr>
+      <td class='tdL'>管理员设置文章置顶奖励{$webdb[MoneyName]}多少:</td>
+      <td class='tdR'>
+        <input    type='text' name='webdbs[topArticleMoney]' size='10' value='$webdb[topArticleMoney]'>
+        {$webdb[MoneyDW]} </td>
+    </tr>
+  </table>
+    <div class='submits'> <input    type='submit' name='w' value='保存设置'></div>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

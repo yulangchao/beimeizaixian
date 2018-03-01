@@ -1,0 +1,186 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style>
+  .FormContainer dl dd {
+    min-height:30px;
+}
+.FormContainer div.butter a{
+  padding: 5px 5px 5px 8px;
+  border: #F30 solid 1px;
+  background: #F60;
+  border-radius: 3px;
+  color: #FFF;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+
+<div class="FormContainer">
+	<h3>用户订单资料详情如下</h3>
+    <div class="cont">
+
+          <dl>
+          	 <dt>订购产品:</dt>
+             <dd><a href="../bencandy.php?city_id={$rsdb[shop][city_id]}&fid={$rsdb[shop][fid]}&id={$rsdb[shop][id]}&city_id={$rsdb[shop][city_id]}" target="_blank">{$rsdb[shop][title]}</a></dd>	
+          </dl>
+          <dl>
+          	 <dt>订购者ID:</dt>
+             <dd><a href="$webdb[www_url]/member/homepage.php?uid=$rsdb[uid]" target="_blank">$rsdb[username]</a></dd>	
+          </dl>
+          <dl>
+          	 <dt>订购时间:</dt>
+             <dd>$rsdb[posttime]</dd>	
+          </dl><dl>
+          	 <dt>消费密码:</dt>
+             <dd>$rsdb[password]</dd>	
+          </dl>
+          <dl>
+          	 <dt>订购数量:</dt>
+             <dd>$rsdb[shopnum]</dd>	
+          </dl>
+          <dl>
+          	 <dt>应付总额:</dt>
+             <dd>$rsdb[totalmoney]</dd>	
+          </dl><dl>
+          	 <dt>付款银行:</dt>
+             <dd>$rsdb[banktype]</dd>	
+          </dl>
+          <dl>
+          	 <dt>付款与否:</dt>
+             <dd>$rsdb[ifpay]</dd>	
+          </dl>
+<!--
+EOT;
+if($rsdb[emscode]){print <<<EOT
+-->
+          <dl>
+          	 <dt>快递单号:</dt>
+             <dd>$rsdb[emscode]</dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+-->
+<!--
+EOT;
+if($rsdb['order_username']){print <<<EOT
+-->
+          <dl>
+          	 <dt>顾客姓名:</dt>
+             <dd>{$rsdb[order_username]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_phone']){print <<<EOT
+-->
+          <dl>
+          	 <dt>联系电话:</dt>
+             <dd>{$rsdb[order_phone]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_mobphone']){print <<<EOT
+-->
+          <dl>
+          	 <dt>联系手机:</dt>
+             <dd>{$rsdb[order_mobphone]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_email']){print <<<EOT
+-->
+          <dl>
+          	 <dt>联系邮箱:</dt>
+             <dd>{$rsdb[order_email]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_qq']){print <<<EOT
+-->
+          <dl>
+          	 <dt>联系QQ:</dt>
+             <dd>{$rsdb[order_qq]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_postcode']){print <<<EOT
+-->
+          <dl>
+          	 <dt>邮政编码:</dt>
+             <dd>{$rsdb[order_postcode]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_sendtype']){print <<<EOT
+-->
+          <dl>
+          	 <dt>配送方式:</dt>
+             <dd>{$rsdb[order_sendtype]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_paytype']){print <<<EOT
+-->
+          <dl>
+          	 <dt>支付方式:</dt>
+             <dd>{$rsdb[order_paytype]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['order_address']){print <<<EOT
+-->
+          <dl>
+          	 <dt>联系地址:</dt>
+             <dd>{$rsdb[order_address]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['content']){print <<<EOT
+-->
+          <dl>
+          	 <dt>附注留言:</dt>
+             <dd>{$rsdb[content]} </dd>	
+          </dl>	
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+  <div class='butter'><a href="$FROMURL">返回</a> </div>
+
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

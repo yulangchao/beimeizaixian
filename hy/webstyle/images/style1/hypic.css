@@ -1,0 +1,158 @@
+body{
+	background:#FFF;
+}
+.MainContainer .MinLefts{
+	width:190px;
+	float:left;
+}
+.MainContainer .MainRights{
+	width:980px;
+	float:right;
+	overflow:hidden;
+}
+.ShowType li{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	text-align:center;
+	background:#F5F5F5;
+	margin-bottom:20px;
+}
+.ShowType li a{
+	display:block;
+	font-size:16px;
+	color:#666;
+}
+.ShowType li.ck a{
+	background:#2CB9FF;
+	color:#FFF;
+}
+.ListHyPics{
+	width:1000px;
+	overflow:hidden;
+	padding-top:10px;
+	margin-left:-10px;
+}
+.ListHyPics:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.ListHyPics .piclist{
+	width:250px;
+	height:260px;
+	overflow:hidden;
+	float:left;
+}
+.ListHyPics .piclist a{
+	display:block;
+	border:#DDD solid 1px;
+	margin:0 10px 0 10px;
+	border-radius:5px;
+}
+.ListHyPics .piclist a span{
+	display:table;
+	width:100%;
+}
+.ListHyPics .piclist a span em{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	height:240px;
+}
+.ListHyPics .piclist a span em img{
+	max-width:98%;
+	max-height:230px;
+}
+.ListHyPics .piclist a:hover{
+	background:#EFEFEF;
+}
+.returnpicsort{
+	text-align:center;
+	clear:both;
+	width:100%;
+	padding:15px 0;
+}
+.returnpicsort a{
+	display:inline-block;
+	line-height:40px;
+	border:#F30 solid 1px;
+	padding:0 20px;
+	background:#F60;
+	color:#FFF;
+	font-size:16px;
+}
+/***************/
+.backContBox{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:#000;
+	left:0;
+	top:0;
+	z-index:10000000;
+	opacity:0;
+	display:none;
+}
+.ShowFunctions{
+	width:80%;
+	height:90%;
+	position:fixed;
+	border:#DDD solid 1px;
+	z-index:10000001;
+	background:#FFF;
+	left:10%;
+	top:5%;
+	border-radius:5px;
+	 display:none;
+}
+.ShowFunctions .changShowPic dt,.ShowFunctions .changShowPic dd{
+	width:35px;
+	height:60px;
+	position:absolute;
+	background:url(change0.png) left top no-repeat;
+	position:absolute;
+	top:0;
+	z-index:11;
+}
+.ShowFunctions .changShowPic dt{
+	left:10px;
+}
+.ShowFunctions .changShowPic dd{
+	right:10px;
+	background:url(change0.png) right top no-repeat;
+}
+.ShowFunctions .changShowPic span{
+	display:none;
+}
+.ShowFunctions .changShowPic dt:hover{
+	background:url(change1.png) left top no-repeat;
+}
+.ShowFunctions .changShowPic dd:hover{
+	background:url(change1.png) right top no-repeat;
+}
+.ShowFunctions .BigimgBoxs{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:10;
+}
+.ShowFunctions table{
+	width:100%;
+	height:100%;
+}
+.ShowFunctions table td{
+	width:100%;
+	height:100%;
+	text-align:center;
+	vertical-align:middle;
+	background:#FFF;
+}
+.ShowFunctions table td img{
+	max-width:100%;
+	max-height:100%;
+}

@@ -1,0 +1,56 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style>
+.ListWebStyle{padding:0 10px;}
+.ListWebStyle:after{content:''; display:block; width:100%; height:1px; clear:both;}
+.ListWebStyle li{width:20%; height:300px; overflow:hidden; float:left;}
+.ListWebStyle li .img{margin:20px 10px 0 10px;border:#DDD solid 1px; position:relative;}
+.ListWebStyle li .img span{display:table;width:100%;}
+.ListWebStyle li .img span a{display:table-cell; text-align:center; vertical-align:middle; height:210px;}
+.ListWebStyle li .img span a img{ max-width:99%; max-height:200px;}
+.ListWebStyle li.choose .img{background:#EFEFEF;}
+.ListWebStyle li.choose .img:before{content:'';display:block;width:80px;height:80px; position:absolute;right:5px; top:5px; background:url($Murl/images/sel.png) no-repeat; background-size:80px 80px;}
+.ListWebStyle li .name{text-align:center; line-height:30px; height:30px; padding:0 10px; overflow:hidden;font-size:16px;}
+.ListWebStyle li .set{text-align:center; line-height:30px;}
+.ListWebStyle li .set a{display:inline-block;border:#DDD solid 1px; padding:0 15px; background:#EFEFEF; color:#999; border-radius:3px;}
+.clear_style{text-align:center;padding:15px;}
+.clear_style div,.clear_style a{display:inline-block;line-height:40px;border:#DDD solid 1px; padding:0 20px; background:#EFEFEF; color:#999; border-radius:3px;font-size:16px; margin:0 5px;}
+.clear_style div.choose{border:#F30 solid 1px; background:#F60; color:#FFF;}
+.clear_style a{border:green solid 1px; background:green;color:#FFF;}
+.clear_style a.mores{border:#F60 solid 1px; background:#F90}
+.clear_style a:hover{border:#F00 solid 1px; background:#F30}
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">店铺风格设置</div></div>
+    <div class="cont">
+    	<ul class="ListWebStyle">
+			$showstyle
+		</ul>
+		<div class="clear_style">
+			<div $clear_style><em><span onclick="set_style('nostyle',\$(this))">不用以上风格使用原来的风格</span></em></div> 
+			<a href="$webdb[www_url]/home/?uid=$lfjuid" target="_blank">进入店铺</a>
+			<a href="$Murl/webstyle/index.php?uid=$lfjuid&action=setstyle" target="_blank" class="mores">设置选中的风格参数</a>
+		</div>
+    </div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function set_style(stylename,thisobj){
+	$('.ListWebStyle li').removeClass('choose');
+	//$('.clear_style div').removeClass('choose');
+	thisobj.parent().parent().addClass('choose');
+	if(stylename=='nostyle'){
+		$('.clear_style div').removeClass('choose');
+	}else{
+		$('.clear_style div').addClass('choose');
+	}
+	$.get("?atc=changestyle&stylename="+stylename+"&"+Math.random());
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->	  

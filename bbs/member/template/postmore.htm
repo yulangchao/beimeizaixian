@@ -1,0 +1,35 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/form.css">
+<div class="GuideCont">当前位置：<a href="$webdb[www_url]">首页</a>  -&gt; <a href="./">$webdb[Info_webname]</a>  -&gt; <A href='./post.php'>发布$webdb[Info_webname]</A></div>
+<div class="FormContainer">
+<div style="text-align:center;line-height:30px;"><a target="_blank" href='../bencandy.php?fid=$fid&id=$id&rid=$rid'>$rsdb[title]</a></div>
+<form name="FORM" method="post" action="?action=$job" enctype="multipart/form-data">
+	<dl>
+		<dt>副标题:</dt>
+		<dd><input type="text" name="postdb[subhead]" id="atc_title" size="50" value="$rsdb[subhead]"><span class="blue">(可留空)</span></dd>
+	</dl>
+	<dl>
+		<dt>续发内容:</dt>
+		<dd><textarea name="postdb[content]">$rsdb[content]</textarea></dd>
+	</dl>
+	<dl>
+		<dt>采集图片:</dt>
+		<dd><input type="checkbox" name="GetOutPic" value=1> 若复制外网的文章中有图片的，是否同时采集回来</dd>
+	</dl>
+    <div class="Sub">
+		<input type="submit" name="Submit" value="提 交" class='submit'/>
+		<input type="hidden" name="fid" value="$fid"/>
+		<input type="hidden" name="id" value="$id"/>
+		<input type="hidden" name="rid" value="$rid"/>            
+	</div>
+</form> 
+</div>
+<!--
+EOT;
+?>
+-->

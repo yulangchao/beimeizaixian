@@ -1,0 +1,77 @@
+<!--
+<?php
+$del_act=($job=='edit')?"<a href=\"?action=del&id=$id&cid=$cid&fid=$rsdb[fid]\" onClick=\"return confirm('你确认要删除吗?');\">删除</a>":"";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/join.css"><br />
+<style>
+.FormConts dl dt{width:120px;}
+.FormConts dl dt span{color:red;}
+.FormConts .note{border-bottom:#DDD solid 1px;padding:10px;}
+</style>
+<div class="FormConts">
+<form name="form_order" method="post" action="?action=$atc" enctype="multipart/form-data">
+	<h3>订单详情</h3>
+	<ul class="list">
+		<li><a href="bencandy.php?city_id=$infodb[city_id]&fid=$fid&id=$cid">$infodb[title]</a></li>
+		<li>
+			<a href="javascript:;" onclick="chang_nums(-1)">-</a> 
+            <input type="text" id="shopnum" name="shopnum" value="$hownum" onBlur="chang_nums(this)"/>
+			<a href="javascript:;" onclick="chang_nums(1)">+</a>
+		</li>
+		<li><span id="price_shows">{$infodb[price]}</span>元</li>
+	</ul>
+	<h3>接收团购凭证</h3>
+    <p class='note'>手机或邮箱你必须填写一项,你付款后,我们会通过以下任意一种方式给你发送消费密码</p>
+	<dl>
+		<dt><span>*</span>您的手机:</dt>
+		<dd>
+        	<input type='text' name='postdb[order_mobphone]' id='atc_order_mobphone' class='text' value='$rsdb[order_mobphone]'/>
+            <div>(团购成功后，团购凭证将发送到此手机)</div>
+        </dd>
+	</dl>
+	<dl>
+		<dt><span>*</span>您的邮箱:</dt>
+		<dd>
+        	<input type='text' name='postdb[order_email]' id='atc_order_email' class='text' value='$rsdb[order_email]'/>
+            <div>(团购成功后，团购凭证将发送到此邮箱)</div>
+        </dd>
+	</dl>
+	<dl>
+		<dt>支付方式:</dt>
+		<dd> 
+          <div><input type='radio' name='postdb[order_paytype]' value='1' {$rsdb[order_paytype]['1']}> 货到付款</div>
+          <div><input type='radio' name='postdb[order_paytype]' value='2' {$rsdb[order_paytype]['2']}> 银行电汇或ATM转帐</div> 
+          <div><input type='radio' name='postdb[order_paytype]' value='3' {$rsdb[order_paytype]['3']}> 邮局汇款</div> 
+          <div><input type='radio' name='postdb[order_paytype]' value='4' {$rsdb[order_paytype]['4']}> 网上即时支付</div> 
+         </dd>
+	</dl>
+	<dl>
+		<dt>&nbsp; </dt>
+		<dd class="submit">
+			<input type="submit" name="Submit" value="提交订单"  >
+            <input type="hidden" name="fid" value="$fid">
+            <input type="hidden" name="id" value="$id">
+            <input type="hidden" name="cid" value="$cid">
+            <input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+			$del_act
+		</dd>
+	</dl>
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+function chang_nums(t){ 	
+	 num=Math.ceil($("#shopnum").val());
+	 if(t==1)num++;
+	 if(t==-1)num--;
+	 if(num<1){
+		 num=1;
+	 }
+	$("#shopnum").val(num);	
+	$("#price_shows").html(num*'$infodb[price]');
+ }
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

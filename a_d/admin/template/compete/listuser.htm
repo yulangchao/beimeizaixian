@@ -1,0 +1,72 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<div class='ListLinkCont'>
+  <a href="$admin_path&job=addplace">添加广告位</a>
+  <a href="$admin_path&job=listad">广告位管理</a>
+  <a href="../member/index.php?main=../$dirname/member/norm.php?job=list">购买广告</a>
+</div>
+
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+
+    <tr> 
+      <th width="17%">广告位名称</th>
+      <th width="17%">所在城市</th>
+      <th width="18%">购买者</th>
+      <th width="18%">有效日期</th>
+      <th width="15%">广告内容</th>
+      <th width="6%"> 出价</th>
+      <th width="9%">管理</th>
+    </tr>
+  <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+  <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+    <td class='Left'>{$rs[name]}</td>
+    <td>{$city_DB[name][$rs[city_id]]}</td>
+    <td>$rs[username] </td>
+    <td>开始:$rs[begintime]<br>
+      结束:$rs[endtime]</td>
+    <td><a href="{$rs[adlink]}">{$rs[adword]}</a></td>
+    <td>$rs[money]</td>
+    <td><a href="$admin_path&ad_id=$rs[ad_id]&action=deleteusr" onclick="return confirm('你确认要删除这个广告吗?')" title='点击删除' class='del'></a></td>
+  </tr>
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+<!--   <tr> 
+    <td colspan="7">$showpage<a href="$admin_path&id=$rs[id]&action=deleteadplace" onclick="return confirm('你确认要删除这个广告吗?')"></a></td>
+  </tr> -->
+</table>
+</div>
+</div>
+
+<!-- <table width="100%" border="0" cellspacing="1" cellpadding="3" class="tablewidth">
+  <tr class="head"> 
+    <td align="left">说明</td>
+  </tr>
+   
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+   
+</table> -->
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li></li>
+    </ul>
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->

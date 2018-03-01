@@ -1,0 +1,113 @@
+.content a:hover {
+	text-decoration:underline;
+}
+.content {width:1200px;  margin:0 auto; overflow:hidden; margin:25px 0;}
+
+.text {
+	width:100%; overflow:hidden;
+}
+.tl {
+	width:855px; height:auto; float:left;
+}
+.showlist1 {border:1px solid #dfdede; padding:10px 25px; letter-spacing:3px; margin-bottom:10px;}
+.showlist1 a{font-size:16px; padding:0 5px;  margin-right:10px; display:inline-block; height:30px; line-height:30px;}
+.showlist1 a.action{color:#fff; background:#1AA4ED;}
+/*SearchType
+*/
+.SearchType{border:1px solid #DFDEDE; overflow:hidden;}
+.SearchType .head{height:50px; overflow:hidden; line-height:50px; background:#ECECEC;}
+.SearchType .head .tag{padding-left:20px; font-size:16px; color:#333;}
+.SearchType .cont{padding:10px;}
+.zone_street{}
+.zone_street dt{height: 96px; overflow:hidden; line-height:30px;}
+.zone_street dt div{height:25px; padding:14px 5px 0 5px; float:left;}
+.zone_street dt div.{padding:0 0 0 8px;}
+.zone_street dt div.ck span{display:block; float:left; padding:0 8px 0 0 ;}
+.zone_street dd{background:#FFF2E1; padding:10px; }
+.zone_street dd a{display:inline-block; padding-right:10px; line-height:25px; font-size:15px;}
+.zone_street dd .ck{color:#FF0000;}
+.listsearch{margin-top:10px; overflow:hidden;}
+.cont .t{font-weight:bold; padding-left:10px; float:left; font-size:16px;}
+.cont  dl .f {display: block; width: 760px; float: right;}
+.cont dl .f  .ck{background:#1AA4ED;color:#fff;}
+.cont .f a{display:inline-block; padding:0 5px; font-size: 16px;}
+.listsearch div{height:20px;line-height:20px; overflow:hidden; padding: 16px 5px 0 5px;}
+
+.showlist {border:1px solid #dfdede; float:left; margin-top:10px; width:853px;}
+.cont {float:left; padding-bottom:5px;}
+.head {
+	height:45px; width:100%; background:#ececec; border-bottom:1px solid #dfdede; font-size:16px; font-weight:bold; color:#333333;
+}
+.head .tag {
+	float:left; height:45px;
+}
+.head .tag span {
+	background:url(sx.png) no-repeat left center; padding-left:30px; float:left; line-height:45px;
+}
+.head .more {
+	float:right; line-height:45px; padding-right:20px;
+}
+.listdianping {float:left; width:95%; border-bottom:1px dotted #d1d1d1; margin:20px 20px 0 20px; padding-bottom:20px;}
+.listdianping .img {width:140px; height:auto; padding-right:15px; float:left; text-align:center;}
+.listdianping .img img{max-width:139px; height:116px;}
+.listdianping .word {width:435px; float:left;}
+.listdianping .info {width:158px; float:right; line-height:27px; color:#666666;}
+.word .t {width:100%;line-height:20px; font-size:16px; padding-bottom:15px; height:27px; overflow:hidden;}
+.word .c {width:100%; line-height:27px; color:#666666; max-heigth:81px; overflow:hidden;}
+.word .t span {width:20px; height:20px; background:#21aaf3; float:left; text-align:center; line-height:20px; color:#FFFFFF; margin-right:15px;}
+
+.go_box {width:100%; float:left; margin:50px 0;}
+.go {margin:0 auto; overflow:hidden; font-size:16px; text-align:center;}
+.go a {height:30px; padding:0 6px; background:#e3e3e3; display:inline-block; border-radius:3px; line-height:30px; text-align:center; margin:0 2px; border:#dbdada;}
+.go a:hover {background:#21aaf3; color:#FFFFFF; text-decoration:none;}
+.go span {float:left; line-height:30px;}
+
+.tr {
+	width:310px; height:auto; float:right;
+}
+.sign {height:auto; float:left; background:#ededed; padding:18px 10px;}
+/* login */
+#houseindex{display:block;}
+#houseindex table{margin-top:20px;}
+#houseindex table td.input,.UserInfo table td.submit{padding-top:10px;}
+#houseindex table td.radio{padding-top:15px;padding-left:10px;}
+#houseindex .input{width:50%;text-align:center;}
+#houseindex .input input{width:130px;}
+#houseindex .radio input{border:0;}
+#houseindex .submit input{width:63px;border:0; height:30px; line-height:30px; background:url(button.png) center top no-repeat; cursor:pointer; color:#fff; font-size:15px;}
+#houseindex .submit input.login{background:url(list5.png) center top no-repeat;}
+#houseindex .img{width:15%; height:90px; vertical-align:middle; padding:0 20px 0 20px;}
+#houseindex .img img{height:90px; max-width:90px;}
+#houseindex .word .name{line-height:30px; color:blue; font-weight:bold;}
+#houseindex .word .day{padding-top:5px; color:#ff9700;}
+.do {
+	 height:135px;float:left; border-bottom:1px solid #dcdcdc; margin-bottom:18px;
+}
+.do a {
+	float:left; width:135px; height: 48px; border-radius:5px; text-align:center; line-height:48px; color:#FFFFFF; margin:5px; 
+}
+.do a:hover {
+	text-decoration:none; color:#FFFFFF;
+}
+
+.in {float:left; width:100%;}
+
+.notice {
+	float:left; border:1px solid #dfdede;margin:25px 0;
+}
+.nl {
+	width:25px; background:#1aa3ee;writing-mode:tb-rl;
+	color:#FFFFFF; font-size:18px; padding:20px 15px;  float:left; margin:1px; 
+}
+.notice .r_list {
+	padding:15px 0 15px 80px;; line-height:25px;
+}
+.r_list li {
+	list-style-image:url(srlist.png); float:left;
+}
+.showlist2{float:left; margin-top:10px; width:100%;}
+.showlist2 .head{border:1px solid #dfdede; width:auto;}
+.showlist2 .r_list {border:1px solid #dfdede; border-top:0;}
+.r_list .list {margin-left:20px; line-height:30px; width:90%;}
+.ad_pic {padding-bottom:18px; border:1px solid #dfdede; border-top:0;}
+.ad_pic a img {padding:18px 18px 0 18px; width:272px;}

@@ -1,0 +1,153 @@
+/* company */
+.ShowCont{clear:both; margin-top:10px;}
+.ShowCont .Mhead{height:47px; background:#ececec; overflow:hidden;}
+.ShowCont .Mhead .tag{
+	float:left;
+	padding:2px 0 0 25px;
+	line-height:45px;
+	font-size:16px;
+	font-weight:bold;
+}
+.ShowCont .Mhead .more{
+	float:right;
+	padding:15px 25px 0 0;
+	font-size:14px;
+}
+.ShowCont .Mhead .more span{
+	padding:0 2px 0 2px;
+	color:#1aa4ed;
+	font-weight:bold;
+}
+.ShowCont .Mcont{
+	border:#DADADA solid 1px;
+	border-top:0;
+}
+.ShowCont .ListType{height:32px; padding-top:13px; overflow:hidden; padding-left:20px;}
+.ShowCont .ListType li{
+	width:105px;
+	height:32px;
+	text-align:center;
+	text-align:center;
+	float:left;
+	background:#ececec;
+	cursor:pointer;
+	font-size:14px;
+	line-height:32px; margin-right:8px;
+}
+.ShowCont .ListType li.ck{
+	background:#1aa4ed;
+	font-weight:bold;
+	color:#FFF;
+}
+.ShowType{
+	padding:15px;
+}
+.BaseInfos .img{
+	width:20%;
+	padding:5px;
+}
+.BaseInfos .img div{
+	width:400px; height:260px;
+	border:#E4E4E4 solid 1px;
+	padding:15px;
+	background:#FFF;
+}
+.BaseInfos .img div span{
+	display:block;
+	width:400px;
+	height:260px;
+	overflow:hidden;
+}
+.BaseInfos .img div span a{display:block; width:400px; height:260px; text-align:center; overflow:hidden;}
+.BaseInfos .img div span a img{max-width:400px; height:260px;}
+.BaseInfos .info{padding-left:20px; line-height:30px; font-size:15px; vertical-align:top;}
+.BaseInfos .info .title{font-size:16px; font-weight:bold; height:40px; overflow:hidden; line-height:40px;}
+.BaseInfos .info div{margin:5px 0;}
+.BaseInfos .info span{}
+.BaseInfos .info em{color:#1aa4ed; font-style:normal;}
+.BaseInfos .info em.red{color:#ff6600}
+
+#contents{
+	line-height:20px;
+}
+.ListDesigns {padding:10px 0 0 0;}
+.ListDesigns dl{width:290px; height:120px; overflow:hidden; float:left;}
+.ListDesigns dl dt{float:left;}
+.ListDesigns dl dt span{display:block; width:90px; height:120px; overflow:hidden;}
+.ListDesigns dl dt span a{display:block; width:90px; height:120px; overflow:hidden; text-align:center;}
+.ListDesigns dl dt span a img{max-width:90px; height:120px;}
+.ListDesigns dl dd{width:180px; height:120px; float:left; line-height:25px; padding-left:10px;}
+.ListDesigns dl dd a{font-weight:bold; color:#ff9700;}
+.ListDesigns dl dd span{color:#36c;}
+.ListDemos .picurl{width:174px; overflow:hidden; float:left; margin:10px;}
+.ListDemos .picurl .img{width:170px; border:#DDD solid 1px; padding:1px; margin:auto;}
+.ListDemos .picurl .img span{display:block; width:170px; height:120px; overflow:hidden;}
+.ListDemos .picurl .img span a{display:block; width:170px; height:120px; overflow:hidden; text-align:center;}
+.ListDemos .picurl .img span a img{max-width:170px; height:120px;}
+.ListDemos .picurl .t{width:160px; height:20px; text-align:center; padding-top:5px; line-height:20px; overflow:hidden; margin:auto;}
+/* maps */
+.ShowMaps{padding:0 5px 0 5px;}
+/* addcomment */
+.listcomment{width:50%;}
+#comment{border:#D0D0D0 solid 1px;}
+.m-commentGo{vertical-align:top;}
+.postcomment{float:right; border:#dfdfdf solid 1px; width:590px; margin-left:15px;}
+.comment_form .head{height:40px; line-height:40px; background:#ececec;}
+.comment_form .head .L{float:left; padding:0 20px; background:#fff; font-size:15px;}
+.comment_form .head .R{float:right; padding-right:20px;}
+.comment_form .left{width:15%; text-align:right; padding:10px;}
+.comment_form .right{float:left; padding-top:10px;}
+.comment_form  .right textarea{width:350px;}
+#comment_submit{margin-bottom:10px; width:100px; height:30px; line-height:30px; background:#f9861f; color:#fff; font-size:15px; text-align:center; border-radius:5px; border:0;}
+.comment_form  .cont{padding:5px;}
+.comment_form  .cont .list{padding-top:5px; height:20px; line-height:20px;}
+.comment_form  .cont .list span{display:block; width:50px; float:left; text-align:right; border-right:#CCC solid 1px; padding-right:10px; color:red;}
+.comment_form  .cont .list a{float:left; padding-left:8px; color:#226395;}
+/* commentList */
+#comment {width:530px; overflow:hidden; float:left; padding:10px;}
+#comment .pllist {width:100%; border-bottom:1px dotted #a2a2a2; float:left; padding-bottom:15px; margin-bottom:15px;}
+#comment .pllist .img {width:84px; border:1px solid #a2a2a2; float:left;}
+#comment .pllist .img a{width:84px; height:100px; text-align:center; display:block;}
+#comment .pllist .img img{max-width:84px; height:100px;}
+#comment .pllist .word {width:440px; float:right;}
+#comment .pllist .word .name {font-size:14px; color:#888888; padding-bottom:15px;}
+#comment .pllist .word .write {font-size:14px; line-height:35px;}
+#comment .pllist .word .like {text-align:right; line-height:36px;}
+/* page */
+#comment .page{padding:10px 0; height:30px; line-height:30px; text-align:center;}
+#comment .page a{border:#DDD solid 1px; padding:3px 5px 2px 5px; color:#999;}
+#comment .page a:hover{border:blue solid 1px; color:red;}
+.no_comment{padding:75px 20px 50px 160px; line-height:30px; font-size:22px; font-weight:bold; color:#FFB066;}
+/*
+*
+*/
+.ListMoreDemo,.ListMoreDesigner{border:#D0DFE4 solid 1px; margin-top:10px;}
+.ListMoreDemo .head,.ListMoreDesigner .head{height:47px; overflow:hidden; line-height:47px; background:#ececec; padding:0 10px 0 15px;}
+.ListMoreDemo .head .tag,.ListMoreDesigner .head .tag{float:left; font-size:16px; font-weight:bold;}
+.ListMoreDemo .head .more,.ListMoreDesigner .head .more{float:right; background:url('morebg.png') right center no-repeat; width:50px; height:47px;}
+.ListMoreDemo .head .more a,.ListMoreDesigner .head .more a{display:block; width:50px; height:47px;}
+.ListMoreDemo .cont{padding:20px 0 20px 22px; overflow:hidden;}
+.ListMoreDemo .cont .listpic{width:214px; overflow:hidden; float:left; margin-right:20px;}
+.ListMoreDemo .cont .listpic div{width:214px; margin:auto; text-align:center;}
+.ListMoreDemo .cont .listpic .img{border:#DDD solid 1px; padding:1px;}
+.ListMoreDemo .cont .listpic .img span{display:block; width:214px; height:150px; overflow:hidden;}
+.ListMoreDemo .cont .listpic .img span a{display:block; width:214px; height:150px; text-align:center; overflow:hidden;}
+.ListMoreDemo .cont .listpic .img span a img{max-width:214px; height:150px;}
+.ListMoreDemo .cont .listpic .t{height:30px; padding-top:5px; line-height:30px; overflow:hidden;}
+.ListMoreDemo .cont .listpic .m{height:30px; line-height:30px; overflow:hidden; color:#FF3000; font-size:15px;}
+/*
+*
+*/
+.ListMoreDesigner{border:#D0DFE4 solid 1px;}
+.ListMoreDesigner .head{background:#ececec;}
+.ListMoreDesigner .cont{padding:20px 0 20px 20px; overflow:hidden;}
+.ListMoreDesigner .cont dl{width:290px; height:120px; overflow:hidden; float:left;}
+.ListMoreDesigner .cont dl dt{float:left;}
+.ListMoreDesigner .cont dl dt span{display:block; width:90px; height:120px; overflow:hidden;}
+.ListMoreDesigner .cont dl dt span a {display:block; width:90px; height:120px; overflow:hidden; text-align:center;}
+.ListMoreDesigner .cont dl dt span a img{max-width:90px; height:120px;}
+.ListMoreDesigner .cont dl dd{width:180px; float:left; line-height:25px; padding-left:10px;}
+.ListMoreDesigner .cont dl dd div{overflow:hidden; height:25px;}
+.ListMoreDesigner .cont dl dd .t a{font-weight:bold; color:#ff9700;}
+.ListMoreDesigner .cont dl dd .c a{color:#1aa4ed;}
+.ListMoreDesigner .cont dl dd span{color:#36c;}

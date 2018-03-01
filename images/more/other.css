@@ -1,0 +1,104 @@
+.B{
+	font-weight:bold;
+}
+.red{
+	color:red;
+}
+.blue{
+	color:blue;
+}
+.green{
+	color:green;
+}
+.Container{
+	width:98%;
+	margin:10px auto;
+	border:#DDD solid 1px;
+	background:#FFF;
+	border-radius: 2px;
+	-webkit-box-shadow: 1px 1px 2px #eee inset;
+	-webkit-box-sizing: border-box;
+	margin-bottom:50px;
+}
+.Container .head{
+	text-align:center;
+	border-bottom:#DDD solid 1px;
+	line-height:35px;
+	height:35px;
+	overflow:hidden;
+	font-size:16px;
+	background:#EFEFEF;
+}
+.Container .note{
+	padding:5px 5px 5px 10px;
+	line-height:25px;
+}
+.Container .head .tag{
+	float:left;
+	padding-left:10px;
+}
+.Container .titles{
+	text-align:center;
+	padding-top:10px;
+	line-height:25px;
+	font-size:18px;
+	font-weight:bold;
+}
+.Container .ShowContent{
+	display: table;
+	width: 98%;
+	margin:10px auto;
+	TABLE-LAYOUT: fixed;
+	WORD-WRAP: break-word
+}
+.Container .ShowContent .cont{
+	display: table-cell;
+	vertical-align:top;
+}
+
+dl.formdl{
+	display: table;
+	width: 100%;
+	border-top:#DDD solid 1px;
+}
+dl.formdl dt{
+	width: 100px;
+	text-align: right;
+	display: table-cell;
+	border-right:#DDD solid 1px;
+	line-height:35px;
+	padding-right:5px;
+	color:#666;
+	vertical-align:top;
+}
+dl.formdl dt span{
+	color:#F00;
+}
+dl.formdl dd{
+	display: table-cell;
+	padding:5px;
+	line-height:25px;
+	color:#888;
+	position:relative;
+}
+dl.formdl dd .text,dl.formdl dd .time,dl.formdl dd textarea,dl.formdl dd select,dl.formdl dd .upfile,dl.formdl dd .onepic{
+	/*border: 0 none;*/
+	border:#EEE solid 1px;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	color:#888;
+	font-size:14px;
+}
+dl.formdl dd .text,dl.formdl dd .time,dl.formdl dd .upfile,dl.formdl dd .onepic{
+	width:60%;
+	height:25px;
+}
+dl.formdl dd select{
+	width:80%;
+	height:25px;
+}
+dl.formdl dd textarea{
+	height:200px;
+}

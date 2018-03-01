@@ -1,0 +1,45 @@
+<!--
+<?php
+unset($listtitle);
+foreach($listdb AS $key=>$rs){
+	$listtitle.="		<li><a href=\"wapbencandy.php?fid=$rs[fid]&id=$rs[id]\">$rs[title]</a></li>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/news.css">
+<div class="GuideCont">当前位置：<a href="./">资讯首页</a> $GuideFid[$fid]</div>
+<section class="ListMoreSort">
+	<h2><a href="waplist.php?fid=$fid">$fidDB[name]</a></h2>
+	<ul>
+		$listtitle
+	</ul>
+	<a href="javascript:;showMoreCont()" class="ShowMore">查看更多</a>
+</section>
+<script>
+var page=1;
+var rows=$Lrows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('waplist.php?job=showmore&fid=$fid&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMore").hide();
+		}else{
+			$(".ListMoreSort ul").append(d);
+			$(".ShowMore").html("查看更多");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".ListMoreSort ul li").length%rows!=0){
+		$(".ShowMore").hide();
+	}
+}
+countlist();
+</script>
+<!--
+EOT;
+?>
+-->

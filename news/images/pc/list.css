@@ -1,0 +1,211 @@
+.BencandyCont{
+	width:1200px;
+	margin:0 auto;
+}
+.BencandyCont:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.BencandyCont .Main{
+	width:830px;
+	float:left;
+	overflow:hidden;
+}
+.BencandyCont .Side{
+	width:350px;
+	float:right;
+	overflow:hidden;
+	background:#EDEDED;
+	padding-bottom:15px;
+}
+.nav_guide{
+	border-bottom:#1CB29D solid 2px;
+	line-height:50px;
+	font-size:16px;
+	color:#666;
+}
+.ShowPage{
+	text-align:center;
+	clear:both;
+	padding:10px;
+	line-height:30px;
+}
+.ShowPage a{
+	display:inline-block;
+	padding:0 8px 0 8px;
+	font-size:14px;
+	background:#EFEFEF;
+	color:#666;
+}
+.ShowPage a.ck{
+	background:#0067B4;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}
+.sidecont .head{
+	height:50px;
+	line-height:50px;
+	position:relative;
+	border-bottom:#DDD solid 1px;
+	padding-left:40px;
+	font-size:18px;
+	font-weight:bold;
+	color:#666;
+}
+.sidecont .head:before{
+	content:'';
+	display:block;
+	width:3px;
+	height:18px;
+	position:absolute;
+	background:#1CB29D;
+	left:32px;
+	top:16px;
+}
+.sidecont .ListSort{
+	padding:10px;
+}
+.sidecont .ListSort:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.sidecont .ListSort li{
+	width:50%;
+	height:35px;
+	overflow:hidden;
+	float:left;
+	padding-top:12px;
+}
+.sidecont .ListSort li a{
+	display:block;
+	width:90%;
+	height:35px;
+	text-align:center;
+	line-height:35px;
+	background:#1CB29D;
+	margin:auto;
+	font-size:14px;
+	color:#FFF;
+}
+.sidecont .ListSort li a:hover{
+	background:#F60;
+}
+.ListHot li{
+	width:320px;
+	margin:15px auto 0 auto;
+	overflow:hidden;
+}
+.ListHot li dl dt{
+	display:table;
+	width:100%;
+}
+.ListHot li dl dt a{
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	background:#FFF;
+	height:150px;
+}
+.ListHot li dl dt a img{
+	max-width:350px;
+	max-height:300px;
+}
+.ListHot li dl dd a{
+	display:block;
+	padding:3px 5px 0 10px;
+	line-height:30px;
+	height:30px;
+	overflow:hidden;
+	background:#D6D6D6;
+	font-size:14px;
+}
+/***/
+.ArticLists li{
+	width:100%;
+	padding-top:15px;
+	padding-bottom:15px;
+	position:relative;
+	border-bottom:#DDD solid 1px;
+}
+.ArticLists li dl{
+	display:table;
+	width:100%;
+}
+.ArticLists li dl dt,.ArticLists li dl dd{
+	display:table-cell;
+	vertical-align:top;
+}
+.ArticLists li dl dt{
+	width:250px;
+	height:100px;
+	text-align:center;
+	vertical-align:middle;
+	padding:5px 10px 5px 5px;
+}
+.ArticLists li dl dt img{
+	max-width:250px;
+	max-height:200px;
+}
+.ArticLists li dl dd{
+	padding:0 0 30px 0;
+}
+.ArticLists li dl dd h3 a{
+	display:block;
+	line-height:25px;
+	margin-bottom:5px;
+	font-size:16px;
+	padding-left:5px;
+}
+.ArticLists li dl dd h3 a:hover{
+	background:#369;
+	color:#FFF;
+	border-radius:5px;
+}
+.ArticLists li dl dd p{
+	padding-left:5px;
+	font-size:14px;
+	line-height:25px;
+	color:#666;
+}
+.ArticLists li div{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	position:absolute;
+	left:0;
+	bottom:15px;
+	color:#888;
+}
+.ArticLists li div span{
+	float:left;
+	padding-left:5px;
+}
+.ArticLists li.ispic div span{
+	padding-left:265px;
+}
+.ArticLists li div em{
+	float:right;
+	padding-left:20px;
+	background:url(time.png) left 5px no-repeat;
+	padding-right:5px;
+}
+.ArticLists li:hover{
+	background:#EFEFEF;
+}
+/* bigsort */
+
+.main_left{width:830px; float:left;}
+.main_left .more_box{float:left;width:401px;border:#CCC solid 1px; margin-bottom:15px;}
+.main_left .more_boxs{float:right;}
+.box_title{width:100%;height:48px; line-height:48px;background:rgba(204,204,204,0.5);border-bottom:#CCC solid 1px;}
+.box_title span{float:left;padding-left:12px;background:url(title_bj.png) no-repeat center left;margin-left:10px;font-size:16px;font-family:"Î¢ÈíÑÅºÚ";}
+.main_left .more_box .box_title a{float:right;padding-left:12px;background:url(more.png) no-repeat 0 20px;margin-right:12px;color:#999}
+.main_left .more_box .select_box{line-height:36px;margin-left:14px;margin-top:12px;margin-bottom:12px; height:216px; overflow:hidden;}
+.main_left .more_box .select_box a{width:100%; display:block; padding-right:10px; font-size:15px;}

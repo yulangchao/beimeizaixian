@@ -1,0 +1,84 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<form action="?" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<div class="FormContainer">
+	<dl>
+		<dt>单位名称:</dt>
+		<dd>$address[title]</dd>
+	</dl>
+    <dl>
+		<dt>工作职位:</dt>
+		<dd><input name="qy_contact_zhiwei" type="text" id="qy_contact_zhiwei"  style='width:200px;' value="$address[qy_contact_zhiwei]"></dd>
+	</dl>
+    <dl>
+		<dt>联 系 人:</dt>
+		<dd><input name="qy_contact" type="text" id="qy_contact"  style='width:150px;' value="$address[qy_contact]"></dd>
+	</dl>
+    <dl>
+		<dt>电话号码:</dt>
+		<dd><input name="qy_contact_tel" type="text" id="qy_contact_tel"  style='width:150px;' value="$address[qy_contact_tel]"></dd>
+	</dl>
+    <dl>
+		<dt>传真号码:</dt>
+		<dd><input name="qy_contact_fax" type="text" id="qy_contact_fax"  style='width:150px;' value="$address[qy_contact_fax]"></dd>
+	</dl>
+    <dl>
+		<dt>移动号码:</dt>
+		<dd><input name="qy_contact_mobile" type="text" id="qy_contact_mobile"  style='width:150px;' value="$address[qy_contact_mobile]"></dd>
+	</dl>
+    <dl>
+		<dt>单位主页:</dt>
+		<dd><input name="qy_website" type="text" id="qy_website" value="$address[qy_website]"/></dd>
+	</dl>
+    <dl>
+		<dt>邮箱地址:</dt>
+		<dd><input name="qy_contact_email" type="text" id="qy_contact_email" value="$address[qy_contact_email]"/></dd>
+	</dl>
+    <dl>
+		<dt>详细地址:</dt>
+		<dd><input name="qy_address" type="text" id="qy_address" value="$address[qy_address]"/></dd>
+	</dl>
+    <dl>
+		<dt>邮政编码:</dt>
+		<dd><input name="qy_postnum" type="text" id="qy_postnum" value="$address[qy_postnum]" style='width:150px;'/></dd>
+	</dl>
+    <dl>
+		<dt>在线交流:</dt>
+		<dd>
+			<div style="padding-bottom:5px;">Q Q号 <input name="qq" type="text"  value="{$address[qq]}" style='width:150px;'/> 多个号码以‘,’隔开</div>
+			<div>阿里旺旺 <input name="ww" type="text"  value="{$address[ww]}" style='width:200px;'/> 多个号码以‘,’隔开</div>
+        </dd>
+	</dl>
+    <dl>
+		<dt>地图位置:</dt>
+		<dd>
+			<div class="map_box">
+				<input class="text" type="text" name="gg_maps" id="mapid" value="$address[gg_maps]" readonly />
+				<div onClick="reloadLocation();" class="getmap">获取当前位置</div>
+			</div>
+<!--
+EOT;
+$if_baidu_map=$webdb[if_baidu_map]?1:0;
+print <<<EOT
+-->
+<script src="$webdb[www_url]/images/default/gps.js"></script>
+<script type="text/javascript">
+var if_baidu_map=$if_baidu_map;
+</script>
+		</dd>
+	</dl>
+  <div class="butter">
+     <span class="submits"><input type="submit" name="button9" id="button13" value="提 交" /></span>
+	 <input name="atn" type="hidden" id="atn" value="$atn" />
+     <input name="step" type="hidden" id="step" value="1" />
+     <input name="uid" type="hidden" id="uid" value="$uid" />
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

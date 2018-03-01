@@ -1,0 +1,52 @@
+<!--
+<?php
+print <<<EOT
+-->
+<style>
+.ListOrders .company span{float:left;}
+.ListOrders .company span a{padding:0 20px 0 30px; height:35px; line-height:35px; overflow:hidden;}
+.ListOrders ul{margin-bottom:0;}
+.ListOrders ul li .infos{padding-left:10px;}
+.ListOrders ul li .infos .m{line-height30px; height:30px;}
+.ListOrders ul li .infos .m span{color:#125784;}
+.ListOrders .ptime{text-align:right; background:#fff; font-size:12px; line-height:40px; height:30px; padding-right:10px;}
+</style>
+<div class="MainCont">
+	<div class="head"><div class="tag">{$listname}</div></div>
+    <div class="cont">	
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+		<div class="ListOrders">
+			
+
+			<div class="company"><span><a href="../wapbencandy.php?fid=$rs[sfid]&id=$rs[cid]">{$rs[title]}</a></span></div>
+			<ul>
+				<li>
+					<div class="infos">
+						<div class="m">预约帐号：<span>{$rs[username]}</span> </div>
+						<div class="m">联系人：<span>{$rs[realname]}</span> </div>
+						<div class="m">联系电话：<span><a href="tel:{$rs[telphone]}">{$rs[telphone]}</a></span> </div>
+						<div class="m">预约时间：<span>{$rs[gototime]}</span> </div>
+						
+					</div>
+				</li>
+			</ul>
+			<div class="ptime"><span>{$rs[posttime]}</span> </div>
+			<div class="ActOrder"><a href="wapjoinshow.php?id=$rs[sid]">详情</a>{$rs[del]} {$rs[ifyz]}</div>
+
+		</div>
+<!--
+EOT;
+}$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->	
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

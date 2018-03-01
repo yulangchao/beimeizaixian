@@ -1,0 +1,135 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/showjob.css">	
+		<table class="jobtable" style="width:1200px; margin:15px auto;">
+			<tr> 
+				<td class="content_left"> 
+					<table class="left_table">
+						<tr> 
+							<td class="head_blue"><b>招聘单位</b></td>
+						</tr>
+						<tr> 
+								<td class="company"> 
+									<div class="com_name">
+										<a href="$webdb[www_url]/home/?uid=$rsdb[uid]" target="_blank"><b>$companydb[title]</b></a><br />
+									</div>
+									<em>{$renzhengDB[$companydb[renzheng]]}</em>
+									<div class="com_look">
+										<a href="javascript:;" onclick="window.open('$webdb[www_url]/home/?uid=$rsdb[uid]')">查看单位介绍</a>
+									</div>
+								</td>
+						</tr>
+						<tr> 
+						 	<td  class="m_head"><span>其它职位</span></td>
+						</tr>
+						<tr> 
+							<td class="morejob_box">
+								<div class="morejob">
+<!--
+EOT;
+$array=list_hr_job($rsdb[uid],10);
+foreach($array AS $rs){print <<<EOT
+-->
+			·<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a><br>
+<!--
+EOT;
+}print <<<EOT
+-->
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="content_right"> 
+					<table class="text">
+						<tr> 
+							<td class="head_black"> 
+								<b>招聘信息</b>
+							</td>
+						</tr>
+						<tr> 
+							<td class="mian_text" valign="top">
+							
+								<div class="title"> 
+									<b>招聘职位：</b>
+									<font color="#1aa4ed">$rsdb[title]</font> 
+							　　	<font color="#666666">发布日期：</font><a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>
+								</div>
+								
+								<div class="base">
+									<div class="bt"><font color="#666666">职业名称：</font>{$rsdb[title]}</div>
+<!--{template}--> 
+<div class="bt"><font color="#666666">{title}：</font>{value}</div>      
+<!--{/template}-->      
+								</div>
+								
+								<table class="btable">
+									<tr>
+										<td class="h3">
+											<div class="tag2">【职位描述】</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="c">
+											<table style="width:100%">
+												<tr> 
+													<td class="duty">  
+														$rsdb[content]
+													</td>
+												 </tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								<div class="sq"><a href="javascript:;" onclick="window.open('apply.php?job=post&id=$id')">马上申请职位</a></div>
+								<table class="btable" >
+									<tr>
+										<td class="h3">
+											<div class="tag2">【公司介绍】</div>
+										</td>
+									 </tr>
+									 <tr>
+										<td class="c">
+											<table style="width:100%; line-height:30px; color:#666666; text-indent:2em;">
+												<tr> 
+													<td>{$companydb[content]}</td>
+												</tr>
+											</table>
+										</td>
+									  </tr>
+								</table>
+								<table class="btable">
+									<tr>
+										<td class="h3">
+											<div class="tag2">【联系方式】</div>
+										</td>
+									 </tr>
+									 <tr>
+										<td class="call">
+											邮箱: &nbsp {$companydb[qy_contact_email]}<br>
+											电话: &nbsp {$companydb[qy_contact_tel]} <br>
+											传真: &nbsp {$companydb[qy_contact_fax]}<br>
+											<em style="letter-spacing:7px;">QQ</em>: &nbsp {$companydb[qq]}<br>
+											网址: &nbsp {$companydb[qy_website]}<br>
+											地址: &nbsp {$companydb[qy_regplace]} 
+										</td>
+									 </tr>
+								</table>
+								<div class="t_sq">
+									<input type="button" value="申请职位" class="sp_input" onclick="window.open('apply.php?job=post&id=$id')">
+									<!-- <input type="button" value="加入收藏" class="sp_input"> -->
+								</div>
+								
+							</td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+		</table>
+<!--
+EOT;
+?>
+-->

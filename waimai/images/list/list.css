@@ -1,0 +1,53 @@
+.m-Ad{display:none;}
+body{background:#f5f5f5;}
+.Contbox {background:#f5f5f5; clear:both;}
+.Contbox .Content {width:1200px; margin:0 auto; overflow:hidden; clear:both;}
+
+.Contbox .Content .AD {width:1200px; margin:25px 0; overflow:hidden;}
+
+.Contbox .Content .Snav {padding:0 15px; overflow:hidden; background:#FFFFFF;}
+.Contbox .Content .Snav dl {width:100%; overflow:hidden; padding:15px 0; line-height:25px;}
+.Contbox .Content .Snav dl dt {width:6%; float:left;}
+.Contbox .Content .Snav dl dd {width:94%; float:left;}
+.Contbox .Content .Snav .Class {background:url(Snav.png) no-repeat left center; text-align:right; font-size:14px;}
+.Contbox .Content .Snav .Add {background:url(Snav2.png) no-repeat left center; text-align:right; font-size:14px;}
+.Contbox .Content .Snav dl dd a {padding:5px 10px;}
+.Contbox .Content .Snav dl dd a.ck{background:#F90; color:#FFFFFF;}
+.Contbox .Content .Snav dl dd a:hover {background:#1acc78; color:#FFFFFF;}
+
+.Contbox .Content .Main {width:100%; overflow:hidden; margin:25px 0 50px 0;}
+.Main .head {width:100%; background:#FFFFFF; overflow:hidden;}
+.Main .head:after {content:""; display:block; width:100%; clear:both;}
+.Main .head div {width:72px; height:40px; line-height:40px; text-align:center; float:left; background:#FFFFFF;}
+.Main .head .ck {background:#47d693; color:#FFFFFF;}
+
+.Main .MainCont {width:100%;clear:both; overflow:hidden;}
+.Main .MainCont .ContList {width:100%; padding:25px 0; overflow:hidden; }
+.Main .MainCont .ContList .piclist { width:290px;float:left; border:1px solid #e7e7e7; background:#FFFFFF; margin:0 3px 15px 3px; position:relative;}
+.Main .MainCont .ContList .piclist:hover {border:1px solid #b3e8cf; background:#effff7;}
+.piclist .img{display:table;width:100%;border-bottom:#DDD solid 1px;}
+.piclist .img a{display:table-cell; text-align:center; vertical-align:middle; height:210px;}
+.piclist .img a img {max-width:280px; max-height:200px; vertical-align:middle;}
+.piclist .word {overflow:hidden; padding:15px 10px;}
+.piclist .word .t {width:100%; height:30px; line-height:30px; overflow:hidden;}
+.piclist .word .t a {width:90%;font-size:16px; font-weight:bold; float:left;}
+.piclist .word .t div {width:10%; float:left; text-align:center;}
+.piclist .word .t div span {padding:5px; border-radius:15px; color:#FFFFFF;}
+.piclist .word .s {height:30px; line-height:30px; color:#707070;}
+.piclist .word .c {overflow:hidden;}
+.piclist .word .c a {float:left; background:#1acc78; color:#FFFFFF; padding:5px 10px;}
+.piclist .word .c a:hover {background:#139859;}
+.piclist .word .c div {background:url(clock.png) no-repeat left center; padding-left:25px; height:25px; line-height:25px; float:left; margin-left:15px; color:#707070;}
+
+.piclist .scan_code {width:290px; height:210px; position:absolute; top:0; left:0; display:none;}
+.piclist:hover .scan_code {display:block;}
+.piclist .scan_code:before {content:""; display:block; width:290px; height:210px;; position:absolute; top:0; left:0; background:#333333;opacity: 0.5; }
+
+.piclist .scan_code h3 {font-size:20px; font-weight:normal; color:#FFFFFF; text-align:center; position:relative; padding:15px 0 10px 0;}
+.piclist .scan_code span {text-align:center; display:block; width:290px; position:absolute;}
+.piclist .scan_code span img{width:120px; height:120px; border-radius:5px;}
+
+
+.MainCont .jump {width:100%; height:70px; line-height:70px; text-align:center;}
+.MainCont .jump a {padding:10px 15px; border:1px solid #dfdfdf; background:#FFFFFF;}
+.MainCont .jump a:hover {background:#1acc78; color:#FFFFFF;}

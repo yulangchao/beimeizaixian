@@ -1,0 +1,49 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form1" method="post" action="$admin_path&action=$job">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">修改</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">
+      <tr> 
+        <td class="tdL">名称:</td>
+        <td class="tdR"><input type="text" name="postdb[name]" value="$rsdb[name]"></td>
+      </tr>
+      <tr style="display:none;">
+        <td class="tdL">管理员:</td>
+        <td class="tdR"><input type="text" name="postdb[admin]" value="$rsdb[admin]"></td>
+      </tr>
+      <tr> 
+        <td class="tdL">属于哪个分类:</td>
+        <td class="tdR"> $sort_fup</td>
+      </tr>
+    </table>
+	<div class="submits"><input type="submit" name="Submit" value="提交"><input type="hidden" name="postdb[fid]" value="$fid"></div>
+	</div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function show_more(va){
+	var s=document.getElementsByTagName("tr");
+	for(var i=0;i<s.length;i++){
+		if( document.form1.showmore.checked==true ||va==1 ){
+			if(s[i].className=='hidetr'){
+				s[i].style.display="";
+			}	
+		}else{
+			if(s[i].className=='hidetr'){
+				s[i].style.display="none";
+			}	
+		}
+	}
+}
+//show_more(1);
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

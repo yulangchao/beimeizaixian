@@ -1,0 +1,85 @@
+<!--
+<?php
+$listsorts="";
+foreach($Fid_db[0] AS $key=>$name){
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/icon$key.png"))?"./images/wap/icon$key.png":"./images/wap/icon5.png");
+$listsorts.="<li><a href=\"waplist.php?fid=$key\"><dl><dt><img src=\"$logo\"/></dt><dd>$name</dd></dl></a></li>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/index.css">
+<ul class="TheBigMenu">{$listsorts}</ul>
+  	<dl class="newCase">
+    	<dt class="title"><span>最新案例</span></dt>
+        <dd class="conter">
+        	<ul>
+<!--
+EOT;
+$listdb=Get_Info('new',10,60,2);
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+			<li>
+            	<a href="$rs[url]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a>
+                <div class="biaoti">{$rs[title]}</div>
+            </li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</dd>
+</dl>
+<dl class="newCompany">
+    <dt class="title"><span>最新装修公司</span></dt>
+    <dd class="conter">
+    	<ul>
+<!--
+EOT;
+$listdb=Get_Info('new',8,60,5);
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+			<li>
+            	<a href="$rs[url]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a>
+                
+            </li>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </ul>
+    </dd>
+</dl> 
+
+<script type="text/javascript">
+function pic_height(){
+	$(".newCase ul li").each(function(){
+		var this_H=$(this).width()*0.75;
+		if(this_H>226){
+		this_H = 226;
+		}
+		$(this).css({"height":this_H+'px',"line-height":this_H+'px'});
+	});
+}
+function pic2_height(){
+	$(".newCompany ul li").each(function(){
+		var this_H=$(this).width()*0.7;
+		if(this_H>108){
+		this_H = 108;
+		}
+		$(this).css({"height":this_H+'px',"line-height":this_H+'px'});
+	});
+}
+pic_height();
+pic2_height();
+$(window).resize(function(){
+	pic_height();
+	pic2_height();
+});
+</script>
+<!--
+EOT;
+?>
+-->

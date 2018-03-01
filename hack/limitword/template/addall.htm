@@ -1,0 +1,40 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<form name="form1" method="post" action="index.php?lfj=limitword&action=$job">
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="FormTable">
+    <tr>
+      <td colspan='2'>
+                注意:每行一一对应,<br>
+        不想使用新字符的话,留空即可,<br>
+        默认以
+        <input type="text" value="***" size="7" name="dword">
+        替换
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>原字符</td>
+      <td class='tdR'> 
+        <textarea name="oldword" cols="40" rows="17">$rsdb[oldword]</textarea><br> 每个换一行
+      </td>  
+    </tr>
+    <tr>
+      <td class='tdL'>欲替换成新字符(<font color="#FF0000">可留空</font>)</td>
+      <td class='tdR'>
+        <textarea name="newword" cols="40" rows="17">$rsdb[newword]</textarea>
+        <input type="hidden" name="id" value="$id">
+        <br>
+        每个换一行,与上面的一一对应 </td> 
+    </tr>
+    </table>
+    <div class='submits'><input type="submit" name="Submit2" value="提 交"></div>
+  </div>
+</div>
+</form>
+  <!--
+EOT;
+?>
+-->

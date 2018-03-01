@@ -1,0 +1,101 @@
+.b{
+	font-weight:bold;
+}
+.red{
+	color:red;
+}
+.blue{
+	color:blue;
+}
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.searchbar{
+	height:50px;
+	background:#FFF;
+	overflow:hidden;
+}
+.searchbar form{
+	display:block;
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:3px;
+	height:30px;
+	overflow:hidden;
+	margin:10px auto 0 auto;
+	position:relative;
+}
+.searchbar .s_ipt { 
+	width:98%;
+	display:block;
+	height:30px;
+	line-height:30px;
+	border:0;
+	padding-left:5px;
+}
+.searchbar .s_btn { 
+	display:block; 
+	width:36px; 
+	height:30px;
+	position:absolute;
+	top:0; 
+	right:0;
+	text-indent:-999em; 
+	border:0 none; 
+	border-left:1px solid #ddd; 
+	background:url(search_ico.gif) no-repeat center 9px; 
+	background-size:15px auto; 
+	cursor:pointer; 
+}
+.ListSearch{
+	width:98%;
+	overflow:hidden;
+	margin:5px auto;
+	border-bottom:#DDD solid 1px;
+	padding-bottom:8px;
+}
+.ListSearch dt a{
+	display:block;
+	height:25px;
+	line-height:25px;
+	overflow:hidden;
+	color:#369;
+}
+.ListSearch dd{
+	line-height:20px;
+	font-size:14px;
+	color:#666;
+}
+.ShowPage{
+	height:80px;
+	padding-top:15px;
+	text-align:center;
+}
+.ShowPage a{
+	display:inline-block; 
+	border:#DDD solid 1px;
+	border-radius:3px;
+	padding:5px 10px;
+	background:#FFF;
+	color:#666;
+	font-size:14px;
+}
+.ShowPage a.ck{
+	background:green;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}
+.NoSearch{
+	text-align:center;
+	padding:50px 10px 50px 10px;
+	color:red;
+	line-height:25px;
+}

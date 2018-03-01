@@ -1,0 +1,373 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="MainCont">
+<!--
+EOT;
+if($job=='picsort'){
+print <<<EOT
+-->
+<style>
+.AddPicSort{width:100%; clear:both; text-align:center;padding:10px;}
+.AddPicSort a{display:inline-block; line-height:30px; border:#F30 solid 1px; background:#F60; padding:0 10px; color:#FFF;}
+.ListPicSort .listsort{width:50%;height:210px;position:relative;float:left;}
+.ListPicSort .listsort dl{height:200px;margin:10px 5px 0 5px;border:#DDD solid 1px;background:#FFF;border-radius:5px;}
+.ListPicSort dl dt{width:95%;height:100px;margin:5px auto 0 auto;overflow:hidden;line-height:95px;text-align:center;}
+.ListPicSort dl dt img{max-width:100%;max-height:100px;vertical-align:middle;}
+.ListPicSort dl dd{width:95%;margin:auto;}
+.ListPicSort dl dd h3{height:30px;text-align:center;line-height:30px;overflow:hidden;}
+.ListPicSort dl dd p{height:25px;text-align:center;line-height:25px;overflow:hidden;color:#888;font-size:14px;}
+.ListPicSort dl dd .act{height:30px;text-align:center;line-height:25px;overflow:hidden;word-spacing:10px;padding-top:5px;}
+.ListPicSort dl dd .act a{display:inline-block;border:#DDD solid 1px;padding:0 10px;color:#888;font-size:14px;}
+.PicSortFormbg{width:100%;height:100%;background:rgba(0,0,0,0.6); position:fixed;left:0;top:0;z-index:100000;display:none;}
+.PicSortForm{width:80%;height:50%;background:#FFF; position:fixed;left:10%;top:25%;z-index:100001;border-radius:5px;display:none;}
+.PicSortForm h3{text-align:center;padding-top:10px;}
+.PicSortForm dl{margin:10px;border:#DDD solid 1px; background:#EFEFEF;}
+.PicSortForm dl dt{text-align:center; line-height:30px;}
+.PicSortForm dl dd{padding:5px;}
+.PicSortForm dl dd input{width:99%;border:#DDD solid 1px;line-height:30px; text-indent:5px;}
+.PicSortForm dl dd textarea{width:99%;border:#DDD solid 1px;height:60px;}
+.PicSortForm .butters{text-align:center;}
+.PicSortForm .butters span{display:inline-block; line-height:30px; border:#F60 solid 1px; background:#F90; padding:0 10px; color:#FFF;}
+</style>
+	<div class="head"><div class="tag">我的图集</div></div>
+    <div class="cont ListPicSort">
+<!--
+EOT;
+foreach($listdb as $rs){
+print <<<EOT
+-->
+		<div class="listsort psid$rs[psid]">			
+			<dl>
+				<dt><a href="?atn=piclist&amp;uid=$uid&amp;psid=$rs[psid]"><img src="$rs[faceurl]" onerror="this.src='$Murl/images/default/userpicsortdefault.gif';"/></a></dt>
+				<dd>
+					<h3>$rs[name]</h3>
+					<p>$rs[remarks]</p>
+					<div class="act">
+						<a href="javascript:;editPicSort($rs[psid])">编辑</a>
+						<a href="javascript:;delPicSort($rs[psid])">删除</a>
+					</div>
+				</dd>
+			</dl>
+		</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    </div>
+	<div class="AddPicSort"><a href="javascript:;addPicSort()">添加图集</a></div>
+	<div class="PicSortFormbg" onClick="hidePicSortFormbg();"></div>
+	<div class="PicSortForm">
+		<h3>新建图集</h3>
+		<dl>
+		  <dt>图集名称：(2-8个字)</dt>
+		  <dd><input name="name" type="text"/></dd>
+		</dl>
+		<dl>
+		  <dt>图集描述：(0-50个字)</dt>
+		  <dd><textarea name="remarks"></textarea></dd>
+		</dl>
+		<div class="butters"><span>创建</span></div>
+		<input name="psid" class="types" type="hidden"/>
+	</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function PicSortForm(){
+	$('.PicSortFormbg').fadeIn();
+	$('.PicSortForm').fadeIn();
+}
+function hidePicSortFormbg() {
+	$('.PicSortForm').fadeOut();
+	$('.PicSortFormbg').fadeOut();
+}
+function addPicSort(){
+	var picsorts=$('.ListPicSort .listsort').length;
+	if(picsorts<$webdb[company_picsort_Max]){
+		$('.PicSortForm h3').html('新建图集');
+		$('.PicSortForm .butters span').html('创建');
+		$('.PicSortForm dl dd input').val('');
+		$('.PicSortForm dl dd textarea').val('');
+		$('.PicSortForm .types').val('');
+		PicSortForm();
+	}else{
+		alert("您的图集已经有{$webdb[company_picsort_Max]}个啦，不能再创建！");
+	}
+}
+$('.PicSortForm .butters span').click(function(){
+	var name=$('.PicSortForm dl dd input').val();
+	var remarks=$('.PicSortForm dl dd textarea').val();
+	var psid=$('.PicSortForm .types').val();
+	if(name==''){
+		alert('请填写图集名称！');
+	}else{
+		$.get("?job=editpicsort&name="+name+"&remarks="+remarks+"&psid="+psid+"&"+Math.random(),function(d){
+			if(d=='no'){
+				alert('当前操作有误！');
+			}else{
+				$(".ListPicSort").html(d);
+				hidePicSortFormbg();
+			}
+		});
+	}
+});
+function editPicSort(psid){
+	var name=$('.psid'+psid+' h3').html();
+	var remarks=$('.psid'+psid+' p').html();
+	$('.PicSortForm h3').html('修改图集');
+	$('.PicSortForm .butters span').html('修改');
+	$('.PicSortForm dl dd input').val(name);
+	$('.PicSortForm dl dd textarea').val(remarks);
+	$('.PicSortForm .types').val(psid);
+	PicSortForm();
+}
+function delPicSort(psid){
+	var name=$('.psid'+psid+' h3').html();
+	var checks = confirm('确定删除'+name+'吗？');
+	if(checks==true){
+		$.get("?job=editpicsort&atc=delpicsort&psid="+psid+"&"+Math.random(),function(d){
+			if(d=='no'){
+				alert('当前操作有误！');
+			}else if(d=='havepic'){
+				alert('当前图集下已有图片不能直接删除！');
+			}else{
+				$(".ListPicSort").html(d);
+				hidePicSortFormbg();
+			}
+		});
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}if($atn=='piclist'){
+print <<<EOT
+-->
+<style>
+.PicSorts dl{display:table;width:100%;border-bottom:#DDD solid 1px; background:#FFF;}
+.PicSorts dl dt,.PicSorts dl dd{display:table-cell; vertical-align:middle;font-size:14px;color:#666;}
+.PicSorts dl dt{width:180px;padding:10px 5px 10px 10px; text-align:center;}
+.PicSorts dl dt img{max-width:180px;max-height:180px;}
+.PicSorts dl dd{padding:5px;}
+.PicSorts dl dd h3{height:25px; line-height:25px; overflow:hidden;}
+.PicSorts dl dd p{padding:5px 0;line-height:20px;}
+.PicSorts dl dd div span,.PicSorts dl dd div a{display:inline-block;line-height:25px;padding:0 10px;border:#F30 solid 1px; background:#F60; color:#FFF; margin-top:5px;}
+.ListPics:after{content:'';display:block;width:100%;height:10px; clear:both;}
+.ListPics .lists{width:50%;height:210px;position:relative;float:left;}
+.ListPics .lists dl{height:200px;margin:10px 5px 0 5px;border:#DDD solid 1px;background:#FFF;border-radius:5px;}
+.ListPics .lists dl dt{width:95%;height:120px;margin:5px auto 0 auto;overflow:hidden;line-height:115px;text-align:center;}
+.ListPics .lists dl dt img{max-width:100%;max-height:120px;vertical-align:middle;}
+.ListPics .lists dl dd{width:95%;margin:auto;}
+.ListPics .lists dl dd div{height:32px; line-height:30px; overflow:hidden; text-align:center;}
+.ListPics .lists dl dd div input{border:#DDD solid 1px;width:90%; line-height:25px; height:25px; color:#888; text-indent:5px;}
+.ListPics .lists dl dd div a{display:inline-block;line-height:25px;padding:0 5px;border:#DDD solid 1px; background:#EFEFEF;font-size:14px; margin:5px 5px 0 5px;}
+.ListPics .ShowPage{width:100%; clear:both;padding:10px 0; text-align:center; line-height:25px;}
+.ListPics .ShowPage a{display:inline-block;padding:0 5px;border:#DDD solid 1px; background:#FFF;font-size:14px;}
+.PicPostFormbg{width:100%;height:100%;background:rgba(0,0,0,0.6); position:fixed;left:0;top:0;z-index:100000;display:none;}
+.pic_upload{width:80%;height:100px;background:#FFF; position:fixed;left:10%;top:30%;z-index:100001;border-radius:5px;}
+.pic_upload dt{text-align:center;padding:10px 0 5px 0;}
+.pic_upload dd .upfile_box{width:250px; margin:auto;}
+.pic_upload dd .upfile_box input{width:99%;height:30px;border:#DDD solid 1px; line-height:30px; text-indent:5px;}
+.pic_upload dd .upfile_box .iframe{ margin-top:10px;}
+.pic_upload dd .upfile_box .iframe iframe{width:250px;height:30px;}
+.PicPostForm{display:none;}
+.upflieBox{position: fixed;border:#F90 solid 1px;width:80%;height:40%;background:#FFF;border-radius: 5px;text-align:center;top:30%;left:10%;z-index: 100001;}
+.upflieBox p{padding:15px;text-align:center;}
+.upflieBox a{display:inline-block;padding:5px 10px;border:#F30 solid 1px;background:#F60;border-radius: 5px;color:#FFF;margin:5px auto 20px auto;}
+#uploadImage{border:#DDD solid 1px;background:#EFEFEF;}
+</style>
+	<div class="head"><div class="tag">$picsortdb[name]</div></div>
+	<div class="PicSorts">
+		<dl>
+			<dt><img src="$picsortdb[faceurl]" onerror="this.src='$Murl/images/default/userpicsortdefault.gif';"/></dt>
+			<dd>
+				<h3>$picsortdb[name]</h3>
+				<p>$picsortdb[remarks]</p>
+				<div><span class="upload_pic">添加图片</span></div>
+				<div><a href="?job=picsort">返回图集</a></div>
+			</dd>
+		</dl>
+	</div>
+    <div class="cont ListPics">
+		$listpics
+	</div>
+	<div class="PicPostFormbg" onClick="hidePicUpload();"></div>
+	<div class="PicPostForm">
+<!--
+EOT;
+if(is_weixn_open()){
+require(ROOT_PATH."inc/weixin.jsdk.php"); //监控微信分享事件
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<div class="upflieBox">
+	<p>请选择上传的图片</p>
+	<a id="chooseImage">选择图片</a>
+	<a id="uploadImage">上传图片</a>
+</div>
+<input id="morepicurl" type="hidden"/>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>	
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+wx.config({
+	debug: false,
+	appId: '{$signPackage["appId"]}',
+	timestamp: {$signPackage["timestamp"]},
+	nonceStr: '{$signPackage["nonceStr"]}',
+	signature: '{$signPackage["signature"]}',
+	jsApiList: [
+		'checkJsApi',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+	  ]
+});
+function Atcupimg(){
+	$('.Share_Message').fadeIn();
+	$('.upflieBox').fadeIn();
+}
+function SharHiddenMessage() {
+	$('.Share_Message').fadeOut();
+	$('.upflieBox').fadeOut();
+	$('.upflieBox p').html('请选择上传的图片');
+	$('#chooseImage').css({"background":"#F60","border":"#F30 solid 1px"});
+	$('#uploadImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+}
+wx.ready(function () {
+  // 5 图片接口
+  // 5.1 拍照、本地选图
+  var images = {
+    localId: [],
+    serverId: []
+  };
+  document.querySelector('#chooseImage').onclick = function () {
+    wx.chooseImage({
+      success: function (res) {
+        images.localId = res.localIds;
+        //alert('已选择 ' + res.localIds.length + ' 张图片，请点击上传按钮开始上传。');
+		$('.upflieBox p').html('已选择'+res.localIds.length+'张图片<br/><font color="red">请点击下面第二个按键上传图片</font>');
+		$('#uploadImage').css({"background":"#F60","border":"#F30 solid 1px"});
+		$('#chooseImage').css({"background":"#EFEFEF","border":"#DDD solid 1px"});
+		postimg();
+      }
+    });
+  };
+  // 5.3 上传图片
+  document.querySelector('#uploadImage').onclick = function () {
+    if (images.localId.length == 0) {
+      //alert('请先选择图片');
+	  $('.upflieBox p').html('请先点击下面第一个按键选择图片');
+      return;
+    }
+    var i = 0, length = images.localId.length;
+    images.serverId = [];
+    function upload() {
+      wx.uploadImage({
+        localId: images.localId[i],
+        success: function (res) {
+          i++;
+          //alert('已上传：' + i + '/' + length);
+		  alert('已上传：第 ' + i + ' 张图片，请点击确认继续上传。' );
+		  //window.location.href="u.php?urls="+res.serverId
+		  document.querySelector('#morepicurl').value+=","+res.serverId;
+          images.serverId.push(res.serverId);
+          if (i < length) {
+            upload();
+          }else{
+		  	$('.upflieBox p').html('请选择上传的图片');
+			SharHiddenMessage();
+			//对微信上传的图片时行后处理
+			get_weixin_up_file();
+		  }
+        },
+        fail: function (res) {
+          alert(JSON.stringify(res));
+        }
+      });	  
+    }
+    upload();	
+  };
+});
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+function get_weixin_up_file(){
+	var upfile_str=$('#morepicurl').val();
+	$.get("?job=wxpicupload&psid=$psid&&upfile_str="+upfile_str+"&"+Math.random(),function(d){
+		$(".ListPics").html(d);
+		hidePicUpload();
+	});
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<dl class="pic_upload">
+			<dt>上传图片</dt>
+			<dd>
+				<div class="upfile_box">
+					<div class='iframe'><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=homepage/pic0/$uid&label=out_url0'></iframe></div>
+				</div>
+			</dd>
+		</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	$('.upfile_box iframe').attr("src",'$webdb[www_url]/do/upfile.php?fn=upfile&dir=homepage/pic0/$uid&'+Math.random());
+	pic_uploads(url);
+}
+function pic_uploads(url){
+	$.get("?job=picupload&psid=$psid&url="+url+"&"+Math.random(),function(d){
+		hidePicUpload();
+		$('.ListPics').html(d);
+	});
+}
+function setPicsortFac(pid){
+	$.get("?job=setpicsortfac&psid=$psid&pid="+pid+"&"+Math.random(),function(d){
+		$('.PicSorts img').attr("src",d);
+	});
+}
+function editTitle(title,pid){
+	$.get("?job=edittitle&pid="+pid+"&title="+title+"&"+Math.random());
+}
+function delThisPic(pid){
+	var checks = confirm('确定删除当前图片吗？');
+	if(checks==true){
+		$.get("?job=delpic&psid=$psid&pid="+pid+"&"+Math.random(),function(d){
+			$('.ListPics').html(d);
+			hidePicUpload();
+		});
+	}
+}
+$('.upload_pic').click(function(){
+	$('.PicPostFormbg').fadeIn();
+	$('.PicPostForm').fadeIn();
+});
+function hidePicUpload() {
+	$('.PicPostForm').fadeOut();
+	$('.PicPostFormbg').fadeOut();
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<!--
+EOT;
+?>
+-->

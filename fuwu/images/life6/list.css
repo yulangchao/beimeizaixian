@@ -1,0 +1,113 @@
+.cross {
+	text-decoration:line-through; color:#666666;
+} 
+.Kern5 {
+	letter-spacing:5px;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.yellow {
+	color:yellow;
+}
+
+.text {
+	width:100%; height:1845px; float:left; padding-top:35px;
+}
+.left {
+	width:830px; height:auto; float:left;
+}
+.right {
+	width:350px; height:auto; float:right; background:#ededed;
+}
+.title {
+	width:100%; height:58px; float:left; border-bottom:2px solid #379be9;
+}
+.title span {
+	font-size:20px; font-weight:bold; line-height:58px; text-align:center;
+}
+.title a {
+	width:200px; height:40px; float:right; font-size:24px; color:#FFFFFF; font-weight:bold;
+	text-align:center; background:#ef8d00; line-height:40px;
+}
+.title a:hover {
+	color:#CCCCCC;
+}
+
+.showlist {
+	width:100%; float:left;
+}
+.tablelist {
+	width:828px;; height:225px; border-bottom:1px solid #CCCCCC; float:left; margin:5px 0;
+}
+.tablelist .img {width:270px; height:205px; float:left; padding-top:20px;}
+.tablelist .img a{display:block; width:255px; height:191px; text-align:center;}
+.tablelist .img img{max-width:255px; height:191px;}
+.tablelist  .word {
+	width:370px; height:205px; float:left; padding-top:20px; font-size:16px; color:#666666; line-height:25px;
+}
+.tablelist .word a {
+	float:left; width:100%; font-size:18px; line-height:35px; font-weight:bold;
+}
+.tablelist .word a:hover {
+	color:#0075cd;
+}
+.info {
+	width:185px; height:175px; float:left; padding-top:50px;
+}
+.info_box {
+	height:120px; float:left; border-left:1px solid #CCCCCC; margin-left:10px;
+}
+.info_box a {
+	float:left; width:80px; height:30px; text-align:center; line-height:30px; color:#FFFFFF; background:#0067b4;
+	font-size:18px; margin-left:10px;
+}
+.info_box a:hover {
+	background:#015593; color:#CCCCCC;
+}
+.info_box span {
+	float:left; font-size:16px; line-height:30px; padding-left:10px;
+}
+.right dl {
+	width:100%; float:left; margin-bottom:20px;
+}
+.right_title {
+	width:95%; height:59px; border-bottom:1px solid #dcdcdc; line-height:59px; padding-left:15px;
+}
+.right_title span {
+	font-size:20px; font-weight:bold; padding-left:10px; border-left:3px solid #0a78cb;
+}
+.content_rel_list {
+	width:50%; height:50px; float:left; list-style-type:none; margin-top:10px;
+}
+.content_rel li a {
+	width:120px; height:35px; line-height:35px; font-size:14px; color:#FFFFFF;
+	text-align:center; background:#1aa4ed; float:left; margin:7px 27px;
+}
+.content_rel li a:hover {
+	background:#006699; color:#CCCCCC;
+}
+
+
+.recommend {
+	width:100%; height:auto; float:left;
+}
+.recommend h1 {
+	width:91%; float:left; font-size:20px; line-height:50px; font-weight:bold;margin-left:15px; border-bottom:1px solid #CCCCCC;
+}
+.recommend dl {margin:15px 26px;; float:left; background:#d6d6d6;  width:298px;}
+.recommend dl dt{width:298px; height:186px; text-align:center;}
+.recommend dl dt img{max-width:298px; height:186px;}
+.word_title {margin:15px 0; display:block; max-height:42px; line-height:21px; font-size:16px; padding:0 10px; overflow:hidden;}
+.word_title:hover {color:#0075cd;}
+
+/* showpage */
+.Jump_box {width:100%; float:left; margin:30px 0;}
+.Jump_nav {overflow:hidden; font-size:14px; text-align:center;}
+.Jump_nav a {padding:0 8px; height:30px; background:#e3e3e3; display:inline-block; border-radius:3px; line-height:30px; text-align:center; margin:0 2px; border:#dbdada;}
+.Jump_nav a.ck{background:#21aaf3;}
+.Jump_nav a.ck font{color:#fff;}
+.Jump_nav a:hover {background:#21aaf3; color:#FFFFFF; text-decoration:none;}

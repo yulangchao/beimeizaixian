@@ -1,0 +1,75 @@
+<!--
+<?php
+$Mdirname=Mdirname;
+print <<<EOT
+--> 
+<div class='ListLinkCont'>
+  <a href="$admin_path&job=addplace">添加广告位</a>
+  <a href="$admin_path&job=listad">广告位管理</a>
+  <a href="../member/index.php?main=../$dirname/member/norm.php?job=list">购买广告</a>
+</div>
+
+<div class="MainContainers">
+  <div class="Conter">
+    <table class="ListTable">
+
+    <tr> 
+      <th width="17%">广告位名称</th>
+      <th width="15%">正在展示的个数</th>
+      <th width="14%">销售总个数</th>
+      <th width="14%">同时显示总个数</th>
+      <th width="10%">状态</th>
+      <th width="6%">预览</th>
+      <th width="6%">修改</th>
+      <th width="6%">购买</th>
+      <th width="6%">代码</th>
+      <th width="6%">删除</th>
+    </tr>
+  <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+  <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+    <td class='Left'>{$rs[name]}</td>
+    <td>$rs[AdNum] </td>
+    <td>$rs[AllAdNum]</td>
+    <td>{$rs[adnum]}</td>
+    <td>$rs[isclose]</td>
+    <td><a href="$rs[demourl]" title="点击浏览" target="_blank"><img src="../member/images/icon_view.gif" border="0"></a></td>
+    <td><a href="$admin_path&job=editadplace&id=$rs[id]" title='点击修改' class='edit'></a></td>
+     <td><a href="../member/index.php?main=../$dirname/member/buy_sellad.php?job=buy&id=$rs[id]" target="_blank"><img src="../images/default/icon_order_button.gif" border="0"></a></td>
+      <td><a href="#" onClick="$('#ja_$rs[id]').show();JM_cc('ja_$rs[id]');alert('代码复制成功，你可以粘贴在网页里需要显示的地方,即可显示广告！')"> 
+      <img alt='' src='../member/images/art_icon.gif' border=0></a><div><input type="text" style="width:100px;display:none;" value="<SCRIPT LANGUAGE='JavaScript' src='$webdb[www_url]/$dirname/a_d_s.php?job=sell&id=$rs[id]'></SCRIPT>" id="ja_$rs[id]"></div></td>
+       <td><a href="$admin_path&id=$rs[id]&action=deleteadplace" onclick="return confirm('你确认要删除这个广告吗?')" title='点击删除' class='del'></a></td>
+  </tr>
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+  </div>
+</div>
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">说明:</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>1.广告调用方法,点击以上每一个广告位对应的&quot;代码&quot;然后复制成功,把他粘贴到你的模板需要的地方即可调用显示</li>
+      <li> 2.特别注意的是,广告代码不仅仅可以放在整站系统,也可以放在论坛,或者是其它网站里边去.支持跨系统,跨网站</li>
+    </ul>
+  </div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function JM_cc(ob){
+var obj=document.getElementById(ob); if (obj) { 
+obj.select();js=obj.createTextRange();js.execCommand("Copy");}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

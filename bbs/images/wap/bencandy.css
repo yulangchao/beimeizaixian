@@ -1,0 +1,376 @@
+.TopContainer{
+	height:45px;
+	line-height:45px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	font-weight:bold;
+	color:#666;
+	font-size:16px;
+	padding:0 60px 0 15px;
+	background:url(more.png) right 8px no-repeat;
+	position:relative;
+}
+.TopContainer a{
+	color:#3668B2;
+}
+.TopContainer a.post{
+	display:block;
+	width:35px;
+	height:45px;
+	position:absolute;
+	background:url(novip.jpg) center 5px no-repeat;
+	overflow:hidden;
+	right:5px;
+	top:0;
+	background-size:35px 45px;
+	line-height:45px;
+	text-indent:40px;
+}
+dl.MemberInfo{
+	height:80px;
+	overflow:hidden;
+	padding-left:85px;
+	position:relative;
+}
+dl.MemberInfo dt{
+	display:block;
+	width:60px;
+	height:60px;
+	overflow:hidden;
+	position:absolute;
+	left:15px;
+	top:10px;
+	border-radius:30px;
+}
+dl.MemberInfo dt img{
+	width:60px;
+}
+dl.MemberInfo dd span,dl.MemberInfo dd em{
+	display:block;
+	line-height:25px;
+	height:25px;
+	overflow:hidden;
+	color:#888;
+}
+dl.MemberInfo dd span{
+	padding-top:15px;
+}
+dl.MemberInfo dd ul{
+	width:200px;
+	height:30px;
+	position:absolute;
+	right:10px;
+	top:15px;
+	text-align:right;
+}
+dl.MemberInfo dd ul ol,dl.MemberInfo dd ul li{
+	display:inline-block;
+	margin-left:5px;
+	margin-right:5px;
+	color:#F90;
+	padding-left:25px;
+	background:url(dig.png) no-repeat;
+	background-size:23px 23px;
+}
+dl.MemberInfo dd ul li{
+	background:url(comment.png) no-repeat;
+	background-size:23px 23px;
+}
+.contTitle{
+	clear:both;
+	padding:1px 10px 1px 15px;
+	line-height:25px;
+	font-size:18px;
+	font-weight:bold;
+}
+.ShowContent{
+	padding:0 10px 0 15px;
+}
+.ShowContent .Content{
+	width:100%;
+	overflow:hidden;
+	color:#666;
+	line-height:25px;
+}
+.ShowContent .Content img {
+	max-width: 95%;
+}
+
+.ShowComment{
+	width:100%;
+	clear:both;
+	margin-top:10px;
+}
+.ShowComment .head{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	position:relative;
+	text-align:right;
+	padding-right:5px;
+}
+.ShowComment .head span{
+	display:inline-block;
+	margin-left:5px;
+	margin-right:5px;
+	padding-left:28px;	
+}
+.ShowComment .head span.comments{
+	background:url(comment.png) left 10px no-repeat;
+	background-size:23px 23px;
+	color:#999;
+}
+.ShowComment .head span.replycomment{
+	background:url(reply1.png) left 10px no-repeat;
+	background-size:23px 23px;
+	color:#769CDC;
+	cursor:pointer;
+}
+.ShowComment .head span.tag{
+	background:url(reply.png) left 10px no-repeat;
+	background-size:23px 23px;
+	font-weight:bold;
+	display:block;
+	width:200px;
+	height:40px;
+	position:absolute;
+	left:8px;
+	top:0;
+	text-align:left;
+}
+.ReplyCommentForm{
+	position: fixed; 
+	width:100%; 
+	height: 100%; 
+	background: rgba(0,0,0,0.8);
+	z-index: 900000; 
+	top:0; 
+	left: 0; 
+	display: none;
+}
+.ReplyCommentForm .FormCont{
+	width:300px;
+	margin:30px auto 0 auto;
+	background:#FFF;
+	border: 1px solid #EEE;
+	-webkit-box-shadow: 0 0 3px 1px #EEE;
+	box-shadow:0 0 3px 1px #EEE;
+	border-radius: 5px;
+}
+.ReplyCommentForm .FormCont textarea{
+	width:100%;
+	height:100px;
+	border:0;
+	border-bottom:#DDD solid 1px;
+}
+.ReplyCommentForm .FormCont .AtcList{
+	height:40px;
+	overflow:hidden;
+	position:relative;
+}
+.ReplyCommentForm .FormCont .AtcList span{
+	display:block;
+	width:70px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	overflow:hidden;
+	position:absolute;
+	top:3px;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.ReplyCommentForm .FormCont .AtcList span.yesreply{
+	right:10px;
+	background:#68A613;
+	color:#FFF;
+}
+.ReplyCommentForm .FormCont .AtcList span.noreply{
+	right:90px;
+}
+.ReplyCommentForm .FormCont .AtcList span.ListIcon{
+	border:0;
+	width:60px;
+	background:url(icon0.png) center top no-repeat;
+	background-size:30px 30px;
+}
+.ReplyCommentForm .FormCont .AtcList span.ListIcon em{
+	display:block;padding-top:30px;
+}
+.ReplyCommentForm .FormCont .AtcList span.ListIcon em.ck{
+	background:url(icon1.png) center top no-repeat;
+	background-size:30px 30px;
+}
+.ShowIcons{
+	display:table;
+	width:100%;
+	background:#EFEFEF;
+	display:none;
+}
+.ShowIcons ul{
+	display:table-cell;
+	padding:0 5px 8px 5px;
+}
+.ShowIcons ul li{
+	width:10%;
+	height:27px;
+	text-align:center;
+	padding-top:3px;
+	overflow:hidden;
+	float:left;
+}
+
+.mod-share{
+    overflow: hidden;
+    width: 98%;
+    margin:10px 2%;
+    text-align: center;
+}
+.share-btn {
+    background: #D6D6D6;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #444444;
+    width: 48%;
+    display: inline-block;
+}
+.share-btn span{ 
+	height: 20px; 
+	line-height: 20px; 
+	display: inline-block;
+}
+.ico-share {
+    background: url(ico-share.png) no-repeat 0 center;
+    background-size:23px 20px;
+    padding: 0 0 0 27px;
+}
+.ico-pyq{ 
+	background:url(ico-pyq.png) no-repeat 0 center; 
+	background-size:21px 20px; 
+	padding:0 0 0 25px;
+}
+.text-share{ 
+	background:url(text.png) no-repeat right center; 
+	width:100%; 
+	height:609px; 
+	background-size:contain; 
+	top:0; 
+	display: block;
+}
+.Share_Message{ 
+	position: fixed; 
+	width:100%; 
+	height: 100%; 
+	background: rgba(0,0,0,0.8);
+	z-index: 900000; 
+	top:0; 
+	left: 0; 
+	display: none;
+}
+.Share_Message div{
+	background:url(text.png) no-repeat right center; 
+	width:100%; 
+	height:350px; 
+	background-size:contain; 
+	top:0; 
+	display: block;
+}
+.FootSpa{
+	clear:both;
+	width:100%;
+	height:60px;
+}
+.dlcomments{
+	clear:both;
+	border: 1px solid #EEE;
+	width:98%;
+	margin:8px auto 0 auto;
+	background:#FFF;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 3px 1px #EEE;
+	box-shadow:0 0 3px 1px #EEE;
+}
+.dlcomments dt{
+	height:35px;
+	overflow:hidden;
+	position:relative;
+	padding:0 10px 0 40px;
+	line-height:35px;	
+}
+.dlcomments dt a{
+	display:block;
+	width:26px;
+	height:26px;
+	position:absolute;
+	left:8px;
+	top:6px;
+	overflow:hidden;
+	border-radius:13px;
+}
+.dlcomments dt a img{
+	width:26px;
+	margin-top:-13px;
+}
+.dlcomments dt span{
+	float:left;
+	color:#369;
+}
+.dlcomments dt em{
+	float:right;
+	color:#888;
+	font-size:12px;
+}
+.dlcomments dd{
+	padding:0 10px 10px 10px;
+	line-height:20px;
+	font-size:14px;
+	color:#666;
+}
+.commentpage{
+	text-align:center;
+	padding:10px 0 10px 0;
+}
+.commentpage a{
+	display:inline-block; 
+	border:#DDD solid 1px;
+	border-radius:3px;
+	padding:2px 5px;
+	background:#FFF;
+	color:#666;
+	font-size:12px;
+	line-height:20px;
+}
+.commentpage a.ck{
+	background:green;
+}
+.commentpage a.ck font{
+	color:#FFF;
+}
+.NoComment{
+	padding:15px;
+	text-align:center;
+	font-size:18px;
+	color:red;
+}
+.Footreplycomment{
+	text-align:center;
+	padding-top:10px;
+}
+.Footreplycomment span{
+    background: #D6D6D6;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #444444;
+    display: inline-block;
+	padding:0 20px 0 25px;
+	letter-spacing:10px;
+	cursor:pointer;
+}

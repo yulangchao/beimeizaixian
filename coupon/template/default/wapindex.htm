@@ -1,0 +1,119 @@
+<?php
+require(ROOT_PATH."inc/waphead.php");
+?>
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/wap/wapindex.css"/>
+<!-- nav -->
+  <section class="s-skin m-nav">
+	<ul>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+echo(count($Fid_db[0]));
+$url="waplist.php?fid=$key";
+$i++;
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/ficon$i.png"))?"./images/wap/ficon$i.png":"./images/wap/ficon1.png");
+if($i>7) break;
+print <<<EOT
+-->
+	  <li><a href="$url"><span><img src="$logo"/></span><span>$name</span></a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	  <li id="show_sort"><a href="#"><span><img src="images/wap/ficon8.png"/></span><span>更多类目</span></a></li>
+
+	</ul>
+  </section>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url="waplist.php?fid=$key";
+$ck_class=($key==$fidDB[fup]||$key==$fid)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls="waplist.php?fid=$keys";
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script type="text/javascript" src="$webdb[www_url]/f/images/wap/sort.js"></script>
+<!-- /nav -->
+<!-- m-modleCont -->
+  <section class="s-skin m-modleCont">
+    <div class="modleCont">
+	  <h2><a href="#">优惠促销</a></h2>
+	  <div class="allCont">
+	    <ul>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+		  <li>
+		    <a href="$rs[url]"><div class="List">
+			  <div class="ListPic"><img src="$rs[picurl]"/></div>
+			  <h3>$rs[title]</h3>
+			  <div class="ListPrice"><span class="L">￥{$rs[price]} 元</span><strike class="R">￥{$rs[mart_price]} 元</strike></div>
+			  <div class="ListOther"><span class="L">截止日期：<em>{$rs[end_time]}</em></span><span class="R">发布日期：{$rs[posttime]}</span></div>
+			</div></a>
+		  </li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</ul>
+	  </div>
+	</div>
+  </section>
+  <div class="ShowMoreShop" onclick="showMoreCont();"><span>点击查看更多</span></div>
+<script>
+var page=1;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreShop").hide();
+		}else{
+			$(".allCont ul").append(d);
+			$(".ShowMoreShop").html("<span>点击查看更多</span>");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".allCont ul li").length%rows!=0){
+		$(".ShowMoreShop").hide();
+	}
+}
+countlist();
+</script>
+<!-- /m-modleCont -->
+<!--
+EOT;
+?>
+-->
+<?php
+require(ROOT_PATH."inc/wapfoot.php");
+?>

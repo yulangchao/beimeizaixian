@@ -1,0 +1,80 @@
+.SetStyleBut{
+	display:block;
+	width:100%;
+	height:100%;
+	background:#000;
+	filter:alpha(opacity=30); 
+	-moz-opacity:0.3; 
+	opacity:0.3;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:10000;
+	cursor:pointer;
+	line-height:35px;
+	text-align:center;
+	overflow:hidden;
+	color:#FFF;	
+}
+.SetStyleBut:hover{
+	filter:alpha(opacity=80); 
+	-moz-opacity:0.8; 
+	opacity:0.8;
+}
+.quit_setstyle{
+	text-align:center;
+	padding:10px;
+}
+.quit_setstyle a{
+	display:inline-block;
+	line-height:40px;
+	padding:0 20px;
+	border:#F60 solid 1px;
+	background:#f90;
+	color:#FFF;
+	border-radius:5px;
+}
+.quit_setstyle a:hover{
+	border:#F30 solid 1px;
+	background:#f60;
+}
+.MainBanner{
+	width:100%;
+	background:#fdf2eb;
+	overflow:hidden;
+}
+.MainBanner .Banner{
+	width:1200px;
+	overflow:hidden;
+	margin:auto;
+	position:relative;
+	text-align:center;
+	min-height:200px;
+}
+.MainBanner .Banner img{
+	max-width:100%;
+}
+.MainBanner .Mainmenu{
+	width:1200px;
+	height:45px;
+	overflow:hidden;
+	margin:auto;
+	position:relative;
+	background:#E1630F;
+}
+.MainBanner .Mainmenu ul li{
+	float:left;
+	line-height:45px;
+}
+.MainBanner .Mainmenu ul li a{
+	display:block;
+	padding:0 20px;
+	color:#FFF;
+	font-size:16px;
+}
+.MainBanner .Mainmenu ul li a:hover{
+	background:#FF8C40;
+}
+.MainBanner .Mainmenu ul li.choose a{
+	background:#F99757;
+}

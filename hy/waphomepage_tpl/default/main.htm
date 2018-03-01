@@ -1,0 +1,93 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/wap/default/default.css">
+<div class="GuideCont">当前位置：<a href="$webdb[_www_url]">首页</a> -> <a href="$Murl">商家黄页</a> -> $rsdb[title]</div>
+<dl class="logotitles">
+	<dt><a href="?uid=$uid"><img src="$rsdb[logo]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg';"/></a></dt>
+    <dd>
+    	<h3><a href="?uid=$uid">$rsdb[title]</a></h3>
+        <div>{$area_DB[name][$rsdb[province_id]]} {$city_DB[name][$rsdb[city_id]]} {$zone_DB[name][$rsdb[zone_id]]} {$street_DB[name][$rsdb[street_id]]}</div>
+        <div><span>通行证ID：</span>$rsdb[username]</div>
+        <div><span>登记时间：</span>$rsdb[posttime]</div>
+    </dd>
+</dl>
+<ul class="SelectShows">
+	<li>商家首页</li>
+	<li>商家介绍</li>
+	<li>商家新闻</li>
+	<li>商家产品</li>
+	<li>促销信息</li>
+	<li>招聘信息</li>
+	<li>图片展示</li>
+	<li>联系方式</li>
+</ul>
+<div class="ShowContainer">
+
+</div>
+<div class="fullbg"></div>
+<div class="ShowBigPic"><img src="$webdb[www_url]/images/default/nopic.jpg" /></div>
+<script type="text/javascript">
+$('.logotitles dt').each(function(){
+	var marg_top=($(this).height()-$(this).children().children().height())/2;
+	$(this).children().children().css('margin-top',marg_top+'px');
+});
+function SelectShows(i){
+	$('.SelectShows li').removeClass("ck");
+	$('.SelectShows li').eq(i).addClass("ck");
+	var selects;
+	if(i==0){
+		selects='index';
+	}else if(i==1){
+		selects='about';
+	}else if(i==2){
+		selects='news';
+	}else if(i==3){
+		selects='shop';
+	}else if(i==4){
+		selects='coupon';
+	}else if(i==5){
+		selects='hr';
+	}else if(i==6){
+		selects='pic';
+	}else if(i==7){
+		selects='cotact';
+	}
+	$.get("./selectshow.php?uid=$uid&selects="+selects+"&"+Math.random(),function(d){
+		$(".ShowContainer").html(d);
+	});	
+}
+SelectShows(0);
+$('.SelectShows li').click(function(){
+	SelectShows($(this).index());
+});
+function showmorpage(url){
+	$.get(url+"&"+Math.random(),function(d){
+		$(".ShowContainer").html(d);
+	});	
+}
+function showbigpic(num){
+	if ($(window).height() > $("body").height()) {
+		$(".fullbg").height($(window).height());
+	}else{
+		$(".fullbg").height($("body").height());
+	}
+	$(".ShowBigPic").css('top',$(document).scrollTop()+'px');
+	$(".ShowBigPic img").attr('src',$(".listpics li img").eq(num)[0].src); 
+	$(".fullbg").css({'display':'block'}).stop().animate({'opacity':.8},500);
+	$(".ShowBigPic").css({'display':'block'}).stop().animate({'opacity':1},500);
+}
+$(".fullbg").click(function(){
+	$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+	$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+});
+$(".ShowBigPic").click(function(){
+	$(".fullbg").css({'opacity':0}).stop().animate({'height':0},500);
+	$(".ShowBigPic").css({'display':'none'}).stop().animate({'opacity':0},500);
+});
+</script>
+<!--
+EOT;
+?>
+-->

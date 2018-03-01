@@ -1,0 +1,79 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<div class="supply_list">
+  <div class="listL" id="filtate_sort">
+    <div class="listL1">
+	  <div class="bigword">分类</div>
+	  <div class="sonname">
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $fkey=>$fvalue){
+$color=$fid==$fkey?'red':'';
+print <<<EOT
+-->
+<a href="list.php?fid=$fkey" style="color:$color;">$fvalue</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+      </div>
+	</div>
+	<div class="listL2 smyy">
+	  <div class="TAG">$fidDB[name]</div>
+	  <ul><li class="li1">商品详情</li><li class="li2">价格</li><li class="li2">商家认证</li></ul>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+            <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center" class="list_pro">
+              <tr>
+                <td class="pic"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" width="120" height="90"></a></td>
+                <td valign="top">  <!-- top s -->
+                      <div class="title"><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="$target" title='$rs[full_title]' style="color:$rs[titlecolor];">$rs[title]</a></div>
+                      <div class="other">日期:{$rs[posttime]} 浏览:{$rs[hits]}次 发布者:{$rs[username]}   </div>
+                      <div class="company_name"><span>类别:</span>$rs[fname]
+<!--{template}--><span>{title}:</span>{value}<!--{/template}-->
+						
+                      </div>
+                </td>  <!--  top e -->
+                <td style="width:100px;" align="center">
+                  <div class="price">￥{$rs[price]} 元</div>
+                  
+                </td>
+                <td style="width:100px;" align="center"><img class="check_company" alt="{$renzhengDB[$rs[renzheng]]}" src="$webdb[www_url]/images/yellow/company_renzheng{$rs[renzheng]}.gif"></td>
+              </tr>
+            </table>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</div>
+	<div id="page">$showpage</div>
+  </div>
+  <div class="listR ">
+    <div class="side">
+	  <div class="TAG"><img src="images/life6/rm.png" alt="" />&nbsp;&nbsp;热门产品</div>
+	  <div class="CC">
+<!--
+EOT;
+$array=list_title('hot',8);
+foreach($array AS $rs){print <<<EOT
+-->
+<div><a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+      </div>
+	</div>
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->

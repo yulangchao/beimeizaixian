@@ -1,0 +1,121 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/life7/index.css">
+<div class="Content">
+	<div class="Ad">{$label[style7_shop_indexbanner1]}</div>
+	<div class="PageNav">
+		<div class="YiJi">
+			<div class="shopSort ck">
+			<a href="javascript:;" style="font-size:18px;">所有商品分类</a>
+<div class="shopSmallSon">
+<!--
+EOT;
+$j=0;
+foreach($Fid_db[0] AS $key=>$value){
+$j++;if($j>11)break;
+print <<<EOT
+-->
+		  <dl>
+		    <dt class="IconSort$j"></span><a href="./list.php?fid=$key">$value</a></dt>
+
+			<dd>
+			  <span><a href="./list.php?fid=$key">$value</a></span>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$value2){
+print <<<EOT
+-->
+			  <a href="./list.php?fid=$key2">$value2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</dd>
+		  </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+			</div>{$label[style7_shop_indexhead]}
+		</div>
+		<div class="ContBox">
+			<div class="Cont">
+				<div class="showpic">{$label[style7_shop_indexfalsh]}
+<script>
+var bannerNum = 0;
+var liNum = $(".showpic ul li").length;
+$(".showpic ol li").hover(function(){
+  var thisIndex = $(this).index();
+  $(".showpic ul li").eq(thisIndex).fadeIn("slow").siblings().fadeOut("slow");
+  $(".showpic ol li").eq(thisIndex).addClass("actionNum").siblings().removeClass("actionNum");
+});
+autochange = function(){
+	bannerNum = ++bannerNum % liNum;
+    $(".showpic ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+    $(".showpic ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+}
+bannerInterval = setInterval(autochange,2000);
+$(".showpic").hover(function(){
+  clearInterval(bannerInterval);
+},function(){
+  bannerInterval = setInterval(autochange,2000);
+});
+</script>
+				</div>
+				<div class="other">
+					<div class="shead">
+						<div class="ck"><a href="javascript:;">商城公告</a></div>
+						<div><a href="javascript:;">注意事项</a></div>
+					</div>
+					<div class="desbox">
+						<div class="des">
+							<ul>{$label[style7_shop_index3]}</ul>
+							<div class="sidead">{$label[style7_shop_indexbanner6]}{$label[style7_shop_indexbanner7]}</div>
+						</div>
+<!--
+EOT;
+$hides = ($jobs==show)?"":"$('.desbox .des').eq(1).hide();";
+print <<<EOT
+-->
+						<div class="des">
+							<ul>{$label[style7_shop_index4]}</ul>
+							<div class="sidead">{$label[style7_shop_indexbanner8]}{$label[style7_shop_indexbanner9]}</div>
+						</div>
+					</div>
+<script>
+  $hides;
+  $(".shead div").hover(function(){
+    var thisindex = $(this).index();
+	$(this).addClass("ck").siblings().removeClass("ck");
+	$(".desbox .des").eq(thisindex).show().siblings().hide();
+  });
+</script>
+				</div><!--other END-->
+			</div>
+		</div><!--Content END-->
+	</div><!--PageNav END-->
+
+		<div class="discount">
+			<div class="mhead">{$label[style7_shop_indexhead2]}</div>
+			<div class="main">{$label[style7_shop_index1]}</div>
+		</div><!--discount END
+		-->
+		<div class="Ad">{$label[style7_shop_indexbanner2]}</div>
+		<div class="newest">
+			<div class="mhead">{$label[style7_shop_indexhead3]}</div>
+			<div class="main">
+				<div class="side">{$label[style7_shop_indexbanner3]}{$label[style7_shop_indexbanner4]}</div>
+				<div class="buylist">{$label[style7_shop_index2]}</div>
+			</div><!--main END
+			-->
+		</div><!--newest END
+		-->
+		<div class="Ad">{$label[style7_shop_indexbanner5]}</div>
+	</div><!--Content END-->
+<!--
+EOT;
+?>
+-->

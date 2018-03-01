@@ -1,0 +1,122 @@
+
+.content_text {width:1200px; padding-top:24px;float:left; margin-bottom:20px;}
+.content_text_left {
+	width:278px; float:left;
+	border-top:2px solid #379be9;border-bottom:2px solid #999999; border-left:1px #CCCCCC solid; border-right:1px #CCCCCC solid;
+}
+.content_text_left_top {width:278px; float:left;}
+.showlist_theme {
+	width:278px; height:56px; float:left; text-align:center; line-height:58px; font-size:24px; font-weight:bold;
+	background:#f0f0f0; border-top:1px solid #FFFFFF; border-bottom:1px solid #999999;
+}
+.Menu {width:278px; height:auto; float:left; font-size:16px;}
+.Menu dl dt {width:278px; line-height:48px; float:left; border-top:1px solid #FFFFFF; border-bottom:1px solid #CCCCCC; background:#f3f3f3;}
+.level_1 {background:url(reduce.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.show .level_1 {background:url(plus.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.Menu dl{overflow:hidden;}
+.Menu dl ~ dl dd{display:none;}
+.Menu dl dd {border-bottom:1px solid #CCCCCC; float:left;}
+.Menu dl dd a{width:268px; line-height:30px; float:left; padding-left:10px;}
+.Menu dl dd a:hover {background:#CCCCCC;}
+.content_text_left_footer {
+	width:278px; float:left; margin-bottom:20px;
+}
+.newslist {
+	text-align:left;font-size:16px; 
+}
+.newslist li {
+	width:250px; margin:8px 0 0 15px; float:left; line-height:30px; border-bottom:1px dotted #CCCCCC;
+}
+.newslist li h2 {
+	font-weight:normal;
+}
+.look_box {
+	width:100%; float:left;
+}
+.look_box dl {
+	width:86%; float:left; padding:0 20px; margin-top:20px;
+}
+.look_gift {width:40%; float:left;}
+.look_gift span{float:left; padding:2px; border:1px solid #CCCCCC; width:75px; text-align:center;}
+.look_gift img{max-width:75px; height:75px;}
+.look_word {width:60%; float:left;}
+.look_word p{width:100%; height:20px; line-height:20px; float:left; font-size:12px; overflow:hidden;}
+.look_word .goto a {width:100%; background:url(look.png) no-repeat center; float:left; transition: 2s all;}
+.look_word .goto a:hover {background:url(hlook.png) no-repeat right center;}
+.rose_red {
+	color:#de4900;
+}
+
+
+.content_text_right {width:895px; float:left;margin-left:20px;}
+.contnet_text_right_title {
+	width:895px; height:45px; font-size:16px; border-bottom:1px solid #379be9; float:left; line-height:45px;
+}
+.brief_introduction {
+	width:895px; height:430px; float:left; margin-top:30px;
+}
+.brief_pir {
+	width:490px; height:370px; float:left; 
+}
+.brief_pir_Jpg {padding:10px;float:left; background:#f0f0f0;}
+.brief_pir_Jpg span{display:block; width:470px; height:352px; text-align:center;}
+.brief_pir_Jpg span img{max-width:470px; height:100%;}
+.brief_text {
+	width:385px; height:430px; float:left; padding-left:20px;
+}
+.brief_text_top  {
+	float:left; width:100%;
+}
+.brief_text_top span{
+	width:100%; font-size:16px; font-weight:bold; line-height:30px; float:left;
+}
+.brief_text_top ul {
+	width:45%; font-size:14px; line-height:33px; float:left; padding-bottom:25px;
+}
+.buy {
+	float:left; width:55%;margin-top:50px;
+}
+.buy span {
+	float:left; background:url(buy.png) no-repeat; text-align:right; line-height:70px;
+}
+.buy span a {
+	margin-right:10px; color:#a93c00;
+}
+.buy span a:hover {
+	color:#ff6600; text-decoration:underline;
+}
+
+.brief_text_footer_title  {
+	width:100%; float:left; line-height:40px; font-size:16px; font-weight:bold; border-bottom:1px solid #dcdcdc;
+}
+.title_left {
+	float:left;background:url(news.jpg) no-repeat left center;
+}
+.title_left span{
+	float:left; padding-left:35px;
+} 
+.brief_text_footer_title a {
+	float:right; font-weight:normal;
+}
+.title_time li {
+	width:100%; font-size:14px; line-height:33px; float:left;
+}
+.brief_call {
+	float:left; width:100%; line-height:40px;
+}
+.brief_call .left {
+	background:url(QQ.jpg) no-repeat left center; padding-left:30px;
+}
+.brief_call .right {
+	background:url(wx.jpg) no-repeat left center; padding-left:40px;
+}
+
+.details {
+	width:100%; float:left; text-align:center;
+}
+.details p {
+	font-size:14px; text-indent:2em; padding-top:20px; padding-bottom:20px; text-align:left; line-height:30px; 
+}
+.pir {
+	margin-bottom:20px;
+}

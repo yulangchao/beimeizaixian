@@ -1,0 +1,56 @@
+<!--
+<?php
+ 
+print <<<EOT
+--> 
+<form name="FORM" method="post" action="index.php?lfj=$lfj&action=$job">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">修改用户</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">
+
+        <tr> 
+          <td class="tdL">用户UID</td>
+          <td class="tdR">$uid</td>
+        </tr>
+        <tr> 
+          <td class="tdL">用户名:</td>
+          <td class="tdR"> $rsdb[username]</td>
+        </tr>
+        <tr> 
+          <td class="tdL">支付密码:</td>
+          <td class="tdR"> 
+            <input type="text" name="postdb[rmb_pwd]" value="$rsdb[rmb_pwd]" size="41" >
+            (加密后的效果) </td>
+        </tr>
+        <tr> 
+          <td class="tdL">可用余额:</td>
+          <td class="tdR"> 
+            <input type="text" name="postdb[rmb]" value="$rsdb[rmb]" size="6">
+            元 </td>
+        </tr>
+    	<tr> 
+          <td class="tdL">冻结资金:</td>
+          <td class="tdR"> 
+            <input type="text" name="postdb[rmb_freeze]" value="$rsdb[rmb_freeze]" size="6">
+            元 </td>
+        </tr>
+    	
+    	<tr> 
+          <td class="tdL">{$webdb[MoneyName]}:</td>
+          <td class="tdR"> 
+            <input type="text" name="postdb[money]" value="$rsdb[money]" size="6"> 
+           $webdb[MoneyDW]  </td>
+        </tr>
+
+      </table>
+      <div class='submits'>
+            <input type="hidden" name="uid" value="$rsdb[uid]">
+            <input type="button" name="Submit2" value="返回" onclick="window.location.href='index.php?lfj=rmb&job=list'">
+            <input type="submit" name="Submit" value="修 改">        
+      </div>
+</form>
+<!--
+EOT;
+?>
+-->

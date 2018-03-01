@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<?php
+$if_baidu_map=$webdb[if_baidu_map]?1:0;
+$headTitle=$fidDB[name]?$fidDB[name]:$webdb[Info_webname];
+print <<<EOT
+-->
+<head>
+	<meta charset="gb2312" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>$headTitle</title>
+
+	<link rel="stylesheet" href="./images/shop/base.css">
+	<link rel="stylesheet" href="./images/shop/index/index.css">
+	<script src='./images/shop/jquery-v1.7.2.js'></script>
+</head>
+<body>
+<div class='mHead'>
+	<a href="javascript:;history.go(-1);" class='return'>返回</a>
+	<span class='title'>$headTitle</span>
+	<div class='icoRight' style="display:none;">
+		<a href="" class='search'></a>
+		<a href="" class='menu'></a>			
+	</div>
+</div>
+<input id="mapid" value="1234567890" type="hidden" />
+<div class='chooseAddress'>
+	<span class='address'>天河区车陂路</span>
+	<span class='choose'><a href="javascript:;reloadLocation();">刷新</a></span>
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=MGdbmO6pP5Eg1hiPhpYB0IVd"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script type="text/javascript">
+var GPS = {
+    PI : 3.14159265358979324,
+    x_pi : 3.14159265358979324 * 3000.0 / 180.0,
+    delta : function (lat, lon) {
+        // Krasovsky 1940
+        //
+        // a = 6378245.0, 1/f = 298.3
+        // b = a * (1 - f)
+        // ee = (a^2 - b^2) / a^2;
+        var a = 6378245.0; //  a: 卫星椭球坐标投影到平面地图坐标系的投影因子。
+        var ee = 0.00669342162296594323; //  ee: 椭球的偏心率。
+        var dLat = this.transformLat(lon - 105.0, lat - 35.0);
+        var dLon = this.transformLon(lon - 105.0, lat - 35.0);
+        var radLat = lat / 180.0 * this.PI;
+        var magic = Math.sin(radLat);
+        magic = 1 - ee * magic * magic;
+        var sqrtMagic = Math.sqrt(magic);
+        dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * this.PI);
+        dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * this.PI);
+        return {'lat': dLat, 'lon': dLon};
+    },
+     
+    //WGS-84 to GCJ-02
+    gcj_encrypt : function (wgsLat, wgsLon) {
+        if (this.outOfChina(wgsLat, wgsLon))
+            return {'lat': wgsLat, 'lon': wgsLon};
+ 
+        var d = this.delta(wgsLat, wgsLon);
+        // return {'lat' : wgsLat + d.lat,'lon' : wgsLon + d.lon};
+		return {'lat' : parseFloat(wgsLat) + parseFloat(d.lat), 'lon' : parseFloat(wgsLon) + parseFloat(d.lon) }; //以避免字符串拼接.
+    },
+    //GCJ-02 to WGS-84
+    gcj_decrypt : function (gcjLat, gcjLon) {
+        if (this.outOfChina(gcjLat, gcjLon))
+            return {'lat': gcjLat, 'lon': gcjLon};
+         
+        var d = this.delta(gcjLat, gcjLon);
+        return {'lat': gcjLat - d.lat, 'lon': gcjLon - d.lon};
+    },
+    //GCJ-02 to WGS-84 exactly
+    gcj_decrypt_exact : function (gcjLat, gcjLon) {
+        var initDelta = 0.01;
+        var threshold = 0.000000001;
+        var dLat = initDelta, dLon = initDelta;
+        var mLat = gcjLat - dLat, mLon = gcjLon - dLon;
+        var pLat = gcjLat + dLat, pLon = gcjLon + dLon;
+        var wgsLat, wgsLon, i = 0;
+        while (1) {
+            wgsLat = (mLat + pLat) / 2;
+            wgsLon = (mLon + pLon) / 2;
+            var tmp = this.gcj_encrypt(wgsLat, wgsLon)
+            dLat = tmp.lat - gcjLat;
+            dLon = tmp.lon - gcjLon;
+            if ((Math.abs(dLat) < threshold) && (Math.abs(dLon) < threshold))
+                break;
+ 
+            if (dLat > 0) pLat = wgsLat; else mLat = wgsLat;
+            if (dLon > 0) pLon = wgsLon; else mLon = wgsLon;
+ 
+            if (++i > 10000) break;
+        }
+        //console.log(i);
+        return {'lat': wgsLat, 'lon': wgsLon};
+    },
+    //GCJ-02 to BD-09
+    bd_encrypt : function (gcjLat, gcjLon) {
+        var x = gcjLon, y = gcjLat;  
+        var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * this.x_pi);  
+        var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * this.x_pi);  
+        bdLon = z * Math.cos(theta) + 0.0065;  
+        bdLat = z * Math.sin(theta) + 0.006; 
+        return {'lat' : bdLat,'lon' : bdLon};
+    },
+    //BD-09 to GCJ-02
+    bd_decrypt : function (bdLat, bdLon) {
+        var x = bdLon - 0.0065, y = bdLat - 0.006;  
+        var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * this.x_pi);  
+        var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * this.x_pi);  
+        var gcjLon = z * Math.cos(theta);  
+        var gcjLat = z * Math.sin(theta);
+        return {'lat' : gcjLat, 'lon' : gcjLon};
+    },
+    //WGS-84 to Web mercator
+    //mercatorLat -> y mercatorLon -> x
+    mercator_encrypt : function(wgsLat, wgsLon) {
+        var x = wgsLon * 20037508.34 / 180.;
+        var y = Math.log(Math.tan((90. + wgsLat) * this.PI / 360.)) / (this.PI / 180.);
+        y = y * 20037508.34 / 180.;
+        return {'lat' : y, 'lon' : x};
+        /*
+        if ((Math.abs(wgsLon) > 180 || Math.abs(wgsLat) > 90))
+            return null;
+        var x = 6378137.0 * wgsLon * 0.017453292519943295;
+        var a = wgsLat * 0.017453292519943295;
+        var y = 3189068.5 * Math.log((1.0 + Math.sin(a)) / (1.0 - Math.sin(a)));
+        return {'lat' : y, 'lon' : x};
+        //*/
+    },
+    // Web mercator to WGS-84
+    // mercatorLat -> y mercatorLon -> x
+    mercator_decrypt : function(mercatorLat, mercatorLon) {
+        var x = mercatorLon / 20037508.34 * 180.;
+        var y = mercatorLat / 20037508.34 * 180.;
+        y = 180 / this.PI * (2 * Math.atan(Math.exp(y * this.PI / 180.)) - this.PI / 2);
+        return {'lat' : y, 'lon' : x};
+        /*
+        if (Math.abs(mercatorLon) < 180 && Math.abs(mercatorLat) < 90)
+            return null;
+        if ((Math.abs(mercatorLon) > 20037508.3427892) || (Math.abs(mercatorLat) > 20037508.3427892))
+            return null;
+        var a = mercatorLon / 6378137.0 * 57.295779513082323;
+        var x = a - (Math.floor(((a + 180.0) / 360.0)) * 360.0);
+        var y = (1.5707963267948966 - (2.0 * Math.atan(Math.exp((-1.0 * mercatorLat) / 6378137.0)))) * 57.295779513082323;
+        return {'lat' : y, 'lon' : x};
+        //*/
+    },
+    // two point's distance
+    distance : function (latA, lonA, latB, lonB) {
+        var earthR = 6371000.;
+        var x = Math.cos(latA * this.PI / 180.) * Math.cos(latB * this.PI / 180.) * Math.cos((lonA - lonB) * this.PI / 180);
+        var y = Math.sin(latA * this.PI / 180.) * Math.sin(latB * this.PI / 180.);
+        var s = x + y;
+        if (s > 1) s = 1;
+        if (s < -1) s = -1;
+        var alpha = Math.acos(s);
+        var distance = alpha * earthR;
+        return distance;
+    },
+    outOfChina : function (lat, lon) {
+        if (lon < 72.004 || lon > 137.8347)
+            return true;
+        if (lat < 0.8293 || lat > 55.8271)
+            return true;
+        return false;
+    },
+    transformLat : function (x, y) {
+        var ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
+        ret += (20.0 * Math.sin(6.0 * x * this.PI) + 20.0 * Math.sin(2.0 * x * this.PI)) * 2.0 / 3.0;
+        ret += (20.0 * Math.sin(y * this.PI) + 40.0 * Math.sin(y / 3.0 * this.PI)) * 2.0 / 3.0;
+        ret += (160.0 * Math.sin(y / 12.0 * this.PI) + 320 * Math.sin(y * this.PI / 30.0)) * 2.0 / 3.0;
+        return ret;
+    },
+    transformLon : function (x, y) {
+        var ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
+        ret += (20.0 * Math.sin(6.0 * x * this.PI) + 20.0 * Math.sin(2.0 * x * this.PI)) * 2.0 / 3.0;
+        ret += (20.0 * Math.sin(x * this.PI) + 40.0 * Math.sin(x / 3.0 * this.PI)) * 2.0 / 3.0;
+        ret += (150.0 * Math.sin(x / 12.0 * this.PI) + 300.0 * Math.sin(x / 30.0 * this.PI)) * 2.0 / 3.0;
+        return ret;
+    }
+};
+function reloadLocation(){//切换地址 恢复当前位置
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(showMapGPSre, handleError, {enableHighAccuracy:true, maximumAge:1000,timeout:6000});
+		//window['location_timeout'] = setTimeout("geolocFail()", 10000);
+	}else{
+		alert('抱歉，您的浏览器不支持使用HTML 5来获取地理位置服务');
+	}
+}
+function showMapGPSre(value){	 
+	var longitude = "113.396447";
+	var latitude = "23.142435";
+	
+	//var longitude = value.coords.longitude;
+	//var latitude = value.coords.latitude;	
+	
+	var googlemap = GPS.gcj_encrypt(latitude,longitude);	
+	var baidumap = GPS.bd_encrypt(googlemap.lat,googlemap.lon);
+
+	var if_baidu_map=$if_baidu_map;
+	if(if_baidu_map==1){
+		var map_number=baidumap.lon+','+baidumap.lat;
+		var map_lon=baidumap.lon;
+		var map_lat=baidumap.lat;
+	}else{
+		var map_number=googlemap.lat+','+googlemap.lon;
+		var map_lon=googlemap.lon;
+		var map_lat=googlemap.lat;
+	}
+	$.get("wapnear.php?mylon="+longitude+"&mylat="+latitude+"&"+Math.random(),function(d){
+	   $('.ListHyBox').html(d);
+	});
+	show_distance(map_lat,map_lon);
+	var gpsPoint = new BMap.Point(longitude, latitude);
+	BMap.Convertor.translate(gpsPoint, 0, function(point){
+	//alert('x:'+point.lng+' y:'+point.lat);
+		var geoc = new BMap.Geocoder();
+		geoc.getLocation(point, function(rs){
+			var addComp = rs.addressComponents;
+			//alert(addComp.district + addComp.street + addComp.streetNumber);
+			$('.chooseAddress .address').html(addComp.district + addComp.street + addComp.streetNumber);
+		});
+	});
+}
+
+function handleError(value){
+	switch(value.code){
+		case value.PERMISSION_DENIED:
+		  alert('位置服务被拒绝');
+		  break;
+		case value.POSITION_UNAVAILABLE:
+		  alert('抱歉，暂时获取不到位置信息');
+		  break;
+		case value.TIMEOUT:
+		  alert('抱歉，获取信息超时');
+		  break;
+		case value.UNKNOWN_ERROR:
+		  alert('抱歉，位置服务未知错误');
+		  break;
+	}
+}
+
+reloadLocation();
+showMapGPSre();
+function show_distance(map_lat,map_lon){
+	$('.showthismap').each(function(){
+		var this_map=$(this).find('input').val();
+		var thismap=this_map.split(",");
+
+		var if_baidu_map=$if_baidu_map;
+		if(if_baidu_map==1){
+			var this_lon=thismap[0];
+			var this_lat=thismap[1];
+		}else{
+			var this_lon=thismap[1];
+			var this_lat=thismap[0];
+		}
+
+		var show_map_str = GPS.distance(map_lat,map_lon,this_lat,this_lon);
+		var kilometres = Math.floor(show_map_str/1000);  
+		var metres=Math.floor(show_map_str%1000);
+		var show_word='距离';
+		if(kilometres>0){
+			show_word+='<font style="color:red;">'+kilometres+'</font>公里';
+		}
+		show_word+='<font style="color:red;">'+metres+'</font>米';
+		$(this).find('em').html(show_word);
+	});	
+}
+</script>
+<div class='sortArea'>
+	<div class='sort'><a href="javascript:;ShowSorts();">全部分类</a></div>
+	<div class='area'><a href="javascript:;ShowZones();">全部区域</a></div>
+</div>
+<div class="ListHyBox">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$thisPC=ge_pingfen_pc($rs[id]);
+$rs[arrive_time]||$rs[arrive_time]=0;
+print <<<EOT
+-->
+	<dl class="ListHy">
+		<dt>
+			<div class='img'><a href="wapshowhy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></div>
+			<div class='state'>营业中</div>
+		</dt>
+		<dd>
+			<div class='title'><a href="wapshowhy.php?fid=$rs[fid]&id=$rs[id]"><em>$rs[title]</em><span>查看商家</span></a></div>
+			<div class="xingxing"><span style="width:{$thisPC}%;"></span></div>
+			<div class='number'>
+				<!--span>{$rs[price]}元起送</span>
+				<span>{$rs[arrive_time]}分钟</span>
+				<span>配送费{$rs[sendprice]}元</span-->
+				<span class="showthismap"><input value="$rs[maps]" type="hidden" /><em></em></span>
+			</div>
+			<div class='phone'><span>电话：{$rs[telphoto]}</span></div>
+			<div class='address'>地址：{$rs[address]}</div>
+		</dd>
+	</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<div class='showMoreBg'>
+	<a href="./wapindex.php" class='showMore'><span> 点击搜索更大范围</span></a>		
+</div>
+<ul class='footMenu'>
+	<li><a href="$webdb[www_url]/wapindex.php"><img src="./images/shop/index/nav_homepage.png"/><span>首页</span></a>
+	<li><a href="$Murl/wapnear.php"><img src="./images/shop/index/nav_address.png"/><span>附近</span></a>
+	<li><a href="$Murl/member/waporder.php?job=mylist"><img src="./images/shop/index/nav_order.png"/><span>订单</span></a>
+	<li><a href="$Murl/wapjoin.php"><img src="./images/shop/index/nav_car.png"/><span>购物车</span></a>
+	<li><a href="$webdb[www_url]/member/wapindex.php"><img src="./images/shop/index/nav_personal.png"/><span>会员中心</span></a>
+</ul>
+<div class="BackBox" onClick="HiddenAll();"></div>
+<div class="ListSorts">
+	<div><a href="?zone_id=$zone_id">全部分类</a></div>
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$sortck=$fid==$fkey?"class='ck'":"";
+print <<<EOT
+-->
+	<ul>
+		<ol><a href="waplisthy.php?fid=$fkey&zone_id=$zone_id" $sortck>$fvalue</a></ol>
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$value){
+$sortck=$fid==$key?"class='ck'":"";
+print <<<EOT
+-->
+		<li><a href="waplisthy.php?fid=$key&zone_id=$zone_id" $sortck>$value</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</ul>
+<!--
+EOT;
+}print <<<EOT
+-->	
+</div>
+<div class="ListZones">
+	<div><a href="?fid=$fid">全部区域</a></div>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$zoneck=($zone_id==$key)?"class='ck'":"";
+print <<<EOT
+-->
+	<div><A HREF="?fid=$fid&zone_id=$key" $zoneck>$value</A></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+</div>
+<script>
+/*var page=$page;
+var rows=$rows;
+function showMoreCont(){
+	$(".showMore").html("<span>内容加载中……</span>");
+	page++;
+	
+	$.get('wapnear.php?job=showmore&fid=$fid&zone_id=$zone_id&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			//$(".showMoreBg").hide();
+			$(".showMore").html("<span>没有更多了</span>");
+		}else{
+			$(".ListHyBox").append(d);
+			if(page==$totalpage){
+				$(".showMore").html("<span>没有更多了</span>");
+			}else{
+				$(".showMore").html("<span>点击浏览更多</span>");
+			}
+			reloadLocation();
+		}
+	});	
+}
+if(page==$totalpage){
+	$(".showMore").html("<span>没有更多了</span>");
+}*/
+function ShowSorts(){	
+	\$('.ListSorts').fadeIn();
+	var t = $(document).height();
+	\$('.BackBox').height(t).fadeIn();
+}
+function ShowZones(){
+	\$('.ListZones').fadeIn();
+	var t = $(document).height();
+	\$('.BackBox').height(t).fadeIn();
+}
+function HiddenAll(){
+	\$('.BackBox').fadeOut();
+	\$('.ListSorts').fadeOut();
+	\$('.ListZones').fadeOut();
+}
+</script>
+<!--
+EOT;
+?>
+--> 
+</body>
+</html>

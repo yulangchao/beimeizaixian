@@ -1,0 +1,16 @@
+<?php
+$webdb['module_close']='0';
+$webdb['Info_allowpost']='9';
+$webdb['Info_webOpen']='1';
+$webdb['IF_Private_tpl']='0';
+$webdb['Private_tpl_head']='';
+$webdb['Info_ReportDB']='虚假信息
+过期信息
+垃圾信息';
+$webdb['module_pre']='fuwu_';
+$webdb['module_id']='55';
+$webdb['SEO_description']='';
+$webdb['SEO_keywords']='';
+$webdb['SEO_title']='';
+$webdb['Info_webname']='上门服务';
+$webdb['Private_tpl_foot']='';

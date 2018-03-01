@@ -1,0 +1,156 @@
+<!--
+<?php
+$picartic = Get_Info('pic',5);
+$slideCode="";
+$slideList="";
+$i=0;
+foreach($picartic AS $key=>$rs){
+	$i++;
+	$slideCode.="<li class='li'><a href=\"$rs[url]\"><img src=\"$rs[picurl]\" onError=\"this.src='$webdb[_www_url]/images/default/nopic.jpg'\" title=\"$rs[title]\"></a></li>\r\n";
+	$slideList.="<li class='li'>$i<span>$rs[title]</span></li>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/index.css">
+<!--幻灯片开始-->
+<link rel="stylesheet" href='$webdb[www_url]/images/wap/flash/flash.css'/>
+<script src='$webdb[www_url]/images/wap/flash/flash.js'></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+	{$label[wap_dianpingindex_flash]}
+  </ul>
+</div>
+<!--幻灯片结束-->
+
+<!--
+EOT;
+$i=0;
+$listsorts="";
+$listmoresorts="<div class='ListMoreSorts'>\r\n";
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+if($i<8){
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/icon$i.png"))?"./images/wap/icon$i.png":"./images/wap/icon4.png");
+$listsorts.="<li><a href=\"waplist.php?fid=$key\"><dl><dt><img src=\"$logo\"/></dt><dd>$name</dd></dl></a></li>\r\n";
+}
+$listmoresorts.="<dl>\r\n";
+$listmoresorts.="<dt><a href=\"waplist.php?fid=$key\">$name</a></dt>\r\n";
+if($Fid_db[$key]){
+$listmoresorts.="<dd>\r\n";
+foreach($Fid_db[$key] AS $fid=>$names ){
+$listmoresorts.="<a href=\"waplist.php?fid=$fid\">$names</a>\r\n";
+}
+$listmoresorts.="</dd>\r\n";
+}
+$listmoresorts.="</dl>\r\n";
+}
+$listmoresorts.="</div>\r\n";
+print <<<EOT
+-->
+<ul class="TheBigMenu">
+	{$listsorts}
+	<li class="showmore"><a href="javascript:;"><dl><dt><img src="./images/wap/more.png"></dt><dd>查看更多类目</dd></dl></a></li>
+</ul>
+{$listmoresorts}
+<dl class="newCase">
+	<dt class="title"><span>最新店铺</span></dt>
+    <dd class="conter">
+    	<ul>
+<!--
+EOT;
+$listdb=Get_Info('new',4);
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	<li>
+    	<a href="$rs[url]">
+        	<img src='$rs[picurl]' onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/>
+        </a>
+        <div class="biaoti">{$rs[title]}</div>
+    </li>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </ul>
+    </dd>
+</dl>
+<!--
+EOT;
+$array = get_dianping(3,70);
+foreach($array AS $rs){
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+$rs[icon]=$rs[icon]?$rs[icon]:"$webdb[www_url]/images/default/nobody.gif";
+print <<<EOT
+-->
+<dl class="pinglun">
+  <dt><a href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" class="facepic"><img src="$rs[icon]"/></a><span class="faceName"><em>{$rs[username]}</em>点评了</span><span class="faceTitle"><a href="$url">{$rs[title]}</a></span></dt>
+  <dd>
+  	<div class="zonping">{$rs[fen]}</div>
+      <p>{$rs[content]}</p>
+      <span class="time">{$rs[posttime]}</span>
+  </dd>
+</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+<div class="fullbg" id="fullbg1"></div>
+<script>
+function pic_height(){
+	$(".newCase ul li").each(function(){
+		var this_H=$(this).find("a").width()*0.75;
+		if(this_H>300){
+		this_H = 300;
+		}
+		$(this).find("a").css({"height":this_H+'px',"line-height":this_H+'px'});
+	});
+}
+pic_height();
+$(window).resize(function(){
+	pic_height()
+});
+
+function format_height(o1,o2){
+	var fullbg_H;
+	if(o1.height()>$("body").height() && o1.height()>$("window").height()){
+		fullbg_H=o1.height();
+	}
+	else if ($(window).height() > $("body").height()){
+		fullbg_H=$(window).height();
+	}else{
+		fullbg_H=$('body').height();
+	}
+	o1.height(fullbg_H);
+	o2.height(fullbg_H);
+}
+function Show_mode(o1,o2){
+	o2.css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		o1.css({'display':'block'}).stop().animate({'right':'0px'},300);
+	});	
+}
+function Hide_mode(o1,o2){
+	o2.animate({'opacity':0},300,function(){
+		$(this).css({'display':'none'});
+	});
+	setTimeout(function(){
+		o1.stop().animate({'right':'-250px'},300,function(){
+			$(this).css({'display':'none'});
+		});
+	}, 500);
+}
+
+$('.showmore a').click(function(){	
+	Show_mode($(".ListMoreSorts"),$('#fullbg1'));
+	format_height($(".ListMoreSorts"),$('#fullbg1'));
+});
+$('#fullbg1').click(function(){
+	Hide_mode($(".ListMoreSorts"),$('#fullbg1'))
+});
+</script>
+<!--
+EOT;
+?>
+-->

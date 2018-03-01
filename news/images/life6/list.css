@@ -1,0 +1,91 @@
+.cross {
+	text-decoration:line-through; color:#666666;
+} 
+.Kern5 {
+	letter-spacing:5px;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.red {
+	color:#ff3300;
+}
+.banner{margin-left:auto;margin-right:auto;width:1200px;margin-top:24px;}
+
+.main{width:1200px;margin-left:auto;margin-right:auto;overflow:hidden; margin-bottom:25px;}
+
+.main_left{width:860px; float:left;margin-top:26px;border:#CCC solid 1px;}
+
+.box_title{float:left;width:100%;line-height:48px;background:rgba(204,204,204,0.5);border-bottom:#CCC solid 1px;}
+.box_title span,.box_title a{float:left;padding-left:12px;background:url(title_bj.png) no-repeat center left;margin-left:10px;font-size:16px;font-family:"Î¢ÈíÑÅºÚ";}
+.box_neiron {float:left; width:96%;line-height:48px;margin-left:12px;border-bottom:#CCC dashed 1px;}
+.box_neiron a{float:left;padding-left:22px;background:url(fankuai_icon.png) no-repeat center left;}
+.box_neiron span{float:right;}
+.select_box{margin-top:16px;margin-bottom:52px; float:left; width:100%;}
+
+.main_right{width:320px;float:right;margin-top:26px;}
+.right_box01{line-height:42px;float:left;border:#CCC solid 1px;}
+.right_box01 a{float:left;width:60%;padding-left:26px;background:url(hand_icon.png) no-repeat center left;margin-left:22px;}
+.right_box02{width:318px;line-height:42px;float:left;border:#CCC solid 1px;margin-top:20px;}
+.right_box02 a{float:left;width:100%;padding-left:14px;background:url(yuan_icon.png) no-repeat center left;margin-left:22px;}
+
+/*footer*/
+.bottom_box {
+	width:auto; height:300px; background:url(../../../web--%E8%B5%84%E8%AE%AF/images/zixun/footer_bj.png) repeat-x;margin-top:26px;
+}
+.bottom {
+	width:1200px; height:280px; margin:0 auto; padding-top:20px;
+}
+.callme {
+	width:170px; height:222px; float:left;
+}
+.callme li{
+	line-height:40px; font-size:16px; font-weight:bold; color:#FFFFFF;
+}
+.the_phone {
+	background:url(../../../web--%E8%B5%84%E8%AE%AF/images/zixun/footer_photo.png) no-repeat left center; padding-left:40px;
+}
+.callme li .orange {
+	font-style:oblique;
+}
+.partner {
+	width:600px; height:222px; float:left; margin:0 15px;
+}
+.partner li {
+	width:85px; height:222px; float:left; text-align:center; font-size:16px; color:#FFFFFF; padding-left:65px; font-weight:bold;
+}
+.partner_theme {
+	float:left; line-height:60px; width:100%;
+}
+.partner li a {
+	float:left; width:100%; line-height:30px; font-size:14px; color:#CCCCCC;
+}
+.partner li a:hover {
+	color:#CC6633;
+}
+.ewm {
+	width:400px; height:222px; float:left;
+}
+.ewm li {
+	width:130px; height:222px; float:right; text-align:center; color:#CCCCCC; margin-left:40px;
+}
+.ewm li span {
+	float:left; width:100%; line-height:40px;
+}
+.banquan {
+	float:left; line-height:58px; width:1200px; text-align:center; color:#CCCCCC; font-size:16px;
+}
+.banquan a{
+	color:#CCCCCC; font-size:16px;
+}
+.banquan a:hover{
+	color:#FF6600; text-decoration:underline;
+}
+
+.page{float:left; width:100%; height:30px; line-height:30px; margin:10px 0; text-align:center;}
+.page a{font-size:14px; border:1px solid #ececec; padding:5px 8px; border-radius:5px;}
+.page a.ck,.page a:hover{background:#0067b4; color:#fff;}
+.page a.ck font{color:#fff;}

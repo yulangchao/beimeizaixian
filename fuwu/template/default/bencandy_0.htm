@@ -1,0 +1,226 @@
+<!--
+<?php
+$joinurl = urlencode("$webdb[_www_url]/member/?main=$Murl/member/join.php?fid=$fid&cid=$id");
+$joinimg = "$webdb[_www_url]/do/2codeimg.php?url=$joinurl";
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/style7.0/bencandy.css">
+<!-- main_box  主体内容  s -->
+<div class='main_box'>
+	<!-- banner  横幅 -->
+	<div class='banner'>{$label[style7_bencandy_banner]}</div>
+
+	<!-- main_content  s -->
+	<div class='main_content'>
+
+		
+		<div class='main_contentleft'><!-- main_contentleft  s -->
+
+			<div class='fitment'> <!--  fitment  家居装修  s -->
+				<div class='head'>{$rsdb[title]}</div>
+				<div class='img_info'>
+					<div class='img'><img src="$rsdb[picurl]" alt="$rsdb[title]"></div>
+					<div class='info'>
+						<ul>
+							<li>服务分类：{$fidDB[name]}</li>
+							<li>计费方式：<span class='red'>{$rsdb[moneytype]}</span></li>
+							<li>服务时间：<span class='red'>{$rsdb[servetime]}</span></li>
+							<li class='qq_blue'><span class='left'><span></span></span><span class='number'>{$rsdb[qq]}</span></li>
+							<li class='tel_red'><span class='left'><span></span></span><span class='number'>{$rsdb[telphone]}</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>    <!-- fitment  家居装修  e -->
+
+			<div class='merchant_introduce'>   <!-- merchant_introduce 商家介绍  s -->
+				<div class='head'><span>商家介绍</span></div>
+				<div class='contents'>
+					{$rsdb[content]}
+				</div>
+<!--
+EOT;
+if($rsdb[gg_maps]){
+print <<<EOT
+-->
+				<div class='map'><iframe src="$webdb[www_url]/hy/job.php?job=show_ggmaps&position=$rsdb[gg_maps]&title=$rsdb[title]"  width="100%" height="360" scrolling="no" frameborder="0" ></iframe></div>
+			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</div>   <!--  merchant_introduce 商家介绍  e -->
+			<div class='customer_review'>    <!-- customer_review  顾客留言  s -->
+				<div class='head'><span>顾客留言</span></div>
+				<div id="comment"></div>
+			</div>    <!-- customer_review  顾客留言  e -->
+		</div>    <!-- main_contentleft  e -->
+
+		<div class='main_contentright'><!-- main_contentright  s -->
+
+				<div class='weixin_scan'> <!-- weixin_scan 微信预约  s -->
+					<div class='title'>微信预约</div>
+					<div class=img><img src="$joinimg" width="172"></div>
+					<div class='explain'>扫一扫 轻松下单</div>
+				</div> <!-- weixin_scan 微信预约  e -->
+
+
+				<div class='online_subscribe'> <!-- online_subscribe 在线预约  s -->
+					<div class='title'>在线预约</div>
+					<form name="form1" method="post" action="$Murl/member/join.php?fid=$rsdb[fid]&cid=$rsdb[id]&action=postnew" onSubmit="return checks();">
+					<ul class="postform">
+						<li class="linkman">
+							<div>联系人</div>
+							<input type="text" name="postdb[realname]" placeholder='请输入您的姓名' class="require">
+						</li>
+						<li class='time'>
+							<div>预约时间</div>
+							<input type="text" name="postdb[gototime]" placeholder="请输入预约时间" class="require">
+						</li>
+						<li class='phone'>
+							<div>联系电话</div>
+							<input type="text" name="postdb[telphone]" placeholder='请输入电话号码' class="require">
+						</li>
+						<li class='address'>
+							<div>服务地址</div>
+							<input type="text" name="postdb[address]" placeholder='请输入详细地址' class="require">
+						</li>
+						<li class='demand'>
+							<div>更多需求</div>
+							<input type="text" name="postdb[content]" placeholder='您可以填写其他更多需求' class="require">
+						</li>
+						
+						<li><input type="submit" name="submit" value="立即预约" class='submit'/></li>		
+					</ul>
+<script>
+function checks(){
+	var linkman=$('.linkman input').val();
+	var time=$('.time input').val();
+	var phone=$('.phone input').val();
+	var address=$('.address input').val();
+	if(linkman==''){
+		alert('联系人不能为空!');
+		return false;
+	}
+	if(time==''){
+		alert('时间不能为空!');
+		return false;
+	}
+	if(phone==''){
+		alert('电话不能为空!');
+		return false;
+	}
+	if(address==''){
+		alert('服务地址不能为空!');
+		return false;
+	}
+}
+</script>
+					<input type="hidden" name="fid" value="$fid">
+					<input type="hidden" name="cid" value="$id">
+					<input type="hidden" name="postdb[title]" id="atc_title" size="50" value="{$rsdb[title]}">
+					</form>
+				</div> <!-- online_subscribe 在线预约  e -->
+
+
+				<div class='mobilephone'>
+					<span class='bg'></span>
+					{$rsdb[telphone]}
+				</div>
+
+				<div class='online_comment'> <!-- online_comment 在线评论  s -->
+					<div class='title'>在线评论</div>
+					<ul>
+<!--
+EOT;
+if($lfjid){$none='none';}
+print <<<EOT
+-->
+						<li class='username' style="display:$none;">
+							<div>称呼</div>
+							<input type="text" name="textfield2" id="comment_username" value="$lfjid" placeholder="请输入您的称呼">
+						</li>
+<!--
+EOT;
+if(!$web_admin&&!$groupdb[comment_img]){
+$webdb[yzImgComment]=1;
+print <<<EOT
+-->
+						<li class='verification'>
+							<div>验证码</div>
+							<input id="yzImgNum" type="text" name="yzimg" size="8" onFocus="commentyzimg()">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function commentyzimg(){
+	if(/yzimg\.php/.test($("#yz_Img")[0].src)==false){
+		$("#yz_Img").show();
+		$("#yz_Img")[0].src='$webdb[www_url]/do/yzimg.php?'+Math.random();
+	}	
+}
+document.write('<span><img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="" style="display:none;" width="94" height="36"></span>');
+//-->
+</SCRIPT>
+						</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+						<li class='address'>
+							<div>留言</div>
+							<textarea name="textfield" cols="30" rows="10" id="comment_content" onKeyDown="quickpost(event)" placeholder="请输入内容"></textarea>
+						</li>
+						<li class='sort'>	
+							{$fen1} {$fen2} {$fen3}
+						</li>
+<script language="JavaScript">
+<!--
+getcomment("$webdb[www_url]/fuwu/job.php?job=dianping_ajax&fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event)
+{
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83))
+	{
+		cnt++;
+		if (cnt==1){
+			post_comment();
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+
+function post_comment(){
+	value='';
+	if(document.getElementById("fen1")!=null){
+		value="&fen1="+document.getElementById("fen1").options[document.getElementById("fen1").selectedIndex].value;
+		value+="&fen2="+document.getElementById("fen2").options[document.getElementById("fen2").selectedIndex].value;
+		value+="&fen3="+document.getElementById("fen3").options[document.getElementById("fen3").selectedIndex].value;
+
+	}
+	postcomment('$webdb[www_url]/fuwu/job.php?job=dianping_ajax&action=post&fid=$fid&id=$id'+value,'$webdb[yzImgComment]');
+	
+	if(document.getElementById("yz_Img")!=null){
+		$("#yz_Img")[0].src='';
+		$("#yz_Img").hide();
+	}
+}
+//-->
+</script>
+						<li><input type="button" id="comment_submit" name="Submit" value="提交留言" onClick="post_comment();"></li>		
+					</ul>
+
+				</div> <!-- online_comment 在线评论  e -->
+
+			
+		</div>    <!-- main_contentright  e -->			
+		
+	</div>
+	<!-- main_content  e -->
+</div>
+<!-- main_box  主体内容 e -->
+<!--
+EOT;
+?>
+-->

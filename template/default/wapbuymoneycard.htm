@@ -1,0 +1,54 @@
+<!--
+<?php
+$selectdb='';
+$selectdb[$paytype]="class='red'";
+$showmenu='';
+
+$webdb[wapAlipay_id] && $showmenu.="[<a href='?paytype=alipay' $selectdb[alipay]>支付宝</a>] ";
+$webdb[wxpay_ApiKey] && $showmenu.="[<a href='?paytype=wxpay' $selectdb[wxpay]>微信支付</a>] ";
+
+$showmenu.="[<a href='?paytype=card' $selectdb[card]>点卡</a>] ";
+
+if($paytype=='card'){	
+	$payLink="<div class='link'><img src='$webdb[www_url]/images/default/diangcard.gif'/></div>";
+    $actions="moneycard.php?action=get";
+    $names="atc_passwd";
+    $headers="欢迎使用点卡在线充值系统";
+}elseif($paytype=='yu_er'){	
+	$payLink="<div class='link'><img src='$webdb[www_url]/images/default/yu_er.gif'/></div>";
+    $actions="moneycard.php?action=yu_er";
+    $names="post_rmb";
+    $headers="欢迎使用余额充值积分";
+}elseif($paytype=='wxpay'){	
+	$payLink="<div class='link'><img src='$webdb[www_url]/images/wap/weixin_pay.png'/></div>";
+    $actions="?banktype=wxpay";
+    $names="atc_moeny";
+    $headers="欢迎使用微信钱包在线充值系统";
+}else{
+	$payLink="<div class='link'><img src='$webdb[www_url]/images/default/alipay_logo.gif'/></div>";
+    $actions="?banktype=alipay";
+    $names="atc_moeny";
+    $headers="欢迎使用支付宝在线充值系统";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/more/other.css">
+<div class="Container">
+	<div class="head">$headers</div>
+    <div class="note"><span class="B blue">支付方式:</span>$showmenu</div>
+    <div class="note">
+    	$payLink
+        <form name="form1" method="post" action="$actions">    	
+            你目前已有{$webdb[MoneyName]}数是<span class="B red">{$lfjdb[money]}</span>,请输入你要充值金额 <br/>
+            <input type="text" name="$names" size="6"/> 元（RMB） 
+            <input type="submit" name="Submit" value="充值"/>
+        </form>
+    </div>
+	<div class="note">
+    	注意：每支付<span class="B red">1</span>元，将可获得<span class="B red">{$webdb[alipay_scale]}</span>{$webdb[MoneyDW]}{$webdb[MoneyName]}，充值金额只能是整数<br>充值促销优惠,每支付10块钱赠送<span class="red">{$webdb[alipay_give_scale]}</span>{$webdb[MoneyDW]}{$webdb[MoneyName]},以此类推
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

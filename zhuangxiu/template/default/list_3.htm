@@ -1,0 +1,171 @@
+<!--
+<?php
+$ck_class[$fid] = "class='ck'";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$Murl/images/life6/list.css">
+<div class="main">
+	<ul class="modemenu">   <!-- modemenu  s -->
+        <li class='li0'><span $ck_class[1]><a href="list.php?fid=1">招标信息</a></span></li>
+        <li class='li1'><span $ck_class[4]><a href="list.php?fid=4">装修学堂</a></span></li>
+        <li class='li2'><span $ck_class[5]><a href="list.php?fid=5">装修公司</a></span></li>
+        <li class='li3'><span $ck_class[2]><a href="list.php?fid=2">装修案例</a></span></li>
+        <li class='li4'><span $ck_class[3]><a href="list.php?fid=3">装修日志</a></span></li>
+        <li class='li5'><span $ck_class[6]><a href="list.php?fid=6">设计师</a></span></li>
+    </ul>    <!-- modemenu  e -->
+    <div class="modeSearch">    <!-- modeSearch  搜索 s -->
+        <form name="modesearch" method="post" action="search.php" onsubmit="return check_keyword();" target="_blank">
+            <div class='search_div'>    <!-- search_div  s -->
+    
+                <div class='search_main'>  <!-- search_main  s -->
+                    <div class="keyword"><input type="text" name="keyword" placeholder='请输入你要查找的内容'></div>
+                    <div class='showtype_div'>   <!--  showtype_div  s -->
+                        <div class="showtype"><span>招标信息</span></div>
+                        <ul class="listtype">
+                            <li><span class="ck">招标信息</span></li>
+                            <li><span>装修学堂</span></li>
+                            <li><span>装修公司</span></li>
+                            <li><span>装修案例</span></li>
+                            <li><span>装修日志</span></li>
+                            <li><span>设计师</span></li>
+                        </ul>					
+                    </div>    <!--  showtype_div  e -->
+                </div>   <!-- search_main  e -->
+    
+                <div class='search_submit'>    <!-- search_submit  s -->
+                    <input type="image" src="images/life6/search.png" />
+                    <input type="hidden" name="mid" value="1">
+                    <input type="hidden" name="action" value="search">					
+                </div>    <!-- search_submit  e -->
+            </div>    <!-- search_div  e -->
+        </form>
+    </div>    <!-- modeSearch  搜索 e -->
+<SCRIPT LANGUAGE="JavaScript" src="$Murl/images/life6/msearch.js"></SCRIPT>
+    <div class='search_keyword'  >
+           <ul>
+               <li class='title'>热门搜索：</li>
+               <li> <a href="list.php?fid=6">设计师</a></li>
+               <li> <a href="list.php?fid=3">房产</a></li>
+               <li> <a href="list.php?fid=4">热门学堂</a></li>
+               <li> <a href="list.php?fid=5">装修公司</a></li>
+               <li> <a href="list.php?fid=1">招标</a></li>
+               <li> <a href="list.php?fid=2">装修案例</a></li>
+           </ul>
+    </div>
+<!--/*搜索分类*/-->
+	<div class="MainLists">
+		<div class="MainL">
+			<div class="SelectSortid">
+				<dl>
+					<dt>{$fidDB[name]}：</dt>
+					<dd>
+<!--
+EOT;
+$sortids=explode("\r\n",$field_db[sortid][form_set]);
+foreach($sortids AS $key=>$rs){
+$rss=explode("|",$rs);
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>$rss[0]));
+$ck_sortid = ($rss[0]==$sortid) ? "class='ck'" : "";
+$sortidname[$rss[0]] = $rss[1];
+print <<<EOT
+-->
+						<div $ck_sortid><a href="$url">$rss[1]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+			</div>
+
+			<div class="ListCont">
+				<div class="cont">
+<!--
+EOT;
+$i=0;
+foreach($listdb AS $key=>$rs){
+$i++;
+$spac_html = ($i%5==0) ? "<div class='spac'></div>" : "";
+print <<<EOT
+-->
+					<div class="list">
+						<a href="$rs[url]" target="_blank" title='$rs[full_title]'>$rs[title]</a> 
+						<span>$rs[posttime]</span>
+					</div> $spac_html
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					<div class="listInfo">
+						<div class="info">共有<span>{$totalNum}</span>条信息</div>
+						<div class="showpage">$showpage</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+		<div class="SideR">
+			<div class="sideconts">
+				<div class="head"><div class="tag">热门排行</div></div>
+					<div class="cont">
+<!--
+EOT;
+
+$array = Get_Info('hot',8,40,$fid);
+$i=0;
+$listHtml1="";
+$listHtml2="";
+
+foreach($array AS $rs){
+$i++;
+if($fid=='3'){
+	$sortname = array("","装修前","装修中","装修后");
+	$rs[sortid] = $sortname[$rs[sortid]];
+}
+if($i<3){
+$listHtml1 .= "<div class=\"listpic\">
+                	<div class=\"img\"><span><a href=\"$rs[url]\" target=\"_blank\"><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src=\"$rs[picurl]\" height=\"70\" /></a></span></div>
+                    <div class=\"t\"><a href=\"$rs[url]\" target=\"_blank\">$rs[title]</a></div>
+                </div>\n";
+}else{
+$listHtml2 .= "<div class=\"list\"><span class=\"blue\">[{$rs[sortid]}]</span><a href=\"$rs[url]\" target=\"_blank\">$rs[title]</a></div>\n";	
+}}
+print <<<EOT
+-->
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							  <tr>
+								<td>$listHtml1</td>
+							  </tr>
+							</table>
+							$listHtml2
+					</div>
+			</div>
+			<div class="List_rad">{$label[zhuangxiu_rightad]}</div>
+			<div class="sideconts">
+				<div class="head"><div class="tag">最新排行</div></div>
+					<div class="cont">
+<!--
+EOT;
+$array = Get_Info('new',8,40,$fid);
+$i=0;
+foreach($array AS $rs){
+$i++;
+print <<<EOT
+-->
+						<div class="list$i listn"><span>$i</span><a href="$rs[url]" target="_blank">$rs[title]</a></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+			
+						</div>
+					</div>
+				</div>
+				<div class="ClearDiv"></div>
+			</div>	
+</div><!-- /main -->
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,432 @@
+<!--
+<?php
+$webdb[weixin_code_img]=tempdir($webdb[weixin_code_img]);
+$fromurl = urlencode($WEBURL);
+print <<<EOT
+-->
+
+<link type="text/css" rel="stylesheet" href="./images/wap/list.css" />
+
+<script type="text/javascript">
+function SharShowMessage(){
+	var t = $(document).height();
+	$('.Share_Message').html('<div></div>');
+	$('.Share_Message').height(t).fadeIn();
+}
+
+function SharHiddenMessage() {
+	$('.Share_Message').fadeOut();
+}
+</script>
+<!--
+EOT;
+if(in_weixin()){print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+
+
+
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$Murl/wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&introducer_uid=$lfjuid',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$Murl/wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&introducer_uid=$lfjuid',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+
+<!--
+EOT;
+}print <<<EOT
+-->
+<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+
+<!--
+EOT;
+$showurl = $WEBURL;
+$showurl .= strstr($showurl,'?')?"&WXID=$WXID":"?WXID=$WXID";
+$showurl = urlencode($showurl);
+if(!is_mobile()){print <<<EOT
+-->
+<div class="wx_code">
+	<img src="$webdb[www_url]/do/2codeimg.php?url=$showurl">
+	<p>扫一扫看效果 <a href="javascript:;" style="color:blue;">关闭</a></p>
+</div>
+<script type="text/javascript">
+$('.wx_code a').click(function(){
+	$('.wx_code').css('display','none');
+});
+</script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="ContainerBox">
+	<div class="ContTopBoxs">
+		<div class="links">帖子分类：<a href="waplist.php?fid=$fid">$fidDB[name]</a></div>
+		<div class="gjbut"><a href="javascript:" onClick="SharShowMessage();ShareTimeline();">分享</a></div>
+		<div class="note"><span>好文章，欢迎分享给朋友</span></div>
+	</div>
+	<div class="ListConts">		
+<!--
+EOT;
+$rsdb[icon]=get_member_icon($rsdb[uid]);
+$picdbs=get_this_pics($id);
+$listimgs="";
+if($picdbs){
+	$listimgs="<div class='Listpics'>\r\n";
+	foreach($picdbs AS $keys=>$rss){
+		$listimgs.="<div><a href='$rss[imgurl]'><img src='$rss[imgurl]'></a></div>";
+	}
+	$listimgs.="</div>";
+}
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}comments WHERE id='$id' AND cids='0'"));
+$totalcomments=intval($NUM);
+@extract($db->get_one("SELECT COUNT(id) AS NUM FROM {$_pre}digguser WHERE id='$id'"));
+$totaldigguser=intval($NUM);
+$listdigguser=get_this_digguser($id);
+print <<<EOT
+-->
+		<div class="ListBox">
+			<dl class="members">
+				<dt><A HREF='$webdb[www_url]/member/waphomepage.php?uid=$rsdb[uid]'><img src='$rsdb[icon]' onerror="this.src='$webdb[www_url]/images/default/nobody.gif'"/></A></dt>
+				<dd>
+					<h3><A HREF='$webdb[www_url]/member/waphomepage.php?uid=$rsdb[uid]'>$rsdb[username]</A> <span class="hot">热</span> <span class="ding">顶</span></h3>
+					<p>{$rsdb[posttime]} &nbsp;&nbsp; 浏览{$rsdb[hits]}</p>
+				</dd>
+			</dl>
+			<div class="titles">
+				<A HREF='waplist.php?fid=$fid' class="fname">$rsdb[fname]</A>
+				<A HREF='wapbencandy.php?fid=$fid&id=$id' class='title'>$rsdb[title]</A>
+			</div>
+			<div class="content">
+				$rsdb[content]
+			</div>
+			$listimgs
+			<div class="ListOthers">
+				<!--<span class="type1">赏<em>6</em></span>
+				<span class="type2">转<em>6</em></span>-->
+				<span class="type3" onClick='add_comments($id,0)'>评论<em id="comment_num$id">{$totalcomments}</em></span>
+				<span class="type4" onClick='add_digguser($id)'>赞<em id="digguser_num$id">{$totaldigguser}</em></span>
+			</div>
+			<dl class="listgetmoney" style="display:none;">
+				<dt>赏</dt>
+				<dd id="Listgetmoney$id">
+					
+				</dd>
+			</dl>
+			<dl class="listdigguer">
+				<dt>赞</dt>
+				<dd id="Listdigguser$id">
+					$listdigguser
+				</dd>
+			</dl>
+			<div class="commentBox">
+				<div class="head"><span>评论</span></div>
+				<div class="ListComments ListComments$id">
+					{$sowComments}
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="LoadingBox"><span>内容加载中……,请稍候！</span></div>
+	<div class="Foot_wx_code">
+		<img src="$webdb[weixin_code_img]">
+		<p>手指长按二维码，快速关注</p>
+	</div>
+	<div class="getcomments">
+		<input type="hidden"/>
+		<div class="head">给TA留言</div>
+		<div class="conts"><textarea></textarea></div>
+		<div class="sub"><span onClick="add_comments1()">留言</span></div>
+	</div>
+	<div class="Share_Message" onClick="SharHiddenMessage();"></div>
+</div>
+<div class="FootConts">
+	<dl>
+		<dt><span onClick='window.location.href="waplist.php?fid=$fid"'>返回</span></dt>
+		<dd><span onClick='add_comments($id,0)'>评论</span></dd>
+	</dl>
+</div>
+<div class="topUpCont">
+    <ul>
+    	<li class="Refresh"><a href="?fid=$fid&id=$id"><span>刷新</span></a></li>
+        <li class="toTop"><div>回到顶部</div></li>
+    </ul>
+</div>
+<div class="Show_Repalys"></div>
+<script>
+var Page=$page,loading=1;
+$(window).scroll(function(){
+	// 当滚动到最底部以上100像素时， 加载新内容
+	if ($(document).height() - $(this).scrollTop() <1000 && loading==1){
+		$('.LoadingBox').fadeIn();
+		Page++;
+		loading=0;
+		var urls='$Murl/wapbencandy.php?fid=$fid&id=$id&type=date&pages='+Page;
+		loadMore(urls);
+	}else{
+		$('.LoadingBox').fadeOut();
+	} 	
+});
+function loadMore(urls){
+	$.ajax({
+		url : urls+'&'+Math.random(),
+		dataType : 'json',
+		success : function(json){
+			if(typeof json == 'object'){
+				var oProducts, Therows, iHeights, iTempHeights,show_htmls,Theitems;
+				if(json.length>0){			
+					loading=1;
+				}else{
+					loading=0;					
+				}				
+				for(var i=0; i<json.length; i++){
+					oProducts = json[i];
+					$('.ListComments').append(oProducts.htmls);
+				}
+				$('.LoadingBox').fadeOut();
+				format_repalyShow();
+			}
+		}
+	});
+}
+function format_repalyShow(){
+	$('.Listrepeatcomment').each(function(){
+		thisNum=$(this).children().index()+1;
+		if(thisNum>=$rows){
+			var thisCid=$(this).attr('title');
+			$(this).find('.ShowMoreRepaly').html('<span onClick="ShowMoreRepaly('+thisCid+',1)">查看更多回复</span>');
+		}
+	});
+}
+format_repalyShow();
+function ShowMoreRepaly(cid,page){
+	$.get("comment.php?atc=List_repaly&cid="+cid+"&page="+page+"&"+Math.random(),function(d){
+		$('.Show_Repalys').fadeIn();
+		var LeftW=($(window).width()-300)/2;
+		$('.Show_Repalys').css({'left':LeftW+'px'});
+		var t = $(document).height();
+		$('.Share_Message').height(t).fadeIn();
+		$('.Show_Repalys').html(d);
+	});
+}
+$('.ListBox .Listpics').each(function(){
+	var thisnums=$(this).children().index()+1;
+	var thisW;
+	if(thisnums>2){
+		thisW=$(this).width()/4;		
+	}else{
+		thisW=$(this).width()/2;	
+	}
+	var thisW1=thisW-10;
+	var thisW2=thisW1-5;
+	$(this).children().css({'width':thisW+'px','height':thisW+'px','line-height':thisW+'px'});
+	$(this).children().children().css({'width':thisW1+'px','height':thisW1+'px','line-height':thisW2+'px'});
+});
+function add_comments(id,cid){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/wx_login.php?fromurl=$fromurl";
+		}else{
+			SharHiddenMessage();
+		}
+	}else{
+		$('.getcomments').fadeIn();
+		$('.getcomments input').val(cid);
+		$('.getcomments input').attr('name',id);
+		var LeftW=($(window).width()-300)/2;
+		$('.getcomments').css({'left':LeftW+'px'});
+		var t = $(document).height();
+		$('.Share_Message').height(t).fadeIn();
+		$('.Share_Message div').css("display","none");
+	}
+}
+function del_comments(id,cid,uid){
+	if('$lfjuid'!=uid){
+		alert('你没有权限删除当前回复');
+	}else{
+		$.get("comment.php?atc=delcomment&listnum=$rows&id="+id+"&cid="+cid+"&uid="+uid+"&"+Math.random(),function(d){
+			//if(cid==0){
+				$('.ListComments'+id).html(d);
+				get_comment_num(id);
+				Page=1;
+				loading=1;
+			//}else{
+				//$('.Listrepeatcomment'+cid).html(d);
+			//}				
+			format_repalyShow();				
+		});
+	}
+}
+function del_comments1(cids,cid,uid){
+	if('$lfjuid'!=uid){
+		alert('你没有权限删除当前回复');
+	}else{
+		$.get("comment.php?atc=delcomment1&listnum=$rows&cids="+cids+"&cid="+cid+"&uid="+uid+"&"+Math.random(),function(d){
+			$('.Listrepeatcomment'+cids).html(d);	
+			format_repalyShow();				
+		});
+	}
+}
+function SharHiddenMessage() {
+	$('.getcomments textarea').val('');
+	$('.getcomments input').val('');
+	check_postcomment=1;
+	$('.Share_Message').fadeOut();
+	$('.getcomments').fadeOut();
+	$('.Show_Repalys').fadeOut();
+}
+var check_postcomment=1;
+function add_comments1(){
+	if(check_postcomment==1){
+		var cid=$('.getcomments input').val();
+		var id=$('.getcomments input').attr('name');
+		var content=$('.getcomments textarea').val();
+		if(id==''){
+			alert('没有指定给谁留言');
+		}
+		else if(content==''){
+			alert('请填写留言内容');
+		}else{
+			check_postcomment=0;
+			$.get("comment.php?atc=comment&listnum=$rows&id="+id+"&cid="+cid+"&content="+content+"&"+Math.random(),function(d){
+				if(cid==0){
+					$('.ListComments'+id).html(d);
+					get_comment_num(id);
+					Page=1;
+					loading=1;
+				}else{
+					$('.Listrepeatcomment'+cid).html(d);
+				}								
+				SharHiddenMessage();
+				format_repalyShow();				
+			});
+		}
+	}else{
+		var erroes = confirm('您的留言已在提交！\\r\\n是否刷新当前页面？');
+		if(erroes==true){
+			window.location.href="?fid=$fid&id=$id";
+		}else{
+			SharHiddenMessage();
+		}
+	}	
+}
+function get_comment_num(id){
+	$.get("comment.php?atc=get_num&id="+id+"&"+Math.random(),function(d){
+		$('#comment_num'+id).html(d);
+	});
+}
+function add_digguser(id){
+	if('$lfjuid'==''){
+		var msay = confirm('您还没有登录！要先登录才可以评论或回复！\\r\\n你是否要登录？');
+		if(msay==true){
+			window.location.href="$webdb[www_url]/do/wx_login.php?fromurl=$fromurl";
+		}
+	}else{
+		$.get("comment.php?atc=add_dig&id="+id+"&"+Math.random(),function(d){
+			if(d=='NO'){
+				alert('当前主题您已经点赞过，不可以重复操作！');
+			}else{
+				$('#Listdigguser'+id).html(d);
+				get_digguser_num(id);
+			}
+		});
+	}
+}
+function get_digguser_num(id){
+	$.get("comment.php?atc=get_dig&id="+id+"&"+Math.random(),function(d){
+		$('#digguser_num'+id).html(d);
+	});
+}
+$(document).ready(function () {
+	$(window).scroll(function () {
+		if ($(window).scrollTop() > 100) {
+			$(".topUpCont").show(100);
+		} else {
+			$(".topUpCont").hide(100);
+		}
+	});
+	$(".topUpCont .toTop").click(function () {
+		$("html,body").animate({scrollTop: 0},500);
+	});
+});
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

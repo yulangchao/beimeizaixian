@@ -1,0 +1,236 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica, sans-serif;
+}
+#slide {
+	position: relative;
+	z-index: 2;
+	margin: 0 auto;
+	width: 100%;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+#slide .cell {
+	float: left;
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+#slide .cell .title {
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-indent: 8px;
+	color: #fff;
+	font-size: 14px;
+	text-shadow: 1px 1px 0 #000;
+	overflow: hidden;
+}
+#slide .cell img {
+	vertical-align: top;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+#indicator {
+	position: absolute;
+	bottom: 10px;
+	right: 4px;
+}
+#indicator li {
+	float: left;
+	color: #fff;
+	margin: 0 4px;
+	width: 5px;
+	height: 5px;
+	background-color: #fff;
+	border-radius: 5px;
+	text-indent: -999em;
+	overflow: hidden;
+}
+#indicator .active {
+	background-color: #999;
+}
+.ListSorts{
+	width:98%;
+	margin:auto;
+}
+.ListSorts li{
+	width:25%;
+	float:left;
+	padding-top:15px;
+}
+.ListSorts li a{
+	display:block;
+	width:70%;
+	margin:auto;
+}
+.ListSorts li a em{
+	display:block;
+	width:100%;
+	overflow:hidden;
+	margin:auto;
+	border-radius:10px;
+	background:#3294D5;
+	text-align:center;
+	padding:15px 0 15px 0;
+	-webkit-box-shadow: 0 0 6px 2px #3294D5;
+	box-shadow:0 0 6px 2px #3294D5;
+}
+.ListSorts li a img{
+	width:100%;	
+}
+.ListSorts li a span{
+	display:block;
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	color:#333;
+	margin:auto;
+}
+.ListSorts p{
+	width:100%;
+	height:2px;
+	clear:both;
+}
+.ListSorts .showmore{
+	width:100%;
+	clear:both;
+	padding:10px 0 10px 0;
+	text-align:center;
+}
+.ListSorts .showmore a { 
+	display:inline-block; 
+	padding:6px 15px;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center; 
+	color:#fff; 
+	background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9)); 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+.ListMoreSorts{
+	position:absolute;
+	width:250px;
+	right:-250px;
+	display:none;
+	top:0;
+	overflow:hidden;
+	z-index:1000000;
+	border-left:#DDD solid 1px;
+	background:#FFF;
+}
+.ListMoreSorts dl dt{
+	height:30px;
+	line-height:30px;
+	padding-left:10px;
+	overflow:hidden;
+	background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+	border-top:#DDD solid 1px;
+}
+.ListMoreSorts dl dt a{
+	display:block;
+	color:#FFF;
+}
+.ListMoreSorts dl dd{
+	padding:10px;
+	line-height:30px;
+	word-spacing:10px;
+}
+.ListMoreSorts dl dd a{
+	color:#666;
+}
+.FootSpac{
+	width:100%;
+	height:60px;
+	clear:both;	
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+
+.ListConts h3{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	background: -moz-linear-gradient(top,rgba(165,85,85,0),rgba(165,85,85,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(165,85,85,0)),to(rgba(165,85,85,0.9)));
+    background: -webkit-linear-gradient(top,rgba(165,85,85,0),rgba(165,85,85,0.9));
+    background: -o-linear-gradient(top,rgba(165,85,85,0),rgba(165,85,85,0.9));
+	border-top:#F7E4E4 solid 1px;
+	color:#FFF;
+}
+.ListConts dl{
+	width:50%;
+	float:left;
+	overflow:hidden;
+	padding-top:15px;
+}
+.ListConts dl dt{
+	width:90%;
+	overflow:hidden;
+	border:#DDD solid 1px;
+	background:#FFF;
+	padding:1px;
+	margin:auto;
+}
+.ListConts dl dt a{
+	display:block;
+	width:100%;
+	overflow:hidden;
+	background:#333;
+}
+.ListConts dl dt a img{
+	width:100%;
+}
+.ListConts dl dd{
+	width:90%;
+	height:20px;
+	line-height:20px;
+	padding-top:8px;
+	overflow:hidden;
+	margin:auto;
+}
+.ListConts dl dd a{
+	color:#333;
+	display:block;
+	width:60%;
+	float:left;
+}
+.ListConts dl dd div{
+	width:40%;
+	float:right;
+	text-align:right;
+}
+.ListConts dl dd div span{
+	font-size:14px;
+	color:#F30;
+}
+.ListConts dl dd div strike{
+	font-size:10px;
+	color:#888;
+}

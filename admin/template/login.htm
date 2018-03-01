@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<!--
+<?php
+print <<<EOT
+-->
+<title>{$webdb[webname]}后台管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="./images/login/login.css" type="text/css">
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR>
+</HEAD>
+<BODY>
+<table class="MainTable">
+  <tr>
+    <td>
+		<div class="LoginCont">
+			<ul class="header">
+				<ol><span>管理中心</span></ol>
+				<li><span>Management Center</span></li>
+			</ul>
+			<form name="form1" method="post" action="index.php">
+			<div class="FormCont">
+				<ul>
+					<li class="user"><span>帐号：</span><input type="text" name="loginname" placeholder="输入管理员帐号"/></li>
+					<li class="pass"><span>密码：</span><input type="password" name="loginpwd" placeholder="输入管理员密码"/></li>
+<!--
+EOT;
+if($webdb[web_open]&&$webdb[yzImgAdminLogin]){
+$path=$Murl?$webdb[www_url]:'..';
+print <<<EOT
+-->
+					<li class="yz"><span>验证码：</span><input type="text" name="yzimg" placeholder="输入验证吗"/><em>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" id="yz_Img" name="imageField" onclick="this.src=this.src+Math.random();" src="$path/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT>
+					</em></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					<li class="sub"><input type="image" src="$webdb[admin_url]/images/login/sub.png"></li>
+				</ul>				
+			</div>
+			</form>	
+		</div>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>
+<!--
+EOT;
+?>
+-->

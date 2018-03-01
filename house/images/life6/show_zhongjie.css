@@ -1,0 +1,92 @@
+#zhongjie .top{background:#ececec; height:59px; border:1px solid #dfdfdf; border-bottom:2px solid #40aeec;}
+#zhongjie .LL{background:#fdfdfd; border:1px solid #dfdfdf; border-top:0px; padding:12px 20px 30px 20px;}
+
+#zhongjie .RR{
+	border:1px solid #D8D8D8;
+	border-top:0px;
+	border-left:0px;
+	padding:15px;
+	font-size:14px;
+}
+#zhongjie div{
+	float:left;
+}
+#zhongjie .title{
+	color:#14615F;
+	font-size:28px;
+	font-weight:bold;
+	font-family : ºÚÌå;
+	padding:12px 30px 0 15px;
+}
+#zhongjie .ppost{float:right; padding-right:10px; padding-top:15px;}
+#zhongjie .ppost a{margin-left:10px; padding-left:20px; position:relative;}
+#zhongjie .ppost a:before{content:''; display:block; position:absolute;left:-2px; top:0; width:20px; height:20px; background:url('flag.png') no-repeat;}
+#zhongjie .ppost a:first-child:before{background-position:-87px -1px;}
+#zhongjie .ppost a:nth-child(2):before{background-position:-84px -21px;}
+#zhongjie .ppost a:last-child:before{background-position:-85px -42px;}
+#zhongjie .s1{width:89px; height:40px; line-height:40px; background:#1aa4ed; text-align:center; font-size:15px; color:#fff; cursor: default; margin-top:19px;}
+#zhongjie .s2{width:89px; height:40px; line-height:40px; padding-top:19px; text-align:center; font-size:15px; cursor: default;}
+
+#zhongjie .LL .ii{width:100%; text-align:center; display:table;}
+#zhongjie .LL .ii a.im{display:table-cell; width:160px; height:160px; line-height:160px; margin:0 auto; vertical-align:middle;}
+#zhongjie .LL .ii img{max-width:160px; max-height:160px;}
+#zhongjie .LL .ii a{
+	color:#FF6600;
+	font-weight:bold;
+}
+.m-zjName{width:100%; text-align:center; height:30px; line-height:30px;}
+.m-zjName a{font-size:15px;}
+#zhongjie .LL .tt,#zhongjie .LL .yzs{width:100%; height:30px; line-height:30px; font-size:14px;color:#666;}
+#zhongjie .LL .tt span{padding-right:3px; line-height:30px;}
+#zhongjie .LL .yzs img{margin-left:8px;}
+#zhongjie .LL .p1{
+	border-top:1px dotted #ddd;
+	margin-top:7px;
+	padding-top:7px;
+}
+#zhongjie .LL .p2{
+	border-bottom:1px dotted #ddd;
+	margin-bottom:7px;
+	padding-bottom:7px;
+}
+#zhongjie .LL .hits{color:#666; height:30px; line-height:30px; padding-left:28px; position:relative;}
+#zhongjie .LL .hits:before{content:''; display:block; position:absolute; left:0; top:6px; width:25px; height:25px; background:url('flag.png') -87px -68px no-repeat;}
+#zhongjie .LL .hits span{color:#1aa4ed; font-size:20px; font-weight:bold; font-family : ºÚÌå;}
+
+#mts4 div{width:130px; float:left; text-align:center; margin-left:10px; margin-top:8px;}
+#mts4 div .ii{display:block; border:1px solid #ddd; padding:3px; width:120px; height:90px; margin-bottom:8px;}
+#mts4 div .ii:hover{border-color:#f40;}
+#mts4 div img{width:120px; height:90px;}
+/* comments */
+#comment{padding-bottom:10px;}
+.comment_form{border-top:2px solid #1aa4ed;}
+.comment_form .buttonStyle{margin-bottom:10px; width:100px; height:30px; line-height:30px; background:#f9861f; color:#fff; font-size:15px; text-align:center; border-radius:5px; border:0; cursor:pointer;}
+.comment_form td{padding-top:5px;}
+.cclist_table .ii{display:block; width:50px; height:50px; border:1px solid #ddd;}
+.cclist_table{width:860px; border-bottom:1px dotted #dfdfdf;}
+.cclist_table td{padding-top:4px;}
+.cclist_table .info{background:#F1FAEF;}
+.cclist_table .ii{display:block; border:#DDD solid 1px; padding:2px; margin:auto; width:56px; height:56px;}
+.cclist_table .ii img{width:56px; height:56px;}
+.cclist_table .itd{text-align:center; padding:10px 0;}
+.cclist_table .contents{padding:5px; font-size:14px;}
+.cclist_table .contents div{width:100%; line-height:25px;}
+.contents .cont-Info span a{color:#1aa4ed;}
+.contents .cont-Info span a:hover{color:#f40;}
+.contents .cont-Info span{color:#999;}
+.cclist_table .contents div span{margin-right:10px;}
+.cclist_table .contents div em{color:#ff9900;}
+
+.Ltb,.Lftb{width:100%;}
+.Lftb{border-bottom:1px dotted #dfdfdf;}
+#mts1,#mts2,#mts3,#mts4{width:100%;}
+.Ltb td{height:40px; line-height:40px; text-align:center; color:#fff; font-size:15px;}
+.Lftb td{height:120px; VERTICAL-ALIGN: middle; text-align:center; font-size:14px;}
+.Lftb .tt{text-align:left;}
+.Lftb .tt a{color:#1aa4ed;}
+.Lftb .ii img{max-width:120px; height:90px;}
+.Lftb .ii a{display:block; width:120px; height:90px; border:1px solid #ddd; padding:2px;}
+.Lftb .cc{color:#1aa4ed; font-weight:bold; font-size:20px;}
+/****************/
+#zhongjie,#s_tops,.dragtb,.Rmtb{background:#FFF; margin-top:20px;}
+.Lftb .tt a:hover{font-weight:600;}

@@ -1,0 +1,50 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="index.php?lfj=$lfj&action=set">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">邮箱资料配置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">
+    <tr> 
+      <td class='tdL'>邮件发送模式:</td>
+      <td class='tdR'> <a href="index.php?lfj=$lfj&action=delete_admin_logs&iddb[{$rs[id]}]=1"></a> 
+        <input type="radio" name="webdbs[MailType]" value="mail" $MailType[mail]>
+        mail 函数发送 
+        <input type="radio" name="webdbs[MailType]" value="smtp" $MailType[smtp]>
+        SMTP 模块发送(常用)</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>SMTP 服务器: </td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[MailServer]" value="$webdb[MailServer]">
+        如:smtp.qq.com smtp.163.com</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>SMTP 端口,一般是25</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[MailPort]" size="4" value="$webdb[MailPort]">
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>邮箱帐号:</td>
+      <td class='tdR'> 
+        <input type="text" name="webdbs[MailId]" value="$webdb[MailId]">
+        如:test@qq.com</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>邮箱密码:</td>
+      <td class='tdR'> 
+        <input type="password" name="webdbs[MailPw]" value="$webdb[MailPw]">
+      </td>
+    </tr>
+  </table>
+  <div class='submits'><input type="submit" name="Submit" value="提交"></div>
+  </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

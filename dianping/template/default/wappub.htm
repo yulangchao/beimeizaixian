@@ -1,0 +1,85 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<style>
+.bigHead{
+    height: 36px;
+	line-height:36px;
+    overflow: hidden;
+    background: #ececec;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #e5e5e5;
+    border-bottom: 0;
+}
+.bigSort{
+	width:100%;
+}
+.bigSort dl{
+	width:90%;
+	margin:10px auto;
+	
+}
+.bigSort dl dt{font-size:14px; height:30px; line-height:30px; overflow:hidden; color:#AB82C0;}
+.bigSort dl:nth-child(1) dt{color:#AB82C0;}
+.bigSort dl:nth-child(2) dt{color:#A6D151;}
+.bigSort dl:nth-child(3) dt{color:#6CDC7F;}
+.bigSort dl:nth-child(4) dt{color:#76D6DD;}
+.bigSort dl:nth-child(5) dt{color:#DF7CC8;}
+.bigSort dl:nth-child(6) dt{color:#C47CE8;}
+.bigSort dl:nth-child(7) dt{color:#9AB6E6;}
+.bigSort dl:nth-child(8) dt{color:#E26565;}
+.bigSort dl:nth-child(9) dt{color:#FDBE07;}
+.bigSort dl dt .icon{display:inline-block; width:30px; height:30px; margin-right:10px;}
+.bigSort dl dt .icon img{width:100%; max-height:100%;}
+.bigSort dl dd{overflow:hidden;}
+.bigSort dl dd span{float:left; padding:5px 8px;}
+.bigSort dl dd span a{font-size:14px;}
+</style>
+<div class="bigHead">请选择一个分类</div>
+<section class="bigSort">
+<!--
+EOT;
+$trnum=0;
+$tdnum=0;
+foreach($Fid_db[0] AS $key=>$array){
+$tdnum++;
+$tdbg=$tdnum%2==0?"hbg":"";
+$bgnum=$tdnum%9;
+print <<<EOT
+-->
+<dl>
+  <dt><span class="icon"><img src="$webdb[www_url]/images/default/post/s$bgnum.gif"/></span>{$Fid_db[name][$key]}</dt>
+  <dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $keys=>$rs){
+$InfoNum[$keys]=intval($InfoNum[$keys]);
+if($Fid_db[$keys]){
+	$str='';
+	foreach($Fid_db[$keys] AS $k=>$v){
+		$str.="<A HREF='$city_url/wappost.php?city_id=$city_id&fid=$k'>$v</A><br>";
+	}
+	$href=" href='javascript:' click=1 editcode=\"$str\" ";
+}else{
+	$href=" href='$city_url/wappost.php?city_id=$city_id&fid=$keys' ";
+}
+print <<<EOT
+-->
+    <span>[<a $href>{$Fid_db[name][$keys]}</a>]</span>
+<!--
+EOT;
+}print <<<EOT
+-->
+  </dd>
+</dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+</section>
+
+<!--
+EOT;
+?>
+-->

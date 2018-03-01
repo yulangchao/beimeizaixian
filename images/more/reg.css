@@ -1,0 +1,138 @@
+div, p, dl, dt, dd,td,span,li{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.RegCont{
+	width:98%;
+	margin:10px auto;
+}
+.RegCont dl{
+	position:relative; 
+	border:1px solid #ccc; 
+	background-color:#fff; 
+	padding:2px 0px; 
+	border-radius:4px; 
+	-webkit-box-shadow:1px 1px 2px #DBDADA inset; 
+	-webkit-box-sizing:border-box;
+	margin-bottom:10px;
+}
+.RegCont dl dt{
+	width:85px;
+	height:25px; 
+	position:absolute; 
+	left:5px; 
+	top:8px;
+	overflow:hidden;
+	text-align:right;
+	line-height:25px;
+	color:#333;
+}
+.RegCont dl dd{
+	padding:5px 5px 5px 85px;
+}
+.RegCont dl dd input{
+	display:block; 
+	border:0px; 
+	height:25px; 
+	outline:none; 
+	width:100%; 
+	vertical-align:top; 
+	-webkit-appearance:none; 
+	-webkit-box-sizing:border-box;
+	font-size:14px;
+}
+.RegCont dl dd span.img{
+	display:block;
+	position:absolute;
+	width:65px;
+	right:8px;
+	top:10px;
+	z-index:1000;
+}
+.RegCont dl dd span.img img{
+	width:100%;
+}
+.RegCont .radio{
+	padding:8px 5px 5px 85px;
+	font-size:14px;
+	color:#666;
+}
+.Agreement{
+	padding:8px 5px 12px 5px;
+	text-align:center;
+	font-size:14px;
+	color:#666;
+}
+.comn-submit { 
+	display:inline-block; padding:6px 15px; text-align:center; color:#fff; background-color:#f40; border:0 none; box-shadow:#ddd 0 1px 1px; border-radius:3px;
+}
+.comn-submit:visited{ 
+	color:#fff;
+}
+.comn-submit:hover { 
+	background-color:#f22d00; color:#fff; text-decoration:none;
+}
+.RegCont .sub {
+	text-align:center;
+}
+.RegCont .sub .comn-submit{
+	width:100%;
+	font-size:18px;
+}
+.Agreements{
+	width:90%;
+	top:10px;
+	margin:auto;
+	position:absolute;
+	z-index:100001;
+	display:none;
+}
+.AgreementsBox{
+	border:#DDD solid 1px;
+	background:#FFF;
+	border-radius:3px;
+}
+.AgreementsBox h3{
+	padding:15px 5px 0 5px;
+	text-align:center;
+	font-size:18px;
+}
+.AgreementsBox ul{
+	padding:10px;
+}
+.AgreementsBox ul h4{
+	line-height:20px;
+	padding:5px 0 5px 0;
+	font-size:16px;
+	font-weight:normal;
+}
+.AgreementsBox ul li{
+	padding:5px 0 5px 0;
+	line-height:20px;
+	font-size:14px;
+	color:#666;
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:100000; 
+	position:absolute;
+	display:none;
+}
+.AgreementsBox .act{
+	text-align:center;
+	padding:10px 0 20px 0;
+}

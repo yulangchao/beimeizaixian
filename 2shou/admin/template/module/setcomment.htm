@@ -1,0 +1,72 @@
+<!--
+<?php
+print <<<EOT
+--> 
+ <form name="form1" method="post" action="$admin_path&action=setcomment&id=$id">
+<div class="MainContainers">
+  <div class="Conter">
+    <ul class='notes'><li>注意:最后一项,可以留空,其它项不能留空</li></ul>
+  <table class="ListTable">
+    <tr> 
+      <th width="48%">评分种类名称</th>
+      <th width="52%">选项参数</th>
+    </tr>
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'" align="center"> 
+      <td> 
+        <input type="text" name="fendb[fen1][name]" value="{$fendb[fen1][name]}">
+      </td>
+      <td> 
+        <textarea name="fendb[fen1][set]" cols="30" rows="5">{$fendb[fen1][set]}</textarea>
+      </td>
+    </tr>
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'" align="center"> 
+      <td> 
+        <input type="text" name="fendb[fen2][name]" value="{$fendb[fen2][name]}">
+      </td>
+      <td> 
+        <textarea name="fendb[fen2][set]" cols="30" rows="5">{$fendb[fen2][set]}</textarea>
+      </td>
+    </tr>
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'" align="center"> 
+      <td> 
+        <input type="text" name="fendb[fen3][name]" value="{$fendb[fen3][name]}">
+      </td>
+      <td> 
+        <textarea name="fendb[fen3][set]" cols="30" rows="5">{$fendb[fen3][set]}</textarea>
+      </td>
+    </tr>
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'" align="center"> 
+      <td> 
+        <input type="text" name="fendb[fen4][name]" value="{$fendb[fen4][name]}">
+      </td>
+      <td> 
+        <textarea name="fendb[fen4][set]" cols="30" rows="5">{$fendb[fen4][set]}</textarea>
+      </td>
+    </tr>
+    <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'" align="center"> 
+      <td> 
+        <input type="text" name="fendb[fen5][name]" value="{$fendb[fen5][name]}">
+      </td>
+      <td> 
+        <textarea name="fendb[fen5][set]" cols="30" rows="5">{$fendb[fen5][set]}</textarea>
+      </td>
+    </tr>
+	
+ 
+	<tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'" align="center"> 
+      <td> 
+        <input type="text" name="fendb[fen6][name]" value="{$fendb[fen6][name]}">
+      </td>
+      <td> 
+        <textarea name="fendb[fen6][set]" cols="30" rows="5">{$fendb[fen6][set]}</textarea>
+      </td>
+    </tr>
+ 
+
+  </table>
+    <div class='submits'><input type="submit" name="Submit" value="修改"></div>
+</form>
+<!--
+EOT;
+?>
+-->

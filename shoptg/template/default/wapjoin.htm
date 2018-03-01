@@ -1,0 +1,84 @@
+<!--
+<?php
+$del_act=($job=='edit')?"<a href=\"?action=del&id=$id&cid=$cid&fid=$rsdb[fid]\" onClick=\"return confirm('你确认要删除吗?');\">删除</a>":"";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<style>
+.FormContainer dl dd a.Ac{
+	display: block;
+	width: 15px;
+	height: 22px;
+	padding: 0 5px;
+	float: left;
+	font-size: 20px;
+	line-height: 20px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	text-align: center;
+	margin: 3px;
+	font-weight: bold;
+	color: #666;	
+}
+.FormContainer .butter a{
+    border: 1px solid #999;
+    padding: 3px 5px;
+    border-radius: 3px;
+    color: #666;
+}
+</style>
+<div class="FormContainer">
+<form name="form_order" method="post" action="?action=$atc" enctype="multipart/form-data">
+	<h3>订单详情</h3>
+	<dl>
+		<dt>商品名:</dt>
+		<dd><a href="bencandy.php?city_id=$infodb[city_id]&fid=$fid&id=$cid">$infodb[title]</a></dd>
+	</dl>
+	<dl>
+		<dt>价格:</dt>
+		<dd>		
+			<a class='Ac' href="javascript:;"  onclick="chang_nums(-1)">-</a> 
+            			<input type="text" style="width:100px;text-align:center;float:left" id="shopnum" name="shopnum" value="$hownum" onBlur="chang_nums(this)"/>
+			<a class='Ac' href="javascript:;" onclick="chang_nums(1)">+</a>
+			<span id="price_shows">{$infodb[price]}</span><span>元</span>
+		</dd>
+	</dl>
+
+	<h3>订单资料</h3>
+	<dl>
+		<dt>注意事项:</dt>
+		<dd>送货方式选择邮寄的话,普通快递加收<span class="B red">{$conf[norm_send]}</span>元,EMS快递加收<span class="B red">{$conf[ems_send]}</span>元,平邮加收<span class="B red">{$conf[slow_send]}</span>元</dd>
+	</dl>
+<!--{template}-->
+	<dl>
+		<dt>{title}</dt>
+		<dd>{value}</dd>
+	</dl>
+<!--{/template}--> 
+	<div class='butter'>
+		<input type="submit" name="Submit" value="提交订单"  >
+		<input type="hidden" name="fid" value="$fid">
+		<input type="hidden" name="id" value="$id">
+		<input type="hidden" name="cid" value="$cid">
+		<input type="hidden" name="postdb[title]" id="atc_title" size="50" value="$infodb[title]">
+		$del_act
+	</div>
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+$('.FormContainer dl dd textarea').css({'width':'99%','height':'100px'});
+function chang_nums(t){ 	
+	 num=Math.ceil($("#shopnum").val());
+	 if(t==1)num++;
+	 if(t==-1)num--;
+	 if(num<1){
+		 num=1;
+	 }
+	$("#shopnum").val(num);	
+	$("#price_shows").html(num*'$infodb[price]');
+ }
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

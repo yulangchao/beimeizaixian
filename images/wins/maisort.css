@@ -1,0 +1,123 @@
+/*
+*分类样式
+*/
+.ShowSortBox{
+	width:100%;
+	height:478px;
+	border:#EEE solid 1px;
+	position:relative;
+	z-index:1000000;
+	background:#FAFAFA;
+}
+.ShowSortBox dl dt{
+	height:53px;
+	position:relative;
+}
+.ShowSortBox dl:nth-child(9) dt{
+	height:54px;
+}
+.ShowSortBox dl dt div{
+	position:absolute;
+	width:252px;
+	height:52px;
+	left:0;
+	top:1px;
+	line-height:53px;
+	z-index:1000001;
+}
+.ShowSortBox dl:nth-child(9) dt div{
+	height:53px;
+}
+.ShowSortBox dl dt:before{
+	content:'';
+	display:block;
+	width:230px;
+	height:1px;
+	position:absolute;
+	top:0;
+	left:10px;
+	background:#EEE;
+}
+.ShowSortBox dl:nth-child(1) dt:before{
+	display:none;
+}
+.ShowSortBox dl.over dt:before{
+	width:250px;
+	left:0px;
+}
+.ShowSortBox dl.over dt:after{
+	content:'';
+	display:block;
+	width:250px;
+	height:1px;
+	position:absolute;
+	bottom:-1px;
+	left:0;
+	background:#EEE;
+}
+.ShowSortBox dl.over dt div{
+	background:#FFF;
+}
+.ShowSortBox dl dt span{
+	float:left;
+	margin-left:10px;
+}
+.ShowSortBox dl dt span a{
+	font-size:16px;
+	font-weight:bold;
+}
+.ShowSortBox dl dt em{
+	float:right;
+	padding-right:12px;
+	background:url(more.png) right 20px no-repeat;
+	margin-right:15px;
+}
+.ShowSortBox dl dt em a{
+	color:#888;
+}
+.ShowSortBox dl dd{
+	width:200px;
+	height:478px;
+	position:absolute;
+	top:-1px;
+	left:250px;
+	border:#EEE solid 1px;
+	background:#FFF;
+	display:none;
+	overflow-Y:auto;
+	overflow-X:hidden;
+}
+.ShowSortBox dl.over dd{
+	display:block;
+}
+.ShowSortBox dl dd ul{
+	padding:10px;
+}
+.ShowSortBox dl dd ul ol{
+	line-height:30px;
+	border-bottom:#DDD dotted 1px;
+	padding-left:10px;
+}
+.ShowSortBox dl dd ul ol a{
+	font-size:16px;
+	font-weight:bold;
+}
+.ShowSortBox dl dd ul li{
+	padding-top:10px;
+}
+.ShowSortBox dl dd ul li a{
+	display:block;
+	line-height:30px;
+	height:30px;
+	overflow:hidden;
+	font-size:14px;
+	text-indent:10px;
+}
+.ShowSortBox dl dd ul li a:hover{
+	background:#999;
+	border-radius:5px;
+	color:#FFF;
+}
+.ShowSortBox dl dd ul a{
+	color:#666;
+}

@@ -1,0 +1,33 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<div class="ListContainer">
+	<div class="head"><div class="tag">短消息管理</div><div class='more'><a href="?job=send">写新消息</a></div></div>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <div class='CommentList'>
+		<div class='title'>
+			<a href="?job=read&mid=$rs[mid]" title="$rs[full_title]">$rs[title]</a>
+		</div>
+		<div class='info'>
+			<div class='UserTime'><span class='userL'>发件人：<a href="userinfo.php?uid=$rs[fromuid]" target="_blank">$rs[username]</a></span><span class='timeR'>$rs[mdate]</span></div>
+			<div class='CommentSubmits'><span class='state'>$rs[state]</span> <a href="?job=del&mid=$rs[mid]">删除</a> <a href="?job=send&username=$rs[username]">回复</a></div>                
+		</div>
+    </div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+	$showpage
+</div>
+<!--
+EOT;
+?>
+-->

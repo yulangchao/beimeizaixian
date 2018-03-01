@@ -1,0 +1,123 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<div class="content">
+	<div class="content_banner">
+		<div class="banner_pictrue">
+			<div class="m-prev m-Bt"><span></span></div>
+			<div class="m-next m-Bt"><span></span></div>
+			{$label[tgindex6_flash]}
+<script>
+var bannerNum = 0;
+var liNum = $(".banner_pictrue ul li").length;
+$(".banner_pictrue ol li").hover(function(){
+  var thisIndex = $(this).index();
+  $(".banner_pictrue ul li").eq(thisIndex).fadeIn("slow").siblings().fadeOut("slow");
+  $(".banner_pictrue ol li").eq(thisIndex).addClass("actionNum").siblings().removeClass("actionNum");
+});
+$(".banner_pictrue .m-prev").click(function(){
+    bannerNum = (--bannerNum + liNum) % liNum;
+	$(".banner_pictrue ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+	$(".banner_pictrue ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+  });
+  $(".banner_pictrue .m-next").click(function(){
+    bannerNum = ++bannerNum % liNum;
+	$(".banner_pictrue ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+	$(".banner_pictrue ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+  });
+autochange = function(){
+	bannerNum = ++bannerNum % liNum;
+    $(".banner_pictrue ul li").eq(bannerNum).fadeIn("slow").siblings().fadeOut("slow");
+    $(".banner_pictrue ol li").eq(bannerNum).addClass("actionNum").siblings().removeClass("actionNum");
+}
+bannerInterval = setInterval(autochange,2000);
+$(".banner_pictrue").hover(function(){
+  clearInterval(bannerInterval);
+},function(){
+  bannerInterval = setInterval(autochange,2000);
+});
+</script>
+		</div>
+		<div class="content_banner_text">
+			<ul class="content_banner_list1">
+				{$label[tgindex6_1]}
+			</ul>
+			<ul class="content_banner_list2">
+				<li>
+					{$label[tgindex6_2]}
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="content_text">
+		<div class="content_text_list">
+			<div class="list_title">
+				<span>热门活动</span>
+				<div  class="go_out">
+<!--
+EOT;
+foreach($Fid_db[0] AS $key=>$name){
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+					<a href="$url">$name</a>
+<!--
+EOT;
+}print <<<EOT
+-->							
+				</div>
+			</div>
+			<table class="showlist">
+			  <tr> 
+				<td class="MainL">
+					{$label[tuangou_main]}
+				</td>
+			  </tr>
+			</table>					
+		</div>
+			<div class="content_text_jion">
+			
+				<div class="launch">
+						<a href="$webdb[_www_url]/member/?main=$Murl/member/post_choose.php">我要发起活动</a>
+				</div>
+										
+				<div class="cont1">
+					<div class="sign_up"><span>报名状态</span></div>
+<!--
+EOT;
+$array=list_apply(5);
+foreach($array AS $rs){
+print <<<EOT
+-->
+					<div class="lista">
+						<span class="blue">$rs[username]</span>于<span>$rs[posttime]</span>申请参加
+						<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" class="orange">$rs[title]</a>
+					</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+    			</div>	
+				<div class="recommend">
+					<h1>推荐活动</h1>
+					{$label[tgindex6_3]}
+				</div>	
+				<div class="newset">
+					<h1>最新活动</h1>
+					{$label[tgindex6_4]}
+				</div>					
+								
+			</div>
+	</div>
+		
+	<div class="content_ad">
+		{$label[tgindex6_5]}
+	</div>
+	
+</div>
+<!--
+EOT;
+?>
+-->

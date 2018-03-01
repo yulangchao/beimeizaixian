@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+$bodyondblclick = (function_exists('label_array')&&$web_admin&&!$MakeIndex) ?"dblclick_label();":"";
+$member_act=$lfjid?"<a href=\"$webdb[_www_url]/member/wapindex.php\">会员中心</a> <a href=\"$webdb[www_url]/do/waplogin.php?action=quit\">退出</a>":"<a href=\"$webdb[_www_url]/do/waplogin.php\">登录</a> <a href=\"$webdb[www_url]/do/wapreg.php\">注册</a> <a href=\"$webdb[www_url]/do/wxlogin.php\">微信快速登录</a>";
+$actions=$_pre?"wapsearch.php":"$webdb[www_url]/news/wapsearch.php";
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>{$titleDB[title]}</title>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/global.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/hfcom.css">
+<meta name="keywords" content="$titleDB[keywords]">
+<meta name="description" content="$titleDB[description]">
+<script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="$webdb[www_url]/images/default/default.js"></script>
+</head>
+<body ondblclick="$bodyondblclick">
+<div class="m-indexMain">
+  <header class="m-header">
+    <a href="javascript:;" class="L m-login"></a>
+	<a href="wapallcity.php" class="R m-ChangCity">{$city_DB[name][$city_id]}</a>
+	<div class="m-search">
+	  <form name="form1" method="post" action="$actions">
+		<div class="m-keyword"><input name="keyword" type="text" value="$keyword" placeholder="输入搜索的关键字"/></div>
+		<div class="m-SearchBt"><input name="button" type="submit" value=""/></div>
+		<input type="hidden" name="action" value="search">
+	  </form>
+	</div>
+  </header>
+  <div class="m-MemberCont">
+    <h4>您好！欢迎来到{$webdb[webname]}</h4>
+    <p>$member_act</p>
+  </div>
+<script>
+$(document).ready(function(){
+  $('.m-header .m-login').click(function(){
+  	if($('.m-MemberCont').hasClass("showThis")){
+  		$('.m-MemberCont').removeClass('showThis');
+  		$('.m-MemberCont').animate({'height':'0px'},300);
+  	}else{
+  		$('.m-MemberCont').addClass('showThis');
+  		$('.m-MemberCont').animate({'height':'60px'},300);
+  	}								  
+  });
+  $(".m-nav li:nth-child(8) ~ li").hide();
+  $(".showlistmore").click(function(){
+    $(".m-nav li:nth-child(8) ~ li").slideToggle("slow");
+  });
+});
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/wap/index.css">
+<!-- flash -->
+<section class="m-flash">{$label[wapindex_flash]}
+
+</section>
+<!-- /flash -->
+<!-- nav -->
+<!--
+EOT;
+$tagpicurl = "$webdb[www_url]/images/wap";
+$tagpic = array("20"=>"<img src='{$tagpicurl}/f-news.png'>",
+"38"=>"<img src='{$tagpicurl}/f-house.png'>",
+"39"=>"<img src='{$tagpicurl}/f-diangping.png'>",
+"50"=>"<img src='{$tagpicurl}/f-zhuangxiu.png'>",
+"36"=>"<img src='{$tagpicurl}/f-fenlei.png'>",
+"29"=>"<img src='{$tagpicurl}/f-pic3.png'>",
+"51"=>"<img src='{$tagpicurl}/f_share.png'>",
+"16"=>"<img src='{$tagpicurl}/f-pic8.png'>",
+"28"=>"<img src='{$tagpicurl}/f-tuan.png'>",
+"37"=>"<img src='{$tagpicurl}/f-huodong.png'>",
+"31"=>"<img src='{$tagpicurl}/f-hr.png'>",
+"26"=>"<img src='{$tagpicurl}/f-gift.png'>",
+"27"=>"<img src='{$tagpicurl}/f-coupon.png'>",
+"40"=>"<img src='{$tagpicurl}/f-2shou.png'>",
+"56"=>"<img src='{$tagpicurl}/f-waimai.png'>",
+"55"=>"<img src='{$tagpicurl}/f-fuwu.png'>",
+"53"=>"<img src='{$tagpicurl}/f-bbs.png'>");
+
+foreach($ModuleDB AS $key=>$mds){
+		if(!$mds[ifclose] && $tagpic[$mds[id]]){
+			$tagpic[$mds[id]] || $tagpic[$mds[id]] ="<img src='{$tagpicurl}/f-fenlei.png'/>";
+			  $show.="<li><a href='$webdb[www_url]/{$mds[dirname]}/wapindex.php'><span>{$tagpic[$mds[id]]}</span><span>{$mds[name]}</span></a></li>";
+		}
+}
+print <<<EOT
+-->
+  <section class="s-skin m-nav">
+	<ul>{$show}</ul>
+	<div class="showlistmore">显示/收起更多频道</div>
+  </section>
+<!-- /nav -->
+<div class="Lbanner">{$label[wapindex_banner1]}</div>
+<!-- Lheader -->
+<div class="Lheader">
+    <div class="headerbox">
+        <span class="tiright"><img src="$webdb[www_url]/images/wap/tite_like.png" /></span>
+        <span class="tileft"><a href="$webdb[www_url]/shop/wapindex.php">more</a></span>
+    </div>
+    <ul class="Lnav">
+<!--
+EOT;
+$i=0;
+require_once(ROOT_PATH."shop/data/all_fid.php");
+foreach($Fid_db[0] AS $key=>$value){
+$i++;
+if($i>7)break;
+print <<<EOT
+-->
+    	<li><a href="$webdb[www_url]/shop/waplist.php?fid=$key" class="nav0$i">{$value}</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        <li><a href="$webdb[www_url]/shop/wapindex.php" class="nav07">更多分类</a></li>
+    </ul>
+</div>
+<!-- /Lheader -->
+<!-- LikeShow -->
+<div class="LikeShow">{$label[wapindex_likes]}</div>
+<!-- /LikeShow -->
+<!-- Servers -->
+<div class="serverBanner">
+	<div class="Sbanner">{$label[wapindex_banner2]}</div>
+    <div class="homeServer">
+      	<div class="headerbox">
+          	<span><a href="$webdb[www_url]/fuwu"><img src="$webdb[www_url]/images/wap/server_title.png"/></a></span>
+        </div>
+          
+        <ul class="Snav">
+<!--
+EOT;
+$i=0;
+require_once(ROOT_PATH."fuwu/data/all_fid.php");
+foreach($Fid_db[0] AS $key=>$value){
+$i++;
+@extract($db->get_one("SELECT logo FROM {$pre}fuwu_sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file(ROOT_PATH."images/wap/sv_{$i}.png"))?"$webdb[www_url]/images/wap/sv_{$i}.png":"$webdb[www_url]/images/wap/sv_2.png");
+$ck=$i==1?"ck":"";
+if($i>6)break;
+print <<<EOT
+-->
+            <li><a href="$webdb[www_url]/fuwu/waplist.php?fid=$key" class="nav01 $ck"><img src="$logo" />$value</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+      	</ul>
+         
+    </div>
+</div>
+<div class="ServerShow">{$label[wapindex_servers]}</div>
+<!-- /Servers -->
+<!-- TakeAway -->
+<div class="TakeAway">
+    <div class="Tbanner">{$label[wapindex_banner3]}</div>
+            
+    <div class="TastFood">
+    	<div class="headerbox">
+        	<span><a href="$webdb[www_url]/waimai/wapindex.php"><img src="$webdb[www_url]/images/wap/waimai_title.png"/></a></span>
+        </div>
+        
+        <ul class="Fnav">
+<!--
+EOT;
+$i=0;
+require_once(ROOT_PATH."waimai/data/all_fid.php");
+foreach($Fid_db[0] AS $key=>$value){
+$i++;
+$ck=$i==1?"class='ck'":"";
+if($i>3)break;
+print <<<EOT
+-->
+            <li><a href="$webdb[www_url]/waimai/waplisthy.php?fid=$key" class="nav0{$i} ck">{$value}</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+    	</ul>
+    </div>
+</div>
+      
+<div class="Business">{$label[wapindex_waimai]}</div>
+<!-- /TakeAway -->
+<!-- News -->
+<div class="News">
+	<div class="headerbox">
+    	<span><img src="$webdb[www_url]/images/wap/new_title.png"/></span>
+    </div>
+    <ul class="Nnav">{$label[wapindex_newt1]}</ul>
+</div>
+<div class="NewsConter">{$label[wapindex_newc1]}</div>
+<!-- /News -->
+<!-- Forum -->
+<div class="Forum">
+	<img src="$webdb[www_url]/images/wap/luntan.png"/>
+    <a href="$webdb[www_url]/bbs/wapindex.php"><span style="color:#fff;">社区论坛</span></a>
+</div>
+
+<div class="ForumList">{$label[wapindex_bbs]}</div>
+<!-- /Forum -->
+<!-- m-Hot -->
+  <section class="s-skin2 m-Hot">
+    <div class="Listall HotCont">
+	  <div class="ListAllNav hotNav">{$label[wapindex_hotcont]}</div>
+	  {$label[wapindex_hot]}
+	</div>
+  </section>
+<!-- /m-Hot -->
+  <section class="s-skin banner">{$label[wapindex_banner]}</section>
+<!-- m-modleCont -->
+  <section class="m-modleCont">
+    <div class="modleCont">
+	  <div class="ListAllNav modleNav">{$label[wapindex_modleNav]}</div>
+	  <div class="allCont">
+	    <ul>{$label[wapindex_allCont]}</ul>
+	  </div>
+	</div>
+  </section>
+<!-- /m-modleCont -->
+<!-- m-ListNav -->
+  <section class="s-skin2 m-ListNav">
+    <div class="ListNav">{$label[wapindex_ListNav]}</div>
+  </section>
+<!-- /m-ListNav -->
+  
+<!-- <div class="SlideCont">
+	$label[wap_slidecont]
+</div>
+<section class="SiteModule">
+	$label[wap_SiteModule]	
+</section>
+<section class="HotNews">
+	<ul>
+		$label[wap_HotNews]	
+	</ul>
+</section>
+<section class="ShowConts ChangeShow1">
+	<div class="Heads">
+		<div class="tag1">热门商品</div>
+		<div class="tag2">热销楼盘</div>
+		<div class="tag3">优惠促销</div>
+		<div class="tag4">热门职位</div>
+	</div>
+	<ul class="cont1">
+		{$label[wap_ListCont1]}
+	</ul>
+	<ul class="cont2">
+		{$label[wap_ListCont2]}
+	</ul>
+	<ul class="cont3">
+		{$label[wap_ListCont3]}
+	</ul>
+	<ul class="cont4">
+		{$label[wap_ListCont4]}
+	</ul>
+</section>
+<section class="ShowConts ChangeShow2">
+	<div class="Heads">
+		<div class="tag1">黄页</div>
+		<div class="tag2">分类</div>
+	</div>
+	<ul class="cont1">
+		{$label[wap_ListCont5]}
+	</ul>
+	<ul class="cont2">
+		{$label[wap_ListCont6]}
+	</ul>
+</section>
+<section class="ShowMiddleAd">
+	<ul>
+		<li>{$label[wap_ListAd1]}</li>
+		<li>{$label[wap_ListAd2]}</li>
+	</ul>
+</section>
+<section class="ShowConts ChangeShow3">
+	<div class="Heads">
+		<div class="tag1">团购</div>
+		<div class="tag2">点评</div>
+	</div>
+	<ul class="cont1">
+		{$label[wap_ListCont7]}
+	</ul>
+	<ul class="cont2">
+		{$label[wap_ListCont8]}
+	</ul>
+</section>
+<section class="MoreModule">
+	$label[wap_MoreModule]	
+</section>
+<section class="OtherModule">
+	$label[wap_OtherModule]	
+</section>
+<section class="ShowFootAd">
+	<ul>
+		<li>{$label[wap_ListAd3]}</li>
+		<li>{$label[wap_ListAd4]}</li>
+	</ul>
+</section> -->
+
+<script type="text/javascript" src="$webdb[www_url]/images/wap/index.js"></script>
+<!--
+EOT;
+?>
+-->
+<?php
+require(ROOT_PATH."inc/wapfoot.php");
+?>

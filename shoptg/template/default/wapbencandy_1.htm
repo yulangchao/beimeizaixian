@@ -1,0 +1,171 @@
+<!--
+<?php
+$listPic="";
+$i=0;
+if($picdb>1){
+foreach($picdb AS $key=>$rs){
+	$i++;
+	$picurl=tempdir($rs[imgurl]);
+	$picname=addslashes($rs[name]);
+	$picname=$picname?$picname:$i;
+	$listPic.="<li><img src=\"$picurl\" alt=\"$picname\"/></li>\r\n";
+}
+}else{
+  $onepic = "<img src='$rsdb[picurl]' onError=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\"/>";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/showtg.css">
+<div class="Location">
+	<em>当前位置：</em><a href="./wapindex.php">团购首页</a> $GuideFid[$fid]
+</div>
+
+<!--幻灯片开始-->
+<link rel="stylesheet" href='$webdb[www_url]/images/wap/flash/flash.css'/>
+<script src='$webdb[www_url]/images/wap/flash/flash.js'></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+	{$listPic}
+  </ul>
+</div>
+<!--幻灯片结束-->
+<div class="banner">{$onepic}</div>
+
+<div class='goumai'>
+	<div class="Lf">
+    	<h3>{$rsdb[title]}</h3>
+        <span>{$rsdb[min_num]}人成团 拼团价：{$rsdb[price]}元</span>
+    </div>
+    <div class="Rg">
+    	<a href="wapjoin.php?fid=$fid&cid=$id&hownum=1" class="btn">立即购买</a>
+        <span>原价：{$rsdb[market_price]}</span>
+    </div>
+</div>
+<!--
+EOT;
+$rsdb[end_time] && $rsdb[end_time] = strtotime("$rsdb[end_time] 23:59:59");
+$listtime = $rsdb[end_time] - $timestamp;
+if($listtime>=0){
+$listword = $rsdb[pay_num] >= $rsdb[min_num] ? "团购成功,还可以继续购买.." : "团购还没成功,请大家继续推荐...";
+}else{
+$listword = "活动已经结束,请不要再抢购...";
+}
+$picwidth = ($rsdb[pay_num]/$rsdb[min_num])*100;
+//$listword=($rsdb[end_time]-$timestamp>=0)?($rsdb[pay_num] >= $rsdb[min_num])?"团购成功,还可以继续购买..." : "团购还没成功,请大家继续推荐...":"活动已经结束,请不要再抢购...";
+$ifquits=($rsdb[ifquit]=='支持'||$rsdb[ifquit]=='1')?"支持到期退款":"不支持退款";
+print <<<EOT
+-->
+<div class="renshu">
+	<div class="bt">
+		<strong>最低团购人数:{$rsdb[min_num]}人</strong><em class="tk">{$ifquits}</em><span>已<em class="chent">{$rsdb[pay_num]}人</em>参团/<em class="cant">{$rsdb[min_num]}人</em>成团</span>
+	</div>
+    <div class="wt">
+    	<div class="nt" style="width:{$picwidth}%"></div>
+    </div>
+    <p>{$listword}</p>
+</div>
+    
+    <div class="xianqing">
+    	<h3>商品详情</h3>
+        <div class="Notice">
+        	<span class="sj">时间：{$rsdb[posttime]} </span><span class="dd">地点：{$rsdb[address]}</span>
+        </div>
+		<div class="cont">{$rsdb[content]}</div>
+    </div>
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+        'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+        //window.location.reload();
+        //window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //wx.showOptionMenu();
+    
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+    wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+        //window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+    //wx.showOptionMenu();
+    ShareTimeline();
+    ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,185 @@
+ <!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/showmember.css">
+<div style="width:1200px; overflow:hidden; margin:15px auto;">
+<div class="content_left">
+	<table style="width:97%; border:1px solid #dfdfdf; margin-right:25px;">
+		<tr>
+			<td class="head">
+				<div class="hl">
+					<span>个人简历</span>
+				</div>
+				<div class="hr">
+					<a href="fav_member.php?uid=$rsdb[uid]" class="hj"><em class="orange">加入收藏</em></a>
+					<a href="print_member.php?id=$id" class="hp"><em class="blue">打印简历</em></a>
+				</div>
+			</td>
+			<td class="text">
+				<table style="width:95%; margin:0 20px;">
+					<tr>
+						<td class="th">
+							<div >
+								<span class="th1">【职位描述】</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:100%; float:left;">
+							<div class="t_pic">
+								<a href="#"><img src="$rsdb[facephoto]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'" border="0" width="120"></a>
+							</div>
+							<ul class="base"><li>
+							<!--{template}--><div><em>{title}:</em>{value}</div><!--{/template}-->
+							<div class="lin">期望待遇: {$rsdb[wage]}</div>
+							<div class="lin">期望岗位: {$rsdb[hope_job]}</div>
+							<div class="lin">技能特长: {$rsdb[skill]}</div>
+							<div class="lin">体育爱好: {$rsdb[interest]}</div>
+							</li></ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="th">
+							<div class="th1">【教育背景】</div>
+						</td>
+						<td class="tu">
+							{$rsdb[education]}
+						</td>
+					</tr>
+					<tr>
+						<td class="th">
+							<div class="th1">【工作经验】</div>
+						</td>
+						<td class="tu">
+							{$rsdb[work]}
+						</td>
+					</tr>
+					<tr>
+						<td class="th">
+							<div class="th1">【自我评价】</div>
+						</td>
+						<td class="tt">
+							<p>{$rsdb[introduce]}</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="th">
+							<div class="th1">【联系方式】</div>
+						</td>
+						<td>
+							<div class="call">
+<!--
+EOT;
+if($lfjid){print <<<EOT
+-->
+                  <div><b>手机号码:</b> {$rsdb[mobphone]}</div>
+                  <div><b>QQ号码:</b> {$rsdb[qq]}</div>
+                  <div><b>常用邮箱:</b> {$rsdb[email]}</div>
+                  <div><b>MSN帐号:</b> {$rsdb[msn]}</div>
+                  <div><b>当前居住地:</b> {$rsdb[lifeplace]}</div>
+                  <!--
+EOT;
+}else{print <<<EOT
+-->
+								<div>
+									<span>还不是会员,立即</span>
+									<a href="javascript:;" class="blue" onClick="window.location.href='$webdb[www_url]/do/reg.php';">免费注册</a>
+								</div>
+								<div>
+									<span>已经是会员,马上</span>
+									<a href="javascript:;" class="orange" onClick="window.location.href='$webdb[www_url]/do/login.php';">登录</a>
+								</div>
+								<div class="care">要先登录才能查看联系方式</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+							</div>
+							<div class="print">
+								<a href="javascript:;" onclick="window.location.href='print_member.php?id=$id'">打印简历</a>
+							</div>									
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="content_right">
+	<table style="width:99%;">
+		<tr class="rt">
+			<td class="head">
+				<div class="ht">
+					<b>会员资料</b>
+				</div>
+			</td>
+			<td class="data">
+				<div class="d_name" style="line-height:45px; border-bottom:1px dotted #d4d4d4;">
+					<div class="n_pic"><img src="$webdb[www_url]/images/yellow/company_renzheng1.gif"></div>
+					<div class="n_taxt">
+						<span><b>$rsdb[truename]</b></span>
+						<span><a href="#" class="blue"><b>认证会员</b></a></span>
+					</div>
+				</div>
+				<div style="line-height:45px; border-bottom:1px dotted #d4d4d4;">
+					<em class="hui">更新时间</em> $rsdb[posttime]
+				</div>
+				<div style="line-height:45px; border-bottom:1px dotted #d4d4d4;">
+					<em class="hui">发布者ID</em> $rsdb[username]
+				</div>
+				<div style="line-height:45px; border-bottom:1px dotted #d4d4d4;">
+					<em class="hui">浏览量</em> &nbsp; &nbsp;<em class="orange">$rsdb[hits]次</em>
+				</div>
+				<div style="line-height:45px; border-bottom:1px dotted #d4d4d4;">
+					<em class="hui">所在分类</em> &nbsp;
+				</div>
+				<span class="join">已在<em class="blue">$fav_num</em>家单位把本简历加入人才库</span>
+<!--
+EOT;
+if($lfjuid==$rsdb[uid]||$web_admin){print <<<EOT
+-->
+            <div class="list"><a href="$webdb[_www_url]/member/?main=$Murl/member/join.php" target="_blank"><font color="#0000FF">[修改一下]</font></a></div>
+            <!--
+EOT;
+}print <<<EOT
+-->
+				<a href="fav_member.php?uid=$rsdb[uid]" class="jion_us"><span>加入人才库</span></a>						
+			</td>
+		</tr>
+		<tr class="rf">
+			<td class="head">
+				<div class="ht">
+					<b>最新人才</b>
+				</div>
+			</td>
+			<td class="newset" style="width:89%; float:left; padding:0 20px;">
+				<table style="width:100%;">
+					<tr class="h" style="font-weight:bold; font-size:16px;  border-bottom:1px dotted #d4d4d4;">
+						<td><em class="blue">姓名</em></td>
+						<td><em class="orange">期望职业</em></td>
+					</tr>
+<!--
+EOT;
+$array=list_hr_member('new',10);
+foreach($array AS $rs){print <<<EOT
+-->
+					<tr>
+						<td><a href="joinshow.php?id=$rs[id]">{$rs[truename]}({$rs[sex]})</a></td>
+						<td>$rs[hope_job]</td>
+					</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

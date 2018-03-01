@@ -1,0 +1,116 @@
+<html>
+<!--
+<?php
+print <<<EOT
+-->
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style>
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{color:#333;font-size:14px;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#2d374b;}
+a:hover {color:#d00;}
+table{border-collapse:collapse;border-spacing:0;}
+.ListTable{border-top:#DDD solid 1px;border-left:#DDD solid 1px;}
+.ListTable th,.ListTable td{border-bottom:#DDD solid 1px;border-right:#DDD solid 1px;padding:3px;color:666;vertical-align:middle;}
+.ListTable th{background:#EFEFEF;color:red;}
+.Nodata{line-height:30px;padding-left:20px;color:#F00;}
+.ShowPage{text-align:center;line-height:30px;}
+.ASC,.DESC{display:block; position:relative; padding-right:15px;}
+.ASC:after,.DESC:after{content:''; display:block;width:0;height:0; position:absolute; right:0; top:5px;border:6px solid transparent;}
+.DESC:after{border-top: 8px solid #999;border-bottom:0;}
+.ASC:after{border-bottom: 8px solid #999;border-top:0;}
+.SearchBox{padding:10px;}
+.SearchBox input[type=text]{width:100px; margin-right:10px;border:#DDD solid 1px; line-height:25px; text-indent:5px;}
+.SearchBox select{border:#DDD solid 1px; height:25px;}
+.SearchBox input[type=radio]{margin-left:10px;border:0;}
+.SearchBox input[type=submit]{ line-height:25px; border:#DDD solid 1px; padding:0 10px; background:#FFF; cursor:pointer; margin-left:10px;margin-right:10px;}
+</style>
+</head>
+<body>
+<table class="ListTable">
+ <tr>
+<!--
+EOT;
+$j=0;
+foreach($titledb AS $value){
+$j++;
+$orderclass=$orderby?"class='$orderby'":"";
+$value=($j<2)?(($orderby=='ASC')?"<a href='index.php?lfj=$lfj&job=$job&table=$table&ordertype=$value&orderby=DESC' $orderclass>$value</a>":"<a href='index.php?lfj=$lfj&job=$job&table=$table&ordertype=$value&orderby=ASC' $orderclass>$value</a>"):$value;
+print <<<EOT
+-->
+ 	<th>$value</th>
+<!--
+EOT;
+}print <<<EOT
+-->
+ </tr>
+<!--
+EOT;
+foreach($listdb AS $array){print <<<EOT
+-->
+  <tr>
+<!--
+EOT;
+for($i=0;$i<$num;$i++){print <<<EOT
+-->
+    <td>$array[$i]</td>
+<!--
+EOT;
+}print <<<EOT
+-->
+  </tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<!--
+EOT;
+if(!$listdb){print <<<EOT
+-->
+<div class="Nodata">当前数据表没有相应内容,记录为空!!</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<div class="SearchBox">
+<form name="form_order" method="post" action="index.php?lfj=$lfj&job=$job&table=$table&ordertype=$ordertype&orderby=$orderby" enctype="multipart/form-data">
+	关键词 <input name="keyword" type="text" value="$keyword"/>
+	字段
+	<select name="selects">
+<!--
+EOT;
+foreach($titledb AS $value){
+$selecteds=($selects==$value)?"selected":"";
+print <<<EOT
+-->
+	  <option value="$value" $selecteds>$value</option>
+<!--
+EOT;
+}
+unset($checked);
+if($types) $checked[1]="checked";
+else $checked[0]="checked";
+print <<<EOT
+-->
+	</select>
+	<input name="types" type="radio" value="0" $checked[0] /> 模糊
+	<input name="types" type="radio" value="1" $checked[1] /> 精确
+	<input name="" type="submit" value="搜索">
+	<a href="index.php?lfj=$lfj&job=$job&table=$table">查看全部</a>
+</form>
+</div>
+<div class="ShowPage">$showpage</div>
+</body>
+<!--
+EOT;
+?>
+-->
+</html>

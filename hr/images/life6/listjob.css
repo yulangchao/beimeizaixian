@@ -1,0 +1,78 @@
+.content_text {margin-top:25px;}
+.content_ad {padding:15px 5px 0 5px;}
+.content_ad img{width:100%;}
+.jc_head {
+	 width:100%;height:40px; background:#1aa4ed;
+}
+table a:hover {
+	color:#ff6600; text-decoration:underline;
+}
+.jc {
+	background:url(left_head.jpg) no-repeat left center; padding-left:25px; margin-left:30px; 
+	line-height:40px; font-size:16px; font-weight:bold; color:#FFFFFF;
+}
+.big{
+	border-bottom:1px solid #e5e4e4; line-height:30px; margin:10px 15px;
+	background:url(yd.png) no-repeat left center; padding-left:15px;
+}
+.big a {
+	color:#333333;
+}
+.small{
+	line-height:25px; margin:0 15px; 
+}
+.small a{
+	color:#666666; 
+}
+.hj {
+	background:#43bbfb; line-height:40px; padding-left:20px; color:#FFFFFF; font-size:16px; font-weight:bold; margin-top:15px; 
+}
+.hjc {
+	padding:15px; color:#43bbfb;
+}
+.hjc a {
+	color:#43bbfb; line-height:25px; width:100%; position:relative;float:left; padding-left:15px; overflow:hidden;
+}
+.hjc a:before{content:''; display:block; width:3px; height:3px; position:absolute; left:7px; top:12px; background:#ececec; border-radius:50%;}
+.job_rep {
+	border:1px solid #ddd;margin:0 0 25px 25px;;line-height:180%; padding:10px 15px; line-height:45px;
+}
+.job_rep div {
+	border-bottom:1px dotted #CCCCCC;font-size:16px;
+}
+.title {
+	color:#666666;
+}
+.condition {
+	text-align:left;
+}
+.condition a{
+	padding:0 15px;
+}
+.dr_head {
+	width:100%; height:40px; background:#f0f0f0; padding-left:15px; font-size:16px;
+}
+.text_mar {
+	padding:15px; width:100%;
+}
+.find_job {
+	width:100%; font-size:16px;
+}
+.find_job tr:nth-child(2n+1) {
+	background:#f4f4f4;
+}
+.p_name a{
+	color:1aa4ed;
+}
+.pos_head td{
+	line-height:50px; background:#43bbfb; color:#FFFFFF;
+}
+.find_job tr td {
+	text-align:center; line-height:50px;
+}
+.company {
+	color:#ef8d00;
+}
+#page td{
+	padding:8px;
+}

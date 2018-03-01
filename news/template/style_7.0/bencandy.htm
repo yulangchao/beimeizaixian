@@ -1,0 +1,184 @@
+<!--
+<?php
+$backdb_str=$backdb[id]?"<a href=\"bencandy.php?fid=$backdb[fid]&id=$backdb[id]\">$backdb[title]</a>":"没有了";
+$nextdb_str=$nextdb[id]?"<a href=\"bencandy.php?fid=$nextdb[fid]&id=$nextdb[id]\">$nextdb[title]</a>":"没有了";
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/pc/bencandy.css">
+<script type="text/javascript" src="$webdb[www_url]/images/default/default.js"></script>
+<div class="BencandyCont">
+	<div class="Main">
+		<div class="Infotitle">$rsdb[title]</div>
+		<div class="Infobase">
+			<div class="infos">
+<!--
+EOT;
+$rsdb[copyfromurl]=$rsdb[copyfromurl]?"| 来源:<a href='$rsdb[copyfromurl]'>{$rsdb[copyfrom]}</a>":"";
+$rsdb[author]=$rsdb[author]?"| 作者:{$rsdb[author]}":"";
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+				[ 编辑:{$rsdb[username]} | 时间:{$rsdb[posttime]} | 浏览:<font id="hits">{$rsdb[hits]}</font>次 {$rsdb[copyfromurl]} {$rsdb[author]} ]
+			</div>
+			<div class="baidu_share">
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=$webdb[baidu_share_uid]" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+			</div>
+		</div>
+		<div class="InfoContent">
+			$rsdb[content]
+		</div>
+		$showpage
+		<dl class="MoreShow">
+			<dt>上一篇:$backdb_str</dt>
+			<dd>下一篇:$nextdb_str</dd>
+		</dl>
+<!--
+EOT;
+if( $fidDB[allowcomment] ){
+print <<<EOT
+-->
+		<div class="PostComment">
+			<div class="head">发布评论</div>
+			<dl>
+				<dt>称呼:</dt>
+				<dd><input type="text" id="comment_username" value="$lfjid" style="width:150px;"/></dd>
+			</dl>
+<!--
+EOT;
+if(!$web_admin&&!$groupdb['comment_img']){
+print <<<EOT
+-->
+			<dl>
+				<dt>验证码:</dt>
+				<dd>
+					<div class="Yzcode">
+						<span><input id="yzImgNum" type="text" name="yzimg" style="width:60px;"/></span>
+						<span><img src="/do/yzimg.php"></span>
+					</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+$('.Yzcode img').click(function(){
+	$(this).attr("src",'$webdb[www_url]/do/yzimg.php?'+Math.random());
+});
+//-->
+</SCRIPT>
+				</dd>
+			</dl>			
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			<dl>
+				<dt>内容:</dt>
+				<dd><textarea name="textfield" id="comment_content" onKeyDown="quickpost(event)"></textarea></dd>
+			</dl>
+			<div class="sub"><input type="button" id="comment_submit" value="发表评论" onClick="postcomment('./comment_ajax.php?action=post&fid=$fid&id=$id','$webdb[yzImgComment]');hiddenyzimg()"></div>
+		</div>
+		<div class="ShowComment">
+			<div class="head">用户评价</div>
+			<div id="comment"></div>
+		</div>
+<script language="JavaScript">
+<!--
+getcomment("./comment_ajax.php?fid=$fid&id=$id");
+cnt = 0;
+function quickpost(event){
+	if((event.ctrlKey && event.keyCode == 13)||(event.altKey && event.keyCode == 83)){
+		cnt++;
+		if (cnt==1){
+			postcomment('./comment_ajax.php?action=post&fid=$fid&id=$id')
+		}else{
+			alert('内容正在提交...');
+		}
+	}	
+}
+function hiddenyzimg(){
+	$('.Yzcode input').val('');
+	//$('.Yzcode img').attr("src",'$webdb[www_url]/do/yzimg.php?'+Math.random());
+}
+//-->
+</script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		<div class="NewestCont">
+			<div class="head"><span>$fidDB[name]</span><a href="?fid=$ifd">更多&gt;&gt;</a></div>
+<!--
+EOT;
+$i=0;
+$listnewest='';
+$listNewest=Get_Info('new',9,60,$fid);
+foreach($listNewest AS $key=>$rs){
+$i++;
+$lista=($lista=='listb')?"lista":"listb";
+$rs[picurl]=$rs[picurl]?$rs[picurl]:"$webdb[www_url]/images/default/nopic.jpg";
+	$listhtml1="<li class='list1'><dl><dt><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'><img src='$rs[picurl]' onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\"/></a></dt><dd><h3><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'>$rs[title]</a></h3><p>$rs[content]</p></dd></dl><div><span>浏览量:$rs[hits]次</span><em>发布时间:$rs[posttime]</em></div></li>\r\n";
+	$listhtml2="<li class='list2 $lista'><a href='bencandy.php?fid=$rs[fid]&id=$rs[id]'><span>·</span>$rs[title]</a></li>\r\n";
+	$listnewest.=($i>1)?"$listhtml2":"$listhtml1";
+}
+print <<<EOT
+-->
+			$listnewest
+		</div>
+	</div>
+	<div class="Side">
+		<div class="sidecont">
+			<div class="head">相关栏目</div>
+			<ul class="ListSort">
+<!--
+EOT;
+foreach($Fid_db[$fidDB[fup]] AS $key=>$value){
+print <<<EOT
+-->
+            	<li><a href="list.php?fid=$key">$value</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+		<div class="sidecont">
+			<div class="head">热门新闻</div>
+			<ul class="ListHot">
+<!--
+EOT;
+$listHot=Get_Info('hot',5,40);
+foreach($listHot AS $key=>$rs){
+$rs[picurl]=$rs[picurl]?$rs[picurl]:"$webdb[www_url]/images/default/nopic.jpg";
+print <<<EOT
+-->
+            	<li>
+					<dl>
+						<dt><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+						<dd><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></dd>
+					</dl>
+				</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

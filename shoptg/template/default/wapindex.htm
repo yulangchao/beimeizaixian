@@ -1,0 +1,99 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/index.css">
+<!--
+EOT;
+$listmoresorts="<div class='ListMoreSorts'>\r\n";
+$listSorts="<li><a href='javascript:;'>全部分类</a></li>\r\n";
+foreach($Fid_db[0] AS $key=>$name){
+$listSorts.="<li><a href='waplist.php?fid=$key'>$name</a></li>\r\n";
+$listmoresorts.="<dl>\r\n";
+$listmoresorts.="<dt><a href=\"waplist.php?fid=$key\">$name</a></dt>\r\n";
+if($Fid_db[$key]){
+$listmoresorts.="<dd>\r\n";
+foreach($Fid_db[$key] AS $fid=>$names ){
+$listmoresorts.="<a href=\"waplist.php?fid=$fid\">$names</a>\r\n";
+}
+$listmoresorts.="</dd>\r\n";
+}
+$listmoresorts.="</dl>\r\n";
+}
+$listmoresorts.="</div>\r\n";
+print <<<EOT
+-->
+<div class="nav">
+	<ul>
+    	{$listSorts}
+    </ul>
+</div>
+{$listmoresorts}
+<!--
+EOT;
+$listNewtg = list_title('new',5);
+foreach($listNewtg AS $key=>$rs){
+print <<<EOT
+-->
+<div class="conter">
+	<dl>
+    	<dt><a href="wapbencandy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+        <dd>
+        	<h3>{$rs[title]}</h3>
+            <div class="Price">
+            	<p class="s">&yen;{$rs[price]}</p>
+                <p class="b">&yen;{$rs[market_price]}</p>
+            </div>
+            <a href="wapjoin.php?fid=$rs[fid]&cid=$rs[id]&hownum=1" class="btn">立即抢购</a>
+        </dd>
+    	
+    </dl>	
+</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<div class="fullbg" id="fullbg1"></div>
+<script>
+function format_height(o1,o2){
+	var fullbg_H;
+	if(o1.height()>$("body").height() && o1.height()>$("window").height()){
+		fullbg_H=o1.height();
+	}
+	else if ($(window).height() > $("body").height()){
+		fullbg_H=$(window).height();
+	}else{
+		fullbg_H=$('body').height();
+	}
+	o1.height(fullbg_H);
+	o2.height(fullbg_H);
+}
+function Show_mode(o1,o2){
+	o2.css({'display':'block'}).stop().animate({'opacity':.6},500,function(){
+		o1.css({'display':'block'}).stop().animate({'right':'0px'},300);
+	});	
+}
+function Hide_mode(o1,o2){
+	o2.animate({'opacity':0},300,function(){
+		$(this).css({'display':'none'});
+	});
+	setTimeout(function(){
+		o1.stop().animate({'right':'-250px'},300,function(){
+			$(this).css({'display':'none'});
+		});
+	}, 500);
+}
+
+$('.nav ul li').eq(0).click(function(){
+	Show_mode($(".ListMoreSorts"),$('#fullbg1'));
+	format_height($(".ListMoreSorts"),$('#fullbg1'));
+});
+$('#fullbg1').click(function(){
+	Hide_mode($(".ListMoreSorts"),$('#fullbg1'))
+});
+</script>
+<!--
+EOT;
+?>
+-->

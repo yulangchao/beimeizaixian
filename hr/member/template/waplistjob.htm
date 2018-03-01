@@ -1,0 +1,41 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/article.css">
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="MainContNa">
+	<div class="head"><div class="tag">职位管理</div></div>
+    <div class="cont">
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <div class='ArticleList'>
+              <div class='title'>{$rs[title]}</div>
+
+              <div class='time'>应聘人数：{$rs[joinnum]}</div>
+              <div class='operation'>
+                <a href="?action=del&id=$rs[id]">删除</a>
+                 <a href="javascript:" click=1 editcode="<a href='wappost.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改内容</a><br><a href='editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改分类</a>">修改</a>
+                  <a href="../bencandy.php?job=edit&fid=$rs[fid]&id=$rs[id]" target="_blank" >查看</a>
+                  <a href="?action=refresh&id=$rs[id]">刷新</a>
+              </div>
+          </div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"Showpage\">$showpage</div>":"";
+print <<<EOT
+-->
+
+        $showpage
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

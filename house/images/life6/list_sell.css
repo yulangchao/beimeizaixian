@@ -1,0 +1,201 @@
+img{
+	border:0;
+}
+.mt10{margin-top:20px;}
+.SideR{width:307px; vertical-align:top;}
+/*
+*头部标题 
+*/
+.MainLeftTitle{
+	border:#FCE1B6 solid 1px;
+	background:#FCF6ED;
+	padding:3px;
+}
+.MainLeftTitle table{
+	background:#FFF;
+}
+.MainLeftTitle table td{
+	padding:5px 5px 5px 10px;
+	line-height:25px;
+	word-spacing:10px;
+}
+.MainLeftTitle  a{
+	text-decoration:underline;
+	color:#1D50A1;
+}
+
+
+/*
+*列表内容 
+*/
+.ListTitleCont{margin-top:10px;}
+.ListTitleCont .head{height:35px; line-height:35px; padding-left:5px;}
+.ListTitleCont .head div{float:left;}
+.ListTitleCont .head .L{padding-left:10px; padding-right:15px; font-size:14px; font-weight:bold; color:#FFF;}
+.ListTitleCont .head .L span{display:block;}
+.ListTitleCont .head .R{float:right; padding-right:15px;}
+.ListTitleCont .cont{border:#D6D6D6 solid 1px; border-top:0; padding:10px;}
+.ListTitleCont .cont .listtable{border-bottom:1px dotted #ddd;}
+.ListTitleCont .cont .listtable .td1{width:10%;}
+.ListTitleCont .cont .listtable .td1 a{
+	display:block;
+	width:80px;
+	height:60px;
+	border:#DDD solid 1px;
+	padding:1px;
+	margin:3px 10px 3px 0;
+}
+.ListTitleCont .cont .listtable .td2{
+	width:48%;
+	color:#666;
+	line-height:20px;
+	padding-top:2px;
+}
+.ListTitleCont .cont .listtable .td2 a{
+	font-size:13px;
+	font-weight:bold;
+	color:#2754BB;
+	
+}
+.ListTitleCont .cont .listtable .td3{
+	width:15%;
+	vertical-align:;
+}
+.ListTitleCont .cont .listtable .td3 span{
+	display:block;
+	text-align:center;
+	line-height:20px;
+}
+.ListTitleCont .cont .listtable .td3 span.field{
+	color:#999;
+}
+.ListTitleCont .cont .listtable .td4{
+	width:25%;
+	vertical-align:middle;
+}
+.ListTitleCont .cont .listtable .td4 span{
+	display:block;
+	text-align:right;
+	line-height:18px;
+	padding-right:8px;
+}
+.ListTitleCont .cont .listtable .td4 span.name,.ListTitleCont .cont .listtable .td4 span.p{
+	color:#999;
+}
+.ListTitleCont .cont .listtable .td4 em{
+	color:red;
+	font-style:normal;
+}
+
+
+/*
+*用户登录样式 
+*/
+.UserInfo{background:#ededed; margin-top:20px;}
+.UserInfo .butter{overflow:hidden;padding:10px 0 20px 0; position:relative; }
+.UserInfo .butter:after{content:''; display:block; width:290px; height:1px; position:absolute; left:10px; bottom:0; border-bottom:1px dotted #dcdcdc;}
+.UserInfo .butter a{display:block; width:50%; overflow:hidden; height:48px;float:left; margin-bottom:10px;}
+.UserInfo .butter a.post{background:url(list1.png) center top no-repeat;}
+.UserInfo .butter a.tg{background:url(list3.png) center top no-repeat;}
+.UserInfo .butter a.m-listedit{background:url(list2.png) center top no-repeat;}
+.UserInfo .butter a.m-listrz{background:url(list4.png) center top no-repeat;}
+#houseindex{display:block; padding-bottom:20px;}
+.UserInfo table{margin-top:20px;}
+.UserInfo table td.input,.UserInfo table td.submit{padding-top:10px;}
+.UserInfo table td.radio{padding-top:15px;padding-left:10px;}
+.UserInfo .input{width:50%;text-align:center;}
+.UserInfo .input input{width:130px;}
+.UserInfo .radio input{border:0;}
+.UserInfo .submit input{width:63px;border:0; height:30px; line-height:25px; background:url(list6.png) center top no-repeat; cursor:pointer;}
+.UserInfo .submit input.login{background:url(list5.png) center top no-repeat;}
+.UserInfo .img{width:15%; height:90px; vertical-align:middle; padding:0 20px 0 20px;}
+.UserInfo .img img{height:90px; max-width:90px;}
+.UserInfo .word .name{line-height:30px; color:blue; font-weight:bold;}
+.UserInfo .word .day{padding-top:5px; color:#ff9700;}
+/*
+*公告 
+*/
+.NoticeTable{height:50px; border:1px solid #dfdfdf;}
+.NoticeTable td{vertical-align:middle;}
+.NoticeTable td.head{width:30px; background:#1aa4ed;}
+.NoticeTable td.head span{display:block; color:#fff; width:15px; margin:0 auto;}
+.NoticeTable td.cont{padding-right:10px;}
+.NoticeTable td.cont .list{line-height:30px; height:30px; overflow:hidden; padding-left:20px; position:relative;}
+.NoticeTable td.cont .list:before{content:''; display:block; width:5px; height:5px; position:absolute; left:10px; top:12px; background:#cbcac6;}
+/*
+*活动专区 
+*/
+.sidecontainer{padding-bottom:5px;}
+.sidecontainer .head{height:40px; background:#ececec; line-height:40px; position:relative; border:1px solid #dfdfdf;}
+.sidecontainer .head:before{content:''; display:block; width:3px; height:18px; position:absolute; top:11px; left:10px; background:#767676;}
+.sidecontainer .head span{float:left; padding:0 0 0 20px; font-size:15px; color:#333;}
+.sidecontainer .cont{border:#dfdfdf solid 1px; border-top:0; background:#FFF; padding:20px 20px 10px 20px;}
+.sidecontainer .cont #side_adinfo div{height:22px; line-height:22px; overflow:hidden; margin-left:5px;}
+.sidecontainer .cont #side_adinfo div a{color:#1D50A1;}
+.sidecontainer .cont .list_rad{text-align:center; padding-bottom:10px;}
+.sidecontainer .cont .list_rad img{width:100%;}
+
+.page{
+	text-align:center;
+	padding:15px;
+}
+.page a{
+	font-size:14px;
+}
+
+/****************************************************/
+#main_tb{margin-top:20px;}
+#top_searchs .top{height:47px; background:#ececec; border:1px solid #dfdfdf; position:relative;}
+#top_searchs .top:before{content:''; display:block; position:absolute; width:25px; height:25px;left:20px; top:12px; background:url('flag.png') -85px -185px no-repeat;}
+#top_searchs .top .L{float:left; height:47px; width:165px; color:#333; font-size:18px; padding:0 0 0 60px; line-height:48px;}
+#top_searchs .top .R{float:right; height:47px; width:440px; background:#ddd; position:relative;}
+#top_searchs .top .R:before{content:''; display:block; position:absolute; width:50px; height:47px; left:-47px; top:2px; background:url('flag.png') -109px -1px no-repeat; overflow:hidden;}
+#top_searchs .main{border:1px solid #dfdfdf; border-top:0; padding:0 30px 10px 30px;}
+/*
+*排列搜索 
+*/
+.listsearch{line-height:30px; font-size:15px;}
+.listsearch div{padding:15px 0; border-top:1px dotted #dfdfdf;}
+.listsearch span.t{color:#888;}
+.listsearch span.f{color:#333;}
+.listsearch span.f a{padding:0 8px;}
+/*
+*街道选择 
+*/
+.m-zoneChoose{float:left; letter-spacing:1em; color:#888;}
+#zone_street_menu{}
+#zone_street_menu .zone{height:30px; line-height:30px; padding:15px 0 10px 0; font-size:15px;}
+#zone_street_menu .zone a{color:#333;}
+#zone_street_menu .zone span{display:block; float:left; padding-left:10px; line-height:30px; margin-right:8px;}
+#zone_street_menu .zone span a{display:block;height:30px; overflow:hidden; padding-right:10px; font-size:15px;}
+#zone_street_menu .zone span:hover,#zone_street_menu .zone span.choose{background:#1aa4ed;}
+#zone_street_menu .zone span:hover a,#zone_street_menu .zone span.choose a{color:#fff;}
+#zone_street_menu .street{background:#F1F1F1; padding:8px; line-height:25px;}
+#zone_street_menu .street a{display:inline-block; margin-right:8px; font-size:15px;}
+#zone_street_menu .street .choose{color:red;}
+
+#listMain .L{width:700px; padding-right:30px;}
+.maintb .top div{float:left;}
+.maintb .top{height:45px;  background:#ececec; border:1px solid #dfdfdf;}
+.maintb .top .EL{height:45px;}
+.maintb .top .ER{ height:45px;float:right;}
+.maintb .top .s2{width:101px; height:46px; line-height:46px; background:#fff; text-align:center; position:relative; border-right:1px solid #dfdfdf;}
+.maintb .top .s2:after{content:''; display:block; height:1px; width:101px; position:absolute; bottom:-1px; left:0; background:#fff;}
+.maintb .top .s2 a{font-weight:bold; font-size:15px; color:#1aa4ed; cursor:default;}
+.maintb .top .s1{width:101px;  height:45px; line-height:45px; text-align:center;}
+.maintb .top .s1 a{font-size:15px; color:#333; cursor: default;}
+.maintb .main{border:1px solid #DADADA; border-top:0px; padding:20px;}
+.maintb .main .ltb{margin-bottom:20px; border-bottom:1px dotted #dfdfdf;}
+.maintb .main .ltb td{padding-bottom:20px; VERTICAL-ALIGN: middle;}
+.maintb .main .ltb .tt{VERTICAL-ALIGN: top; line-height:20px; color:#999;}
+.maintb .main .ltb .tt .wd{color:#1aa4ed; font-size:15px; line-height:25px;}
+.maintb .main .ltb .tt span{display:inline-block; line-height:25px; padding-right:10px;}
+.maintb .main .ltb .ii a{display:block; width:170px; height:120px; text-align:center; margin-right:10px;}
+.maintb .main .ltb .ii img{max-width:170px; height:120px;}
+.maintb .main .ltb .cc{color:#FF6600; font-weight:bold; font-size:22px; font-family : 黑体;}
+.maintb .main .ltb .aa{}
+/***************/
+#top_searchs,.maintb{
+	background:#FFF; margin-top:20px;
+}
+.maintb .main .ltb .tt a:hover{font-weight:600;}

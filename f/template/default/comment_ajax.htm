@@ -1,0 +1,41 @@
+<!--
+<?php
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+<div class="column_list">
+	<a onclick="if('0'=='$rs[uid]')return false;" href="$webdb[www_url]/member/homepage.php?uid=$rs[uid]" class="p" target="_blank"><img onerror="this.src='$webdb[www_url]/images/default/noface.gif'" src='$rs[icon]' width=50 height=50 border="0"></a>
+    <div class="column_list_neiron">
+    	<span>admin</span><span style="color:rgba(153,153,153,0.6);margin-left:20px;">{$rs[posttime]}</span>
+        <p>{$rs[content]}</p>
+<!--
+EOT;
+if($web_admin||($lfjuid&&$rs[uid]==$lfjuid)){
+print <<<EOT
+-->
+        <a HREF="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=del&fid=$fid&id=$id&cid=$rs[cid]')">删除</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+<a href="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=flowers&fid=$fid&id=$id&cid=$rs[cid]')">鲜花(<em>{$rs[flowers]}</em>)</a>
+<a href="javascript:getcomment('$city_url/job.php?job=comment_ajax&action=egg&fid=$fid&id=$id&cid=$rs[cid]')">鸡蛋(<em>{$rs[egg]}</em>)</a>
+<a href="$webdb[_www_url]/member/?main=$webdb[_www_url]/member/pm.php?job=send&username=$rs[username]">留言</a>
+    </div>
+    <div class="xu_xian"></div>
+</div>
+<!--
+EOT;
+}if($showpage){print <<<EOT
+-->
+<div class="showpage">$showpage</div>
+<!--
+EOT;
+}if(!$listdb){print <<<EOT
+-->
+<div class="no_comment">暂时还没有评论</div>		
+<!--
+EOT;
+}
+?>
+-->

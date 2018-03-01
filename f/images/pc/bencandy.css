@@ -1,0 +1,487 @@
+.nav_guide{
+	width:1200px;
+	margin:10px auto 0 auto;
+	line-height:30px;
+	color:#666;
+}
+.FenLieContainer{
+	display:table;
+	width:1200px;
+	margin:auto;
+}
+.FenLieContainer .Main,.FenLieContainer .Side{
+	display:table-cell;
+	vertical-align:top;
+}
+.FenLieContainer .Main{
+	width:860px;
+	padding-right:20px;
+}
+.FenLieContainer .Side{
+	width:320px;
+}
+/**/
+.Mhead{
+	border-bottom:#1CB29D solid 2px;
+	height:40px;
+	position:relative; 
+}
+.Mhead .tag{
+	float:left;
+	font-size:20px;
+	font-weight:bold;
+	line-height:40px;
+}
+.baidu_share{
+	width:200px;
+	position:absolute;
+	right:160px;
+	bottom:5px;
+}
+.Mhead .post{
+	width:150px;
+	float:right;
+	padding-top:5px;
+}
+.Mhead .post a{
+	display:block;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#EF8D00;
+	color:#FFF;
+	font-size:16px;
+	border-radius:3px;
+}
+.Mhead .post a:hover{
+	background:#F30;
+}
+.AtcBox{
+	display:table;
+	width:100%;
+	margin-top:15px;
+}
+.AtcBox dt,.AtcBox dd{
+	display:table-cell;
+	line-height:30px;
+	font-size:16px;
+	color:#666;
+}
+.AtcBox dd{
+	text-align:right;
+}
+.BaseInfoTable{
+	display:table;
+	width:100%;
+	margin-top:20px;
+}
+.BaseInfoTable .ShowPic,.BaseInfoTable .ShowInfo{
+	display:table-cell;
+	vertical-align:top;
+}
+.BaseInfoTable .ShowPic{
+	width:480px;
+	height:370px;
+}
+.ShowShopPic{
+	width:480px;
+	height:370px;
+	position:relative;
+	overflow:hidden;
+}
+.BaseInfoTable .ShowInfo{
+	padding-left:10px;
+}
+.ShowInfo .title{
+	line-height:30px;
+	font-size:16px;
+	font-weight:bold;
+}
+.ShowInfo .Infos{
+	padding-top:10px;
+}
+.ShowInfo .Infos li{
+	padding:5px 0 5px 0;
+	line-height:20px;
+	font-size:14px;
+	color:#666;
+}
+.ShowInfo .Infos li span{
+	color:#333;
+}
+.ShowInfo .Infos li a{
+	color:#1AA3EE;
+}
+.ShowInfo .telphone{
+	height:50px;
+	background:#EC6F06;
+	line-height:50px;
+	padding-left:60px;
+	padding-right:10px;
+	overflow:hidden;
+	position:relative;
+	margin-top:10px;
+	font-size:24px;
+	font-weight:bold;
+	color:#FFF;
+}
+.ShowInfo .telphone span{
+	display:block;
+	width:50px;
+	height:50px;
+	position:absolute;
+	overflow:hidden;
+	left:0;
+	top:0;
+	background:#FA801D url(tel.png) center 6px no-repeat;	
+	background-size:35px 35px;
+	text-indent:50px;
+}
+.moreaction{
+	text-align:center;
+	padding-top:20px;
+	word-spacing:15px;
+}
+.moreaction input{
+	width:100px;
+	padding-left:22px;
+	height:30px;
+	border:0;	
+	cursor:pointer;
+}
+.moreaction input.zb{
+	background:url(butter.gif) center top no-repeat;
+}
+.moreaction input.tz{
+	background:url(butter.gif) center -30px no-repeat;
+}
+.moreaction input.sc{
+	background:url(butter.gif) center -60px no-repeat;
+}
+.InfoContent{
+	padding:10px 0 10px 0;
+	line-height:20px;
+	font-size:14px;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
+	width:830px;
+	overflow:hidden;
+}
+.InfoContent .head{
+	border-bottom:#DDD solid 1px;
+	line-height:40px;
+	font-size:18px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+.InfoContent img{
+	max-width:820px;
+}
+.ShowPage{
+	text-align:center;
+	clear:both;
+	padding:10px;
+	line-height:30px;
+}
+.ShowPage a{
+	display:inline-block;
+	padding:0 8px 0 8px;
+	font-size:14px;
+	background:#EFEFEF;
+	color:#666;
+}
+.ShowPage a.ck{
+	background:#0067B4;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}
+.PostComment,.ShowComment{
+	border:#DDD solid 1px;
+	margin-top:15px;
+	border-top:#1CB29D solid 2px;
+}
+.PostComment .head,.ShowComment .head{
+	line-height:50px;
+	height:50px;
+	padding-left:15px;
+	font-size:18px;
+	font-weight:bold;
+	border-bottom:#DDD solid 1px;
+	margin-bottom:10px;
+}
+.PostComment dl{
+	display:table;
+	width:100%;
+}
+.PostComment dl dt,.PostComment dl dd{
+	display:table-cell;
+	padding:5px;
+	vertical-align:middle;
+}
+.PostComment dl dt{
+	width:80px;
+	text-align:right;
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+}
+.PostComment dl dd input{
+	height:20px;
+	border:#DDD solid 1px;
+	color:#666;
+	text-indent:5px;
+}
+.PostComment dl dd textarea{
+	width:400px;
+	height:150px;
+	border:#DDD solid 1px;
+	color:#666;
+	padding:5px;
+}
+.PostComment .sub{
+	padding:10px 0 20px 95px;
+}
+.PostComment .sub input{
+	width:100px;
+	height:30px;
+	border:#DDD solid 1px;
+	background:#EFEFEF;
+	font-weight:bold;
+	font-size:14px;
+	color:#666;
+	cursor:pointer;
+}
+.PostComment .sub input:hover{
+	border:#F30 solid 1px;
+	background:#F60;
+	color:#FFF;
+}
+.ListComment{
+	padding:0 15px;
+	position:relative;
+	margin-bottom:15px;
+}
+.ListComment dl{
+	display:table;
+	width:100%;
+}
+.ListComment dl dt,.ListComment dl dd{
+	display:table-cell;
+	border:#EEE solid 1px;
+	vertical-align:top;
+}
+.ListComment dl dt{
+	border-right:0px;
+	padding:10px;
+	width:80px;
+}
+.ListComment dl dt a{
+	display:block;
+	width:80px;
+	height:80px;
+	overflow:hidden;
+	border-radius:40px;
+}
+.ListComment dl dt a img{
+	width:80px;
+	height:80px;
+}
+.ListComment dl dd{
+	padding:10px 10px 40px 10px;
+	color:#666;
+	line-height:20px;
+}
+.ListComment .moreinfo{
+	with:500px;
+	height:30px;
+	position:absolute;
+	line-height:30px;
+	bottom:5px;
+	right:25px;
+	text-align:right;
+	color:#888;
+}
+.ListComment .moreinfo span{
+	color:blue;
+}
+.ListComment .moreinfo em{
+	color:red;
+}
+.ListComment dl:hover{
+	background:#EFEFEF;
+}
+.no_Comment{
+	text-align:center;
+	padding:50px 10px;
+	line-height:30px;
+	font-size:20px;
+	color:#F60;
+}
+/**/
+.AcitonBut{
+	padding:5px;
+	background:#EFEFEF;
+}
+.AcitonBut:after{
+	content:'';
+	display:block;
+	width:300px;
+	height:1px;
+	clear:both;
+}
+.AcitonBut li{
+	width:50%;
+	height:50px;
+	overflow:hidden;
+	padding-top:15px;
+	float:left;
+}
+.AcitonBut li a{
+	display:block;
+	background:#4FC7CE;
+	width:105px;
+	height:50px;
+	line-height:50px;
+	margin:auto;
+	border-radius:5px;
+	padding-left:25px;
+	text-align:center;
+	font-size:16px;
+	color:#FFF;
+}
+.AcitonBut li a.post{
+	background:#4FC7CE url(icon1.png) 10px 16px no-repeat;
+}
+.AcitonBut li a.post:hover{
+	background:#0C676C url(icon1.png) 10px 16px no-repeat;
+}
+.AcitonBut li a.mg{
+	background:#FF9999 url(icon2.png) 18px 16px no-repeat;
+}
+.AcitonBut li a.mg:hover{
+	background:#8D0F0F url(icon2.png) 18px 16px no-repeat;
+}
+.AcitonBut li a.edit{
+	background:#A8BE3F url(icon3.png) 10px 16px no-repeat;
+}
+.AcitonBut li a.edit:hover{
+	background:#637412 url(icon3.png) 10px 16px no-repeat;
+}
+.AcitonBut li a.rz{
+	background:#E39549 url(icon4.png) 18px 15px no-repeat;
+}
+.AcitonBut li a.rz:hover{
+	background:#704214 url(icon4.png) 18px 15px no-repeat;
+}
+.MemberCont{
+	padding:30px 0 10px 0;
+	background:#EFEFEF;
+	position:relative;
+}
+.MemberCont:before{
+	content:'';
+	display:block;
+	width:300px;
+	height:1px;
+	position:absolute;
+	left:10px;
+	top:15px;
+	background:#DDD;
+}
+.MemberCont dl{
+	display:table;
+	width:100%;
+}
+.MemberCont dl dt,.MemberCont dl dd{
+	display:table-cell;
+	padding:5px;
+	vertical-align:middle;
+	font-size:14px;
+}
+.MemberCont dl dt{
+	width:120px;
+	padding-left:20px;
+}
+.MemberCont dl dt input{
+	width:120px;
+	height:30px;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	text-indent:5px;
+}
+.MemberCont dl dd{
+	line-height:25px;
+}
+.MemberCont dl dd input{
+	background:#BDCE6C url(line.png) center 2px no-repeat;
+	border:none;
+	width:60px;
+	height:30px;
+	margin-right:10px;
+	border-radius:3px;
+	color:#FFF;
+	position:relative;	
+}
+.MemberCont dl dd input:hover{
+	background:#6C7D18 url(line.png) center 2px no-repeat;
+}
+.MemberCont dl dt.headicon{
+	width:100px;
+}
+.MemberCont dl dt.headicon div{
+	width:100px;
+	height:100px;
+	overflow:hidden;
+	margin:auto;
+	text-align:center;
+	line-height:100px;
+	border-radius:50px;
+	background:#FFF;
+}
+.MemberCont dl dt.headicon div img{
+	max-width:100px;
+	max-height:100px;
+	vertical-align:middle;
+}
+.MemberCont dl dd ul.info li{
+	height:22px;
+	overflow:hidden;
+	line-height:22px;
+}
+.MemberCont dl dd ul.info{
+	margin-bottom:5px;
+}
+.sidecont{
+	margin-top:15px;
+}
+.sidecont .head{
+	border-top:#1CB29D solid 2px;
+	line-height:40px;
+	font-size:18px;
+	font-weight:bold;
+}
+.sidecont .List li{
+	height:40px;
+	line-height:40px;
+	border-top:#DDD solid 1px;
+	position:relative;
+	padding-left:30px;
+	overflow:hidden;
+	font-size:14px;
+}
+.sidecont .List li span{
+	display:block;
+	width:20px;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+	position:absolute;
+	left:0;
+	top:10px;
+	background:#CBCAC6;
+	color:#FFF;
+}
+.sidecont .List li:nth-child(1) span,.sidecont .List li:nth-child(2) span,.sidecont .List li:nth-child(3) span{
+	background:#1AA3EE;
+}

@@ -1,0 +1,111 @@
+<!--
+<?php 
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/hr.css">
+<div class="GuideCont">当前位置：<a href="./">招聘首页</a> -> 人才列表</div>
+<ul class="SelectType">
+
+	<li><span>性别：</span><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('school_age'=>"$school_age",'workyear'=>"$workyear",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[sex]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('school_age'=>"$school_age",'workyear'=>"$workyear",'sex'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sex]['1']}>男</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('school_age'=>"$school_age",'workyear'=>"$workyear",'sex'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sex]['2']}>女</A></li>
+
+	<li><span>学历：</span><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[school_age]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['1']}>小学</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['2']}>初中</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['3']}>高中</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'4'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['4']}>中专</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'5'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['5']}>大专</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'6'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['6']}>本科</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'7'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['7']}>研究生</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'9'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['9']}>博士</A></li>
+
+	<li><span>工作年限：</span><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[workyear]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'0'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['0']}>应届毕业生</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['1']}>一年</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['2']}>两年</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['3']}>三年以上</A></li>
+<!---->
+</ul>
+<div class="ListPerson">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[facephoto]=tempdir($rs[facephoto]);
+print <<<EOT
+-->
+	<dl>
+    	<dt><a href="$Murl/wapjoinshow.php?id=$rs[id]"><img src="$rs[facephoto]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></a></dt>
+        <dd>
+        	<div><span>姓名：</span>{$rs[truename]}</div>
+            <div><span>性别：</span>{$rs[sex]}</div>
+            <div><span>年龄：</span>{$rs[age]}岁</div>
+            <div><span>工作年限：</span>{$rs[workyear]}</div>
+        </dd>
+    </dl>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+<div class="ListCont">
+	<div class="page">$showpage</div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,88 @@
+.MainContainer .head .tag em{
+	font-size:14px;
+	display:inline-block;
+	padding-left:10px;
+	color:#888;
+}
+.MainContainer .hyOtherInfo{
+	float:left;
+}
+.MainContainer .Hydianping{
+	float:right;
+}
+dl.aboutUs{
+	display:table;
+	width:100%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+dl.aboutUs dt,dl.aboutUs dd{
+	display:table-cell;
+}
+dl.aboutUs dt ul li{
+	padding:5px 0 5px 30px;
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+	background:url(d04.png) 5px 10px no-repeat;
+}
+dl.aboutUs dt ul li.sort{
+	background:url(d01.png) 5px 10px no-repeat;
+}
+dl.aboutUs dt ul li.qq{
+	background:url(d03.png) 5px 10px no-repeat;
+}
+dl.aboutUs dt ul li.address{
+	background:url(d06.png) 5px 10px no-repeat;
+}
+dl.aboutUs dd{
+	width:300px;
+}
+dl.aboutUs dd ul ol{
+	text-align:center;
+	line-height:40px;
+	font-size:14px;
+}
+dl.aboutUs dd ul li{
+	width:150px;
+	padding:5px;
+	background:#AAA;
+	margin:auto;
+}
+dl.aboutUs dd ul li img{
+	width:150px;
+	height:150px;
+}
+.ShowMaps{
+	width:100%;
+	height:300px;
+	background:#EEE;
+	margin-top:15px;
+}
+.ShowMaps1{
+	height:500px;
+}
+.ShowMaps iframe{
+	width:100%;
+	height:100%;
+}
+.contactTable{
+	border-top:#DDD solid 1px;
+	border-left:#DDD solid 1px;
+}
+.contactTable td{
+	border-right:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	padding:5px;
+	line-height:35px;
+	font-size:14px;
+	color:#666;
+}
+.contactTable td.tdL{
+	width:15%;
+	text-align:right;
+	color:#333;
+}
+.contactTable tr:hover td{
+	background:#EFEFEF;
+}

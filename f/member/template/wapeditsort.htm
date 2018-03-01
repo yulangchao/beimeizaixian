@@ -1,0 +1,33 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="FormContainer">
+  <h3>修改所属分类</h3>
+	
+    <div class="cont">
+    <form name="FORM" method="post" action="?action=edit" enctype="multipart/form-data">
+          <dl>
+            <dt>标题:</dt>
+            <dd>$rsdb[title]</dd>
+          </dl>
+          <dl>
+            <dt>所在分类:</dt>
+            <dd>$select_fid</dd>
+          </dl>
+          <div class='butter'>
+                <input type="submit" name="Submit" value="修 改" class='submit'>
+                <input type="hidden" name="id" value="$id">
+            </div>
+        
+    </form>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

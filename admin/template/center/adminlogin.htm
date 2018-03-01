@@ -1,0 +1,95 @@
+<!--
+<?php
+$yzImgAdminLogin[intval($webdb[yzImgAdminLogin])]=" checked ";
+$rand_adminpwd[intval($webdb[rand_adminpwd])]=" checked ";
+$rand_admin_pwd_type[intval($webdb[rand_admin_pwd_type])]=" checked ";
+$num=date('d')*2;
+$num2=date('d')+3;
+$day=date('d');
+print <<<EOT
+-->
+ <form name="form1" method="post" action="index.php?lfj=$lfj&action=config" onsubmit="return remind_password();">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">后台安全登录设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="FormTable">
+     <tr> 
+      <td class="tdL">管理员后台登录是否使用验证码:</td>
+      <td class="tdR"> 
+        <input type="radio" name="webdbs[yzImgAdminLogin]" value="1" $yzImgAdminLogin[1]>
+        使用 
+        <input type="radio" name="webdbs[yzImgAdminLogin]" value="0" $yzImgAdminLogin[0]>
+        不使用</td>
+    </tr>
+    <tr> 
+      <td class="tdL">是否启用后台动态密码:<span help=1><br>启用后台动态密码可以给网站增加一道安全防线，即使管理员密码被泄露，别人也不能登录后台。启用前，请先记录下动态密码的规则！如果不小心操作导致进入不了的话，请修改admin/global.php强制进后台，取消动态密码功能。
+</span></td>
+      <td class="tdR" width="71%"> 
+        <input type="radio" id="use_randpass" name="webdbs[rand_adminpwd]" onclick="alert('你选择了启用后台动态密码，请牢记你的动态密码规则，否则会导致进不了后台！')" value="1" $rand_adminpwd[1]>
+        启用 
+        <input type="radio" name="webdbs[rand_adminpwd]" value="0" $rand_adminpwd[0]>
+        不启用</td>
+    </tr>
+    <tr> 
+      <td class="tdL">动态密码前缀字符:</td>
+      <td class="tdR" width="71%"> 
+        <input type="text" id="rand_admin_pwd_pre" name="webdbs[rand_admin_pwd_pre]" value="$webdb[rand_admin_pwd_pre]" size="20">
+        可以是任意字符</td>
+    </tr>
+	
+	<tr> 
+      <td class="tdL">动态规则:</td>
+      <td class="tdR"> 
+        <input type="radio" id="rand_admin_pwd_type" name="webdbs[rand_admin_pwd_type]" value="1" $rand_admin_pwd_type[1]>
+        乘法 
+        <input type="radio" name="webdbs[rand_admin_pwd_type]" value="0" $rand_admin_pwd_type[0]>
+        加法</td>
+    </tr>
+	
+    <tr> 
+      <td class="tdL">动态基数:</td>
+      <td class="tdR" width="71%"> 
+        <input type="text" id="rand_admin_pwd_num" name="webdbs[rand_admin_pwd_num]" value="$webdb[rand_admin_pwd_num]" size="5"></td>
+    </tr>
+  </table>
+    <div class='submits'><input type='submit' name='w' value='保存设置'></div>
+  </div>
+</div>
+</form>
+<script type="text/javascript">
+<!--
+function remind_password(){
+	if (document.getElementById("use_randpass").checked==false){	
+		return true;
+	}
+	num=$day;
+	if (document.getElementById("rand_admin_pwd_type").checked==true){	
+		num=num*parseInt(document.getElementById("rand_admin_pwd_num").value);
+	}else{
+		num=num+parseInt(document.getElementById("rand_admin_pwd_num").value);
+	}
+	pre = document.getElementById("rand_admin_pwd_pre").value
+	if(confirm("请务必记住今天的动态密码是：“"+pre+num+"”，不记住的话，会导致一会进不了后台！！")){
+		return true;
+	}else{
+		return false;
+	}
+}
+//-->
+</script>
+  <div class="MainContainers">
+  <div class="Header"><span class="tag">说明</span></div>
+  <div class="Conter">
+    <ul class="notes">
+      <li>启用后台动态密码功能可以给网站增加一道安全防线，即使管理员密码被泄露，别人也不能登录后台。</li>
+      <li>启用前，请先记录下动态密码的规则！如果不小心操作导致进入不了的话，请修改admin/global.php强制进后台，取消动态密码功能，记下规则后，再重新启用！</li>
+      <li>动态密码的规则是:前缀+当月几号（乘/加）动态基数。</li>
+      <li>比如 动态密码前缀字符:abc 动态规则:乘法 今天是{$day}号 动态基数:2 ，那么密码的动态部分是{$day}*2=$num 最后得出今天的动态密码就是 abc$num</li> 
+    <li>又比如 动态密码前缀字符:efs 动态规则:加法 今天是{$day}号 动态基数:3 ，那么密码的动态部分是{$day}+3=$num2 最后得出今天的动态密码就是 efs$num2</li>
+    </ul>
+  </div>
+</div>
+<!--
+EOT;
+?>
+-->

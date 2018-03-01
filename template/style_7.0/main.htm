@@ -1,0 +1,268 @@
+<!--
+<?php
+print <<<EOT
+-->
+<!--大屏广告开始,$label[bunenqushao]这个标签虽然不显示,但不能缺少的-->
+<div style="display:none;">$label[bunenqushao]</div>
+<!--
+EOT;
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style7.0/index/index.css">
+<!-- main_box  主体内容  s -->
+<div class='main_box'>
+	<div class='HomepageNavSort'>
+		{$label[style7_index_6]}
+	</div>
+	<!-- banner  横幅 -->
+	<div class='banner'>{$label[style7_index_banner]}</div>
+	
+	<!-- content_first  s -->
+	<div class='content_first'>
+		<div class='content_left'>    <!-- content_left  s -->
+			<div class="ShowSlide">    <!-- ShowSlide 轮播  s -->
+			   <table id="pictable" style="display:none;">
+				<tbody>
+					{$label[style7_index_flash]}
+			   	</tbody>
+			   </table>
+			</div>    <!-- ShowSlide 轮播  e -->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style7.0/index/slide.css">
+<script src='$webdb[www_url]/images/style7.0/index/slide.js'></script>
+			<div class='piclist_box'>{$label[style7_index_1]}</div>
+		</div>    <!-- content_left  e -->
+		<div class='content_right'>    <!-- content_right  s -->
+			<div class='topstories_box'>  <!--   topstories_box s -->
+				<div class='topstories'>{$label[style7_index_2]}</div>
+			</div>    <!-- topstories_box  e -->
+
+			<div class='newest_box'>    <!-- newest_box 最新 s -->
+				<div class='newest'> <!-- newest  s -->
+					{$label[style7_index_3]}
+					<div class='more'><a href="">更多资讯</a></div>						
+				</div>    <!-- newest  e -->
+			</div>    <!-- newest_box e -->
+
+		</div>   <!--  content_right  最新 e -->
+
+	</div>
+	<!-- content_first  e -->
+
+
+	<!-- banner2  横幅2 -->
+	<div class='banner2'>{$label[style7_index_banner1]}</div>
+
+
+	<!-- supermarket  生活超市  s -->
+	<div class='supermarket'>
+		<div class='head'>
+			{$label[style7_index_head]}
+		</div>
+		<div class='supermarket_left'>    <!-- supermarket_left  s -->
+			<div class='selling'>{$label[style7_index_banner2]}</div>
+			<div class='supermarket_sort'>  <!-- supermarket_sort s -->
+				<ul>
+<!--
+EOT;
+include(ROOT_PATH."shop/data/all_fid.php");
+$i=0;
+foreach($Fid_db[name] AS $key=>$value){
+$i++;
+if($i>7)break;
+print <<<EOT
+-->
+					<li><a class='list$i' href="$webdb[www_url]/shop/list.php?fid=$key">$value</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					<li><a class='more' href="$webdb[www_url]/shop">更多分类&gt;</a></li>
+				</ul>
+			</div>  <!--   supermarket_sort e -->
+			
+		</div>    <!-- supermarket_left  e -->
+
+
+		<div class='supermarket_right'>    <!-- supermarket_right  s -->
+			{$label[style7_index_4]}
+		</div>    <!-- supermarket_right  e -->				
+		
+	</div>
+	<!-- supermarket  生活超市  e -->
+
+
+	<!-- banner3 横幅3 -->
+	<div class='banner3'>{$label[style7_index_banner3]}</div>
+<!-- 外卖	 -->
+	<div class='ShortOrder'>
+	<div class='ShortOrderHead'>
+		{$label[style7_index_head1]}
+	</div>
+	<div class='ShortOrderLeft'>
+		<div class='Restaurant'>{$label[style7_index_head2]}</div>
+		<div class='SevenEleven'>{$label[style7_index_head3]}</div>
+		<div class='NewProducts'>{$label[style7_index_banner5]}</div>
+	</div>
+
+	<div class='ShortOrderRight'>
+		{$label[style7_index_7]}
+	</div>
+</div>
+<!-- /外卖 -->
+<div class='BannerShortOrder'>
+	{$label[style7_index_banner6]}
+</div>
+
+<!-- /服务 -->
+<div class='VisitingService'>
+	<div class='VisitingServiceHead'>
+		{$label[style7_index_head4]}
+	</div>
+	<div class='VisitingServiceLeft'>
+		<div>{$label[style7_index_banner7]}</div>
+		<div class='VisitingServiceSort'>
+			<ul>
+<!--
+EOT;
+include(ROOT_PATH."fuwu/data/all_fid.php");
+$i=0;
+foreach($Fid_db[name] AS $key=>$value){
+$i++;
+if($i>5)break;
+print <<<EOT
+-->
+				<li class='list$i'><a href="$webdb[www_url]/fuwu/list.php?fid=$key">$value</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			<li><a class='moresort' href="$webdb[www_url]/fuwu">更多分类&gt;</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='VisitingServiceRight'>
+		{$label[style7_index_8]}
+	</div>
+</div>
+<!-- /服务 -->
+	<!-- shop_box  商家  s -->
+	<div class='shop_box'>
+		<div class='head'>
+			<span class='tag'>店铺</span>
+			<ul>
+<!--
+EOT;
+include(ROOT_PATH."hy/data/all_fid.php");
+$i=0;
+foreach($Fid_db[name] AS $key=>$value){
+$i++;
+if($i>7)break;
+print <<<EOT
+-->
+				<li><a href="$webdb[www_url]/hy/list.php?fid=$key">$value</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				<li><a href="$webdb[www_url]/hy">查看更多</a></li>
+			</ul>
+		</div>
+		<div class='piclist_box'>   <!--  piclist_box s -->
+			{$label[style7_index_5]}
+		</div>     <!-- piclist_box e -->
+	</div>
+	<!-- shop_box  商家  e -->
+
+	<!-- banner4 横幅4 -->
+	<div class='banner4'>{$label[style7_index_banner4]}</div>
+
+
+	<!-- merchant  商家  s -->
+	<div class='merchant'>
+		<div class='head'>
+			<span class='tag'>商家</span>
+			<span class='more'><a href="$webdb[www_url]/hy">查看更多</a></span>
+		</div>
+
+		<div class='merchant_sort'>   <!--  merchant_sort s -->
+			<ul>
+<!--
+EOT;
+$array = include(ROOT_PATH."hy/data/all_fid.php");
+$i=0;
+foreach($array[0] AS $key=>$value){
+$i++;
+$rs[url]="$webdb[www_url]/hy/list.php?fid=$key";
+if($i>8)break;
+print <<<EOT
+-->
+				<li>
+					<div><a href="$rs[url]"><img src="$webdb[www_url]/images/style7.0/index/hy-$i.png" alt=""></a></div>
+					<div class='title'><a href="$rs[url]">$value</a></div>
+				</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</ul>
+		</div>    <!-- merchant_sort  e -->
+
+	</div>
+	<!-- merchant  商家  e -->
+
+	<div class="FrendLink">
+	<div class="head">
+    	<div class="tag">友情链接</div>
+		<div class="more"><a href="./do/friendlink.php?job=apply">申请链接</a></div>   	    
+   </div>
+   <div class="cont">
+    	<div class="piclink">
+<!--
+EOT;
+if($friendlinkDB[1]&&$friendlink_DB[$city_id][1]){
+$array = $friendlinkDB[1]+$friendlink_DB[$city_id][1];
+}elseif($friendlinkDB[1]){
+$array = $friendlinkDB[1];
+}else{
+$array = $friendlink_DB[$city_id][1];
+}
+foreach($array AS $rs){print <<<EOT
+-->
+		
+        	<a href="$rs[url]" title="$rs[name] $rs[descrip]" target="_blank"><img src="$rs[logo]" onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'" width="88" height="31"/></a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>
+        <div class="wordlink">
+<!--
+EOT;
+if($friendlinkDB[0]&&$friendlink_DB[$city_id][0]){
+$array = $friendlinkDB[0]+$friendlink_DB[$city_id][0];
+}elseif($friendlinkDB[0]){
+$array = $friendlinkDB[0];
+}else{
+$array = $friendlink_DB[$city_id][0];
+}
+foreach($array AS $rs){print <<<EOT
+-->
+		
+        	<a href="$rs[url]" title="$rs[descrip]" target="_blank">$rs[name]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+        </div>       
+    </div>
+</div>
+</div>
+<!-- main_box  主体内容 e -->
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,1069 @@
+.ContainerBox{
+	max-width:640px;
+	margin:auto;
+	position:relative;
+	background:#F2F2F2;
+	padding-bottom:80px;
+}
+.TopContentBox{
+	width:100%;
+	height:200px;
+	overflow:hidden;
+	position:relative;
+}
+.TopContentBox .topbg{
+	width:100%;
+	height:200px;
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:0;
+}
+.TopContentBox .topbg img{
+	width:100%;
+	height:200px;
+}
+.TopContentBox .Search{
+	width:29px;
+	height:29px;
+	overflow:hidden;
+	position:absolute;
+	top:15px;
+	right:15px;
+	background:url(search.png) center top no-repeat;
+	z-index:100;
+}
+.TopContentBox .SearchBox{
+	width:100%;
+	height:60px;
+	position:absolute;
+	z-index:1000;	
+	left:0;
+	top:0;
+	border-radius:30px;
+	overflow:hidden;
+	display:none;
+}
+.TopContentBox .SearchBox:before{
+	content:'';
+	display:block;
+	width:100%;
+	height:60px;
+	position:absolute;
+	left:0;
+	top:0;	
+	background:#000;
+	opacity:0.5;
+}
+.TopContentBox .SearchBox ul{
+	position:relative;
+	z-index:1000;
+	padding:12px 160px 0 25px;
+}
+.TopContentBox .SearchBox ul .close{
+	width:35px;
+	height:35px;
+	overflow:hidden;
+	position:absolute;
+	right:12px;
+	top:12px;
+	background:url(close.png) center top no-repeat;
+}
+.TopContentBox .SearchBox ul .close span{
+	display:none;
+}
+.TopContentBox .SearchBox ul .submit{
+	width:80px;
+	height:35px;
+	position:absolute;
+	top:12px;
+	right:60px;
+}
+.TopContentBox .SearchBox ul .submit span{
+	display:block;
+	border:#F60 solid 1px;
+	background:#F90;
+	text-align:center;
+	line-height:33px;
+	color:#FFF;
+	font-size:16px;	
+	border-radius:6px;
+}
+.TopContentBox .SearchBox ul .keyword input{
+	width:100%;
+	height:32px;
+	border:#F60 solid 1px;
+	line-height:32px;
+	text-indent:10px;
+	border-radius:5px;
+}
+.TopContentBox .Search span{
+	display:none;
+}
+.TopContentBox .logo{
+	width:100%;
+	text-align:center;
+	position:absolute;
+	top:10px;
+	left:0;
+	z-index:10px;
+}
+.TopContentBox .logo img{
+	max-width:90%;
+	max-height:60px;
+}
+.TopContentBox .Fname{
+	width:100%;
+	text-align:center;
+	position:absolute;
+	top:70px;
+	left:0;
+	z-index:10px;
+	height:30px;
+	font-size:18px;
+	color:#FFF;	
+}
+.TopContentBox .tjcont{
+	width:100%;
+	height:20px;
+	position:absolute;
+	bottom:60px;
+	left:0;
+	z-index:10px;
+	font-size:16px;
+	color:#FFF;	
+	line-height:20px;
+}
+.TopContentBox .tjcont ol,.TopContentBox .tjcont li{
+	width:50%;
+	height:20px;
+	float:left;
+	position:relative;
+	overflow:hidden;
+}
+.TopContentBox .tjcont ol span,.TopContentBox .tjcont li span{
+	display:block;
+}
+.TopContentBox .tjcont ol span{
+	text-align:right;
+	padding-right:20px;
+}
+.TopContentBox .tjcont li span{
+	text-align:left;
+	padding-left:20px;
+	border-left:#FFF solid 1px;
+}
+.TopContentBox .ActionBox{
+	width:100%;
+	height:50px;
+	position:absolute;
+	left:0;
+	bottom:0;
+	overflow:hidden;
+	z-index:1;
+}
+.TopContentBox .ActionBox:before{
+	content:'';
+	display:block;
+	width:100%;
+	height:50px;
+	position:absolute;
+	z-index:1;
+	background:#000;
+	opacity:0.5;
+}
+.TopContentBox .ActionBox dt,.TopContentBox .ActionBox dd{
+	width:50%;
+	height:50px;
+	text-align:center;
+	float:left;
+	overflow:hidden;
+	position:relative;
+	z-index:10;
+	line-height:50px;
+}
+.TopContentBox .ActionBox a{
+	display:inline-block;
+	font-size:16px;
+	color:#FFF;
+	padding-left:30px;
+}
+.TopContentBox .ActionBox dt a{
+	background:url(addmember.png) left 17px no-repeat;
+}
+.TopContentBox .ActionBox dd a{
+	background:url(qd.png) left 15px no-repeat;
+}
+.descripBox{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	padding-left:40px;
+	background:url(voice.png) 12px 13px no-repeat;
+	font-size:16px;
+	color:#F66;
+}
+.ShowTypes{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	background:#FFF;
+	border-bottom:#DDD solid 1px;
+}
+.ShowTypes li{
+	float:left;
+}
+.ShowTypes li a{
+	display:block;
+	padding:0 20px;
+	font-size:16px;
+}
+.ShowTypes li a.ck{
+	color:#F33;
+}
+.ListConts{
+	padding:15px;
+}
+.ListConts .ListBox{
+	border:#EAEAEA solid 1px;
+	background:#FFF;
+	position:relative;
+	margin-bottom:15px;
+	padding:10px;
+}
+.ListConts .ListBox .members{
+	height:80px;
+	overflow:hidden;
+	border-bottom:#DDD dotted 1px;
+	padding-left:85px;
+	position:relative;
+}
+.ListConts .ListBox .members dt{
+	width:60px;
+	height:60px;
+	overflow:hidden;
+	position:absolute;
+	border:#DDD solid 1px;
+	border-radius:30px;
+	left:10px;
+	top:6px;
+	text-align:center;
+	line-height:55px;
+}
+.ListConts .ListBox .members dt img{
+	max-width:60px;
+	max-height:60px;
+	vertical-align:middle;
+}
+.ListConts .ListBox .members dd h3{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-top:10px;
+	font-size:16px;
+	font-weight:normal;
+}
+.ListConts .ListBox .members dd h3 .hot{
+	display:inline-block;
+	color:#F66;
+	padding-left:30px;
+	background:url(hot.png) 10px 5px no-repeat;
+}
+.ListConts .ListBox .members dd h3 .ding{
+	display:inline-block;
+	background:#56ABE4;
+	color:#FFF;
+	padding:0 5px;
+	line-height:20px;
+	margin:5px 0 0 10px;
+	border-radius:3px;
+}
+.ListConts .ListBox .members dd p{
+	line-height:25px;
+	font-size:14px;
+	color:#999;
+}
+.ListConts .ListBox .titles{
+	line-height:30px;
+	margin-top:15px;
+	position:relative;
+	font-size:16px;
+}
+.ListConts .ListBox .titles .fname{
+	display:block;
+	height:42px;
+	line-height:42px;
+	float:left;
+	background:url(fname.png) repeat-x;
+	padding:0 15px 0 5px;
+	color:#FFF;
+	margin-right:15px;
+	position:relative;
+	border-radius:0 5px 5px 0;
+}
+.ListConts .ListBox .titles .fname:before,.ListConts .ListBox .titles .fname:after{
+	content:'';
+	display:block;
+	width:12px;
+	height:42px;
+	background:url(fname.png) repeat-x;
+	position:absolute;
+	top:0;
+}
+.ListConts .ListBox .titles .fname:before{
+	left:-12px;
+}
+.ListConts .ListBox .titles .fname:after{
+	height:47px;
+	background:url(ftag.png) left top no-repeat;
+	left:-21px;
+}
+.ListConts .ListBox .content{
+	clear:both;
+	width:100%;
+	margin-top:15px;
+	font-size:14px;
+	line-height:25px;
+	color:#666;
+	position:relative;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+.ListConts .ListBox .content img{
+	max-width:98%;
+}
+.ListConts .ListBox .MoreContent{
+	height:100px;
+	overflow:hidden;	
+}
+.ListConts .ListBox .content .ShowMores{
+	width:100%;
+	height:50px;
+	background:#FFF;
+	position:absolute;
+	text-align:center;
+	line-height:50px;
+	left:0;
+	bottom:0;
+}
+.ListConts .ListBox .content .ShowMores span{
+	display:inline-block;
+	font-size:18px;
+	color:#69f;
+	padding-right:20px;
+	background:url(icon3.png) right 20px no-repeat;
+}
+.ListConts .ListBox .MoreContent .ShowMores span{
+	background:url(icon2.png) right 20px no-repeat;
+}
+.ListConts .ListBox .Listpics{
+	width:100%;
+	overflow:hidden;
+	margin-top:10px;
+}
+.ListConts .ListBox .Listpics:after{
+	content:'';
+	display:block;
+	height:1px;
+	clear:both;
+}
+.ListBox .Listpics div{
+	overflow:hidden;
+	float:left;
+	text-align:center;
+	position:relative;
+}
+.ListBox .Listpics div a{
+	display:block;
+	margin:4px;
+	border:#DDD solid 1px;
+	overflow:hidden;
+	border-radius:5px;
+}
+.ListBox .Listpics div a img{
+	max-width:100%;
+	max-height:100%;
+	vertical-align:middle;
+}
+.ListBox .ListOthers{
+	clear:both;
+	height:40px;
+	line-height:40px;
+	padding-top:10px;
+	overflow:hidden;
+	border-bottom:#CCC dotted 1px;
+	font-size:16px;
+	text-align:right;
+}
+.ListBox .ListOthers span{
+	display:inline-block;
+	padding:0 5px 0 30px;
+	color:#888;
+}
+.ListBox .ListOthers span em{
+	color:#39F;
+}
+.ListBox .ListOthers span.type1{
+	background:url(icon4.png) 12px 12px no-repeat;
+}
+.ListBox .ListOthers span.type2{
+	background:url(icon5.png) 6px 11px no-repeat;
+}
+.ListBox .ListOthers span.type3{
+	background:url(icon6.png) 6px 12px no-repeat;
+}
+.ListBox .ListOthers span.type4{
+	background:url(icon7.png) 8px 10px no-repeat;
+}
+.ListBox .listgetmoney,.ListBox .listdigguer{
+	border-bottom:#DDD dotted 1px;
+	position:relative;
+	padding:10px 10px 5px 50px;
+	min-height:50px;
+}
+.ListBox .listgetmoney dt,.ListBox .listdigguer dt{
+	width:40px;
+	height:35px;
+	position:absolute;
+	overflow:hidden;
+	left:0;
+	top:18px;
+	background:url(icon8.png) center top no-repeat;
+	line-height:120px;
+}
+.ListBox .listdigguer dt{
+	background:url(icon9.png) center 3px no-repeat;
+}
+.ListBox .listgetmoney:after,.ListBox .listdigguer dd:after{
+	content:'';
+	display:block;
+	height:1px;
+	width:100%;
+	clear:both;
+}
+.ListBox .listgetmoney dd div,.ListBox .listdigguer dd div{
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	float:left;
+}
+.ListBox .listgetmoney dd div a,.ListBox .listdigguer dd div a{
+	display:block;
+	width:40px;
+	height:40px;
+	border:#DDD solid 1px;
+	border-radius:20px;
+	overflow:hidden;
+	text-align:center;
+	line-height:35px;
+}
+.ListBox .listgetmoney dd div a img,.ListBox .listdigguer dd div a img{
+	max-width:40px;
+	max-height:40px;
+	vertical-align:middle;
+}
+
+.ListBox .commentBox{
+	with:100%;
+	clear:both;
+	margin-top:15px;
+	padding-top:30px;
+	position:relative;
+}
+.ListBox .commentBox .head{
+	width:100%;
+	height:30px;
+	position:absolute;
+	top:0;
+	left:-10px;
+}
+.ListBox .commentBox .head span{
+	display:block;
+	float:left;
+	height:30px;
+	line-height:30px;
+	background:#39B5E3;
+	color:#FFF;
+	font-size:16px;
+	padding:0 30px 0 20px;
+	border-radius:5px 12px 12px 5px;
+}
+.Thecomment{
+	border-bottom:#DDD dotted 1px;
+	padding:10px 0 10px 55px;
+}
+.Thecomment ul{
+	position:relative;
+	height:30px;
+}
+.Thecomment ul ol{
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	border:#DDD solid 1px;
+	position:absolute;
+	left:-55px;
+	top:0;
+	text-align:center;
+	line-height:45px;
+	border-radius:25px;
+}
+.Thecomment ul ol img{
+	max-width:50px;
+	max-height:50px;
+	vertical-align:middle;
+}
+.Thecomment ul li{
+	height:30px;
+	line-height:30px;
+	font-size:16px;
+	padding:0 5px;
+}
+.Thecomment ul li a{
+	float:left;
+	color:#36F;
+}
+.Thecomment ul li span{
+	float:right;
+	color:#888;
+	font-size:14px;
+}
+.Thecomment .listcont{
+	background:#F0F0F0;
+	position:relative;
+	border-radius:8px 8px 0 0;
+	padding:5px 10px 30px 10px;
+	font-size:14px;
+	line-height:25px;
+	color:#666;
+	margin:5px auto 0 auto;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+.Thecomment .listcont img{
+	max-width:99%;
+}
+.Thecomment .listcont:before{
+	content:'';
+	display:block;
+	width:0;
+	height:0;
+	border:8px solid transparent;
+	border-bottom: 8px solid #F0F0F0;
+	border-top:0;
+	position:absolute;
+	left:20px;
+	top:-7px;
+}
+.Thecomment .listcont .repeat{
+	width:30px;
+	height:25px;
+	overflow:hidden;
+	position:absolute;
+	right:10px;
+	bottom:5px;
+	background:url(icon10.png) center top no-repeat;
+	line-height:80px;
+}
+.Thecomment .listcont .delcomment{
+	width:30px;
+	height:25px;
+	overflow:hidden;
+	position:absolute;
+	right:40px;
+	bottom:5px;
+	background:url(del.png) center top no-repeat;
+	line-height:80px;
+}
+.Listrepeatcomment{
+	border:#DDD dotted 1px;
+	border-top:0;
+	border-radius:0 0 8px 8px;
+	padding:0 10px; 
+}
+.Listrepeatcomment .listrepeat{
+	position:relative;
+	padding:5px;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
+	font-size:14px;
+	line-height:25px;
+	color:#666;
+	border-top:#DDD dotted 1px;
+}
+.Listrepeatcomment .listrepeat:nth-child(1){
+	border-top:0px;
+}
+.Listrepeatcomment .listrepeat .img{
+	display:none;
+	width:40px;
+	height:40px;
+	overflow:hidden;
+	border:#DDD solid 1px;
+	border-radius:20px;
+	position:absolute;
+	left:0;
+	top:15px;
+	text-align:center;
+	line-height:35px;
+}
+.Listrepeatcomment .listrepeat .img img{
+	max-width:40px;
+	max-height:40px;
+	vertical-align:middle;
+}
+.Listrepeatcomment .listrepeat span{
+	display:inline-block;
+	padding:0 5px;
+}
+.Listrepeatcomment .listrepeat span.name{
+	color:#39F;
+}
+.Listrepeatcomment .listrepeat span.time{
+	color:#AAA;
+	font-size:12px;
+}
+.Listrepeatcomment .listrepeat .delcomment1{
+	display:inline-block;
+	width:16px;
+	height:18px;
+	overflow:hidden;
+	background:url(del1.png) center 5px no-repeat;
+	margin-left:10px;
+}
+.Listrepeatcomment .listrepeat .delcomment1 span{
+	display:none;
+}
+.ShowRepaly a{
+	display:block;
+	width:100%;
+	clear:both;
+	text-align:center;
+	padding-top:5px;
+	line-height:30px;
+	font-size:18px;
+	color:#39F;
+}
+/****/
+.Share_Message{ 
+	position: fixed; 
+	width:100%; 
+	height: 100%; 
+	background: rgba(0,0,0,0.8);
+	z-index: 900000; 
+	top:0; 
+	left: 0; 
+	display: none;
+}
+.Share_Message div{
+	background:url(text.png) no-repeat right center; 
+	width:100%; 
+	height:350px; 
+	background-size:contain; 
+	top:0; 
+	display: block;
+}
+
+.getcomments{
+	width:300px;
+	border:#F90 solid 1px;
+	background:#FFF;
+	position:fixed;
+	left:0;
+	top:80px;
+	z-index: 900001; 
+	border-radius:5px;
+	display: none;/**/
+}
+.getcomments .head{
+	text-align:center;
+	line-height:40px;
+	font-size:20px;
+	color:#F60;
+}
+.getcomments .conts{
+	text-align:center;
+}
+.getcomments .conts textarea{
+	width:250px;
+	padding:0 5px;
+	height:100px;
+	border:#DDD solid 1px;
+	border-radius:5px;
+}
+.getcomments .sub{
+	text-align:center;
+	padding:10px;
+}	
+.getcomments .sub span{
+	display:inline-block;
+	line-height:40px;
+	padding:0 20px;
+	border:#F30 solid 1px;
+	background:#F60;
+	border-radius:5px;
+	color:#FFF;
+	font-size:20px;
+}
+.topUpCont{
+	width:50px;
+	position:fixed;
+	right:10px;
+	bottom:80px;
+}
+.topUpCont ul li{
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	background:red;
+	margin-bottom:10px;
+	border-radius:25px;
+}
+.topUpCont ul li.Refresh{
+	background:url(icon11.png) center top no-repeat;
+}
+.topUpCont ul li.Refresh a{
+	display:block;
+	padding-top:55px;
+}
+.topUpCont ul li.toTop{
+	background:url(icon12.png) center top no-repeat;
+	line-height:120px;
+}
+.FootConts{
+	width:100%;
+	border-top:#EAEAEA solid 1px;
+	background:#FFF;
+	padding:15px 0 15px 0;
+	position:fixed;
+	left:0;
+	bottom:0;
+}
+.FootConts ul{
+	display:table;
+	width:100%;
+}
+.FootConts ul li{
+	display:table-cell;
+	width:33%;
+	text-align:center;
+	height:50px;
+	vertical-align:middle;
+}
+.FootConts ul li.li2{
+	border-left:#EAEAEA solid 1px;
+	border-right:#EAEAEA solid 1px;
+}
+.FootConts ul li a{
+	display:block;
+	line-height:20px;
+	padding-top:30px;
+	overflow:hidden;
+	text-align:center;
+	font-size:16px;
+}
+.FootConts ul li.li1 a{
+	background:url(iconf1.png) center 2px no-repeat;
+}
+.FootConts ul li.li2 a{
+	background:url(iconf2.png) center top no-repeat;
+}
+.FootConts ul li.li3 a{
+	background:url(iconf3.png) center top no-repeat;
+}
+.FootConts dl{
+	display:table;
+	width:100%;
+}
+.FootConts dl dt,.FootConts dl dd{
+	display:table-cell;
+	width:50%;
+	text-align:center;
+	height:50px;
+	vertical-align:middle;
+}
+.FootConts dl dd{
+	border-left:#EAEAEA solid 1px;
+}
+.FootConts dl dt span,.FootConts dl dd span{
+	display:inline-block;
+	font-size:18px;
+	line-height:35px;
+	padding-left:40px;
+}
+.FootConts dl dt span{
+	background:url(iconfa.png) left 4px no-repeat;
+}
+.FootConts dl dd span{
+	background:url(iconfb.png) left 2px no-repeat;
+	background-size:30px 30px;
+}
+.LoadingBox{
+	clear:both;
+	text-align:center;
+	padding:50px 0 50px 0;
+	font-size:16px;
+	color:#F00;
+	display:none;
+}
+.ShowMoreRepaly{
+	clear:both;
+	width:100%;
+	text-align:center;
+}
+.ShowMoreRepaly span{
+	display:inline-block;
+	margin:5px 0 10px 0;	
+	border:#DDD solid 1px;
+	line-height:30px;
+	border-radius:5px;
+	padding:0 15px;
+	font-size:16px;
+	color:#888;
+}
+.Show_Repalys{
+	width:300px;
+	border:#F90 solid 1px;
+	background:#FFF;
+	position:fixed;
+	left:0;
+	top:80px;
+	z-index: 900001; 
+	border-radius:5px;
+	display: none;/**/
+	padding:10px 0;
+}
+.Show_Repalys .lists{
+	margin:0 10px;
+	padding:5px 0;
+	line-height:25px;
+	font-size:14px;
+	color:#666;
+	border-bottom:#DDD dotted 1px;
+}
+.Show_Repalys .lists a{
+	display:inline-block;
+	padding-right:5px;
+	color:#36F;
+}
+.Show_Repalys .lists em{
+	color:#AAA;
+	font-size:12px;
+}
+.Show_Repalys .ShowPage{
+	text-align:center;
+	padding:10px;
+}
+.Show_Repalys .ShowPage a{
+	display:inline-block;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	padding:3px 5px;
+	color:#888;
+}
+.Show_Repalys .ShowPage a.ck{
+	border:#F30 solid 1px;
+	background:#F60;
+}
+.Show_Repalys .ShowPage a.ck font{
+	color:#FFF;
+}
+/*
+*wx_code
+*/
+.wx_code{
+	position:fixed; 
+	width:150px;
+	overflow:hidden;
+	border:#ddd solid 1px;
+	border-radius:3px;
+	right:5px; 
+	top:5px;
+	z-index:10000;
+	padding:2px;
+	background:#FFF; 
+}
+.wx_code img{
+	max-width:100%;
+}
+.wx_code p{
+	text-align:center;
+}
+.ContTopBoxs{
+	width:100%;
+	position:relative;
+}
+.ContTopBoxs .links{
+	border-bottom:#DDD solid 1px;
+	background:#FFF;
+	padding:10px;
+	line-height:30px;
+	font-size:16px;
+}
+.ContTopBoxs .links a{
+	color:#39F;
+}
+.ContTopBoxs .gjbut{
+	width:60px;
+	height:30px;
+	background:#39F;
+	position:absolute;
+	right:10px;
+	top:10px;
+	border-radius:5px;
+}
+.ContTopBoxs .gjbut a{
+	display:block;
+	line-height:30px;
+	text-align:center;
+	color:#FFF;
+	font-size:16px;
+}
+.ContTopBoxs .note{
+	padding:10px 30px 0 10px;
+	text-align:right;
+	line-height:30px;
+	font-size:16px;
+	color:#EB4F38;
+}
+.ContTopBoxs .note span{
+	display:inline-block;
+	padding-right:30px;
+	background:url(icon13.png) right top no-repeat;
+}
+.Foot_wx_code{
+	width:100%;
+	clear:both;
+	border-top:#DDD solid 1px;
+	background:#FFF;
+	text-align:center;
+	padding:20px 0;
+}
+.Foot_wx_code img{
+	width:180px;
+	height:180px;
+}
+.Foot_wx_code p{
+	padding-top:15px;
+	font-size:16px;
+	color:#888;
+}
+/* 
+
+*navhide 
+
+*/
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.navbox { 
+	/* position:absolute;  */
+	position:fixed;
+	top:0;  
+	right:0; 
+	z-index:1002; 
+	width:1px;
+	overflow:hidden;
+	background-color:#eee; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+.navbox:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 80px;
+	clear:both;
+}
+.navbox a{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.navbox dl{
+	border-bottom:1px solid #d6d6d6;
+}
+.navbox dl dt{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	border-bottom:1px solid #FFF;
+	border-top:1px solid #FFF;
+	overflow:hidden;
+	position:relative;
+}
+.navbox dl dt:after{
+	content: '';
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+	width:0;
+	height:0;
+	border:8px solid transparent;
+	border-left: 8px solid rgba(0,0,0,0.8);
+	border-right:0;
+	cursor:pointer;
+}
+.navbox dl.ck dt:after{
+	border:8px solid transparent;
+	border-top: 8px solid rgba(0,0,0,0.8);
+	border-bottom:0;
+}
+.navbox dl.ck dt a{
+	color:red;
+}
+.navbox dl dd{
+	padding:10px;
+	background:#FFF;
+	border-top:1px solid #d6d6d6;
+	display:none;
+}
+.navbox dl.ck dd{
+	display:block;
+}
+.navbox dl dd div a{
+	display:block;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+}
+.navbox dl dd div a.ck{
+	color:red;
+}
+/* 2016-06-22 jzl */
+.nav-head{width:100%; height:40px; border-bottom:#ddd solid 1px; background:#fff; display:table; line-height:40px;}
+.nav-head li{width:25%; text-align:center; display:table-cell;}
+.nav-head li a{font-size:18px;}
+.contList{padding:10px; background:#fff; margin-bottom:15px;}
+.contList .listHead{overflow:hidden;}
+.contList .listHead span{float:left; height:20px; line-height:20px; padding:5px 8px; color:#fff; margin-right:10px; font-size:15px;}
+.contList .listHead span:first-child{background:#ff9933;}
+.contList .listHead span:nth-child(2){background:#31b200;}
+.contList .listHead h3{float:left; width:60%; height:30px; line-height:30px; margin-left:10px; overflow:hidden; color:#333;}
+.contList .listHead h3 a{font-size:16px;}
+.contList .listCont{margin-top:15px; line-height:25px; font-size:14px; color:#333; max-height:75px; overflow:hidden;}
+.contList  .listPic{display:table; width:100%; margin-top:15px;}
+.contList  .listPic span{display:table-cell; width:33.3%;}
+.contList  .listPic span a{display:block; line-height:0; text-align:center; margin-right:5%;}
+.contList  .listPic span a img{width:100%;}
+.contList  .listOther{width:100%; margin-top:15px; position:relative;}
+.contList  .listOther > div span{font-size:14px; height:50px; line-height:50px;}
+.contList  .listOther .other1{overflow:hidden;}
+.contList  .listOther .other1 span{float:left;  margin-right:8px; color:#333;}
+.contList  .listOther .other1 span:first-child a{float:left; width:50px; height:50px; border-radius:50%; overflow:hidden;}
+.contList  .listOther .other1 span img{width:100%;}
+.contList  .listOther .other2{position:absolute; top:0; right:0;}
+.contList  .listOther .other2 span{display:inline-block; padding-left:20px; margin-left:10px;}
+.contList  .listOther .other2 span em{font-style:normal; color:#5da9ff; font-weight:600;}
+.contList  .listOther .other2 span:first-child{background:url(icon6.png) 0 16px no-repeat; }
+.contList  .listOther .other2 span:last-child{background:url(icon7.png) 0 16px no-repeat;}

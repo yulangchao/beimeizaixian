@@ -1,0 +1,129 @@
+<!--
+<?php
+print<<<EOT
+--> 
+
+
+<div class="MainContainers">
+  <div class="Header"><span class="tag">栏目</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+
+    <table class="ListTable">
+  <tr> 
+    <td class='Left'> 
+      <form action="$admin_path&action=addsort" method=POST>
+        <span class=bold>创建新栏目--</span>&nbsp;名称 
+        <input type=text name="name" size=10>
+        &nbsp;归属 {$fup_select} &nbsp;&nbsp;
+        <input type="radio" name="Type" value="0" checked>
+        栏目 
+        <input type="radio" name="Type" value="1">
+        分类(不可发表内容) 
+        <input type=submit value="创 建" name="submit">
+      </form>
+    </td>
+  </tr>
+  <tr style="margin-top:5px;display:none;">
+    <td bgcolor='#FFFFFF'><form action="?job=listsort" method=POST>
+        <span class=bold>查找栏目--</span>&nbsp;
+        <select name="Type">
+          <option value="name">名称</option>
+          <option value="fid" selected>fid</option>
+        </select>
+        <input type=text name="name" size=10 value="$_POST[name]">
+        <input type=submit value="查 找" name="submit">
+        <input type="hidden" name="step" value="2">
+      </form></td>
+    </tr>
+</table>
+</div>
+</div>
+
+
+
+
+<form name="formlist" method="post" action="$admin_path&action=editlist">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">编辑栏目</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+          <ul class='notes'>
+          <li>注意:<font color="#FF0000">栏目排序的规则是,数值大的排在前面,只能是同一级的进行排序</font></li>
+        </ul> 
+  <table class="ListTable">
+          <tr> 
+            <th width="6%">FID</th>
+            <th  width="32%">栏目名称</th>
+            <th width="14%">排序</th>
+            <th width="11%">栏目类型</th>
+            <th width="6%">设置</th>
+            <th width="6%">内容</th>
+            <th width="6%">子栏目</th>
+            <th width="5%">浏览</th>
+            <th width="4%">信息</th>
+            <th width="4%">标签</th>
+            <th width="6%">删除</th>
+          </tr>
+          <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr class="trA" onmouseover="this.className='trB'" onmouseout="this.className='trA'"> 
+            <td><b><font color="#FF0000">$rs[fid]</font></b></td>
+            <td class='Left'> 
+              <input type="checkbox" name="fiddb[{$rs[fid]}]" value="$rs[name]" style="border:0px;">
+              {$rs[icon]}【<a href='$Murl/list.php?fid=$rs[fid]' target="_blank" style="color:$rs[color]">{$rs[name]}</a>】</td>
+            <td > 
+              <input type='text' name='order[{$rs[fid]}]' value='$rs[list]' size='5'>
+            </td>
+            <td >$rs[_type]</td>
+            <td><a href='$admin_path&job=editsort&fid=$rs[fid]' title='点击修改' class='edit'></a></td>
+            <td>[<a href='$admin_path&file=list&job=list&fid=$rs[fid]' $rs[_ifcontent]>管理</a>]</td>
+            <td>[<a href='$admin_path&job=listsort&fid=$rs[fid]' $rs[_alert]>管理</a>]</td>
+            <td>[<a href='$Murl/list.php?fid=$rs[fid]' target="_blank">前台</a>]</td>
+            <td><a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$rs[fid]" target="_blank" $rs[_ifcontent]>发布</a></td>
+            <td><a href="$Murl/list.php?fid=$rs[fid]&jobs=show" target="_blank">标签</a></td>
+            <td><a href="$admin_path&action=delete&fid=$rs[fid]" onclick="return confirm('你确实要删除吗?不可恢复');" title='点击删除' class='del'>删除</a></td>
+          </tr>
+          <!--
+EOT;
+}print <<<EOT
+-->
+        </table>
+
+        <div class="m-showpage">$showpage</div>
+        <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+          <input type="submit" name="Submit2" value="修改栏目排序" onclick="postlist('list')">
+          <SCRIPT LANGUAGE="JavaScript">
+<!--
+function postlist(t){
+	if(t=='list'){
+		document.formlist.action="$admin_path&action=editlist";
+	}else{
+		document.formlist.action="$admin_path&job=batch_edit";
+	}
+	document.formlist.submit();
+}
+function CheckAll(va){
+	form=document.formlist
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+		  </div>
+    </div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

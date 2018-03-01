@@ -1,0 +1,184 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.TheBigMenu {
+    background: #FFF;
+    padding: 20px 5px 10px 5px;
+	overflow:hidden;
+}
+.TheBigMenu li {
+    width: 25%;
+    height: 130px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+
+.TheBigMenu li dl dt {
+    width: 90%;
+    height: 80px;
+	line-height:80px;
+    margin: auto;
+    overflow: hidden;
+    
+    text-align: center;
+}
+.TheBigMenu li dl dt img {
+    max-width: 100%;
+	max-height:100%;
+	border-radius: 50%;
+    vertical-align: middle;
+}
+.TheBigMenu li dl dd {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+	font-size:0.9rem;
+}
+
+.newCase{
+	background:#FFF;
+	margin-top:20px;
+	padding:12px 12px;
+	overflow:hidden;
+	}
+.newCase:after{
+	content:'';
+	width:100%;
+	height:1px;
+	clear:both;
+	}
+.newCase .title{
+	height:56px;
+	font: 18px/56px 'Microsoft Yahei','Simsun';
+	width:100%;
+	border-bottom:solid 1px #ccc;
+	background:url(fanxian.png) no-repeat right center;
+	}
+.newCase .title span{
+	display:block;
+	width:120px;
+	height:56px;
+	background:url(new.png) no-repeat left center;
+	border-bottom:2px solid #ff790c;
+	text-indent:2em;
+	}
+.newCase .conter ul{
+	margin:10px auto;
+	overflow:hidden;
+	}
+.newCase .conter ul li{
+	float:left;
+	width:48%;
+	overflow:hidden;
+	text-align:center;
+	}
+.newCase .conter ul li a{display:block; width:100%; text-align:center;}
+.newCase .conter ul li:nth-child(2n-1){
+	margin-right:12px;}
+.newCase .conter ul li .biaoti{
+	width:100%;
+	height:50px;
+	font: 15px/50px 'Microsoft Yahei','Simsun';
+	}
+
+.newCase .conter ul li img{
+	max-width:100%; max-height:100%;
+	}
+	
+	
+@media only screen and (max-width:321px) {
+	.newCase .conter ul li{
+		width:47%;
+	}
+}
+
+.pinglun{
+	background:#fff;
+	overflow:hidden;
+	margin:20px 0;
+	padding:12px;
+	}
+.pinglun dt{
+	width:100%;
+	height:72px;
+	line-height:72px;
+	border-bottom:dashed #ccc 1px;
+	overflow:hidden;}
+	
+.pinglun dt .facepic{
+	float:left;
+	margin-right:8px;
+	width:66px;
+	height:66px;
+	overflow:hidden;}
+.pinglun dt .facepic img{
+	max-width:100%;
+	vertical-align:middle; border-radius:50%;}
+.pinglun dt span{float:left; width:calc(100% - 75px);}
+.pinglun dt span.faceName{height:40px; line-height:40px; font-size:20px; color:#999;}
+.pinglun dt span.faceTitle a{display:block; text-indent:1em; height:24px; line-height:24px; overflow:hidden; font-size:14px;}
+.pinglun dt span em{
+	color:#ff0000}
+
+.pinglun dd .zonping{
+	color:#999;
+	height:32px;
+	line-height:32px;
+	overflow:hidden;}
+.pinglun dd .zonping img{display:inline-block; }
+.pinglun dd .zonping span{display:inline-block; height:32px; line-height:32px; padding:0 10px 0 15px;}
+.pinglun dd .zonping span:first-child{padding-left:0;}
+.pinglun dd p{
+	height:32px;
+	line-height:32px; font-size:14px;}
+.pinglun dd .time{
+	float:right;
+	color:#999;
+}
+	
+	
+.ListMoreSorts{
+	position:absolute;
+	width:250px;
+	right:-250px;
+	display:none;
+	top:60px;
+	overflow:hidden;
+	z-index:9999;
+	border-left:#DDD solid 1px;
+	background:#FFF;
+	padding-bottom:48px;
+}
+.ListMoreSorts dl dt{
+	height:30px;
+	line-height:30px;
+	padding-left:10px;
+	overflow:hidden;
+	border-top:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	background:url('updown.jpg') right center no-repeat;
+}
+.ListMoreSorts dl dt a{
+	display:block; color:#888;
+}
+.ListMoreSorts dl dd{
+	padding:10px 10px 10px 25px;
+	line-height:30px;
+}
+.ListMoreSorts dl dd a{
+	color:#666; display:block;
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:60px; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}

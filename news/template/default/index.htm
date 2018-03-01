@@ -1,0 +1,207 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">
+<SCRIPT LANGUAGE="JavaScript">
+<!--//
+function ShowTabs(ID,CssType,FID,EID)
+{
+	for (i=FID;i<EID;i++)
+	{
+		if(i == ID)
+		{
+			document.getElementById("Mune" + i).className="Out" + CssType;
+			document.getElementById("Tab" + i).style.display="";
+		}
+		else
+		{
+			document.getElementById("Mune" + i).className="Over" + CssType;
+			document.getElementById("Tab" + i).style.display="none";
+		}
+	}
+}
+//-->
+</SCRIPT>
+<div class="content">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" class="MainContainer mt10">
+  <tr>
+    <td class="lefttd"> <!--  lefttd   s -->
+
+	<div class="newsmaximg">   <!-- newsmaximg 轮播图   s -->
+	  {$label[news_rollpic]}
+	</div>     <!-- newsmaximg 轮播图   e -->
+	<div class="newscenterbox">   <!-- newscenterbox   s -->
+	    <div class="lighttitle"> <!--  lighttitle  s -->
+		  {$label[news_1]}
+		</div>    <!--  lighttitle  e -->
+	</div>   <!--  newscenterbox   e -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="container_s1 mt10">  <!--  container_s1 mt10   s -->
+		<tr>
+			<td class="cont"> <!--  cont s -->
+			<div id="Tab1">  <!-- Tab1  s -->
+				{$label[news_1_1]}
+			</div> <!--  Tab1  e -->
+			</td>   <!-- cont e -->
+		</tr>
+	</table>     <!-- container_s1 mt10   e -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="container_s1 mt10">  <!--  container_s1 mt10   s -->
+		<tr>
+			<td class="cont"> <!--  cont s -->
+			<div id="Tab211">  <!-- Tab2  s -->
+			  {$label[news_1_2]}
+			</div> <!--  Tab2  e -->
+			</td>   <!-- cont e -->
+		</tr>
+	</table>     <!-- container_s1 mt10   e -->
+	</td>   <!--  lefttd   e -->
+    <td class="righttd">   <!--  righttd   s -->
+	<div class="container_s2"> <!--  container_s2   s -->
+		<div class="head">
+			<span class="La"> <img src="images/life6/flag1.png" alt="推荐新闻" />{$label[news_k1]}</span>
+		</div>
+		<div class="cont"> <!--  cont  s -->
+		  {$label[news_4]}
+		</div>   <!-- cont  e -->
+	</div>   <!--  container_s2   e -->
+	<div class="container_s2 mt10">    <!-- container_s2 mt10   s -->
+		<div class="head">
+			<span class="Lb"><img src="images/life6/flag2.png" alt="成功故事" />{$label[news_k2]}</span>
+		</div>
+		<div class="cont">  <!-- cont  s -->
+		  {$label[news_5]}
+		  <div class="listOther">
+		    {$label[news_6]}
+		  </div>
+		</div>  <!-- cont  e -->
+	</div>    <!-- container_s2 mt10   e -->
+    </td>     <!-- righttd   e -->
+  </tr>
+</table>
+<div class='banner'>{$label[news_banner1]}</div>
+<div class="NewsMainHead_a">
+	<span>{$label[news_k7]}</span>
+</div>
+<table width="100%" align="center" cellpadding="0" cellspacing="0" class="MainContainer">
+  <tr>
+	<td class="native_left"> <!--  native_left  s -->
+		<div class="native_s2">  <!--  native_s2  s -->
+			<div class="head">
+				<span class="L">{$label[news_k8]}</span>
+			</div>
+			<div class="cont listc">
+			  {$label[news_7]}
+			</div>
+		</div>    <!--   native_s2  e -->
+	</td>   <!--   native_left  e -->
+    <td class="native_center">   <!-- native_center  s -->
+      <div class='native_s2'>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="native_container_s1">   <!-- native_container_s1  s -->
+		  <tr>
+			<td class="head">
+				<span class='out1' id=Mune3 onMouseOver=ShowTabs(3,1,3,8)>{$label[news_k14]}</span>
+				<span id=Mune4 onMouseOver=ShowTabs(4,1,3,8)>{$label[news_k15]}</span>
+				<span id=Mune5 onMouseOver=ShowTabs(5,1,3,8)>{$label[news_k16]}</span>
+				<span id=Mune6 onMouseOver=ShowTabs(6,1,3,8)>{$label[news_k17]}</span>
+				<span id=Mune7 onMouseOver=ShowTabs(7,1,3,8)>{$label[news_k18]}</span>
+			</td>
+		  </tr>
+		  <tr>
+			<td class="cont">
+				<div id="Tab3" class="morecont">{$label[news_8_1]}</div>
+				<div id="Tab4" class="morecont" style="display:none;">{$label[news_8_2]}</div>
+				<div id="Tab5" class="morecont" style="display:none;">{$label[news_8_3]}</div>
+				<div id="Tab6" class="morecont" style="display:none;">{$label[news_8_4]}</div>
+				<div id="Tab7" class="morecont" style="display:none;">{$label[news_8_5]}</div>
+			</td>
+          </tr>
+        </table>   <!--  native_container_s1  e -->
+	  </div>
+    </td>   <!--  native_center  e -->
+	<td class="native_right"> <!--  native_right s -->
+		<div class="container_s2">
+			<div class="head">
+				<span class="L">{$label[news_k9]}</span>
+			</div>
+			<div class="cont">
+			  {$label[news_9]}
+			</div>
+		</div>
+	</td>    <!--  native_right e -->
+  </tr>
+</table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--// 
+function ShowTabs(ID,CssType,FID,EID)
+{
+	for (i=FID;i<EID;i++)
+	{
+		if(i == ID)
+		{
+			document.getElementById("Mune" + i).className="out" + CssType;
+			document.getElementById("Tab" + i).style.display="";
+		}
+		else
+		{
+			document.getElementById("Mune" + i).className="over" + CssType;
+			document.getElementById("Tab" + i).style.display="none";
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!-- 图片新闻  s -->
+<table width="100%" align="center" cellpadding="0" cellspacing="0" class="MainContainer mt10 PicNews">
+	<tr>
+		<td class="photohead"><span>图片新闻</span></td>
+	</tr>
+	<tr>
+		<td class="photocont">
+		  {$label[news_10]}
+		</td>
+	</tr>
+</table>
+<!-- 新品上市 s-->
+<div class="NewsMainHead_a">
+	<span>{$label[news_k10]}</span>
+</div>
+<table width="100%" align="center" cellpadding="0" cellspacing="0" class="MainContainer">
+	<tr>
+		<td class='food'>   <!--  food  s -->
+			<div class="container_s2">
+				<div class="head">
+				<span class="L">{$label[news_k13]}</span>
+				</div>
+				<div class="cont">
+				  {$label[news_13]}
+				</div>
+			</div>
+		</td>  <!--  food  e -->
+		<td class='shopping'>   <!-- shopping  s -->
+			<div class="container_s2">
+				<div class="head">
+					<span class="L">{$label[news_k12]}</span>
+				</div>
+				<div class="cont">
+				{$label[news_12]}
+				</div>
+			</div>				
+		</td>  <!-- shopping   e -->
+		<td class='discount'>
+			<div class="container_s2">
+				<div class="head">
+					<span class="L"><img src="images/life6/flag1.png" alt="打折促销" />{$label[news_k11]}</span>
+				</div>
+				<div class="cont">
+				  {$label[news_11]}
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+<div class='banner'>{$label[news_banner2]}</div>
+</div>
+<!--
+EOT;
+?>
+-->

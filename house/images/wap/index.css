@@ -1,0 +1,160 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.ShowSorts{
+	width:98%;
+	overflow:hidden;
+	margin:5px auto;
+}
+.ShowSorts li{
+	width:50%;
+	float:left;
+	overflow:hidden;
+}
+.ShowSorts li a{
+	display:block;
+	text-align:center;
+	padding:3px 0 2px 0;
+	width:95%;
+	margin:10px auto 5px auto;
+	margin-top:10px;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	-webkit-box-shadow: 0 0 6px 2px #ddd;
+	box-shadow:0 0 6px 2px #ddd;
+}
+.ShowSorts li a img{
+	height:28px;
+}
+.ShowSorts li a span{
+	display:none;
+}
+.ShowSorts li a:hover{
+	border:#3294D5 solid 1px;
+	-webkit-box-shadow: 0 0 6px 2px #3294D5;
+	box-shadow:0 0 6px 2px #3294D5;
+}
+.FootSpac{
+	width:100%;
+	height:60px;
+	clear:both;	
+}
+.ListCont{
+	width:100%;
+	clear:both;
+}
+.ListCont .head{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	background: -moz-linear-gradient(top,rgba(165,85,85,0),rgba(165,85,85,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(165,85,85,0)),to(rgba(165,85,85,0.9)));
+    background: -webkit-linear-gradient(top,rgba(165,85,85,0),rgba(165,85,85,0.9));
+    background: -o-linear-gradient(top,rgba(165,85,85,0),rgba(165,85,85,0.9));
+	border-top:#F7E4E4 solid 1px;
+	color:#FFF;
+}
+.ListCont dl{
+	height:90px;
+	overflow:hidden;
+	position:relative;
+	border-bottom:#DDD dotted 1px;
+	padding-top:15px;
+}
+.ListCont dl dt{
+	width:120px;
+	border:#DDD solid 1px;
+	padding:1px;
+	position:absolute;
+	left:15px;
+	top:13px;
+}
+.ListCont dl dt a{
+	display:block;
+	width:120px;
+	height:75px;
+	background:#EFEFEF;
+	overflow:hidden;
+}
+.ListCont dl dt a img{
+	width:100%;
+}
+.ListCont dl dd{
+	height:105px;
+	padding-left:150px;
+	overflow:hidden;
+}
+.ListCont dl dd h3,.ListCont dl dd div{
+	height:25px;
+	line-height:25px;
+	display:block;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#666;
+	word-spacing:10px;
+}
+.ListCont dl dd h3 a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#369;
+	font-weight:normal;
+}
+.ListCont dl dd div strike{
+	color:#999;
+}
+.ListCont dl dd div span{
+	color:#F60;
+	font-size:16px;
+	font-weight:bold;
+}
+.ListCont dl dd div em{
+	color:green;
+	font-size:16px;
+	font-style:normal;
+}
+.ListPicCont{
+	width:98%;
+	clear:both;
+	margin:10px auto;
+}
+.ListPicCont dl{
+	width:50%;
+	overflow:hidden;
+	float:left;
+}
+.ListPicCont dl dt{
+	width:95%;
+	margin:10px auto 0 auto;
+	position:relative;
+	overflow:hidden;
+	background:#666;
+}
+.ListPicCont dl dt img{
+	width:100%;
+}
+.ListPicCont dl dt span{ 
+	position:absolute; 
+	background:rgba(0,0,0,0.6); 
+	display:block; 
+	height:35px; 
+	line-height:35px; 
+	bottom:0; 
+	left:0; 
+	width:100%; 
+	text-align:center; 
+	color:#fff; 
+	text-shadow:1px 1px 0 #000; 
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.ListPicCont dl dd{
+	width:95%;
+	width:auto;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#F90;
+	overflow:hidden;
+}

@@ -1,0 +1,42 @@
+.SlideCont {
+    position: relative;
+}
+.SlideCont img {
+	display: block;
+	width: 100%;
+}
+/***********/
+.focusPic{
+	position:relative;
+	overflow:hidden;
+}
+.focusPic .views li{
+	float:left;
+	text-align:center;
+}
+.focusPic .views img{
+	max-width:100%;
+	margin:auto;
+}
+.focusPic .tabs{
+	position:absolute;
+	bottom:0.5rem;
+	left:0;
+	width:100%;
+	height:10px;
+	text-align:center;
+	line-height:10px
+}
+.focusPic .tabs li{
+	display:inline-block;
+	width:8px;
+	height:8px;
+	background:#a9a9a9;
+	border-radius:10px;
+	text-indent:-66px;
+	overflow:hidden;
+	margin-left:3px
+}
+.focusPic .tabs li.on{
+	background:#ff7200
+}

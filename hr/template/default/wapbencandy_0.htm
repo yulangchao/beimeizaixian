@@ -1,0 +1,148 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/job.css">
+    
+<div class="Location">
+	<em>当前位置：</em><a href="./wapindex.php">招聘首页</a> $GuideFid[$fid]
+</div>
+
+<dl class="zhiwei">
+	<dt>
+    	<h3>{$rsdb[title]}</h3>
+    </dt>
+    <dd>
+    	<p>{$companydb[title]}</p>
+        <ul>
+        	<!--{template}--><li>{title}： <em>{value}</em></li><!--{/template}-->
+        </ul>
+    </dd>
+</dl>
+
+<a class="btn">申请职位</a>
+
+<div class="miaoshu">
+	<div class="title">职位描述</div>
+    <div class="conts">{$rsdb[content]}</div>
+</div>
+
+<div class="miaoshu">
+	<div class="title">公司介绍</div>
+    <div class="conts">{$companydb[content]}</div>
+    <ul>
+    	<li>邮箱：<em>{$companydb[qy_contact_email]}</em></li>
+        <li>电话：<em>{$companydb[qy_contact_tel]}</em></li>
+        <li>传真：<em>{$companydb[qy_contact_fax]}</em></li>
+        <li>QQ：<em>{$companydb[qq]}</em></li>
+        <li>网址<em>{$companydb[qy_website]}</em></li>
+        <li>地址：<em>{$companydb[qy_regplace]}</em></li>
+    </ul>
+</div>
+<div class="bdsharebuttonbox">
+	<A class=bds_more href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="more"></A>
+	<A class=bds_qzone title=分享到QQ空间 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="qzone"></A>
+	<A class=bds_tsina title=分享到新浪微博 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="tsina"></A>
+	<A class=bds_tqq title=分享到腾讯微博 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="tqq"></A>
+	<A class=bds_renren title=分享到人人网 href="http://share.baidu.com/code?qq-pf-to=pcqq.group#" data-cmd="renren"></A>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<div class="FootSpac"></div>
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

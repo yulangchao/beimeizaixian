@@ -1,0 +1,59 @@
+<!--
+<?php
+if($lfjid){print <<<EOT
+-->
+<span class="word">
+    欢迎你回来:<em>$lfjid</em>  $MSG   
+<!--
+EOT;
+if($ModuleDB['blog_']){print <<<EOT
+-->
+	<a HREF="$webdb[www_url]/blog/?uid=$lfjuid" target="_blank">我的博客</a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+	<a href="$webdb[_www_url]/member/homepage.php?uid=$lfjuid" target="_blank">个人信息</a> 
+    <a href="$webdb[_www_url]/member/" target="_blank">会员中心</a> 
+    <a href="$webdb[www_url]/do/login.php?action=quit">安全退出</a> 
+</span>
+<!--
+EOT;
+}elseif( $nickName=get_cookie('QQ_nickName') ){print <<<EOT
+-->
+<span class="info">
+    欢迎你:<em>$nickName</em> 
+   <a href="$webdb[www_url]/do/reg.php?step=1">完善帐号信息</a> 
+      <a href="$webdb[www_url]/do/qq_bind.php?step=1">绑定已有帐号</a>
+    <a href="$webdb[www_url]/do/qq_login.php?action=quit">退出</a>
+</span>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<a href="$webdb[www_url]/do/reg.php">注册</a>
+<a href="$webdb[www_url]/do/login.php">登录</a>
+<a href="$webdb[www_url]/do/wxlogin.php">微信登录</a>
+<!--
+EOT;
+if($webdb[QQ_login]){print <<<EOT
+-->
+	<a href="$webdb[www_url]/do/qq_login.php"><img src="$webdb[www_url]/images/style5.1/qq_login.gif"/></a>
+<!--
+EOT;
+}if($webdb[WXlogin_API]){
+print <<<EOT
+-->
+         		<a href="$webdb[www_url]/do/wxlogin.php" class="wx">登录</a>
+<!--
+EOT;
+}}
+print <<<EOT
+-->
+<a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('$webdb[www_url]');" href="#">设为首页</a>
+<a href="javascript:javascript:window.external.AddFavorite('$webdb[www_url]','$webdb[webname]');">加入收藏</a>
+<!--
+EOT;
+?>
+-->

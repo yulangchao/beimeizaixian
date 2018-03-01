@@ -1,0 +1,77 @@
+.s-skin{margin-bottom:15px; background:#fff;}
+
+.m-nav{padding:10px 0 5px 0;}
+.m-nav ul{overflow:hidden;}
+.m-nav ul li{float:left; width:50%; margin:10px 0;}
+.m-nav ul li a{display:block; width:90%; margin:0 auto; padding:8px 0; border:1px solid #e5e5e5; box-shadow:1px 1px 2px #e6e6e6; border-radius:6px; overflow:hidden; background:#f3f3f3; text-align:center;}
+.m-nav ul li span{display:inline-block; height:28px; line-height:28px; color:#666; font-size:16px;}
+
+/* m-modleCont */
+.m-modleCont{background:#fff url('flag1.png') left top no-repeat;}
+.modleCont h2{height:25px; line-height:25px; padding:15px 25px;  border-bottom:1px solid #e5e5e5; box-shadow:0px 1px 0px #F5F5F5;}
+.modleCont h2 a{float:left; width:100%; height:100%; font-size:16px; color:#666;}
+.modleCont .allCont{background:#f3f3f3;}
+.allCont ul{overflow:hidden;}
+.allCont ul li{float:left; width:calc(50% - 15px); margin:10px 5px 0 10px; background:#fff; box-shadow:-1px 2px 3px #e1e1e1;}
+.allCont ul li:nth-child(2n){margin:10px 10px 0 5px;}
+.List .ListPic{overflow:hidden;text-align:center; height:140px; line-height:140px; position:relative;}
+.List .ListPic img{width:100%; max-height:100%;}
+.List .ListPic .picOther{position:absolute; top:0; left:0; }
+.List .ListPic .picOther span{display:block; margin-top:10px; color:#ff6633; width:60px; text-align:center; height:25px; line-height:25px; font-size:14px; font-weight:600;}
+.List .ListPic .picOther span ~span{height:25px; line-height:25px; background:rgba(103,103,103,.8); color:#fff;}
+.List h3{height:36px; line-height:18px; margin:5px; font-size:.9rem; font-weight:400; overflow:hidden;color:#666;}
+.List .ListPrice{padding:6px; overflow:hidden; text-align:center;}
+.List .ListPrice span{display:block; height:20px; line-height:20px; color:#ff3333; font-size:14px; padding-right:8px;}
+.List .ListPrice strike{display:block; height:20px; line-height:20px; color:#999; font-size:13px;}
+/* 2shou m-News */
+.m-Hot{overflow:hidden; padding-bottom:15px;}
+.m-Hot h2{height:25px; line-height:30px; padding:15px 40px; background:url('flag2.png') 10px center no-repeat; border-bottom:1px solid #e5e5e5; box-shadow:0px 1px 0px #F5F5F5;}
+.m-Hot h2 a{float:left; width:100%; height:100%; font-size:16px; color:#666;}
+.Listall dl{overflow:hidden; padding:10px 0 10px 0; margin:0 10px; border-bottom:1px solid #e5e5e5;}
+.Listall dl dt{width:90px; height:90px; line-height:90px; overflow:hidden; text-align:center;}
+.Listall dl dt img{min-width:90px; width:100%; max-height:100%;}
+.Listall dl dd{width:calc(100% - 95px);}
+.Listall dl dd h3{max-height:50px; line-height:25px; font-size:.9rem; color:#666; font-weight:400; overflow:hidden;}
+.Listall dl dd p{overflow:hidden;}
+.Listall dl dd p strike,.Listall dl dd p span{height:25px; line-height:25px; font-size:.6rem; color:#999; overflow:hidden;}
+.Listall dl dd p.ListPrice span.L{background:#2bb8aa; color:#fff; border-radius:3px; padding:0 3px;}
+.Listall dl dd p.ListPrice span.R{width:70px; height:30px; line-height:30px; text-align:center; background:#f47b10; border-radius:3px; font-size:14px;}
+.Listall dl dd p.ListPrice span.R a{color:#fff;}
+
+.ShowMoreShop{padding:0 10px 15px 10px; background:#f3f3f3;}
+.ShowMoreShop span{display:block; width:100%; height:25px; line-height:25px; padding:10px 0; text-align:center; font-size:18px; border:1px solid #d5d5d5; border-radius:8px; background:#fff; color:#666; cursor:pointer;}
+/* listsort hide */
+.fullbg { background-color:#000;  opacity:0;  top:0;  left:0;  width:100%;  height:100%;  z-index:1001;  position:absolute; display:none;}
+.navbox {position:absolute;  top:0;   right:0;  z-index:1002;  width:1px; overflow:hidden; background-color:#eee;  font-family:Arial, Helvetica, sans-serif;}
+.navbox:after{content: '';  display: block; width: 100%;	 height: 80px; clear:both;}
+.navbox a{font-family:Arial, Helvetica, sans-serif; color:#333;}
+.navbox dl{border-bottom:1px solid #d6d6d6;}
+.navbox dl dt{height:35px; line-height:35px; padding-left:10px; border-bottom:1px solid #FFF; border-top:1px solid #FFF; overflow:hidden; position:relative;}
+.navbox dl dt:after{content: ''; width: 14px; height: 14px; display: block; position: absolute; top: 12px; right: 10px; width:0; height:0; border:8px solid transparent; border-left: 8px solid rgba(0,0,0,0.8); border-right:0; cursor:pointer;}
+.navbox dl.ck dt:after{border:8px solid transparent; border-top: 8px solid rgba(0,0,0,0.8); border-bottom:0;}
+.navbox dl.ck dt a{color:red;}
+.navbox dl dd{padding:10px; background:#FFF; border-top:1px solid #d6d6d6; display:none;}
+.navbox dl.ck dd{display:block;}
+.navbox dl dd div a{display:block; height:30px; line-height:30px; overflow:hidden;}
+.navbox dl dd div a.ck{color:red;}
+
+
+@media(min-width:360px){
+	.List .ListPic{height:160px; line-height:160px;}
+}
+@media(min-width:400px){
+	.List .ListPic{height:180px; line-height:180px;}
+	.Listall dl dt{width:90px; height:90px;}
+	.Listall dl dt img{max-width:90px;}
+	.Listall dl dd{width:calc(100% - 100px);}
+	.Listall dl dd p span,.Listall dl dd p strike{font-size:.9rem;}
+}
+@media(min-width:640px){
+	.List .ListPic{height:270px; line-height:270px;}
+	.Listall dl dt{width:140px; height:140px; line-height:140px;}
+	.Listall dl dd{width:calc(100% - 160px);}
+	.Listall dl dt img{max-width:140px;}
+	.Listall dl dd h3{max-height:70px; line-height:35px; font-size:1rem;}
+	.List h3{font-size:1rem;}
+	.Listall dl dd p{padding-top:15px}
+}

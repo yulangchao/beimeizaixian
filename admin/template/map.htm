@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>后台管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="images/map.css" type="text/css">
+<SCRIPT LANGUAGE="JavaScript">
+
+function killErr(){
+
+	return true;
+
+}
+
+window.onerror=killErr;
+
+</SCRIPT>
+</head>
+<body> 
+<!--
+<?php
+print <<<EOT
+-->
+<div class="baseinfocont">
+    <div class="map-head"></div>
+	<div class="map-menu">
+	  <h3>未审核信息</h3>
+	    {$show}
+	</div>
+	<div class="map-pic"></div>
+</div>
+<div class="m-section m-skills">
+  <dl class="countInfo">
+    <dt>信息统计</dt>
+	<dd>
+	  {$show2}
+	</dd>
+  </dl>
+  <div class="m-gn">
+    <div class="m-guide s-bg"><span>新手入门指南</span>
+	  <p>1、要安装更多的网站风格,<a href="http://bbs.qibosoft.com/thread-forum-fid-10323.htm" target="_blank">请点击</a></p>
+      <p>2、要升级程序,<a href="http://bbs.qibosoft.com/thread-forum-fid-10313.htm" target="_blank">请点击</a></p>
+      <p>3、要学习采集网站内容数据,<a href="http://bbs.qibosoft.com/thread-forum-fid-10324.htm" target="_blank">请点击</a></p>
+      <p>4、遇到更多的问题,无法解决,<a href="http://bbs.qibosoft.com/thread-forum-fid-10332.htm" target="_blank">请点击</a></p>                 
+	</div>
+	<div class="m-Notice s-bg"><span>官方重要公告</span>
+	  <marquee direction="up" scrollamount="1" height="35" onmouseout='if(document.all!=null){this.start()}' onmouseover='if(document.all!=null){this.stop()}'>$OfficialNotice</marquee>
+	</div>
+  </div>
+</div>
+<div class="m-section s-bg severInfos"><div class="severInfo-1">服务器信息</div><div class="severInfo-2">
+  <table class="m-severInfo" border="0" cellpadding="0" cellspacing="0">
+    <tr><td>服务端信息：$systemMsg[SERVER_SOFTWARE]</td><td>邮件模式：$systemMsg[sys_mail]</td></tr>
+    <tr><td>PHP版本：$systemMsg[sysversion]</td><td>服务器IP：$systemMsg[SERVER_ADDR]</td></tr>
+    <tr><td>服务端信息：$systemMsg[SERVER_SOFTWARE]</td><td>邮件模式：$systemMsg[sys_mail]</td></tr>
+    <tr><td>MYSQL版本：$systemMsg[mysqlVersion]</td><td>服务器端口：$systemMsg[SERVER_PORT]</td></tr>
+    <tr><td>是否允许文件上传：$systemMsg[file_uploads]（如果不允许可把php.ini里的file_uploads=Off改成file_uploads=On，重启服务器即可）</td><td>上传文件存放的临时目录：$systemMsg[upload_tmp_dir]</td></tr>
+    <tr><td>最大上传限制：$systemMsg[max_upload]（需更大可修改php.ini里的upload_max_filesize值，重启服务器即可）</td><td>服务器所在时间：$systemMsg[systemtime]</td></tr>
+    <tr><td>最大执行时间：$systemMsg[max_ex_time]（需更大可修改php.ini里的max_execution_time值，重启服务器即可）</td><td>网站所在磁盘物理位置：$systemMsg[DOCUMENT_ROOT]</td></tr>
+    
+    <tr><td>空间限制内存：$systemMsg[memory_user_tdmit]（需更大可修改php.ini里的memory_tdmit值，重启服务器即可）</td><td>当前文件路径：$systemMsg[SCRIPT_FILENAME]</td></tr>
+    <tr><td>是否支持采集：$systemMsg[allow_url_fopen]（如果不支持可把php.ini里的allow_url_fopen=Off改成allow_url_fopen=On，重启服务器即可）</td><td>Zend Optimizer版本：$systemMsg[zendVersion]</td></tr>
+    <tr><td>是否支持GD2库：$systemMsg[gdpic]（如果不支持可把php.ini中;extension=php_gd2.dll前面的;去掉，重启服务器即可）</td><td>当前登陆IP：$systemMsg[ontdneip]</td></tr>
+    <tr><td>是否允许Cookie：$systemMsg[ifcookie]（如果不允许可在Windows控制面板 ,"Internet选项" ,隐私设置中调整）</td><td>当前域名：$systemMsg[SERVER_NAME]</td></tr>
+  </table></div>
+</div>
+
+<div class="m-section s-bg ourTeams">
+  <div class="m-skill s-bg"><span>使用技巧</span>
+    <p>1、如要对首页进行重大修改，请手工修改模板文件/template/default/main.htm</p>
+    <p>2、如果忘记密码不能进入后台的话，请手工修改文件/admin/global.php,查找\$ForceEnter=0;改为\$ForceEnter=1;即能进入后台,重新设置管理员密码</p>
+    <p>3、数据库配置文件是/data{$webdb[web_dir]}/mysql_config.php,更换数据库帐号后,请修改此文件</p>
+    <p>4、要想更换创始人帐号,请修改文件/data{$webdb[web_dir]}/admin.php</p>
+    <p>5、网站在使用过程中,如果更新添加了数据,务必经常备份网站数据库</p>
+    <p>6、要修改网页内容显示,在相应的页面双击即可进行标签设置</p>
+  </div>
+
+  <!-- <div class="ourTeam-1">开发团队</div>
+  <ul class="m-ourTeam">
+    <li>官方网站：http://www.qibosoft.com</li>
+	<li>技术支持：http://bbs.qibosoft.com</li>
+	<li>版本类型： {$qibosoft_Edition} 商业授权（授权域名：{$webdb[www_url]}）</li>
+	<li>系统设计： 龙城</li>
+	<li>特别鸣谢： 雄军、lisheng51、 toopd、七月 等等 </li>
+  </ul> -->
+</div>
+ 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<div align="center">');
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

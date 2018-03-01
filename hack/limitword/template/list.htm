@@ -1,0 +1,87 @@
+<!--
+<?php
+print <<<EOT
+-->  
+<form name="form_work" method="post" action="index.php?lfj=$lfj&action=delete">
+
+<div class="MainContainers">
+  <div class="Conter">
+  <table class="ListTable">
+    <tr> 
+      <th width="4%">序号</th>
+      <th width="30%">原字符</th>
+      <th width="48%">替换成新字符</th>
+       <th width="6%">删除</th>
+       <th width="6%">修改</th>
+       <th width="6%">添加</th>
+    </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id]</td>
+      <td class='Left'> 
+        <input type="checkbox" name="iddb[{$rs[id]}]" value="{$rs[id]}">
+        $rs[oldword]</td>
+      <td class='Left'> $rs[newword]</td>
+      <td><a href="index.php?lfj=$lfj&action=delete&iddb[{$rs[id]}]=$rs[id]" title='点击删除' class='del'></a></td>
+      <td><a href="index.php?lfj=$lfj&job=edit&id=$rs[id]" title='点击修改' class='edit'></a></td>
+      <td><a href="index.php?lfj=$lfj&job=add"><img alt='添加关键字' src='../member/images/icon_add.gif' border=0></a></td>
+    </tr>  <!--
+EOT;
+}
+print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+  <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+           <input type="submit" name="Submit" value="删 除">
+  </div>
+</div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<form   method="post" action="index.php?lfj=$lfj&action=set">
+<div class="MainContainers">
+ <div class="Header"><span class="tag">屏蔽范围设置</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+    <table class="ListTable">
+        <tr> 
+          <td class='Left'>
+            <input type="radio" name="webdbs[kill_badword]" value="1" $kill_badword[1]>
+            所有页面内容彻底屏蔽
+          <input type="radio" name="webdbs[kill_badword]" value="0" $kill_badword[0]>
+            不屏蔽 
+            <input type="submit" name="Submit" value=" 提 交 ">
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</form>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,133 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="form_work" method="post" action="index.php?lfj=$lfj&dirname=$dirname&file=$file&job=work">
+<div class="MainContainers">
+  <div class="Conter">
+      <table class="ListTable">
+
+    <tr> 
+      <th width="20%">职位名称</th>
+      <th w idth="20%">公司名称</th>
+      <th w idth="10%">发布者</th>
+      <th w idth="10%">发布日期 </th>
+      <th w idth="10%">分类</th>
+      <th width="5%">浏览</th>
+      <th width="8%">应聘人数</th>
+	  <th width="5%">推荐</th>
+      <th width="4%">审核</th>
+      <th width="4%">修改</th>
+      <th width="4%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td class='Left'> 
+        <input type="checkbox" name="listdb[{$rs[id]}]" value="$rs[title]">
+        <a href="../$dirname/bencandy.php?fid=$rs[fid]&id=$rs[id]" target=_blank>$rs[title]</a> ({$city_DB[name][$rs[city_id]]})</td>
+      <td class='Left'> {$rs[company]} </td>
+      <td>{$rs[username]} </td>
+      <td>$rs[posttime] </td>
+      <!---->
+      <td class='Left'>$rs[fname]</td>
+      <td>$rs[hits]</td>
+      <td>{$rs[joinnum]}</td>
+	  <td>{$rs[ifcom]}</td>
+      <td>{$rs[ifyz]} </td>
+         <td><a href="javascript:" click=1 editcode="<a href='$webdb[_www_url]/member/?main=$Murl/member/post.php?job=edit&fid=$rs[fid]&id=$rs[id]' target=_blank>修改内容</a><br><a href='$webdb[_www_url]/member/?main=$Murl/member/editsort.php?job=edit&fid=$rs[fid]&id=$rs[id]' target=_blank>修改分类</a>" title='点击修改' class='edit'>修改</a> </td>
+        <td> <a href="index.php?lfj=$lfj&dirname=$dirname&file=$file&action=work&jobs=delete&id=$rs[id]&fid=$rs[fid]" title='点击删除' class='del'>删除</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+
+  </table>
+    <div class='m-showpage'>$showpage</div>
+  <div class='submits'>
+        <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+         <input type="submit" name="Submit3" value="删除" onclick="postdo('delete')">
+        <input type="hidden" name="jobs" value="0">   
+  </div>
+
+
+  </div>
+  </div>
+
+</form>
+
+
+
+<form name="form1" method="post" action="$admin_path&job=$job">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">内容搜索</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="ListTable">
+    <tr> 
+      <td class='Left'>
+<!--
+EOT;
+if(count($city_DB[name])>1){
+print <<<EOT
+-->	  
+按城市筛选:<select name="select" onChange="window.location.href='$admin_path&job=$job&fid=$fid&type=$type&cityid='+this.options[this.selectedIndex].value">
+    <option value="">不限</option>
+<!--
+EOT;
+foreach($city_DB[name] AS $t=>$v){
+$ck=$cityid==$t?' selected  style="color:red;"':'';
+print <<<EOT
+-->
+	<option value="$t" $ck>$v</option>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+  </select>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+关键字 
+        <input type="text" name="keyword">
+        <select name="type">
+          <option value="title">标题名称</option>
+          <option value="id">ID</option> 
+          <option value="username">发布者</option>
+          <option value="company">公司名</option>
+        </select>
+        <input type="submit" name="Submit7" value="提交">
+      </td>
+    </tr>
+  </table>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

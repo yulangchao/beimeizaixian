@@ -1,0 +1,140 @@
+<?php
+require(ROOT_PATH."inc/waphead.php");
+?>
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/wap/wapindex.css"/>
+<!-- nav -->
+  <section class="s-skin m-nav">
+	<ul>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/ficon$i.png"))?"./images/wap/ficon$i.png":"./images/wap/ficon1.png");
+if($i>6) break;
+print <<<EOT
+-->
+	  <li><a href="waplist.php?fid=$key"><span><img src="$logo"/></span><span>$name</span></a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	  <li id="show_sort"><span><img src="images/wap/ficon7.png"/></span><span>更多类目</span></li>
+	</ul>
+  </section>
+<!-- /nav -->
+<!-- m-modleCont -->
+  <section class="s-skin m-modleCont">
+    <div class="modleCont">
+	  <h2><a>二手好货</a></h2>
+	  <div class="allCont">
+	    <ul>
+<!--
+EOT;
+$listPicInfo = Get_Info('pic',4);
+foreach($listPicInfo AS $key=>$rs){
+$rs[url] = "wapbencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+		  <li>
+		    <div class="List">
+			  <a href="$rs[url]"><div class="ListPic"><img src="$rs[picurl]" onError="this.src='$webdb[_www_url]/images/default/nopic.jpg'"/></div>
+			  <h3>$rs[title]</h3></a>
+			  <div class="ListPrice"><a href="">【{$rs[fname]}】</a></div>
+			</div>
+		  </li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</ul>
+	  </div>
+	</div>
+  </section>
+<!-- /m-modleCont -->
+<!-- m-News -->
+  <section class="s-skin m-News">
+    <div class="NewsCont">
+	  <h2><a>最新二手</a></h2>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	  <dl>
+	    <dt class="R"><a href="$rs[url]">浏览</a></dt>
+		<dd class="L">
+		  <h3><a href="$rs[url]">$rs[title]</a><span><em>{$rs[picnum]}</em></span></h3>
+		  <p><span class="L">发布者：{$rs[username]}</span><span class="L">时间：{$rs[posttime]}</span><span class="R">浏览：<em>{$rs[hits]}</em>人</span></p>
+		</dd>
+	  </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>
+  </section>
+  <div class="ShowMoreShop" onclick="showMoreCont();"><span class="ShowMore">更多热门信息</span></div>
+<div class="navbox" id="navbox_sort">
+<!--
+EOT;
+$listSorts="";
+foreach($Fid_db[0] AS $key=>$value){
+$url="$webdb[www_url]/2shou/waplist.php?fid=$key";
+$ck_class=($key==$fidDB[fup]||$key==$fid)?"class='ck'":"";
+$listSorts.="<dl $ck_class>\r\n";
+$listSorts.="	<dt><a href=\"$url\">{$value}</a></dt>\r\n";
+$listSorts.="	<dd>\r\n";
+foreach($Fid_db[$key] AS $keys=>$rs){
+$urls="$webdb[www_url]/2shou/waplist.php?fid=$keys";
+$ck_class=($fid==$keys)?"class='ck'":"";
+$listSorts.="		<div><a href=\"$urls\" $ck_class>{$rs}</a></div>\r\n";
+}
+$listSorts.="	</dd>\r\n";
+$listSorts.="</dl>\r\n";
+}
+print <<<EOT
+-->
+$listSorts
+</div>
+<div class="fullbg" id="fullbg1"></div>
+<script type="text/javascript" src="$webdb[www_url]/f/images/wap/sort.js"></script>
+<script>
+var page=1;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreShop").hide();
+		}else{
+			$(".NewsCont").append(d);
+			$(".ShowMoreShop").html("<span>点击查看更多</span>");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".NewsCont dl").length%rows!=0){
+		$(".ShowMoreShop").hide();
+	}
+}
+countlist();
+</script>
+<!--
+EOT;
+?>
+-->
+<?php
+require(Mpath."inc/wapfoot.php");
+?>

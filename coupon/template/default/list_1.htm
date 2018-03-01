@@ -1,0 +1,140 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+<div style="width:1200px;margin:auto;">
+<div class="content_text">
+<div class="content_text_left">
+		<div class="content_text_left_top">
+			<div class="showlist_theme">
+				<img src="images/life6/theme1.jpg" />
+				<span>促销分类</span>
+			</div>
+<div class="Menu">
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+$showcss = $i==1?"class='show'":"";
+$url=get_info_url('',$key,$city_id);
+print <<<EOT
+-->
+				<dl>
+					<dt $showcss>
+						<div class="level_1">
+								<em><a href="$url">$name</a></em>
+						</div>
+					</dt>
+					<dd>
+<!--
+EOT;
+foreach($Fid_db[$key] AS $key2=>$name2){
+$url=get_info_url('',$key2,$city_id);
+print <<<EOT
+-->
+              	<a href="$url">$name2</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</dd>
+				</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+<script>
+<!--
+$(".Menu dl dt").click( function(){
+var dlIndex = $(this).parent().index();
+$(".Menu dl").eq(dlIndex).siblings().find("dd").hide();
+$(".Menu dl").eq(dlIndex).siblings().find("dt").removeClass("show");
+$(this).parent().find('dd').show();
+$(this).addClass("show");
+} );
+//-->
+</script>
+		</div>
+		<div class="content_text_left_footer">
+			<div class="showlist_theme">
+				<img src="images/life6/theme2.jpg" />
+				<span>促销快讯</span>
+			</div>
+			<ul class="newslist">
+<!--
+EOT;
+$array = list_coupon(5,'new');
+foreach($array AS $rs){
+$rs[fulltime] = date("m-d",$rs[fulltime]);
+print <<<EOT
+-->
+				<li>
+					<h2>
+						<span class="blue">$rs[username]</span>于$rs[fulltime]发布了
+					</h2>
+					<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+				</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</ul>
+		</div>
+</div>
+<div class="content_text_right">
+	<div class="text_title">
+		<span>{$fidDB[name]}</span>
+		<div class="title_nav">
+			<a href="listall.php?ordertype=id">最新促销信息</a>
+			<a href="listall.php?ordertype=hits">热门促销信息</a>
+			<a href="listall.php?ordertype=levelstime">推荐促销信息</a>
+		</div>
+	</div>	
+<div class="Showlist_box">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[title]=get_word($rs[title],50);
+print <<<EOT
+-->
+  <dl class="Showlist">
+  	<dt>
+  		<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'" border="0" /></a> 
+  	</dt>
+  	<dd>
+  		<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]" target="_blank" title='$rs[full_title]' style="color:$rs[titlecolor];" class="store_name">$rs[title]</a>
+  		<div class="Showlist_Price">
+  			<p>原价:<em class="cross">{$rs[mart_price]}元</em>优惠价：<em class="yellow">{$rs[price]}</em>元</p>
+  			<a href="bencandy.php?city_id=$rs[city_id]&fid=$rs[fid]&id=$rs[id]">查看详情</a>
+  		</div>
+  	</dd>
+  </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</div>
+
+<!--
+EOT;
+if($showpage){
+print <<<EOT
+-->
+ <div class="Jump_box">$showpage</div>
+<!--
+EOT;
+}print <<<EOT
+-->	
+</div>
+</div>
+</div>
+<!--
+EOT;
+?>
+-->

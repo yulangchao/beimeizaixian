@@ -1,0 +1,208 @@
+<!--
+<?php
+$rsdb[price] || $rsdb[price]='';
+$listPic="";
+$i=0;
+if($picdb){
+foreach($picdb AS $key=>$rs){
+	$i++;
+	$picurl=$rs[imgurl];
+	$picname=addslashes($rs[name]);
+	$listPic.="<li><img src=\"$picurl\" alt=\"$picname\" /></li>\r\n";
+}}else{
+	$listPic="<li><img src=\"$picurl\" alt=\"$picname\" /></li>\r\n";
+}
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="./images/wap/bencandy.css">
+<div class="Location">
+ 	<em>当前位置：</em><a href="./wapindex.php">点评首页</a> $GuideFid[$fid]
+</div>
+<!--幻灯片开始-->
+<link rel="stylesheet" href="$webdb[www_url]/images/wap/flash/flash.css"/>
+<script src="$webdb[www_url]/images/wap/flash/flash.js"></script>
+<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
+  <ul class="am-slides">
+		{$listPic} 
+  </ul>
+</div>
+<!--幻灯片结束-->
+<div class="dianpu">
+		<div class="name">
+     	<h3>聚农山庄</h3>
+<!--
+EOT;
+if($claimDB){
+	$showWord="<A class=\"btn\" HREF=\"$webdb[www_url]/home/?uid=$claimDB[uid]\">店铺已被领</A>";
+}else{
+	$showWord="<A class=\"btn\" HREF=\"claim.php?fid=$fid&id=$id\">认领该店铺</A>";
+}
+print <<<EOT
+-->
+        {$showWord}
+     </div>
+     
+     <div class="time">
+     	<ul>
+            <li>有效日期：<em>{$rsdb[showday]}</em></li>
+            <li>浏览量：<em>{$rsdb[hits]}次</em></li>
+         </ul>
+		<ul class="m-posttime"><li><em>{$rsdb[posttime]}</em></li></ul>
+     </div>
+</div>
+<div class="lianxi">
+		<ul class="dizhi">
+     	<li>地址：<em>{$rsdb[address]}</em></li>
+         <!--
+EOT;
+if($rsdb['sortid']){print <<<EOT
+--><li>人均消费：<em>{$rsdb[sortid]}  </em></li><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['sortid2']){print <<<EOT
+--><li>环境：<em>{$rsdb[sortid2]}  </em></li><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_382']){print <<<EOT
+--><li>停车位：<em>{$rsdb[my_382]}  </em></li><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_835']){print <<<EOT
+--><li>公交线路：<em>{$rsdb[my_835]}  </em></li><!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['my_491']){print <<<EOT
+--><li>附近公交站：<em>{$rsdb[my_491]}  </em></li><!--
+EOT;
+}print <<<EOT
+--><!---->
+     </ul>
+     <ul class="dianhua">
+     	<li><dl><dt><img src="./images/wap/dianhua.png"/></dt><dd><a href="tel:{$rsdb[telephone]}">{$rsdb[telephone]}</a></dd></dl></li>
+        <li class="midle"><dl><dt><img src="./images/wap/QQ.png"/></dt><dd>{$rsdb[oicq]}</dd></dl></li>
+        <li><dl><dt><img src="./images/wap/weixing.png"/></dt><dd><a href="tel:{$rsdb[mobphone]}">{$rsdb[mobphone]}</a></dd></dl></li>
+     </ul>
+</div>
+<div class="xingxi">
+		<div class="title">信息详情</div>
+		<div class="cont">
+			{$rsdb[content]}
+		</div>
+     <div class="ditu">
+     	<iframe src="$webdb[www_url]/hy/job.php?job=show_ggmaps&position=$rsdb[maps]&title=$rsdb[title]"  width="100%" height="250" scrolling="no" frameborder="0" ></iframe>
+     </div>
+</div>
+
+<div class="Reminded">
+	<div>网站提醒您：</div>
+	<ul>
+		<li>交易时请警惕网络诈骗、先付款后发货交易、欺诈交易。</li>
+		<li>网站建议您只进行同城或当面交易，并检查物品的相关资料和手续。</li>
+	</ul>
+</div> 
+
+<!--
+EOT;
+if($webdb[wxpay_AppID]&&$webdb[wxpay_AppSecret]){//微信自定义分享内容
+require(ROOT_PATH."inc/weixin.jsdk.php");
+$jssdk = new JSSDK($webdb[wxpay_AppID], $webdb[wxpay_AppSecret]);
+$signPackage = $jssdk->GetSignPackage();
+print <<<EOT
+-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: {$signPackage["timestamp"]},
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: [
+        'checkJsApi',
+		'onMenuShareTimeline',
+        'onMenuShareAppMessage',  
+		'showMenuItems',
+      ]
+  });
+
+</script>
+<script type="text/javascript">
+function ShareTimeline(){
+    wx.onMenuShareTimeline({
+      title: '$rsdb[title]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('分享到朋友圈后，每进来一位新用户，你都将获得{$webdb[CommendRegHongBao]}元红包的奖励，你若取消关注公众号，将不派发！');
+      },
+      success: function (res) {
+        //alert('分享成功，请注意查收红包！');
+		//window.location.reload();
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+       // alert('系统监测到你没有真正分享到朋友圈，请重新分享！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+	//wx.showOptionMenu();
+	
+    //alert('请点击左上角的菜单，然后分享到朋友圈去即可');
+}
+
+function ShareAppMessage(){
+	wx.onMenuShareAppMessage({
+      title: '$rsdb[title]',
+      desc: '$rsdb[description]',
+      link: '$WEBURL',
+      imgUrl: '$rsdb[picurl]',
+      trigger: function (res) {
+        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+        //alert('你搞错了，应该分享到朋友圈去！');
+      },
+      success: function (res) {
+        //alert('你并没有分享到朋友圈，请重新分享到朋友圈！');
+		//window.location.href='wapbencandy.php?WXID=$WXID&fid=$fid&id=$id&job=have_shareFriend';
+      },
+      cancel: function (res) {
+        //alert('你已取消操作，请重新分享到朋友圈！');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+    //alert('请点击左上角的菜单，发送给朋友');
+}
+
+wx.ready(function () {
+	//wx.showOptionMenu();
+	ShareTimeline();
+	ShareAppMessage();
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,150 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/company.css">
+<div class="GuideCont">当前位置：<a href="$webdb[_www_url]">首页</a> -> <a href="./">装修</a> $GuideFid[$fid]</div>
+<div class="titles">$rsdb[title]</div>
+<div class="baseinfo">发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>　浏览量：{$rsdb[hits]}次  发布者：{$rsdb[username]}</div>
+<ul class="SelectShows">
+	<li>公司首页</li>
+	<li>公司介绍</li>
+	<li>装修案例</li>
+	<li>设计精英</li>
+	<li>公司地图</li>
+</ul>
+<div class="ShowContainer">
+	<div class="ShowConts">
+    	<dl class="BaseInfo">
+        	<dt><span><img src='$rsdb[picurl]' onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></span></dt>
+            <dd>
+            	<div class="title">$rsdb[title]</div>
+<!--
+EOT;
+if($rsdb['home_type']){print <<<EOT
+-->
+            	<div>家庭装修：<span>{$rsdb[home_type]} </span></div>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['business_type']){print <<<EOT
+-->
+            	<div>商业装修：<span>{$rsdb[business_type]} </span></div>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['build_style']){print <<<EOT
+-->
+            	<div>装修风格：<span>{$rsdb[build_style]} </span></div>
+<!--
+EOT;
+}print <<<EOT
+--><!--
+EOT;
+if($rsdb['address']){print <<<EOT
+-->
+            	<div>公司地址：<span>{$rsdb[address]} </span></div>
+<!--
+EOT;
+}print <<<EOT
+--><!---->
+            	<div>访问次数：<span><em>{$rsdb[hits]}</em>次</span></div>
+<!--
+EOT;
+$this_demos=Show_Company_Demo_Num($id);
+$this_designers=Company_Designer_Num($id);
+print <<<EOT
+-->
+            	<div>案例作品：<em>{$this_demos}</em>个 设计精英：<em>{$this_designers}</em>名</div>
+            </dd>
+        </dl>
+    </div>
+    <div class="ShowConts">
+    	<div class="content">$rsdb[content]</div>
+    </div>
+    <div class="ShowConts">
+<!--
+EOT;
+$showdomes="";
+$listdomes = List_Company_Demo($id,10);
+foreach($listdomes AS $keys=>$rss){
+	$rss[url]=get_info_url($rss[id],$rss[fid],$rss[city_id]);
+    if($rss[picurl]){
+        $rss[picurl]=tempdir($rss[picurl]);
+    }
+    $showdomes .= "<div class='ListDemo'> 
+    <p><a href=\"$rss[url]\" title='$rss[full_title]'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src='$rss[picurl]' /></a></p>
+    <h4><a href=\"$rss[url]\" title='$rss[full_title]'>$rss[title]</a></h4>
+    </div>";
+}
+print <<<EOT
+-->
+		$showdomes
+    </div>
+    <div class="ShowConts">
+<!--
+EOT;
+$showdesigner="";
+$listdesigner = List_Company_Designer($id,12);
+foreach($listdesigner AS $keys=>$rss){
+	$rss[url]=get_info_url($rss[id],$rss[fid],$rss[city_id]);
+    if($rss[picurl]){
+        $rss[picurl]=tempdir($rss[picurl]);
+        $rss[picurl]=str_replace(".gif","",$rss[picurl]);
+    }
+$rss[skill]=Display_Type1($rss[skill]); 
+$rss[design_style]=Display_Type1($rss[design_style]);   
+$showdesigner .= "<dl class='ListDesigner'>
+<dt><span><a href=\"$rss[url]\"><img src=\"$rss[picurl]\"></a></span></dt>
+<dd>
+<h4><a href=\"$rss[url]\">$rss[title]</a></h4>
+<div>从业经验：<span>{$rss[experience]}</span></div>
+<div>设计专长：<span>{$rss[skill]}</span></div>
+<div>设计风格：<span>{$rss[design_style]}</span></div>
+<p>设计理念：$rss[design_goal]</p>
+</dd>
+</dl>";
+}
+print <<<EOT
+-->
+		{$showdesigner}
+    </div>
+    <div class="ShowConts">
+<!--
+EOT;
+if($rsdb[maps]){print <<<EOT
+-->
+        <iframe id="mapsid" src="about:blank"  width="100%" height="400" scrolling="no" frameborder="0" ></iframe>
+           
+<!--
+EOT;
+}print <<<EOT
+-->
+    </div>
+</div>
+<div class="FootSpac"></div>
+<script type="text/javascript">
+function SelectShows(i){
+	$('.SelectShows li').removeClass("ck");
+	$('.SelectShows li').eq(i).addClass("ck");	
+	$('.ShowContainer .ShowConts').hide();
+	$('.ShowContainer .ShowConts').eq(i).show();
+	if(i==4){ 
+		if(document.getElementById('mapsid').src=='about:blank'){
+			document.getElementById('mapsid').src='job.php?job=show_ggmaps&position=$rsdb[maps]&title=$rsdb[title]';
+		}
+	}
+}
+$('.SelectShows li').click(function(){
+	SelectShows($(this).index());
+});
+SelectShows(0);
+</script> 
+<!--
+EOT;
+?>
+-->

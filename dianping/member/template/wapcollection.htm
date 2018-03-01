@@ -1,0 +1,38 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/comment_public.css">
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="MainContComment">
+	<div class="head"><div class="tag">我收藏的信息</div></div>
+    <div class="cont">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+//$rs[Lurl]=get_info_url('',$rs[fid],$rs[city_id]);
+print <<<EOT
+-->
+    <div class='CommentList'>
+            <div class='title'>
+               {$rs[id]}、<a href="../bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" title="$rs[full_title]">$rs[title]</a>
+            </div>
+            <div class='info'>
+                <div class='UserTime'><span class='userL'>栏目：<a href="../waplist.php?fid=$rs[fid]" target="_blank">$rs[fname]</a></span><span class='timeR'>$rs[ctime]</span></div>
+                <div class='CommentSubmits'><a href="?do=del&cid=$rs[cid]">删除</a></div>                
+            </div>
+    </div>
+
+<!--
+EOT;
+}print <<<EOT
+-->
+
+        <div class="Showpage">$showpage</div>
+    </div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,73 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="?lfj=$lfj&">
+<div class="MainContainers">
+  <div class="Conter">
+  <table class="ListTable">
+    <tr> 
+      <th width="9%">ID</th>
+      <th width="10%">用户</th>
+      <th width="11%">金额(元) </th>
+      <th width="15%">日期</th>
+      <th width="45%">详情</th>
+      <th width="10%">删除</th>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id] 
+        <input type="checkbox" name="listdb[{$rs[id]}]" value="{$rs[id]}">
+      </td>
+      <td><a href="../member/homepage.php?uid=$rs[uid]" target=_blank>$rs[username]</a> 
+      </td>
+      <td>$rs[money] </td>
+      <td>$rs[posttime]</td>
+      <td class='Left'>$rs[about]</td>
+      <td><a href="?lfj=$lfj&action=delete&id=$rs[id]" title='点击删除' class='del'>删除</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+  <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+           <input type="submit" name="Submit" value="删除" onclick="postdo('delete')">
+  </div>
+  </div>
+</div>
+        <SCRIPT LANGUAGE="JavaScript">
+<!--
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+function postdo(d){
+	document.form_work.action.value=d;
+	document.form_work.submit();
+}
+//-->
+</SCRIPT>
+        <input type="hidden" name="action">
+      </td>
+    </tr>
+  </table>
+</form>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,208 @@
+.MainContainer{
+	width:1200px;
+	margin:auto;
+	padding-top:25px;
+}
+.MainContainer:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.MainContainer .aboutHy{
+	width:770px;
+	float:left;
+}
+.MainContainer .HyNews{
+	width:400px;
+	float:right;
+}
+.MainContainer .head{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	margin-bottom:10px;
+	position:relative;
+}
+.MainContainer .head:before{
+	content:'';
+	display:block;
+	width:3px;
+	height:20px;
+	background:#2CB9FF;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.MainContainer .head .tag{
+	float:left;
+	font-size:20px;
+	padding-left:15px;
+}
+.MainContainer .head .more{
+	float:right;
+	font-size:16px;
+	color:#888;
+}
+.MainContainer .showabout,.MainContainer .newscont{
+	height:210px;
+	padding:10px 15px 0 15px;
+	overflow:hidden;
+	background:#FFF;
+	font-size:14px;
+	color:#666;
+}
+.MainContainer .showabout{
+	line-height:30px;
+}
+.MainContainer .showabout a{
+	color:#2CB9FF;
+}
+.MainContainer .newscont .listnews{
+	height:40px;
+	line-height:40px;
+	padding-left:30px;
+	overflow:hidden;
+	position:relative;
+}
+.MainContainer .newscont .listnews:before{
+	content:'';
+	display:block;
+	width:12px;
+	height:12px;
+	background:#2CB9FF;
+	position:absolute;
+	left:5px;
+	top:15px;
+}
+.MainContainer .newscont .listnews a{
+	float:left;
+	font-size:16px;
+}
+.MainContainer .newscont .listnews span{
+	float:right;
+	color:#999;
+}
+.MainContainer .hyPicSorts{
+	background:#FFF;
+	padding:20px 10px 0 10px;
+}
+.MainContainer .hyPicSorts:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.MainContainer .hyPicSorts .picsort{
+	width:20%;
+	height:250px;
+	overflow:hidden;
+	float:left;
+}
+.MainContainer .hyPicSorts .picsort ol{
+	width:90%;
+	height:200px;
+	border:#DDD solid 1px;
+	margin:auto;
+	position:relative;
+	overflow:hidden;
+	border-radius:5px;
+}
+.MainContainer .hyPicSorts .picsort ol:before,.MainContainer .hyPicSorts .picsort ol:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	background:#DDD;
+	position:absolute;
+	left:0;
+}
+.MainContainer .hyPicSorts .picsort ol:before{
+	bottom:3px;
+}
+.MainContainer .hyPicSorts .picsort ol:after{
+	bottom:1px;
+}
+.MainContainer .hyPicSorts .picsort ol a{
+	display:table;
+	width:100%;
+}
+.MainContainer .hyPicSorts .picsort ol a span{
+	display:table-cell;
+	text-align:center;
+	height:200px;
+	vertical-align:middle;
+}
+.MainContainer .hyPicSorts .picsort ol a span img{
+	max-width:99%;
+	max-height:190px;
+}
+.MainContainer .hyPicSorts .picsort li{
+	width:90px;
+	margin:auto;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	font-size:16px;
+	overflow:hidden;
+}
+.MainContainer .Hydianping{
+	width:950px;
+	float:left;
+}
+.MainContainer .Hydianping .SelectDpType{
+	background:#FFF;
+	padding-left:20px;
+}
+.ListHyDianping{
+	background:#FFF;
+	padding:0 20px;
+}
+.MainContainer .hyOtherInfo{
+	width:220px;
+	float:right;
+}
+.MainContainer .hyOtherInfo .Favorite{
+	text-align:center;
+	line-height:50px;
+	height:50px;
+	background:#FE6D24;
+	cursor:pointer;
+}
+.MainContainer .hyOtherInfo .Favorite span{
+	display:inline-block;
+	padding-left:30px;
+	font-size:18px;
+	color:#FFF;
+	background:url(love.png) left 15px no-repeat;
+}
+.MainContainer .hyOtherInfo .sendmsg{
+	text-align:center;
+	line-height:50px;
+	height:50px;
+	background:#2CB9FF;
+	margin:20px auto;
+}
+.MainContainer .hyOtherInfo .sendmsg a{
+	display:inline-block;
+	padding-left:30px;
+	font-size:18px;
+	color:#FFF;
+	background:url(msg.png) left 18px no-repeat;
+}
+.MainContainer .hyOtherInfo .tjInfo{
+	background:#FFF;
+	padding:15px;
+}
+.MainContainer .hyOtherInfo .tjInfo li{
+	padding:5px 0;
+	line-height:25px;
+}
+.MainContainer .hyOtherInfo .tjInfo li span{
+	color:#F60;
+}
+.MainContainer .hyOtherInfo .tjInfo li em{
+	color:#2CB9FF;
+}

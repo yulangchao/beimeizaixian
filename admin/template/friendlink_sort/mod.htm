@@ -1,0 +1,73 @@
+<!--
+<?php
+print <<<EOT
+-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,v){
+	form1.pic.value+="[MMCBBS]"+url;
+}
+//-->
+</SCRIPT>
+<form name="form1" method="post" action="index.php?lfj=$lfj&action=$job">
+<div class="MainContainers">
+  <div class="Header">
+    
+<!--
+EOT;
+if($job=='mod'){
+print <<<EOT
+-->
+<span class="tag">修改友情链接分类 </span><span class="more">&gt;&gt;</span>
+        
+ <!--
+EOT;
+}
+elseif($job=="add"){
+print <<<EOT
+-->
+<span class="tag">添加友情链接分类 </span><span class="more">&gt;&gt;</span>
+         
+<!--
+EOT;
+}print <<<EOT
+-->
+  </div>
+  <div class="Conter">
+    <table class="FormTable">
+
+    <tr> 
+      <td class="tdL"> 
+        <div align="left">分类名称：</div>
+      </td>
+      <td class="tdR"> 
+        <input class=mmcinb type='text' name='postdb[name]' value='$rsdb[name]'>
+      </td>
+    </tr>
+    <tr> 
+      <td class="tdL"> 
+        <div align="left">排序值：</div>
+      </td>
+      <td class="tdR"> 
+        <input class=mmcinb type='text' name='postdb[list]' value='$rsdb[list]' size='10'>
+        (数值越大.排在越前) </td>
+    </tr>
+  </table>
+    <div class='submits'>
+        <input class=mmcinb type='submit' name='Submit' value='提交数据'>
+        <input type="hidden" name="fid" value="$fid">      
+    </div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function uppic(url,name,size,b){
+	get_obj('pic').value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->
+
+

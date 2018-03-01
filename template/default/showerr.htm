@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+<?php
+$headmoreword = $lfjid ? "<a href=\"$webdb[www_url]/member\" class='member'>会员中心</a> <a href=\"$webdb[www_url]/do/login.php?action=quit\" class='quit'>退出</a>":"<a href=\"$webdb[www_url]/do/login.php\" class='login'>登录</a> <a href=\"$webdb[www_url]/do/reg.php\" class='reg'>注册</a>";
+print <<<EOT
+-->
+<head>
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/others/showerr.css">
+<title>$webdb[webname] powered by www.qibosoft.com</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8"><!-- 强制ie8,for 360 -->
+<script type="text/javascript" src="$webdb[www_url]/images/default/jquery-1.2.6.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body>
+<div class="TopContainer">
+	<div class="TopBox">
+		<div class="logo"><a href="$webdb[www_url]"><img src="$webdb[www_url]/images/others/logo.png" /></a></div>
+		<div class="MoreAct">
+			<a href="$webdb[www_url]/" class="home">网站首页</a>
+			$headmoreword
+		</div>
+	</div>
+</div>
+<div class="MainContainer">
+	<div class="MainBox">
+		<div class="LeftBox">
+			<div class="showerrBox">
+				<ul class="incont">
+					<ol class="cont">
+						<div class="showerrMsg">
+							<div class="MsgBox">$showerrMsg</div>
+						</div>
+					</ol>
+					<li class="butter">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+if(document.referrer==''&&window.self==window.top){
+	document.write('<span onclick="window.self.close();">关闭本网页</span> <span onclick="top.location.href=\'$webdb[www_url]/\';">返回首页</span>');
+}else{
+	var num=0;
+	document.write('<span onclick="history.back(-1);if(num>0)top.location.href=\'$FROMURL\';num++;">点击返回</span>');
+}
+//-->
+</SCRIPT>
+					</li>
+				</ul>
+			</div> 
+		</div>
+		<div class="RightBox">
+<!--
+EOT;
+if(!$lfjid){
+print <<<EOT
+-->
+			<div class="UserBox">
+				<div class="h">登录通行证</div>
+            	<form name="form1" method="post" action="$webdb[www_url]/do/login.php">
+					<ul class="logins">
+						<li class="name"><input type="text" name="username" placeholder="请输入帐号"/></li>
+						<li class="pass"><input type="password" name="password" placeholder="请输入密码"/></li>
+						<li class="word"><a href="$webdb[www_url]/do/sendpwd.php">忘记密码？</a></li>
+<!--
+EOT;
+if($webdb[yzImgLogin]){
+print <<<EOT
+-->
+						<li class="yzimg">
+							<div>
+								<span><input type="text" name="yzimg" placeholder="请输入验证码"/></span>
+								<em><img id="imageField" onclick="$(this).attr('src','$webdb[www_url]/do/yzimg.php?'+Math.random());" src="$webdb[www_url]/do/yzimg.php"/></em>
+							</div>
+						</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					</ul>
+					<div class="submit"><input type="submit" value="登录"/></div>
+					<div class="mores">还没有通行证?<a href="$webdb[www_url]/do/reg.php">立即注册</a></div>
+					<input type="hidden" name="step" value="2"/>
+					<input class="radio" type="hidden" name="cookietime" value="86400"/>
+            	</form>
+			</div>
+<!--
+EOT;
+}else{
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d H:i",$lfjdb[regdate]);
+$lfjdb[money]=get_money($lfjdb[uid]);
+print <<<EOT
+-->
+			<div class="UserBox">
+				<div class="h">我的资料</div>
+				<div class="icon">
+					<a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid" target="_blank" class="img"><span><img src="$lfjdb[icon]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></span></a>
+					<a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid" target="_blank" class="t">$lfjid</a>
+				</div>
+				<div class="text">
+					<div>级别: <span>{$ltitle[$lfjdb[groupid]]}</span></div>
+					<div>{$webdb[MoneyName]}: <img src="$webdb[www_url]/images/default/money.gif"> <em>$lfjdb[money]</em> {$webdb[MoneyDW]}</div>
+					<div>注册日期: $lfjdb[regdate]</div>
+				</div>
+			</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+		</div>
+	</div>
+</div>
+<div class="FootContainer">
+	$webdb[copyright]<br/>
+    Copyright@{$webdb[www_url]} all rights reserved <a href="http://www.miibeian.gov.cn" target="_blank">{$webdb[miibeian_gov_cn]}</a><br/> 
+	Powered by <a href="$webdb[www_url]" target="_blank">{$webdb[webname]} {$qibosoft_Edition}</a> 
+	Code &copy; 2007-16 <a href="$webdb[www_url]" target="_blank">{$webdb[copyright]}</a>
+</div>
+<script>
+if( window.top == window.self ){
+   $('.TopContainer').show();
+   $('.FootContainer').show();
+   $('.RightBox').show();
+}else{
+   $('.TopContainer').hide();
+   $('.FootContainer').hide();
+   $('.RightBox').hide();
+}
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

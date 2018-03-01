@@ -1,0 +1,79 @@
+div, p, dl, dt, dd,td,span,li{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	border-bottom:#DDD solid 1px;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.LoginCont{
+	width:98%;
+	margin:10px auto;
+}
+.LoginCont dl{
+	position:relative; border:1px solid #ccc; background-color:#fff; padding:2px 0px; border-radius:4px; -webkit-box-shadow:1px 1px 2px #DBDADA inset; -webkit-box-sizing:border-box; display:block; margin-bottom:10px;
+}
+.LoginCont dl dt{
+	width:15px;height:18px; position:absolute; left:12px; top:10px;overflow:hidden; background:url(icon.png) no-repeat; background-size:77px auto; text-indent:50px;
+}
+.LoginCont dl dt.user{
+	background-position:-62px -90px; 
+}
+.LoginCont dl dt.pass{
+	background-position:-62px -108px;
+}
+.LoginCont dl dt.yzcode{
+	display:none;
+}
+.LoginCont dl dd{
+	padding-left:35px;
+}
+.LoginCont dl dd input{
+	display:block; border:0 none; background:none; height:34px; outline:none; width:100%; vertical-align:top; -webkit-appearance:none; -webkit-box-sizing:border-box;
+}
+.LoginCont dl dd.yzinput{
+	padding-left:10px;
+	width:100px;
+	position:relative;
+}
+.LoginCont dl dd.yzinput span{
+	display:inline-block;
+	position:absolute;
+	width:80px;
+	top:5px;
+	right:-80px;
+}
+.LoginCont dl dd.yzinput span img{
+	width:70px;
+}
+.comn-submit:visited{ 
+	color:#fff;
+}
+.LoginCont .sub {
+	text-align:center;
+}
+.LoginCont .sub{padding:6px 15px; line-height:25px; background-color:#f40; border-radius:3px; box-shadow:#ddd 0 1px 1px;}
+.LoginCont .sub:hover{background-color:#f22d00;}
+.LoginCont .sub .comn-submit {display:inline-block; width:100%; text-align:center; color:#fff; background:none; border:none; border-radius:3px;}
+.LoginCont .txt{
+	padding:15px 0 15px 0;
+	color:#666;
+}
+.LoginCont .more{
+	border-top:#DDD solid 1px;
+	padding:15px 0 15px 0;
+	color:#666;
+}
+.wxlogin a{
+	display:block;
+	background:#11AB38;
+	text-align:center;
+	line-height:40px;
+	border-radius:3px;
+	color:#FFF;
+}

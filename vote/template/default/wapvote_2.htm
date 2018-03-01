@@ -1,0 +1,62 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/vote/images/wap/vote.css">
+<div class="mainbody">
+	<div class="about">$about</div>
+    <div class="time">开始：{$begintime} / 结束：{$endtime}</div>
+    <form name="formv" method="post" action="$Murl/vote.php?action=vote&cid=$cid"> 
+<!--
+EOT;
+$tmpCount=0;
+foreach($listdb AS $key=>$rs){
+$rs[img]=tempdir($rs[img]);
+$rs[titles]=get_word($rs[title],10);
+if($tmpCount==0){
+print <<<EOT
+-->
+          <ul class="Pkvote">
+<!--
+EOT;
+}$tmpCount++;print <<<EOT
+-->
+            <li class="Td2">
+            	<div class="PkVote">
+                	<h3><a href="$url" target="_blank" title="$rs[title]">{$rs[titles]}</a></h3>
+            		<div class="img"><a href="$url" target="_blank"><img src="$rs[img]"/></a></div>
+                    <div class="title">共{$rs[votenum]}票</div>
+					<div class="Vote"><input type="button" class="submit" value="投一票" onClick="window.location.href='?action=vote&voteId=$rs[id]';"/>
+					</div>
+                </div>
+            </li>            
+<!--
+EOT;
+if($tmpCount==2){
+$tmpCount=0;print <<<EOT
+-->
+			<div style="clear:both;"></div>
+		</ul>
+<!--
+EOT;
+}}if($tmpCount && $tmpCount<2){
+for($i=$tmpCount;$i<2;$i++){print <<<EOT
+-->
+			<li class="Td2">&nbsp;</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<div style="clear:both;"></div>
+		</ul>
+<!--
+EOT;
+}print <<<EOT
+-->
+    </form>
+</div>
+<div class="FootSpac"></div>
+<!--
+EOT;
+?>
+-->

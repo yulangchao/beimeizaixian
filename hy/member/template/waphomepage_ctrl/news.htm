@@ -1,0 +1,49 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+
+<div class="ListContainer">
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <div class='Listcont'>
+              <div class='cont'>
+                      <div class='title'><a href="$Mdomain/homepage.php?uid=$uid&m=newsview&id=$rs[id]" target="_blank">$rs[title]</a></div>
+                      <div class='time'>审核：$rs[yz] </div>
+                     <div class='time'> 发布时间：$rs[posttime]</div>
+               </div>
+              <div class='butter'>
+              	<a href="?atn=delnews&id=$rs[id]&uid=$uid" onclick="return confirm('删除后不可恢复，是否继续？');">删除</a>
+		      <a href="?atn=postnews&id=$rs[id]&uid=$uid&listnum=$listnum" >编辑</a>
+              </div>
+          </div>
+
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+<div class="FormContainer">
+  <dl>
+      <dt>友情提示</dt>
+      <dd>如发现您发布的新闻长期处于‘<span class="red">审核中</span>’状态，则推荐您查看或修改您的新闻内容，并确定内容是否真实可靠；</dd>
+  </dl>
+</div>
+$showpage
+
+
+</div>
+
+
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,100 @@
+.cross {
+	text-decoration:line-through; color:#666666;
+} 
+.Kern5 {
+	letter-spacing:5px;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+
+.content_text {width:1200px;padding-top:24px;float:left; margin-bottom:20px;}
+.content_text_left {width:278px;float:left;border-top:2px solid #379be9;border-bottom:2px solid #999999; border-left:1px #CCCCCC solid; border-right:1px #CCCCCC solid;}
+.content_text_left_top {
+	width:278px; float:left;
+}
+.showlist_theme {
+	width:278px; height:56px; text-align:center; line-height:58px; font-size:24px; font-weight:bold;
+	background:#f0f0f0; border-top:1px solid #FFFFFF; border-bottom:1px solid #999999;
+}
+.Menu {width:278px; height:auto; float:left; font-size:16px;}
+.Menu dl dt {width:278px; line-height:48px; float:left; border-top:1px solid #FFFFFF; border-bottom:1px solid #CCCCCC; background:#f3f3f3;}
+.show .level_1 {background:url(reduce.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.level_1 {background:url(plus.jpg) no-repeat right center;width:250px; float:left; margin-left:10px; }
+.Menu dl{overflow:hidden;}
+.Menu dl ~ dl dd{display:none;}
+.Menu dl dd {border-bottom:1px solid #CCCCCC; float:left;}
+.Menu dl dd a{width:268px; line-height:30px; float:left; padding-left:10px;}
+.Menu dl dd a:hover {background:#CCCCCC;}
+.content_text_left_footer {width:278px; overflow:hidden;}
+.newslist {text-align:left;font-size:16px; }
+.newslist li {margin:8px 15px 0 15px; line-height:30px; border-bottom:1px dotted #CCCCCC;}
+.newslist li h2 {font-weight:normal;}
+.content_text_right {width:895px; float:left;margin-left:20px;}
+.contnet_text_right_title {
+	width:895px; height:45px; font-size:16px; border-bottom:1px solid #379be9; float:left; line-height:45px;
+}
+.brief_introduction {
+	width:895px; height:430px; float:left; margin-top:30px;
+}
+.brief_pir {
+	width:490px; height:370px; float:left; 
+}
+.brief_pir_Jpg {width:470px; height:352px; padding:10px;float:left; background:#f0f0f0; text-align:center;}
+.brief_pir_Jpg img{max-width:470px; height:100%;}
+.brief_pir_Jump {
+	width:490px; height:50px; float:left; text-align:center;
+}
+.brief_pir_Jump span {
+	float:left; padding:12px 110px;
+}
+.brief_pir_Jump span a {
+	width:80px; height:26px; float:left; background:#dddddd; border-radius:5px; line-height:26px; margin:0 5px;
+}
+.brief_pir_Jump a:hover {
+	background:#999999;
+}
+.brief_text {
+	width:385px; height:430px; float:left; padding-left:20px;
+}
+.brief_text_top span{
+	width:100%; font-size:16px; font-weight:bold; line-height:30px; float:left;
+}
+.brief_text_top ul {
+	width:100%; font-size:14px; line-height:33px; float:left;
+}
+.brief_text_footer_title  {
+	width:100%; float:left; line-height:40px; font-size:16px; font-weight:bold; border-bottom:1px solid #999999;
+}
+.title_left {
+	float:left;background:url(news.jpg) no-repeat left center;
+}
+.title_left span{
+	float:left; padding-left:35px;
+} 
+.brief_text_footer_title a {
+	float:right;
+}
+.title_time li {
+	width:100%; font-size:14px; line-height:33px; float:left;
+}
+.brief_call {
+	float:left; width:100%; line-height:40px;
+}
+.brief_call .left {
+	background:url(QQ.jpg) no-repeat left center; padding-left:30px;
+}
+.brief_call .right {
+	background:url(wx.jpg) no-repeat left center; padding-left:40px;
+}
+
+.details {width:900px; float:left; text-align:center;}
+.details p {
+	font-size:14px; text-indent:2em; padding-top:20px; padding-bottom:20px; text-align:left; line-height:30px; 
+}
+.pir {
+	margin-bottom:20px;
+}

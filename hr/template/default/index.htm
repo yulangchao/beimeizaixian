@@ -1,0 +1,290 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/index.css">	
+<div class="content_ad" style="width:1200px; overflow:hidden; margin:auto;">$label[hr_adbr]</div>
+<div class="content_text" style="width:1200px; overflow:hidden; margin:auto;">
+    <div class="text_left" style="width:24%; float:left;">
+     <table style="width:100%; border:1px solid #1aa4ed;">
+     	<tr>
+     		<td class="jc_head"><div class="jc">职位分类</div></td>
+     	</tr>
+     	<tr>
+     		<td class="middle">
+<!--
+EOT;
+foreach($Fid_db[0] AS $fkey=>$fvalue){
+$fcolor=$fid==$fkey?' style=\"color:red;\"':'';
+print <<<EOT
+-->
+     			<div class="big"><a href="list.php?fid=$fkey"{$fcolor}>{$fvalue}</a></div>
+     			<div class="small">
+<!--
+EOT;
+foreach($Fid_db[$fkey] AS $key=>$value){
+$color=$fid==$key?' style=\"color:red;\"':'';
+print <<<EOT
+-->
+              <a href="list.php?fid=$key"{$color}>{$value}</a> 
+<!--
+EOT;
+}print <<<EOT
+-->
+     			</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+     
+     			<div class="hj">$label[hr_news3]</div>
+     			<div class="hjc">
+     				$label[hr_nrws4]
+     			</div>
+     		</td>
+     	</tr>
+     </table> 
+     <div class="side_ad">$label[hr_aod1]</div>
+     
+     <table style="width:100%; border:1px solid #dfdfdf;">
+     	<tr> 
+     		<td class="lf_head">$label[hr_news1]</td>
+     	</tr>
+     	<tr> 
+     		<td class="lf_news">
+     			$label[hr_news2]
+     		</td>
+     	</tr>
+     </table>								
+    </div>
+<div class="text_right" style="width:76%; float:left; margin-bottom:75px;">
+	<table class="text_right_top" style="width:100%;">
+		<tr>
+			<td class="top_po" style="width:60%; padding-left:25px; height:240px;">
+				<table style="width:100%;border:1px solid #dfdfdf; height:240px;">
+					<tr> 
+						<td class="rt_head">
+						  <div id="tj" class="tag1" onmouseover="chose_titletype('1')">推荐职位</div>
+						  <div id="tp" class="tag2" onmouseover="chose_titletype('2')">推荐人才</div>
+						</td>
+					</tr>
+					<tr> 
+					<td class="cb"> 
+<div id="show_job">			
+<!--
+EOT;
+$array = list_hr_job('com',5,true);
+foreach($array AS $rs){print <<<EOT
+--->
+	<div class="lt"> 
+		<span class="t1"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a></span>
+		<span class="t2">$rs[workplace]</span> 
+		<span class="t3"><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a></span>														
+	</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+<div id="show_member" style="display:none;">			
+<!--
+EOT;
+$array = list_hr_member('com',5);
+foreach($array AS $rs){print <<<EOT
+--->
+	<div class="lt"> 
+	  <span class="t1"><a href="joinshow.php?id=$rs[id]" target="_blank">$rs[truename]</a></span> 
+	  <span class="t5">$rs[alma_mater]</span>
+	  <span class="t2">$rs[school_age]</span> 
+	  <span class="t4">$rs[speciality]</span>
+	</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>									
+					</td>
+					</tr>
+				</table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function chose_titletype(a){
+	if(a=='1'){
+		document.getElementById("tj").className='tag1';
+		document.getElementById("tp").className='tag2';
+		document.getElementById("show_job").style.display='';
+		document.getElementById("show_member").style.display='none';
+	}else if(a=='2'){
+		document.getElementById("tj").className='tag3';
+		document.getElementById("tp").className='tag4';
+		document.getElementById("show_job").style.display='none';
+		document.getElementById("show_member").style.display='';
+	}
+}
+//-->
+</SCRIPT>
+			</td>
+			<td class="top_bo" style="width:40%; padding-left:25px; height:240px;">
+				<table  style="width:100%;border:1px solid #dfdfdf; height:240px;">
+					<tr> 
+						<td class="rt_head">
+							<div id="BB1" class="tag1" onmouseover="chose_Type('1')">企业服务</div>
+                            <div id="BB2" class="tag2" onmouseover="chose_Type('2')">个人服务</div>
+						</td>
+					</tr>
+					<tr> 
+						<td class="cb"> 
+<div id="compayn_form" class="tb_f">
+	<div class="tbf1"><a href="$webdb[_www_url]/member/?main=$Murl/member/post_choose.php" target="_blank">发布职位</a></div>
+	<div class="tbf2"><a href="$webdb[_www_url]/member/?main=$Murl/member/listjob.php?job=list" target="_blank">职位管理</a></div>
+	<div class="tbf3"><a href="$webdb[_www_url]/member/?main=$Murl/member/listapplyer.php?job=list" target="_blank">求职信</a></div>
+	<div class="tbf4"><a href="listperson.php" target="_blank">找人才</a></div>
+</div>
+<div id="member_form" class="tb_f" style="display:none;"> 
+	<div class="tbf2"><a href="$webdb[_www_url]/member/?main=$Murl/member/join.php" target="_blank">更新简历</a></div>
+	<div class="tbf1"><a href="joinshow.php?uid=$lfjuid" target="_blank">查看简历</a></div>
+	<div class="tbf4"><a href="$webdb[_www_url]/member/?main=$Murl/member/applyjob.php?job=list" target="_blank">申请的职位</a></div>
+</div>
+						</td>
+					</tr>
+				</table>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function chose_Type(a){
+	if(a=='1'){
+		document.getElementById("BB1").className='tag1';
+		document.getElementById("BB2").className='tag2';
+		document.getElementById("compayn_form").style.display='';
+		document.getElementById("member_form").style.display='none';
+	}else if(a=='2'){
+		document.getElementById("BB1").className='tag3';
+		document.getElementById("BB2").className='tag4';
+		document.getElementById("compayn_form").style.display='none';
+		document.getElementById("member_form").style.display='';
+	}
+}
+//-->
+</SCRIPT>				
+			</td>
+		</tr>
+	</table>
+	<table class="search_job" style="width:97%; height:66px; margin-left:25px;">
+		<tr> 
+			<td>
+				<form class="form1" name="form1" method="post" action="search.php?action=search" target="_blank">
+					<div class="title">搜索人才/职位</div>
+					<div class="type">找工作： 
+						<input type="radio" name="mid" value="1" checked>
+						找人才： 
+						<input type="radio" name="mid" value="2">
+					</div>
+					<div class="mian_submit_box"> 
+						<input type="text" name="keyword" id="s_input" class="mian_input_box" placeholder="输入关键字">
+						<input type="submit" name="Submit" value="搜索" class="mian_button_box">
+					</div>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<table class="dragcity" style="width:97%; height:340px; margin:0 0 25px 25px; border:1px solid #dfdfdf;">
+		<tr> 
+			<td class="dr_head"> 地区招聘 </td>
+		</tr>
+		<tr> 
+			<td> 
+				<table style="width:100%;" class="ad_pir">
+					<tr>
+						<td>$label[hr_ad_1]</td>
+						<td align="center">$label[hr_ad_4]</td>
+					</tr>
+					<tr>
+						<td>$label[hr_ad_7]</td>
+						<td align="center">$label[hr_ad_2]</td>
+					</tr>
+					<tr>
+						<td>$label[hr_ad_5]</td>
+						<td align="center">$label[hr_ad_8]</a></td>
+					</tr>
+				</table>
+				
+			</td>
+		</tr>
+	</table>
+				
+<table class="drag" style="width:97%; margin-left:25px; border:1px solid #dfdfdf;">
+	<tr> 
+	  <td class="dr_head">最新职位</td>
+	</tr>
+	<tr> 
+	  <td class="text_mar">
+		<table class="newset">
+		  <tr class="pos_head"> 
+			<td>职位名称</td>
+			<td>企业名称</td>
+			<td>地区</td>
+			<td>月薪</td>
+		  </tr>
+<!--
+EOT;
+$array = list_hr_job('new',6,true);
+foreach($array AS $key=>$rs){
+$class=$key%2==0?'aa':'bb';
+print <<<EOT
+--->
+		  <tr class="pos_w"> 
+		    <td class="pos"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank" ><b>$rs[title]</b></a></td>
+		    <td class="company"><a href="$webdb[www_url]/home/?uid=$rs[uid]" target="_blank">$rs[company]</a></td>
+		    <td>$rs[workplace]</td>
+		    <td>$rs[wage]</td>
+		  </tr>
+<!--
+EOT;
+}print <<<EOT
+--->
+		</table>
+	  </td>
+	</tr>
+</table>
+<div class="mian_ad">$label[hr_k2]</div>  
+				<table class="find_box" style="width:97%; margin-left:25px; border:1px solid #dfdfdf;" >
+					<tr> 
+					  <td class="dr_head">最新人才</td>
+					</tr>
+					<tr> 
+					  <td class="text_mar"> 
+						<table class="find_job" id="list_zh">
+						  <tr class="pos_head"> 
+							<td>姓名</td>
+							<td>所学专业</td>
+							<td>工作年限</td>
+							<td>性别</td>
+							<td>月薪要求</td>
+						  </tr>
+<!--
+EOT;
+$array = list_hr_member('new',6);
+foreach($array AS $key=>$rs){
+$class=$key%2==0?'aa':'bb';
+print <<<EOT
+--->
+						  <tr> 
+							<td class="p_name"><a href="joinshow.php?id=$rs[id]" target="_blank">$rs[truename]</a></td>
+							<td>$rs[speciality]</td>
+							<td>$rs[workyear]</td>
+							<td>$rs[sex]</td>
+							<td>$rs[wage]</td>
+						  </tr>
+<!--
+EOT;
+}print <<<EOT
+--->
+						</table>
+					  </td>
+					</tr>
+				</table>				  				
+</div>			
+</div>
+<!--
+EOT;
+?>
+-->

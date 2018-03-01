@@ -1,0 +1,65 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/images/style6.0/reg/login.css">
+<div class="Logincontainer">
+	<div class="Mhead"><span class="tag">会员登录</span></div>
+	<dl class="LoginCont">
+		<dt class="FormCont">
+			<div class="h">已是会员，请登录</div>
+			<form name="form1" method="post" action="?f">
+            	<div class="input">
+                	<div class="t">帐号</div>
+                    <div class="i"><input type="text" name="username" /></div>
+                    <div class="m"><a href="reg.php">注册新帐号</a></div>
+                </div>
+                <div class="input">
+                	<div class="t">密码</div>
+                    <div class="i"><input type="password" name="password" /></div>
+                    <div class="m"><a href="$webdb[www_url]/do/sendpwd.php">找回密码</a></div>
+                </div>
+<!--
+EOT;
+if($webdb[yzImgLogin]){
+print <<<EOT
+-->
+				<div class="input">
+                	<div class="t">验证码</div>
+                    <div class="i"><input type="text" name="yzimg"></div>
+                    <div class="m"><SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<img border="0" name="imageField" onclick="this.src=this.src+Math.random();" src="$webdb[www_url]/do/yzimg.php?'+Math.random()+'">');
+//-->
+</SCRIPT></div>
+                </div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+                <div class="submit">
+                	<input type="submit" value="立即登录" />
+                    <input type="hidden" name="step" value="2"/>
+                    <input type="hidden" name="fromurl" value="$FROMURL"/>
+                    <input type="hidden" name="cookietime" value="86400"/>
+                </div>
+            </form>
+		</dt>
+		<dd class="NoLogin">
+			<div class="h">没有帐号？马上注册</div>
+			<p>现在免费注册成为地方门户网站用户，便能立刻享受强大的会员功能和各种网站服务</p>
+			<div class="reg"><a href="reg.php">马上注册</a></div>
+<!--
+EOT;
+$showurl = "$webdb[www_url]/do/wx_reg.php";
+$showurl = urlencode($showurl);print <<<EOT
+-->
+			<div class="wx_reg"><img src="$webdb[www_url]/do/2codeimg.php?url=$showurl"/></div>
+		</dd>
+	</dl>
+</div>
+<!--
+EOT;
+?>
+-->

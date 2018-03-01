@@ -1,0 +1,36 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<script>
+$('head title').html('$webdb[Info_webname]');
+$('header .web').html('$webdb[Info_webname]');
+</script>
+<div class="FormContainer">
+<form name="FORM" method="post" action="?action=$atc" enctype="multipart/form-data">
+<!--{template}-->
+	<dl>
+		<dt>{title}</dt>
+		<dd>{value}</dd>
+	</dl>
+<!--{/template}-->
+    <div class="butter">
+	    <input type="submit" name="Submit" class="submits" name="Submit" value="Ìב ½»">
+	    <input type="hidden" name="fid" value="$fid">
+	    <input type="hidden" name="id" value="$id">
+	    <input type="hidden" name="postdb[lifeplace]" value="{$city_DB[name][$city_id]}">
+    </div>
+</form>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

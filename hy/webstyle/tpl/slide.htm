@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh_CN">
+<!--<?php
+print <<<EOT
+-->
+<head>
+<meta charset="gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=no;" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black"  />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>设置幻灯片</title>
+<link rel="stylesheet" type="text/css" href="$WebStyleurl/css/style.css">
+<script type="text/javascript" src="$WebStyleurl/images/jquery.min.js"></script>
+</head>
+<body>
+<div class="slideHeight">
+	幻灯片高度：<input name="slideHeight" value="$styleword[slideHeight]" onBlur="editonlyone(\$(this).val(),'slideHeight')"/> px
+	<em onClick="AddSlides()">添加图片</em>
+	<span onClick="ResetSlides()" style="display:none;">恢复默认</span>
+</div>
+<div class="ListSlides">
+<!--
+EOT;
+foreach($styleword[slide]  AS $key=>$rs){
+$picurl=tempdir($rs[img]);
+print <<<EOT
+-->
+<div class="Lists Lists$key">
+	<input class="slidenum" type="hidden" value="$key"/>
+	<div class="img"><img class="showimg$key" src='$picurl'/></div>
+	<div class="word"><em>图片：</em><input name="picurl" class="picurl$key" type="text" value="$rs[img]" onBlur="editslide(\$(this).val(),$key,'img')"/> <span onClick="upSlidePic($key)">上传图片</span></div>
+	<div class="word"><em>链接：</em><input name="link" class="link$key" type="text" value="$rs[url]" onBlur="editslide(\$(this).val(),$key,'url')"/> <span onClick="SelectShop($key)">选择商品</span></div>
+	<div class="word"><em>名称：</em><input name="title" class="title$key" type="text" value="$rs[title]" onBlur="edittitle(\$(this).val(),$key,'title')"/></div>
+	<div class="del"><span onClick="DelSlide($key)">删除</span></div>
+</div>
+<!--
+EOT;
+}
+if($styleword[hideslide]){
+	$is_hides[1]="checked";
+}else{
+	$is_hides[0]="checked";
+}
+print <<<EOT
+-->
+</div>
+<div class="hide_style">显示状态：<input name="is_hide" type="radio" $is_hides[0] value="0" onClick="editonlyone(\$(this).val(),'hideslide')"/>显示 <input name="is_hide" type="radio" $is_hides[1] value="1" onClick="editonlyone(\$(this).val(),'hideslide')"/>隐藏</div>
+<div class="backContBox" onClick="HiddenMoreAciton()"></div>
+<div class="upflieBox"><div>上传图片</div><input type="hidden" id="uppic_url"/><iframe frameborder=0  scrolling=no src='$webdb[www_url]/do/upfile.php?fn=upfile&dir=wapstyle/$uid&label=uppic_url'></iframe></div>
+<div class="SetContentBox">
+	<input name="nums" type="hidden"/>
+	<div class="head">选择商品链接</div>
+	<div class="ListMyShop"></div>
+</div>
+<div class="ShowStyle"><a href="$WebStyleurl/?uid=$uid&action=setstyle">返回看效果</a></div>
+<script type="text/javascript">
+function editonlyone(vals,tag){
+	$.get("setslide.php?type=$type&stylename=$stylename&&uid=$uid&job=editonlyone&vals="+vals+"&tag="+tag+"&"+Math.random());
+}
+
+function editslide(vals,num,types){
+	vals=encodeURIComponent(vals); //对url进行编码
+	$.ajax({
+	   type: "POST",
+	   url: "setslide.php",
+	   data: "type=$type&stylename=$stylename&uid=$uid&tag=$tag&job=editslide&vals="+vals+"&num="+num+"&types="+types,
+	   success: function(msg){
+	   	  if(types=='img'){
+		  	$('.showimg'+num).attr("src",msg);
+		  }		 
+	   }
+	});
+}
+function edittitle(vals,num,types){
+	$.get("setslide.php?type=$type&stylename=$stylename&uid=$uid&tag=$tag&job=editslide&vals="+vals+"&num="+num+"&types="+types+"&"+Math.random());
+}
+function AddSlides(){
+	var listpicnum=$(".ListSlides").children().length;
+	if(listpicnum>=8){
+		alert("幻灯片最多不能超过8张！");
+	}else{
+		var maxnum=0;
+		$('.ListSlides .Lists .slidenum').each(function(){
+			var thisnum=$(this).val();
+			if(maxnum<thisnum){
+				maxnum=thisnum;
+			}
+		});
+		maxnum++;
+		var slidehtml='<div class="Lists Lists'+maxnum+'"><input class="slidenum" type="hidden" value="'+maxnum+'"/><div class="img"><img class="showimg'+maxnum+'" src="$webdb[www_url]/images/default/noimg.jpg"/></div><div class="word"><em>图片：</em><input name="picurl" class="picurl'+maxnum+'" type="text" value="" onBlur="editslide(\$(this).val(),'+maxnum+',\'img\')"/> <span onClick="upSlidePic('+maxnum+')">上传图片</span></div><div class="word"><em>链接：</em><input name="link" class="link'+maxnum+'" type="text" value="" onBlur="editslide(\$(this).val(),'+maxnum+',\'url\')"/> <span onClick="SelectShop('+maxnum+')">选择商品</span></div><div class="word"><em>名称：</em><input name="title" class="title'+maxnum+'" type="text" onBlur="edittitle(\$(this).val(),'+maxnum+',\'title\')"/></div><div class="del"><span onClick="DelSlide('+maxnum+')">删除</span></div></div>';
+		$(".ListSlides").append(slidehtml);
+	}
+}
+function DelSlide(num){
+	var listpicnum=$(".ListSlides").children().length;
+	if(listpicnum<4){
+		alert("幻灯片至少保持3张！");
+	}else{
+		$.get("setslide.php?type=$type&stylename=$stylename&tag=$tag&uid=$uid&job=delslides&num="+num+"&"+Math.random(),function(d){
+			$(".ListSlides .Lists"+num).remove();
+		});
+	}
+}
+function SelectShop(num){
+	$(".SetContentBox input").val(num);
+	$('.backContBox').show();
+	$('.SetContentBox').show();
+	$('.backContBox').stop().animate({'opacity':0.7},200,function(){
+		$('.SetContentBox').stop().animate({'left':0},200);
+	});
+	Show_My_Shops(1,num);
+}
+function Show_My_Shops(page,num){
+	$.get("setslide.php?job=listmyshop&uid=$uid&page="+page+"&num="+num+"&"+Math.random(),function(d){
+		$('.SetContentBox .ListMyShop').html(d);
+	});
+}
+function selectshopslide(img,url,title,num){
+	editslide(img,num,'img');
+	editslide(url,num,'url');
+	edittitle(title,num,'title');
+	$('.picurl'+num).val(img);
+	$('.link'+num).val(url);
+	$('.title'+num).val(title);
+	HiddenMoreAciton();
+}
+function upSlidePic(num){
+	$(".upflieBox input").attr('name',num);
+	$(".upflieBox iframe").attr('src','$webdb[www_url]/do/upfile.php?fn=upfile&dir=webstyle/$uid&label=uppic_url&'+Math.random());
+	$('.backContBox').show();
+	$('.upflieBox').show();
+	$('.backContBox').stop().animate({'opacity':0.7},200,function(){
+		$('.upflieBox').stop().animate({'opacity':1},200);
+	});
+}
+function HiddenMoreAciton(){
+	$('.SetContentBox').stop().animate({'left':'-20%'},200);
+	$('.backContBox').stop().animate({'opacity':0},200,function(){
+		$('.backContBox').hide();
+		$('.SetContentBox').hide();
+		$('.upflieBox').hide();
+	});
+}
+function upfile(url,name,size,ty){
+	document.getElementById(ty).value=url;
+	var thisnum=$(".upflieBox input").attr('name');
+	$('.picurl'+thisnum).val(url);
+	editslide(url,thisnum,'img');
+	HiddenMoreAciton();
+}
+</script>
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

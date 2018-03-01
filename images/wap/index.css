@@ -1,0 +1,621 @@
+.s-skin{background:#fff; margin-top:15px;}
+.s-skin2{margin:15px 10px 0 10px; padding-bottom:20px; background:#fff; border-radius:8px;}
+
+/* flash */
+.m-flash{background:#fff;}
+.focusPic{max-width:640px; max-height:344px; min-height:160px; position:relative; overflow:hidden;}
+.focusPic .views li{float:left;text-align:center;}
+.focusPic .views img{max-height:344px; max-width:100%; margin:auto;}
+.focusPic .tabs{position:absolute;bottom:0.5rem;left:0;width:100%;height:10px;text-align:center;line-height:10px}
+.focusPic .tabs li{display:inline-block; width:8px; height:8px; background:#a9a9a9; border-radius:10px; text-indent:-66px; overflow:hidden;margin-left:3px}
+.focusPic .tabs li.on{background:#ff7200}
+/* m-nav */
+.m-nav{overflow:hidden;}
+.m-nav ul{overflow:hidden; padding:5px 0;}
+.m-nav ul li{float:left; width:25%; padding:10px 0;}
+.m-nav ul li span{display:block; text-align:center; font-size:16px; color:#666;}
+.m-nav ul li span:first-child{height:60px; line-height:60px;}
+.m-nav ul li span:last-child{height:30px; line-height:30px; letter-spacing:3px;}
+.showlistmore{width:90%; height:35px; line-height:35px; margin:10px auto; border:1px solid #dfdfdf; border-radius:6px; text-align:center; cursor:pointer;}
+/* Lbanner */
+.Lbanner {
+	width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+	margin:20px 0px;
+	}
+.Lbanner img{
+	width:auto;
+	max-width:100%;
+}
+/* Lheader */
+.Lheader{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+	background:#fff;
+	padding:0 20px;
+	
+	}
+.headerbox{
+	width:100%;
+	height:60px;
+	line-height:60px;
+	overflow:hidden;
+	border-bottom:#ccc solid 1px;
+	}
+	
+.Lheader .headerbox{
+	background:url(like_bj.png) no-repeat center;
+	}
+	
+.Lheader .tiright{
+	float:left;	
+	}
+.Lheader .tileft{
+	float:right;
+	padding-right:26px;
+	background:url(more.png) no-repeat center right;
+	}
+	
+.Lnav{
+	width:100%;
+	overflow:hidden;
+	}
+.Lnav li{
+	width:25%;
+	float:left;
+	text-align:center;
+	}	
+.Lnav li a{
+	display:block;
+	height:46px;
+	font: 16px/46px "Microsoft Yahei","Simsun";
+	color:#fff;
+	margin:6px 0;
+	}
+.Lnav li .nav01{background:url(BJ1.png) no-repeat center;}
+.Lnav li .nav02{background:url(BJ2.png) no-repeat center;}
+.Lnav li .nav03{background:url(BJ3.png) no-repeat center;}
+.Lnav li .nav04{background:url(BJ4.png) no-repeat center;}
+.Lnav li .nav05{background:url(BJ5.png) no-repeat center;}
+.Lnav li .nav06{background:url(BJ6.png) no-repeat center;}
+.Lnav li .nav07{background:url(BJ7.png) no-repeat center;}
+/* LikeShow */
+.LikeShow{
+	position: relative;
+    overflow: hidden;
+	}
+.LikeShow .Showbox{
+	width:calc(50% - 15px);
+	overflow:hidden;
+	float:left;
+	background-color:#fff;
+	margin:10px 5px 0 10px;
+	}
+.LikeShow .Showbox:nth-child(2n){margin:10px 10px 0 5px;}
+.LikeShow .Showbox dt{
+	text-align:center;
+	height:41px;
+	line-height:34px;
+	background:url(bj_cp.png) no-repeat center -20px;
+	color:#fff;
+	font-size:14px;
+	}
+.LikeShow .Showbox .pic{display:table; margin:5px 0; width:100%; height:184px;}
+.LikeShow .Showbox .pic a{display:table-cell; width:100%; height:100%; text-align:center; vertical-align:middle;}
+.LikeShow .Showbox a img{max-width:100%; max-height:184px;}
+.LikeShow .Showbox .jg{
+	overflow:hidden;
+	color:#00cc99;
+	padding:0 12px;
+	
+	}
+	
+.LikeShow .Showbox .jg a{
+	position:absolute;
+	right:0px;
+	top:6px;
+	display:block;
+	width:40%;
+	height:36px;
+	line-height:36px;
+	color:#fff;
+	background:#00cc99;
+	text-align:center;
+	border-radius:6px;}
+	
+.LikeShow .Showbox .jg div{
+	border-top:1px solid #00cc99;
+	height:50px;
+	line-height:50px;
+	position:relative;
+	}
+.LikeShow .Showbox .jg em{
+	font-size:12px;
+	font-weight:normal;
+	}
+.LikeShow .Showbox .jg span{
+	display:block;
+	width:1px;
+	height:36px;
+	position:absolute;
+	left:53%;
+	top:6px;
+	background:#00cc99;
+	opacity:0.5;
+	}
+/* serverBanner	 */
+.serverBanner .Sbanner{
+	width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0px;
+	}
+.Sbanner img{
+	width:auto;
+	max-width:100%;
+	}
+.homeServer{
+	position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding: 0 20px;
+	}
+.Snav{
+	max-width:100%;
+	overflow:hidden;
+	}
+.Snav li{
+	width: 33%;
+    float: left;
+	}
+.Snav li a{
+	display: block;
+	max-width:84%;
+    height: 38px;
+    font: 14px/38px "Microsoft Yahei","Simsun";
+    margin: 10px 0;
+	border:1px solid #ccc;
+	overflow:hidden;
+	text-align:center;
+	}
+	
+.Snav li a img{
+	max-width:14%;
+	height:auto;
+	margin-right:4%;
+	}
+
+.Snav li .ck{
+	background:#00cc99;
+	color:#fff;
+	border:none;
+}
+/* ServerShow */
+.ServerShow{
+	position: relative;
+    overflow: hidden;
+    padding: 0 10px;
+	}
+.ServerShow .Sbox{
+	background:#fff;
+	overflow:hidden;
+	position:relative;
+	padding:10px;
+	margin-top:10px;}
+	
+.Sbox dt {
+	float:left;
+	max-width:40%;
+	overflow:hidden;
+	display:table;
+	}
+.Sbox dt a{display:table-cell; width:100%; height:180px; text-align:center; vertical-align:middle;}
+.Sbox dt img{
+	max-width:100%; max-height:100%;
+	}	
+.Sbox .Sright{
+	float:right;
+	max-width:56%;
+	padding-left:4%;
+	font:14px/22px 'Microsoft Yahei','Simsun';
+	overflow:hidden;
+	}
+.Sbox .Sright h3{
+	font-weight:normal;
+	font-size:16px;
+	}
+.Sbox .Sright p{
+	font:13px/20px 'Microsoft Yahei','Simsun';
+	color:#666;
+	}
+.Sbox .Sright .btn{
+	max-width:100%;
+	margin-top:12px;
+	overflow:hidden;
+	}
+.Sbox .Sright .btn a{
+	height:26px;
+	line-height:26px;
+	float:left;
+	display:block;
+	background:#70afef;
+	width:40%;
+	color:#fff;
+	text-align:center;}	
+.Sbox .Sright .btn span{
+	float:right;
+	}
+.Sright .btn span em{color:#fb6f09}
+/*TakeAway*/
+.TakeAway .Tbanner{
+	width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0px;
+	}
+.TakeAway .Tbanner img{
+	width:auto;
+	max-width:100%;
+	}
+	
+.TakeAway .TastFood{
+	position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding: 0 20px;
+	}	
+	
+.TakeAway .TastFood .Fnav{
+	max-width: 100%;
+    overflow: hidden;
+	}
+.TastFood .Fnav li{
+	width:33%;
+	float:left;
+	text-align:center;
+	}
+.TastFood .Fnav li a{
+	display: block;
+    max-width: 90%;
+    height: 30px;
+    font: 14px/30px "Microsoft Yahei","Simsun";
+    margin: 10px 0;
+    border: 1px solid #ccc;
+	border-radius:10px;
+    overflow: hidden;
+    text-align: center;
+	}
+.TastFood .Fnav li ck{
+	color:#ED474A;
+	border:#ED474A solid 1px;	
+	}	
+.Business{
+	position: relative;
+    overflow: hidden;
+    padding: 0 10px;
+	}
+.Business .BusinesShow{
+	background: #fff;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    margin-top: 10px;
+	}
+
+.BusinesShow dt{
+	float: left;
+    width: 40%;
+	height:150px;
+    overflow: hidden;
+	position:relative; display:table;
+	}
+.BusinesShow dt a{float:left;display:table-cell; width:100%; height:118px; text-align:center; vertical-align:middle;}
+.BusinesShow dt a img{max-width:100%; max-height:100%;}
+.BusinesShow dt a span{
+	display:block;
+	width:100%;
+	height:32px;
+	font:14px/32px 'Microsoft Yahei','Simsun';
+	background:#00cc33;
+	color:#fff;
+	text-align:center;
+	position:absolute;
+	left:0;
+	bottom:0;
+	}
+.BusinesShow .ShowRight{
+	float: left;
+    width: 56%;
+    padding-left: 4%;
+    font: 14px/22px 'Microsoft Yahei','Simsun';
+    overflow: hidden;
+	}
+
+.BusinesShow .ShowRight h3{
+	font-size:16px;
+	font-weight:normal;
+	}
+.ShowRight p span{
+	font-size:13px;
+	color:#999;
+	margin-right:4%;}
+
+.BusinesShow .ShowRight .time{
+	padding-left:10%;
+	background:url(wm_sj.png) no-repeat center left;
+	background-size:15px;
+	margin-top:22px;
+	height:22px;
+	line-height:22px;
+	}
+.BusinesShow .ShowRight .didian{
+	padding-left:10%;
+	background:url(wm_dw.png) no-repeat center left;
+	background-size:14px;
+	height:22px;
+	line-height:22px;}
+/*News*/	
+.News{
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding: 0 20px;
+	margin-top:20px;
+	}
+.News .newsInfor{
+	position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding: 0 20px;
+	}
+.News .Nnav{
+	max-width: 100%;
+    overflow: hidden;}	
+.News .Nnav li{
+	float:left;
+	width:25%;
+	text-align:center;}
+.News .Nnav li a{
+	display:block;
+	max-width:100%;
+	height:36px;
+	font:14px/36px 'Microsoft Yahei','Simsun';
+	}
+.NewsConter{
+	position: relative;
+    overflow: hidden;
+    padding: 0 10px;
+	}
+.NewsConter .NewsList{
+	background: #fff;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    margin-top: 10px;
+	}
+.NewsConter .NewsList dt{float:right;display:table; width: 127px; height:95px;}
+.NewsConter .NewsList dt a{display:table-cell; width:100%; height:100%; text-align:center; vertical-align:middle;}
+.NewsConter .NewsList dt img{max-width:100%; max-height:100%;}
+	
+.NewsConter .NewsList dd{
+	float: left;
+    width: calc(100% - 130px);
+    font: 15px/22px 'Microsoft Yahei','Simsun';
+    overflow: hidden;
+	}	
+.NewsConter .NewsList dd div{
+	font-size:13px;
+	height:26px;
+	line-height:26px;
+	margin-top:42px;
+	color:#999;
+	}
+.NewsList dd div span{
+	margin-right:10%;
+	}
+/* Forum */
+
+.Forum{
+	width:100%;
+	position:relative;
+	margin-top:20px;
+	height:56px;
+	line-height:56px;
+	color:#fff;
+	background:#42b1fc;
+	text-align:center;}
+	
+.ForumList{
+	position: relative;
+    overflow: hidden;
+    padding: 0 10px;
+	}	
+.ForumList .Fb{
+	background: #fff;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    margin-top: 10px;}	
+.ForumList .Fb dt{
+	height:46px;
+	line-height:23px;
+	overflow:hidden;}
+	
+.ForumList .Fb dt .jing,.zhiding{
+	float:left;
+	display:block;
+	font-size:14px;
+	color:#fff;
+	line-height:20px;
+	text-align:center;
+	margin-right:2%;}	
+.ForumList .Fb dt .jing{
+	width:18px;
+	height:20px;
+	background:#ff9933;
+	}
+.ForumList .Fb dt .zhiding{
+	width:36px;
+	height:20px;
+	background:#3dcf05;
+	}
+.ForumList .Fb dd {
+	height:36px;
+	line-height:36px;
+	color:#666;
+	font-size:14px;}
+.ForumList .Fb dd span{display:inline-block;}
+.ForumList .Fb dd img{
+	width:36px; height:36px; border-radius:50%;
+	margin-right:1%;
+	}	
+	
+.ForumList .Fb dd .tm{
+	position:absolute;
+	left:20%;
+	}
+.ForumList .Fb dd .pinlun,.zhang{
+	float:right;
+	padding-left:5%;
+	
+	}
+.ForumList .Fb dd .zhang{
+	background:url(new_zhang.png) no-repeat left center;
+	margin-left:2%;
+	background-size:14px;
+	}
+.ForumList .Fb dd .pinlun{
+	background:url(new_pl.png) no-repeat center left;
+	background-size:14px;
+
+	}
+.ForumList .Fb dd .pinlun em,.zhang em{
+	color:#42b1fc}
+
+/* m-News cancel */
+.m-News{overflow:hidden;}
+.m-News h2{height:25px; line-height:28px; padding:10px 10px 10px 40px; font-size:18px; color:#666; font-weight:400; background:url('news.png') 10px center no-repeat; border-bottom:1px solid #f4f4f4; box-shadow:1px 1px 2px #fbfbfb;}
+.m-News dl dd{padding-top:5px;}
+/* HotCont NewsCont together */
+.Listall dl{overflow:hidden; padding:10px 0; margin:0 10px; border-bottom:1px solid #e5e5e5;}
+.Listall dl dt{width:100px; height:80px; line-height:80px; overflow:hidden; text-align:center;}
+.Listall dl dt img{max-width:100%; max-height:100%;}
+.Listall dl dd{width:calc(100% - 105px);}
+.Listall dl dd h3{height:40px; line-height:20px; font-size:15px; color:#666; font-weight:400; overflow:hidden;}
+.Listall dl dd p{overflow:hidden; padding-top:15px;}
+.Listall dl dd p span{height:20px; line-height:20px; font-size:12px; color:#999;}
+/* m-Hot */
+.HotCont .hotNav{padding-top:10px; height:32px;}
+/* hotNav modleNav together */
+.ListAllNav{border-bottom:1px solid #f4f4f4; box-shadow:1px 1px 2px #fbfbfb;}
+.ListAllNav ul{overflow:hidden;}
+.ListAllNav ul li{float:left; width:25%; text-align:center;}
+.ListAllNav ul li a{display:inline-block; height:25px; line-height:25px; font-size:15px; color:#666; padding:0 5px 5px 5px;}
+.ListAllNav ul li a.active{border-bottom:2px solid #3399ff;}
+/* HotCont */
+.HotCont dl dt{height:90px; line-height:90px;}
+.HotCont dl dd p{padding-top:3px;}
+.HotCont dl dd p.ListPrice span{color:#e6003c; padding-right:10px; font-weight:600; font-size:17px;}
+.HotCont dl dd p.ListPrice strike{color:#ccc; font-size:.8rem;}
+/* banner */
+.banner{max-width:640px; overflow:hidden; box-shadow:1px 1px 2px #e4e4e4;}
+.banner img{max-width:100%; max-height:186px;}
+/* m-modleCont */
+.m-modleCont{margin:15px 10px 0 10px;}
+.modleCont .modleNav{padding-top:10px; border-radius:8px 8px 0 0; background:#fff;}
+.modleNav ul{border-bottom: 1px solid #f4f4f4; box-shadow:0px 3px 2px #e4e4e4;}
+.modleCont .allCont{background:#f3f3f3; padding-top:10px; overflow:hidden;}
+.allCont ul{overflow:hidden;}
+.allCont ul li{float:left; width: calc(50% - 5px); margin-bottom:10px;}
+.allCont ul li:nth-child(2n-1){margin-right:10px;}
+.allCont ul li .List{ background:#fff;}
+.List .ListPic{max-width:305px; max-height:190px; min-height:100px; text-align:center; line-height:100px;}
+.List .ListPic img{max-width:100%; max-height:190px;}
+.List h3{height:40px; line-height:20px; margin:5px 6px; font-size:.9rem; font-weight:400; overflow:hidden; }
+.List .ListPrice{height:25px; font-size:14px; padding:0 6px; overflow:hidden;}
+.ListPrice span{height:25px; line-height:25px; color:#ff6600; padding-right:8px; font-weight:600; font-size:17px;}
+.ListPrice strike{height:25px; line-height:25px; color:#999;}
+.List .ListOther{height:20px; line-height:20px; padding:10px 0 5px 0; overflow:hidden;}
+.ListOther span{float:left; width:calc(40% - 5px); color:#999; font-size:.7rem;}
+.ListOther span:first-child{padding-left:5px; text-align:left;}
+.ListOther span:last-child{padding-right:5px; text-align:right;}
+.ListOther span:nth-child(2){width:20%; text-align:center;}
+/* m-ListNav */
+.m-ListNav{margin:5px 10px 0 10px;}
+.m-ListNav .ListNav{overflow:hidden;}
+.ListNav dl{float:left; width:33.3%; text-align:center; padding:10px 0;}
+.ListNav dl dt{width:60%; max-height:80px; line-height:80px; margin:0 auto;}
+.ListNav dl dt img{width:80%; max-width:80px;}
+.ListNav dl dd h3{height:30px; line-height:30px; padding-top:8px; font-size:16px; color:#666;}
+.ListNav dl dd:last-child{height:20px; line-height:20px; color:#999; overflow:hidden;}
+.ListNav dl dd span{color:#999; font-size:.7rem;}
+
+@media(min-width:640px){
+	.Listall dl dt{width:140px; height:100px; line-height:100px;}
+	.Listall dl dd{width:calc(100% - 160px);}
+	.ListAllNav ul li a{font-size:18px;}
+	.Listall dl dd h3{height:30px; line-height:35px; font-size:15px;}
+	.Listall dl dd p{padding-top:40px}
+	.Listall dl dd p span{font-size:.9rem;}
+	.HotCont dl dd p{padding-top:10px;}
+	.List h3{font-size:1rem;}
+	.List .ListPrice{font-size:.9rem;}
+	.ListOther span{font-size:.8rem;}
+	.ListNav dl dd span{font-size:.9rem;}
+	.Sbox .Sright h3{  
+		font-size: 18px;
+	}
+	
+	.Sbox .Sright p{
+		font: 14px/30px 'Microsoft Yahei','Simsun';
+		}
+		
+	.Sbox .Sright .btn{
+		margin-top: 60px;
+		line-height: 36px;
+    }
+	
+	.Sbox .Sright .btn a{
+		height: 36px;
+   	    line-height: 36px;
+	}
+	.ShowRight p {
+		height:42px;
+		line-height:42px;}
+	.BusinesShow .ShowRight .time{
+		margin-top: 46px;}
+}
+@media only screen and (max-width:420px) {
+	.LikeShow .Showbox .pic{height:100px;}
+	.LikeShow .Showbox a img{max-height:100px;}
+	.Sbox dt a{height:84px;}
+	.BusinesShow dt{height:115px;}
+	.BusinesShow dt a{height:83px;}
+	.LikeShow .Showbox .jg div{
+		font-size:14px;}
+	.LikeShow .Showbox .jg span{
+		left: 55%;}
+	.Sbox .Sright p{
+		overflow:hidden;
+		width:100%;
+		height:24px;
+		font: 12px/24px 'Microsoft Yahei','Simsun';}
+	.BusinesShow .ShowRight p{
+		width:100%;
+		height:16px;
+		font: 12px/16px 'Microsoft Yahei','Simsun';
+		overflow:hidden;}
+	.BusinesShow .ShowRight .time{
+		font: 12px/22px 'Microsoft Yahei','Simsun';}
+	.BusinesShow .ShowRight .didian{
+		font: 12px/22px 'Microsoft Yahei','Simsun';}
+	.NewsConter .NewsList dd div{
+		margin-top: 25px;}
+	.ForumList .Fb dd{
+		font-size: 13px;}
+}

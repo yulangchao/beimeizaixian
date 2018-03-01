@@ -1,0 +1,121 @@
+<?php
+require(ROOT_PATH."inc/waphead.php");
+?>
+<!--
+<?php
+$listsorts="";
+foreach($Fid_db[0] AS $key=>$name){
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/$key.gif"))?"./images/wap/$key.gif":"./images/wap/0.gif");
+$listsorts.="<li><a href=\"waplist.php?fid=$key\"><em><img src=\"$logo\"/></em><span>$name</span></a></li>\r\n";
+}
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="images/wap/wapindex.css"/><!-- //中间 -->
+<!-- nav -->
+  <section class="s-skin m-nav">
+	<ul>
+<!--
+EOT;
+$i=0;
+foreach($Fid_db[0] AS $key=>$name){
+$i++;
+@extract($db->get_one("SELECT logo FROM {$_pre}sort WHERE fid=$key"));
+$logo=$logo?tempdir($logo):((is_file("./images/wap/ititle$i.png"))?"./images/wap/ititle$i.png":"./images/wap/ititle1.png");
+if($i>6) break;
+print <<<EOT
+-->
+	  <li><a href="waplist.php?fid=$key"><span>$name<img src="$logo"/></span></a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</ul>
+  </section>
+<!-- /nav -->
+<!-- m-modleCont -->
+  <section class="s-skin m-modleCont">
+    <div class="modleCont">
+	  <h2><a href="#"></a></h2>
+	  <div class="allCont">
+	    <ul>
+<!--
+EOT;
+$listPicInfo = Get_Info('hot',4,60,5);
+foreach($listPicInfo AS $key=>$rs){
+$rs[url] = "wapbencandy.php?fid=$rs[fid]&id=$rs[id]";
+print <<<EOT
+-->
+		  <li>
+		    <a href="$rs[url]"><div class="List">
+			  <div class="ListPic"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/><h3>$rs[title]</h3></div>
+			  <div class="ListPrice"><em>$rs[price]</em>元/平米</div>
+			</div></a>
+		  </li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</ul>
+	  </div>
+	</div>
+  </section>
+<!-- /m-modleCont -->
+<!-- m-Hot -->
+  <section class="s-skin m-Hot">
+    <div class="Listall HotCont">
+	  <h2><a href="#"></a></h2>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+	  <a href="$rs[url]"><dl>
+	    <dt class="L"><img src="$rs[picurl]" onerror="src='$webdb[www_url]/images/default/nopic.jpg'"/></dt>
+		<dd class="R">
+		  <h3>$rs[title]</h3>
+		  <p class="ListPrice"><span class="L">户型：<em>{$rs[room_type]}</em></span><span class="R">性质：<em>{$rs[sortid]}</em></span></p>
+		  <p><span class="L">$rs[posttime]</span><span class="L">浏览：<em>$rs[hits]</em>人</span><span class="R">发布者：$rs[username]</span></p>
+		</dd>
+	  </dl></a>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+	</div>
+  </section> 
+  <div class="ShowMoreShop" onclick="showMoreCont();"><span>点击查看更多</span></div>
+<script>
+var page=1;
+var rows=$rows;
+function showMoreCont(){
+	$(".ShowMore").html("内容加载中……");
+	page++;
+	$.get('?job=showmore&page='+page+'&'+Math.random(),function(d){
+		if(d=="nodate"){
+			$(".ShowMoreShop").hide();
+		}else{
+			$(".HotCont").append(d);
+			$(".ShowMoreShop").html("<span>点击查看更多</span>");
+			countlist();
+		}
+	});
+
+}
+function countlist(){
+	if($(".HotCont dl").length%rows!=0){
+		$(".ShowMoreShop").hide();
+	}
+}
+countlist();
+</script>
+<!--
+EOT;
+?>
+-->
+<?php
+require(Mpath."inc/wapfoot.php");
+?>

@@ -1,0 +1,122 @@
+<!--
+<?php
+if($fidDB[config][ListShowType]!=1&&$fidDB[config][ListShowType]!=3){
+$listdb_pic=Get_Info($type='pic',$webdb[InfolistPicRows]?$webdb[InfolistPicRows]:4,$leng=30,$fid,$mid=0);
+}
+$listdb_pic || $hide_listpic='none';	//不存在图片主题的话.要把图片主题的边框隐藏
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/list.css">
+   
+    <div class="main">
+    	<div class="main_left">
+        	<div class="box_title"><a href="$webdb[_www_url]/member/?main=$Murl/member/post.php?fid=$fid">投稿</a></div>
+            <div class="select_box">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$target=$rs[target]?'_blank':'_self';
+print <<<EOT
+-->
+                <div class="box_neiron"><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="$target" title='$rs[full_title]' style="color:$rs[titlecolor]">$rs[title]</a>
+<!--
+EOT;
+if($webdb[ListShowIcon]&&$rs[picurl]){
+print <<<EOT
+-->
+                  <span class="icon">&nbsp;<img src="$webdb[www_url]/images/default/img_ico.gif"></span> 
+<!--
+EOT;
+}
+if($webdb[ListShowIcon]&&$rs[levels]){
+print <<<EOT
+-->
+                  <span class="icon">&nbsp;<img src="$webdb[www_url]/images/default/good_ico.gif"></span> 
+<!--
+EOT;
+}
+if($webdb[ListShowIcon]&&$rs['list']>$timestamp){
+print <<<EOT
+-->
+                  <span class="icon">&nbsp;<img src="$webdb[www_url]/images/default/top_icon.gif"></span> 
+<!--
+EOT;
+}
+if($webdb[ListShowIcon]&&$webdb[hotArticleNum]&&$rs['hits']>$webdb[hotArticleNum]){
+print <<<EOT
+-->
+                  <span class="icon">&nbsp;<img src="$webdb[www_url]/images/default/hot_icon.gif"></span> 
+<!--
+EOT;
+}
+if($webdb[ListShowIcon]&&$webdb[newArticleTime]&&($timestamp-$rs['full_posttime'])<$webdb[newArticleTime]*3600){
+print <<<EOT
+-->
+                  <span class="icon">&nbsp;<img src="$webdb[www_url]/images/default/new_ico.gif"></span> 
+<!--
+EOT;
+}print <<<EOT
+-->
+				<span>{$rs[posttime]}</span></div>
+<!--
+EOT;
+}print <<<EOT
+-->
+                <div class="page">$showpage</div>
+				<div class="clierfix"></div>
+            </div>
+            <div class="clierfix"></div>
+        </div>
+        
+        <div class="main_right">
+        	<div class="right_box01">
+<!--
+EOT;
+$webdb[InfoListsortnameline]>0 || $webdb[InfoListsortnameline]=1;
+$Listsortnameline=floor(94/$webdb[InfoListsortnameline]).'%';
+$array=$listdb_moresort?$Fid_db[$fid]:$Fid_db[$fidDB[fup]];
+foreach($array AS $key=>$value){
+print <<<EOT
+-->
+            <a href="list.php?fid=$key">$value</a>
+            <!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="right_box02">
+            	<div class="box_title"><span>热门文章</span></div>
+<!--
+EOT;
+$array=Get_Info($type='hot',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:8,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:28,$fid,$mid=0);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a><br>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="right_box02">
+            	<div class="box_title"><span>推荐文章</span></div>
+<!--
+EOT;
+$array=Get_Info($type='level',$webdb[InfoJsListRows]>0?$webdb[InfoJsListRows]:8,$webdb[InfoJsListLeng]>0?$webdb[InfoJsListLeng]:28,$fid,$mid=0);
+foreach($array AS $rs){
+print <<<EOT
+-->
+				<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a><br>
+<!--
+EOT;
+}print <<<EOT
+-->
+            </div>
+            <div class="clierfix"></div>
+        </div>
+         <div class="clierfix"></div>
+    </div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+
+<div class="ListContainer">
+
+<div class="head"><div class="tag">论坛交流</div><a class="more" href="./wappost_choose.php">发布</a></div>
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$titles=get_word($rs[title],50);
+$pages =$rs[pages]>1?$rs[pages]:'';
+print <<<EOT
+-->
+<div class="CommentList Listcont">
+        <div class='cont'>
+            <div class='title'><h2><a href="$Mdomain/wapbencandy.php?fid=$rs[fid]&id=$rs[id]">$titles</a></h2></div>
+            <div class='info'>
+                <div class='UserTime'>
+                        <div class='userL'>{$rs[hits]}次&nbsp;&nbsp;{$rs[comments]}人</div>
+                        <div class='timeR'>$rs[posttime]</div>
+                </div>
+            </div>
+        </div>
+        <div class='butter'>
+            <a class="del_box" href='wappost.php?job=edit&fid=$rs[fid]&id=$rs[id]'>修改</a> <a class="alter_box" href="wappost.php?action=del&fid=$rs[fid]&id=$rs[id]">删除</a>
+        </div>
+</div>
+
+
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+$showpage
+</div>
+<!--
+EOT;
+?>
+-->

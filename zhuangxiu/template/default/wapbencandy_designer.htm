@@ -1,0 +1,73 @@
+<!--
+<?php
+$rsdb[picurl]=str_replace(".gif","",$rsdb[picurl]);
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/wap/company.css">
+<div class="GuideCont">当前位置：<a href="$webdb[_www_url]">首页</a> -> <a href="./">装修</a> $GuideFid[$fid]</div>
+<div class="titles">$rsdb[title]</div>
+<div class="baseinfo">发布时间:<a editurl='$Murl/job.php?job=bencandy&fid=$fid&id=$id&act=do'>{$rsdb[posttime]}</a>　浏览量：{$rsdb[hits]}次  发布者：{$rsdb[username]}</div>
+<dl class="BaseInfo">
+	<dt><span><img src='$rsdb[picurl]' onerror="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></span></dt>
+    <dd>
+		<div>$rsdb[title]</div>
+<!--{template}-->
+		<div>{title}：<span>{value}</span></div>
+<!--{/template}-->
+		<div>关注度：<span><em>{$rsdb[hits]}</em>次</span></div>
+    </dd>
+</dl>
+<ul class="SelectShows">
+	<li>所属公司</li>
+	<li>相关作品</li>
+	<li>自我介绍</li>
+</ul>
+<!--
+EOT;
+$companys=$db->get_one("SELECT A.content,B.title,B.city_id,B.picurl,B.fid,B.id FROM {$_pre}content_5 A LEFT JOIN {$_pre}content B ON A.id=B.id WHERE B.id='$rsdb[company_id]'");
+$companys[picurl]=tempdir($companys[picurl]);
+$companys[content] = En_TruePath($companys[content],0,1);
+$companys[content]=str_replace("onload='if(this.width>600)makesmallpic(this,600,800);'","",$companys[content]);
+$companys[content]=@preg_replace('/<img([^><]*)src="([^"]*)"([^><]*)>/is',"<img src='\\2'/>",$companys[content]);	//把宽度代码过滤掉
+$companys[url]=get_info_url($companys[id],$companys[fid],$companys[city_id]);
+$demos=List_Designer_Demo($rsdb[id],20);
+$list_demo="";
+foreach($demos AS $keys=>$rss){
+	$list_demo .= "<div class='ListDemo'><p><a href='$rss[url]'><img onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\" src='$rss[picurl]'/></a></p><h4><a href='$rss[url]' target='_blank'>$rss[title]</a></h4></div>";
+}
+print <<<EOT
+-->
+<div class="ShowContainer">
+	<div class="ShowConts">
+    	<dl class="BaseInfo">
+        	<dt><a href="$companys[url]"><img src="$companys[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></dt>
+            <dd>
+            	<div><a href="$companys[url]">$companys[title]</a></div>
+                <div>$companys[content]</div>
+            </dd>
+         </dl>
+	</div>
+	<div class="ShowConts">
+    	$list_demo
+	</div>
+	<div class="ShowConts">
+    	<div class="content">$rsdb[content]</div>
+    </div>
+</div> 
+<div class="FootSpac"></div>        
+<script type="text/javascript">
+function SelectShows(i){
+	$('.SelectShows li').removeClass("ck");
+	$('.SelectShows li').eq(i).addClass("ck");	
+	$('.ShowContainer .ShowConts').hide();
+	$('.ShowContainer .ShowConts').eq(i).show();
+}
+$('.SelectShows li').click(function(){
+	SelectShows($(this).index());
+});
+SelectShows(0);
+</script>
+<!--
+EOT;
+?>
+-->

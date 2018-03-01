@@ -1,0 +1,275 @@
+div, p, dl, dt, dd,td,span,li,a{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.focusPic{
+	max-height:600px;
+	min-height:100px;
+	position:relative;
+	overflow:hidden;
+	margin:10px auto;
+	background:#FFF;
+}
+.focusPic .views li{
+	float:left;
+	text-align:center;
+}
+.focusPic .views img{
+	max-height:300px;
+	max-width:100%;
+	margin:auto;
+}
+.focusPic .tabs{
+	position:absolute;
+	bottom:0.5rem;
+	left:0;
+	width:100%;
+	height:10px;
+	text-align:center;
+	line-height:10px
+}
+.focusPic .tabs li{
+	display:inline-block;
+	width:8px;
+	height:8px;
+	background:#a9a9a9;
+	border-radius:10px;
+	text-indent:-66px;
+	overflow:hidden;
+	margin-left:3px
+}
+.focusPic .tabs li.on{
+	background:#ff7200
+}
+.ListSorts{
+	width:100%;
+	display: table;
+	background:#EFEFEF;
+	border-top:#DDD solid 1px;
+	border-left:#DDD solid 1px;
+}
+.ListSorts ul{
+	display: table-cell;
+}
+.ListSorts ul li{
+	width:25%;
+	height:100px;
+	float:left;
+	overflow:hidden;
+	border-top:#FFF solid 1px;
+	border-bottom:#DDD solid 1px;
+}
+.ListSorts ul li a{
+	display:block;
+	border-left:#FFF solid 1px;
+	border-right:#DDD solid 1px;
+	text-align:center;
+	padding-top:15px;
+	height:85px;
+}
+.ListSorts ul li a img{
+	width:45px;
+	height:45px;
+}
+.ListSorts ul li a span{
+	display:block;
+	text-align:center;
+	height:30px;
+	padding-top:5px;
+	line-height:30px;
+	overflow:hidden;
+	color:#333;
+}
+.ListSorts ul li a span:first-child{padding-top:0; width:45px; height:45px; line-height:60px; margin:0 auto; overflow:hidden;}
+.ListSorts ul li a span img{vertical-align:initial;}
+.showmoresorts{
+	width:100%;
+	clear:both;
+	padding:10px;
+	text-align:center;
+}
+.showmoresorts a { 
+	display:inline-block; 
+	padding:6px 15px;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#f40; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+.showmoresorts a:nth-child(2) { 
+	background-color:#3d8de2;
+	display:none;
+}
+.ListMoreSorts{
+	position:absolute;
+	width:1px;
+	right:-1px;
+	top:0;
+	overflow:hidden;
+	z-index:1000000;
+	border-left:#DDD solid 1px;
+	background:#FFF;
+}
+.ListMoreSorts dl dt{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	overflow:hidden;
+	background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+	border-top:#DDD solid 1px;
+}
+.ListMoreSorts dl dt a{
+	display:block;
+	color:#FFF;
+}
+.ListMoreSorts dd div{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	padding-left:10px;
+	border-top:#DDD solid 1px;
+}
+.ListMoreSorts dd div a{
+	display:block;
+	color:#666;
+}
+.FootSpac{
+	width:100%;
+	height:60px;
+	clear:both;	
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.ListNewShop{
+	width:100%;
+	overflow:hidden;
+	margin:auto;
+}
+.ListNewShop h3{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	font-weight:normal;
+	/*color:#FFF;
+	background: -moz-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -webkit-gradient(linear,top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));
+    background: -o-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.9));*/
+	border-top:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+}
+.ListNewShop dl{
+	width:100%;
+	display: table;
+	border-bottom:#DDD solid 1px;
+}
+.ListNewShop dl dt,.ListNewShop dl dd{
+	display:table-cell;
+}
+.ListNewShop dl dt{
+	width:120px;
+	padding:10px;
+	vertical-align:middle;
+	text-align:center;
+}
+.ListNewShop dl dt a{
+	display:block;
+	width:120px;
+	max-height:100px;
+	border-radius:5px;
+	overflow:hidden;
+}
+.ListNewShop dl dt a img{
+	width:100%;
+}
+.ListNewShop dl dd{
+	padding-top:5px;
+}
+.ListNewShop dl dd h4,.ListNewShop dl dd div{
+	height:28px;
+	line-height:28px;
+	overflow:hidden;
+	color:#666;
+}
+.ListNewShop dl dd h4 a{
+	font-weight:normal;
+	color:#369;
+}
+.ListNewShop dl dd div.price span{
+	font-size:22px;
+	color:#F90;
+}
+.ListNewShop dl dd div.price strike{
+	font-size:14px;
+	color:#888;
+	padding-left:10px;
+}
+.ListNewShop dl dd div.more span{
+	display:block;
+	float:left;
+	padding-left:20px;
+	background:url(time.png) 2px 7px no-repeat;
+	font-size:14px;
+}
+.ListNewShop dl dd div.more span.hits{
+	margin-left:10px;
+	background:url(hits.png) 2px 7px no-repeat;
+}
+/*.ListNewShop dl{
+	height:105px;
+	position:relative;
+	padding-top:15px;
+	border-bottom:#DDD solid 1px;
+	overflow:hidden;
+}
+.ListNewShop dl dt{
+	width:120px;
+	border:#DDD solid 1px;
+	position:absolute;
+	padding:1px;
+	top:13px;
+	left:0;
+	overflow:hidden;
+}
+.ListNewShop dl dt a{
+	display:block;
+	width:120px;
+	height:90px;
+	overflow:hidden;
+	background:#FFF;
+}
+.ListNewShop dl dt a img{
+	width:100%;
+}
+.ListNewShop dl dd{
+	padding:0 5px 0 135px;
+	height:90px;
+	overflow:hidden;
+}
+.ListNewShop dl dd h4,.ListNewShop dl dd div{
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	color:#666;
+	fong-size:14px;
+}
+.ListNewShop dl dd h4 a{
+	color:#369;
+}
+.ListNewShop dl dd div span{
+	color:#F30;
+}*/

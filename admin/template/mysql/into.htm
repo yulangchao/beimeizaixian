@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+-->
+<form name="formlist" method="post" action="index.php?lfj=$lfj&action=$job">
+    <div class="MainContainers">
+    <div class="Header"><span class="tag">数据库还原</span><span class="more">&gt;&gt;</span></div>
+        <div class="Conter">
+            <table class="FormTable">
+                <tr> 
+                    <td colspan="2" class='red'>数据库导入,如果数据量大，网速不快的时候，浏览器会造成假死状态，请要耐心等待！！</td>
+                </tr>
+
+                <tr> 
+                    <td class="tdL">请选择要导入的数据库,其中的日期是年月日时分秒：$selectname</td>
+                <!-- <td  class='tdR' ></td> -->
+                </tr>
+                <tr> 
+                    <td colspan='2' class='red'> 
+                   方法二: <br/>你也可以在地址栏目手工输入备份的目录:比如sql文件所在目录的访问地址为  http://qibosoft.com/cache/mysql_bak/2007-03-11.nql/ <br>
+                    此时,请运行  http://qibosoft.com/cache/mysql_bak/2007-03-11.nql/index.php  还原<font color="#FF0000"><b>(强烈推荐)</b></font>
+                    <!-- <div><font color="#FF0000"><b> <font color="#0000FF"></font>  -->
+                    <!-- </font></div> -->
+                    </td>
+                </tr>
+                <tr> 
+                <!--  <td width='51%'> 
+                <div align='right'></div>
+                </td> -->
+                <td> 
+                    <!-- <input class=submits type='submit' name='Submit' value='导入数据'> -->
+                    <!-- <div class="submits"><input type="submit" name="Submit2" value=" 导入数据 " /></div> -->
+                    <div class="submits"><input type='submit' name='w' value='导入数据' /></div>
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </div>
+    </div>
+</form>
+<!--
+EOT;
+?>

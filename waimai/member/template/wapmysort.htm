@@ -1,0 +1,86 @@
+<!--
+<?php
+print <<<EOT
+-->
+<div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT>
+<div class="MainCont">
+	<div class="head"><div class="tag">我的商品分类</div></div>
+
+<!--
+EOT;
+if($job=='edit'){print <<<EOT
+-->
+	 <div class="cont">
+	 	<div class="AddSorts">
+		<form id="form1" name="form1" method="post" action="?action=edit&fid=$fid">
+			<dl>
+				<dt>分类名称：</dt>
+				<dd><input type="text" name="name" value="$rsdb[name]"/></dd>
+			</dl>
+			<dl>
+				<dt>父级分类：</dt>
+				<dd>$select_fup</dd>
+			</dl>
+			<div class="submitBox"><span onclick="$('#form1').submit();">修改分类</span></div>
+		</form>
+		</div>
+    </div>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+	 <div class="cont">
+	 	<div class="AddSorts">
+		<form id="form1" name="form1" method="post" action="?action=add">
+			<dl>
+				<dt>分类名称：</dt>
+				<dd><input type="text" name="name" placeholder="填写分类名称" /></dd>
+			</dl>
+			<dl>
+				<dt>父级分类：</dt>
+				<dd>$select_fup</dd>
+			</dl>
+			<div class="submitBox"><span onclick="$('#form1').submit();">创建分类</span></div>
+		</form>
+		</div>
+    </div>
+    <div class="cont">
+	<form id="form2" name="form1" method="post" action="?action=order">		
+    	<table class="WapTable">
+          <tr>
+            <th>分类名称</th>
+            <th width="50">排序值</th>
+            <th width="80">操作</th>
+          </tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+          <tr>
+            <td class="tL">
+            	$rs[icon]<a href="$webdb[_www_url]/home/?m=shop&uid=$lfjuid&myfid=$rs[fid]">$rs[name]</a>
+            </td>
+            <td><input type="text" name="list_db[{$rs[fid]}]" value="$rs[list]" style="width:40px;" class="wapinput" /> </td>
+            <td><a href="?job=edit&fid=$rs[fid]" class="wapedit">修改</a> <a href="?action=del&fid=$rs[fid]" class="wapdel">删除</a></td>
+          </tr>
+<!--
+EOT;
+}
+
+print <<<EOT
+-->
+        </table>
+        <div class="submitBox"><span onclick="$('#form2').submit();">修改排序</span></div>
+	</form>
+</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+</div>
+<!--
+EOT;
+?>
+-->

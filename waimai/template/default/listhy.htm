@@ -1,0 +1,135 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="$Murl/images/list/list.css">
+<div class="Contbox">
+	<div class="Content">
+		<div class="AD"><a href="#"><img src="$Murl/images/list/AD_img.png" /></a></div>
+		<div class="Snav">
+			<dl style="background:url($Murl/images/list/Snav_bg.png) no-repeat bottom center;">
+				<dt class="Class"><span>分类：</span></dt>
+				<dd>
+<!--
+EOT;
+$array=$Fid_db[$fid]?$Fid_db[$fid]:$Fid_db[0];
+foreach($array AS $fkey=>$fvalue){
+$sortck=$fid==$fkey?"class='ck'":"";
+print <<<EOT
+-->
+					<a href="?fid=$fkey" $sortck>$fvalue</a>
+<!--
+EOT;
+}print <<<EOT
+-->						
+				</dd>
+			</dl>				
+			<dl>
+				<dt class="Add"><span>区域：</span></dt>
+				<dd>
+<!--
+EOT;
+$cityck=$zone_id?"":"class='ck'";
+print <<<EOT
+-->	
+					<A HREF="?fid=$fid&city_id=$city_id" $cityck>{$city_DB[name][$city_id]}</A>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$zoneck=($zone_id==$key)?"class='ck'":"";
+print <<<EOT
+-->
+					<A HREF="?fid=$fid&zone_id=$key" $zoneck>$value</A>
+<!--
+EOT;
+}
+print <<<EOT
+-->					
+				</dd>
+			</dl>
+<!--
+EOT;
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+			<dl style="background:url($Murl/images/list/Snav_bg.png) no-repeat top center;">
+				<dt class="Add"><span>街道：</span></dt>
+				<dd>
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$streetck=($street_id==$key)?"class='ck'":"";
+print <<<EOT
+-->
+            			<A HREF="?fid=$fid&zone_id=$zone_id&street_id=$key" $streetck>$value</A>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</dd>
+			</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+		</div>
+			<!--Snav END-->			
+		<div class="Main">			
+			<div class="head">
+<!--
+EOT;
+$orders||$orders="default";
+$checks="";
+$checks[$orders]="class='ck'";
+print <<<EOT
+-->	
+				<div $checks[default]><a href="?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id">默认</a></div>
+				<div $checks[sellnum]><a href="?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id&orders=sellnum">销量&darr;</a></div>
+				<div $checks[comments]><a href="?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id&orders=comments">好评&darr;</a></div>
+				<div $checks[hits]><a href="?fid=$fid&city_id=$city_id&zone_id=$zone_id&street_id=$street_id&orders=hits">浏览&darr;</a></div>
+			</div>
+			<div class="MainCont">
+				<div class="ContList">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$showurl = urlencode("$Murl/wapshowhy.php?fid=$rs[fid]&id=$rs[id]");
+print <<<EOT
+-->
+						<div class="piclist">
+							<div class="img"><a href="showhy.php?fid=$rs[fid]&id=$rs[id]"><img src="$rs[picurl]" onError="this.src='$webdb[www_url]/images/default/nopic.jpg'"/></a></div>
+							<div class="word">
+								<div class="t"><a href="showhy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a><div>
+										<span style="background:#ff831e;">减</span>
+									</div>
+								</div>
+								<div class="s">
+									<span>起送:&yen;$rs[price] &nbsp; &nbsp; &nbsp;配送:&yen;$rs[sendprice] &nbsp; &nbsp; &nbsp;{$rs[arrive_time]}分钟送达</span>
+								</div>
+								<div class="c">
+									<a href="#">营业中</a>
+									<div class="clock">接单时间：09:00-21:00</div>
+								</div>
+							</div>
+							<div class="scan_code" onclick="window.open('showhy.php?fid=$rs[fid]&id=$rs[id]')">
+								<h3>手机扫码下单</h3>
+								<span><img src="$webdb[www_url]/do/2codeimg.php?url=$showurl"/></span>
+							</div>
+						</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					</div>					
+					<div class="jump">$showpage</div>					
+			</div>	
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

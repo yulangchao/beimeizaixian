@@ -1,0 +1,376 @@
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+.GuideCont a{
+	color:#666;
+}
+.SelectList{	
+	width:100%;
+	position:relative;
+}
+.searchbar{
+	border-top:1px solid #ddd;
+	height:50px;
+	background:#FFF;
+	overflow:hidden;
+}
+.searchbar form{
+	display:block;
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:3px;
+	height:30px;
+	overflow:hidden;
+	margin:10px auto 0 auto;
+	position:relative;
+}
+.searchbar .s_ipt { 
+	width:100%;
+	display:block;
+	height:30px;
+	line-height:30px;
+	border:0;
+}
+.searchbar .s_btn { 
+	display:block; 
+	width:36px; 
+	height:30px;
+	position:absolute;
+	top:0; 
+	right:0;
+	text-indent:-999em; 
+	border:0 none; 
+	border-left:1px solid #ddd; 
+	background:url(search_ico.gif) no-repeat center 9px; 
+	background-size:15px auto; 
+	cursor:pointer; 
+}
+.MemberAct{
+	background:#FFF;
+	text-align:center;
+	padding:5px 0 15px 0;
+}
+.comn-submit { 
+	display:inline-block; 
+	padding:6px 15px;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#f40; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+.comn-submit.reg-submit { 
+	background-color:#3d8de2;
+} 
+.ChangeSele{
+	height:40px;
+	border-top:1px solid #d6d6d6;
+	border-bottom:1px solid #d6d6d6;
+	background-color:#FFF;
+}
+.ChangeSele li{
+	float:left; 
+	width:50%;
+}
+.ChangeSele li a { 
+	overflow:hidden; 
+	display:block; 
+	text-align:center; 
+	height:40px; 
+	line-height:40px; 
+	position:relative; 
+	border-right:1px solid #d6d6d6;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.ChangeSele li:nth-child(even) a { 
+	border-right:0 none;
+}
+.ChangeSele li a em { 
+	border-color:#B3AEA8 transparent transparent transparent; 
+	border-width:5px; 
+	display:inline-block; 
+	margin-left:5px; 
+	position:absolute; 
+	top:19px; 
+	border-style:solid;
+}
+.fullbg { 
+	background-color:#000; 
+	opacity:0; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index:1001; 
+	position:absolute;
+	display:none;
+}
+.navbox { 
+	position:absolute; 
+	top:0;  
+	right:0; 
+	z-index:1002; 
+	width:1px;
+	overflow:hidden;
+	background-color:#eee; 
+	font-family:Arial, Helvetica, sans-serif;
+}
+.navbox:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 80px;
+	clear:both;
+}
+.navbox a{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.navbox dl{
+	border-bottom:1px solid #d6d6d6;
+}
+.navbox dl dt{
+	height:35px;
+	line-height:35px;
+	padding-left:10px;
+	border-bottom:1px solid #FFF;
+	border-top:1px solid #FFF;
+	overflow:hidden;
+	position:relative;
+}
+.navbox dl dt:after{
+	content: '';
+    width: 14px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+	width:0;
+	height:0;
+	border:8px solid transparent;
+	border-left: 8px solid rgba(0,0,0,0.8);
+	border-right:0;
+	cursor:pointer;
+}
+.navbox dl.ck dt:after{
+	border:8px solid transparent;
+	border-top: 8px solid rgba(0,0,0,0.8);
+	border-bottom:0;
+}
+.navbox dl.ck dt a{
+	color:red;
+}
+.navbox dl dd{
+	padding:10px;
+	background:#FFF;
+	border-top:1px solid #d6d6d6;
+	display:none;
+}
+.navbox dl.ck dd{
+	display:block;
+}
+.navbox dl dd div a{
+	display:block;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+}
+.navbox dl dd div a.ck{
+	color:red;
+}
+#navbox_zone dl dd div{
+	width:50%;
+	float:left;
+	overflow:hidden;
+}
+#navbox_zone dl dd:after{
+	content: ''; 
+	display: block;
+    width: 100%;	
+    height: 1px;
+	clear:both;
+}
+.ListCont .List{
+	height:70px;
+	border-bottom:#DDD solid 1px;
+	overflow:hidden;
+}
+.ListCont .List .title{
+	padding-top:10px;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+	padding-left:10px;
+}
+.ListCont .List .title a{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#369;
+}
+.ListCont .List .title span{
+	font-family:Arial, Helvetica, sans-serif;
+	display:inline-block; 
+	font-size:14px;
+	height:20px;
+	line-height:20px;
+	padding:0 5px 0 5px;
+	/*background:green;*/
+	color:green;
+	margin-left:15px;
+}
+.ListCont .List .info,.ListCont .List .time{
+	display:block;
+	height:25px;
+	line-height:25px;
+	width:70%;
+	overflow:hidden;
+	float:left;
+	padding-left:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:14px;
+	word-spacing:10px;
+}
+.ListCont .List .info em{
+	font-style:normal;
+	color:#F90;
+}
+.ListCont .List .time{
+	width:20%;
+	float:right;
+	padding:0 10px 0 0;
+	text-align:right;
+}
+.ListCont .page{
+	height:100px;
+	padding-top:15px;
+	text-align:center;
+}
+.ListCont .page a{
+	font-family:Arial, Helvetica, sans-serif;
+	display:inline-block; 
+	border:#DDD solid 1px;
+	border-radius:3px;
+	padding:5px 10px;
+	background:#FFF;
+	color:#666;
+	font-size:14px;
+}
+.ListCont .page a.ck{
+	background:green;
+}
+.ListCont .page a.ck font{
+	color:#FFF;
+}
+/*
+*/
+.titles{
+	border-top:#DDD solid 1px;
+	line-height:25px;
+	padding:10px 10px 5px 10px;
+	font-size:18px;
+}
+.baseinfo{
+	height:20px;
+	line-height:20px;
+	overflow:hidden;
+	padding-left:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:14px;
+}
+.ShowSlide{
+	border-top:#DDD solid 1px;
+	border-bottom:#DDD solid 1px;
+	margin:10px auto;
+	background:#FFF;
+}
+.MoreInfo li{
+	padding:5px 0;
+	line-height:20px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.MoreInfo li a{
+	color:#333;
+}
+.MoreInfo li span{
+	color:#666;
+}
+.Contact{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:3px;
+	margin:10px auto;	
+}
+.Contact li{
+	height:40px;
+	line-height:40px;
+	border-top:#DDD solid 1px;
+	text-indent:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:14px;
+}
+.Contact li a{
+	color:#333;
+}
+.Contact li span{
+	color:#666;
+}
+.Contents h3{
+	display:block;
+	border-top:#999 solid 1px;
+	border-bottom:#DDD solid 1px;
+	height:40px;
+	line-height:40px;
+	background:#FFF;
+	text-indent:10px;
+}
+.Contents .cont{
+	padding:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:30px;
+	font-size:14px;
+}
+.bdsharebuttonbox{
+	width:98%;
+	margin:5px auto;
+}
+.Reminded{
+	width:98%;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	margin:auto;	
+	background:#FFF;
+}
+.Reminded div{
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:40px;
+	text-indent:10px;
+	border-bottom:#DDD solid 1px;
+	color:#369;
+}
+.Reminded ul{
+	padding:10px;
+}
+.Reminded ul li{
+	line-height:30px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-indent:5px;
+	font-size:14px;
+	color:#666;
+}
+.FootSpac{
+	width:100%;
+	height:80px;
+	clear:both;	
+}

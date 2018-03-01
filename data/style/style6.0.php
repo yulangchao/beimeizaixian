@@ -1,0 +1,5 @@
+<?php
+unset($styledb);
+$styledb['name']='6.0°æ¿íÆÁ·ç¸ñ';
+$styledb['keywords']='style_6.0';
+?>

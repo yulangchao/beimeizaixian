@@ -1,0 +1,102 @@
+<!--
+<?php
+print <<<EOT
+--> 
+
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/post.css">
+<link rel="stylesheet" type="text/css" href="$webdb[www_url]/member/images/wap/list.css">
+
+<!-- <div class="ShowMenus"></div>
+<SCRIPT LANGUAGE="JavaScript">\$.get("thismenu.php?listnum=$listnum", function(data){\$(".ShowMenus").html(data);});</SCRIPT> -->
+<div class="ListContainer">
+	<div class="head"><a class="tag" href="?job=list">我的收货地址列表</a> <a class='more' href="?job=postnew">添加新地址</a></div>
+<!-- </div> -->
+
+<div class="FormContainer">
+<!--
+EOT;
+if($job=="postnew" || $job=="edit"){
+$heads[postnew]="添加";
+$heads[edit]="修改";
+print <<<EOT
+-->
+
+	<form name="form1" method="post" action="?action=$job&rid=$rid">
+            <h3>$heads[$job]收货地址</h3>
+
+          <dl>
+            <dt>收货改名:</dt>
+            <dd><input type="text" name="order_username" size="15" value="$rsdb[order_username]"></dd>
+          </dl>
+          <dl>
+            <dt>联系电话:</dt>
+            <dd><input type="text" name="order_phone" size="15" value="$rsdb[order_phone]"></dd>
+          </dl>
+          <dl>
+            <dt>联系手机:</dt>
+            <dd><input type="text" name="order_mobphone" size="15" value="$rsdb[order_mobphone]"></dd>
+          </dl>
+          <dl>
+            <dt>联系邮箱:</dt>
+            <dd><input type="text" name="order_email" size="30" value="$rsdb[order_email]"></dd>
+          </dl>
+          <dl>
+            <dt>联系QQ:</dt>
+            <dd><input type="text" name="order_qq" size="15" value="$rsdb[order_qq]"></dd>
+          </dl>
+          <dl>
+            <dt>联系邮编:</dt>
+            <dd><input type="text" name="order_postcode" size="15" value="$rsdb[order_postcode]"></dd>
+          </dl>
+          <dl>
+            <dt>收货地址:</dt>
+            <dd><input type="text" name="order_address" size="50" value="$rsdb[order_address]"></dd>
+          </dl>
+<div class='butter'><span class="submits"><input type="submit" value="提交" /></span></div>
+
+
+
+    </form>
+
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+</div>
+
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+<div class='Listcont'>
+      <div class='cont'>
+        <div class='project'>姓名：$rs[order_username]&nbsp;&nbsp;电话：{$rs[order_phone]}</div>
+        <div class='info'>收货地址：$rs[order_address]</div>
+      </div>
+       <div class='butter'>
+          <a href="?action=del&rid=$rs[rid]">删除</a>
+          <a href='?job=edit&rid=$rs[rid]'>修改</a>
+       </div>
+</div>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class=\"ShowPage\">$showpage</div>":"";
+print <<<EOT
+-->
+
+        $showpage
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+</div>
+
+<!--
+EOT;
+?>
+-->

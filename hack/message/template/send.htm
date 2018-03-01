@@ -1,0 +1,45 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<form name="form_work" method="post" action="index.php?lfj=$lfj&action=send">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">群发短消息</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+  <table class="FormTable">
+    <tr> 
+      <td class='tdL'>接收短消息的用户组:</td>
+      <td class='tdR'> <a href="index.php?lfj=$lfj&action=delete_admin_logs&iddb[{$rs[id]}]=1"></a> 
+        $group_send </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>每批发送几个:</td>
+      <td class='tdR'> 
+        <input type="text" name="Num" size="5" value="50">
+        (10~500)</td>
+    </tr>
+    <tr> 
+      <td class='tdL'>短消息标题: </td>
+      <td class='tdR'> 
+        <input type="text" name="Title" size="90">
+      </td>
+    </tr>
+    <tr> 
+      <td class='tdL'>短消息内容:</td>
+      <td class='tdR'> 
+  <textarea name="postdb[content]" id="myEditor" style="width:700px;">$rsdb[content]</textarea>
+<script type="text/javascript">
+var editor_a = new baidu.editor.ui.Editor({minFrameHeight:190});
+editor_a.render( 'myEditor' );
+</script>
+      </td>
+    </tr>
+  </table>
+  <div class='submits'><input type="submit" name="Submit" value="提交"></div>
+</div>
+</div>
+</form>
+<!--
+EOT;
+?>
+-->

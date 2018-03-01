@@ -1,0 +1,145 @@
+<!--
+<?php
+print <<<EOT
+--> 
+<link rel="stylesheet" type="text/css" href="images/life6/listjob.css">
+<div class="content_text " style="width:1200px; overflow:hidden; margin:15px auto;">
+	<div class="text_left" style="width:24%; float:left;">
+		<table style="width:100%; border:1px solid #1aa4ed;">
+			<tr>
+				<td class="jc_head"><div class="jc">相关信息</div></td>
+			</tr>
+			<tr>
+				<td class="middle">
+					<div class="content_ad">$label[personglist]</div>
+					<div class="hj">热门职位</div>
+					<div class="hjc">
+<!--
+EOT;
+$array=list_hr_job('hot',$rows=10);
+foreach($array AS $rs){print <<<EOT
+-->
+·<a href="bencandy.php?fid=$rs[fid]&id=$rs[id]" target="_blank">$rs[title]</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+				</div>
+			</td>
+		</tr>
+	</table> 
+</div>
+<div class="text_right" style="width:76%; float:left; margin-bottom:75px;">
+	<div class="job_rep">
+<div><span class='title'>性别：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('school_age'=>"$school_age",'workyear'=>"$workyear",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[sex]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('school_age'=>"$school_age",'workyear'=>"$workyear",'sex'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sex]['1']}>男</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('school_age'=>"$school_age",'workyear'=>"$workyear",'sex'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sex]['2']}>女</A></span></div><div><span class='title'>学历：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[school_age]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['1']}>小学</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['2']}>初中</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['3']}>高中</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'4'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['4']}>中专</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'5'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['5']}>大专</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'6'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['6']}>本科</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'7'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['7']}>研究生</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'workyear'=>"$workyear",'school_age'=>'9'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[school_age]['9']}>博士</A></span></div><div><span class='title'>工作年限：</span><span class='condition'><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",),$filetype);
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[workyear]['null']}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'0'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['0']}>应届毕业生</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'1'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['1']}>一年</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'2'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['2']}>两年</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sex'=>"$sex",'school_age'=>"$school_age",'workyear'=>'3'),$filetype);
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[workyear]['3']}>三年以上</A></span></div><!---->
+	</div>
+	<table class="find_box" style="width:97%; margin-left:25px; border:1px solid #dfdfdf;">
+		<tr> 
+		<td class="dr_head">找人才</td>
+		</tr>
+		<tr> 
+		<td class="text_mar"> 
+			<table class="find_job">
+			<tr class="pos_head">
+ <td align="center">姓名</td> <td align="center">性别</td> <td align="center">年龄</td> <td align="center">工作年限</td><!---->
+				<td>更新日期</td>
+				<td>查看</td>
+			</tr>
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+			<tr>
+				 <td align="center">{$rs[truename]} </td> <td align="center">{$rs[sex]} </td> <td align="center">{$rs[age]} 岁</td> <td align="center">{$rs[workyear]} </td><!---->
+				<td class="company">$rs[posttime]</td>
+				<td><a href="$Murl/joinshow.php?id=$rs[id]" target=_blank>查看</a></td>
+			</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" id="page">
+              <tr>
+                <td align="center">$showpage</td>
+              </tr>
+            </table>
+		</td>
+		</tr>
+	</table>
+</div>			
+	
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,254 @@
+<!--
+<?php
+print <<<EOT
+-->
+<link rel="stylesheet" type="text/css" href="./images/pc/list.css">
+<div class="FenLieContainer">
+	<div class="Main">
+		<ul class="ThisSorts">
+<!--
+EOT;
+$thissorts='';
+foreach($Fid_db[$fidDB[fup]] AS $key=>$rs){
+	$thissorts.="<li><a href='list.php?fid=$key'>$rs</a></li>\r\n";
+}
+print <<<EOT
+-->	
+			$thissorts	
+		</ul>
+		<div class="SearchType">
+<!--
+EOT;
+if($city_id){
+$url=get_info_url('',$fid,$city_id,'','',$TempSearch_array);
+$ckclass=($zone_id)?"":" class='ck'";
+print <<<EOT
+-->
+			<dl>
+				<dt>区域:</dt>
+				<dd>
+					<A HREF="$url"{$ckclass}>全部区域</A>
+<!--
+EOT;
+foreach($zone_DB[name] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$key,'',$TempSearch_array);
+$ckclass=($zone_id==$key)?" class='ck'":"";
+print <<<EOT
+-->
+            		<A HREF="$url"{$ckclass}>$value</A> 
+<!--
+EOT;
+}
+if($street_DB[$zone_id]){
+print <<<EOT
+-->
+					<div>
+<!--
+EOT;
+foreach($street_DB[$zone_id] AS $key=>$value){
+$url=get_info_url('',$fid,$city_id,$zone_id,$key,$TempSearch_array);
+$ckclass=($street_id==$key)?" class='ck'":"";
+print <<<EOT
+-->
+            			<A HREF="$url"{$ckclass}>$value</A>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+					</div>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+				</dd>
+			</dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+			<dl><dt>招聘类型:</dt><dd><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wage'=>"$wage",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[sortid][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wage'=>"$wage",'sortid'=>'1'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['1']}>全职</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wage'=>"$wage",'sortid'=>'2'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['2']}>兼职</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('wage'=>"$wage",'sortid'=>'3'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[sortid]['3']}>实习</A></dd></dl>
+
+			<dl><dt>月薪待遇:</dt><dd><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",));
+print <<<EOT
+--><A HREF='$url' {$search_fieldDB[wage][0]}>不限</A> <!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'1'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['1']}>面议</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'2'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['2']}>1000元以下</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'3'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['3']}>1000元-2000元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'4'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['4']}>2000元-3000元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'5'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['5']}>3000元-4000元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'6'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['6']}>4000元-5000元</A><!--
+EOT;
+$url=get_info_url('',$fid,$city_id,$zone_id,$street_id,array('sortid'=>"$sortid",'wage'=>'7'));
+print <<<EOT
+--> <A HREF='$url' {$search_fieldDB[wage]['7']}>5000元以上</A></dd></dl>
+<!---->
+		</div>
+		<div class="Mhead">
+			<div class="tag">$fidDB[name]</div>
+			<div class="post"><a href="post.php?fid=$fid">免费发布此类信息</a></div>
+		</div>
+		<div class="ListInfo">
+<!--
+EOT;
+foreach($listdb AS $key=>$rs){
+$rs[ip]=preg_replace("/\.([0-9]+)\.([0-9]+)$/is",".*.*",$rs[ip]);
+$rs[picnum]=$rs[picnum]?"<span>[{$rs[picnum]}图]</span>":"";
+$showpic=$rs[picnum]?"<dt><a href='$rs[url]'><img src='$rs[picurl]' onerror=\"this.src='$webdb[www_url]/images/default/nopic.jpg'\"/></a></dt>":"<dt><a href='$rs[url]'><img src='./images/pc/nopic.png'/></a></dt>";
+print <<<EOT
+-->
+			<dl>
+				$showpic
+				<dd>
+					<h4><a href="$rs[url]">$rs[title]</a> $rs[picnum]</h4>
+ 
+					<div>招聘类型:<em>{$rs[sortid]} </em></div>
+ 
+					<div>月薪待遇:<em>{$rs[wage]} </em></div>
+<!---->
+					<div>发布者:<em>{$rs[username]}</em></div>
+					<div>IP:<em>{$rs[ip]}</em></div> 
+					<div>浏览:<em>{$rs[hits]}</em></div>
+					<div>发布时间:<em>{$rs[posttime]}</em></div>
+				</dd>
+			</dl>
+<!--
+EOT;
+}
+$showpage=$showpage?"<div class='ShowPage'>$showpage</div>":"";
+print <<<EOT
+-->
+			$showpage
+		</div>
+	</div>
+	<div class="Side">
+		<ul class="AcitonBut">
+        	<li><a href="post.php" class="post">免费发布信息</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/hy/member/page_choose.php" class="mg">管理店铺</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/f/member/list.php" class="edit">修改删除信息</a></li>     
+			<li><a href="$webdb[www_url]/member/?main=$webdb[www_url]/member/userinfo.php?job=edit" class="rz">修改资料</a></li>     
+		</ul>
+        <div class="MemberCont">
+<!--
+EOT;
+if($lfjid){
+$lfjdb[icon]||$lfjdb[icon]="$webdb[www_url]/images/default/noface.gif";
+$lfjdb[icon]=tempdir($lfjdb[icon]);
+$lfjdb[regdate]=date("Y-m-d H:i",$lfjdb[regdate]);
+$lfjdb[money]=get_money($lfjdb[uid]);
+print <<<EOT
+-->	
+			<dl>
+            	<dt class="headicon"><div><a href="$webdb[www_url]/member/homepage.php?uid=$lfjuid"><img src="$lfjdb[icon]" onerror="this.src='$webdb[www_url]/images/default/noface.gif'"/></a></div></dt>
+                <dd>
+                	<ul class='info'>
+						<li>级别:{$ltitle[$lfjdb[groupid]]}</li>     
+						<li>{$webdb[MoneyName]}:$lfjdb[money] {$webdb[MoneyDW]}</li>     
+						<li>注册日期:$lfjdb[regdate]</li>     
+					</ul>
+                    <input type="button"  onClick="window.location.href='$webdb[www_url]/do/login.php?action=quit';" value="退出"/>
+                </dd>
+            </dl>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+		<form  name="memberlogin" method="POST" action="$webdb[www_url]/do/login.php">
+            <dl>
+                <dt><input type="text" name="username" placeholder="输入用户名" /></dt>
+                <dd><a href="$webdb[www_url]/do/sendpwd.php">忘记密码？</a></dd>
+            </dl>    
+    		<dl>
+                <dt><input type="password" name="password" placeholder="输入密码" /></dt>
+                <dd><input type="submit" name="Submit" value="登录"/> <input type="button"  onClick="window.location.href='$webdb[www_url]/do/reg.php';" value="注册"/></dd>
+            </dl>
+			<input type="hidden" name="step" value="2">
+		 </form>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </div>
+		<div class="sidecont">
+			<div class="head">热门信息</div>
+			<ul class="List">
+<!--
+EOT;
+$listHot=Get_Info('hot',10,40,$fid=0);
+$i=0;
+foreach($listHot AS $key=>$rs){
+$i++;
+print <<<EOT
+-->
+            	<li><span>$i</span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+		<div class="sidecont">
+			<div class="head">最新浏览</div>
+			<ul class="List">
+<!--
+EOT;
+$listlevel=Get_Info('lastview',10,40,$fid=0);
+$i=0;
+foreach($listlevel AS $key=>$rs){
+$i++;
+print <<<EOT
+-->
+            	<li><span>$i</span><a href="bencandy.php?fid=$rs[fid]&id=$rs[id]">$rs[title]</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+	</div>
+</div>
+<!--
+EOT;
+?>
+-->

@@ -1,0 +1,411 @@
+.MainContainer .sortCont{
+	width:250px;
+	position:absolute;
+	padding-top:50px;
+	z-index:100000;
+	left:0;
+	top:-50px;
+	display:none;
+}
+.WeiContent{
+	width:1200px;
+	margin:10px auto 0 auto;	
+}
+.WeiContent:after{
+	content:'';
+	display:block;
+	clear:both;
+	width:100%;
+	height:1px;
+}
+.WeiContent .ListCont{
+	width:230px;
+	padding-left:12px;
+	float:left;
+	overflow:hidden;
+}
+.WeiContent .ListCont:nth-child(1){
+	padding-left:0px;
+}
+/**/
+ul.listwei{
+	border:#CCC solid 1px;
+	margin-bottom:12px;
+	border-radius:3px;
+}
+ul.listwei li.img,ul.listwei li.cont{
+	padding-top:5px;
+	width:220px;
+	overflow:hidden;
+	margin:auto;
+}
+ul.listwei li.img img{
+	max-width:220px;
+}
+ul.listwei li.cont{
+	line-height:25px;
+}
+ul.listwei li.cont a{
+	font-size:14px;
+	color:#666;
+}
+ul.listwei li.cont:hover a{
+	color:#F60;
+}
+ul.listwei li.info{
+	width:220px;
+	height:50px;
+	margin:5px auto;
+	background:#F0EFEF;
+	position:relative;
+}
+ul.listwei li.info dl dt a{
+	display:block;
+	width:40px;
+	height:40px;
+	background:#FFF;
+	line-height:40px;
+	position:absolute;
+	left:5px;
+	top:5px;
+	overflow:hidden;
+	border-radius:20px;
+	text-align:center;
+}
+ul.listwei li.info dl dt a img{
+	max-width:40px;
+	max-height:40px;
+	vertical-align:middle;
+}
+ul.listwei li.info dl dd{
+	padding:5px 5px 0 55px;
+}
+ul.listwei li.info dl dd h4{
+	height:20px;
+	line-height:20px;
+	color:#F30;
+}
+ul.listwei li.info dl dd div{
+	height:20px;
+	line-height:20px;
+	color:#888;
+	font-size:12px;
+}
+ul.listwei li.info dl dd div span{
+	color:#0033FF;
+}
+
+/**/
+.MemberCont{
+	border:#CCC solid 1px;
+	border-radius:3px;
+	margin-bottom:12px;
+}
+.MemberCont .head{
+	background:#F7F4F4;
+	line-height:35px;
+	padding-left:15px;
+	border-bottom:#CCC solid 1px;
+	font-size:16px;
+}
+.MemberCont .cont{
+	padding:15px 10px 15px 10px;
+	text-align:center;
+	word-spacing:20px;
+}
+.MemberCont .cont a{
+	display:inline-block;
+	font-size:16px;
+	border:#DDD solid 1px;
+	background:#F7F4F4;
+	padding:0 20px;
+	line-height:30px;
+	border-radius:5px;
+}
+.MemberCont .cont a:nth-child(2){
+	border:#5B5B5B solid 1px;
+	background:#3AA33A;
+	color:#FFF;
+}
+.WeixinCode,.SideConts{
+	border:#CCC solid 1px;
+	margin-bottom:12px;
+	border-radius:3px;
+}
+.WeixinCode h3{
+	text-align:center;
+	padding:20px 0 20px 0;
+	font-size:14px;
+}
+.WeixinCode p{
+	text-align:center;
+	padding-bottom:20px;
+}
+.SideConts .head{
+	height:35px;
+	line-height:35px;
+	overflow:hidden;
+	background:url(head.gif) left 33px repeat-x;
+	padding:0 10px 0 15px;
+}
+.SideConts .head .tag{
+	float:left;
+	color:#228804;
+	font-size:14px;
+	font-weight:bold;
+}
+.SideConts .head .more{
+	float:right;
+}
+.SideConts .cont{
+	padding:5px 10px;
+}
+.SideConts .cont ul:after{
+	content:'';
+	display:block;
+	width:100%;
+	height:1px;
+	clear:both;
+}
+.SideConts .cont ol,.SideConts .cont li{
+	height:35px;
+	line-height:35px;
+	float:left;
+	padding-left:3px;
+	background:url(sort_bg.gif) left 5px no-repeat;
+	margin-right:10px;
+}
+.SideConts .cont ol a,.SideConts .cont li a{
+	display:block;
+	float:left;
+	padding:0 12px 0 6px;
+	background:url(sort_bg.gif) right 5px no-repeat;
+}
+.SideConts .cont ol a{
+	font-weight:bold;
+}
+.SideConts .listHot{
+	padding:10px;
+}
+.SideConts .listHot li{
+	height:30px;
+	line-height:30px;
+	position:relative;
+	color:#888;
+}
+.SideConts .listHot li a{
+	display:block;
+	height:25px;
+	overflow:hidden;
+}
+.SideConts .listHot li a span{
+	color:#999;
+	display:inline-block;
+	padding:0 8px 0 3px;
+}
+/**
+*
+**/
+.WeiContent .MainLeft{
+	width:950px;
+	float:left;
+	border:#CCC solid 1px;
+	border-radius:5px;
+}
+.WeiContent .SideRight{
+	width:230px;
+	float:right;
+}
+dl.members{
+	height:60px;
+	background:#F0EFEF;
+	border:#FFF solid 2px;
+	border-radius:5px 5px 0 0;
+	position:relative;
+}
+dl.members dt{
+	width:50px;
+	height:50px;	
+	position:absolute;
+	left:15px;
+	top:5px;	
+}
+dl.members dt a{
+	display:block;
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	border-radius:25px;
+	background:#FFF;
+	line-height:50px;
+	text-align:center;
+}
+dl.members dt a img{
+	max-width:50px;
+	max-height:50px;
+	vertical-align:middle;
+}
+dl.members dd{
+	padding:10px 5px 0 80px;
+}
+dl.members dd h4{
+	height:20px;
+	line-height:20px;
+	color:#F30;
+}
+dl.members dd div{
+	height:20px;
+	line-height:20px;
+	color:#888;
+}
+dl.members dd div span{
+	color:#0033FF;
+}
+.listpic{
+	width:930px;
+	overflow:hidden;
+	margin:auto;
+	text-align:center;
+	padding-top:15px;
+}
+.listpic img{
+	max-width:930px;
+}
+.content{
+	width:930px;
+	overflow:hidden;
+	margin:10px auto;
+	line-height:25px;
+	color:#666;
+	font-size:14px;
+}
+.CommentTable{
+	width:100%;
+	display:table;
+	border-top:#CCC solid 1px;
+}
+.CommentTable .ListComment,.CommentTable .AddComment{
+	display:table-cell;
+	width:50%;
+	vertical-align:top;
+}
+.AddComment{
+	border-left:#CCC solid 1px;
+}
+.AddComment .head{
+	width:98%;
+	height:35px;
+	line-height:35px;
+	border-bottom:#CCC solid 1px;
+	margin:0px auto 10px auto;
+	text-indent:25px;
+	font-size:16px;
+	background:url(msg.gif) 5px 8px no-repeat;
+}
+.AddComment dl{
+	width:98%;
+	display:table;
+	margin:auto;
+}
+.AddComment dl dt,.AddComment dl dd{
+	display:table-cell;
+	padding:5px;
+	vertical-align:top;
+}
+.AddComment dl dt{
+	width:60px;
+	text-align:right;
+	line-height:25px;
+	font-size:14px;
+}
+.AddComment dl dd input[type='text']{
+	border:#DDD solid 1px;
+	height:25px;
+	width:80px;
+	color:#666;
+	border-radius:3px;
+	text-indent:3px;
+	font-size:14px;
+}
+.AddComment dl dd div{
+	float:left;
+}
+.AddComment dl dd div img{
+	margin:3px 0 0 5px;
+}
+.AddComment dl dd textarea{
+	border:#DDD solid 1px;
+	height:100px;
+	width:95%;
+	color:#666;
+	border-radius:3px;
+	font-size:14px;
+	line-height:20px;
+}
+.AddComment .postcom{
+	text-align:center;
+	padding:10px;
+}
+.AddComment .postcom input{
+	height:30px;
+	border:#F30 solid 1px;
+	background:#f60;
+	color:#FFF;
+	padding:0 20px;
+	border-radius:5px;
+	font-size:14px;
+	cursor:pointer;
+}
+.CommentTable .ListComment{
+	padding:10px;
+}
+.CommentTable .ListComment .comments{
+	border:#DDD solid 1px;
+	margin-bottom:10px;
+	border-radius:3px;
+}
+.CommentTable .ListComment .comments div{
+	height:25px;
+	border-bottom:#DDD solid 1px;
+	line-height:25px;
+	text-indent:10px;
+	background:#EFEFEF;
+	color:#888;
+}
+.CommentTable .ListComment .comments div a{
+	color:#369;
+}
+.CommentTable .ListComment .comments div a.del{
+	color:red;
+}
+.CommentTable .ListComment .comments p{
+	padding:10px;
+	color:#666;
+	line-height:20px;
+}
+.commentpage{
+	text-align:center;
+	padding-top:10px;
+}
+/*
+*
+*/
+.ShowPage{
+	text-align:center;
+	padding:10px;
+	line-height:30px;
+}
+.ShowPage a{
+	display:inline-block;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	padding:0 10px;
+	color:#999;
+}
+.ShowPage a.ck{
+	border:#F30 solid 1px;
+	background:#F60;
+}
+.ShowPage a.ck font{
+	color:#FFF;
+}

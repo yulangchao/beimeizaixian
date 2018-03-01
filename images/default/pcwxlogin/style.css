@@ -1,0 +1,26 @@
+
+ html{
+    overflow: hidden;
+	
+	margin:auto;
+	padding:inherit;
+}
+img{vertical-align:middle;}
+body{ margin-left:auto;
+    margin-right: auto;
+	position:relative;}
+
+.img{ padding-top:2px;}
+ 
+.m-wxlogin{width:1200px; background:#fcfcfc; overflow:hidden;}
+.wxL-H{height:40px; line-height:40px; padding-left:50px;  background:#666 url('icon1.png') 10px center no-repeat; color:#fff; font-size: 15px;}
+.wxL-L{float:left; width:670px; background:url('icon5.png') right center no-repeat; margin-top:80px;}
+.wxL-L div{width:300px; margin:0 auto; text-align:center;}
+.wxL-L .L-t{height:40px; line-height:40px; font-size:15px; font-weight:600; background:url('icon2.png') 20px 8px no-repeat; padding-bottom:20px; color:#21aaf3;}
+.wxL-L div .img{width:240px; line-height:0;}
+.wxL-R{width:526px; height:400px; float:right; background:url('icon3.png') 100px 15px no-repeat; padding-top:60px;}
+.wxCont{width:252px; height:190px; margin:143px auto 0 auto; background:#9fd248; position:relative;}
+.wxCont:before{content:''; display:block; position:absolute; width:44px; height:38px; background:url('icon4.png') no-repeat; right:-12px; top:-12px;}
+.wxCont dt{padding:20px 0 10px 20px; color:#fff; font-size:16px; font-weight:600;}
+.wxCont dd{width:173px; height:43px; line-height:43px; text-align:center;  margin:10px auto; background:#fff;}
+.wxCont dd a{color:#9fd248; font-size:14px;}

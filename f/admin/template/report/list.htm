@@ -1,0 +1,83 @@
+<!--
+<?php
+print <<<EOT
+-->
+
+<form name="form_work" method="post" action="$admin_path&">
+<div class="MainContainers">
+  <div class="Header"><span class="tag">举报信息管理</span><span class="more">&gt;&gt;</span></div>
+  <div class="Conter">
+      <table class="ListTable">
+
+
+    <tr> 
+      <td width="5%">ID</td>
+      <td width="26%">信 息 标 题</td>
+      <td width="9%">发布者</td>
+      <td width="7%"> 举报者</td>
+      <td width="17%">性质</td>
+      <td width="10%">举报日期</td>
+      <td width="9%">是否属实</td>
+      <td width="9%">删除信息</td>
+      <td width="8%">删除报告</td>
+    </tr>
+    <!--
+EOT;
+foreach($listdb AS $key=>$rs){
+print <<<EOT
+-->
+    <tr> 
+      <td>$rs[id]</td>
+      <td class='Left'> 
+        <input type="checkbox" name="listdb[{$rs[rid]}]" value="$rs[rid]">
+        <a href="$Murl/bencandy.php?fid=$rs[fid]&id=$rs[id]" target='_blank'  style="color:$rs[titlecolor];">$rs[title]</a><br>
+$rs[about]</td>
+      <td width="9%">$rs[username]</td>
+      <td width="7%"> $rs[Rname]</td>
+      <td width="17%">{$report_type[$rs[Rtype]]}</td>
+      <td width="10%">$rs[Rtime]</td>
+      <td width="9%">$rs[iftrue]</td>
+      <td width="9%"><a href="$Murl/post.php?action=del&id=$rs[id]&fid=$rs[fid]" target="_blank" title='点击删除' class='del'></a></td>
+      <td width="8%"><a href="$admin_path&action=del&rid=$rs[rid]">删除报告</a></td>
+    </tr>
+    <!--
+EOT;
+}print <<<EOT
+-->
+  </table>
+  <div class="m-showpage">$showpage</div>
+
+  <div class='submits'>
+          <input type="button" onclick="CheckAll('all')" name="Submit2" value="全选" />
+          <input type="button" onClick='CheckAll()' name="Submit2" value="反选" /> 
+        <input type="submit" name="Submit3" value="属实报告" onclick="postdo('istrue')">
+        <input type="submit" name="Submit32" value="非属实报告" onclick="postdo('isfalse')">
+        <input type="submit" name="Submit33" value="删除报告" onclick="postdo('del')">
+        <input type="hidden" name="jobs" value="del" id="jobs">    
+  </div>
+  </div>
+</div>
+</form>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function postdo(va){
+	document.form_work.jobs.value=va
+	document.form_work.submit();
+}
+function CheckAll(va){
+	form=document.form_work
+	for (var i=0;i<form.elements.length;i++){
+		var e = form.elements[i];
+		if(va=='all'){
+			e.checked = true;
+		}else{
+			e.checked == true ? e.checked = false : e.checked = true;
+		}
+	}
+}
+//-->
+</SCRIPT>
+<!--
+EOT;
+?>
+-->

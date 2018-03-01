@@ -1,0 +1,111 @@
+.GuideCont{
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:10px;
+	border-bottom:#DDD solid 1px;
+}
+.GuideCont a{
+	color:#666;
+}
+.BaseInfos{
+	position:relative;
+	width:98%;
+	background:#FFF;
+	margin:10px auto;
+	border: 1px solid #DDD;
+	/*-webkit-box-shadow: 3px 3px 10px #DDD;
+	box-shadow: 3px 3px 10px #DDD;*/
+	-webkit-box-shadow: 0 0 10px 3px #DDD;
+	box-shadow:0 0 10px 3px #DDD;
+	/*border-radius:5px;
+	-webkit-box-shadow: 0 0 5px 3px #DDD, 0 0 5px 6px #DDD, 0 0 5px 10px #DDD;
+	box-shadow:0 0 5px 3px #DDD, 0 0 5px 6px #DDD, 0 0 5px 10px #DDD;*/
+}
+.BaseInfos .pic{
+	margin:10px;
+	text-align:center;
+}
+.BaseInfos .pic img{
+	max-width:100%;
+}
+.BaseInfos .title{
+	padding:10px;
+	line-height:25px;
+	font-size:16px;
+	text-align:center;
+}
+.BaseInfos .join{
+	padding:15px 0 15px 0;
+	text-align:center;
+	border-top:#DDD dotted 1px;
+}
+.BaseInfos .join a{ 
+	display:inline-block; 
+	padding:6px 15px;
+	font-family:Arial, Helvetica, sans-serif; 
+	text-align:center; 
+	color:#fff; 
+	background-color:#f40; 
+	border:0 none; 
+	box-shadow:#ddd 0 1px 1px; 
+	border-radius:5px;
+}
+/*½¥±ä±³¾°*/
+.gallerytitle{
+    text-align: center;
+    font-size: 1em; height: 32px; line-height: 32px;
+    padding: 0 36px 0 0;
+    color: #fafafa;    
+    position: absolute;
+    left: 0; bottom: 0;right: 0;
+    font-weight: normal;
+    text-shadow:1px 1px 1px #000;
+    background: -moz-linear-gradient(top,#FFF,#DDD);
+    background: -webkit-gradient(linear,top,from(#FFF),to(#DDD));
+    background: -webkit-linear-gradient(top,#FFF,#DDD);
+    background: -o-linear-gradient(top,#FFF,#DDD);
+}
+.moreInfo,.ShowContent{
+	width:98%;
+	margin:10px auto;
+	border:#DDD solid 1px;
+	border-radius:5px;
+	background:#FFF;
+}
+.moreInfo li{
+	padding:5px 10px 5px 10px;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif; 
+	border-top:#DDD solid 1px;
+	color:#666;
+	word-spacing:10px;
+}
+.moreInfo li span{
+	color:#F60;
+	font-size:20px;	
+}
+.ShowContent h4{
+	padding:10px 0 10px 10px;
+}
+.ShowContent .cont{
+	width:98%;
+	margin:auto;
+	overflow:hidden;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif; 
+	color:#666;
+	padding-bottom:10px;
+}
+.ShowContent .cont *{
+	font-family:Arial, Helvetica, sans-serif; 
+	color:#666;
+}
+.ShowContent .cont img{
+	max-width:100%;
+}
+.FootSpac{
+	width:100%;
+	height:50px;
+}
